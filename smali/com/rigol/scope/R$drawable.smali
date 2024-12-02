@@ -1601,6 +1601,15 @@
 .field public static final white_radius:I = 0x7f080643
 
 
+
+
+
+.field public static final bg_item_vertical_act:I = 0x7f081000
+
+
+
+
+
 # direct methods
 .method private constructor <init>()V
     .locals 0
