@@ -8,13 +8,13 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import com.rigol.scope.R;
+
 /* loaded from: classes2.dex */
 public abstract class AdapterItemSpinnerDiskBinding extends ViewDataBinding {
     public final TextView title;
     public final ConstraintLayout titleLayout;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public AdapterItemSpinnerDiskBinding(Object obj, View view, int i, TextView textView, ConstraintLayout constraintLayout) {
+    protected AdapterItemSpinnerDiskBinding(Object obj, View view, int i, TextView textView, ConstraintLayout constraintLayout) {
         super(obj, view, i);
         this.title = textView;
         this.titleLayout = constraintLayout;

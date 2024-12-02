@@ -48,6 +48,7 @@ import java.util.List;
 import java.util.Map;
 import me.jessyan.autosize.AutoSizeCompat;
 import timber.log.Timber;
+
 /* loaded from: classes.dex */
 public class BaseActivity extends AppCompatActivity {
     public static final String NAMESPACE_ANDROID = "http://schemas.android.com/apk/res/android";
@@ -66,9 +67,8 @@ public class BaseActivity extends AppCompatActivity {
     private List<Integer> arrayList_ch = new ArrayList();
     private List<Integer> arrayList_inputCh = new ArrayList();
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // androidx.appcompat.app.AppCompatActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
-    public void onCreate(Bundle bundle) {
+    protected void onCreate(Bundle bundle) {
         ViewUtil.hideSystemUI(getWindow().getDecorView());
         super.onCreate(bundle);
         this.arrayList_ch.add(21);
@@ -181,8 +181,7 @@ public class BaseActivity extends AppCompatActivity {
         return layoutInflater;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public ViewModelProvider getAppViewModelProvider() {
+    protected ViewModelProvider getAppViewModelProvider() {
         return ((App) getApplicationContext()).getAppViewModelProvider(this);
     }
 
@@ -315,9 +314,8 @@ public class BaseActivity extends AppCompatActivity {
         super.recreate();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // androidx.appcompat.app.AppCompatActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onDestroy() {
+    protected void onDestroy() {
         super.onDestroy();
         if (this.fragmentLifecycleCallbacks != null) {
             getSupportFragmentManager().unregisterFragmentLifecycleCallbacks(this.fragmentLifecycleCallbacks);

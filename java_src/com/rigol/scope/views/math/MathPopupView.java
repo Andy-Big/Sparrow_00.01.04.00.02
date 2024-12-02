@@ -25,6 +25,7 @@ import com.rigol.scope.viewmodels.MathViewModel;
 import com.rigol.scope.views.baseview.BasePopupView;
 import java.util.List;
 import java.util.function.Consumer;
+
 /* loaded from: classes2.dex */
 public class MathPopupView extends BasePopupView {
     private final PopupviewMathBinding binding;
@@ -44,6 +45,7 @@ public class MathPopupView extends BasePopupView {
         MathViewModel mathViewModel = (MathViewModel) ContextUtil.getAppViewModel(MathViewModel.class);
         if (mathViewModel != null) {
             mathViewModel.getLiveData().observe((LifecycleOwner) ActivityUtils.getTopActivity(), new Observer<List<MathParam>>() { // from class: com.rigol.scope.views.math.MathPopupView.1
+                /* JADX DEBUG: Method merged with bridge method */
                 @Override // androidx.lifecycle.Observer
                 public void onChanged(List<MathParam> list) {
                     MathPopupView.this.params = list;
@@ -113,12 +115,14 @@ public class MathPopupView extends BasePopupView {
             this.popupviewMathBinding = popupviewMathBinding;
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
         public ViewPagerHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
             this.binding = (MathRecyclerviewBindingImpl) MathRecyclerviewBindingImpl.inflate(LayoutInflater.from(viewGroup.getContext()), viewGroup, false);
             return new ViewPagerHolder(this.binding);
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
         public void onBindViewHolder(ViewPagerHolder viewPagerHolder, int i) {
             MathPopupView.this.mathRecyclerView = new MathRecyclerView(viewPagerHolder.itemView.getContext(), this.params.get(i), this.anchorview, viewPagerHolder.getBinding(), this.popupviewMathBinding, viewPagerHolder);

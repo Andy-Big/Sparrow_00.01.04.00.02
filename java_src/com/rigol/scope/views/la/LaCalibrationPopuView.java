@@ -9,6 +9,7 @@ import com.rigol.scope.databinding.PopupviewLaCalibrationBinding;
 import com.rigol.scope.utilities.ContextUtil;
 import com.rigol.scope.viewmodels.LaViewModel;
 import com.rigol.scope.views.baseview.BasePopupView;
+
 /* loaded from: classes2.dex */
 public class LaCalibrationPopuView extends BasePopupView {
     LaParam laParam;

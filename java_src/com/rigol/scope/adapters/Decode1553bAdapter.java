@@ -26,6 +26,7 @@ import com.rigol.scope.views.keyboard.KeyboardPopupView;
 import com.rigol.scope.views.spinner.PopupSpinner;
 import java.util.ArrayList;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public class Decode1553bAdapter extends RecyclerView.Adapter<Decode1553bHolder> implements View.OnClickListener, AorBManager.OnSetTextById, AorBManager.OnTextReset {
     private final View anchorView;
@@ -63,12 +64,14 @@ public class Decode1553bAdapter extends RecyclerView.Adapter<Decode1553bHolder> 
         this.viewPagerHolder = viewPagerHolder;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public Decode1553bHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         this.binding = AdapterDecode1553bBinding.inflate(LayoutInflater.from(viewGroup.getContext()), viewGroup, false);
         return new Decode1553bHolder(this.binding);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(Decode1553bHolder decode1553bHolder, int i) {
         this.binding.decode1553bSrcValue.setOnClickListener(this);

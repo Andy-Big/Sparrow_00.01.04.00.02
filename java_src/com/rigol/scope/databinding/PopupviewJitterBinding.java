@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.rigol.scope.R;
 import com.rigol.scope.data.JitterParam;
 import com.rigol.scope.views.SwitchButton;
+
 /* loaded from: classes2.dex */
 public abstract class PopupviewJitterBinding extends ViewDataBinding {
     public final RadioButton jitterBothRadioButton;
@@ -61,8 +62,7 @@ public abstract class PopupviewJitterBinding extends ViewDataBinding {
 
     public abstract void setView(View view);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public PopupviewJitterBinding(Object obj, View view, int i, RadioButton radioButton, RadioButton radioButton2, CheckBox checkBox, View view2, View view3, View view4, SwitchButton switchButton, TextView textView, RadioButton radioButton3, RadioButton radioButton4, TextView textView2, TextView textView3, CheckBox checkBox2, TextView textView4, TextView textView5, TextView textView6, SwitchButton switchButton2, TextView textView7, TextView textView8, TextView textView9, SwitchButton switchButton3, RadioButton radioButton5, TextView textView10, RadioGroup radioGroup, RecyclerView recyclerView, RadioButton radioButton6, TextView textView11, SwitchButton switchButton4, TextView textView12, TextView textView13, CheckBox checkBox3, TextView textView14, RadioGroup radioGroup2, CheckBox checkBox4, Button button) {
+    protected PopupviewJitterBinding(Object obj, View view, int i, RadioButton radioButton, RadioButton radioButton2, CheckBox checkBox, View view2, View view3, View view4, SwitchButton switchButton, TextView textView, RadioButton radioButton3, RadioButton radioButton4, TextView textView2, TextView textView3, CheckBox checkBox2, TextView textView4, TextView textView5, TextView textView6, SwitchButton switchButton2, TextView textView7, TextView textView8, TextView textView9, SwitchButton switchButton3, RadioButton radioButton5, TextView textView10, RadioGroup radioGroup, RecyclerView recyclerView, RadioButton radioButton6, TextView textView11, SwitchButton switchButton4, TextView textView12, TextView textView13, CheckBox checkBox3, TextView textView14, RadioGroup radioGroup2, CheckBox checkBox4, Button button) {
         super(obj, view, i);
         this.jitterBothRadioButton = radioButton;
         this.jitterConstantRadioButton = radioButton2;

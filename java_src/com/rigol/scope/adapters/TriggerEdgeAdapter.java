@@ -33,6 +33,7 @@ import com.rigol.scope.views.spinner.PopupSpinner;
 import com.rigol.scope.views.trigger.TriggerPopupView;
 import java.util.ArrayList;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public class TriggerEdgeAdapter extends RecyclerView.Adapter<TriggerEdgeHolder> implements View.OnClickListener, CompoundButton.OnCheckedChangeListener, AorBManager.OnSetTextById, AorBManager.OnTextReset {
     private AorBManager aorBManager;
@@ -83,6 +84,7 @@ public class TriggerEdgeAdapter extends RecyclerView.Adapter<TriggerEdgeHolder> 
         this.serviceId = triggerParam.getServiceId();
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public TriggerEdgeHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         AdapterTriggerEdgeBinding inflate = AdapterTriggerEdgeBinding.inflate(LayoutInflater.from(viewGroup.getContext()), viewGroup, false);
@@ -172,6 +174,7 @@ public class TriggerEdgeAdapter extends RecyclerView.Adapter<TriggerEdgeHolder> 
         }
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(TriggerEdgeHolder triggerEdgeHolder, int i) {
         ShowTriggerEdge();

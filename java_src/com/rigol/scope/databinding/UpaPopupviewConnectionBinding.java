@@ -6,12 +6,12 @@ import android.view.ViewGroup;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import com.rigol.scope.R;
+
 /* loaded from: classes2.dex */
 public abstract class UpaPopupviewConnectionBinding extends ViewDataBinding {
     public final View titleLayout;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public UpaPopupviewConnectionBinding(Object obj, View view, int i, View view2) {
+    protected UpaPopupviewConnectionBinding(Object obj, View view, int i, View view2) {
         super(obj, view, i);
         this.titleLayout = view2;
     }

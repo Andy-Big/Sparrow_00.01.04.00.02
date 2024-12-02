@@ -14,6 +14,7 @@ import com.rigol.scope.databinding.ActivityRigolKeyTest3Binding;
 import com.rigol.scope.databinding.ActivityRigolKeyTest3BindingImpl;
 import org.json.JSONException;
 import org.json.JSONObject;
+
 /* loaded from: classes.dex */
 public class ActivityRigolKeyTest extends SelfTestActivity implements View.OnClickListener {
     private boolean HORIZONTAL_LEVEL_PRESSED;
@@ -83,9 +84,8 @@ public class ActivityRigolKeyTest extends SelfTestActivity implements View.OnCli
     private TextView vertical_Scale;
     private boolean zoomFlag;
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // androidx.appcompat.app.AppCompatActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
-    public void onCreate(Bundle bundle) {
+    protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         ActivityRigolKeyTest3Binding inflate = ActivityRigolKeyTest3BindingImpl.inflate(LayoutInflater.from(this));
         this.activityRigolKeyTest3BindingImpl = inflate;
@@ -515,9 +515,8 @@ public class ActivityRigolKeyTest extends SelfTestActivity implements View.OnCli
         return true;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onPause() {
+    protected void onPause() {
         super.onPause();
         API.getInstance().UI_PostInt32Int32(11, MessageID.MSG_APP_UTILITY_LED, ServiceEnum.PanelLed.CH1_YELLOW.value1, this.ch1Open);
         API.getInstance().UI_PostInt32Int32(11, MessageID.MSG_APP_UTILITY_LED, ServiceEnum.PanelLed.CH2_BLUE.value1, this.ch2Open);

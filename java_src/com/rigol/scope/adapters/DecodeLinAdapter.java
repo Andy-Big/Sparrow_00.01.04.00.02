@@ -29,6 +29,7 @@ import com.rigol.scope.views.keyboard.KeyboardPopupView;
 import com.rigol.scope.views.spinner.PopupSpinner;
 import java.util.ArrayList;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public class DecodeLinAdapter extends RecyclerView.Adapter<DecodeLinHolder> implements RadioGroup.OnCheckedChangeListener, View.OnClickListener, View.OnLongClickListener, AorBManager.OnSetTextById, AorBManager.OnTextReset {
     private final View anchorView;
@@ -66,12 +67,14 @@ public class DecodeLinAdapter extends RecyclerView.Adapter<DecodeLinHolder> impl
         this.viewPagerHolder = viewPagerHolder;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public DecodeLinHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         this.binding = AdapterDecodeLinBinding.inflate(LayoutInflater.from(viewGroup.getContext()), viewGroup, false);
         return new DecodeLinHolder(this.binding);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(DecodeLinHolder decodeLinHolder, int i) {
         this.binding.setParityWithMapping(ViewUtil.getMappingObject(R.array.msg_decode_lin_parity, 1));

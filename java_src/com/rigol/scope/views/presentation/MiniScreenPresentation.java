@@ -46,6 +46,7 @@ import com.rigol.util.ToastUtils;
 import java.util.ArrayList;
 import java.util.List;
 import timber.log.Timber;
+
 /* loaded from: classes2.dex */
 public class MiniScreenPresentation extends BasePresentation {
     private PresentationMiniscreenBinding binding;
@@ -131,10 +132,9 @@ public class MiniScreenPresentation extends BasePresentation {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.rigol.scope.views.presentation.MiniScreenPresentation$2  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public class AnonymousClass2 extends MiniScreenViewAdapter {
+    class AnonymousClass2 extends MiniScreenViewAdapter {
         final /* synthetic */ ArrayList val$lists;
         final /* synthetic */ Context val$outerContext;
         final /* synthetic */ UtilityViewModel val$utilityViewModel;
@@ -160,6 +160,7 @@ public class MiniScreenPresentation extends BasePresentation {
             }
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // com.rigol.scope.adapters.MultiItemTypeAdapter, androidx.recyclerview.widget.RecyclerView.Adapter
         public BaseViewHolder<? extends ViewDataBinding> onCreateViewHolder(ViewGroup viewGroup, int i) {
             final BaseViewHolder<? extends ViewDataBinding> onCreateViewHolder = super.onCreateViewHolder(viewGroup, i);
@@ -207,10 +208,9 @@ public class MiniScreenPresentation extends BasePresentation {
             return true;
         }
 
-        /* JADX INFO: Access modifiers changed from: package-private */
         /* renamed from: com.rigol.scope.views.presentation.MiniScreenPresentation$2$1  reason: invalid class name */
         /* loaded from: classes2.dex */
-        public class AnonymousClass1 implements RecyclerView.OnItemTouchListener {
+        class AnonymousClass1 implements RecyclerView.OnItemTouchListener {
             @Override // androidx.recyclerview.widget.RecyclerView.OnItemTouchListener
             public void onRequestDisallowInterceptTouchEvent(boolean z) {
             }
@@ -270,10 +270,9 @@ public class MiniScreenPresentation extends BasePresentation {
         return arrayList;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.rigol.scope.views.presentation.MiniScreenPresentation$4  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public static /* synthetic */ class AnonymousClass4 {
+    static /* synthetic */ class AnonymousClass4 {
         static final /* synthetic */ int[] $SwitchMap$com$rigol$scope$cil$ServiceEnum$Function;
 
         static {

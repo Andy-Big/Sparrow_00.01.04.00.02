@@ -19,6 +19,7 @@ import com.rigol.scope.data.TriggerParam;
 import com.rigol.scope.views.SwitchButton;
 import com.rigol.scope.views.vertical.VerticalSeekBar;
 import com.rigol.scope.views.vertical.VerticalSeekBarWrapper;
+
 /* loaded from: classes2.dex */
 public abstract class AdapterTriggerEdgeBinding extends ViewDataBinding {
     public final RadioButton autoRadioButton;
@@ -79,8 +80,7 @@ public abstract class AdapterTriggerEdgeBinding extends ViewDataBinding {
 
     public abstract void setSweepSingleMapping(MappingObject mappingObject);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public AdapterTriggerEdgeBinding(Object obj, View view, int i, RadioButton radioButton, Button button, RadioButton radioButton2, RadioButton radioButton3, RadioButton radioButton4, ImageView imageView, TextView textView, Guideline guideline, Guideline guideline2, Guideline guideline3, RadioGroup radioGroup, RadioButton radioButton5, RadioButton radioButton6, TextView textView2, TextView textView3, EditText editText, TextView textView4, TextView textView5, EditText editText2, VerticalSeekBar verticalSeekBar, TextView textView6, TextView textView7, SwitchButton switchButton, TextView textView8, TextView textView9, VerticalSeekBarWrapper verticalSeekBarWrapper, View view2, View view3, View view4) {
+    protected AdapterTriggerEdgeBinding(Object obj, View view, int i, RadioButton radioButton, Button button, RadioButton radioButton2, RadioButton radioButton3, RadioButton radioButton4, ImageView imageView, TextView textView, Guideline guideline, Guideline guideline2, Guideline guideline3, RadioGroup radioGroup, RadioButton radioButton5, RadioButton radioButton6, TextView textView2, TextView textView3, EditText editText, TextView textView4, TextView textView5, EditText editText2, VerticalSeekBar verticalSeekBar, TextView textView6, TextView textView7, SwitchButton switchButton, TextView textView8, TextView textView9, VerticalSeekBarWrapper verticalSeekBarWrapper, View view2, View view3, View view4) {
         super(obj, view, i);
         this.autoRadioButton = radioButton;
         this.buttonLevel = button;

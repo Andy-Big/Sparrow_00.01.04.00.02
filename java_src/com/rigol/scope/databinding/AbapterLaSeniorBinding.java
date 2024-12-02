@@ -12,6 +12,7 @@ import androidx.databinding.ViewDataBinding;
 import com.rigol.scope.R;
 import com.rigol.scope.data.LaParam;
 import com.rigol.scope.views.SwitchButton;
+
 /* loaded from: classes2.dex */
 public abstract class AbapterLaSeniorBinding extends ViewDataBinding {
     public final AppCompatCheckBox d0;
@@ -53,8 +54,7 @@ public abstract class AbapterLaSeniorBinding extends ViewDataBinding {
 
     public abstract void setParma(LaParam laParam);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public AbapterLaSeniorBinding(Object obj, View view, int i, AppCompatCheckBox appCompatCheckBox, AppCompatCheckBox appCompatCheckBox2, AppCompatCheckBox appCompatCheckBox3, AppCompatCheckBox appCompatCheckBox4, AppCompatCheckBox appCompatCheckBox5, AppCompatCheckBox appCompatCheckBox6, AppCompatCheckBox appCompatCheckBox7, AppCompatCheckBox appCompatCheckBox8, AppCompatCheckBox appCompatCheckBox9, AppCompatCheckBox appCompatCheckBox10, AppCompatCheckBox appCompatCheckBox11, AppCompatCheckBox appCompatCheckBox12, AppCompatCheckBox appCompatCheckBox13, AppCompatCheckBox appCompatCheckBox14, AppCompatCheckBox appCompatCheckBox15, AppCompatCheckBox appCompatCheckBox16, Button button, TextView textView, TextView textView2, TextView textView3, TextView textView4, TextView textView5, TextView textView6, TextView textView7, TextView textView8, TextView textView9, TextView textView10, TextView textView11, TextView textView12, TextView textView13, TextView textView14, TextView textView15, SwitchButton switchButton, SwitchButton switchButton2) {
+    protected AbapterLaSeniorBinding(Object obj, View view, int i, AppCompatCheckBox appCompatCheckBox, AppCompatCheckBox appCompatCheckBox2, AppCompatCheckBox appCompatCheckBox3, AppCompatCheckBox appCompatCheckBox4, AppCompatCheckBox appCompatCheckBox5, AppCompatCheckBox appCompatCheckBox6, AppCompatCheckBox appCompatCheckBox7, AppCompatCheckBox appCompatCheckBox8, AppCompatCheckBox appCompatCheckBox9, AppCompatCheckBox appCompatCheckBox10, AppCompatCheckBox appCompatCheckBox11, AppCompatCheckBox appCompatCheckBox12, AppCompatCheckBox appCompatCheckBox13, AppCompatCheckBox appCompatCheckBox14, AppCompatCheckBox appCompatCheckBox15, AppCompatCheckBox appCompatCheckBox16, Button button, TextView textView, TextView textView2, TextView textView3, TextView textView4, TextView textView5, TextView textView6, TextView textView7, TextView textView8, TextView textView9, TextView textView10, TextView textView11, TextView textView12, TextView textView13, TextView textView14, TextView textView15, SwitchButton switchButton, SwitchButton switchButton2) {
         super(obj, view, i);
         this.d0 = appCompatCheckBox;
         this.d1 = appCompatCheckBox2;

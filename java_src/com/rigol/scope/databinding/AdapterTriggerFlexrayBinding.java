@@ -16,6 +16,7 @@ import com.rigol.scope.R;
 import com.rigol.scope.data.MappingObject;
 import com.rigol.scope.data.TriggerParam;
 import com.rigol.scope.views.SwitchButton;
+
 /* loaded from: classes2.dex */
 public abstract class AdapterTriggerFlexrayBinding extends ViewDataBinding {
     public final Button buttonLevel;
@@ -124,8 +125,7 @@ public abstract class AdapterTriggerFlexrayBinding extends ViewDataBinding {
 
     public abstract void setWhenSymbolMapping(MappingObject mappingObject);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public AdapterTriggerFlexrayBinding(Object obj, View view, int i, Button button, Guideline guideline, Guideline guideline2, Guideline guideline3, Guideline guideline4, Guideline guideline5, Guideline guideline6, Guideline guideline7, Guideline guideline8, Guideline guideline9, Guideline guideline10, Guideline guideline11, Guideline guideline12, Guideline guideline13, Guideline guideline14, TextView textView, TextView textView2, TextView textView3, RadioButton radioButton, RadioButton radioButton2, TextView textView4, EditText editText, TextView textView5, EditText editText2, TextView textView6, TextView textView7, RadioButton radioButton3, RadioButton radioButton4, TextView textView8, RadioButton radioButton5, TextView textView9, TextView textView10, RadioButton radioButton6, TextView textView11, TextView textView12, TextView textView13, TextView textView14, RadioButton radioButton7, TextView textView15, TextView textView16, RadioButton radioButton8, TextView textView17, TextView textView18, TextView textView19, TextView textView20, EditText editText3, TextView textView21, SwitchButton switchButton, TextView textView22, TextView textView23, TextView textView24, TextView textView25, EditText editText4, TextView textView26, EditText editText5, ConstraintLayout constraintLayout, View view2, View view3, View view4, View view5, View view6) {
+    protected AdapterTriggerFlexrayBinding(Object obj, View view, int i, Button button, Guideline guideline, Guideline guideline2, Guideline guideline3, Guideline guideline4, Guideline guideline5, Guideline guideline6, Guideline guideline7, Guideline guideline8, Guideline guideline9, Guideline guideline10, Guideline guideline11, Guideline guideline12, Guideline guideline13, Guideline guideline14, TextView textView, TextView textView2, TextView textView3, RadioButton radioButton, RadioButton radioButton2, TextView textView4, EditText editText, TextView textView5, EditText editText2, TextView textView6, TextView textView7, RadioButton radioButton3, RadioButton radioButton4, TextView textView8, RadioButton radioButton5, TextView textView9, TextView textView10, RadioButton radioButton6, TextView textView11, TextView textView12, TextView textView13, TextView textView14, RadioButton radioButton7, TextView textView15, TextView textView16, RadioButton radioButton8, TextView textView17, TextView textView18, TextView textView19, TextView textView20, EditText editText3, TextView textView21, SwitchButton switchButton, TextView textView22, TextView textView23, TextView textView24, TextView textView25, EditText editText4, TextView textView26, EditText editText5, ConstraintLayout constraintLayout, View view2, View view3, View view4, View view5, View view6) {
         super(obj, view, i);
         this.buttonLevel = button;
         this.guidelineCenter = guideline;

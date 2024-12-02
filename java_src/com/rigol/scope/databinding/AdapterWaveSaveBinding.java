@@ -9,6 +9,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import com.rigol.scope.R;
+
 /* loaded from: classes2.dex */
 public abstract class AdapterWaveSaveBinding extends ViewDataBinding {
     public final ImageView imageView3;
@@ -23,8 +24,7 @@ public abstract class AdapterWaveSaveBinding extends ViewDataBinding {
     public final TextView tvSavechannel;
     public final TextView tvSourcefrom;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public AdapterWaveSaveBinding(Object obj, View view, int i, ImageView imageView, ImageView imageView2, ConstraintLayout constraintLayout, ConstraintLayout constraintLayout2, ConstraintLayout constraintLayout3, TextView textView, TextView textView2, TextView textView3, TextView textView4, TextView textView5, TextView textView6) {
+    protected AdapterWaveSaveBinding(Object obj, View view, int i, ImageView imageView, ImageView imageView2, ConstraintLayout constraintLayout, ConstraintLayout constraintLayout2, ConstraintLayout constraintLayout3, TextView textView, TextView textView2, TextView textView3, TextView textView4, TextView textView5, TextView textView6) {
         super(obj, view, i);
         this.imageView3 = imageView;
         this.imageView5 = imageView2;

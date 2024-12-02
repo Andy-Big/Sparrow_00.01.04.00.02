@@ -1,5 +1,6 @@
 package com.rigol.scope.databinding;
 
+import android.support.v4.media.session.PlaybackStateCompat;
 import android.util.SparseIntArray;
 import android.view.View;
 import android.widget.Button;
@@ -11,6 +12,7 @@ import androidx.databinding.DataBindingComponent;
 import androidx.databinding.ObservableBoolean;
 import androidx.databinding.ViewDataBinding;
 import com.rigol.scope.R;
+
 /* loaded from: classes2.dex */
 public class PopupviewLoadingBindingImpl extends PopupviewLoadingBinding {
     private static final ViewDataBinding.IncludedLayouts sIncludes = null;
@@ -163,13 +165,115 @@ public class PopupviewLoadingBindingImpl extends PopupviewLoadingBinding {
     @Override // androidx.databinding.ViewDataBinding
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
     protected void executeBindings() {
-        /*
-            Method dump skipped, instructions count: 261
-            To view this dump add '--comments-level debug' option
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.rigol.scope.databinding.PopupviewLoadingBindingImpl.executeBindings():void");
+        long j;
+        int i;
+        boolean z;
+        int i2;
+        int i3;
+        boolean z2;
+        int i4;
+        int i5;
+        synchronized (this) {
+            j = this.mDirtyFlags;
+            this.mDirtyFlags = 0L;
+        }
+        ObservableBoolean observableBoolean = this.mShowConfirm;
+        ObservableBoolean observableBoolean2 = this.mShowWrning;
+        ObservableBoolean observableBoolean3 = this.mShowCancel;
+        int i6 = ((j & 9) > 0L ? 1 : ((j & 9) == 0L ? 0 : -1));
+        int i7 = 0;
+        if (i6 != 0) {
+            z = observableBoolean != null ? observableBoolean.get() : false;
+            if (i6 != 0) {
+                j = z ? j | 32 : j | 16;
+            }
+            i = z ? 0 : 8;
+        } else {
+            i = 0;
+            z = false;
+        }
+        int i8 = ((j & 10) > 0L ? 1 : ((j & 10) == 0L ? 0 : -1));
+        if (i8 != 0) {
+            boolean z3 = observableBoolean2 != null ? observableBoolean2.get() : false;
+            if (i8 != 0) {
+                j |= z3 ? 128L : 64L;
+            }
+            if (!z3) {
+                i2 = 8;
+                i3 = ((j & 13) > 0L ? 1 : ((j & 13) == 0L ? 0 : -1));
+                if (i3 == 0) {
+                    z2 = observableBoolean3 != null ? observableBoolean3.get() : false;
+                    if (i3 != 0) {
+                        j = z2 ? j | 512 : j | 256;
+                    }
+                    if ((j & 12) != 0) {
+                        j |= z2 ? PlaybackStateCompat.ACTION_PLAY_FROM_URI : PlaybackStateCompat.ACTION_SKIP_TO_QUEUE_ITEM;
+                    }
+                    if ((j & 12) != 0) {
+                        i4 = z2 ? 0 : 8;
+                    } else {
+                        i4 = 0;
+                    }
+                } else {
+                    z2 = false;
+                    i4 = 0;
+                }
+                if ((j & 256) != 0) {
+                    if (observableBoolean != null) {
+                        z = observableBoolean.get();
+                    }
+                    if ((j & 9) != 0) {
+                        j = z ? j | 32 : j | 16;
+                    }
+                }
+                i5 = ((j & 13) > 0L ? 1 : ((j & 13) == 0L ? 0 : -1));
+                if (i5 != 0) {
+                    if (z2) {
+                        z = true;
+                    }
+                    if (i5 != 0) {
+                        j |= z ? PlaybackStateCompat.ACTION_PLAY_FROM_SEARCH : PlaybackStateCompat.ACTION_PLAY_FROM_MEDIA_ID;
+                    }
+                    if (!z) {
+                        i7 = 8;
+                    }
+                }
+                int i9 = i7;
+                if ((j & 12) != 0) {
+                    this.cancel.setVisibility(i4);
+                }
+                if ((j & 9) != 0) {
+                    this.confirm.setVisibility(i);
+                }
+                if ((j & 13) != 0) {
+                    this.dividingLine.setVisibility(i9);
+                }
+                if ((j & 10) == 0) {
+                    this.wrning.setVisibility(i2);
+                    return;
+                }
+                return;
+            }
+        }
+        i2 = 0;
+        i3 = ((j & 13) > 0L ? 1 : ((j & 13) == 0L ? 0 : -1));
+        if (i3 == 0) {
+        }
+        if ((j & 256) != 0) {
+        }
+        i5 = ((j & 13) > 0L ? 1 : ((j & 13) == 0L ? 0 : -1));
+        if (i5 != 0) {
+        }
+        int i92 = i7;
+        if ((j & 12) != 0) {
+        }
+        if ((j & 9) != 0) {
+        }
+        if ((j & 13) != 0) {
+        }
+        if ((j & 10) == 0) {
+        }
     }
 }

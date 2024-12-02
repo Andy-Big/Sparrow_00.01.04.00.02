@@ -14,6 +14,7 @@ import androidx.databinding.ViewDataBinding;
 import com.rigol.scope.R;
 import com.rigol.scope.data.MotorParam;
 import com.rigol.scope.views.baseview.FanScaleView;
+
 /* loaded from: classes2.dex */
 public abstract class PresentationMotorBinding extends ViewDataBinding {
     public final Button btnAngleFirst;
@@ -35,8 +36,7 @@ public abstract class PresentationMotorBinding extends ViewDataBinding {
 
     public abstract void setParam(MotorParam motorParam);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public PresentationMotorBinding(Object obj, View view, int i, Button button, LinearLayout linearLayout, Button button2, Button button3, ImageView imageView, LinearLayout linearLayout2, Button button4, FanScaleView fanScaleView, ConstraintLayout constraintLayout, TextView textView, ConstraintLayout constraintLayout2, TextView textView2, TextView textView3, TextView textView4) {
+    protected PresentationMotorBinding(Object obj, View view, int i, Button button, LinearLayout linearLayout, Button button2, Button button3, ImageView imageView, LinearLayout linearLayout2, Button button4, FanScaleView fanScaleView, ConstraintLayout constraintLayout, TextView textView, ConstraintLayout constraintLayout2, TextView textView2, TextView textView3, TextView textView4) {
         super(obj, view, i);
         this.btnAngleFirst = button;
         this.btnAngleGroup = linearLayout;

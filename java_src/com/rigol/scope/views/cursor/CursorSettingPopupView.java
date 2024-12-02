@@ -40,6 +40,7 @@ import com.rigol.scope.views.spinner.PopupSpinner;
 import com.rigol.scope.views.window.WindowHolder;
 import java.util.ArrayList;
 import java.util.List;
+
 /* loaded from: classes2.dex */
 public class CursorSettingPopupView extends BaseDeletePopupView implements CompoundButton.OnCheckedChangeListener, AorBManager.OnSetTextById, AorBManager.OnTextReset {
     private AorBManager aorBManager;
@@ -864,10 +865,9 @@ public class CursorSettingPopupView extends BaseDeletePopupView implements Compo
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.rigol.scope.views.cursor.CursorSettingPopupView$21  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public static /* synthetic */ class AnonymousClass21 {
+    static /* synthetic */ class AnonymousClass21 {
         static final /* synthetic */ int[] $SwitchMap$com$rigol$scope$cil$ServiceEnum$CursorMode;
 
         static {

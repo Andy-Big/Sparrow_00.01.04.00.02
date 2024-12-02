@@ -15,6 +15,7 @@ import androidx.databinding.ViewDataBinding;
 import androidx.recyclerview.widget.RecyclerView;
 import com.rigol.scope.R;
 import com.rigol.scope.data.FlexKnobParam;
+
 /* loaded from: classes2.dex */
 public abstract class PopupviewFlexKnobBinding extends ViewDataBinding {
     public final RadioButton autoRadioButton;
@@ -47,8 +48,7 @@ public abstract class PopupviewFlexKnobBinding extends ViewDataBinding {
 
     public abstract void setPopupviewFlexKnobBinding(FlexKnobParam flexKnobParam);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public PopupviewFlexKnobBinding(Object obj, View view, int i, RadioButton radioButton, RadioGroup radioGroup, TextView textView, Guideline guideline, Guideline guideline2, Guideline guideline3, RadioButton radioButton2, ImageView imageView, RecyclerView recyclerView, View view2, TextView textView2, TextView textView3, TextView textView4, TextView textView5, TextView textView6, TextView textView7, View view3) {
+    protected PopupviewFlexKnobBinding(Object obj, View view, int i, RadioButton radioButton, RadioGroup radioGroup, TextView textView, Guideline guideline, Guideline guideline2, Guideline guideline3, RadioButton radioButton2, ImageView imageView, RecyclerView recyclerView, View view2, TextView textView2, TextView textView3, TextView textView4, TextView textView5, TextView textView6, TextView textView7, View view3) {
         super(obj, view, i);
         this.autoRadioButton = radioButton;
         this.directionRadioGroup = radioGroup;

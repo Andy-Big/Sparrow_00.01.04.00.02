@@ -11,6 +11,7 @@ import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import com.rigol.scope.R;
 import com.rigol.scope.data.EyeParam;
+
 /* loaded from: classes2.dex */
 public abstract class AdapterEyeExplicitBinding extends ViewDataBinding {
     public final ConstraintLayout eyeExplicitLayout;
@@ -26,8 +27,7 @@ public abstract class AdapterEyeExplicitBinding extends ViewDataBinding {
 
     public abstract void setParam(EyeParam eyeParam);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public AdapterEyeExplicitBinding(Object obj, View view, int i, ConstraintLayout constraintLayout, TextView textView, TextView textView2, Guideline guideline) {
+    protected AdapterEyeExplicitBinding(Object obj, View view, int i, ConstraintLayout constraintLayout, TextView textView, TextView textView2, Guideline guideline) {
         super(obj, view, i);
         this.eyeExplicitLayout = constraintLayout;
         this.eyeExternalClockSourceLabel = textView;

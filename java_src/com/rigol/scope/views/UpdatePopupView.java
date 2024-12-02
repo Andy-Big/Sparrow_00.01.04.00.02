@@ -22,6 +22,7 @@ import com.rigol.scope.views.alert.OnlineUpgradeTermsPopupView;
 import com.rigol.scope.views.baseview.BasePopupView;
 import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
+
 /* compiled from: UpdatePopupView.kt */
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000<\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0007\u0018\u00002\u00020\u00012\u00020\u0002B\u0005¢\u0006\u0002\u0010\u0003J\u0010\u0010\u0006\u001a\u00020\u00072\u0006\u0010\b\u001a\u00020\tH\u0016J\u0006\u0010\n\u001a\u00020\u0007J\u000e\u0010\u000b\u001a\u00020\u00072\u0006\u0010\f\u001a\u00020\rJ\u000e\u0010\u000e\u001a\u00020\u00072\u0006\u0010\u000f\u001a\u00020\u0010J\u000e\u0010\u0011\u001a\u00020\u00072\u0006\u0010\u0012\u001a\u00020\u0013J\u000e\u0010\u0014\u001a\u00020\u00072\u0006\u0010\u0015\u001a\u00020\rJ\u000e\u0010\u0016\u001a\u00020\u00072\u0006\u0010\u0017\u001a\u00020\u0013J\u000e\u0010\u0018\u001a\u00020\u00072\u0006\u0010\u0019\u001a\u00020\u0010R\u000e\u0010\u0004\u001a\u00020\u0005X\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006\u001a"}, d2 = {"Lcom/rigol/scope/views/UpdatePopupView;", "Lcom/rigol/scope/views/baseview/BasePopupView;", "Landroid/view/View$OnClickListener;", "()V", "updateParam", "Lcom/rigol/scope/data/UpdateParam;", "onClick", "", "v", "Landroid/view/View;", "reset", "setDownding", "isDownload", "", "setErrorCode", "errorCode", "", "setErrorMessage", "errorMessage", "", "setInstalling", "isInstall", "setMessage", "message", "setProgress", "progress", "app_release"}, k = 1, mv = {1, 4, 1})
 /* loaded from: classes2.dex */
@@ -44,6 +45,7 @@ public final class UpdatePopupView extends BasePopupView implements View.OnClick
                 throw new NullPointerException("null cannot be cast to non-null type androidx.lifecycle.LifecycleOwner");
             }
             liveData2.observe((LifecycleOwner) topActivity, new Observer<UtilityParam>() { // from class: com.rigol.scope.views.UpdatePopupView.1
+                /* JADX DEBUG: Method merged with bridge method */
                 @Override // androidx.lifecycle.Observer
                 public final void onChanged(UtilityParam utilityParam) {
                     PopupviewUpdateBinding.this.setUtilityParam(utilityParam);
@@ -57,6 +59,7 @@ public final class UpdatePopupView extends BasePopupView implements View.OnClick
                 throw new NullPointerException("null cannot be cast to non-null type androidx.lifecycle.LifecycleOwner");
             }
             liveData.observe((LifecycleOwner) topActivity2, new Observer<Firmware>() { // from class: com.rigol.scope.views.UpdatePopupView.2
+                /* JADX DEBUG: Method merged with bridge method */
                 @Override // androidx.lifecycle.Observer
                 public final void onChanged(Firmware firmware) {
                     PopupviewUpdateBinding.this.setFirmware(firmware);

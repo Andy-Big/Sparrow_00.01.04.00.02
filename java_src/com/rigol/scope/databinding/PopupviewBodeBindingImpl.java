@@ -10,6 +10,7 @@ import androidx.viewpager2.widget.ViewPager2;
 import com.google.android.material.tabs.TabLayout;
 import com.rigol.scope.R;
 import com.rigol.scope.data.BodeParam;
+
 /* loaded from: classes2.dex */
 public class PopupviewBodeBindingImpl extends PopupviewBodeBinding {
     private static final ViewDataBinding.IncludedLayouts sIncludes = null;

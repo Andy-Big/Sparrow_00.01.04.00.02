@@ -17,6 +17,7 @@ import com.rigol.scope.utilities.PopupViewManager;
 import com.rigol.scope.utilities.ViewUtil;
 import com.rigol.scope.viewmodels.BodeViewModel;
 import com.rigol.scope.views.baseview.BasePopupView;
+
 /* loaded from: classes2.dex */
 public class BodePopupWin extends BasePopupView implements TabLayoutMediator.TabConfigurationStrategy, View.OnClickListener {
     private final String BIGGER;

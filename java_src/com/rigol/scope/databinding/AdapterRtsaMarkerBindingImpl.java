@@ -12,6 +12,7 @@ import com.rigol.scope.R;
 import com.rigol.scope.data.FftParam;
 import com.rigol.scope.utilities.ViewUtil;
 import java.util.List;
+
 /* loaded from: classes2.dex */
 public class AdapterRtsaMarkerBindingImpl extends AdapterRtsaMarkerBinding {
     private static final ViewDataBinding.IncludedLayouts sIncludes = null;

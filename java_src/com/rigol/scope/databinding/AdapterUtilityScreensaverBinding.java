@@ -12,6 +12,7 @@ import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import com.rigol.scope.R;
 import com.rigol.scope.data.UtilityParam;
+
 /* loaded from: classes2.dex */
 public abstract class AdapterUtilityScreensaverBinding extends ViewDataBinding {
     public final View divider3;
@@ -38,8 +39,7 @@ public abstract class AdapterUtilityScreensaverBinding extends ViewDataBinding {
 
     public abstract void setParam(UtilityParam utilityParam);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public AdapterUtilityScreensaverBinding(Object obj, View view, int i, View view2, ConstraintLayout constraintLayout, ConstraintLayout constraintLayout2, RadioButton radioButton, RadioButton radioButton2, RadioButton radioButton3, RadioGroup radioGroup, ConstraintLayout constraintLayout3, TextView textView, TextView textView2, TextView textView3, TextView textView4, TextView textView5, TextView textView6, TextView textView7, TextView textView8, TextView textView9, View view3, ConstraintLayout constraintLayout4) {
+    protected AdapterUtilityScreensaverBinding(Object obj, View view, int i, View view2, ConstraintLayout constraintLayout, ConstraintLayout constraintLayout2, RadioButton radioButton, RadioButton radioButton2, RadioButton radioButton3, RadioGroup radioGroup, ConstraintLayout constraintLayout3, TextView textView, TextView textView2, TextView textView3, TextView textView4, TextView textView5, TextView textView6, TextView textView7, TextView textView8, TextView textView9, View view3, ConstraintLayout constraintLayout4) {
         super(obj, view, i);
         this.divider3 = view2;
         this.picture = constraintLayout;

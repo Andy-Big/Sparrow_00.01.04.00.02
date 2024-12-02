@@ -1,6 +1,7 @@
 package com.rigol.scope.data;
 
 import android.view.View;
+
 /* loaded from: classes2.dex */
 public class KeyBean {
     private int index;

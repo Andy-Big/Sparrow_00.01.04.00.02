@@ -5,6 +5,7 @@ import com.rigol.scope.R;
 import com.rigol.scope.databinding.UpaPoppviewRipperBinding;
 import com.rigol.scope.databinding.UpaPoppviewRipperBindingImpl;
 import com.rigol.scope.views.baseview.BasePopupView;
+
 /* loaded from: classes2.dex */
 public class UpaPopuViewRippel extends BasePopupView {
     UpaPoppviewRipperBinding upaPoppviewRipperBinding;

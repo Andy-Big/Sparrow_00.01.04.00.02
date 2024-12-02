@@ -14,6 +14,7 @@ import com.rigol.scope.R;
 import com.rigol.scope.cil.ServiceEnum;
 import com.rigol.scope.data.MappingObject;
 import com.rigol.scope.utilities.ViewUtil;
+
 /* loaded from: classes2.dex */
 public class AdapterItemShortcutBindingImpl extends AdapterItemShortcutBinding {
     private static final ViewDataBinding.IncludedLayouts sIncludes = null;

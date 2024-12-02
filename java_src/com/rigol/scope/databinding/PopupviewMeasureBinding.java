@@ -15,6 +15,7 @@ import androidx.viewpager2.widget.ViewPager2;
 import com.google.android.material.tabs.TabLayout;
 import com.rigol.scope.R;
 import com.rigol.scope.data.MeasureSettingParam;
+
 /* loaded from: classes2.dex */
 public abstract class PopupviewMeasureBinding extends ViewDataBinding {
     public final ConstraintLayout header;
@@ -40,8 +41,7 @@ public abstract class PopupviewMeasureBinding extends ViewDataBinding {
 
     public abstract void setPicObservable(ObservableInt observableInt);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public PopupviewMeasureBinding(Object obj, View view, int i, ConstraintLayout constraintLayout, TextView textView, TextView textView2, TextView textView3, TextView textView4, ImageView imageView, Button button, TabLayout tabLayout, Button button2, ViewPager2 viewPager2) {
+    protected PopupviewMeasureBinding(Object obj, View view, int i, ConstraintLayout constraintLayout, TextView textView, TextView textView2, TextView textView3, TextView textView4, ImageView imageView, Button button, TabLayout tabLayout, Button button2, ViewPager2 viewPager2) {
         super(obj, view, i);
         this.header = constraintLayout;
         this.holder1Spinner = textView;

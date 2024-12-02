@@ -17,6 +17,7 @@ import com.rigol.scope.views.window.WindowHolder;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
+
 /* loaded from: classes2.dex */
 public class WindowHolderManager {
     private static WindowHolderManager INSTANCE;
@@ -92,10 +93,9 @@ public class WindowHolderManager {
         return arrayList;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.rigol.scope.utilities.WindowHolderManager$1  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    static /* synthetic */ class AnonymousClass1 {
         static final /* synthetic */ int[] $SwitchMap$com$rigol$scope$cil$ServiceEnum$WindowType;
 
         static {

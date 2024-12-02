@@ -7,12 +7,12 @@ import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import com.rigol.scope.R;
 import com.rigol.scope.views.multi.MultiWindow;
+
 /* loaded from: classes2.dex */
 public abstract class FragmentWaveformBinding extends ViewDataBinding {
     public final MultiWindow multiWindow;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public FragmentWaveformBinding(Object obj, View view, int i, MultiWindow multiWindow) {
+    protected FragmentWaveformBinding(Object obj, View view, int i, MultiWindow multiWindow) {
         super(obj, view, i);
         this.multiWindow = multiWindow;
     }

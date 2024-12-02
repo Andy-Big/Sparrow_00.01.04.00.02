@@ -23,6 +23,7 @@ import com.rigol.scope.utilities.UnitFormat;
 import com.rigol.scope.utilities.ViewUtil;
 import com.rigol.scope.views.SwitchButton;
 import com.rigol.scope.views.baseview.BaseEditText;
+
 /* loaded from: classes2.dex */
 public class AdapterAfgBindingImpl extends AdapterAfgBinding {
     private static final ViewDataBinding.IncludedLayouts sIncludes = null;

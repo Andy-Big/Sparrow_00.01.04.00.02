@@ -16,6 +16,7 @@ import com.rigol.util.ToastUtils;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+
 /* loaded from: classes2.dex */
 public class StorageSaveParam extends BaseParam {
     private static final boolean DEFAULT_AUTONAME = false;
@@ -923,10 +924,9 @@ public class StorageSaveParam extends BaseParam {
         ToastUtils.showLong(ActivityUtils.getTopActivity().getResources().getString(R.string.msg_storage_toast_fail));
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.rigol.scope.data.StorageSaveParam$1  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    static /* synthetic */ class AnonymousClass1 {
         static final /* synthetic */ int[] $SwitchMap$com$rigol$scope$cil$ServiceEnum$StorageFunc;
 
         static {

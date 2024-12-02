@@ -17,6 +17,7 @@ import com.rigol.scope.utilities.ContextUtil;
 import com.rigol.scope.utilities.UnitFormat;
 import com.rigol.scope.utilities.ViewUtil;
 import com.rigol.scope.views.SwitchButton;
+
 /* loaded from: classes2.dex */
 public class AdapterBodeAfSeniorBindingImpl extends AdapterBodeAfSeniorBinding {
     private static final ViewDataBinding.IncludedLayouts sIncludes = null;

@@ -6,6 +6,7 @@ import com.rigol.scope.utilities.ContextUtil;
 import com.rigol.scope.viewmodels.EyeViewModel;
 import java.util.ArrayList;
 import java.util.List;
+
 /* loaded from: classes2.dex */
 public class EyeResultParam extends ResultParam {
     private transient String cross;

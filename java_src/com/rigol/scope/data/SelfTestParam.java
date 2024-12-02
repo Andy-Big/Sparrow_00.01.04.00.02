@@ -1,6 +1,7 @@
 package com.rigol.scope.data;
 
 import java.util.Objects;
+
 /* loaded from: classes2.dex */
 public class SelfTestParam {
     private String item;

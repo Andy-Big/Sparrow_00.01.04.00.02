@@ -1,15 +1,19 @@
 package com.rigol.scope.databinding;
 
+import android.graphics.drawable.Drawable;
 import android.util.SparseIntArray;
 import android.view.View;
 import android.widget.ImageView;
+import androidx.appcompat.content.res.AppCompatResources;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.databinding.DataBindingComponent;
 import androidx.databinding.ObservableBoolean;
 import androidx.databinding.ViewDataBinding;
+import androidx.databinding.adapters.ImageViewBindingAdapter;
 import androidx.fragment.app.FragmentContainerView;
 import com.rigol.scope.R;
 import com.rigol.scope.data.SharedParam;
+
 /* loaded from: classes2.dex */
 public class ActivityMainBindingImpl extends ActivityMainBinding {
     private static final ViewDataBinding.IncludedLayouts sIncludes = null;
@@ -137,110 +141,64 @@ public class ActivityMainBindingImpl extends ActivityMainBinding {
     @Override // androidx.databinding.ViewDataBinding
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
     protected void executeBindings() {
-        /*
-            r17 = this;
-            r1 = r17
-            monitor-enter(r17)
-            long r2 = r1.mDirtyFlags     // Catch: java.lang.Throwable -> L8a
-            r4 = 0
-            r1.mDirtyFlags = r4     // Catch: java.lang.Throwable -> L8a
-            monitor-exit(r17)     // Catch: java.lang.Throwable -> L8a
-            com.rigol.scope.data.SharedParam r0 = r1.mSharedParam
-            r6 = 0
-            androidx.databinding.ObservableBoolean r7 = r1.mShowMainContent
-            r8 = 13
-            long r10 = r2 & r8
-            int r10 = (r10 > r4 ? 1 : (r10 == r4 ? 0 : -1))
-            r11 = 8
-            r12 = 0
-            if (r10 == 0) goto L4a
-            if (r0 == 0) goto L21
-            boolean r0 = r0.getShowResultBar()
-            goto L22
-        L21:
-            r0 = r12
-        L22:
-            if (r10 == 0) goto L32
-            if (r0 == 0) goto L2c
-            r13 = 32
-            long r2 = r2 | r13
-            r13 = 128(0x80, double:6.32E-322)
-            goto L31
-        L2c:
-            r13 = 16
-            long r2 = r2 | r13
-            r13 = 64
-        L31:
-            long r2 = r2 | r13
-        L32:
-            android.widget.ImageView r6 = r1.resultsBarIcon
-            android.content.Context r6 = r6.getContext()
-            if (r0 == 0) goto L3e
-            r10 = 2131231950(0x7f0804ce, float:1.8079995E38)
-            goto L41
-        L3e:
-            r10 = 2131231951(0x7f0804cf, float:1.8079998E38)
-        L41:
-            android.graphics.drawable.Drawable r6 = androidx.appcompat.content.res.AppCompatResources.getDrawable(r6, r10)
-            if (r0 == 0) goto L48
-            goto L4a
-        L48:
-            r0 = r11
-            goto L4b
-        L4a:
-            r0 = r12
-        L4b:
-            r13 = 10
-            long r15 = r2 & r13
-            int r10 = (r15 > r4 ? 1 : (r15 == r4 ? 0 : -1))
-            if (r10 == 0) goto L6a
-            if (r7 == 0) goto L5a
-            boolean r7 = r7.get()
-            goto L5b
-        L5a:
-            r7 = r12
-        L5b:
-            if (r10 == 0) goto L65
-            if (r7 == 0) goto L62
-            r15 = 512(0x200, double:2.53E-321)
-            goto L64
-        L62:
-            r15 = 256(0x100, double:1.265E-321)
-        L64:
-            long r2 = r2 | r15
-        L65:
-            if (r7 == 0) goto L68
-            goto L69
-        L68:
-            r11 = r12
-        L69:
-            r12 = r11
-        L6a:
-            long r10 = r2 & r13
-            int r7 = (r10 > r4 ? 1 : (r10 == r4 ? 0 : -1))
-            if (r7 == 0) goto L7a
-            androidx.constraintlayout.widget.ConstraintLayout r7 = r1.mboundView3
-            r7.setVisibility(r12)
-            android.widget.ImageView r7 = r1.progress
-            r7.setVisibility(r12)
-        L7a:
-            long r2 = r2 & r8
-            int r2 = (r2 > r4 ? 1 : (r2 == r4 ? 0 : -1))
-            if (r2 == 0) goto L89
-            androidx.fragment.app.FragmentContainerView r2 = r1.resultsBar
-            r2.setVisibility(r0)
-            android.widget.ImageView r0 = r1.resultsBarIcon
-            androidx.databinding.adapters.ImageViewBindingAdapter.setImageDrawable(r0, r6)
-        L89:
-            return
-        L8a:
-            r0 = move-exception
-            monitor-exit(r17)     // Catch: java.lang.Throwable -> L8a
-            throw r0
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.rigol.scope.databinding.ActivityMainBindingImpl.executeBindings():void");
+        long j;
+        int i;
+        int i2;
+        long j2;
+        long j3;
+        synchronized (this) {
+            j = this.mDirtyFlags;
+            this.mDirtyFlags = 0L;
+        }
+        SharedParam sharedParam = this.mSharedParam;
+        Drawable drawable = null;
+        ObservableBoolean observableBoolean = this.mShowMainContent;
+        int i3 = ((j & 13) > 0L ? 1 : ((j & 13) == 0L ? 0 : -1));
+        int i4 = 0;
+        if (i3 != 0) {
+            boolean showResultBar = sharedParam != null ? sharedParam.getShowResultBar() : false;
+            if (i3 != 0) {
+                if (showResultBar) {
+                    j2 = j | 32;
+                    j3 = 128;
+                } else {
+                    j2 = j | 16;
+                    j3 = 64;
+                }
+                j = j2 | j3;
+            }
+            drawable = AppCompatResources.getDrawable(this.resultsBarIcon.getContext(), showResultBar ? R.drawable.ic_menu_close : R.drawable.ic_menu_open);
+            if (!showResultBar) {
+                i = 8;
+                i2 = ((j & 10) > 0L ? 1 : ((j & 10) == 0L ? 0 : -1));
+                if (i2 != 0) {
+                    boolean z = observableBoolean != null ? observableBoolean.get() : false;
+                    if (i2 != 0) {
+                        j |= z ? 512L : 256L;
+                    }
+                    i4 = z ? 8 : 0;
+                }
+                if ((j & 10) != 0) {
+                    this.mboundView3.setVisibility(i4);
+                    this.progress.setVisibility(i4);
+                }
+                if ((j & 13) == 0) {
+                    this.resultsBar.setVisibility(i);
+                    ImageViewBindingAdapter.setImageDrawable(this.resultsBarIcon, drawable);
+                    return;
+                }
+                return;
+            }
+        }
+        i = 0;
+        i2 = ((j & 10) > 0L ? 1 : ((j & 10) == 0L ? 0 : -1));
+        if (i2 != 0) {
+        }
+        if ((j & 10) != 0) {
+        }
+        if ((j & 13) == 0) {
+        }
     }
 }

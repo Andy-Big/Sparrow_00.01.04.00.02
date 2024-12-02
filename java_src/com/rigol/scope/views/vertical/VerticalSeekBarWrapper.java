@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import androidx.core.view.ViewCompat;
+
 /* loaded from: classes2.dex */
 public class VerticalSeekBarWrapper extends FrameLayout {
     public VerticalSeekBarWrapper(Context context) {
@@ -88,8 +89,7 @@ public class VerticalSeekBarWrapper extends FrameLayout {
         super.onMeasure(i, i2);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void applyViewRotation() {
+    void applyViewRotation() {
         applyViewRotation(getWidth(), getHeight());
     }
 

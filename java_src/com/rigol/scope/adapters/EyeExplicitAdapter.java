@@ -18,6 +18,7 @@ import com.rigol.scope.viewmodels.EyeViewModel;
 import com.rigol.scope.views.baseview.BasePopupView;
 import com.rigol.scope.views.eye.EyePopupView;
 import com.rigol.scope.views.spinner.PopupSpinner;
+
 /* loaded from: classes.dex */
 public class EyeExplicitAdapter extends RecyclerView.Adapter<EyeExplicitHolder> implements View.OnClickListener {
     private final BasePopupView basePopupView;
@@ -30,6 +31,7 @@ public class EyeExplicitAdapter extends RecyclerView.Adapter<EyeExplicitHolder> 
         return 1;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(EyeExplicitHolder eyeExplicitHolder, int i) {
     }
@@ -38,6 +40,7 @@ public class EyeExplicitAdapter extends RecyclerView.Adapter<EyeExplicitHolder> 
         this.basePopupView = eyePopupView;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public EyeExplicitHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         AdapterEyeExplicitBinding inflate = AdapterEyeExplicitBinding.inflate(LayoutInflater.from(viewGroup.getContext()), viewGroup, false);

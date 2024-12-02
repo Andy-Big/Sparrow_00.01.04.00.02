@@ -9,6 +9,7 @@ import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import com.rigol.scope.R;
 import com.rigol.scope.views.SwitchButton;
+
 /* loaded from: classes2.dex */
 public abstract class PopupviewEyemoveBinding extends ViewDataBinding {
     public final TextView eyeMove;
@@ -19,8 +20,7 @@ public abstract class PopupviewEyemoveBinding extends ViewDataBinding {
     public final ImageButton moveUp;
     public final ImageButton reset;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public PopupviewEyemoveBinding(Object obj, View view, int i, TextView textView, ImageButton imageButton, ImageButton imageButton2, SwitchButton switchButton, ImageButton imageButton3, ImageButton imageButton4, ImageButton imageButton5) {
+    protected PopupviewEyemoveBinding(Object obj, View view, int i, TextView textView, ImageButton imageButton, ImageButton imageButton2, SwitchButton switchButton, ImageButton imageButton3, ImageButton imageButton4, ImageButton imageButton5) {
         super(obj, view, i);
         this.eyeMove = textView;
         this.moveDown = imageButton;

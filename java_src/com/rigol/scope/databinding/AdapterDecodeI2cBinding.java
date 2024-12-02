@@ -15,6 +15,7 @@ import com.rigol.scope.R;
 import com.rigol.scope.data.DecodeParam;
 import com.rigol.scope.data.MappingObject;
 import com.rigol.scope.views.SwitchButton;
+
 /* loaded from: classes2.dex */
 public abstract class AdapterDecodeI2cBinding extends ViewDataBinding {
     public final TextView decodeI2cClkLabel;
@@ -59,8 +60,7 @@ public abstract class AdapterDecodeI2cBinding extends ViewDataBinding {
 
     public abstract void setRwWithoutMapping(MappingObject mappingObject);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public AdapterDecodeI2cBinding(Object obj, View view, int i, TextView textView, TextView textView2, TextView textView3, SwitchButton switchButton, ConstraintLayout constraintLayout, TextView textView4, RadioGroup radioGroup, RadioButton radioButton, RadioButton radioButton2, TextView textView5, TextView textView6, TextView textView7, TextView textView8, TextView textView9, TextView textView10, Guideline guideline, Guideline guideline2, Guideline guideline3, Guideline guideline4, Guideline guideline5, Guideline guideline6) {
+    protected AdapterDecodeI2cBinding(Object obj, View view, int i, TextView textView, TextView textView2, TextView textView3, SwitchButton switchButton, ConstraintLayout constraintLayout, TextView textView4, RadioGroup radioGroup, RadioButton radioButton, RadioButton radioButton2, TextView textView5, TextView textView6, TextView textView7, TextView textView8, TextView textView9, TextView textView10, Guideline guideline, Guideline guideline2, Guideline guideline3, Guideline guideline4, Guideline guideline5, Guideline guideline6) {
         super(obj, view, i);
         this.decodeI2cClkLabel = textView;
         this.decodeI2cClkValue = textView2;

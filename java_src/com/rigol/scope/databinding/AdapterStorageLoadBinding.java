@@ -12,6 +12,7 @@ import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import com.rigol.scope.R;
 import com.rigol.scope.data.StorageLoadParam;
+
 /* loaded from: classes2.dex */
 public abstract class AdapterStorageLoadBinding extends ViewDataBinding {
     public final TextView choose;
@@ -30,8 +31,7 @@ public abstract class AdapterStorageLoadBinding extends ViewDataBinding {
 
     public abstract void setParam(StorageLoadParam storageLoadParam);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public AdapterStorageLoadBinding(Object obj, View view, int i, TextView textView, View view2, TextView textView2, Guideline guideline, Button button, TextView textView3, EditText editText, TextView textView4, TextView textView5, TextView textView6, TextView textView7) {
+    protected AdapterStorageLoadBinding(Object obj, View view, int i, TextView textView, View view2, TextView textView2, Guideline guideline, Button button, TextView textView3, EditText editText, TextView textView4, TextView textView5, TextView textView6, TextView textView7) {
         super(obj, view, i);
         this.choose = textView;
         this.chooseDividingLine = view2;

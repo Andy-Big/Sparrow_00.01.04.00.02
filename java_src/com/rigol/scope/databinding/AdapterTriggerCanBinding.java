@@ -15,6 +15,7 @@ import com.rigol.scope.R;
 import com.rigol.scope.data.MappingObject;
 import com.rigol.scope.data.TriggerParam;
 import com.rigol.scope.views.SwitchButton;
+
 /* loaded from: classes2.dex */
 public abstract class AdapterTriggerCanBinding extends ViewDataBinding {
     public final Button buttonLevel;
@@ -104,8 +105,7 @@ public abstract class AdapterTriggerCanBinding extends ViewDataBinding {
 
     public abstract void setSweepSingleMapping(MappingObject mappingObject);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public AdapterTriggerCanBinding(Object obj, View view, int i, Button button, Guideline guideline, Guideline guideline2, Guideline guideline3, Guideline guideline4, Guideline guideline5, Guideline guideline6, Guideline guideline7, Guideline guideline8, Guideline guideline9, Guideline guideline10, Guideline guideline11, Guideline guideline12, Guideline guideline13, Guideline guideline14, Guideline guideline15, Guideline guideline16, Guideline guideline17, Guideline guideline18, Guideline guideline19, Guideline guideline20, Guideline guideline21, Guideline guideline22, Guideline guideline23, Guideline guideline24, Guideline guideline25, TextView textView, TextView textView2, TextView textView3, ConstraintLayout constraintLayout, EditText editText, TextView textView4, SwitchButton switchButton, TextView textView5, EditText editText2, ConstraintLayout constraintLayout2, ConstraintLayout constraintLayout3, TextView textView6, TextView textView7, EditText editText3, TextView textView8, SwitchButton switchButton2, TextView textView9, EditText editText4, TextView textView10, EditText editText5, ConstraintLayout constraintLayout4, TextView textView11, TextView textView12, TextView textView13, TextView textView14, TextView textView15, TextView textView16, TextView textView17, TextView textView18, TextView textView19, View view2, View view3) {
+    protected AdapterTriggerCanBinding(Object obj, View view, int i, Button button, Guideline guideline, Guideline guideline2, Guideline guideline3, Guideline guideline4, Guideline guideline5, Guideline guideline6, Guideline guideline7, Guideline guideline8, Guideline guideline9, Guideline guideline10, Guideline guideline11, Guideline guideline12, Guideline guideline13, Guideline guideline14, Guideline guideline15, Guideline guideline16, Guideline guideline17, Guideline guideline18, Guideline guideline19, Guideline guideline20, Guideline guideline21, Guideline guideline22, Guideline guideline23, Guideline guideline24, Guideline guideline25, TextView textView, TextView textView2, TextView textView3, ConstraintLayout constraintLayout, EditText editText, TextView textView4, SwitchButton switchButton, TextView textView5, EditText editText2, ConstraintLayout constraintLayout2, ConstraintLayout constraintLayout3, TextView textView6, TextView textView7, EditText editText3, TextView textView8, SwitchButton switchButton2, TextView textView9, EditText editText4, TextView textView10, EditText editText5, ConstraintLayout constraintLayout4, TextView textView11, TextView textView12, TextView textView13, TextView textView14, TextView textView15, TextView textView16, TextView textView17, TextView textView18, TextView textView19, View view2, View view3) {
         super(obj, view, i);
         this.buttonLevel = button;
         this.guidelineCenter = guideline;

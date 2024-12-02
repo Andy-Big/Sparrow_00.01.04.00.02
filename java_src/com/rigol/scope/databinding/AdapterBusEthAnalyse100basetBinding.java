@@ -10,6 +10,7 @@ import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import com.rigol.scope.R;
 import com.rigol.scope.views.busAnalyse.BusAnalyseEthParam;
+
 /* loaded from: classes2.dex */
 public abstract class AdapterBusEthAnalyse100basetBinding extends ViewDataBinding {
     public final View busAnalyseDivider1;
@@ -29,8 +30,7 @@ public abstract class AdapterBusEthAnalyse100basetBinding extends ViewDataBindin
 
     public abstract void setParam(BusAnalyseEthParam busAnalyseEthParam);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public AdapterBusEthAnalyse100basetBinding(Object obj, View view, int i, View view2, CheckBox checkBox, TextView textView, CheckBox checkBox2, TextView textView2, CheckBox checkBox3, CheckBox checkBox4, CheckBox checkBox5, CheckBox checkBox6, CheckBox checkBox7, CheckBox checkBox8, CheckBox checkBox9) {
+    protected AdapterBusEthAnalyse100basetBinding(Object obj, View view, int i, View view2, CheckBox checkBox, TextView textView, CheckBox checkBox2, TextView textView2, CheckBox checkBox3, CheckBox checkBox4, CheckBox checkBox5, CheckBox checkBox6, CheckBox checkBox7, CheckBox checkBox8, CheckBox checkBox9) {
         super(obj, view, i);
         this.busAnalyseDivider1 = view2;
         this.ethAnalyse1000basetDiffVoltageCheckbox = checkBox;

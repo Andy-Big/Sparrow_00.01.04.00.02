@@ -52,6 +52,7 @@ import java.io.FileFilter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+
 /* loaded from: classes2.dex */
 public class StoragePopupView extends BasePopupView implements StorageViewPagerAdapter.OnItemClickCallback, PopupWindow.OnDismissListener, View.OnClickListener, TabLayoutMediator.TabConfigurationStrategy {
     private final StorageViewPagerAdapter adapter;
@@ -405,18 +406,15 @@ public class StoragePopupView extends BasePopupView implements StorageViewPagerA
         selectSaveWaveDepth(i, mappingObject);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ boolean lambda$onSaveItemClick$14(StorageSaveParam storageSaveParam, File file) {
+    static /* synthetic */ boolean lambda$onSaveItemClick$14(StorageSaveParam storageSaveParam, File file) {
         return file.isDirectory() || file.getName().endsWith(ViewUtil.getMappingObject(R.array.msg_storage_image_format, storageSaveParam.getImageFileType()).getStr().replace("*.", ""));
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ boolean lambda$onSaveItemClick$15(StorageSaveParam storageSaveParam, File file) {
+    static /* synthetic */ boolean lambda$onSaveItemClick$15(StorageSaveParam storageSaveParam, File file) {
         return file.isDirectory() || file.getName().endsWith(ViewUtil.getMappingObject(R.array.msg_storage_wave_format, storageSaveParam.getWaveFileType()).getStr().replace("*.", ""));
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ boolean lambda$onSaveItemClick$16(StorageSaveParam storageSaveParam, File file) {
+    static /* synthetic */ boolean lambda$onSaveItemClick$16(StorageSaveParam storageSaveParam, File file) {
         return file.isDirectory() || file.getName().endsWith(ViewUtil.getMappingObject(R.array.msg_storage_setup_format, storageSaveParam.getSetupFileType()).getStr().replace("*.", ""));
     }
 
@@ -579,8 +577,7 @@ public class StoragePopupView extends BasePopupView implements StorageViewPagerA
         selectLoadSetUpFileFormat(mappingObject);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ boolean lambda$onLoadItemClick$23(ServiceEnum.enFileType enfiletype, File file) {
+    static /* synthetic */ boolean lambda$onLoadItemClick$23(ServiceEnum.enFileType enfiletype, File file) {
         if (file != null) {
             String path = file.getPath();
             if (path.endsWith("." + enfiletype.value2) || file.isDirectory()) {
@@ -670,8 +667,7 @@ public class StoragePopupView extends BasePopupView implements StorageViewPagerA
             });
         }
 
-        /* JADX INFO: Access modifiers changed from: package-private */
-        public static /* synthetic */ void lambda$run$0(ShellUtils.CommandResult commandResult) {
+        static /* synthetic */ void lambda$run$0(ShellUtils.CommandResult commandResult) {
             PopupViewManager.getInstance().dismiss(UpgradingPopupView.class);
             if (commandResult.result == 0) {
                 ToastUtils.showLong((int) R.string.inf_upgrade_h4);
@@ -681,13 +677,11 @@ public class StoragePopupView extends BasePopupView implements StorageViewPagerA
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ boolean lambda$onUpgradeItemClick$24(File file) {
+    static /* synthetic */ boolean lambda$onUpgradeItemClick$24(File file) {
         return file != null && (file.getPath().endsWith(".GEL") || file.isDirectory());
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ void lambda$onUpgradeItemClick$25(View view, String str) {
+    static /* synthetic */ void lambda$onUpgradeItemClick$25(View view, String str) {
         ((TextView) view).setText(ViewUtil.getDiskUIPathName(str));
         view.setTag(str);
     }

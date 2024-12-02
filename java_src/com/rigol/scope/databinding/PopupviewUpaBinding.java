@@ -15,6 +15,7 @@ import com.rigol.scope.data.MappingObject;
 import com.rigol.scope.data.UpaParam;
 import com.rigol.scope.data.UpaRippleParam;
 import com.rigol.scope.views.SwitchButton;
+
 /* loaded from: classes2.dex */
 public abstract class PopupviewUpaBinding extends ViewDataBinding {
     public final RecyclerView adaperUpaView;
@@ -42,8 +43,7 @@ public abstract class PopupviewUpaBinding extends ViewDataBinding {
 
     public abstract void setUpaRippleParam(UpaRippleParam upaRippleParam);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public PopupviewUpaBinding(Object obj, View view, int i, RecyclerView recyclerView, SwitchButton switchButton, Guideline guideline, Guideline guideline2, TextView textView, Guideline guideline3, TextView textView2, TextView textView3) {
+    protected PopupviewUpaBinding(Object obj, View view, int i, RecyclerView recyclerView, SwitchButton switchButton, Guideline guideline, Guideline guideline2, TextView textView, Guideline guideline3, TextView textView2, TextView textView3) {
         super(obj, view, i);
         this.adaperUpaView = recyclerView;
         this.displayOnoffSwitchButton = switchButton;

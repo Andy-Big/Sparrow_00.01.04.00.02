@@ -2,6 +2,7 @@ package com.rigol.scope.data;
 
 import android.widget.EditText;
 import android.widget.TextView;
+
 /* loaded from: classes2.dex */
 public class AorBParam {
     String aorb;

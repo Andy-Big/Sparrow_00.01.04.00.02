@@ -8,6 +8,7 @@ import androidx.databinding.DataBindingComponent;
 import androidx.databinding.ViewDataBinding;
 import androidx.databinding.adapters.CompoundButtonBindingAdapter;
 import com.rigol.scope.views.busAnalyse.BusAnalyseEthParam;
+
 /* loaded from: classes2.dex */
 public class AdapterBusEthAnalyse10basetBindingImpl extends AdapterBusEthAnalyse10basetBinding {
     private static final ViewDataBinding.IncludedLayouts sIncludes = null;

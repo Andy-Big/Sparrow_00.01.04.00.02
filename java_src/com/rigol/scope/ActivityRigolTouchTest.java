@@ -16,6 +16,7 @@ import com.rigol.scope.views.selfCheck.SelfCheckOnTouchChangedListener;
 import com.rigol.scope.views.selfCheck.SelfCheckPointCircleView;
 import com.rigol.scope.views.selfCheck.SelfCheckPointView;
 import java.util.ArrayList;
+
 /* loaded from: classes.dex */
 public class ActivityRigolTouchTest extends AppCompatActivity implements SelfCheckOnTouchChangedListener {
     private TextView exitText;
@@ -33,9 +34,8 @@ public class ActivityRigolTouchTest extends AppCompatActivity implements SelfChe
     private TextView tv_scaleValue;
     private TextView tv_stretch;
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // androidx.appcompat.app.AppCompatActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
-    public void onCreate(Bundle bundle) {
+    protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.activity_rigol_touch_test);
         this.root = (RelativeLayout) findViewById(R.id.rela_container);

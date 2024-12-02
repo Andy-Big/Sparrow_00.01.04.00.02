@@ -12,6 +12,7 @@ import com.rigol.scope.R;
 import com.rigol.scope.data.UtilityParam;
 import com.rigol.scope.utilities.ViewUtil;
 import java.util.List;
+
 /* loaded from: classes2.dex */
 public class AdapterUtilitySaveGroupBindingImpl extends AdapterUtilitySaveGroupBinding {
     private static final ViewDataBinding.IncludedLayouts sIncludes = null;

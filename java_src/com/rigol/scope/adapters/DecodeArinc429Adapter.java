@@ -16,6 +16,7 @@ import com.rigol.scope.utilities.ViewUtil;
 import com.rigol.scope.views.keyboard.KeyboardListener;
 import com.rigol.scope.views.keyboard.KeyboardPopupView;
 import com.rigol.scope.views.spinner.PopupSpinner;
+
 /* loaded from: classes.dex */
 public class DecodeArinc429Adapter extends RecyclerView.Adapter<DecodeArinc429Holder> implements View.OnClickListener, AorBManager.OnSetTextById {
     private final View anchorView;
@@ -37,12 +38,14 @@ public class DecodeArinc429Adapter extends RecyclerView.Adapter<DecodeArinc429Ho
         this.anchorView = view;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public DecodeArinc429Holder onCreateViewHolder(ViewGroup viewGroup, int i) {
         this.binding = AdapterDecodeArinc429Binding.inflate(LayoutInflater.from(viewGroup.getContext()), viewGroup, false);
         return new DecodeArinc429Holder(this.binding);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(DecodeArinc429Holder decodeArinc429Holder, int i) {
         this.binding.decodeArinc429BaudValue.setOnClickListener(this);

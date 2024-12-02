@@ -16,6 +16,7 @@ import com.rigol.scope.R;
 import com.rigol.scope.data.DvmResultParam;
 import com.rigol.scope.data.MappingObject;
 import com.rigol.scope.views.SwitchButton;
+
 /* loaded from: classes2.dex */
 public abstract class PopupviewResultDvmBinding extends ViewDataBinding {
     public final TextView beeper;
@@ -59,8 +60,7 @@ public abstract class PopupviewResultDvmBinding extends ViewDataBinding {
 
     public abstract void setParam(DvmResultParam dvmResultParam);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public PopupviewResultDvmBinding(Object obj, View view, int i, TextView textView, SwitchButton switchButton, TextView textView2, Button button, Guideline guideline, Guideline guideline2, Guideline guideline3, TextView textView3, SwitchButton switchButton2, TextView textView4, EditText editText, TextView textView5, RadioButton radioButton, RadioButton radioButton2, RadioButton radioButton3, RadioGroup radioGroup, TextView textView6, TextView textView7, TextView textView8, EditText editText2) {
+    protected PopupviewResultDvmBinding(Object obj, View view, int i, TextView textView, SwitchButton switchButton, TextView textView2, Button button, Guideline guideline, Guideline guideline2, Guideline guideline3, TextView textView3, SwitchButton switchButton2, TextView textView4, EditText editText, TextView textView5, RadioButton radioButton, RadioButton radioButton2, RadioButton radioButton3, RadioGroup radioGroup, TextView textView6, TextView textView7, TextView textView8, EditText editText2) {
         super(obj, view, i);
         this.beeper = textView;
         this.beeperSwitch = switchButton;

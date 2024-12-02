@@ -7,12 +7,12 @@ import android.widget.CheckBox;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import com.rigol.scope.R;
+
 /* loaded from: classes2.dex */
 public abstract class AdapterItemSimple3Binding extends ViewDataBinding {
     public final CheckBox checkbox;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public AdapterItemSimple3Binding(Object obj, View view, int i, CheckBox checkBox) {
+    protected AdapterItemSimple3Binding(Object obj, View view, int i, CheckBox checkBox) {
         super(obj, view, i);
         this.checkbox = checkBox;
     }

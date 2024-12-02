@@ -20,6 +20,7 @@ import com.rigol.scope.views.baseview.BasePopupView;
 import com.rigol.scope.views.eye.EyePopupView;
 import com.rigol.scope.views.keyboard.KeyboardListener;
 import com.rigol.scope.views.keyboard.KeyboardPopupView;
+
 /* loaded from: classes.dex */
 public class EyePllAdapter extends RecyclerView.Adapter<EyePllHolder> implements RadioGroup.OnCheckedChangeListener, View.OnClickListener {
     private final BasePopupView basePopupView;
@@ -33,6 +34,7 @@ public class EyePllAdapter extends RecyclerView.Adapter<EyePllHolder> implements
         return 1;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(EyePllHolder eyePllHolder, int i) {
     }
@@ -41,6 +43,7 @@ public class EyePllAdapter extends RecyclerView.Adapter<EyePllHolder> implements
         this.basePopupView = eyePopupView;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public EyePllHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         AdapterEyePllBinding inflate = AdapterEyePllBinding.inflate(LayoutInflater.from(viewGroup.getContext()), viewGroup, false);

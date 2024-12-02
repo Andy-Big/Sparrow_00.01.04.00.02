@@ -33,6 +33,7 @@ import com.rigol.scope.views.spinner.PopupSpinner;
 import com.rigol.scope.views.trigger.TriggerPopupView;
 import java.util.ArrayList;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public class TriggerSpiAdapter extends RecyclerView.Adapter<TriggerSpiHolder> implements View.OnClickListener, CompoundButton.OnCheckedChangeListener, AorBManager.OnSetTextById, AorBManager.OnTextReset {
     private View anchorView;
@@ -84,6 +85,7 @@ public class TriggerSpiAdapter extends RecyclerView.Adapter<TriggerSpiHolder> im
         this.serviceId = triggerParam.getServiceId();
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public TriggerSpiHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         AdapterTriggerSpiBinding inflate = AdapterTriggerSpiBinding.inflate(LayoutInflater.from(viewGroup.getContext()), viewGroup, false);
@@ -162,9 +164,11 @@ public class TriggerSpiAdapter extends RecyclerView.Adapter<TriggerSpiHolder> im
         }
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(TriggerSpiHolder triggerSpiHolder, int i) {
         this.triggerViewModel.getLiveData().observe((LifecycleOwner) this.context, new Observer<TriggerParam>() { // from class: com.rigol.scope.adapters.TriggerSpiAdapter.2
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // androidx.lifecycle.Observer
             public void onChanged(TriggerParam triggerParam) {
                 TriggerSpiAdapter.this.param = triggerParam;

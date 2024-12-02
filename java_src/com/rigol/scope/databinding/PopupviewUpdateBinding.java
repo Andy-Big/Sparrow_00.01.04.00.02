@@ -17,6 +17,7 @@ import com.rigol.scope.R;
 import com.rigol.scope.data.UpdateParam;
 import com.rigol.scope.data.UtilityParam;
 import com.rigol.scope.views.NumberProgressBar;
+
 /* loaded from: classes2.dex */
 public abstract class PopupviewUpdateBinding extends ViewDataBinding {
     public final View buttonLayout;
@@ -43,8 +44,7 @@ public abstract class PopupviewUpdateBinding extends ViewDataBinding {
 
     public abstract void setUtilityParam(UtilityParam utilityParam);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public PopupviewUpdateBinding(Object obj, View view, int i, View view2, Button button, TextView textView, ScrollView scrollView, NumberProgressBar numberProgressBar, TextView textView2, Guideline guideline, ConstraintLayout constraintLayout, ContentLoadingProgressBar contentLoadingProgressBar, TextView textView3, Button button2) {
+    protected PopupviewUpdateBinding(Object obj, View view, int i, View view2, Button button, TextView textView, ScrollView scrollView, NumberProgressBar numberProgressBar, TextView textView2, Guideline guideline, ConstraintLayout constraintLayout, ContentLoadingProgressBar contentLoadingProgressBar, TextView textView3, Button button2) {
         super(obj, view, i);
         this.buttonLayout = view2;
         this.cancel = button;

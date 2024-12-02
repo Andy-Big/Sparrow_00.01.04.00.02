@@ -14,6 +14,7 @@ import com.rigol.scope.R;
 import com.rigol.scope.cil.ServiceEnum;
 import com.rigol.scope.data.MappingObject;
 import com.rigol.scope.data.UtilityParam;
+
 /* loaded from: classes2.dex */
 public class AdapterStatResetBindingImpl extends AdapterStatResetBinding {
     private static final ViewDataBinding.IncludedLayouts sIncludes = null;

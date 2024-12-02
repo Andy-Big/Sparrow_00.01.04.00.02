@@ -5,6 +5,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import androidx.databinding.ViewDataBinding;
 import androidx.recyclerview.widget.RecyclerView;
+
 /* loaded from: classes.dex */
 public class BaseViewHolder<T extends ViewDataBinding> extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener, View.OnTouchListener {
     private final T binding;

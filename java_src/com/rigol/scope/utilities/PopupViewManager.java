@@ -114,6 +114,7 @@ import com.rigol.scope.views.vertical.VerticalPopupView;
 import com.rigol.scope.views.wave.WaveIntensityPopupView;
 import com.rigol.scope.views.xy.XYPopupView;
 import java.util.ArrayList;
+
 /* loaded from: classes2.dex */
 public class PopupViewManager {
     private static PopupViewManager INSTANCE;
@@ -180,6 +181,7 @@ public class PopupViewManager {
         }
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: com.rigol.scope.utilities.PopupViewManager */
     /* JADX WARN: Multi-variable type inference failed */
     @SafeVarargs
     public final void dismissAll(Class<? extends BasePopupView>... clsArr) {
@@ -298,6 +300,7 @@ public class PopupViewManager {
         add(LaCalibrationPopuView.class, new LaCalibrationPopuView());
     }
 
+    /* JADX DEBUG: Type inference failed for r0v4. Raw type applied. Possible types: java.lang.Class<?>, java.lang.Class<? extends com.rigol.scope.views.baseview.BasePopupView> */
     public Class<? extends BasePopupView> getShowingClass() {
         for (int i = 0; i < this.list.size(); i++) {
             BasePopupView valueAt = this.list.valueAt(i);
@@ -843,10 +846,9 @@ public class PopupViewManager {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.rigol.scope.utilities.PopupViewManager$1  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    static /* synthetic */ class AnonymousClass1 {
         static final /* synthetic */ int[] $SwitchMap$com$rigol$scope$cil$ServiceEnum$DecodeBusType;
         static final /* synthetic */ int[] $SwitchMap$com$rigol$scope$cil$ServiceEnum$Function;
         static final /* synthetic */ int[] $SwitchMap$com$rigol$scope$cil$ServiceEnum$MathOperator;

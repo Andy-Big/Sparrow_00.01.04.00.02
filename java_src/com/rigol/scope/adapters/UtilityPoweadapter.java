@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import androidx.recyclerview.widget.RecyclerView;
 import com.rigol.scope.databinding.AdapterUtiltyPowerItemBinding;
+
 /* loaded from: classes.dex */
 public class UtilityPoweadapter extends RecyclerView.Adapter<PowerkHolder> {
     private AdapterUtiltyPowerItemBinding binding;
@@ -15,10 +16,12 @@ public class UtilityPoweadapter extends RecyclerView.Adapter<PowerkHolder> {
         return 1;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(PowerkHolder powerkHolder, int i) {
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public PowerkHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         this.binding = AdapterUtiltyPowerItemBinding.inflate(LayoutInflater.from(viewGroup.getContext()), viewGroup, false);

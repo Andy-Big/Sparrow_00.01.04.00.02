@@ -32,6 +32,7 @@ import com.rigol.scope.views.math.MathPopupView;
 import com.rigol.scope.views.spinner.PopupSpinner;
 import java.util.ArrayList;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public class MathArithAdapter extends RecyclerView.Adapter<MathArithHolder> implements AorBManager.OnSetTextById, AorBManager.OnTextReset {
     private View anchorView;
@@ -78,6 +79,7 @@ public class MathArithAdapter extends RecyclerView.Adapter<MathArithHolder> impl
         this.holder = viewPagerHolder;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public MathArithHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         this.binding = AdapterMathArithBindingImpl.inflate(LayoutInflater.from(viewGroup.getContext()));
@@ -147,6 +149,7 @@ public class MathArithAdapter extends RecyclerView.Adapter<MathArithHolder> impl
         }
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(MathArithHolder mathArithHolder, int i) {
         showMathArith();

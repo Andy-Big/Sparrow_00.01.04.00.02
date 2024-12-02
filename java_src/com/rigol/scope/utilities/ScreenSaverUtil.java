@@ -7,6 +7,7 @@ import com.rigol.scope.ScreenSaverActivity;
 import com.rigol.scope.cil.API;
 import com.rigol.scope.cil.MessageID;
 import com.rigol.scope.cil.ServiceEnum;
+
 /* loaded from: classes2.dex */
 public class ScreenSaverUtil extends CountDownTimer {
     public static int DEFAULTLOCKSCREENTIME = 60000;

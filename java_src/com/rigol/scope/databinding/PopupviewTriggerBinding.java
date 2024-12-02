@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.rigol.scope.R;
 import com.rigol.scope.data.MappingObject;
 import com.rigol.scope.data.TriggerParam;
+
 /* loaded from: classes2.dex */
 public abstract class PopupviewTriggerBinding extends ViewDataBinding {
     public final RadioButton autoRadioButton;
@@ -53,8 +54,7 @@ public abstract class PopupviewTriggerBinding extends ViewDataBinding {
 
     public abstract void setSweepSingleMapping(MappingObject mappingObject);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public PopupviewTriggerBinding(Object obj, View view, int i, RadioButton radioButton, Button button, Guideline guideline, Guideline guideline2, Guideline guideline3, RadioGroup radioGroup, RadioButton radioButton2, RadioButton radioButton3, ConstraintLayout constraintLayout, TextView textView, TextView textView2, TextView textView3, RecyclerView recyclerView, Button button2) {
+    protected PopupviewTriggerBinding(Object obj, View view, int i, RadioButton radioButton, Button button, Guideline guideline, Guideline guideline2, Guideline guideline3, RadioGroup radioGroup, RadioButton radioButton2, RadioButton radioButton3, ConstraintLayout constraintLayout, TextView textView, TextView textView2, TextView textView3, RecyclerView recyclerView, Button button2) {
         super(obj, view, i);
         this.autoRadioButton = radioButton;
         this.forceTrigger = button;

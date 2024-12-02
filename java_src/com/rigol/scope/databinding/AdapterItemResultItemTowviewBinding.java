@@ -7,13 +7,13 @@ import androidx.appcompat.widget.AppCompatTextView;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import com.rigol.scope.R;
+
 /* loaded from: classes2.dex */
 public abstract class AdapterItemResultItemTowviewBinding extends ViewDataBinding {
     public final AppCompatTextView itemData;
     public final AppCompatTextView itemTitle;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public AdapterItemResultItemTowviewBinding(Object obj, View view, int i, AppCompatTextView appCompatTextView, AppCompatTextView appCompatTextView2) {
+    protected AdapterItemResultItemTowviewBinding(Object obj, View view, int i, AppCompatTextView appCompatTextView, AppCompatTextView appCompatTextView2) {
         super(obj, view, i);
         this.itemData = appCompatTextView;
         this.itemTitle = appCompatTextView2;

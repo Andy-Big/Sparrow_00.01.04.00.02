@@ -22,6 +22,7 @@ import com.rigol.scope.viewmodels.PanelKeyViewModel;
 import com.rigol.scope.views.baseview.BasePopupView;
 import java.util.ArrayList;
 import java.util.List;
+
 /* loaded from: classes2.dex */
 public class DecodePopupView extends BasePopupView {
     private DecodeCommonAdapter adapter;

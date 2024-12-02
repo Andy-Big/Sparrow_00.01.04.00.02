@@ -11,6 +11,7 @@ import kotlin.Unit;
 import kotlin.concurrent.ThreadsKt;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Intrinsics;
+
 /* compiled from: MDNSManager.kt */
 @Metadata(bv = {1, 0, 3}, d1 = {"\u00000\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0005\n\u0002\u0010\u000b\n\u0002\b\u0005\bÆ\u0002\u0018\u00002\u00020\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002J\u000e\u0010\u0005\u001a\u00020\u00062\u0006\u0010\u0007\u001a\u00020\bJ\u0010\u0010\t\u001a\u00020\u00062\u0006\u0010\u0007\u001a\u00020\bH\u0002J\u0006\u0010\n\u001a\u00020\u000bJ\u0016\u0010\f\u001a\u00020\u00062\u0006\u0010\r\u001a\u00020\u000b2\u0006\u0010\u000e\u001a\u00020\u000bJ\u0018\u0010\u000f\u001a\u00020\u00062\u0006\u0010\r\u001a\u00020\u000b2\u0006\u0010\u000e\u001a\u00020\u000bH\u0002J\u0006\u0010\u0010\u001a\u00020\u0011J\u0006\u0010\u0012\u001a\u00020\u0006J\b\u0010\u0013\u001a\u00020\u0006H\u0002J\u0018\u0010\u0014\u001a\u00020\u00062\u0006\u0010\r\u001a\u00020\u000b2\u0006\u0010\u000e\u001a\u00020\u000bH\u0007J\u0018\u0010\u0015\u001a\u00020\u00062\u0006\u0010\r\u001a\u00020\u000b2\u0006\u0010\u000e\u001a\u00020\u000bH\u0003R\u0010\u0010\u0003\u001a\u0004\u0018\u00010\u0004X\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006\u0016"}, d2 = {"Lcom/rigol/scope/utilities/MDNSManager;", "", "()V", "jmDNS", "Ljavax/jmdns/impl/JmDNSImpl;", "addService", "", "info", "Ljavax/jmdns/ServiceInfo;", "addServiceInternal", "getHostName", "", "init", "ip", "hostName", "initInternal", "isInit", "", "removeAllServices", "removeAllServicesInternal", "update", "updateInternal", "app_release"}, k = 1, mv = {1, 4, 1})
 /* loaded from: classes2.dex */
@@ -26,18 +27,19 @@ public final class MDNSManager {
         Intrinsics.checkNotNullParameter(hostName, "hostName");
         if (Intrinsics.areEqual(Looper.getMainLooper(), Looper.myLooper())) {
             ThreadsKt.thread$default(false, false, null, null, 0, new Function0<Unit>() { // from class: com.rigol.scope.utilities.MDNSManager$init$1
-                /* JADX INFO: Access modifiers changed from: package-private */
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
                     super(0);
                 }
 
+                /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
                 @Override // kotlin.jvm.functions.Function0
                 public /* bridge */ /* synthetic */ Unit invoke() {
                     invoke2();
                     return Unit.INSTANCE;
                 }
 
+                /* JADX DEBUG: Possible override for method kotlin.jvm.functions.Function0.invoke()Ljava/lang/Object; */
                 /* renamed from: invoke  reason: avoid collision after fix types in other method */
                 public final void invoke2() {
                     MDNSManager.INSTANCE.initInternal(ip, hostName);
@@ -84,18 +86,19 @@ public final class MDNSManager {
         Intrinsics.checkNotNullParameter(hostName, "hostName");
         if (Intrinsics.areEqual(Looper.getMainLooper(), Looper.myLooper())) {
             ThreadsKt.thread$default(false, false, null, null, 0, new Function0<Unit>() { // from class: com.rigol.scope.utilities.MDNSManager$update$1
-                /* JADX INFO: Access modifiers changed from: package-private */
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
                     super(0);
                 }
 
+                /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
                 @Override // kotlin.jvm.functions.Function0
                 public /* bridge */ /* synthetic */ Unit invoke() {
                     invoke2();
                     return Unit.INSTANCE;
                 }
 
+                /* JADX DEBUG: Possible override for method kotlin.jvm.functions.Function0.invoke()Ljava/lang/Object; */
                 /* renamed from: invoke  reason: avoid collision after fix types in other method */
                 public final void invoke2() {
                     MDNSManager.INSTANCE.updateInternal(ip, hostName);
@@ -119,17 +122,18 @@ public final class MDNSManager {
         Intrinsics.checkNotNullParameter(info, "info");
         if (Intrinsics.areEqual(Looper.getMainLooper(), Looper.myLooper())) {
             ThreadsKt.thread$default(false, false, null, null, 0, new Function0<Unit>() { // from class: com.rigol.scope.utilities.MDNSManager$addService$1
-                /* JADX INFO: Access modifiers changed from: package-private */
                 {
                     super(0);
                 }
 
+                /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
                 @Override // kotlin.jvm.functions.Function0
                 public /* bridge */ /* synthetic */ Unit invoke() {
                     invoke2();
                     return Unit.INSTANCE;
                 }
 
+                /* JADX DEBUG: Possible override for method kotlin.jvm.functions.Function0.invoke()Ljava/lang/Object; */
                 /* renamed from: invoke  reason: avoid collision after fix types in other method */
                 public final void invoke2() {
                     MDNSManager.INSTANCE.addServiceInternal(ServiceInfo.this);
@@ -151,12 +155,14 @@ public final class MDNSManager {
     public final void removeAllServices() {
         if (Intrinsics.areEqual(Looper.getMainLooper(), Looper.myLooper())) {
             ThreadsKt.thread$default(false, false, null, null, 0, new Function0<Unit>() { // from class: com.rigol.scope.utilities.MDNSManager$removeAllServices$1
+                /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
                 @Override // kotlin.jvm.functions.Function0
                 public /* bridge */ /* synthetic */ Unit invoke() {
                     invoke2();
                     return Unit.INSTANCE;
                 }
 
+                /* JADX DEBUG: Possible override for method kotlin.jvm.functions.Function0.invoke()Ljava/lang/Object; */
                 /* renamed from: invoke  reason: avoid collision after fix types in other method */
                 public final void invoke2() {
                     MDNSManager.INSTANCE.removeAllServicesInternal();

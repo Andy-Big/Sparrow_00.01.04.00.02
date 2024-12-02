@@ -15,6 +15,7 @@ import com.rigol.scope.R;
 import com.rigol.scope.data.DecodeParam;
 import com.rigol.scope.data.HorizontalParam;
 import com.rigol.scope.views.SwitchButton;
+
 /* loaded from: classes2.dex */
 public abstract class AdapterItemPopupviewDecodeBinding extends ViewDataBinding {
     public final RecyclerView decodeBusTypeView;
@@ -52,8 +53,7 @@ public abstract class AdapterItemPopupviewDecodeBinding extends ViewDataBinding 
 
     public abstract void setParam(DecodeParam decodeParam);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public AdapterItemPopupviewDecodeBinding(Object obj, View view, int i, RecyclerView recyclerView, ConstraintLayout constraintLayout, Button button, View view2, View view3, Button button2, TextView textView, TextView textView2, Button button3, TextView textView3, SwitchButton switchButton, TextView textView4, TextView textView5, TextView textView6, TextView textView7, TextView textView8, SwitchButton switchButton2, TextView textView9, SwitchButton switchButton3, TextView textView10, TextView textView11, Guideline guideline, Guideline guideline2, Guideline guideline3, Guideline guideline4, Guideline guideline5) {
+    protected AdapterItemPopupviewDecodeBinding(Object obj, View view, int i, RecyclerView recyclerView, ConstraintLayout constraintLayout, Button button, View view2, View view3, Button button2, TextView textView, TextView textView2, Button button3, TextView textView3, SwitchButton switchButton, TextView textView4, TextView textView5, TextView textView6, TextView textView7, TextView textView8, SwitchButton switchButton2, TextView textView9, SwitchButton switchButton3, TextView textView10, TextView textView11, Guideline guideline, Guideline guideline2, Guideline guideline3, Guideline guideline4, Guideline guideline5) {
         super(obj, view, i);
         this.decodeBusTypeView = recyclerView;
         this.decodeCommonLayout = constraintLayout;

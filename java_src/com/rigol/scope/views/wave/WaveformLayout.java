@@ -63,6 +63,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import timber.log.Timber;
+
 /* loaded from: classes2.dex */
 public class WaveformLayout extends ConstraintLayout {
     private static final float SCALE_VIEW_DEFAULT_PERCENT = 0.033333335f;
@@ -112,10 +113,9 @@ public class WaveformLayout extends ConstraintLayout {
     private BaseSurfaceView zoomSurfaceView;
     private BaseWaveformView zoomView;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.rigol.scope.views.wave.WaveformLayout$1  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public class AnonymousClass1 extends GestureDetector.SimpleOnGestureListener {
+    class AnonymousClass1 extends GestureDetector.SimpleOnGestureListener {
         AnonymousClass1() {
         }
 
@@ -719,10 +719,9 @@ public class WaveformLayout extends ConstraintLayout {
         updateZoomInfo();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.rigol.scope.views.wave.WaveformLayout$5  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public class AnonymousClass5 implements View.OnLayoutChangeListener {
+    class AnonymousClass5 implements View.OnLayoutChangeListener {
         final /* synthetic */ SyncDataViewModel val$syncDataViewModel;
 
         AnonymousClass5(SyncDataViewModel syncDataViewModel) {

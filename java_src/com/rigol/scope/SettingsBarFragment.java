@@ -82,6 +82,7 @@ import java.util.Objects;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
+
 /* loaded from: classes.dex */
 public class SettingsBarFragment extends BaseFragment implements View.OnClickListener {
     private static final int MSG_UPDATE_TIME = 1;
@@ -116,8 +117,7 @@ public class SettingsBarFragment extends BaseFragment implements View.OnClickLis
         }
     });
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ void lambda$onCreateView$7(View view) {
+    static /* synthetic */ void lambda$onCreateView$7(View view) {
     }
 
     @Override // com.rigol.scope.BaseFragment, androidx.fragment.app.Fragment
@@ -615,6 +615,7 @@ public class SettingsBarFragment extends BaseFragment implements View.OnClickLis
                 adapterItemSparrpwMathBinding.getRoot().setTag(MathPopupView.class.getSimpleName());
             }
 
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // com.rigol.scope.adapters.MultiItemTypeAdapter, androidx.recyclerview.widget.RecyclerView.Adapter
             public BaseViewHolder<? extends ViewDataBinding> onCreateViewHolder(ViewGroup viewGroup, int i) {
                 BaseViewHolder<? extends ViewDataBinding> onCreateViewHolder = super.onCreateViewHolder(viewGroup, i);
@@ -736,6 +737,7 @@ public class SettingsBarFragment extends BaseFragment implements View.OnClickLis
             return;
         }
         this.otherFunAdapter = new BaseAdapter<List<MappingObject>>(this.mActivity, list, R.layout.adapter_item_rtsa) { // from class: com.rigol.scope.SettingsBarFragment.12
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // com.rigol.scope.adapters.MultiItemTypeAdapter, androidx.recyclerview.widget.RecyclerView.Adapter
             public BaseViewHolder<? extends ViewDataBinding> onCreateViewHolder(ViewGroup viewGroup, int i) {
                 BaseViewHolder<? extends ViewDataBinding> onCreateViewHolder = super.onCreateViewHolder(viewGroup, i);

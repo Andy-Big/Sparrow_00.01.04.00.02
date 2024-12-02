@@ -1,5 +1,7 @@
 package com.rigol.scope.databinding;
 
+import android.graphics.drawable.Drawable;
+import android.text.SpannableString;
 import android.util.SparseIntArray;
 import android.view.View;
 import android.widget.ImageView;
@@ -7,10 +9,16 @@ import android.widget.TextView;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.databinding.DataBindingComponent;
 import androidx.databinding.ViewDataBinding;
+import androidx.databinding.adapters.ImageViewBindingAdapter;
+import androidx.databinding.adapters.TextViewBindingAdapter;
 import com.rigol.scope.R;
+import com.rigol.scope.cil.ServiceEnum;
 import com.rigol.scope.data.ResultParam;
+import com.rigol.scope.utilities.ContextUtil;
+import com.rigol.scope.utilities.ViewUtil;
 import com.rigol.scope.views.DisableTouchEventRecyclerView;
 import com.rigol.scope.views.resultItem.ResultItemConstraintLayout;
+
 /* loaded from: classes2.dex */
 public class AdapterItemResultMaskBindingImpl extends AdapterItemResultMaskBinding {
     private static final ViewDataBinding.IncludedLayouts sIncludes = null;
@@ -117,139 +125,80 @@ public class AdapterItemResultMaskBindingImpl extends AdapterItemResultMaskBindi
     @Override // androidx.databinding.ViewDataBinding
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
     protected void executeBindings() {
-        /*
-            r21 = this;
-            r1 = r21
-            monitor-enter(r21)
-            long r2 = r1.mDirtyFlags     // Catch: java.lang.Throwable -> Lb1
-            r4 = 0
-            r1.mDirtyFlags = r4     // Catch: java.lang.Throwable -> Lb1
-            monitor-exit(r21)     // Catch: java.lang.Throwable -> Lb1
-            com.rigol.scope.data.ResultParam r0 = r1.mParam
-            r6 = 31
-            long r6 = r6 & r2
-            int r6 = (r6 > r4 ? 1 : (r6 == r4 ? 0 : -1))
-            r8 = 29
-            r10 = 64
-            r12 = 19
-            r15 = 0
-            if (r6 == 0) goto L6f
-            long r16 = r2 & r8
-            int r6 = (r16 > r4 ? 1 : (r16 == r4 ? 0 : -1))
-            if (r6 == 0) goto L3c
-            if (r0 == 0) goto L2d
-            java.lang.String r6 = r0.getTitle()
-            com.rigol.scope.cil.ServiceEnum$Chan r16 = r0.getSourceA()
-            r7 = r16
-            goto L2f
-        L2d:
-            r6 = 0
-            r7 = 0
-        L2f:
-            android.view.View r17 = r21.getRoot()
-            android.content.Context r14 = r17.getContext()
-            android.text.SpannableString r6 = com.rigol.scope.utilities.ViewUtil.getTitleWithSrc(r14, r6, r7)
-            goto L3d
-        L3c:
-            r6 = 0
-        L3d:
-            long r19 = r2 & r12
-            int r7 = (r19 > r4 ? 1 : (r19 == r4 ? 0 : -1))
-            if (r7 == 0) goto L6d
-            if (r0 == 0) goto L4a
-            com.rigol.scope.cil.ServiceEnum$MeasType r0 = r0.getMeasType()
-            goto L4b
-        L4a:
-            r0 = 0
-        L4b:
-            if (r0 == 0) goto L50
-            java.lang.String r14 = r0.pic1
-            goto L51
-        L50:
-            r14 = 0
-        L51:
-            if (r0 == 0) goto L55
-            r0 = 1
-            goto L56
-        L55:
-            r0 = r15
-        L56:
-            if (r7 == 0) goto L60
-            if (r0 == 0) goto L5c
-            long r2 = r2 | r10
-            goto L60
-        L5c:
-            r17 = 32
-            long r2 = r2 | r17
-        L60:
-            android.view.View r7 = r21.getRoot()
-            android.content.Context r7 = r7.getContext()
-            android.graphics.drawable.Drawable r14 = com.rigol.scope.utilities.ContextUtil.getDrawable(r7, r14)
-            goto L72
-        L6d:
-            r0 = r15
-            goto L71
-        L6f:
-            r0 = r15
-            r6 = 0
-        L71:
-            r14 = 0
-        L72:
-            long r10 = r10 & r2
-            int r7 = (r10 > r4 ? 1 : (r10 == r4 ? 0 : -1))
-            if (r7 == 0) goto L7b
-            if (r14 == 0) goto L7b
-            r7 = 1
-            goto L7c
-        L7b:
-            r7 = r15
-        L7c:
-            long r10 = r2 & r12
-            int r10 = (r10 > r4 ? 1 : (r10 == r4 ? 0 : -1))
-            if (r10 == 0) goto L96
-            if (r0 == 0) goto L85
-            goto L86
-        L85:
-            r7 = r15
-        L86:
-            if (r10 == 0) goto L90
-            if (r7 == 0) goto L8d
-            r10 = 256(0x100, double:1.265E-321)
-            goto L8f
-        L8d:
-            r10 = 128(0x80, double:6.32E-322)
-        L8f:
-            long r2 = r2 | r10
-        L90:
-            if (r7 == 0) goto L93
-            goto L96
-        L93:
-            r0 = 8
-            r15 = r0
-        L96:
-            long r10 = r2 & r12
-            int r0 = (r10 > r4 ? 1 : (r10 == r4 ? 0 : -1))
-            if (r0 == 0) goto La6
-            android.widget.ImageView r0 = r1.icon
-            androidx.databinding.adapters.ImageViewBindingAdapter.setImageDrawable(r0, r14)
-            android.widget.ImageView r0 = r1.icon
-            r0.setVisibility(r15)
-        La6:
-            long r2 = r2 & r8
-            int r0 = (r2 > r4 ? 1 : (r2 == r4 ? 0 : -1))
-            if (r0 == 0) goto Lb0
-            android.widget.TextView r0 = r1.title
-            androidx.databinding.adapters.TextViewBindingAdapter.setText(r0, r6)
-        Lb0:
-            return
-        Lb1:
-            r0 = move-exception
-            monitor-exit(r21)     // Catch: java.lang.Throwable -> Lb1
-            throw r0
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.rigol.scope.databinding.AdapterItemResultMaskBindingImpl.executeBindings():void");
+        long j;
+        boolean z;
+        SpannableString spannableString;
+        Drawable drawable;
+        int i;
+        String str;
+        ServiceEnum.Chan chan;
+        synchronized (this) {
+            j = this.mDirtyFlags;
+            this.mDirtyFlags = 0L;
+        }
+        ResultParam resultParam = this.mParam;
+        int i2 = 0;
+        if ((31 & j) != 0) {
+            if ((j & 29) != 0) {
+                if (resultParam != null) {
+                    str = resultParam.getTitle();
+                    chan = resultParam.getSourceA();
+                } else {
+                    str = null;
+                    chan = null;
+                }
+                spannableString = ViewUtil.getTitleWithSrc(getRoot().getContext(), str, chan);
+            } else {
+                spannableString = null;
+            }
+            int i3 = ((j & 19) > 0L ? 1 : ((j & 19) == 0L ? 0 : -1));
+            if (i3 != 0) {
+                ServiceEnum.MeasType measType = resultParam != null ? resultParam.getMeasType() : null;
+                String str2 = measType != null ? measType.pic1 : null;
+                z = measType != null;
+                if (i3 != 0) {
+                    j = z ? j | 64 : j | 32;
+                }
+                drawable = ContextUtil.getDrawable(getRoot().getContext(), str2);
+                boolean z2 = (64 & j) == 0 && drawable != null;
+                i = ((j & 19) > 0L ? 1 : ((j & 19) == 0L ? 0 : -1));
+                if (i != 0) {
+                    if (!z) {
+                        z2 = false;
+                    }
+                    if (i != 0) {
+                        j |= z2 ? 256L : 128L;
+                    }
+                    if (!z2) {
+                        i2 = 8;
+                    }
+                }
+                if ((j & 19) != 0) {
+                    ImageViewBindingAdapter.setImageDrawable(this.icon, drawable);
+                    this.icon.setVisibility(i2);
+                }
+                if ((j & 29) == 0) {
+                    TextViewBindingAdapter.setText(this.title, spannableString);
+                    return;
+                }
+                return;
+            }
+            z = false;
+        } else {
+            z = false;
+            spannableString = null;
+        }
+        drawable = null;
+        if ((64 & j) == 0) {
+        }
+        i = ((j & 19) > 0L ? 1 : ((j & 19) == 0L ? 0 : -1));
+        if (i != 0) {
+        }
+        if ((j & 19) != 0) {
+        }
+        if ((j & 29) == 0) {
+        }
     }
 }

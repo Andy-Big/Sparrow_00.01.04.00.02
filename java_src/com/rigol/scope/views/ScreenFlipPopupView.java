@@ -14,6 +14,7 @@ import kotlin.Metadata;
 import kotlin.Unit;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Intrinsics;
+
 /* compiled from: ScreenFlipPopupView.kt */
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000(\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u000e\n\u0002\u0010\u0002\n\u0002\b\u0003\u0018\u00002\u00020\u0001B\u0005¢\u0006\u0002\u0010\u0002J\u0006\u0010\u0016\u001a\u00020\u0017J\b\u0010\u0018\u001a\u00020\u0017H\u0016J\b\u0010\u0019\u001a\u00020\u0017H\u0014R\u000e\u0010\u0003\u001a\u00020\u0004X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0005\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u001b\u0010\u0007\u001a\u00020\b8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u000b\u0010\f\u001a\u0004\b\t\u0010\nR$\u0010\u000e\u001a\u00020\u00062\u0006\u0010\r\u001a\u00020\u0006@FX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u000f\u0010\u0010\"\u0004\b\u0011\u0010\u0012R$\u0010\u0013\u001a\u00020\u00062\u0006\u0010\r\u001a\u00020\u0006@FX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0014\u0010\u0010\"\u0004\b\u0015\u0010\u0012¨\u0006\u001a"}, d2 = {"Lcom/rigol/scope/views/ScreenFlipPopupView;", "Lcom/rigol/scope/views/baseview/BasePopupView;", "()V", "binding", "Lcom/rigol/scope/databinding/PopupviewScreenFlipBinding;", "flag", "", "handler", "Lcom/rigol/scope/utilities/WeakRefHandler;", "getHandler", "()Lcom/rigol/scope/utilities/WeakRefHandler;", "handler$delegate", "Lkotlin/Lazy;", "value", "obstacleFlag", "getObstacleFlag", "()Z", "setObstacleFlag", "(Z)V", "opening", "getOpening", "setOpening", "delayToDismiss", "", "onDismiss", "onShow", "app_release"}, k = 1, mv = {1, 4, 1})
 /* loaded from: classes2.dex */
@@ -38,11 +39,11 @@ public final class ScreenFlipPopupView extends BasePopupView {
         this.binding = inflate;
         this.opening = true;
         this.handler$delegate = LazyKt.lazy(new Function0<WeakRefHandler>() { // from class: com.rigol.scope.views.ScreenFlipPopupView$handler$2
-            /* JADX INFO: Access modifiers changed from: package-private */
             {
                 super(0);
             }
 
+            /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // kotlin.jvm.functions.Function0
             public final WeakRefHandler invoke() {
@@ -98,9 +99,8 @@ public final class ScreenFlipPopupView extends BasePopupView {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.rigol.scope.views.baseview.BasePopupView
-    public void onShow() {
+    protected void onShow() {
         super.onShow();
         getHandler().sendEmptyMessageDelayed(0, 300L);
         setObstacleFlag(false);

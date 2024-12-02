@@ -41,6 +41,7 @@ import com.rigol.scope.views.spinner.PopupSpinner;
 import com.rigol.util.ToastUtils;
 import java.util.ArrayList;
 import java.util.List;
+
 /* loaded from: classes2.dex */
 public class RefPopupView extends BasePopupView implements AorBManager.OnSetTextById, AorBManager.OnTextReset {
     private AorBManager aorBManager;
@@ -118,6 +119,7 @@ public class RefPopupView extends BasePopupView implements AorBManager.OnSetText
         RefViewModel refViewModel = (RefViewModel) ContextUtil.getAppViewModel(RefViewModel.class);
         if (refViewModel != null) {
             refViewModel.getLiveData().observe((LifecycleOwner) ActivityUtils.getTopActivity(), new Observer<RefParam>() { // from class: com.rigol.scope.views.ref.RefPopupView.2
+                /* JADX DEBUG: Method merged with bridge method */
                 @Override // androidx.lifecycle.Observer
                 public void onChanged(RefParam refParam) {
                     RefPopupView.this.param = refParam;
@@ -317,10 +319,9 @@ public class RefPopupView extends BasePopupView implements AorBManager.OnSetText
         });
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.rigol.scope.views.ref.RefPopupView$3  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public class AnonymousClass3 implements View.OnClickListener {
+    class AnonymousClass3 implements View.OnClickListener {
         AnonymousClass3() {
         }
 
@@ -353,10 +354,9 @@ public class RefPopupView extends BasePopupView implements AorBManager.OnSetText
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.rigol.scope.views.ref.RefPopupView$4  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public class AnonymousClass4 implements View.OnClickListener {
+    class AnonymousClass4 implements View.OnClickListener {
         AnonymousClass4() {
         }
 
@@ -403,10 +403,9 @@ public class RefPopupView extends BasePopupView implements AorBManager.OnSetText
         offsetDown();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.rigol.scope.views.ref.RefPopupView$11  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public class AnonymousClass11 implements View.OnClickListener {
+    class AnonymousClass11 implements View.OnClickListener {
         AnonymousClass11() {
         }
 
@@ -429,10 +428,9 @@ public class RefPopupView extends BasePopupView implements AorBManager.OnSetText
         this.param.saveShowLabel(z);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.rigol.scope.views.ref.RefPopupView$12  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public class AnonymousClass12 implements View.OnClickListener {
+    class AnonymousClass12 implements View.OnClickListener {
         AnonymousClass12() {
         }
 

@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.List;
+
 /* loaded from: classes2.dex */
 public class FileUtil {
     public static long listFiles(File file, List<String> list) {

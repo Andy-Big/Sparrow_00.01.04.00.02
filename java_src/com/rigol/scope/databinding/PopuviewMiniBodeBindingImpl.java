@@ -15,6 +15,7 @@ import com.rigol.scope.R;
 import com.rigol.scope.data.BodeParam;
 import com.rigol.scope.utilities.ContextUtil;
 import com.rigol.scope.views.SwitchButton;
+
 /* loaded from: classes2.dex */
 public class PopuviewMiniBodeBindingImpl extends PopuviewMiniBodeBinding {
     private static final ViewDataBinding.IncludedLayouts sIncludes = null;

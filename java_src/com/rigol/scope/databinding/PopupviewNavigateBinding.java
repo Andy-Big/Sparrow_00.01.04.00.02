@@ -17,6 +17,7 @@ import androidx.databinding.ViewDataBinding;
 import com.rigol.scope.R;
 import com.rigol.scope.data.HorizontalParam;
 import com.rigol.scope.data.NavigateParam;
+
 /* loaded from: classes2.dex */
 public abstract class PopupviewNavigateBinding extends ViewDataBinding {
     public final TextView currentFrameText;
@@ -58,8 +59,7 @@ public abstract class PopupviewNavigateBinding extends ViewDataBinding {
 
     public abstract void setParam(NavigateParam navigateParam);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public PopupviewNavigateBinding(Object obj, View view, int i, TextView textView, TextView textView2, RadioButton radioButton, RelativeLayout relativeLayout, RadioButton radioButton2, TextView textView3, TextView textView4, TextView textView5, View view2, RadioGroup radioGroup, TextView textView6, ConstraintLayout constraintLayout, ImageView imageView, ImageView imageView2, ImageView imageView3, ImageView imageView4, ImageView imageView5, Button button, LinearLayout linearLayout, TextView textView7, TextView textView8, TextView textView9, TextView textView10, RadioButton radioButton3, LinearLayout linearLayout2, TextView textView11, TextView textView12, TextView textView13, TextView textView14, TextView textView15) {
+    protected PopupviewNavigateBinding(Object obj, View view, int i, TextView textView, TextView textView2, RadioButton radioButton, RelativeLayout relativeLayout, RadioButton radioButton2, TextView textView3, TextView textView4, TextView textView5, View view2, RadioGroup radioGroup, TextView textView6, ConstraintLayout constraintLayout, ImageView imageView, ImageView imageView2, ImageView imageView3, ImageView imageView4, ImageView imageView5, Button button, LinearLayout linearLayout, TextView textView7, TextView textView8, TextView textView9, TextView textView10, RadioButton radioButton3, LinearLayout linearLayout2, TextView textView11, TextView textView12, TextView textView13, TextView textView14, TextView textView15) {
         super(obj, view, i);
         this.currentFrameText = textView;
         this.currentText = textView2;

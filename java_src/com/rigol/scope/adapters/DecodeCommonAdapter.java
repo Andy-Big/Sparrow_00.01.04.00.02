@@ -43,6 +43,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import kotlin.jvm.functions.Function1;
+
 /* loaded from: classes.dex */
 public class DecodeCommonAdapter extends BaseAdapter<List<DecodeParam>> {
     private boolean[] adapterInitArr;
@@ -177,6 +178,7 @@ public class DecodeCommonAdapter extends BaseAdapter<List<DecodeParam>> {
         }
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.rigol.scope.adapters.MultiItemTypeAdapter, androidx.recyclerview.widget.RecyclerView.Adapter
     public BaseViewHolder<? extends ViewDataBinding> onCreateViewHolder(ViewGroup viewGroup, int i) {
         final BaseViewHolder<? extends ViewDataBinding> onCreateViewHolder = super.onCreateViewHolder(viewGroup, i);

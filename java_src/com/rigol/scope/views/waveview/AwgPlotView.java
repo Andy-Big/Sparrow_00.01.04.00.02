@@ -11,6 +11,7 @@ import androidx.core.view.ViewCompat;
 import com.blankj.utilcode.util.LogUtils;
 import com.rigol.scope.data.WaveParam;
 import com.rigol.scope.views.waveview.PlotEnum;
+
 /* loaded from: classes2.dex */
 public class AwgPlotView extends View {
     protected static final int LINE_MARGIN_8 = 8;

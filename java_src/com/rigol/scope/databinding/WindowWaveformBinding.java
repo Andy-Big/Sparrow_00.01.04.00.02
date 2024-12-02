@@ -13,6 +13,7 @@ import com.rigol.scope.R;
 import com.rigol.scope.data.SharedParam;
 import com.rigol.scope.views.acquire.AcquireDepthView;
 import com.rigol.scope.views.window.Window;
+
 /* loaded from: classes2.dex */
 public abstract class WindowWaveformBinding extends ViewDataBinding {
     public final AcquireDepthView acquireDepth;
@@ -28,8 +29,7 @@ public abstract class WindowWaveformBinding extends ViewDataBinding {
 
     public abstract void setSharedParam(SharedParam sharedParam);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public WindowWaveformBinding(Object obj, View view, int i, AcquireDepthView acquireDepthView, ConstraintLayout constraintLayout, TextView textView, ConstraintLayout constraintLayout2, ImageButton imageButton, Window window, ImageButton imageButton2, ImageButton imageButton3) {
+    protected WindowWaveformBinding(Object obj, View view, int i, AcquireDepthView acquireDepthView, ConstraintLayout constraintLayout, TextView textView, ConstraintLayout constraintLayout2, ImageButton imageButton, Window window, ImageButton imageButton2, ImageButton imageButton3) {
         super(obj, view, i);
         this.acquireDepth = acquireDepthView;
         this.contentLayout = constraintLayout;

@@ -9,6 +9,7 @@ import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import com.rigol.scope.R;
 import com.rigol.scope.data.FftParam;
+
 /* loaded from: classes2.dex */
 public abstract class AdapterItemRtsaBinding extends ViewDataBinding {
     public final TextView center;
@@ -19,8 +20,7 @@ public abstract class AdapterItemRtsaBinding extends ViewDataBinding {
 
     public abstract void setParam(FftParam fftParam);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public AdapterItemRtsaBinding(Object obj, View view, int i, TextView textView, TextView textView2, TextView textView3) {
+    protected AdapterItemRtsaBinding(Object obj, View view, int i, TextView textView, TextView textView2, TextView textView3) {
         super(obj, view, i);
         this.center = textView;
         this.span = textView2;

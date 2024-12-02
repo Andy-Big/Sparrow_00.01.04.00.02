@@ -33,6 +33,7 @@ import com.rigol.scope.views.baseview.BasePopupView;
 import com.rigol.scope.views.calibration.CalibrationPopupView;
 import com.rigol.scope.views.grid.GridSpaceItemDecoration;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public class UtilityCalibrationAdapter extends RecyclerView.Adapter<CalibrationViewHolder> {
     private AdapterUtilityCalibrationBinding binding;
@@ -123,6 +124,7 @@ public class UtilityCalibrationAdapter extends RecyclerView.Adapter<CalibrationV
         this.calibrationParam = calibrationParam;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public CalibrationViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         UtilityParam value;
@@ -172,6 +174,7 @@ public class UtilityCalibrationAdapter extends RecyclerView.Adapter<CalibrationV
         }
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(CalibrationViewHolder calibrationViewHolder, int i) {
         List<MappingObject> list = ViewUtil.getList((int) R.array.msg_cal_items);
@@ -197,10 +200,9 @@ public class UtilityCalibrationAdapter extends RecyclerView.Adapter<CalibrationV
         LogUtils.e("BuildConfigbits", Integer.valueOf(this.bits.size()));
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.rigol.scope.adapters.UtilityCalibrationAdapter$1  reason: invalid class name */
     /* loaded from: classes.dex */
-    public class AnonymousClass1 extends BaseAdapter<List<MappingObject>> {
+    class AnonymousClass1 extends BaseAdapter<List<MappingObject>> {
         final /* synthetic */ CalibrationParam val$param;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -224,6 +226,7 @@ public class UtilityCalibrationAdapter extends RecyclerView.Adapter<CalibrationV
             }
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // com.rigol.scope.adapters.MultiItemTypeAdapter, androidx.recyclerview.widget.RecyclerView.Adapter
         public BaseViewHolder<? extends ViewDataBinding> onCreateViewHolder(ViewGroup viewGroup, int i) {
             final BaseViewHolder<? extends ViewDataBinding> onCreateViewHolder = super.onCreateViewHolder(viewGroup, i);

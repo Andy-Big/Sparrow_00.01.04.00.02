@@ -15,6 +15,7 @@ import androidx.databinding.adapters.TextViewBindingAdapter;
 import com.rigol.scope.R;
 import com.rigol.scope.views.SwitchButton;
 import com.rigol.scope.views.adc.AdcSerParam;
+
 /* loaded from: classes2.dex */
 public class PopupviewAdcserBindingImpl extends PopupviewAdcserBinding {
     private static final ViewDataBinding.IncludedLayouts sIncludes = null;

@@ -73,6 +73,7 @@ import java.lang.reflect.Method;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import timber.log.Timber;
+
 /* loaded from: classes.dex */
 public class MainActivity extends BaseActivity {
     private static final String GUARD_SERVICE_ACTION = "com.rigol.watchdog.Watchdog";
@@ -164,10 +165,9 @@ public class MainActivity extends BaseActivity {
     };
     private final IGuardListener.Stub guardListener = new AnonymousClass7();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.rigol.scope.MainActivity$1  reason: invalid class name */
     /* loaded from: classes.dex */
-    public class AnonymousClass1 extends Handler {
+    class AnonymousClass1 extends Handler {
         AnonymousClass1(Looper looper) {
             super(looper);
         }
@@ -198,6 +198,7 @@ public class MainActivity extends BaseActivity {
             }
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: private */
         /* renamed from: handleCommandResult */
         public void lambda$handleMessage$1$MainActivity$1(ShellUtils.CommandResult commandResult, int i) {
@@ -211,9 +212,8 @@ public class MainActivity extends BaseActivity {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.rigol.scope.BaseActivity, androidx.appcompat.app.AppCompatActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
-    public void onCreate(Bundle bundle) {
+    protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         getResources().getConfiguration();
         API.getInstance().UI_StartBusiness(0);
@@ -368,10 +368,9 @@ public class MainActivity extends BaseActivity {
         }, 300L);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.rigol.scope.MainActivity$2  reason: invalid class name */
     /* loaded from: classes.dex */
-    public class AnonymousClass2 extends ThreadUtils.SimpleTask<Object> {
+    class AnonymousClass2 extends ThreadUtils.SimpleTask<Object> {
         @Override // com.blankj.utilcode.util.ThreadUtils.Task
         public void onSuccess(Object obj) {
         }
@@ -554,8 +553,7 @@ public class MainActivity extends BaseActivity {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ void lambda$onCreate$10() {
+    static /* synthetic */ void lambda$onCreate$10() {
         Timber.tag("StandBy").d("Init All PopupWindow", new Object[0]);
         PopupViewManager.getInstance().addAll();
     }
@@ -648,9 +646,8 @@ public class MainActivity extends BaseActivity {
         ScreenSaverUtil.getInstance(this).OnStart();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onResume() {
+    protected void onResume() {
         super.onResume();
         setPackageName();
         IGuardService iGuardService = this.mGuardService;
@@ -686,9 +683,8 @@ public class MainActivity extends BaseActivity {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.rigol.scope.BaseActivity, androidx.appcompat.app.AppCompatActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onDestroy() {
+    protected void onDestroy() {
         super.onDestroy();
         ServiceConnection serviceConnection = this.mGuardConn;
         if (serviceConnection != null) {
@@ -708,10 +704,9 @@ public class MainActivity extends BaseActivity {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.rigol.scope.MainActivity$7  reason: invalid class name */
     /* loaded from: classes.dex */
-    public class AnonymousClass7 extends IGuardListener.Stub {
+    class AnonymousClass7 extends IGuardListener.Stub {
         @Override // com.rigol.iguardservice.IGuardListener
         public void onMotorError() throws RemoteException {
         }

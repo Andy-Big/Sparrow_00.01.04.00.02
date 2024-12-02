@@ -20,6 +20,7 @@ import com.rigol.scope.utilities.ContextUtil;
 import com.rigol.scope.utilities.DragViewUtil;
 import com.rigol.scope.viewmodels.FftViewModel;
 import com.rigol.scope.viewmodels.SyncDataViewModel;
+
 /* loaded from: classes2.dex */
 public class MarkerView extends View {
     private boolean checked;

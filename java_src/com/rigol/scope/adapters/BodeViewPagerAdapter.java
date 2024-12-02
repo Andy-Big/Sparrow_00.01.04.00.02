@@ -46,6 +46,7 @@ import java.io.FileFilter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+
 /* loaded from: classes.dex */
 public class BodeViewPagerAdapter extends MultiItemTypeAdapter<List<MappingObject>> {
     View anchor;
@@ -90,9 +91,8 @@ public class BodeViewPagerAdapter extends MultiItemTypeAdapter<List<MappingObjec
         public void onViewIdCallback(KeyEvent keyEvent, int i, boolean z) {
         }
 
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.rigol.scope.adapters.AdapterDelegate
-        public /* bridge */ /* synthetic */ void onBindViewHolder(Object obj, int i, BaseViewHolder baseViewHolder) {
+        protected /* bridge */ /* synthetic */ void onBindViewHolder(Object obj, int i, BaseViewHolder baseViewHolder) {
             onBindViewHolder((List) obj, i, (BaseViewHolder<? extends ViewDataBinding>) baseViewHolder);
         }
 
@@ -255,6 +255,7 @@ public class BodeViewPagerAdapter extends MultiItemTypeAdapter<List<MappingObjec
             }
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.rigol.scope.adapters.AdapterDelegate
         public boolean isForViewType(List<MappingObject> list, int i) {
@@ -368,17 +369,15 @@ public class BodeViewPagerAdapter extends MultiItemTypeAdapter<List<MappingObjec
         BasePopupView popupView;
         private SpinnerAdapter spinnerAdapter;
 
-        /* JADX INFO: Access modifiers changed from: package-private */
-        public static /* synthetic */ void lambda$onBindViewHolder$1(int i, MappingObject mappingObject) {
+        static /* synthetic */ void lambda$onBindViewHolder$1(int i, MappingObject mappingObject) {
         }
 
         @Override // com.rigol.scope.utilities.AorBManager.OnTextReset
         public void onResetDefault(int i) {
         }
 
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.rigol.scope.adapters.AdapterDelegate
-        public /* bridge */ /* synthetic */ void onBindViewHolder(Object obj, int i, BaseViewHolder baseViewHolder) {
+        protected /* bridge */ /* synthetic */ void onBindViewHolder(Object obj, int i, BaseViewHolder baseViewHolder) {
             onBindViewHolder((List) obj, i, (BaseViewHolder<? extends ViewDataBinding>) baseViewHolder);
         }
 
@@ -589,6 +588,7 @@ public class BodeViewPagerAdapter extends MultiItemTypeAdapter<List<MappingObjec
             }
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.rigol.scope.adapters.AdapterDelegate
         public boolean isForViewType(List<MappingObject> list, int i) {
@@ -773,9 +773,8 @@ public class BodeViewPagerAdapter extends MultiItemTypeAdapter<List<MappingObjec
         public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
         }
 
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.rigol.scope.adapters.AdapterDelegate
-        public /* bridge */ /* synthetic */ void onBindViewHolder(Object obj, int i, BaseViewHolder baseViewHolder) {
+        protected /* bridge */ /* synthetic */ void onBindViewHolder(Object obj, int i, BaseViewHolder baseViewHolder) {
             onBindViewHolder((List) obj, i, (BaseViewHolder<? extends ViewDataBinding>) baseViewHolder);
         }
 
@@ -890,8 +889,7 @@ public class BodeViewPagerAdapter extends MultiItemTypeAdapter<List<MappingObjec
             }
         }
 
-        /* JADX INFO: Access modifiers changed from: package-private */
-        public static /* synthetic */ boolean lambda$onClick$1(ServiceEnum.enFileType enfiletype, File file) {
+        static /* synthetic */ boolean lambda$onClick$1(ServiceEnum.enFileType enfiletype, File file) {
             if (file != null) {
                 String path = file.getPath();
                 if (path.endsWith("." + enfiletype.value2) || file.isDirectory()) {
@@ -908,8 +906,7 @@ public class BodeViewPagerAdapter extends MultiItemTypeAdapter<List<MappingObjec
             }
         }
 
-        /* JADX INFO: Access modifiers changed from: package-private */
-        public static /* synthetic */ boolean lambda$onClick$3(ServiceEnum.enFileType enfiletype, File file) {
+        static /* synthetic */ boolean lambda$onClick$3(ServiceEnum.enFileType enfiletype, File file) {
             if (file != null) {
                 String path = file.getPath();
                 if (path.endsWith("." + enfiletype.value2) || file.isDirectory()) {
@@ -919,6 +916,7 @@ public class BodeViewPagerAdapter extends MultiItemTypeAdapter<List<MappingObjec
             return false;
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.rigol.scope.adapters.AdapterDelegate
         public boolean isForViewType(List<MappingObject> list, int i) {

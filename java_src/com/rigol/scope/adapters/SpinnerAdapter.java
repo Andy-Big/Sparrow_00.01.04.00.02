@@ -7,6 +7,7 @@ import com.rigol.scope.R;
 import com.rigol.scope.data.MappingObject;
 import com.rigol.scope.databinding.AdapterItemSpinnerBinding;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public class SpinnerAdapter extends BaseAdapter<List<MappingObject>> {
     private final int width;
@@ -20,6 +21,7 @@ public class SpinnerAdapter extends BaseAdapter<List<MappingObject>> {
         this.width = i;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.rigol.scope.adapters.MultiItemTypeAdapter, androidx.recyclerview.widget.RecyclerView.Adapter
     public BaseViewHolder<? extends ViewDataBinding> onCreateViewHolder(ViewGroup viewGroup, int i) {
         BaseViewHolder<? extends ViewDataBinding> onCreateViewHolder = super.onCreateViewHolder(viewGroup, i);
@@ -30,9 +32,8 @@ public class SpinnerAdapter extends BaseAdapter<List<MappingObject>> {
         return onCreateViewHolder;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.rigol.scope.adapters.BaseAdapter
-    public void convert(BaseViewHolder<? extends ViewDataBinding> baseViewHolder, List<MappingObject> list, int i) {
+    protected void convert(BaseViewHolder<? extends ViewDataBinding> baseViewHolder, List<MappingObject> list, int i) {
         AdapterItemSpinnerBinding adapterItemSpinnerBinding = (AdapterItemSpinnerBinding) baseViewHolder.getBinding();
         adapterItemSpinnerBinding.title.setText(list.get(i).getStr());
         if (i == getCurrentItem()) {

@@ -58,6 +58,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
+
 /* loaded from: classes2.dex */
 public class BaseWaveformView extends WindowContent {
     private List<DecodeParam> decodeParams;
@@ -113,9 +114,8 @@ public class BaseWaveformView extends WindowContent {
         init();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.rigol.scope.views.window.WindowContent, android.view.View
-    public void onSizeChanged(int i, final int i2, int i3, final int i4) {
+    protected void onSizeChanged(int i, final int i2, int i3, final int i4) {
         VerticalParam verticalParam;
         super.onSizeChanged(i, i2, i3, i4);
         if (i != i3) {
@@ -1536,6 +1536,7 @@ public class BaseWaveformView extends WindowContent {
         return (int) ((((float) (this.horizontalParam.getExpandGnd() - (-500))) / 1000) * i);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: updateTriggerPointTagPosition */
     public void lambda$addTriggerPointTag$46$BaseWaveformView(boolean z) {
         HorizontalParam horizontalParam = this.horizontalParam;

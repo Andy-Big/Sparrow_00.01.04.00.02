@@ -11,6 +11,7 @@ import androidx.databinding.ViewDataBinding;
 import androidx.recyclerview.widget.RecyclerView;
 import com.rigol.scope.R;
 import com.rigol.scope.data.MeasureSettingParam;
+
 /* loaded from: classes2.dex */
 public abstract class FragmentResultsBarBinding extends ViewDataBinding {
     @Bindable
@@ -22,8 +23,7 @@ public abstract class FragmentResultsBarBinding extends ViewDataBinding {
 
     public abstract void setParam(MeasureSettingParam measureSettingParam);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public FragmentResultsBarBinding(Object obj, View view, int i, ConstraintLayout constraintLayout, RecyclerView recyclerView, TextView textView, View view2) {
+    protected FragmentResultsBarBinding(Object obj, View view, int i, ConstraintLayout constraintLayout, RecyclerView recyclerView, TextView textView, View view2) {
         super(obj, view, i);
         this.resultLayout = constraintLayout;
         this.resultList = recyclerView;

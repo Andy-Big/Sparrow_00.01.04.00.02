@@ -34,6 +34,7 @@ import com.rigol.scope.views.trigger.TriggerPopupView;
 import com.rigol.util.ToastUtils;
 import java.util.ArrayList;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public class TriggerPatternAdapter extends RecyclerView.Adapter<TriggerPatternHolder> implements View.OnClickListener, CompoundButton.OnCheckedChangeListener, AorBManager.OnSetTextById, AorBManager.OnTextReset {
     private View anchorView;
@@ -87,6 +88,7 @@ public class TriggerPatternAdapter extends RecyclerView.Adapter<TriggerPatternHo
         this.serviceId = triggerParam.getServiceId();
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public TriggerPatternHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         this.binding = AdapterTriggerPatternBinding.inflate(LayoutInflater.from(viewGroup.getContext()), viewGroup, false);
@@ -162,6 +164,7 @@ public class TriggerPatternAdapter extends RecyclerView.Adapter<TriggerPatternHo
         }
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(TriggerPatternHolder triggerPatternHolder, int i) {
         ShowTriggerPattern();

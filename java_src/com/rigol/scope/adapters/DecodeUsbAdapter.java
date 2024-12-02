@@ -15,6 +15,7 @@ import com.rigol.scope.utilities.ViewUtil;
 import com.rigol.scope.views.keyboard.KeyboardListener;
 import com.rigol.scope.views.keyboard.KeyboardPopupView;
 import com.rigol.scope.views.spinner.PopupSpinner;
+
 /* loaded from: classes.dex */
 public class DecodeUsbAdapter extends RecyclerView.Adapter<DecodeUsbHolder> implements RadioGroup.OnCheckedChangeListener, View.OnClickListener {
     private final View anchorView;
@@ -32,12 +33,14 @@ public class DecodeUsbAdapter extends RecyclerView.Adapter<DecodeUsbHolder> impl
         this.anchorView = view;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public DecodeUsbHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         this.binding = AdapterDecodeUsbBinding.inflate(LayoutInflater.from(viewGroup.getContext()), viewGroup, false);
         return new DecodeUsbHolder(this.binding);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(DecodeUsbHolder decodeUsbHolder, int i) {
         this.binding.setUsbLowMapping(ViewUtil.getMappingObject(R.array.msg_decode_usb_rate, 0));

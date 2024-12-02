@@ -18,6 +18,7 @@ import com.rigol.scope.utilities.ColorUtil;
 import com.rigol.scope.utilities.ContextUtil;
 import com.rigol.scope.utilities.UnitFormat;
 import com.rigol.scope.utilities.ViewUtil;
+
 /* loaded from: classes2.dex */
 public class AdapterItemRtsaBindingImpl extends AdapterItemRtsaBinding {
     private static final ViewDataBinding.IncludedLayouts sIncludes = null;

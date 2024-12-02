@@ -27,6 +27,7 @@ import com.rigol.scope.views.keyboard.KeyboardPopupView;
 import com.rigol.scope.views.spinner.PopupSpinner;
 import java.util.ArrayList;
 import java.util.List;
+
 /* loaded from: classes2.dex */
 public class DvmSettingPopupView extends BaseDeletePopupView implements CompoundButton.OnCheckedChangeListener, AorBManager.OnSetTextById, AorBManager.OnTextReset {
     private AorBManager aorBManager;

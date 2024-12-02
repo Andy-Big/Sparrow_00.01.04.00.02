@@ -28,6 +28,7 @@ import com.rigol.scope.views.search.SearchPopupView;
 import com.rigol.scope.views.spinner.PopupSpinner;
 import java.util.ArrayList;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public class SearchPulseAdapter extends RecyclerView.Adapter<AdapterSearchTriggerPulseHolder> implements View.OnClickListener, AorBManager.OnSetTextById, AorBManager.OnTextReset {
     private View anchor;
@@ -51,6 +52,7 @@ public class SearchPulseAdapter extends RecyclerView.Adapter<AdapterSearchTrigge
         return 1;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(AdapterSearchTriggerPulseHolder adapterSearchTriggerPulseHolder, int i) {
     }
@@ -81,6 +83,7 @@ public class SearchPulseAdapter extends RecyclerView.Adapter<AdapterSearchTrigge
         this.searchParam = searchParam;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public AdapterSearchTriggerPulseHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         this.binding = AdapterSearchTriggerPulseBindingImpl.inflate(LayoutInflater.from(viewGroup.getContext()));

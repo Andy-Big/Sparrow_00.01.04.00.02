@@ -21,6 +21,7 @@ import com.rigol.scope.data.HorizontalParam;
 import com.rigol.scope.data.MappingObject;
 import com.rigol.scope.utilities.ContextUtil;
 import com.rigol.scope.views.SwitchButton;
+
 /* loaded from: classes2.dex */
 public class AdapterRtsaPeakBindingImpl extends AdapterRtsaPeakBinding {
     private static final ViewDataBinding.IncludedLayouts sIncludes = null;

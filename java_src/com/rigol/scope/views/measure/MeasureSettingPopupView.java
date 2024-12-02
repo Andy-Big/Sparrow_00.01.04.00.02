@@ -45,6 +45,7 @@ import com.rigol.scope.views.spinner.PopupSpinner;
 import com.rigol.util.ToastUtils;
 import java.util.ArrayList;
 import java.util.List;
+
 /* loaded from: classes2.dex */
 public class MeasureSettingPopupView extends BaseDeletePopupView implements RadioGroup.OnCheckedChangeListener, AorBManager.OnSetTextById, AorBManager.OnTextReset {
     private AorBManager aorBManager;
@@ -160,6 +161,7 @@ public class MeasureSettingPopupView extends BaseDeletePopupView implements Radi
         HorizontalViewModel horizontalViewModel = (HorizontalViewModel) ContextUtil.getAppViewModel(HorizontalViewModel.class);
         if (horizontalViewModel != null) {
             horizontalViewModel.getLiveData().observe((LifecycleOwner) ActivityUtils.getTopActivity(), new Observer<HorizontalParam>() { // from class: com.rigol.scope.views.measure.MeasureSettingPopupView.2
+                /* JADX DEBUG: Method merged with bridge method */
                 @Override // androidx.lifecycle.Observer
                 public void onChanged(HorizontalParam horizontalParam) {
                     MeasureSettingPopupView.this.binding.setHorizontal(horizontalParam);
@@ -403,10 +405,9 @@ public class MeasureSettingPopupView extends BaseDeletePopupView implements Radi
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.rigol.scope.views.measure.MeasureSettingPopupView$3  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public class AnonymousClass3 implements View.OnClickListener {
+    class AnonymousClass3 implements View.OnClickListener {
         AnonymousClass3() {
         }
 
@@ -721,9 +722,8 @@ public class MeasureSettingPopupView extends BaseDeletePopupView implements Radi
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.rigol.scope.views.baseview.BasePopupView
-    public void onPrepare() {
+    protected void onPrepare() {
         super.onPrepare();
         setStatChecked();
     }

@@ -12,6 +12,7 @@ import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import com.rigol.scope.R;
 import com.rigol.scope.data.UtilityParam;
+
 /* loaded from: classes2.dex */
 public abstract class ActivityScreenSaverBinding extends ViewDataBinding {
     public final LinearLayout IdleTimeLL;
@@ -23,8 +24,7 @@ public abstract class ActivityScreenSaverBinding extends ViewDataBinding {
 
     public abstract void setParam(UtilityParam utilityParam);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public ActivityScreenSaverBinding(Object obj, View view, int i, LinearLayout linearLayout, ImageView imageView, RelativeLayout relativeLayout, TextView textView) {
+    protected ActivityScreenSaverBinding(Object obj, View view, int i, LinearLayout linearLayout, ImageView imageView, RelativeLayout relativeLayout, TextView textView) {
         super(obj, view, i);
         this.IdleTimeLL = linearLayout;
         this.mainAdBackground = imageView;

@@ -4,6 +4,7 @@ import androidx.databinding.Bindable;
 import com.rigol.scope.cil.ServiceEnum;
 import com.rigol.scope.utilities.ContextUtil;
 import com.rigol.scope.viewmodels.CursorViewModel;
+
 /* loaded from: classes2.dex */
 public class MiniScreenParam extends BaseParam {
     private static final String DEFAULT_TOP_LEFT_STRING = "Scale";

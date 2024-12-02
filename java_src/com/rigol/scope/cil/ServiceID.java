@@ -1,4 +1,5 @@
 package com.rigol.scope.cil;
+
 /* loaded from: classes2.dex */
 public class ServiceID {
     public static final int E_SERVICE_ID_AFG = 63;

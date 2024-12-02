@@ -5,6 +5,7 @@ import android.view.ViewGroup;
 import androidx.databinding.ViewDataBinding;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public class MultiItemTypeAdapter<T extends List<?>> extends RecyclerView.Adapter<BaseViewHolder<? extends ViewDataBinding>> {
     private static final int DEFAULT_SELECTED_POSITION = 0;
@@ -37,6 +38,7 @@ public class MultiItemTypeAdapter<T extends List<?>> extends RecyclerView.Adapte
         return this.delegatesManager.getItemViewType(this.items, i);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public BaseViewHolder<? extends ViewDataBinding> onCreateViewHolder(ViewGroup viewGroup, int i) {
@@ -56,6 +58,7 @@ public class MultiItemTypeAdapter<T extends List<?>> extends RecyclerView.Adapte
         return onCreateViewHolder;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(BaseViewHolder<? extends ViewDataBinding> baseViewHolder, int i) {
         this.delegatesManager.onBindViewHolder(this.items, i, baseViewHolder);

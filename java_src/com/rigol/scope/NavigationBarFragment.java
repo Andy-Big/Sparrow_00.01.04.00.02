@@ -54,6 +54,7 @@ import com.rigol.util.ToastUtils;
 import java.util.List;
 import kotlin.jvm.functions.Function1;
 import timber.log.Timber;
+
 /* loaded from: classes.dex */
 public class NavigationBarFragment extends BaseFragment {
     private static final int GET_TRIGGER_STATUS_DELAY_TIME = 500;
@@ -455,6 +456,7 @@ public class NavigationBarFragment extends BaseFragment {
             }
         });
         this.updateUIViewModel.get(11, MessageID.MSG_APP_SW_WORK_MODE).observe(getViewLifecycleOwner(), new Observer<Boolean>() { // from class: com.rigol.scope.NavigationBarFragment.5
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // androidx.lifecycle.Observer
             public void onChanged(Boolean bool) {
                 if (API.getInstance().UI_QueryInt32(11, MessageID.MSG_APP_SW_WORK_MODE) == 2) {

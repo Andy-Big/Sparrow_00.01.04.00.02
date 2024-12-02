@@ -13,6 +13,7 @@ import androidx.databinding.ViewDataBinding;
 import com.rigol.scope.R;
 import com.rigol.scope.data.StorageSaveParam;
 import com.rigol.scope.views.SwitchButton;
+
 /* loaded from: classes2.dex */
 public abstract class AdapterUtilityQuickScreenshotBinding extends ViewDataBinding {
     public final ConstraintLayout colorLayout;
@@ -31,8 +32,7 @@ public abstract class AdapterUtilityQuickScreenshotBinding extends ViewDataBindi
 
     public abstract void setParam(StorageSaveParam storageSaveParam);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public AdapterUtilityQuickScreenshotBinding(Object obj, View view, int i, ConstraintLayout constraintLayout, ConstraintLayout constraintLayout2, RadioButton radioButton, RadioButton radioButton2, RadioButton radioButton3, RadioGroup radioGroup, SwitchButton switchButton, SwitchButton switchButton2, TextView textView, TextView textView2, TextView textView3) {
+    protected AdapterUtilityQuickScreenshotBinding(Object obj, View view, int i, ConstraintLayout constraintLayout, ConstraintLayout constraintLayout2, RadioButton radioButton, RadioButton radioButton2, RadioButton radioButton3, RadioGroup radioGroup, SwitchButton switchButton, SwitchButton switchButton2, TextView textView, TextView textView2, TextView textView3) {
         super(obj, view, i);
         this.colorLayout = constraintLayout;
         this.inverseLayout = constraintLayout2;

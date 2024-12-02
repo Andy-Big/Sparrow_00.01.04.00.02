@@ -37,6 +37,7 @@ import com.rigol.scope.views.spinner.PopupSpinner;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+
 /* loaded from: classes2.dex */
 public class XYPopupView extends BasePopupView implements SeekBar.OnSeekBarChangeListener, CompoundButton.OnCheckedChangeListener, RadioGroup.OnCheckedChangeListener, View.OnClickListener {
     private AorBManager aorBManager;

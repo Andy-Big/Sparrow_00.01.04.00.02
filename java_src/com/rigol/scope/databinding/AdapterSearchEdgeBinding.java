@@ -14,6 +14,7 @@ import androidx.databinding.ViewDataBinding;
 import com.rigol.scope.R;
 import com.rigol.scope.data.MappingObject;
 import com.rigol.scope.data.SearchParam;
+
 /* loaded from: classes2.dex */
 public abstract class AdapterSearchEdgeBinding extends ViewDataBinding {
     public final RadioButton edgeEitherRadioButton;
@@ -43,8 +44,7 @@ public abstract class AdapterSearchEdgeBinding extends ViewDataBinding {
 
     public abstract void setParam(SearchParam searchParam);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public AdapterSearchEdgeBinding(Object obj, View view, int i, RadioButton radioButton, RadioButton radioButton2, RadioButton radioButton3, ImageView imageView, TextView textView, RadioGroup radioGroup, TextView textView2, TextView textView3, TextView textView4, EditText editText) {
+    protected AdapterSearchEdgeBinding(Object obj, View view, int i, RadioButton radioButton, RadioButton radioButton2, RadioButton radioButton3, ImageView imageView, TextView textView, RadioGroup radioGroup, TextView textView2, TextView textView3, TextView textView4, EditText editText) {
         super(obj, view, i);
         this.edgeEitherRadioButton = radioButton;
         this.edgeFallingRadioButton = radioButton2;

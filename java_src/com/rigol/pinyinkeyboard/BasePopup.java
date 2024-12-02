@@ -20,6 +20,7 @@ import com.blankj.utilcode.util.CollectionUtils;
 import com.rigol.pinyinkeyboard.BasePopup;
 import java.util.ArrayList;
 import java.util.Iterator;
+
 /* loaded from: classes.dex */
 public abstract class BasePopup<T extends BasePopup> implements PopupWindow.OnDismissListener {
     private static final float DEFAULT_DIM = 0.7f;
@@ -70,8 +71,7 @@ public abstract class BasePopup<T extends BasePopup> implements PopupWindow.OnDi
         KEYBOARD
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ boolean lambda$onPopupWindowViewCreated$0(View view, int i, KeyEvent keyEvent) {
+    static /* synthetic */ boolean lambda$onPopupWindowViewCreated$0(View view, int i, KeyEvent keyEvent) {
         return false;
     }
 

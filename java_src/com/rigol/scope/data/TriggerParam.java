@@ -26,6 +26,7 @@ import com.rigol.scope.viewmodels.PanelKeyViewModel;
 import com.rigol.scope.viewmodels.VerticalViewModel;
 import java.util.ArrayList;
 import timber.log.Timber;
+
 /* loaded from: classes2.dex */
 public class TriggerParam extends BaseParam {
     private static final int DEFAULT_CAN_BYTR_COUNT = 1;

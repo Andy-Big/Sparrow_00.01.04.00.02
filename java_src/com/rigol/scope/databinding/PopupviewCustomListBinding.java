@@ -7,12 +7,12 @@ import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import androidx.recyclerview.widget.RecyclerView;
 import com.rigol.scope.R;
+
 /* loaded from: classes2.dex */
 public abstract class PopupviewCustomListBinding extends ViewDataBinding {
     public final RecyclerView recyclerView;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public PopupviewCustomListBinding(Object obj, View view, int i, RecyclerView recyclerView) {
+    protected PopupviewCustomListBinding(Object obj, View view, int i, RecyclerView recyclerView) {
         super(obj, view, i);
         this.recyclerView = recyclerView;
     }

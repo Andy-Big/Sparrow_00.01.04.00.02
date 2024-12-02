@@ -5,6 +5,7 @@ import android.os.Build;
 import android.widget.EditText;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+
 /* loaded from: classes.dex */
 public class TypeWritingUtils {
     public static final int CHINESE_INPUT_NO_START = 1000000;

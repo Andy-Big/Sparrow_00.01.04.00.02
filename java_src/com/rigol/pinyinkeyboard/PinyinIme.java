@@ -5,6 +5,7 @@ import android.content.res.AssetFileDescriptor;
 import android.content.res.AssetManager;
 import android.util.Log;
 import java.io.IOException;
+
 /* loaded from: classes.dex */
 public class PinyinIme {
     private static final String TAG = "[PinyinIme]";

@@ -1,5 +1,6 @@
 package com.rigol.scope.databinding;
 
+import android.graphics.drawable.Drawable;
 import android.support.v4.media.session.PlaybackStateCompat;
 import android.util.SparseIntArray;
 import android.view.View;
@@ -13,12 +14,21 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.Guideline;
 import androidx.databinding.DataBindingComponent;
 import androidx.databinding.ViewDataBinding;
+import androidx.databinding.adapters.CompoundButtonBindingAdapter;
+import androidx.databinding.adapters.ImageViewBindingAdapter;
+import androidx.databinding.adapters.SeekBarBindingAdapter;
+import androidx.databinding.adapters.TextViewBindingAdapter;
 import com.rigol.scope.R;
+import com.rigol.scope.cil.ServiceEnum;
 import com.rigol.scope.data.MappingObject;
 import com.rigol.scope.data.TriggerParam;
+import com.rigol.scope.utilities.ColorUtil;
+import com.rigol.scope.utilities.UnitFormat;
+import com.rigol.scope.utilities.ViewUtil;
 import com.rigol.scope.views.SwitchButton;
 import com.rigol.scope.views.vertical.VerticalSeekBar;
 import com.rigol.scope.views.vertical.VerticalSeekBarWrapper;
+
 /* loaded from: classes2.dex */
 public class AdapterTriggerEdgeBindingImpl extends AdapterTriggerEdgeBinding {
     private static final ViewDataBinding.IncludedLayouts sIncludes = null;
@@ -427,13 +437,453 @@ public class AdapterTriggerEdgeBindingImpl extends AdapterTriggerEdgeBinding {
     @Override // androidx.databinding.ViewDataBinding
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
     protected void executeBindings() {
-        /*
-            Method dump skipped, instructions count: 1065
-            To view this dump add '--comments-level debug' option
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.rigol.scope.databinding.AdapterTriggerEdgeBindingImpl.executeBindings():void");
+        long j;
+        float f;
+        ServiceEnum.Chan chan;
+        String str;
+        String str2;
+        String str3;
+        String str4;
+        Drawable drawable;
+        int i;
+        boolean z;
+        boolean z2;
+        int i2;
+        boolean z3;
+        boolean z4;
+        boolean z5;
+        boolean z6;
+        boolean z7;
+        boolean z8;
+        int i3;
+        boolean z9;
+        String str5;
+        boolean z10;
+        int i4;
+        float f2;
+        boolean z11;
+        String str6;
+        long j2;
+        long j3;
+        String str7;
+        float f3;
+        String str8;
+        ServiceEnum.Chan chan2;
+        boolean z12;
+        int i5;
+        boolean z13;
+        int i6;
+        String str9;
+        float f4;
+        boolean z14;
+        boolean z15;
+        boolean z16;
+        boolean z17;
+        boolean z18;
+        String str10;
+        String str11;
+        boolean z19;
+        String str12;
+        String str13;
+        long j4;
+        long j5;
+        int i7;
+        long j6;
+        long j7;
+        synchronized (this) {
+            j = this.mDirtyFlags;
+            this.mDirtyFlags = 0L;
+        }
+        TriggerParam triggerParam = this.mParam;
+        MappingObject mappingObject = this.mSweepAutoMapping;
+        MappingObject mappingObject2 = this.mEdgeRisingMapping;
+        MappingObject mappingObject3 = this.mSweepSingleMapping;
+        MappingObject mappingObject4 = this.mSweepNormalMapping;
+        MappingObject mappingObject5 = this.mEdgeEitherMapping;
+        MappingObject mappingObject6 = this.mEdgeFallingMapping;
+        String str14 = null;
+        if ((34078215 & j) != 0) {
+            if ((j & 33559045) != 0) {
+                ServiceEnum.Coupling coupling = triggerParam != null ? triggerParam.getCoupling() : null;
+                MappingObject mappingObject7 = ViewUtil.getMappingObject(R.array.msg_trigger_coupling, coupling != null ? coupling.value1 : 0);
+                updateRegistration(0, mappingObject7);
+                if (mappingObject7 != null) {
+                    str7 = mappingObject7.getStr();
+                    if ((j & 33557510) == 0) {
+                        chan2 = triggerParam != null ? triggerParam.getChan() : null;
+                        MappingObject mappingObject8 = ViewUtil.getMappingObject(R.array.msg_trigger_source_la_ext_ac, chan2 != null ? chan2.value1 : 0);
+                        updateRegistration(1, mappingObject8);
+                        str8 = mappingObject8 != null ? mappingObject8.getStr() : null;
+                        int i8 = ((j & 33556484) > 0L ? 1 : ((j & 33556484) == 0L ? 0 : -1));
+                        if (i8 != 0) {
+                            i5 = ColorUtil.getColor(getRoot().getContext(), chan2);
+                            z12 = chan2 == ServiceEnum.Chan.acline;
+                            if (i8 != 0) {
+                                if (z12) {
+                                    j6 = j | 536870912 | 2147483648L | 8589934592L;
+                                    j7 = 34359738368L;
+                                } else {
+                                    j6 = j | 268435456 | 1073741824 | 4294967296L;
+                                    j7 = 17179869184L;
+                                }
+                                j = j6 | j7;
+                            }
+                            f3 = z12 ? 0.5f : 1.0f;
+                            z13 = !z12;
+                            if (z12) {
+                                i6 = 4;
+                                if ((j & 33587204) == 0) {
+                                    if (triggerParam != null) {
+                                        f4 = f3;
+                                        str9 = str8;
+                                        i7 = triggerParam.getNMode();
+                                    } else {
+                                        str9 = str8;
+                                        f4 = f3;
+                                        i7 = 0;
+                                    }
+                                    boolean z20 = i7 == ServiceEnum.TriggerSweep.Trigger_Sweep_Normal.value1;
+                                    z16 = i7 == ServiceEnum.TriggerSweep.Trigger_Sweep_Single.value1;
+                                    z14 = i7 == ServiceEnum.TriggerSweep.Trigger_Sweep_Auto.value1;
+                                    z15 = z20;
+                                } else {
+                                    str9 = str8;
+                                    f4 = f3;
+                                    z14 = false;
+                                    z15 = false;
+                                    z16 = false;
+                                }
+                                if ((j & 33816580) == 0) {
+                                    if (triggerParam != null) {
+                                        z17 = z14;
+                                        z18 = z15;
+                                        j5 = triggerParam.getLevel();
+                                    } else {
+                                        z17 = z14;
+                                        z18 = z15;
+                                        j5 = 0;
+                                    }
+                                    if (triggerParam != null) {
+                                        str10 = triggerParam.getTriggerLevelStr(j5);
+                                        boolean isNoise = ((j & 33570820) != 0 || triggerParam == null) ? false : triggerParam.getIsNoise();
+                                        if ((j & 33562628) != 0) {
+                                            if (triggerParam != null) {
+                                                str11 = str10;
+                                                z19 = isNoise;
+                                                j4 = triggerParam.getHoldOff();
+                                            } else {
+                                                str11 = str10;
+                                                z19 = isNoise;
+                                                j4 = 0;
+                                            }
+                                            str12 = str7;
+                                            z8 = z12;
+                                            str13 = UnitFormat.newBuilder(UnitFormat.SI.FEMTO).convert(j4, ServiceEnum.Unit.Unit_s);
+                                        } else {
+                                            str11 = str10;
+                                            z19 = isNoise;
+                                            str12 = str7;
+                                            z8 = z12;
+                                            str13 = null;
+                                        }
+                                        int progress = ((j & 33685508) != 0 || triggerParam == null) ? 0 : triggerParam.getProgress();
+                                        if ((j & 33619972) != 0) {
+                                            ServiceEnum.EdgeSlope edgeSlope = triggerParam != null ? triggerParam.getEdgeSlope() : null;
+                                            boolean z21 = edgeSlope == ServiceEnum.EdgeSlope.Trigger_Edge_Any;
+                                            long j8 = j;
+                                            boolean z22 = edgeSlope == ServiceEnum.EdgeSlope.Trigger_Edge_Rising;
+                                            boolean z23 = edgeSlope == ServiceEnum.EdgeSlope.Trigger_Edge_Falling;
+                                            i3 = progress;
+                                            z2 = z17;
+                                            z9 = z19;
+                                            drawable = ViewUtil.getTriggerEdgePic(edgeSlope);
+                                            i = i5;
+                                            f = f4;
+                                            z3 = z16;
+                                            str4 = str12;
+                                            z5 = z22;
+                                            i2 = i6;
+                                            str2 = str11;
+                                            z7 = z21;
+                                            chan = chan2;
+                                            z4 = z18;
+                                            z6 = z23;
+                                            j = j8;
+                                        } else {
+                                            i3 = progress;
+                                            i = i5;
+                                            chan = chan2;
+                                            i2 = i6;
+                                            z2 = z17;
+                                            z3 = z16;
+                                            z4 = z18;
+                                            str2 = str11;
+                                            z9 = z19;
+                                            z5 = false;
+                                            z6 = false;
+                                            z7 = false;
+                                            drawable = null;
+                                            f = f4;
+                                            str4 = str12;
+                                        }
+                                        String str15 = str9;
+                                        str3 = str13;
+                                        z = z13;
+                                        str = str15;
+                                    }
+                                } else {
+                                    z17 = z14;
+                                    z18 = z15;
+                                }
+                                str10 = null;
+                                if ((j & 33570820) != 0) {
+                                }
+                                if ((j & 33562628) != 0) {
+                                }
+                                if ((j & 33685508) != 0) {
+                                }
+                                if ((j & 33619972) != 0) {
+                                }
+                                String str152 = str9;
+                                str3 = str13;
+                                z = z13;
+                                str = str152;
+                            }
+                            i6 = 0;
+                            if ((j & 33587204) == 0) {
+                            }
+                            if ((j & 33816580) == 0) {
+                            }
+                            str10 = null;
+                            if ((j & 33570820) != 0) {
+                            }
+                            if ((j & 33562628) != 0) {
+                            }
+                            if ((j & 33685508) != 0) {
+                            }
+                            if ((j & 33619972) != 0) {
+                            }
+                            String str1522 = str9;
+                            str3 = str13;
+                            z = z13;
+                            str = str1522;
+                        } else {
+                            f3 = 0.0f;
+                        }
+                    } else {
+                        f3 = 0.0f;
+                        str8 = null;
+                        chan2 = null;
+                    }
+                    z12 = false;
+                    i5 = 0;
+                    z13 = false;
+                    i6 = 0;
+                    if ((j & 33587204) == 0) {
+                    }
+                    if ((j & 33816580) == 0) {
+                    }
+                    str10 = null;
+                    if ((j & 33570820) != 0) {
+                    }
+                    if ((j & 33562628) != 0) {
+                    }
+                    if ((j & 33685508) != 0) {
+                    }
+                    if ((j & 33619972) != 0) {
+                    }
+                    String str15222 = str9;
+                    str3 = str13;
+                    z = z13;
+                    str = str15222;
+                }
+            }
+            str7 = null;
+            if ((j & 33557510) == 0) {
+            }
+            z12 = false;
+            i5 = 0;
+            z13 = false;
+            i6 = 0;
+            if ((j & 33587204) == 0) {
+            }
+            if ((j & 33816580) == 0) {
+            }
+            str10 = null;
+            if ((j & 33570820) != 0) {
+            }
+            if ((j & 33562628) != 0) {
+            }
+            if ((j & 33685508) != 0) {
+            }
+            if ((j & 33619972) != 0) {
+            }
+            String str152222 = str9;
+            str3 = str13;
+            z = z13;
+            str = str152222;
+        } else {
+            f = 0.0f;
+            chan = null;
+            str = null;
+            str2 = null;
+            str3 = null;
+            str4 = null;
+            drawable = null;
+            i = 0;
+            z = false;
+            z2 = false;
+            i2 = 0;
+            z3 = false;
+            z4 = false;
+            z5 = false;
+            z6 = false;
+            z7 = false;
+            z8 = false;
+            i3 = 0;
+            z9 = false;
+        }
+        String str16 = ((j & 34078728) == 0 || mappingObject == null) ? null : mappingObject.getStr();
+        String str17 = ((j & 34603024) == 0 || mappingObject2 == null) ? null : mappingObject2.getStr();
+        String str18 = ((j & 35651616) == 0 || mappingObject3 == null) ? null : mappingObject3.getStr();
+        String str19 = ((j & 37748800) == 0 || mappingObject4 == null) ? null : mappingObject4.getStr();
+        String str20 = ((j & 41943168) == 0 || mappingObject5 == null) ? null : mappingObject5.getStr();
+        if ((j & 50331904) != 0 && mappingObject6 != null) {
+            str14 = mappingObject6.getStr();
+        }
+        String str21 = str14;
+        if ((j & 4294967296L) != 0) {
+            str5 = str18;
+            if (chan == ServiceEnum.Chan.ext) {
+                z10 = true;
+                i4 = ((j & 33556484) > 0L ? 1 : ((j & 33556484) == 0L ? 0 : -1));
+                if (i4 == 0) {
+                    if (z8) {
+                        z10 = true;
+                    }
+                    if (i4 != 0) {
+                        if (z10) {
+                            j2 = j | 134217728;
+                            j3 = 137438953472L;
+                        } else {
+                            j2 = j | 67108864;
+                            j3 = 68719476736L;
+                        }
+                        j = j2 | j3;
+                    }
+                    z11 = !z10;
+                    f2 = z10 ? 0.5f : 1.0f;
+                } else {
+                    f2 = 0.0f;
+                    z11 = false;
+                }
+                if ((j & 33587204) == 0) {
+                    str6 = str19;
+                    CompoundButtonBindingAdapter.setChecked(this.autoRadioButton, z2);
+                    CompoundButtonBindingAdapter.setChecked(this.normalRadioButton, z4);
+                    CompoundButtonBindingAdapter.setChecked(this.singleRadioButton, z3);
+                } else {
+                    str6 = str19;
+                }
+                if ((j & 34078728) != 0) {
+                    TextViewBindingAdapter.setText(this.autoRadioButton, str16);
+                }
+                if ((j & 33556484) != 0) {
+                    this.buttonLevel.setVisibility(i2);
+                    this.triggerCoupling.setEnabled(z11);
+                    this.triggerLevel.setVisibility(i2);
+                    this.triggerLevelValue.setVisibility(i2);
+                    this.triggerLevelView.setVisibility(i2);
+                    this.triggerNoiseSwitch.setEnabled(z);
+                    this.triggerSource.setTextColor(i);
+                    if (getBuildSdkInt() >= 11) {
+                        this.triggerCoupling.setAlpha(f2);
+                        this.triggerCouplingLabel.setAlpha(f2);
+                        float f5 = f;
+                        this.triggerNoiseLabel.setAlpha(f5);
+                        this.triggerNoiseSwitch.setAlpha(f5);
+                    }
+                }
+                if ((33619972 & j) != 0) {
+                    CompoundButtonBindingAdapter.setChecked(this.edgeEither, z7);
+                    CompoundButtonBindingAdapter.setChecked(this.edgeFalling, z6);
+                    CompoundButtonBindingAdapter.setChecked(this.edgeRising, z5);
+                    ImageViewBindingAdapter.setImageDrawable(this.edgeSlopeImageButton, drawable);
+                }
+                if ((j & 41943168) != 0) {
+                    TextViewBindingAdapter.setText(this.edgeEither, str20);
+                }
+                if ((j & 50331904) != 0) {
+                    TextViewBindingAdapter.setText(this.edgeFalling, str21);
+                }
+                if ((j & 34603024) != 0) {
+                    TextViewBindingAdapter.setText(this.edgeRising, str17);
+                }
+                if ((j & 37748800) != 0) {
+                    TextViewBindingAdapter.setText(this.normalRadioButton, str6);
+                }
+                if ((j & 35651616) != 0) {
+                    TextViewBindingAdapter.setText(this.singleRadioButton, str5);
+                }
+                if ((j & 33559045) != 0) {
+                    TextViewBindingAdapter.setText(this.triggerCoupling, str4);
+                }
+                if ((j & 33562628) != 0) {
+                    TextViewBindingAdapter.setText(this.triggerHoldoff, str3);
+                }
+                if ((j & 33816580) != 0) {
+                    TextViewBindingAdapter.setText(this.triggerLevelValue, str2);
+                }
+                if ((j & 33685508) != 0) {
+                    SeekBarBindingAdapter.setProgress(this.triggerLevelView, i3);
+                }
+                if ((j & 33570820) != 0) {
+                    CompoundButtonBindingAdapter.setChecked(this.triggerNoiseSwitch, z9);
+                }
+                if ((j & 33557510) == 0) {
+                    TextViewBindingAdapter.setText(this.triggerSource, str);
+                    return;
+                }
+                return;
+            }
+        } else {
+            str5 = str18;
+        }
+        z10 = false;
+        i4 = ((j & 33556484) > 0L ? 1 : ((j & 33556484) == 0L ? 0 : -1));
+        if (i4 == 0) {
+        }
+        if ((j & 33587204) == 0) {
+        }
+        if ((j & 34078728) != 0) {
+        }
+        if ((j & 33556484) != 0) {
+        }
+        if ((33619972 & j) != 0) {
+        }
+        if ((j & 41943168) != 0) {
+        }
+        if ((j & 50331904) != 0) {
+        }
+        if ((j & 34603024) != 0) {
+        }
+        if ((j & 37748800) != 0) {
+        }
+        if ((j & 35651616) != 0) {
+        }
+        if ((j & 33559045) != 0) {
+        }
+        if ((j & 33562628) != 0) {
+        }
+        if ((j & 33816580) != 0) {
+        }
+        if ((j & 33685508) != 0) {
+        }
+        if ((j & 33570820) != 0) {
+        }
+        if ((j & 33557510) == 0) {
+        }
     }
 }

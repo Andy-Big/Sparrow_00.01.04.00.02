@@ -65,6 +65,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
 import timber.log.Timber;
+
 /* loaded from: classes2.dex */
 public class DiskManagePopupView extends BasePopupView implements View.OnClickListener {
     private final int MSG_COPY;
@@ -87,10 +88,9 @@ public class DiskManagePopupView extends BasePopupView implements View.OnClickLi
         void onFolderSelected(String str);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.rigol.scope.views.diskManage.DiskManagePopupView$2  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public class AnonymousClass2 implements Handler.Callback {
+    class AnonymousClass2 implements Handler.Callback {
         AnonymousClass2() {
         }
 
@@ -203,10 +203,9 @@ public class DiskManagePopupView extends BasePopupView implements View.OnClickLi
         this.param.setCallback(new AnonymousClass3());
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.rigol.scope.views.diskManage.DiskManagePopupView$3  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public class AnonymousClass3 implements DiskManageParam.Callback {
+    class AnonymousClass3 implements DiskManageParam.Callback {
         AnonymousClass3() {
         }
 
@@ -476,6 +475,7 @@ public class DiskManagePopupView extends BasePopupView implements View.OnClickLi
                         }
                     }
 
+                    /* JADX DEBUG: Method merged with bridge method */
                     @Override // com.rigol.scope.adapters.MultiItemTypeAdapter, androidx.recyclerview.widget.RecyclerView.Adapter
                     public BaseViewHolder<? extends ViewDataBinding> onCreateViewHolder(ViewGroup viewGroup, int i2) {
                         BaseViewHolder<? extends ViewDataBinding> onCreateViewHolder = super.onCreateViewHolder(viewGroup, i2);
@@ -537,6 +537,7 @@ public class DiskManagePopupView extends BasePopupView implements View.OnClickLi
         AnonymousClass4() {
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // com.blankj.utilcode.util.ThreadUtils.Task
         public Boolean doInBackground() throws Throwable {
             StorageSaveParam value;
@@ -556,6 +557,7 @@ public class DiskManagePopupView extends BasePopupView implements View.OnClickLi
             return Boolean.valueOf(z);
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // com.blankj.utilcode.util.ThreadUtils.Task
         public void onSuccess(Boolean bool) {
             if (bool.booleanValue()) {
@@ -569,9 +571,8 @@ public class DiskManagePopupView extends BasePopupView implements View.OnClickLi
             }
         }
 
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.blankj.utilcode.util.ThreadUtils.Task
-        public void onDone() {
+        protected void onDone() {
             super.onDone();
             PopupViewManager.getInstance().dismiss(DeletingLoading.class);
             DiskManagePopupView.this.param.reset();
@@ -579,8 +580,7 @@ public class DiskManagePopupView extends BasePopupView implements View.OnClickLi
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ void lambda$onClick$4(BasePopupView basePopupView, ThreadUtils.SimpleTask simpleTask, View view) {
+    static /* synthetic */ void lambda$onClick$4(BasePopupView basePopupView, ThreadUtils.SimpleTask simpleTask, View view) {
         basePopupView.dismiss();
         simpleTask.cancel();
     }
@@ -633,8 +633,7 @@ public class DiskManagePopupView extends BasePopupView implements View.OnClickLi
         this.param.loadFiles();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ void lambda$onClick$10(View view) {
+    static /* synthetic */ void lambda$onClick$10(View view) {
         PopupViewManager.getInstance().toggle(DeletingLoading.class);
         API.getInstance().UI_PostInt32(12, MessageID.MSG_STORAGE_FILE_PROC, ServiceEnum.StorageFunc.FUNC_SECURITYCLEAR.value1);
         API.getInstance().UI_PostInt32(12, MessageID.MSG_STORAGE_SECURITYCLEAR, 0);
@@ -692,6 +691,7 @@ public class DiskManagePopupView extends BasePopupView implements View.OnClickLi
             String curFilePath;
             long srcFileSize;
 
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // com.blankj.utilcode.util.ThreadUtils.Task
             public Boolean doInBackground() throws Throwable {
                 boolean z = false;
@@ -735,6 +735,7 @@ public class DiskManagePopupView extends BasePopupView implements View.OnClickLi
                 return Boolean.valueOf(z);
             }
 
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // com.blankj.utilcode.util.ThreadUtils.Task
             public void onSuccess(Boolean bool) {
                 if (bool.booleanValue()) {
@@ -742,9 +743,8 @@ public class DiskManagePopupView extends BasePopupView implements View.OnClickLi
                 }
             }
 
-            /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.blankj.utilcode.util.ThreadUtils.Task
-            public void onDone() {
+            protected void onDone() {
                 super.onDone();
                 if (DiskManagePopupView.this.loadingPopupView != null && DiskManagePopupView.this.loadingPopupView.isShowing()) {
                     DiskManagePopupView.this.loadingPopupView.dismiss();
@@ -776,9 +776,8 @@ public class DiskManagePopupView extends BasePopupView implements View.OnClickLi
         simpleTask.cancel();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.rigol.scope.views.baseview.BasePopupView
-    public void onPrepare() {
+    protected void onPrepare() {
         super.onPrepare();
         DiskManageParam diskManageParam = this.param;
         if (diskManageParam != null) {

@@ -15,6 +15,7 @@ import com.rigol.scope.R;
 import com.rigol.scope.data.RefParam;
 import com.rigol.scope.views.SwitchButton;
 import com.rigol.scope.views.baseview.BaseEditText;
+
 /* loaded from: classes2.dex */
 public abstract class PopupviewRefBinding extends ViewDataBinding {
     public final TextView clean;
@@ -51,8 +52,7 @@ public abstract class PopupviewRefBinding extends ViewDataBinding {
 
     public abstract void setParam(RefParam refParam);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public PopupviewRefBinding(Object obj, View view, int i, TextView textView, Button button, Button button2, TextView textView2, BaseEditText baseEditText, SwitchButton switchButton, ImageButton imageButton, ImageButton imageButton2, View view2, Guideline guideline, ImageButton imageButton3, ImageButton imageButton4, TextView textView3, EditText editText, TextView textView4, TextView textView5, TextView textView6, TextView textView7, TextView textView8, Button button3, TextView textView9, TextView textView10, Button button4, TextView textView11, Button button5, TextView textView12, EditText editText2, TextView textView13, TextView textView14) {
+    protected PopupviewRefBinding(Object obj, View view, int i, TextView textView, Button button, Button button2, TextView textView2, BaseEditText baseEditText, SwitchButton switchButton, ImageButton imageButton, ImageButton imageButton2, View view2, Guideline guideline, ImageButton imageButton3, ImageButton imageButton4, TextView textView3, EditText editText, TextView textView4, TextView textView5, TextView textView6, TextView textView7, TextView textView8, Button button3, TextView textView9, TextView textView10, Button button4, TextView textView11, Button button5, TextView textView12, EditText editText2, TextView textView13, TextView textView14) {
         super(obj, view, i);
         this.clean = textView;
         this.cleanBtn = button;

@@ -33,6 +33,7 @@ import com.rigol.scope.views.baseview.BasePopupView;
 import com.rigol.scope.views.grid.GridSpaceItemDecoration;
 import com.rigol.util.ToastUtils;
 import java.util.List;
+
 /* loaded from: classes2.dex */
 public class StartMenuPopupView extends BasePopupView {
     private final StartMenuFunctionAdapter functionAdapter;
@@ -149,9 +150,8 @@ public class StartMenuPopupView extends BasePopupView {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
-    public static class StartMenuItemDecoration extends GridSpaceItemDecoration {
+    static class StartMenuItemDecoration extends GridSpaceItemDecoration {
         private static final int UPDATE_POINT_SIZE = 20;
         private boolean isShowUpdatePoint;
         Paint paint;

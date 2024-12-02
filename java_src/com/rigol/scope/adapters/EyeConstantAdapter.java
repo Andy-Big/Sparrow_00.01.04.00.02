@@ -18,6 +18,7 @@ import com.rigol.scope.viewmodels.EyeViewModel;
 import com.rigol.scope.views.baseview.BasePopupView;
 import com.rigol.scope.views.keyboard.KeyboardListener;
 import com.rigol.scope.views.keyboard.KeyboardPopupView;
+
 /* loaded from: classes.dex */
 public class EyeConstantAdapter extends RecyclerView.Adapter<EyeConstantHolder> implements RadioGroup.OnCheckedChangeListener, View.OnClickListener {
     private AdapterEyeConstantBinding binding;
@@ -31,6 +32,7 @@ public class EyeConstantAdapter extends RecyclerView.Adapter<EyeConstantHolder> 
         return 1;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(EyeConstantHolder eyeConstantHolder, int i) {
     }
@@ -39,6 +41,7 @@ public class EyeConstantAdapter extends RecyclerView.Adapter<EyeConstantHolder> 
         this.popupView = basePopupView;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public EyeConstantHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         AdapterEyeConstantBinding inflate = AdapterEyeConstantBinding.inflate(LayoutInflater.from(viewGroup.getContext()), viewGroup, false);

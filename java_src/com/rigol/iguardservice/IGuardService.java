@@ -6,6 +6,7 @@ import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
 import com.rigol.iguardservice.IGuardListener;
+
 /* loaded from: classes.dex */
 public interface IGuardService extends IInterface {
 
@@ -197,9 +198,8 @@ public interface IGuardService extends IInterface {
             }
         }
 
-        /* JADX INFO: Access modifiers changed from: private */
         /* loaded from: classes.dex */
-        public static class Proxy implements IGuardService {
+        private static class Proxy implements IGuardService {
             public static IGuardService sDefaultImpl;
             private IBinder mRemote;
 

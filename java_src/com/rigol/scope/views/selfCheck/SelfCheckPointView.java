@@ -1,4 +1,5 @@
 package com.rigol.scope.views.selfCheck;
+
 /* loaded from: classes2.dex */
 public class SelfCheckPointView {
     float x;

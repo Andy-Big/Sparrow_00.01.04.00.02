@@ -7,6 +7,7 @@ import com.rigol.scope.cil.MessageID;
 import com.rigol.scope.cil.ServiceEnum;
 import com.rigol.scope.data.BaseParam;
 import com.rigol.scope.utilities.ColorUtil;
+
 /* loaded from: classes2.dex */
 public class BusAnalyseEthParam extends BaseParam {
     private static final boolean DEFAULT_CLKTRIGGER = false;

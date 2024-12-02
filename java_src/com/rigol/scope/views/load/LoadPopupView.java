@@ -23,6 +23,7 @@ import java.io.FileFilter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+
 /* loaded from: classes2.dex */
 public class LoadPopupView extends BasePopupView implements View.OnClickListener {
     private String loadPath;
@@ -104,8 +105,7 @@ public class LoadPopupView extends BasePopupView implements View.OnClickListener
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ boolean lambda$onClick$2(ServiceEnum.enFileType enfiletype, File file) {
+    static /* synthetic */ boolean lambda$onClick$2(ServiceEnum.enFileType enfiletype, File file) {
         if (file != null) {
             String path = file.getPath();
             if (path.endsWith("." + enfiletype.value2) || file.isDirectory()) {
@@ -135,10 +135,9 @@ public class LoadPopupView extends BasePopupView implements View.OnClickListener
         return arrayList;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.rigol.scope.views.load.LoadPopupView$1  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    static /* synthetic */ class AnonymousClass1 {
         static final /* synthetic */ int[] $SwitchMap$com$rigol$scope$cil$ServiceEnum$StorageFunc;
 
         static {

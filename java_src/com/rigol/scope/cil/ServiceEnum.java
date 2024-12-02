@@ -7,6 +7,7 @@ import com.just.agentweb.AgentWebPermissions;
 import com.just.agentweb.WebIndicator;
 import com.rigol.util.PackageUtilKt;
 import javax.jmdns.impl.constants.DNSConstants;
+
 /* loaded from: classes2.dex */
 public class ServiceEnum {
 

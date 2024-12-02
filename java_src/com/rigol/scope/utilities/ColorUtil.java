@@ -7,6 +7,7 @@ import android.widget.TextView;
 import androidx.core.content.ContextCompat;
 import com.rigol.scope.R;
 import com.rigol.scope.cil.ServiceEnum;
+
 /* loaded from: classes2.dex */
 public class ColorUtil {
     public static int getColor(Context context, ServiceEnum.Chan chan) {

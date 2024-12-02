@@ -17,6 +17,7 @@ import com.rigol.scope.data.JitterParam;
 import com.rigol.scope.data.MappingObject;
 import com.rigol.scope.utilities.UnitFormat;
 import com.rigol.scope.utilities.ViewUtil;
+
 /* loaded from: classes2.dex */
 public class AdapterJitterPllBindingImpl extends AdapterJitterPllBinding {
     private static final ViewDataBinding.IncludedLayouts sIncludes = null;

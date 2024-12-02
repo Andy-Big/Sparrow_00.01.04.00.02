@@ -8,13 +8,13 @@ import androidx.databinding.ViewDataBinding;
 import androidx.viewpager2.widget.ViewPager2;
 import com.google.android.material.tabs.TabLayout;
 import com.rigol.scope.R;
+
 /* loaded from: classes2.dex */
 public abstract class PopupviewLaBinding extends ViewDataBinding {
     public final TabLayout tabs;
     public final ViewPager2 viewPager;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public PopupviewLaBinding(Object obj, View view, int i, TabLayout tabLayout, ViewPager2 viewPager2) {
+    protected PopupviewLaBinding(Object obj, View view, int i, TabLayout tabLayout, ViewPager2 viewPager2) {
         super(obj, view, i);
         this.tabs = tabLayout;
         this.viewPager = viewPager2;

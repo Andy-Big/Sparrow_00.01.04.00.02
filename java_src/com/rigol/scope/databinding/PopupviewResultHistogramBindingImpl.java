@@ -10,11 +10,18 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.Guideline;
 import androidx.databinding.DataBindingComponent;
 import androidx.databinding.ViewDataBinding;
+import androidx.databinding.adapters.CompoundButtonBindingAdapter;
+import androidx.databinding.adapters.TextViewBindingAdapter;
 import com.rigol.scope.R;
+import com.rigol.scope.cil.ServiceEnum;
 import com.rigol.scope.data.MappingObject;
 import com.rigol.scope.generated.callback.OnClickListener;
+import com.rigol.scope.utilities.ColorUtil;
+import com.rigol.scope.utilities.UnitFormat;
+import com.rigol.scope.utilities.ViewUtil;
 import com.rigol.scope.views.SwitchButton;
 import com.rigol.scope.views.histogram.HistogramResultParam;
+
 /* loaded from: classes2.dex */
 public class PopupviewResultHistogramBindingImpl extends PopupviewResultHistogramBinding implements OnClickListener.Listener {
     private static final ViewDataBinding.IncludedLayouts sIncludes = null;
@@ -386,14 +393,151 @@ public class PopupviewResultHistogramBindingImpl extends PopupviewResultHistogra
     @Override // androidx.databinding.ViewDataBinding
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
     protected void executeBindings() {
-        /*
-            Method dump skipped, instructions count: 615
-            To view this dump add '--comments-level debug' option
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.rigol.scope.databinding.PopupviewResultHistogramBindingImpl.executeBindings():void");
+        long j;
+        boolean z;
+        int i;
+        String str;
+        String str2;
+        String str3;
+        String str4;
+        String str5;
+        String str6;
+        String str7;
+        String str8;
+        String str9;
+        synchronized (this) {
+            j = this.mDirtyFlags;
+            this.mDirtyFlags = 0L;
+        }
+        HistogramResultParam histogramResultParam = this.mParam;
+        View.OnClickListener onClickListener = this.mOnClickListener;
+        String str10 = null;
+        if ((16773224 & j) != 0) {
+            int i2 = ((j & 11534368) > 0L ? 1 : ((j & 11534368) == 0L ? 0 : -1));
+            if (i2 != 0) {
+                str8 = UnitFormat.newBuilder(UnitFormat.SI.NANO).convert(histogramResultParam != null ? histogramResultParam.getRealBottom() : 0L);
+            } else {
+                str8 = null;
+            }
+            if ((j & 8650784) != 0) {
+                str6 = UnitFormat.newBuilder(UnitFormat.SI.FEMTO).convert(histogramResultParam != null ? histogramResultParam.getRealRight() : 0L) + ServiceEnum.Unit.Unit_s.value2;
+            } else {
+                str6 = null;
+            }
+            if ((j & 8519712) != 0) {
+                str7 = UnitFormat.newBuilder(UnitFormat.SI.FEMTO).convert(histogramResultParam != null ? histogramResultParam.getRealLeft() : 0L) + ServiceEnum.Unit.Unit_s.value2;
+            } else {
+                str7 = null;
+            }
+            if ((12058656 & j) != 0) {
+                ServiceEnum.Unit verUnit = histogramResultParam != null ? histogramResultParam.getVerUnit() : null;
+                str9 = verUnit != null ? verUnit.value2 : null;
+                if (i2 != 0) {
+                    str3 = str8 + str9;
+                } else {
+                    str3 = null;
+                }
+            } else {
+                str3 = null;
+                str9 = null;
+            }
+            if ((j & 12615776) != 0) {
+                ServiceEnum.Chan chan = histogramResultParam != null ? histogramResultParam.getChan() : null;
+                int i3 = chan != null ? chan.value1 : 0;
+                i = (j & 8421408) != 0 ? ColorUtil.getColor(getRoot().getContext(), i3) : 0;
+                MappingObject mappingObject = ViewUtil.getMappingObject(R.array.msg_histo_source, i3);
+                updateRegistration(6, mappingObject);
+                if (mappingObject != null) {
+                    str4 = mappingObject.getStr();
+                    if ((j & 8409128) != 0) {
+                        ServiceEnum.HistoType type = histogramResultParam != null ? histogramResultParam.getType() : null;
+                        MappingObject mappingObject2 = ViewUtil.getMappingObject(R.array.msg_histo_type, type != null ? type.value1 : 0);
+                        updateRegistration(3, mappingObject2);
+                        if (mappingObject2 != null) {
+                            str5 = mappingObject2.getStr();
+                            z = ((j & 8396832) != 0 || histogramResultParam == null) ? false : histogramResultParam.getEnable();
+                            if ((j & 9961504) != 0) {
+                                str2 = UnitFormat.newBuilder(UnitFormat.SI.NANO).convert(histogramResultParam != null ? histogramResultParam.getRealTop() : 0L) + str9;
+                            } else {
+                                str2 = null;
+                            }
+                            if ((j & 8454176) != 0) {
+                                str10 = UnitFormat.newBuilder(UnitFormat.PATTERN_SIGN, UnitFormat.SI.MILLI).convert(histogramResultParam != null ? histogramResultParam.getHeight() : 0) + ServiceEnum.Unit.Unit_Div.value2;
+                            }
+                            str = str10;
+                        }
+                    }
+                    str5 = null;
+                    if ((j & 8396832) != 0) {
+                    }
+                    if ((j & 9961504) != 0) {
+                    }
+                    if ((j & 8454176) != 0) {
+                    }
+                    str = str10;
+                }
+            } else {
+                i = 0;
+            }
+            str4 = null;
+            if ((j & 8409128) != 0) {
+            }
+            str5 = null;
+            if ((j & 8396832) != 0) {
+            }
+            if ((j & 9961504) != 0) {
+            }
+            if ((j & 8454176) != 0) {
+            }
+            str = str10;
+        } else {
+            z = false;
+            i = 0;
+            str = null;
+            str2 = null;
+            str3 = null;
+            str4 = null;
+            str5 = null;
+            str6 = null;
+            str7 = null;
+        }
+        if ((8388608 & j) != 0) {
+            this.dispgridEditText.setOnClickListener(this.mCallback67);
+            this.highposEditText.setOnClickListener(this.mCallback70);
+            this.leftposEditText.setOnClickListener(this.mCallback68);
+            this.lowposEditText.setOnClickListener(this.mCallback71);
+            this.rightposEditText.setOnClickListener(this.mCallback69);
+        }
+        if ((j & 8454176) != 0) {
+            TextViewBindingAdapter.setText(this.dispgridEditText, str);
+        }
+        if ((j & 9961504) != 0) {
+            TextViewBindingAdapter.setText(this.highposEditText, str2);
+        }
+        if ((8396832 & j) != 0) {
+            CompoundButtonBindingAdapter.setChecked(this.histogramEn, z);
+            CompoundButtonBindingAdapter.setChecked(this.statisenSwitch, z);
+        }
+        if ((8409128 & j) != 0) {
+            TextViewBindingAdapter.setText(this.histogramTypeSpinner, str5);
+        }
+        if ((8519712 & j) != 0) {
+            TextViewBindingAdapter.setText(this.leftposEditText, str7);
+        }
+        if ((j & 11534368) != 0) {
+            TextViewBindingAdapter.setText(this.lowposEditText, str3);
+        }
+        if ((j & 8650784) != 0) {
+            TextViewBindingAdapter.setText(this.rightposEditText, str6);
+        }
+        if ((12615776 & j) != 0) {
+            TextViewBindingAdapter.setText(this.sourceSpinner, str4);
+        }
+        if ((j & 8421408) != 0) {
+            this.sourceSpinner.setTextColor(i);
+        }
     }
 
     @Override // com.rigol.scope.generated.callback.OnClickListener.Listener

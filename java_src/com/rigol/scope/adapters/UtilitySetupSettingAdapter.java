@@ -45,6 +45,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import timber.log.Timber;
+
 /* loaded from: classes.dex */
 public class UtilitySetupSettingAdapter extends RecyclerView.Adapter<BaseSettingViewHolder> implements CompoundButton.OnCheckedChangeListener, View.OnClickListener {
     private AorBManager aorBManager;
@@ -69,12 +70,14 @@ public class UtilitySetupSettingAdapter extends RecyclerView.Adapter<BaseSetting
         this.baseView = view;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public BaseSettingViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         this.binding = AdapterUtilityBasesettingBinding.inflate(LayoutInflater.from(viewGroup.getContext()), viewGroup, false);
         UtilityViewModel utilityViewModel = (UtilityViewModel) ContextUtil.getAppViewModel(UtilityViewModel.class);
         if (utilityViewModel != null) {
             utilityViewModel.getLiveData().observe((LifecycleOwner) ActivityUtils.getTopActivity(), new Observer<UtilityParam>() { // from class: com.rigol.scope.adapters.UtilitySetupSettingAdapter.1
+                /* JADX DEBUG: Method merged with bridge method */
                 @Override // androidx.lifecycle.Observer
                 public void onChanged(UtilityParam utilityParam) {
                     UtilitySetupSettingAdapter.this.utilityParam = utilityParam;
@@ -85,6 +88,7 @@ public class UtilitySetupSettingAdapter extends RecyclerView.Adapter<BaseSetting
         MaskViewModel maskViewModel = (MaskViewModel) ContextUtil.getAppViewModel(MaskViewModel.class);
         if (maskViewModel != null) {
             maskViewModel.getLiveData().observe((LifecycleOwner) ActivityUtils.getTopActivity(), new Observer<MaskParam>() { // from class: com.rigol.scope.adapters.UtilitySetupSettingAdapter.2
+                /* JADX DEBUG: Method merged with bridge method */
                 @Override // androidx.lifecycle.Observer
                 public void onChanged(MaskParam maskParam) {
                     UtilitySetupSettingAdapter.this.binding.setMaskParam(maskParam);
@@ -141,6 +145,7 @@ public class UtilitySetupSettingAdapter extends RecyclerView.Adapter<BaseSetting
         }
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(BaseSettingViewHolder baseSettingViewHolder, int i) {
         initViewStyle();

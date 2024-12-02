@@ -6,15 +6,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
+
 /* loaded from: classes.dex */
 public class CandiateViewAdapter extends RecyclerView.Adapter<ViewHolder> {
     private String[] astrHanziList;
     private Context mContext;
     private TypeWritingInterface mTypeWritingInterface;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static class ViewHolder extends RecyclerView.ViewHolder {
+    static class ViewHolder extends RecyclerView.ViewHolder {
         TextView tvData;
 
         ViewHolder(View view) {
@@ -29,11 +29,13 @@ public class CandiateViewAdapter extends RecyclerView.Adapter<ViewHolder> {
         this.mTypeWritingInterface = typeWritingInterface;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         return new ViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.candiate_view_item, viewGroup, false));
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(ViewHolder viewHolder, final int i) {
         viewHolder.tvData.setText(this.astrHanziList[i]);

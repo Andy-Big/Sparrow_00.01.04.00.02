@@ -70,6 +70,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import timber.log.Timber;
+
 /* loaded from: classes2.dex */
 public class PanelKeyViewModel extends ViewModel {
     public static boolean isPowerDown = false;
@@ -236,8 +237,7 @@ public class PanelKeyViewModel extends ViewModel {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ void lambda$onPanelKeyUp$3(MeasureSettingParam measureSettingParam) {
+    static /* synthetic */ void lambda$onPanelKeyUp$3(MeasureSettingParam measureSettingParam) {
         measureSettingParam.saveThresholdType(ServiceEnum.ThreType.TH_TYPE_ABS);
         API.getInstance().UI_PostInt32(28, MessageID.MSG_APP_MEAS_TH_DEFAULT, 1);
         measureSettingParam.saveThresholdType(ServiceEnum.ThreType.TH_TYPE_PER);
@@ -1486,10 +1486,9 @@ public class PanelKeyViewModel extends ViewModel {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.rigol.scope.viewmodels.PanelKeyViewModel$2  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public static /* synthetic */ class AnonymousClass2 {
+    static /* synthetic */ class AnonymousClass2 {
         static final /* synthetic */ int[] $SwitchMap$com$rigol$scope$cil$ServiceEnum$DecodeBusType;
         static final /* synthetic */ int[] $SwitchMap$com$rigol$scope$cil$ServiceEnum$FlexKnobEnum;
 

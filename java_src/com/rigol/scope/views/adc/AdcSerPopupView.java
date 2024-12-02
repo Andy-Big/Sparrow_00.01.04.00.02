@@ -8,6 +8,7 @@ import com.rigol.scope.R;
 import com.rigol.scope.databinding.PopupviewAdcserBinding;
 import com.rigol.scope.utilities.ViewUtil;
 import com.rigol.scope.views.baseview.BasePopupView;
+
 /* loaded from: classes2.dex */
 public class AdcSerPopupView extends BasePopupView implements CompoundButton.OnCheckedChangeListener, SeekBar.OnSeekBarChangeListener, View.OnClickListener {
     private final AdcSerParam param;

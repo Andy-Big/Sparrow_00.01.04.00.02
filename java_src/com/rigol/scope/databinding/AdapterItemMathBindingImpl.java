@@ -14,6 +14,7 @@ import com.rigol.scope.R;
 import com.rigol.scope.data.MappingObject;
 import com.rigol.scope.data.MathParam;
 import com.rigol.scope.utilities.ViewUtil;
+
 /* loaded from: classes2.dex */
 public class AdapterItemMathBindingImpl extends AdapterItemMathBinding {
     private static final ViewDataBinding.IncludedLayouts sIncludes = null;

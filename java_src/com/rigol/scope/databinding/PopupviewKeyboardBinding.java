@@ -12,6 +12,7 @@ import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import com.rigol.scope.R;
 import com.rigol.scope.data.KeyboardParam;
+
 /* loaded from: classes2.dex */
 public abstract class PopupviewKeyboardBinding extends ViewDataBinding {
     public final Button btnCls;
@@ -46,8 +47,7 @@ public abstract class PopupviewKeyboardBinding extends ViewDataBinding {
 
     public abstract void setParam(KeyboardParam keyboardParam);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public PopupviewKeyboardBinding(Object obj, View view, int i, Button button, Button button2, Button button3, ImageButton imageButton, Button button4, Button button5, Button button6, Button button7, Button button8, Button button9, Button button10, Button button11, Button button12, Button button13, Button button14, Button button15, Button button16, Button button17, Button button18, Button button19, Button button20, Button button21, Button button22, Button button23, EditText editText, ImageView imageView, ImageView imageView2) {
+    protected PopupviewKeyboardBinding(Object obj, View view, int i, Button button, Button button2, Button button3, ImageButton imageButton, Button button4, Button button5, Button button6, Button button7, Button button8, Button button9, Button button10, Button button11, Button button12, Button button13, Button button14, Button button15, Button button16, Button button17, Button button18, Button button19, Button button20, Button button21, Button button22, Button button23, EditText editText, ImageView imageView, ImageView imageView2) {
         super(obj, view, i);
         this.btnCls = button;
         this.btnDecimalPoint = button2;

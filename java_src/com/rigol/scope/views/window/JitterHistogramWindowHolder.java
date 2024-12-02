@@ -32,6 +32,7 @@ import com.rigol.scope.views.jitter.JitterPopupView;
 import kotlin.Metadata;
 import kotlin.Unit;
 import kotlin.jvm.internal.Intrinsics;
+
 /* compiled from: WindowHolder.kt */
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000H\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\u0018\u00002\u00020\u0001B\u0015\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\u0006\u0010\u0004\u001a\u00020\u0005¢\u0006\u0002\u0010\u0006J\b\u0010\u0017\u001a\u00020\u0018H\u0016J\b\u0010\u0019\u001a\u00020\u001aH\u0016J\b\u0010\u001b\u001a\u00020\u001aH\u0016R\u0011\u0010\u0007\u001a\u00020\b¢\u0006\b\n\u0000\u001a\u0004\b\t\u0010\nR\u0011\u0010\u000b\u001a\u00020\f¢\u0006\b\n\u0000\u001a\u0004\b\r\u0010\u000eR\u0011\u0010\u0002\u001a\u00020\u0003¢\u0006\b\n\u0000\u001a\u0004\b\u000f\u0010\u0010R\u000e\u0010\u0011\u001a\u00020\u0012X\u0082\u0004¢\u0006\u0002\n\u0000R\u0010\u0010\u0013\u001a\u0004\u0018\u00010\u0014X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0015\u001a\u00020\u0016X\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006\u001c"}, d2 = {"Lcom/rigol/scope/views/window/JitterHistogramWindowHolder;", "Lcom/rigol/scope/views/window/WindowHolder;", "context", "Landroid/content/Context;", "windowParam", "Lcom/rigol/scope/data/WindowParam;", "(Landroid/content/Context;Lcom/rigol/scope/data/WindowParam;)V", "binding", "Lcom/rigol/scope/databinding/WindowSimpleBinding;", "getBinding", "()Lcom/rigol/scope/databinding/WindowSimpleBinding;", "content", "Lcom/rigol/scope/views/window/WindowContent;", "getContent", "()Lcom/rigol/scope/views/window/WindowContent;", "getContext", "()Landroid/content/Context;", "gridRulerView", "Lcom/rigol/scope/views/grid/JitterHistogramGridRulerView;", "jitterParam", "Lcom/rigol/scope/data/JitterParam;", "surfaceView", "Lcom/rigol/scope/views/baseview/BaseSurfaceView;", "getWindow", "Lcom/rigol/scope/views/window/Window;", "updateStatusText", "", "updateTitle", "app_release"}, k = 1, mv = {1, 4, 1})
 /* loaded from: classes2.dex */
@@ -94,6 +95,7 @@ public final class JitterHistogramWindowHolder extends WindowHolder {
             Activity topActivity = ActivityUtils.getTopActivity();
             if (topActivity != null) {
                 liveData.observe((LifecycleOwner) topActivity, new Observer<JitterParam>() { // from class: com.rigol.scope.views.window.JitterHistogramWindowHolder.1
+                    /* JADX DEBUG: Method merged with bridge method */
                     @Override // androidx.lifecycle.Observer
                     public final void onChanged(JitterParam jitterParam) {
                         JitterHistogramWindowHolder.this.jitterParam = jitterParam;
@@ -126,6 +128,7 @@ public final class JitterHistogramWindowHolder extends WindowHolder {
             throw new NullPointerException("null cannot be cast to non-null type androidx.lifecycle.LifecycleOwner");
         }
         mutableLiveData.observe((LifecycleOwner) topActivity3, new Observer<Boolean>() { // from class: com.rigol.scope.views.window.JitterHistogramWindowHolder.3
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // androidx.lifecycle.Observer
             public final void onChanged(Boolean bool) {
                 boolean UI_QueryBool = API.getInstance().UI_QueryBool(52, MessageID.MSG_JITTER_STATUS);

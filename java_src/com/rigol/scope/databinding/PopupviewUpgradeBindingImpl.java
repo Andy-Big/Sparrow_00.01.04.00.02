@@ -5,6 +5,7 @@ import android.view.View;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.databinding.DataBindingComponent;
 import androidx.databinding.ViewDataBinding;
+
 /* loaded from: classes2.dex */
 public class PopupviewUpgradeBindingImpl extends PopupviewUpgradeBinding {
     private static final ViewDataBinding.IncludedLayouts sIncludes = null;

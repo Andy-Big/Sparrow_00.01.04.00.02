@@ -11,6 +11,7 @@ import androidx.databinding.ViewDataBinding;
 import androidx.viewpager2.widget.ViewPager2;
 import com.google.android.material.tabs.TabLayout;
 import com.rigol.scope.R;
+
 /* loaded from: classes2.dex */
 public abstract class PopupviewStorageBinding extends ViewDataBinding {
     public final Button diskManage;
@@ -20,8 +21,7 @@ public abstract class PopupviewStorageBinding extends ViewDataBinding {
     public final TextView tvMem;
     public final ViewPager2 viewPager;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public PopupviewStorageBinding(Object obj, View view, int i, Button button, Guideline guideline, Button button2, TabLayout tabLayout, TextView textView, ViewPager2 viewPager2) {
+    protected PopupviewStorageBinding(Object obj, View view, int i, Button button, Guideline guideline, Button button2, TabLayout tabLayout, TextView textView, ViewPager2 viewPager2) {
         super(obj, view, i);
         this.diskManage = button;
         this.guideline = guideline;

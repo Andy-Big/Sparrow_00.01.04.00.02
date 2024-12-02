@@ -12,6 +12,7 @@ import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import com.rigol.scope.R;
 import com.rigol.scope.views.SwitchButton;
+
 /* loaded from: classes2.dex */
 public abstract class AdapterUtilityEmailBinding extends ViewDataBinding {
     public final Button buttonDefault;
@@ -39,8 +40,7 @@ public abstract class AdapterUtilityEmailBinding extends ViewDataBinding {
     public final View view12;
     public final View view13;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public AdapterUtilityEmailBinding(Object obj, View view, int i, Button button, Button button2, ConstraintLayout constraintLayout, ConstraintLayout constraintLayout2, ConstraintLayout constraintLayout3, EditText editText, EditText editText2, EditText editText3, EditText editText4, EditText editText5, EditText editText6, ImageView imageView, SwitchButton switchButton, TextView textView, TextView textView2, TextView textView3, TextView textView4, TextView textView5, TextView textView6, TextView textView7, TextView textView8, TextView textView9, View view2, View view3) {
+    protected AdapterUtilityEmailBinding(Object obj, View view, int i, Button button, Button button2, ConstraintLayout constraintLayout, ConstraintLayout constraintLayout2, ConstraintLayout constraintLayout3, EditText editText, EditText editText2, EditText editText3, EditText editText4, EditText editText5, EditText editText6, ImageView imageView, SwitchButton switchButton, TextView textView, TextView textView2, TextView textView3, TextView textView4, TextView textView5, TextView textView6, TextView textView7, TextView textView8, TextView textView9, View view2, View view3) {
         super(obj, view, i);
         this.buttonDefault = button;
         this.buttonSend = button2;

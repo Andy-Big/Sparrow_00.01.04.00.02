@@ -11,6 +11,7 @@ import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import com.rigol.scope.R;
 import com.rigol.scope.data.DecodeParam;
+
 /* loaded from: classes2.dex */
 public abstract class AdapterDecodeCanBinding extends ViewDataBinding {
     public final TextView decodeCanBaudLabel;
@@ -38,8 +39,7 @@ public abstract class AdapterDecodeCanBinding extends ViewDataBinding {
 
     public abstract void setParam(DecodeParam decodeParam);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public AdapterDecodeCanBinding(Object obj, View view, int i, TextView textView, TextView textView2, TextView textView3, TextView textView4, TextView textView5, TextView textView6, ConstraintLayout constraintLayout, TextView textView7, TextView textView8, TextView textView9, TextView textView10, TextView textView11, TextView textView12, TextView textView13, TextView textView14, Guideline guideline, Guideline guideline2, Guideline guideline3, Guideline guideline4, Guideline guideline5) {
+    protected AdapterDecodeCanBinding(Object obj, View view, int i, TextView textView, TextView textView2, TextView textView3, TextView textView4, TextView textView5, TextView textView6, ConstraintLayout constraintLayout, TextView textView7, TextView textView8, TextView textView9, TextView textView10, TextView textView11, TextView textView12, TextView textView13, TextView textView14, Guideline guideline, Guideline guideline2, Guideline guideline3, Guideline guideline4, Guideline guideline5) {
         super(obj, view, i);
         this.decodeCanBaudLabel = textView;
         this.decodeCanBaudValue = textView2;

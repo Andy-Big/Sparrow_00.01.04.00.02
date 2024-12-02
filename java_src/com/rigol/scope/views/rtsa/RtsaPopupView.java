@@ -22,6 +22,7 @@ import com.rigol.scope.views.keyboard.KeyboardPopupView;
 import com.rigol.scope.views.rtsa.RtsaViewPagerAdapter;
 import com.rigol.scope.views.spinner.PopupSpinner;
 import java.util.List;
+
 /* loaded from: classes2.dex */
 public class RtsaPopupView extends BasePopupView implements RtsaViewPagerAdapter.OnItemClickCallback {
     private PopupviewRtsaBinding binding;
@@ -52,8 +53,7 @@ public class RtsaPopupView extends BasePopupView implements RtsaViewPagerAdapter
         }).attach();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ void lambda$new$0(TabLayout.Tab tab, int i) {
+    static /* synthetic */ void lambda$new$0(TabLayout.Tab tab, int i) {
         TextView textView;
         MappingObject valueAt = ViewUtil.getArray(R.array.msg_fft_module).valueAt(i);
         tab.setCustomView(R.layout.adapter_item_tab);
@@ -197,8 +197,7 @@ public class RtsaPopupView extends BasePopupView implements RtsaViewPagerAdapter
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ void lambda$onBasicItemClick$1(FftParam fftParam, View view, RecyclerView.ViewHolder viewHolder, int i, MappingObject mappingObject) {
+    static /* synthetic */ void lambda$onBasicItemClick$1(FftParam fftParam, View view, RecyclerView.ViewHolder viewHolder, int i, MappingObject mappingObject) {
         fftParam.saveRbw(ServiceEnum.getRtsaRBWFromValue1(mappingObject.getValue()));
         fftParam.saveAutoRbw(false);
     }

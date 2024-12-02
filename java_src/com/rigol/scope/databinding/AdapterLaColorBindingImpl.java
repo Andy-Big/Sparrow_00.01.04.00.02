@@ -6,10 +6,15 @@ import android.widget.TextView;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.databinding.DataBindingComponent;
 import androidx.databinding.ViewDataBinding;
+import androidx.databinding.adapters.CompoundButtonBindingAdapter;
+import androidx.databinding.adapters.TextViewBindingAdapter;
 import com.rigol.scope.R;
 import com.rigol.scope.data.LaParam;
 import com.rigol.scope.data.MappingObject;
+import com.rigol.scope.utilities.ContextUtil;
+import com.rigol.scope.utilities.ViewUtil;
 import com.rigol.scope.views.SwitchButton;
+
 /* loaded from: classes2.dex */
 public class AdapterLaColorBindingImpl extends AdapterLaColorBinding {
     private static final ViewDataBinding.IncludedLayouts sIncludes = null;
@@ -151,13 +156,104 @@ public class AdapterLaColorBindingImpl extends AdapterLaColorBinding {
     @Override // androidx.databinding.ViewDataBinding
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
     protected void executeBindings() {
-        /*
-            Method dump skipped, instructions count: 258
-            To view this dump add '--comments-level debug' option
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.rigol.scope.databinding.AdapterLaColorBindingImpl.executeBindings():void");
+        long j;
+        boolean z;
+        String str;
+        String str2;
+        String str3;
+        float f;
+        String str4;
+        float f2;
+        String str5;
+        synchronized (this) {
+            j = this.mDirtyFlags;
+            this.mDirtyFlags = 0L;
+        }
+        LaParam laParam = this.mParma;
+        String str6 = null;
+        if ((255 & j) != 0) {
+            if ((j & 197) != 0) {
+                MappingObject mappingObject = ViewUtil.getMappingObject(R.array.msg_la_label_view_select, laParam != null ? laParam.getLa_label_view_select() : 0);
+                updateRegistration(0, mappingObject);
+                if (mappingObject != null) {
+                    str4 = mappingObject.getStr();
+                    if ((j & 140) == 0) {
+                        z = laParam != null ? laParam.getLa_labels_en() : false;
+                        f2 = ContextUtil.getAlpha(z);
+                    } else {
+                        z = false;
+                        f2 = 0.0f;
+                    }
+                    if ((j & 150) != 0) {
+                        MappingObject mappingObject2 = ViewUtil.getMappingObject(R.array.msg_la_current_chan, laParam != null ? laParam.getLa_label_view_select_chan() : 0);
+                        updateRegistration(1, mappingObject2);
+                        if (mappingObject2 != null) {
+                            str5 = mappingObject2.getStr();
+                            if ((j & 164) != 0 && laParam != null) {
+                                str6 = laParam.getInputLabel();
+                            }
+                            str3 = str4;
+                            str = str6;
+                            str2 = str5;
+                            f = f2;
+                        }
+                    }
+                    str5 = null;
+                    if ((j & 164) != 0) {
+                        str6 = laParam.getInputLabel();
+                    }
+                    str3 = str4;
+                    str = str6;
+                    str2 = str5;
+                    f = f2;
+                }
+            }
+            str4 = null;
+            if ((j & 140) == 0) {
+            }
+            if ((j & 150) != 0) {
+            }
+            str5 = null;
+            if ((j & 164) != 0) {
+            }
+            str3 = str4;
+            str = str6;
+            str2 = str5;
+            f = f2;
+        } else {
+            z = false;
+            str = null;
+            str2 = null;
+            str3 = null;
+            f = 0.0f;
+        }
+        if ((140 & j) != 0) {
+            if (getBuildSdkInt() >= 11) {
+                this.laLabelEdit.setAlpha(f);
+                this.laLabelText.setAlpha(f);
+                this.laSourceGroup.setAlpha(f);
+                this.laSourceGroup2.setAlpha(f);
+                this.laSourceGroupText.setAlpha(f);
+                this.laSourceGroupText2.setAlpha(f);
+            }
+            this.laLabelEdit.setEnabled(z);
+            this.laLabelText.setEnabled(z);
+            this.laSourceGroup.setEnabled(z);
+            this.laSourceGroup2.setEnabled(z);
+            this.laSourceGroupText.setEnabled(z);
+            this.laSourceGroupText2.setEnabled(z);
+            CompoundButtonBindingAdapter.setChecked(this.showLabelSwitch, z);
+        }
+        if ((164 & j) != 0) {
+            TextViewBindingAdapter.setText(this.laLabelEdit, str);
+        }
+        if ((150 & j) != 0) {
+            TextViewBindingAdapter.setText(this.laSourceGroup, str2);
+        }
+        if ((j & 197) != 0) {
+            TextViewBindingAdapter.setText(this.laSourceGroup2, str3);
+        }
     }
 }

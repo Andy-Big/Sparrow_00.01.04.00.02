@@ -15,6 +15,7 @@ import androidx.databinding.ViewDataBinding;
 import androidx.recyclerview.widget.RecyclerView;
 import com.rigol.scope.R;
 import com.rigol.scope.data.WindowParam;
+
 /* loaded from: classes2.dex */
 public abstract class PopupviewMultiWindowBinding extends ViewDataBinding {
     public final View dividingLine;
@@ -74,8 +75,7 @@ public abstract class PopupviewMultiWindowBinding extends ViewDataBinding {
 
     public abstract void setWindowParam(WindowParam windowParam);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public PopupviewMultiWindowBinding(Object obj, View view, int i, View view2, TextView textView, TextView textView2, TextView textView3, TextView textView4, TextView textView5, TextView textView6, TextView textView7, TextView textView8, Button button, ImageView imageView, ConstraintLayout constraintLayout, TextView textView9, RecyclerView recyclerView, TextView textView10, RecyclerView recyclerView2) {
+    protected PopupviewMultiWindowBinding(Object obj, View view, int i, View view2, TextView textView, TextView textView2, TextView textView3, TextView textView4, TextView textView5, TextView textView6, TextView textView7, TextView textView8, Button button, ImageView imageView, ConstraintLayout constraintLayout, TextView textView9, RecyclerView recyclerView, TextView textView10, RecyclerView recyclerView2) {
         super(obj, view, i);
         this.dividingLine = view2;
         this.holder1Spinner = textView;

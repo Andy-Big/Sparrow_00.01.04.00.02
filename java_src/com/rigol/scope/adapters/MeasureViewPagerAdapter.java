@@ -24,6 +24,7 @@ import com.rigol.scope.viewmodels.MeasureSettingViewModel;
 import com.rigol.scope.views.grid.GridSpaceItemDecoration;
 import java.util.ArrayList;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public class MeasureViewPagerAdapter extends BaseAdapter<List<List<MappingObject>>> {
     private OnItemClickListener onItemClickListener;
@@ -75,6 +76,7 @@ public class MeasureViewPagerAdapter extends BaseAdapter<List<List<MappingObject
         listAdapter.notifyDataSetChanged();
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.rigol.scope.adapters.MultiItemTypeAdapter, androidx.recyclerview.widget.RecyclerView.Adapter
     public BaseViewHolder<? extends ViewDataBinding> onCreateViewHolder(ViewGroup viewGroup, int i) {
         BaseViewHolder<? extends ViewDataBinding> onCreateViewHolder = super.onCreateViewHolder(viewGroup, i);

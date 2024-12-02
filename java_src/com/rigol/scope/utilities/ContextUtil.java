@@ -27,6 +27,7 @@ import com.rigol.scope.views.cursor.CustomTypefaceSpan;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
 /* loaded from: classes2.dex */
 public class ContextUtil {
     public static final int NOT_A_VALID_RESOURCE_ID = 0;

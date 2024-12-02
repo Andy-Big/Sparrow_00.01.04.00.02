@@ -55,6 +55,7 @@ import com.rigol.scope.views.vertical.VerticalPopupView;
 import java.util.ArrayList;
 import java.util.List;
 import kotlin.jvm.functions.Function1;
+
 /* loaded from: classes2.dex */
 public class TriggerPopupView extends BasePopupView implements View.OnClickListener, CompoundButton.OnCheckedChangeListener {
     static final /* synthetic */ boolean $assertionsDisabled = false;
@@ -172,6 +173,7 @@ public class TriggerPopupView extends BasePopupView implements View.OnClickListe
         this.binding.singleRadioButton.setOnCheckedChangeListener(this);
         this.binding.triggerType.setOnClickListener(this);
         this.triggerViewModel.getLiveData().observe((LifecycleOwner) ActivityUtils.getTopActivity(), new Observer<TriggerParam>() { // from class: com.rigol.scope.views.trigger.TriggerPopupView.1
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // androidx.lifecycle.Observer
             public void onChanged(TriggerParam triggerParam) {
                 TriggerPopupView.this.param = triggerParam;
@@ -750,10 +752,9 @@ public class TriggerPopupView extends BasePopupView implements View.OnClickListe
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.rigol.scope.views.trigger.TriggerPopupView$3  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public static /* synthetic */ class AnonymousClass3 {
+    static /* synthetic */ class AnonymousClass3 {
         static final /* synthetic */ int[] $SwitchMap$com$rigol$scope$cil$ServiceEnum$TriggerMode;
 
         static {

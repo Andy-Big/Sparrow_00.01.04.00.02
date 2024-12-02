@@ -35,6 +35,7 @@ import kotlin.Unit;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.text.StringsKt;
+
 /* compiled from: TagView.kt */
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000¢\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u000e\n\u0002\b\f\n\u0002\u0018\u0002\n\u0002\b\r\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u000b\n\u0002\u0010\u0015\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\r\n\u0002\u0018\u0002\n\u0002\b\u0011\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\u0007\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\t\n\u0002\u0010\u0011\n\u0002\u0010\u0014\n\u0002\b\u0018\n\u0002\u0018\u0002\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\b\f\b\u0016\u0018\u0000 ª\u00012\u00020\u0001:\u0004©\u0001ª\u0001B\u0019\u0012\b\u0010\u0002\u001a\u0004\u0018\u00010\u0003\u0012\b\u0010\u0004\u001a\u0004\u0018\u00010\u0005¢\u0006\u0002\u0010\u0006J\b\u0010h\u001a\u00020iH\u0002J\b\u0010j\u001a\u000207H\u0002J\u000e\u0010k\u001a\u00020l2\u0006\u0010m\u001a\u000207J\u0018\u0010n\u001a\u00020i2\u0006\u0010o\u001a\u0002072\u0006\u0010p\u001a\u00020qH\u0002J0\u0010r\u001a\u00020i2\u0006\u0010p\u001a\u00020q2\u0006\u0010s\u001a\u0002072\u0006\u0010t\u001a\u0002072\u0006\u0010u\u001a\u0002072\u0006\u0010v\u001a\u000207H\u0002J1\u0010w\u001a\u00020i2\u0006\u0010p\u001a\u00020q2\u0006\u0010x\u001a\u00020:2\u0006\u0010y\u001a\u00020\u00142\f\u0010z\u001a\b\u0012\u0004\u0012\u00020|0{¢\u0006\u0002\u0010}J \u0010~\u001a\u00020i2\u0006\u0010o\u001a\u0002072\u0006\u0010\u007f\u001a\u0002072\u0006\u0010p\u001a\u00020qH\u0002J1\u0010\u0080\u0001\u001a\u00020i2\u0006\u0010p\u001a\u00020q2\u0006\u0010s\u001a\u0002072\u0006\u0010t\u001a\u0002072\u0006\u0010u\u001a\u0002072\u0006\u0010v\u001a\u000207H\u0003J\u0019\u0010\u0081\u0001\u001a\u00020i2\u0006\u0010\u007f\u001a\u0002072\u0006\u0010p\u001a\u00020qH\u0002J\u0012\u0010\u0082\u0001\u001a\u00020i2\u0007\u0010\u0083\u0001\u001a\u000207H\u0002J\u001b\u0010\u0084\u0001\u001a\u00020\b2\u0007\u0010\u0085\u0001\u001a\u0002072\u0007\u0010\u0086\u0001\u001a\u000207H\u0002J\u0007\u0010\u0087\u0001\u001a\u00020iJ-\u0010\u0088\u0001\u001a\u00020i2\u0007\u0010\u0089\u0001\u001a\u0002072\u0007\u0010\u008a\u0001\u001a\u0002072\u0007\u0010\u008b\u0001\u001a\u0002072\u0007\u0010\u008c\u0001\u001a\u000207H\u0016J\u0011\u0010\u008d\u0001\u001a\u00020i2\u0006\u0010p\u001a\u00020qH\u0014J-\u0010\u008e\u0001\u001a\u00020i2\u0007\u0010\u008f\u0001\u001a\u0002072\u0007\u0010\u0090\u0001\u001a\u0002072\u0007\u0010\u0091\u0001\u001a\u0002072\u0007\u0010\u0092\u0001\u001a\u000207H\u0014J\u0013\u0010\u0093\u0001\u001a\u00020\b2\b\u0010\u0094\u0001\u001a\u00030\u0095\u0001H\u0016J\u0010\u0010\u0096\u0001\u001a\u00020i2\u0007\u0010\u0097\u0001\u001a\u000207J\u0010\u0010\u0098\u0001\u001a\u00020i2\u0007\u0010\u0099\u0001\u001a\u000207J\u0010\u0010\u009a\u0001\u001a\u00020i2\u0007\u0010\u009b\u0001\u001a\u000207J\u0010\u0010\u009c\u0001\u001a\u00020i2\u0007\u0010\u0097\u0001\u001a\u000207J\u0013\u0010\u009d\u0001\u001a\u00020i2\n\u0010\u009e\u0001\u001a\u0005\u0018\u00010\u009f\u0001J\u0010\u0010 \u0001\u001a\u00020i2\u0007\u0010¡\u0001\u001a\u000207J\u0010\u0010¢\u0001\u001a\u00020i2\u0007\u0010£\u0001\u001a\u000207J\u000f\u0010¤\u0001\u001a\u00020l2\u0006\u0010m\u001a\u000207JA\u0010¥\u0001\u001a\u00020i2\u0006\u0010p\u001a\u00020q2\u0006\u0010x\u001a\u00020:2\u0006\u0010y\u001a\u00020\u00142\u0006\u0010s\u001a\u0002072\u0006\u0010t\u001a\u0002072\u0006\u0010^\u001a\u0002072\u0006\u0010Z\u001a\u000207H\u0002JA\u0010¦\u0001\u001a\u00020i2\u0006\u0010p\u001a\u00020q2\u0006\u0010x\u001a\u00020:2\u0006\u0010y\u001a\u00020\u00142\u0006\u0010s\u001a\u0002072\u0006\u0010t\u001a\u0002072\u0006\u0010^\u001a\u0002072\u0006\u0010Z\u001a\u000207H\u0002JA\u0010§\u0001\u001a\u00020i2\u0006\u0010p\u001a\u00020q2\u0006\u0010x\u001a\u00020:2\u0006\u0010y\u001a\u00020\u00142\u0006\u0010s\u001a\u0002072\u0006\u0010t\u001a\u0002072\u0006\u0010^\u001a\u0002072\u0006\u0010Z\u001a\u000207H\u0002JA\u0010¨\u0001\u001a\u00020i2\u0006\u0010p\u001a\u00020q2\u0006\u0010x\u001a\u00020:2\u0006\u0010y\u001a\u00020\u00142\u0006\u0010s\u001a\u0002072\u0006\u0010t\u001a\u0002072\u0006\u0010^\u001a\u0002072\u0006\u0010Z\u001a\u000207H\u0002R\u001a\u0010\u0007\u001a\u00020\bX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\t\u0010\n\"\u0004\b\u000b\u0010\fR\u0011\u0010\r\u001a\u00020\u000e¢\u0006\b\n\u0000\u001a\u0004\b\u000f\u0010\u0010R\u0011\u0010\u0011\u001a\u00020\u000e¢\u0006\b\n\u0000\u001a\u0004\b\u0012\u0010\u0010R\u000e\u0010\u0013\u001a\u00020\u0014X\u0082\u0004¢\u0006\u0002\n\u0000R\u001c\u0010\u0015\u001a\u0004\u0018\u00010\u0016X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0017\u0010\u0018\"\u0004\b\u0019\u0010\u001aR\u001c\u0010\u001b\u001a\u0004\u0018\u00010\u001cX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u001d\u0010\u001e\"\u0004\b\u001f\u0010 R\u001a\u0010!\u001a\u00020\bX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\"\u0010\n\"\u0004\b#\u0010\fR\u000e\u0010$\u001a\u00020\u0014X\u0082\u0004¢\u0006\u0002\n\u0000R\u001a\u0010%\u001a\u00020\bX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b&\u0010\n\"\u0004\b'\u0010\fR\u001c\u0010(\u001a\u0004\u0018\u00010)X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b*\u0010+\"\u0004\b,\u0010-R\u001a\u0010.\u001a\u00020\bX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b.\u0010\n\"\u0004\b/\u0010\fR\u001a\u00100\u001a\u00020\bX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b0\u0010\n\"\u0004\b1\u0010\fR\u001c\u00102\u001a\u0004\u0018\u00010\u001cX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b3\u0010\u001e\"\u0004\b4\u0010 R\u000e\u00105\u001a\u00020\u0014X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u00106\u001a\u000207X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u00108\u001a\u000207X\u0082\u000e¢\u0006\u0002\n\u0000R\u001a\u00109\u001a\u00020:X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b;\u0010<\"\u0004\b=\u0010>R$\u0010@\u001a\u0002072\u0006\u0010?\u001a\u000207@VX\u0096\u000e¢\u0006\u000e\n\u0000\u001a\u0004\bA\u0010B\"\u0004\bC\u0010DR\u000e\u0010E\u001a\u00020FX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010G\u001a\u00020FX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010H\u001a\u00020IX\u0082\u0004¢\u0006\u0002\n\u0000R\u001a\u0010J\u001a\u00020\bX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\bK\u0010\n\"\u0004\bL\u0010\fR\u001a\u0010M\u001a\u00020\bX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\bN\u0010\n\"\u0004\bO\u0010\fR\u001a\u0010P\u001a\u00020\bX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\bQ\u0010\n\"\u0004\bR\u0010\fR\u001a\u0010S\u001a\u00020\bX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\bT\u0010\n\"\u0004\bU\u0010\fR\u0013\u0010V\u001a\u0004\u0018\u00010W¢\u0006\b\n\u0000\u001a\u0004\bX\u0010YR\u001a\u0010Z\u001a\u000207X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b[\u0010B\"\u0004\b\\\u0010DR\u000e\u0010]\u001a\u00020\u0014X\u0082\u0004¢\u0006\u0002\n\u0000R\u001a\u0010^\u001a\u000207X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b_\u0010B\"\u0004\b`\u0010DR\u001c\u0010a\u001a\u0004\u0018\u00010\u001cX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\bb\u0010\u001e\"\u0004\bc\u0010 R\u000e\u0010d\u001a\u00020\u0014X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010e\u001a\u00020\u0014X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010f\u001a\u000207X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010g\u001a\u000207X\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006«\u0001"}, d2 = {"Lcom/rigol/scope/views/TagView;", "Lcom/rigol/scope/views/baseview/OrientationView;", "context", "Landroid/content/Context;", "attrs", "Landroid/util/AttributeSet;", "(Landroid/content/Context;Landroid/util/AttributeSet;)V", "beyond", "", "getBeyond", "()Z", "setBeyond", "(Z)V", "bitmapKeyA", "Landroid/graphics/Bitmap;", "getBitmapKeyA", "()Landroid/graphics/Bitmap;", "bitmapKeyB", "getBitmapKeyB", "borderPaint", "Landroid/graphics/Paint;", "callback", "Lcom/rigol/scope/views/TagView$Callback;", "getCallback", "()Lcom/rigol/scope/views/TagView$Callback;", "setCallback", "(Lcom/rigol/scope/views/TagView$Callback;)V", "cousor_label", "", "getCousor_label", "()Ljava/lang/String;", "setCousor_label", "(Ljava/lang/String;)V", "cousor_showLabel_now", "getCousor_showLabel_now", "setCousor_showLabel_now", "cursor_labelPaint", "draggable", "getDraggable", "setDraggable", "horizontal", "Lcom/rigol/scope/data/HorizontalParam;", "getHorizontal", "()Lcom/rigol/scope/data/HorizontalParam;", "setHorizontal", "(Lcom/rigol/scope/data/HorizontalParam;)V", "isDragging", "setDragging", "isShowHint", "setShowHint", "label", "getLabel", "setLabel", "labelPaint", "mPreviousX", "", "mPreviousY", "path_six", "Landroid/graphics/Path;", "getPath_six", "()Landroid/graphics/Path;", "setPath_six", "(Landroid/graphics/Path;)V", "value", "position", "getPosition", "()I", "setPosition", "(I)V", "positionEdgeWithTag", "", "positionEdgeWithView", "rect", "Landroid/graphics/Rect;", "reverse", "getReverse", "setReverse", "showBor", "getShowBor", "setShowBor", "showBorder", "getShowBorder", "setShowBorder", "showLabel", "getShowLabel", "setShowLabel", "syncDataView", "Lcom/rigol/scope/viewmodels/SyncDataViewModel;", "getSyncDataView", "()Lcom/rigol/scope/viewmodels/SyncDataViewModel;", "tagHeight", "getTagHeight", "setTagHeight", "tagPaint", "tagWidth", "getTagWidth", "setTagWidth", "text", "getText", "setText", "textPaint", "text_tag_Paint", "totalDeltaX", "totalDeltaY", "calAndSetPosition", "", "calculateOffset", "cos", "", "mun", "drawHorizontalTag", "halfHeight", "canvas", "Landroid/graphics/Canvas;", "drawLabel", "startX", "startY", "drawWidth", "drawHeight", "drawPolygon", "path", "paint", "points", "", "", "(Landroid/graphics/Canvas;Landroid/graphics/Path;Landroid/graphics/Paint;[[F)V", "drawTag", "halfWidth", "drawText", "drawVerticalTag", "handleMoveEvent", "moveDistance", "inDraggingArea", "x", "y", "initPositionEdge", "layout", "l", "t", "r", ViewUtil.KEY_B, "onDraw", "onSizeChanged", "w", "h", "oldw", "oldh", "onTouchEvent", NotificationCompat.CATEGORY_EVENT, "Landroid/view/MotionEvent;", "setBorderColor", "color", "setLabelColor", "labelColor", "setLabelSize", "labelSize", "setTagColor", "setTagStyle", "style", "Landroid/graphics/Paint$Style;", "setTextColor", "textColor", "setTextSize", "textSize", "sin", "turnDown", "turnLeft", "turnRight", "turnUp", "Callback", "Companion", "app_release"}, k = 1, mv = {1, 4, 1})
 /* loaded from: classes2.dex */
@@ -593,9 +594,8 @@ public class TagView extends OrientationView {
         this.horizontal = horizontalParam;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.rigol.scope.views.baseview.OrientationView, android.view.View
-    public void onDraw(Canvas canvas) {
+    protected void onDraw(Canvas canvas) {
         Intrinsics.checkNotNullParameter(canvas, "canvas");
         super.onDraw(canvas);
         drawTag(getHeight() >> 1, getWidth() >> 1, canvas);
@@ -621,28 +621,159 @@ public class TagView extends OrientationView {
     /* JADX WARN: Removed duplicated region for block: B:36:0x00c1  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    private final void drawVerticalTag(int r11, android.graphics.Canvas r12) {
-        /*
-            Method dump skipped, instructions count: 237
-            To view this dump add '--comments-level debug' option
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.rigol.scope.views.TagView.drawVerticalTag(int, android.graphics.Canvas):void");
+    private final void drawVerticalTag(int i, Canvas canvas) {
+        int i2;
+        int position;
+        int height;
+        int height2;
+        int i3 = this.tagWidth >> 1;
+        if (!(getParent() instanceof ViewGroup)) {
+            return;
+        }
+        int i4 = 0;
+        if (getPosition() < this.positionEdgeWithView[0]) {
+            if (this.reverse) {
+                height2 = i3;
+            } else {
+                ViewParent parent = getParent();
+                if (parent == null) {
+                    throw new NullPointerException("null cannot be cast to non-null type android.view.ViewGroup");
+                }
+                height2 = ((ViewGroup) parent).getHeight() - i3;
+            }
+            turnLeft(canvas, getPath(), this.tagPaint, i, height2, this.tagHeight, this.tagWidth);
+        } else if (getPosition() > this.positionEdgeWithView[2]) {
+            if (this.reverse) {
+                height = 0;
+            } else {
+                ViewParent parent2 = getParent();
+                if (parent2 == null) {
+                    throw new NullPointerException("null cannot be cast to non-null type android.view.ViewGroup");
+                }
+                height = ((ViewGroup) parent2).getHeight() - this.tagWidth;
+            }
+            Path path = getPath();
+            Paint paint = this.tagPaint;
+            int i5 = this.tagHeight;
+            turnRight(canvas, path, paint, i - i5, height, i5, this.tagWidth);
+        } else {
+            int position2 = getPosition();
+            int[] iArr = this.positionEdgeWithTag;
+            if (position2 < iArr[0]) {
+                i2 = iArr[0];
+                position = getPosition();
+            } else {
+                int position3 = getPosition();
+                int[] iArr2 = this.positionEdgeWithTag;
+                if (position3 > iArr2[2]) {
+                    i2 = iArr2[2];
+                    position = getPosition();
+                }
+                int i6 = i - i3;
+                if (!this.reverse) {
+                    turnDown(canvas, getPath(), this.tagPaint, i6 + i4, 0, this.tagWidth, this.tagHeight);
+                    return;
+                }
+                Path path2 = getPath();
+                Paint paint2 = this.tagPaint;
+                int i7 = i6 + i4;
+                ViewParent parent3 = getParent();
+                if (parent3 != null) {
+                    int height3 = ((ViewGroup) parent3).getHeight();
+                    int i8 = this.tagHeight;
+                    turnUp(canvas, path2, paint2, i7, (height3 - i8) + i3, this.tagWidth, i8);
+                    return;
+                }
+                throw new NullPointerException("null cannot be cast to non-null type android.view.ViewGroup");
+            }
+            i4 = i2 - position;
+            int i62 = i - i3;
+            if (!this.reverse) {
+            }
+        }
     }
 
     /* JADX WARN: Removed duplicated region for block: B:33:0x00aa  */
     /* JADX WARN: Removed duplicated region for block: B:45:0x0101  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    private final void drawHorizontalTag(int r10, android.graphics.Canvas r11) {
-        /*
-            Method dump skipped, instructions count: 280
-            To view this dump add '--comments-level debug' option
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.rigol.scope.views.TagView.drawHorizontalTag(int, android.graphics.Canvas):void");
+    private final void drawHorizontalTag(int i, Canvas canvas) {
+        int i2;
+        int position;
+        int i3 = this.tagHeight >> 1;
+        if (!(getParent() instanceof ViewGroup)) {
+            return;
+        }
+        int i4 = 0;
+        if (getPosition() < this.positionEdgeWithView[1]) {
+            if (this.reverse) {
+                ViewParent parent = getParent();
+                if (parent == null) {
+                    throw new NullPointerException("null cannot be cast to non-null type android.view.ViewGroup");
+                }
+                i4 = ((ViewGroup) parent).getWidth() - this.tagHeight;
+            }
+            turnUp(canvas, getPath(), this.tagPaint, i4, i3 + i, this.tagHeight, this.tagWidth);
+        } else if (getPosition() > this.positionEdgeWithView[3]) {
+            if (this.reverse) {
+                ViewParent parent2 = getParent();
+                if (parent2 == null) {
+                    throw new NullPointerException("null cannot be cast to non-null type android.view.ViewGroup");
+                }
+                i4 = ((ViewGroup) parent2).getWidth() - this.tagHeight;
+            }
+            Path path = getPath();
+            Paint paint = this.tagPaint;
+            int i5 = this.tagWidth;
+            turnDown(canvas, path, paint, i4, i - i5, this.tagHeight, i5);
+        } else {
+            int position2 = getPosition();
+            int[] iArr = this.positionEdgeWithTag;
+            if (position2 < iArr[1]) {
+                i2 = iArr[1];
+                position = getPosition();
+            } else {
+                int position3 = getPosition();
+                int[] iArr2 = this.positionEdgeWithTag;
+                if (position3 > iArr2[3]) {
+                    i2 = iArr2[3];
+                    position = getPosition();
+                }
+                int i6 = i - i3;
+                if (!this.reverse) {
+                    if (this.showBor) {
+                        Path path2 = getPath();
+                        Paint paint2 = this.tagPaint;
+                        ViewParent parent3 = getParent();
+                        if (parent3 != null) {
+                            int width = ((ViewGroup) parent3).getWidth();
+                            int i7 = this.tagWidth;
+                            turnLeft(canvas, path2, paint2, (width - i7) - 146, i + i4, i7, this.tagHeight);
+                            return;
+                        }
+                        throw new NullPointerException("null cannot be cast to non-null type android.view.ViewGroup");
+                    }
+                    Path path3 = getPath();
+                    Paint paint3 = this.tagPaint;
+                    ViewParent parent4 = getParent();
+                    if (parent4 != null) {
+                        int width2 = ((ViewGroup) parent4).getWidth();
+                        int i8 = this.tagWidth;
+                        turnLeft(canvas, path3, paint3, width2 - i8, i + i4, i8, this.tagHeight);
+                        return;
+                    }
+                    throw new NullPointerException("null cannot be cast to non-null type android.view.ViewGroup");
+                }
+                turnRight(canvas, getPath(), this.tagPaint, 0, i6 + i4, this.tagWidth, this.tagHeight);
+                return;
+            }
+            i4 = i2 - position;
+            int i62 = i - i3;
+            if (!this.reverse) {
+            }
+        }
     }
 
     private final void turnDown(Canvas canvas, Path path, Paint paint, int i, int i2, int i3, int i4) {

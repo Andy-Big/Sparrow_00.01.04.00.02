@@ -12,6 +12,7 @@ import com.rigol.scope.R;
 import com.rigol.scope.data.LeftStatusBarParam;
 import com.rigol.scope.data.MenuParam;
 import com.rigol.scope.views.waveview.AwgPlotView;
+
 /* loaded from: classes2.dex */
 public abstract class FragmentContBinding extends ViewDataBinding {
     public final AwgPlotView afgView;
@@ -43,8 +44,7 @@ public abstract class FragmentContBinding extends ViewDataBinding {
 
     public abstract void setMenuParam(MenuParam menuParam);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public FragmentContBinding(Object obj, View view, int i, AwgPlotView awgPlotView, View view2, View view3, TextView textView, TextView textView2, TextView textView3, View view4, TextView textView4, TextView textView5, AppCompatTextView appCompatTextView, AppCompatTextView appCompatTextView2, AppCompatTextView appCompatTextView3, AppCompatTextView appCompatTextView4, TextView textView6, TextView textView7, AppCompatTextView appCompatTextView5, AppCompatTextView appCompatTextView6, AppCompatTextView appCompatTextView7, TextView textView8, TextView textView9) {
+    protected FragmentContBinding(Object obj, View view, int i, AwgPlotView awgPlotView, View view2, View view3, TextView textView, TextView textView2, TextView textView3, View view4, TextView textView4, TextView textView5, AppCompatTextView appCompatTextView, AppCompatTextView appCompatTextView2, AppCompatTextView appCompatTextView3, AppCompatTextView appCompatTextView4, TextView textView6, TextView textView7, AppCompatTextView appCompatTextView5, AppCompatTextView appCompatTextView6, AppCompatTextView appCompatTextView7, TextView textView8, TextView textView9) {
         super(obj, view, i);
         this.afgView = awgPlotView;
         this.bgView = view2;

@@ -117,6 +117,10 @@ import com.rigol.util.PackageUtilKt;
 import com.rigol.util.ToastUtils;
 import java.io.File;
 import java.io.FileFilter;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.IOException;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.math.BigDecimal;
@@ -124,6 +128,7 @@ import java.net.URLConnection;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
@@ -131,6 +136,11 @@ import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import kotlin.jvm.functions.Function1;
+import org.apache.commons.csv.CSVFormat;
+import org.apache.commons.csv.CSVParser;
+import org.apache.commons.csv.CSVRecord;
+import timber.log.Timber;
+
 /* loaded from: classes2.dex */
 public class ViewUtil {
     public static final String KEY_A = "a";
@@ -266,8 +276,7 @@ public class ViewUtil {
         popupSpinner.showAsDropDown(view, view2, i, i2, i3);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ void lambda$showSpinner$0(View view, PopupSpinner popupSpinner, PopupSpinner.OnItemClickListener onItemClickListener, List list, View view2, RecyclerView.ViewHolder viewHolder, int i) {
+    static /* synthetic */ void lambda$showSpinner$0(View view, PopupSpinner popupSpinner, PopupSpinner.OnItemClickListener onItemClickListener, List list, View view2, RecyclerView.ViewHolder viewHolder, int i) {
         if (view instanceof TextView) {
             View findViewById = viewHolder.itemView.findViewById(R.id.title);
             if (findViewById instanceof TextView) {
@@ -295,8 +304,7 @@ public class ViewUtil {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ void lambda$showSpinner$1(View view, PopupSpinner popupSpinner, PopupSpinner.OnItemClickListener onItemClickListener, List list, SpinnerAdapter spinnerAdapter, View view2, RecyclerView.ViewHolder viewHolder, int i) {
+    static /* synthetic */ void lambda$showSpinner$1(View view, PopupSpinner popupSpinner, PopupSpinner.OnItemClickListener onItemClickListener, List list, SpinnerAdapter spinnerAdapter, View view2, RecyclerView.ViewHolder viewHolder, int i) {
         if (view instanceof TextView) {
             View findViewById = viewHolder.itemView.findViewById(R.id.title);
             if (findViewById instanceof TextView) {
@@ -1868,8 +1876,7 @@ public class ViewUtil {
         });
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ void lambda$addOutsideEnableClickRects$8(Class cls, View view, int[] iArr) {
+    static /* synthetic */ void lambda$addOutsideEnableClickRects$8(Class cls, View view, int[] iArr) {
         BasePopupView basePopupView = PopupViewManager.getInstance().get(cls);
         if (basePopupView == null) {
             return;
@@ -2291,8 +2298,7 @@ public class ViewUtil {
         return arrayList;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ Boolean lambda$getDepthSpinnerList$9(int i, MappingObject mappingObject) {
+    static /* synthetic */ Boolean lambda$getDepthSpinnerList$9(int i, MappingObject mappingObject) {
         if (i == ServiceEnum.ProductSeries.SERIES_900.value1) {
             return Boolean.valueOf(mappingObject.getValue() != ServiceEnum.AcquireDepth.Acquire_Depth_5M.value1);
         }
@@ -2355,8 +2361,7 @@ public class ViewUtil {
         }, i2);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ void lambda$setTouchDelegateDelay$10(View view, int i, ViewGroup viewGroup) {
+    static /* synthetic */ void lambda$setTouchDelegateDelay$10(View view, int i, ViewGroup viewGroup) {
         Rect rect = new Rect();
         view.getHitRect(rect);
         rect.left -= i;
@@ -2411,148 +2416,126 @@ public class ViewUtil {
         return null;
     }
 
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [4448=4, 4438=4, 4440=4, 4446=4] */
     /* JADX WARN: Removed duplicated region for block: B:81:0x00ae A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Removed duplicated region for block: B:94:0x00b8 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    public static java.util.ArrayList<java.lang.String[]> getCsvInfo(java.lang.String r11, java.lang.Object... r12) {
-        /*
-            java.util.ArrayList r0 = new java.util.ArrayList
-            r0.<init>()
-            r1 = 0
-            if (r12 == 0) goto L1a
-            int r2 = r12.length
-            if (r2 <= 0) goto L1a
-            r2 = r12[r1]
-            boolean r2 = r2 instanceof java.lang.Integer
-            if (r2 == 0) goto L1a
-            r12 = r12[r1]
-            java.lang.Integer r12 = (java.lang.Integer) r12
-            int r12 = r12.intValue()
-            goto L1b
-        L1a:
-            r12 = -1
-        L1b:
-            r2 = 0
-            java.io.FileReader r3 = new java.io.FileReader     // Catch: java.lang.Throwable -> L86 java.lang.Exception -> L89
-            r3.<init>(r11)     // Catch: java.lang.Throwable -> L86 java.lang.Exception -> L89
-            org.apache.commons.csv.CSVFormat r4 = org.apache.commons.csv.CSVFormat.DEFAULT     // Catch: java.lang.Throwable -> L81 java.lang.Exception -> L84
-            org.apache.commons.csv.CSVParser r4 = org.apache.commons.csv.CSVParser.parse(r3, r4)     // Catch: java.lang.Throwable -> L81 java.lang.Exception -> L84
-            java.util.Iterator r5 = r4.iterator()     // Catch: java.lang.Exception -> L8b java.lang.Throwable -> Laa
-            r6 = r1
-        L2c:
-            boolean r7 = r5.hasNext()     // Catch: java.lang.Exception -> L8b java.lang.Throwable -> Laa
-            if (r7 == 0) goto L6e
-            java.lang.Object r7 = r5.next()     // Catch: java.lang.Exception -> L8b java.lang.Throwable -> Laa
-            org.apache.commons.csv.CSVRecord r7 = (org.apache.commons.csv.CSVRecord) r7     // Catch: java.lang.Exception -> L8b java.lang.Throwable -> Laa
-            if (r7 != 0) goto L3b
-            goto L2c
-        L3b:
-            if (r12 < 0) goto L52
-            if (r6 < r12) goto L52
-            r3.close()     // Catch: java.io.IOException -> L43
-            goto L47
-        L43:
-            r11 = move-exception
-            r11.printStackTrace()
-        L47:
-            if (r4 == 0) goto L51
-            r4.close()     // Catch: java.io.IOException -> L4d
-            goto L51
-        L4d:
-            r11 = move-exception
-            r11.printStackTrace()
-        L51:
-            return r0
-        L52:
-            int r8 = r7.size()     // Catch: java.lang.Exception -> L8b java.lang.Throwable -> Laa
-            java.lang.String[] r8 = new java.lang.String[r8]     // Catch: java.lang.Exception -> L8b java.lang.Throwable -> Laa
-            r9 = r1
-        L59:
-            int r10 = r7.size()     // Catch: java.lang.Exception -> L8b java.lang.Throwable -> Laa
-            if (r9 >= r10) goto L68
-            java.lang.String r10 = r7.get(r9)     // Catch: java.lang.Exception -> L8b java.lang.Throwable -> Laa
-            r8[r9] = r10     // Catch: java.lang.Exception -> L8b java.lang.Throwable -> Laa
-            int r9 = r9 + 1
-            goto L59
-        L68:
-            r0.add(r8)     // Catch: java.lang.Exception -> L8b java.lang.Throwable -> Laa
-            int r6 = r6 + 1
-            goto L2c
-        L6e:
-            r3.close()     // Catch: java.io.IOException -> L72
-            goto L76
-        L72:
-            r11 = move-exception
-            r11.printStackTrace()
-        L76:
-            if (r4 == 0) goto L80
-            r4.close()     // Catch: java.io.IOException -> L7c
-            goto L80
-        L7c:
-            r11 = move-exception
-            r11.printStackTrace()
-        L80:
-            return r0
-        L81:
-            r11 = move-exception
-            r4 = r2
-            goto Lab
-        L84:
-            r4 = r2
-            goto L8b
-        L86:
-            r11 = move-exception
-            r4 = r2
-            goto Lac
-        L89:
-            r3 = r2
-            r4 = r3
-        L8b:
-            java.lang.String r12 = "File not exist:%s"
-            r0 = 1
-            java.lang.Object[] r0 = new java.lang.Object[r0]     // Catch: java.lang.Throwable -> Laa
-            r0[r1] = r11     // Catch: java.lang.Throwable -> Laa
-            timber.log.Timber.e(r12, r0)     // Catch: java.lang.Throwable -> Laa
-            if (r3 == 0) goto L9f
-            r3.close()     // Catch: java.io.IOException -> L9b
-            goto L9f
-        L9b:
-            r11 = move-exception
-            r11.printStackTrace()
-        L9f:
-            if (r4 == 0) goto La9
-            r4.close()     // Catch: java.io.IOException -> La5
-            goto La9
-        La5:
-            r11 = move-exception
-            r11.printStackTrace()
-        La9:
-            return r2
-        Laa:
-            r11 = move-exception
-        Lab:
-            r2 = r3
-        Lac:
-            if (r2 == 0) goto Lb6
-            r2.close()     // Catch: java.io.IOException -> Lb2
-            goto Lb6
-        Lb2:
-            r12 = move-exception
-            r12.printStackTrace()
-        Lb6:
-            if (r4 == 0) goto Lc0
-            r4.close()     // Catch: java.io.IOException -> Lbc
-            goto Lc0
-        Lbc:
-            r12 = move-exception
-            r12.printStackTrace()
-        Lc0:
-            throw r11
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.rigol.scope.utilities.ViewUtil.getCsvInfo(java.lang.String, java.lang.Object[]):java.util.ArrayList");
+    public static ArrayList<String[]> getCsvInfo(String str, Object... objArr) {
+        CSVParser cSVParser;
+        FileReader fileReader;
+        ArrayList<String[]> arrayList = new ArrayList<>();
+        int intValue = (objArr == null || objArr.length <= 0 || !(objArr[0] instanceof Integer)) ? -1 : ((Integer) objArr[0]).intValue();
+        FileReader fileReader2 = null;
+        try {
+            fileReader = new FileReader(str);
+        } catch (Exception unused) {
+            fileReader = null;
+            cSVParser = null;
+        } catch (Throwable th) {
+            th = th;
+            cSVParser = null;
+            if (fileReader2 != null) {
+            }
+            if (cSVParser != null) {
+            }
+            throw th;
+        }
+        try {
+            cSVParser = CSVParser.parse(fileReader, CSVFormat.DEFAULT);
+        } catch (Exception unused2) {
+            cSVParser = null;
+        } catch (Throwable th2) {
+            th = th2;
+            cSVParser = null;
+            fileReader2 = fileReader;
+            if (fileReader2 != null) {
+            }
+            if (cSVParser != null) {
+            }
+            throw th;
+        }
+        try {
+            try {
+                Iterator<CSVRecord> it = cSVParser.iterator();
+                int i = 0;
+                while (it.hasNext()) {
+                    CSVRecord next = it.next();
+                    if (next != null) {
+                        if (intValue >= 0 && i >= intValue) {
+                            try {
+                                fileReader.close();
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                            if (cSVParser != null) {
+                                try {
+                                    cSVParser.close();
+                                } catch (IOException e2) {
+                                    e2.printStackTrace();
+                                }
+                            }
+                            return arrayList;
+                        }
+                        String[] strArr = new String[next.size()];
+                        for (int i2 = 0; i2 < next.size(); i2++) {
+                            strArr[i2] = next.get(i2);
+                        }
+                        arrayList.add(strArr);
+                        i++;
+                    }
+                }
+                try {
+                    fileReader.close();
+                } catch (IOException e3) {
+                    e3.printStackTrace();
+                }
+                if (cSVParser != null) {
+                    try {
+                        cSVParser.close();
+                    } catch (IOException e4) {
+                        e4.printStackTrace();
+                    }
+                }
+                return arrayList;
+            } catch (Throwable th3) {
+                th = th3;
+                fileReader2 = fileReader;
+                if (fileReader2 != null) {
+                    try {
+                        fileReader2.close();
+                    } catch (IOException e5) {
+                        e5.printStackTrace();
+                    }
+                }
+                if (cSVParser != null) {
+                    try {
+                        cSVParser.close();
+                    } catch (IOException e6) {
+                        e6.printStackTrace();
+                    }
+                }
+                throw th;
+            }
+        } catch (Exception unused3) {
+            Timber.e("File not exist:%s", str);
+            if (fileReader != null) {
+                try {
+                    fileReader.close();
+                } catch (IOException e7) {
+                    e7.printStackTrace();
+                }
+            }
+            if (cSVParser != null) {
+                try {
+                    cSVParser.close();
+                } catch (IOException e8) {
+                    e8.printStackTrace();
+                }
+            }
+            return null;
+        }
     }
 
     public static WindowHolder getWindowHolderByServiceID(ServiceEnum.WindowType windowType, int i) {
@@ -2595,10 +2578,9 @@ public class ViewUtil {
         return paint.getTextSize() > f2 ? f2 : paint.getTextSize() < f ? f : paint.getTextSize();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.rigol.scope.utilities.ViewUtil$4  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public static /* synthetic */ class AnonymousClass4 {
+    static /* synthetic */ class AnonymousClass4 {
         static final /* synthetic */ int[] $SwitchMap$com$rigol$scope$cil$ServiceEnum$Chan;
         static final /* synthetic */ int[] $SwitchMap$com$rigol$scope$cil$ServiceEnum$EdgeSlope;
         static final /* synthetic */ int[] $SwitchMap$com$rigol$scope$cil$ServiceEnum$Function;
@@ -2920,6 +2902,11 @@ public class ViewUtil {
         return guessContentTypeFromName != null && guessContentTypeFromName.startsWith("image");
     }
 
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [4746=4] */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:20:0x00b1 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:22:0x00b3 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:44:0x00d7 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:60:0x0099 */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Removed duplicated region for block: B:64:0x00da A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Type inference failed for: r6v0, types: [java.lang.String] */
@@ -2934,14 +2921,89 @@ public class ViewUtil {
     /* JADX WARN: Type inference failed for: r6v8 */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    public static synchronized void identification(java.lang.String r3, java.lang.String r4, java.lang.String r5, java.lang.String r6, java.lang.String r7, java.lang.String r8, java.lang.String r9, java.lang.String r10, boolean r11, boolean r12) {
-        /*
-            Method dump skipped, instructions count: 230
-            To view this dump add '--comments-level debug' option
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.rigol.scope.utilities.ViewUtil.identification(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, boolean, boolean):void");
+    public static synchronized void identification(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, boolean z, boolean z2) {
+        Throwable th;
+        FileOutputStream fileOutputStream;
+        IOException e;
+        FileNotFoundException e2;
+        synchronized (ViewUtil.class) {
+            String str9 = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<LXIDevice xmlns=\"http://www.lxistandard.org/InstrumentIdentification/1.0\"\nxmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\nxsi:schemaLocation=\"http://www.lxistandard.org/InstrumentIdentification/1.0 http://" + str5 + "/lxi/identification/LXIIdentification.xsd\">\n<Manufacturer>Rigol Technologies</Manufacturer>\n<Model>" + str2 + "</Model>\n<SerialNumber>" + str3 + "</SerialNumber>\n<FirmwareRevision>" + ((String) str4) + "</FirmwareRevision>\n<ManufacturerDescription>Rigol</ManufacturerDescription>\n<HomepageURL>http://www.rigol.com</HomepageURL>\n<DriverURL>http://www.rigol.com</DriverURL>\n<UserDescription>RGLAN Identification Schema</UserDescription>\n<IdentificationURL>http://" + str5 + "/lxi/identification</IdentificationURL>\n<Interface xsi:type=\"NetworkInformation\" InterfaceType=\"LXI\" IPType=\"IPv4\" InterfaceName=\"eth0\">\n<InstrumentAddressString>TCPIP0::" + str5 + "::INSTR</InstrumentAddressString>\n<Hostname>" + str5 + "</Hostname>\n<IPAddress>" + str5 + "</IPAddress>\n<SubnetMask>" + str6 + "</SubnetMask>\n<MACAddress>" + str7 + "</MACAddress>\n<Gateway>" + str8 + "</Gateway>\n<DHCPEnabled>" + z + "</DHCPEnabled>\n<AutoIPEnabled>" + z2 + "</AutoIPEnabled>\n</Interface>\n<Interface InterfaceType=\"Rigol Custom Network Interface\" InterfaceName=\"LAN\">\n<InstrumentAddressString>" + str5 + "</InstrumentAddressString>\n</Interface>\n<IVISoftwareModuleName>RGLAN</IVISoftwareModuleName><Domain>1</Domain><LXIVersion>1.4</LXIVersion></LXIDevice>";
+            File file = new File(str);
+            if (!file.exists()) {
+                try {
+                    if (!file.createNewFile()) {
+                        return;
+                    }
+                } catch (IOException e3) {
+                    e3.printStackTrace();
+                }
+            }
+            try {
+                try {
+                    fileOutputStream = new FileOutputStream(file);
+                } catch (FileNotFoundException e4) {
+                    fileOutputStream = null;
+                    e2 = e4;
+                } catch (IOException e5) {
+                    fileOutputStream = null;
+                    e = e5;
+                } catch (Throwable th2) {
+                    str4 = 0;
+                    th = th2;
+                    if (str4 != 0) {
+                    }
+                    throw th;
+                }
+                try {
+                    fileOutputStream.write(str9.getBytes());
+                    fileOutputStream.close();
+                } catch (FileNotFoundException e6) {
+                    e2 = e6;
+                    e2.printStackTrace();
+                    str4 = fileOutputStream;
+                    if (fileOutputStream != null) {
+                        try {
+                            fileOutputStream.close();
+                            str4 = fileOutputStream;
+                        } catch (IOException e7) {
+                            e = e7;
+                            e.printStackTrace();
+                        }
+                    }
+                } catch (IOException e8) {
+                    e = e8;
+                    e.printStackTrace();
+                    str4 = fileOutputStream;
+                    if (fileOutputStream != null) {
+                        try {
+                            fileOutputStream.close();
+                            str4 = fileOutputStream;
+                        } catch (IOException e9) {
+                            e = e9;
+                            e.printStackTrace();
+                        }
+                    }
+                }
+                try {
+                    fileOutputStream.close();
+                    str4 = fileOutputStream;
+                } catch (IOException e10) {
+                    e = e10;
+                    e.printStackTrace();
+                }
+            } catch (Throwable th3) {
+                th = th3;
+                if (str4 != 0) {
+                    try {
+                        str4.close();
+                    } catch (IOException e11) {
+                        e11.printStackTrace();
+                    }
+                }
+                throw th;
+            }
+        }
     }
 
     public static String convert(String str, int i, String str2, DecimalFormat decimalFormat) {

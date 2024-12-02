@@ -15,6 +15,7 @@ import androidx.viewpager2.widget.ViewPager2;
 import com.rigol.scope.R;
 import com.rigol.scope.data.MiniScreenParam;
 import me.relex.circleindicator.CircleIndicator3;
+
 /* loaded from: classes2.dex */
 public abstract class PresentationMiniscreenBinding extends ViewDataBinding {
     public final Guideline bottomGuideline;
@@ -50,8 +51,7 @@ public abstract class PresentationMiniscreenBinding extends ViewDataBinding {
 
     public abstract void setParam(MiniScreenParam miniScreenParam);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public PresentationMiniscreenBinding(Object obj, View view, int i, Guideline guideline, ConstraintLayout constraintLayout, ImageView imageView, TextView textView, ImageView imageView2, TextView textView2, ConstraintLayout constraintLayout2, ImageView imageView3, TextView textView3, ImageView imageView4, TextView textView4, ViewPager2 viewPager2, CircleIndicator3 circleIndicator3, Guideline guideline2, Button button, Guideline guideline3, TextView textView5, Guideline guideline4, ConstraintLayout constraintLayout3, ImageView imageView5, TextView textView6, ImageView imageView6, TextView textView7, ConstraintLayout constraintLayout4, ImageView imageView7, TextView textView8, ImageView imageView8, TextView textView9) {
+    protected PresentationMiniscreenBinding(Object obj, View view, int i, Guideline guideline, ConstraintLayout constraintLayout, ImageView imageView, TextView textView, ImageView imageView2, TextView textView2, ConstraintLayout constraintLayout2, ImageView imageView3, TextView textView3, ImageView imageView4, TextView textView4, ViewPager2 viewPager2, CircleIndicator3 circleIndicator3, Guideline guideline2, Button button, Guideline guideline3, TextView textView5, Guideline guideline4, ConstraintLayout constraintLayout3, ImageView imageView5, TextView textView6, ImageView imageView6, TextView textView7, ConstraintLayout constraintLayout4, ImageView imageView7, TextView textView8, ImageView imageView8, TextView textView9) {
         super(obj, view, i);
         this.bottomGuideline = guideline;
         this.bottomLeftCornerLayout = constraintLayout;

@@ -4,6 +4,7 @@ import com.rigol.scope.cil.ServiceEnum;
 import com.rigol.scope.data.MathParam;
 import com.rigol.util.PackageUtilKt;
 import timber.log.Timber;
+
 /* loaded from: classes2.dex */
 public class OffsetUtil {
     public static final long ENABLE_TO_SET_OFFSET_DELAY = 550;

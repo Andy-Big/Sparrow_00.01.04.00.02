@@ -1,5 +1,6 @@
 package com.rigol.scope.databinding;
 
+import android.graphics.drawable.Drawable;
 import android.support.v4.media.session.PlaybackStateCompat;
 import android.util.SparseIntArray;
 import android.view.View;
@@ -10,13 +11,22 @@ import android.widget.TextView;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.databinding.DataBindingComponent;
 import androidx.databinding.ViewDataBinding;
+import androidx.databinding.adapters.ImageViewBindingAdapter;
+import androidx.databinding.adapters.TextViewBindingAdapter;
+import androidx.databinding.adapters.ViewBindingAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 import com.rigol.scope.R;
+import com.rigol.scope.cil.ServiceEnum;
 import com.rigol.scope.data.HorizontalParam;
 import com.rigol.scope.data.MappingObject;
 import com.rigol.scope.data.TriggerParam;
 import com.rigol.scope.generated.callback.OnClickListener;
+import com.rigol.scope.utilities.ContextUtil;
 import com.rigol.scope.utilities.PopupViewManager;
+import com.rigol.scope.utilities.UnitFormat;
+import com.rigol.scope.utilities.ViewUtil;
+import kotlinx.coroutines.internal.LockFreeTaskQueueCore;
+
 /* loaded from: classes2.dex */
 public class FragmentNavigationBarBindingImpl extends FragmentNavigationBarBinding implements OnClickListener.Listener {
     private static final ViewDataBinding.IncludedLayouts sIncludes = null;
@@ -452,14 +462,518 @@ public class FragmentNavigationBarBindingImpl extends FragmentNavigationBarBindi
     @Override // androidx.databinding.ViewDataBinding
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
     protected void executeBindings() {
-        /*
-            Method dump skipped, instructions count: 1427
-            To view this dump add '--comments-level debug' option
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.rigol.scope.databinding.FragmentNavigationBarBindingImpl.executeBindings():void");
+        long j;
+        HorizontalParam horizontalParam;
+        String str;
+        String str2;
+        String str3;
+        Drawable drawable;
+        Drawable drawable2;
+        String str4;
+        String str5;
+        Drawable drawable3;
+        String str6;
+        String str7;
+        String str8;
+        int i;
+        boolean z;
+        int i2;
+        boolean z2;
+        int i3;
+        int i4;
+        Drawable drawable4;
+        boolean z3;
+        boolean z4;
+        boolean z5;
+        boolean z6;
+        int i5;
+        String str9;
+        ServiceEnum.ControlAction controlAction;
+        boolean z7;
+        String str10;
+        String str11;
+        String str12;
+        String str13;
+        long j2;
+        boolean z8;
+        boolean z9;
+        boolean z10;
+        boolean z11;
+        String str14;
+        String str15;
+        String str16;
+        int i6;
+        long j3;
+        long j4;
+        long j5;
+        ServiceEnum.TriggerPulsePolarity triggerPulsePolarity;
+        ServiceEnum.TriggerPulsePolarity triggerPulsePolarity2;
+        ServiceEnum.SHEvent sHEvent;
+        ServiceEnum.EdgeSlope edgeSlope;
+        ServiceEnum.EdgeSlope edgeSlope2;
+        ServiceEnum.EdgeSlope edgeSlope3;
+        ServiceEnum.EdgeSlope edgeSlope4;
+        ServiceEnum.EdgeSlope edgeSlope5;
+        ServiceEnum.TriggerPulsePolarity triggerPulsePolarity3;
+        ServiceEnum.EdgeSlope edgeSlope6;
+        ServiceEnum.OverEvent overEvent;
+        ServiceEnum.EdgeSlope edgeSlope7;
+        ServiceEnum.EdgeSlope edgeSlope8;
+        ServiceEnum.TriggerMode triggerMode;
+        Drawable drawable5;
+        long j6;
+        long j7;
+        long j8;
+        long j9;
+        long j10;
+        long j11;
+        long j12;
+        long j13;
+        long j14;
+        long j15;
+        long j16;
+        long j17;
+        long j18;
+        long j19;
+        long j20;
+        long j21;
+        long j22;
+        long j23;
+        long j24;
+        long j25;
+        long j26;
+        ServiceEnum.Unit unit;
+        int i7;
+        synchronized (this) {
+            j = this.mDirtyFlags;
+            this.mDirtyFlags = 0L;
+            this.mDirtyFlags_1 = 0L;
+        }
+        TriggerParam triggerParam = this.mTriggerParam;
+        HorizontalParam horizontalParam2 = this.mHorizontalParam;
+        if ((2256197860196338L & j) != 0) {
+            int i8 = ((j & 2251799814209506L) > 0L ? 1 : ((j & 2251799814209506L) == 0L ? 0 : -1));
+            if (i8 == 0 || triggerParam == null) {
+                triggerPulsePolarity = null;
+                triggerPulsePolarity2 = null;
+                sHEvent = null;
+                edgeSlope = null;
+                edgeSlope2 = null;
+                edgeSlope3 = null;
+                edgeSlope4 = null;
+                edgeSlope5 = null;
+                triggerPulsePolarity3 = null;
+                edgeSlope6 = null;
+                overEvent = null;
+                edgeSlope7 = null;
+                edgeSlope8 = null;
+            } else {
+                ServiceEnum.EdgeSlope edgeSlopeA = triggerParam.getEdgeSlopeA();
+                ServiceEnum.TriggerPulsePolarity polarity = triggerParam.getPolarity();
+                ServiceEnum.EdgeSlope overSlope = triggerParam.getOverSlope();
+                ServiceEnum.EdgeSlope edgeSlope9 = triggerParam.getEdgeSlope();
+                ServiceEnum.SHEvent sHEvent2 = triggerParam.getSHEvent();
+                edgeSlope2 = triggerParam.getSlope();
+                ServiceEnum.EdgeSlope setupHoldSlope = triggerParam.getSetupHoldSlope();
+                ServiceEnum.TriggerPulsePolarity runtPolarity = triggerParam.getRuntPolarity();
+                ServiceEnum.EdgeSlope timeoutSlope = triggerParam.getTimeoutSlope();
+                ServiceEnum.EdgeSlope edgeSlopeB = triggerParam.getEdgeSlopeB();
+                ServiceEnum.TriggerPulsePolarity videoPolarity = triggerParam.getVideoPolarity();
+                overEvent = triggerParam.getOverEvent();
+                edgeSlope7 = triggerParam.getNthSlope();
+                edgeSlope8 = edgeSlopeB;
+                triggerPulsePolarity3 = polarity;
+                triggerPulsePolarity = videoPolarity;
+                edgeSlope6 = edgeSlopeA;
+                edgeSlope4 = overSlope;
+                triggerPulsePolarity2 = runtPolarity;
+                edgeSlope = edgeSlope9;
+                sHEvent = sHEvent2;
+                edgeSlope5 = setupHoldSlope;
+                edgeSlope3 = timeoutSlope;
+            }
+            if ((j & 2253998836940770L) != 0) {
+                ServiceEnum.TriggerMode triggerMode2 = triggerParam != null ? triggerParam.getTriggerMode() : null;
+                if (i8 != 0) {
+                    if (triggerParam != null) {
+                        horizontalParam = horizontalParam2;
+                        i7 = triggerParam.getTriggerViewDisplay(triggerMode2, triggerPulsePolarity, triggerPulsePolarity2, sHEvent, edgeSlope, edgeSlope2, edgeSlope3, edgeSlope4, overEvent, edgeSlope5, edgeSlope7, triggerPulsePolarity3, edgeSlope6, edgeSlope8);
+                    } else {
+                        horizontalParam = horizontalParam2;
+                        i7 = 0;
+                    }
+                    drawable5 = ContextUtil.getDrawable(getRoot().getContext(), i7);
+                    triggerMode = triggerMode2;
+                } else {
+                    horizontalParam = horizontalParam2;
+                    triggerMode = triggerMode2;
+                    drawable5 = null;
+                }
+            } else {
+                horizontalParam = horizontalParam2;
+                triggerMode = null;
+                drawable5 = null;
+            }
+            if ((j & 2253998836416546L) != 0) {
+                if (triggerParam != null) {
+                    ServiceEnum.Unit unit2 = triggerParam.getUnit();
+                    long iiclevelB = triggerParam.getIiclevelB();
+                    long slopelevelB = triggerParam.getSlopelevelB();
+                    long milstdlevelA = triggerParam.getMilstdlevelA();
+                    long iislevelC = triggerParam.getIislevelC();
+                    long level = triggerParam.getLevel();
+                    long delaylevelB = triggerParam.getDelaylevelB();
+                    long spilevelA = triggerParam.getSpilevelA();
+                    long iiclevelA = triggerParam.getIiclevelA();
+                    long overlevelA = triggerParam.getOverlevelA();
+                    long iislevelB = triggerParam.getIislevelB();
+                    long delaylevelA = triggerParam.getDelaylevelA();
+                    long spilevelB = triggerParam.getSpilevelB();
+                    long runtlevelA = triggerParam.getRuntlevelA();
+                    long overlevelB = triggerParam.getOverlevelB();
+                    long setupHoldlevelA = triggerParam.getSetupHoldlevelA();
+                    long iislevelA = triggerParam.getIislevelA();
+                    long spilevelC = triggerParam.getSpilevelC();
+                    long runtlevelB = triggerParam.getRuntlevelB();
+                    long setupHoldlevelB = triggerParam.getSetupHoldlevelB();
+                    long slopelevelA = triggerParam.getSlopelevelA();
+                    unit = unit2;
+                    j14 = triggerParam.getMilstdlevelB();
+                    j26 = iislevelC;
+                    j9 = runtlevelA;
+                    j18 = setupHoldlevelB;
+                    j24 = iislevelA;
+                    j21 = spilevelA;
+                    j12 = overlevelB;
+                    j19 = iiclevelA;
+                    j13 = milstdlevelA;
+                    j8 = slopelevelB;
+                    j7 = slopelevelA;
+                    j25 = iislevelB;
+                    j15 = delaylevelA;
+                    j16 = delaylevelB;
+                    j11 = overlevelA;
+                    j10 = runtlevelB;
+                    j23 = spilevelC;
+                    j22 = spilevelB;
+                    j17 = setupHoldlevelA;
+                    j20 = iiclevelB;
+                    j6 = level;
+                } else {
+                    j6 = 0;
+                    j7 = 0;
+                    j8 = 0;
+                    j9 = 0;
+                    j10 = 0;
+                    j11 = 0;
+                    j12 = 0;
+                    j13 = 0;
+                    j14 = 0;
+                    j15 = 0;
+                    j16 = 0;
+                    j17 = 0;
+                    j18 = 0;
+                    j19 = 0;
+                    j20 = 0;
+                    j21 = 0;
+                    j22 = 0;
+                    j23 = 0;
+                    j24 = 0;
+                    j25 = 0;
+                    j26 = 0;
+                    unit = null;
+                }
+                if (triggerParam != null) {
+                    str2 = triggerParam.getTriggerLevelShowStr(unit, triggerMode, j6, j7, j8, j9, j10, j11, j12, j13, j14, j15, j16, j17, j18, j19, j20, j21, j22, j23, j24, j25, j26);
+                    if ((j & 2251799813685266L) != 0) {
+                        ServiceEnum.Chan chan = triggerParam != null ? triggerParam.getChan() : null;
+                        if (triggerParam != null) {
+                            drawable = triggerParam.getChanColor(getRoot().getContext(), chan);
+                            str3 = triggerParam.getChanValuesDisplay(chan);
+                            if ((j & 2253998836940802L) != 0) {
+                                int nMode = triggerParam != null ? triggerParam.getNMode() : 0;
+                                if (triggerParam != null) {
+                                    str = triggerParam.getTriggerModeDisplay(nMode);
+                                    drawable2 = drawable5;
+                                }
+                            }
+                            str = null;
+                            drawable2 = drawable5;
+                        }
+                    }
+                    str3 = null;
+                    drawable = null;
+                    if ((j & 2253998836940802L) != 0) {
+                    }
+                    str = null;
+                    drawable2 = drawable5;
+                }
+            }
+            str2 = null;
+            if ((j & 2251799813685266L) != 0) {
+            }
+            str3 = null;
+            drawable = null;
+            if ((j & 2253998836940802L) != 0) {
+            }
+            str = null;
+            drawable2 = drawable5;
+        } else {
+            horizontalParam = horizontalParam2;
+            str = null;
+            str2 = null;
+            str3 = null;
+            drawable = null;
+            drawable2 = null;
+        }
+        if ((4499201580859405L & j) != 0) {
+            if ((j & 2256197860196356L) != 0) {
+                str10 = UnitFormat.newBuilder(UnitFormat.SI.FEMTO).convert(horizontalParam != null ? horizontalParam.getMainScale() : 0L, ServiceEnum.Unit.Unit_s) + '/';
+            } else {
+                str10 = null;
+            }
+            if ((j & 2260595906707460L) != 0) {
+                str11 = UnitFormat.newBuilder("0.00").convert(horizontalParam != null ? horizontalParam.getSample() : 0L, ServiceEnum.Unit.Unit_SaS);
+            } else {
+                str11 = null;
+            }
+            if ((j & 2322168557862916L) != 0) {
+                str12 = UnitFormat.newBuilder("0.00").convert(horizontalParam != null ? horizontalParam.getDepthValue() : 0L, ServiceEnum.Unit.Unit_Pts);
+            } else {
+                str12 = null;
+            }
+            if ((j & 2286984185774093L) != 0) {
+                ServiceEnum.AcquireMode acquireMode = horizontalParam != null ? horizontalParam.getAcquireMode() : null;
+                str13 = ((j & 2286984185774084L) == 0 || acquireMode == null) ? null : acquireMode.value2;
+                MappingObject mappingObject = ViewUtil.getMappingObject(R.array.msg_acq_mode, acquireMode != null ? acquireMode.value1 : 0);
+                updateRegistration(0, mappingObject);
+                drawable3 = mappingObject != null ? mappingObject.getPic() : null;
+            } else {
+                drawable3 = null;
+                str13 = null;
+            }
+            if ((j & 4222124650659844L) != 0) {
+                ServiceEnum.HoriTimeMode timeMode = horizontalParam != null ? horizontalParam.getTimeMode() : null;
+                int i9 = ((j & 3096224743817220L) > 0L ? 1 : ((j & 3096224743817220L) == 0L ? 0 : -1));
+                if (i9 != 0) {
+                    z8 = timeMode != ServiceEnum.HoriTimeMode.Horizontal_ROLL;
+                    if (i9 != 0) {
+                        j = z8 ? j | Long.MIN_VALUE : j | 4611686018427387904L;
+                    }
+                } else {
+                    z8 = false;
+                }
+                z9 = timeMode == ServiceEnum.HoriTimeMode.Horizontal_ROLL;
+                j2 = 0;
+                if ((j & 2533274790395908L) != 0) {
+                    j |= z9 ? 9007199254740992L : 4503599627370496L;
+                }
+                if ((j & 4222124650659844L) != 0) {
+                    j = z9 ? j | LockFreeTaskQueueCore.CLOSED_MASK : j | LockFreeTaskQueueCore.FROZEN_MASK;
+                }
+                if ((j & 2533274790395908L) != 0 && z9) {
+                    i3 = 4;
+                    if ((j & 2392537302040580L) == j2) {
+                        if (horizontalParam != null) {
+                            z11 = z9;
+                            z10 = z8;
+                            str14 = str10;
+                            j5 = horizontalParam.getDotTime();
+                        } else {
+                            z10 = z8;
+                            z11 = z9;
+                            str14 = str10;
+                            j5 = 0;
+                        }
+                        str15 = str11;
+                        str16 = UnitFormat.newBuilder(UnitFormat.PATTERN_SIGN, UnitFormat.SI.FEMTO).convert(j5, ServiceEnum.Unit.S_PT);
+                    } else {
+                        z10 = z8;
+                        z11 = z9;
+                        str14 = str10;
+                        str15 = str11;
+                        str16 = null;
+                    }
+                    i6 = ((j & 2269391999729668L) > 0L ? 1 : ((j & 2269391999729668L) == 0L ? 0 : -1));
+                    if (i6 == 0) {
+                        boolean sapmassa = horizontalParam != null ? horizontalParam.getSapmassa() : false;
+                        if (i6 != 0) {
+                            if (sapmassa) {
+                                j3 = j | 144115188075855872L;
+                                j4 = 576460752303423488L;
+                            } else {
+                                j3 = j | 72057594037927936L;
+                                j4 = 288230376151711744L;
+                            }
+                            j = j3 | j4;
+                        }
+                        int i10 = sapmassa ? 4 : 0;
+                        int i11 = sapmassa ? 0 : 4;
+                        str8 = str13;
+                        z2 = z11;
+                        str4 = str14;
+                        str5 = str15;
+                        str6 = str16;
+                        i = i10;
+                        z = z10;
+                        int i12 = i11;
+                        str7 = str12;
+                        i2 = i12;
+                    } else {
+                        str7 = str12;
+                        str8 = str13;
+                        z2 = z11;
+                        z = z10;
+                        str4 = str14;
+                        str5 = str15;
+                        i2 = 0;
+                        str6 = str16;
+                        i = 0;
+                    }
+                }
+            } else {
+                j2 = 0;
+                z8 = false;
+                z9 = false;
+            }
+            i3 = 0;
+            if ((j & 2392537302040580L) == j2) {
+            }
+            i6 = ((j & 2269391999729668L) > 0L ? 1 : ((j & 2269391999729668L) == 0L ? 0 : -1));
+            if (i6 == 0) {
+            }
+        } else {
+            str4 = null;
+            str5 = null;
+            drawable3 = null;
+            str6 = null;
+            str7 = null;
+            str8 = null;
+            i = 0;
+            z = false;
+            i2 = 0;
+            z2 = false;
+            i3 = 0;
+        }
+        if ((j & 6917529027641081856L) != 0) {
+            if (horizontalParam != null) {
+                drawable4 = drawable3;
+                controlAction = horizontalParam.getRunStop();
+            } else {
+                drawable4 = drawable3;
+                controlAction = null;
+            }
+            if ((j & LockFreeTaskQueueCore.CLOSED_MASK) != 0) {
+                i4 = i2;
+                if (controlAction != ServiceEnum.ControlAction.Control_Stop) {
+                    z7 = true;
+                    if ((j & 4611686018427387904L) == 0) {
+                        z4 = z7;
+                        if (controlAction == ServiceEnum.ControlAction.Control_Stop) {
+                            z3 = true;
+                        }
+                    } else {
+                        z4 = z7;
+                    }
+                    z3 = false;
+                }
+            } else {
+                i4 = i2;
+            }
+            z7 = false;
+            if ((j & 4611686018427387904L) == 0) {
+            }
+            z3 = false;
+        } else {
+            i4 = i2;
+            drawable4 = drawable3;
+            z3 = false;
+            z4 = false;
+        }
+        int i13 = ((j & 4222124650659844L) > 0L ? 1 : ((j & 4222124650659844L) == 0L ? 0 : -1));
+        if (i13 != 0) {
+            z5 = z2 ? z4 : false;
+            if (i13 != 0) {
+                j = z5 ? j | 36028797018963968L : j | 18014398509481984L;
+            }
+        } else {
+            z5 = false;
+        }
+        int i14 = ((j & 3096224743817220L) > 0L ? 1 : ((j & 3096224743817220L) == 0L ? 0 : -1));
+        if (i14 != 0) {
+            z6 = z ? true : z3;
+        } else {
+            z6 = false;
+        }
+        int i15 = ((j & 4222124650659844L) > 0L ? 1 : ((j & 4222124650659844L) == 0L ? 0 : -1));
+        String mainOffsetStr = i15 != 0 ? z5 ? " " : ((j & 18014398509481984L) == 0 || horizontalParam == null) ? null : horizontalParam.getMainOffsetStr() : null;
+        if ((j & 2251799813685248L) != 0) {
+            i5 = i;
+            str9 = str5;
+            this.acquireBtn.setOnClickListener(this.mCallback35);
+            this.acquireInfo.setOnClickListener(this.mCallback36);
+            this.horizontalOffsetBtn.setOnClickListener(this.mCallback37);
+            this.horizontalOffsetInfo.setOnClickListener(this.mCallback38);
+            this.horizontalScaleBtn.setOnClickListener(this.mCallback33);
+            this.horizontalScaleInfo.setOnClickListener(this.mCallback34);
+            this.triggerBtn.setOnClickListener(this.mCallback39);
+            this.triggerInfo.setOnClickListener(this.mCallback40);
+        } else {
+            i5 = i;
+            str9 = str5;
+        }
+        if ((j & 2251799813685266L) != 0) {
+            ViewBindingAdapter.setBackground(this.appCompatTextView2, drawable);
+            TextViewBindingAdapter.setText(this.appCompatTextView2, str3);
+        }
+        if ((j & 2533274790395908L) != 0) {
+            this.appCompatTextView2.setVisibility(i3);
+            this.appCompatTextView3.setVisibility(i3);
+            this.appCompatTextView4.setVisibility(i3);
+            this.imageView2.setVisibility(i3);
+            this.triggerBtn.setEnabled(z);
+            this.triggerInfo.setEnabled(z);
+        }
+        if ((j & 2253998836416546L) != 0) {
+            TextViewBindingAdapter.setText(this.appCompatTextView3, str2);
+        }
+        if ((j & 2253998836940802L) != 0) {
+            TextViewBindingAdapter.setText(this.appCompatTextView4, str);
+        }
+        if (i14 != 0) {
+            this.horizontalOffsetBtn.setEnabled(z6);
+            this.horizontalOffsetInfo.setEnabled(z6);
+        }
+        if (i15 != 0) {
+            TextViewBindingAdapter.setText(this.horizontalOffsetInfo, mainOffsetStr);
+        }
+        if ((j & 2256197860196356L) != 0) {
+            TextViewBindingAdapter.setText(this.horizontalScaleInfo, str4);
+        }
+        if ((j & 2251799814209506L) != 0) {
+            ImageViewBindingAdapter.setImageDrawable(this.imageView2, drawable2);
+        }
+        if ((j & 2260595906707460L) != 0) {
+            TextViewBindingAdapter.setText(this.mboundView5, str9);
+        }
+        if ((2269391999729668L & j) != 0) {
+            this.mboundView5.setVisibility(i5);
+            this.mboundView6.setVisibility(i4);
+        }
+        if ((j & 2286984185774093L) != 0) {
+            TextViewBindingAdapter.setDrawableStart(this.mboundView7, drawable4);
+        }
+        if ((2286984185774084L & j) != 0) {
+            TextViewBindingAdapter.setText(this.mboundView7, str8);
+        }
+        if ((j & 2322168557862916L) != 0) {
+            TextViewBindingAdapter.setText(this.mboundView8, str7);
+        }
+        if ((j & 2392537302040580L) != 0) {
+            TextViewBindingAdapter.setText(this.mboundView9, str6);
+        }
     }
 
     @Override // com.rigol.scope.generated.callback.OnClickListener.Listener

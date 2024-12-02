@@ -14,6 +14,7 @@ import androidx.databinding.ViewDataBinding;
 import com.rigol.scope.R;
 import com.rigol.scope.data.DecodeParam;
 import com.rigol.scope.data.MappingObject;
+
 /* loaded from: classes2.dex */
 public abstract class AdapterDecodeLinBinding extends ViewDataBinding {
     public final RadioButton decodeLin1xRadioButton;
@@ -62,8 +63,7 @@ public abstract class AdapterDecodeLinBinding extends ViewDataBinding {
 
     public abstract void setVerBothMapping(MappingObject mappingObject);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public AdapterDecodeLinBinding(Object obj, View view, int i, RadioButton radioButton, RadioButton radioButton2, TextView textView, TextView textView2, RadioButton radioButton3, ConstraintLayout constraintLayout, TextView textView3, RadioGroup radioGroup, TextView textView4, TextView textView5, TextView textView6, TextView textView7, TextView textView8, RadioGroup radioGroup2, RadioButton radioButton4, RadioButton radioButton5, Guideline guideline, Guideline guideline2, Guideline guideline3, Guideline guideline4, Guideline guideline5) {
+    protected AdapterDecodeLinBinding(Object obj, View view, int i, RadioButton radioButton, RadioButton radioButton2, TextView textView, TextView textView2, RadioButton radioButton3, ConstraintLayout constraintLayout, TextView textView3, RadioGroup radioGroup, TextView textView4, TextView textView5, TextView textView6, TextView textView7, TextView textView8, RadioGroup radioGroup2, RadioButton radioButton4, RadioButton radioButton5, Guideline guideline, Guideline guideline2, Guideline guideline3, Guideline guideline4, Guideline guideline5) {
         super(obj, view, i);
         this.decodeLin1xRadioButton = radioButton;
         this.decodeLin2xRadioButton = radioButton2;

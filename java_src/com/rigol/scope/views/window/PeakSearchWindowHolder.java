@@ -38,6 +38,7 @@ import kotlin.Metadata;
 import kotlin.Unit;
 import kotlin.collections.CollectionsKt;
 import kotlin.jvm.internal.Intrinsics;
+
 /* compiled from: WindowHolder.kt */
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000J\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\b\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0000\u0018\u00002\u00020\u0001B\u0015\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\u0006\u0010\u0004\u001a\u00020\u0005¢\u0006\u0002\u0010\u0006J\b\u0010\u001e\u001a\u00020\u001fH\u0016J\b\u0010 \u001a\u00020!H\u0016R\u0011\u0010\u0007\u001a\u00020\b¢\u0006\b\n\u0000\u001a\u0004\b\t\u0010\nR\u0011\u0010\u0002\u001a\u00020\u0003¢\u0006\b\n\u0000\u001a\u0004\b\u000b\u0010\fR\"\u0010\u000f\u001a\u0004\u0018\u00010\u000e2\b\u0010\r\u001a\u0004\u0018\u00010\u000e@BX\u0082\u000e¢\u0006\b\n\u0000\"\u0004\b\u0010\u0010\u0011R\u001a\u0010\u0012\u001a\u00020\u0013X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0014\u0010\u0015\"\u0004\b\u0016\u0010\u0017R\u0011\u0010\u0018\u001a\u00020\u0019¢\u0006\b\n\u0000\u001a\u0004\b\u001a\u0010\u001bR\u000e\u0010\u001c\u001a\u00020\u001dX\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006\""}, d2 = {"Lcom/rigol/scope/views/window/PeakSearchWindowHolder;", "Lcom/rigol/scope/views/window/WindowHolder;", "context", "Landroid/content/Context;", "windowParam", "Lcom/rigol/scope/data/WindowParam;", "(Landroid/content/Context;Lcom/rigol/scope/data/WindowParam;)V", "binding", "Lcom/rigol/scope/databinding/WindowSimpleBinding;", "getBinding", "()Lcom/rigol/scope/databinding/WindowSimpleBinding;", "getContext", "()Landroid/content/Context;", "value", "Lcom/rigol/scope/data/MathParam;", "mathParam", "setMathParam", "(Lcom/rigol/scope/data/MathParam;)V", "mathParamIndex", "", "getMathParamIndex", "()I", "setMathParamIndex", "(I)V", "tableAdapter", "Lcom/rigol/scope/adapters/TableAdapter;", "getTableAdapter", "()Lcom/rigol/scope/adapters/TableAdapter;", "tableBinding", "Lcom/rigol/scope/databinding/TableSimpleBinding;", "getWindow", "Lcom/rigol/scope/views/window/Window;", "updateTitle", "", "app_release"}, k = 1, mv = {1, 4, 1})
 /* loaded from: classes2.dex */
@@ -109,6 +110,7 @@ public final class PeakSearchWindowHolder extends WindowHolder {
             Activity topActivity = ActivityUtils.getTopActivity();
             if (topActivity != null) {
                 liveData.observe((LifecycleOwner) topActivity, new Observer<ArrayList<MathParam>>() { // from class: com.rigol.scope.views.window.PeakSearchWindowHolder$$special$$inlined$apply$lambda$3
+                    /* JADX DEBUG: Method merged with bridge method */
                     @Override // androidx.lifecycle.Observer
                     public final void onChanged(ArrayList<MathParam> arrayList) {
                         PeakSearchWindowHolder.this.setMathParamIndex(windowParam.getServiceID() - 17);
@@ -132,6 +134,7 @@ public final class PeakSearchWindowHolder extends WindowHolder {
             throw new NullPointerException("null cannot be cast to non-null type androidx.lifecycle.LifecycleOwner");
         }
         mutableLiveData.observe((LifecycleOwner) topActivity2, new Observer<Boolean>() { // from class: com.rigol.scope.views.window.PeakSearchWindowHolder.2
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // androidx.lifecycle.Observer
             public void onChanged(Boolean bool) {
                 String UI_QueryStr = API.getInstance().UI_QueryStr(windowParam.getServiceID(), MessageID.MSG_FFT_PEAK_STR);

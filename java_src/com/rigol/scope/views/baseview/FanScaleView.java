@@ -25,6 +25,7 @@ import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.core.view.ViewCompat;
 import com.rigol.scope.R;
 import com.rigol.scope.utilities.MotorManager;
+
 /* loaded from: classes2.dex */
 public class FanScaleView extends View {
     static final /* synthetic */ boolean $assertionsDisabled = false;
@@ -276,100 +277,23 @@ public class FanScaleView extends View {
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    private boolean validateIsSlidingOnRing(float r8, float r9) {
-        /*
-            r7 = this;
-            int r0 = r7.fanRadius
-            int r1 = r7.getPaddingLeft()
-            int r0 = r0 + r1
-            float r0 = (float) r0
-            float r1 = r7.fanCentralPointMarginLeft
-            float r0 = r0 + r1
-            float r0 = r8 - r0
-            double r0 = (double) r0
-            r2 = 4611686018427387904(0x4000000000000000, double:2.0)
-            double r0 = java.lang.Math.pow(r0, r2)
-            int r4 = r7.fanRadius
-            int r5 = r7.getPaddingTop()
-            int r4 = r4 + r5
-            float r4 = (float) r4
-            float r5 = r7.fanCentralPointMarginTop
-            float r4 = r4 + r5
-            float r4 = r9 - r4
-            double r4 = (double) r4
-            double r2 = java.lang.Math.pow(r4, r2)
-            double r0 = r0 + r2
-            double r0 = java.lang.Math.sqrt(r0)
-            int r2 = r7.fanRadius
-            int r3 = r7.getPaddingLeft()
-            int r2 = r2 + r3
-            float r2 = (float) r2
-            float r3 = r7.fanCentralPointMarginLeft
-            float r2 = r2 + r3
-            float r2 = r8 - r2
-            int r3 = r7.fanRadius
-            int r4 = r7.getPaddingTop()
-            int r3 = r3 + r4
-            float r3 = (float) r3
-            float r4 = r7.fanCentralPointMarginTop
-            float r3 = r3 + r4
-            float r3 = r9 - r3
-            float r2 = r7.calcAngleWithPointXY(r2, r3)
-            int r3 = r7.minAngle
-            float r4 = (float) r3
-            int r4 = (r2 > r4 ? 1 : (r2 == r4 ? 0 : -1))
-            if (r4 >= 0) goto L52
-        L50:
-            float r2 = (float) r3
-            goto L5a
-        L52:
-            int r3 = r7.maxAngle
-            float r4 = (float) r3
-            int r4 = (r2 > r4 ? 1 : (r2 == r4 ? 0 : -1))
-            if (r4 <= 0) goto L5a
-            goto L50
-        L5a:
-            int r3 = r7.fanRadius
-            int r4 = r7.slideAbleLocation
-            int r5 = r3 + r4
-            double r5 = (double) r5
-            int r5 = (r0 > r5 ? 1 : (r0 == r5 ? 0 : -1))
-            if (r5 >= 0) goto L9e
-            int r3 = r3 - r4
-            double r3 = (double) r3
-            int r0 = (r0 > r3 ? 1 : (r0 == r3 ? 0 : -1))
-            if (r0 <= 0) goto L9e
-            int r0 = r7.minAngle
-            float r0 = (float) r0
-            int r0 = (r2 > r0 ? 1 : (r2 == r0 ? 0 : -1))
-            if (r0 < 0) goto L9e
-            int r0 = r7.maxAngle
-            float r0 = (float) r0
-            int r0 = (r2 > r0 ? 1 : (r2 == r0 ? 0 : -1))
-            if (r0 > 0) goto L9e
-            java.lang.StringBuilder r0 = new java.lang.StringBuilder
-            r0.<init>()
-            r0.append(r8)
-            java.lang.String r8 = ","
-            r0.append(r8)
-            r0.append(r9)
-            java.lang.String r8 = ", 当前角度："
-            r0.append(r8)
-            r0.append(r2)
-            java.lang.String r8 = r0.toString()
-            java.lang.String r9 = "当前位置："
-            android.util.Log.d(r9, r8)
-            r7.curAngle = r2
-            r8 = 1
-            goto L9f
-        L9e:
-            r8 = 0
-        L9f:
-            return r8
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.rigol.scope.views.baseview.FanScaleView.validateIsSlidingOnRing(float, float):boolean");
+    private boolean validateIsSlidingOnRing(float f, float f2) {
+        double sqrt = Math.sqrt(Math.pow(f - ((this.fanRadius + getPaddingLeft()) + this.fanCentralPointMarginLeft), 2.0d) + Math.pow(f2 - ((this.fanRadius + getPaddingTop()) + this.fanCentralPointMarginTop), 2.0d));
+        float calcAngleWithPointXY = calcAngleWithPointXY(f - ((this.fanRadius + getPaddingLeft()) + this.fanCentralPointMarginLeft), f2 - ((this.fanRadius + getPaddingTop()) + this.fanCentralPointMarginTop));
+        int i = this.minAngle;
+        if (calcAngleWithPointXY >= i) {
+            i = this.maxAngle;
+        }
+        calcAngleWithPointXY = i;
+        int i2 = this.fanRadius;
+        int i3 = this.slideAbleLocation;
+        if (sqrt >= i2 + i3 || sqrt <= i2 - i3 || calcAngleWithPointXY < this.minAngle || calcAngleWithPointXY > this.maxAngle) {
+            return false;
+        }
+        Log.d("当前位置：", f + "," + f2 + ", 当前角度：" + calcAngleWithPointXY);
+        this.curAngle = calcAngleWithPointXY;
+        return true;
     }
 
     public boolean refreshFanByInputAngle(int i) {

@@ -23,6 +23,7 @@ import com.rigol.scope.viewmodels.UtilityViewModel;
 import com.rigol.util.ActivityLifecycleAdapter;
 import com.rigol.util.ToastUtils;
 import timber.log.Timber;
+
 /* loaded from: classes.dex */
 public class App extends Application implements ViewModelStoreOwner {
     private ViewModelProvider.Factory mFactory;

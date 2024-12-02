@@ -30,6 +30,7 @@ import com.rigol.scope.views.keyboard.KeyboardPopupView;
 import com.rigol.scope.views.spinner.PopupSpinner;
 import java.util.ArrayList;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public class DecodeI2CAdapter extends RecyclerView.Adapter<DecodeI2CHolder> implements RadioGroup.OnCheckedChangeListener, View.OnClickListener, CompoundButton.OnCheckedChangeListener, AorBManager.OnSetTextById, AorBManager.OnTextReset {
     private final View anchorView;
@@ -67,12 +68,14 @@ public class DecodeI2CAdapter extends RecyclerView.Adapter<DecodeI2CHolder> impl
         this.viewPagerHolder = viewPagerHolder;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public DecodeI2CHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         this.binding = AdapterDecodeI2cBinding.inflate(LayoutInflater.from(viewGroup.getContext()), viewGroup, false);
         return new DecodeI2CHolder(this.binding);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(DecodeI2CHolder decodeI2CHolder, int i) {
         this.binding.setRwWithMapping(ViewUtil.getMappingObject(R.array.msg_decode_i2c_rw, 1));

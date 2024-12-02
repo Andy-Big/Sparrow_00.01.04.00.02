@@ -14,6 +14,7 @@ import androidx.databinding.ViewDataBinding;
 import com.rigol.scope.R;
 import com.rigol.scope.data.MappingObject;
 import com.rigol.scope.data.StorageSaveParam;
+
 /* loaded from: classes2.dex */
 public abstract class AdapterUtilitySaveWaveBinding extends ViewDataBinding {
     public final CheckBox checkBoxCh1;
@@ -44,8 +45,7 @@ public abstract class AdapterUtilitySaveWaveBinding extends ViewDataBinding {
 
     public abstract void setScreenMapping(MappingObject mappingObject);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public AdapterUtilitySaveWaveBinding(Object obj, View view, int i, CheckBox checkBox, CheckBox checkBox2, CheckBox checkBox3, CheckBox checkBox4, RadioButton radioButton, RadioButton radioButton2, RadioButton radioButton3, RadioButton radioButton4, RadioButton radioButton5, RadioGroup radioGroup, RadioGroup radioGroup2, ConstraintLayout constraintLayout, TextView textView, TextView textView2, TextView textView3) {
+    protected AdapterUtilitySaveWaveBinding(Object obj, View view, int i, CheckBox checkBox, CheckBox checkBox2, CheckBox checkBox3, CheckBox checkBox4, RadioButton radioButton, RadioButton radioButton2, RadioButton radioButton3, RadioButton radioButton4, RadioButton radioButton5, RadioGroup radioGroup, RadioGroup radioGroup2, ConstraintLayout constraintLayout, TextView textView, TextView textView2, TextView textView3) {
         super(obj, view, i);
         this.checkBoxCh1 = checkBox;
         this.checkBoxCh2 = checkBox2;

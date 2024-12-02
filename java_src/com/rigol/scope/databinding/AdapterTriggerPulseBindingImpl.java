@@ -1,5 +1,6 @@
 package com.rigol.scope.databinding;
 
+import android.graphics.drawable.Drawable;
 import android.support.v4.media.session.PlaybackStateCompat;
 import android.util.SparseIntArray;
 import android.view.View;
@@ -12,12 +13,21 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.Guideline;
 import androidx.databinding.DataBindingComponent;
 import androidx.databinding.ViewDataBinding;
+import androidx.databinding.adapters.CompoundButtonBindingAdapter;
+import androidx.databinding.adapters.ImageViewBindingAdapter;
+import androidx.databinding.adapters.SeekBarBindingAdapter;
+import androidx.databinding.adapters.TextViewBindingAdapter;
 import com.rigol.scope.R;
+import com.rigol.scope.cil.ServiceEnum;
 import com.rigol.scope.data.MappingObject;
 import com.rigol.scope.data.TriggerParam;
+import com.rigol.scope.utilities.ColorUtil;
+import com.rigol.scope.utilities.UnitFormat;
+import com.rigol.scope.utilities.ViewUtil;
 import com.rigol.scope.views.SwitchButton;
 import com.rigol.scope.views.vertical.VerticalSeekBar;
 import com.rigol.scope.views.vertical.VerticalSeekBarWrapper;
+
 /* loaded from: classes2.dex */
 public class AdapterTriggerPulseBindingImpl extends AdapterTriggerPulseBinding {
     private static final ViewDataBinding.IncludedLayouts sIncludes = null;
@@ -319,13 +329,260 @@ public class AdapterTriggerPulseBindingImpl extends AdapterTriggerPulseBinding {
     @Override // androidx.databinding.ViewDataBinding
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
     protected void executeBindings() {
-        /*
-            Method dump skipped, instructions count: 772
-            To view this dump add '--comments-level debug' option
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.rigol.scope.databinding.AdapterTriggerPulseBindingImpl.executeBindings():void");
+        long j;
+        int i;
+        boolean z;
+        boolean z2;
+        boolean z3;
+        boolean z4;
+        boolean z5;
+        int i2;
+        int i3;
+        boolean z6;
+        int i4;
+        String str;
+        String str2;
+        String str3;
+        Drawable drawable;
+        String str4;
+        String str5;
+        String str6;
+        boolean z7;
+        boolean z8;
+        String str7;
+        boolean z9;
+        boolean z10;
+        Drawable drawable2;
+        boolean z11;
+        long j2;
+        int i5;
+        String str8;
+        String str9;
+        int i6;
+        String str10;
+        String str11;
+        boolean z12;
+        boolean z13;
+        int i7;
+        int i8;
+        long j3;
+        long j4;
+        int i9;
+        synchronized (this) {
+            j = this.mDirtyFlags;
+            this.mDirtyFlags = 0L;
+        }
+        MappingObject mappingObject = this.mPolarityNegativeMapping;
+        MappingObject mappingObject2 = this.mPolarityPositiveMapping;
+        TriggerParam triggerParam = this.mParam;
+        String str12 = ((j & 1048708) == 0 || mappingObject == null) ? null : mappingObject.getStr();
+        String str13 = ((j & 1048840) == 0 || mappingObject2 == null) ? null : mappingObject2.getStr();
+        if ((2096688 & j) != 0) {
+            if ((j & 1052704) != 0) {
+                str3 = UnitFormat.newBuilder(UnitFormat.SI.FEMTO).convert(triggerParam != null ? triggerParam.getHoldOff() : 0L, ServiceEnum.Unit.Unit_s);
+            } else {
+                str3 = null;
+            }
+            if ((j & 1572896) != 0) {
+                ServiceEnum.EMoreThan eMoreThan = triggerParam != null ? triggerParam.getEMoreThan() : null;
+                z4 = eMoreThan == ServiceEnum.EMoreThan.Trigger_When_Lessthan;
+                z8 = eMoreThan == ServiceEnum.EMoreThan.Trigger_When_Morethan;
+                z7 = eMoreThan == ServiceEnum.EMoreThan.Trigger_When_MoreLess;
+            } else {
+                z7 = false;
+                z8 = false;
+                z4 = false;
+            }
+            int progress = ((j & 1179680) == 0 || triggerParam == null) ? 0 : triggerParam.getProgress();
+            if ((j & 1081376) != 0) {
+                str7 = UnitFormat.newBuilder(UnitFormat.SI.FEMTO).convert(triggerParam != null ? triggerParam.getUperLimit() : 0L, ServiceEnum.Unit.Unit_s);
+            } else {
+                str7 = null;
+            }
+            if ((j & 1049632) != 0) {
+                ServiceEnum.TriggerPulsePolarity polarity = triggerParam != null ? triggerParam.getPolarity() : null;
+                z10 = polarity == ServiceEnum.TriggerPulsePolarity.Trigger_pulse_positive;
+                drawable2 = ViewUtil.getTriggerPulsePolarityPic(polarity);
+                z9 = polarity == ServiceEnum.TriggerPulsePolarity.Trigger_pulse_negative;
+            } else {
+                z9 = false;
+                z10 = false;
+                drawable2 = null;
+            }
+            String str14 = str7;
+            if ((j & 1051184) != 0) {
+                ServiceEnum.Chan chan = triggerParam != null ? triggerParam.getChan() : null;
+                if (chan != null) {
+                    i9 = chan.value1;
+                    z11 = z9;
+                } else {
+                    z11 = z9;
+                    i9 = 0;
+                }
+                MappingObject mappingObject3 = ViewUtil.getMappingObject(R.array.msg_trigger_source_la, i9);
+                updateRegistration(4, mappingObject3);
+                str8 = mappingObject3 != null ? mappingObject3.getStr() : null;
+                j2 = 0;
+                i5 = (j & 1050656) != 0 ? ColorUtil.getColor(getRoot().getContext(), chan) : 0;
+            } else {
+                z11 = z9;
+                j2 = 0;
+                i5 = 0;
+                str8 = null;
+            }
+            if ((j & 1310752) != j2) {
+                if (triggerParam != null) {
+                    str9 = str8;
+                    i6 = i5;
+                    j4 = triggerParam.getLevel();
+                } else {
+                    str9 = str8;
+                    i6 = i5;
+                    j4 = 0;
+                }
+                if (triggerParam != null) {
+                    str10 = triggerParam.getTriggerLevelStr(j4);
+                    boolean isNoise = ((j & 1056800) != 0 || triggerParam == null) ? false : triggerParam.getIsNoise();
+                    if ((j & 1114144) == 0) {
+                        if (triggerParam != null) {
+                            str11 = str10;
+                            z12 = isNoise;
+                            j3 = triggerParam.getLowerLimit();
+                        } else {
+                            str11 = str10;
+                            z12 = isNoise;
+                            j3 = 0;
+                        }
+                        z13 = z7;
+                        i7 = progress;
+                        str = UnitFormat.newBuilder(UnitFormat.SI.FEMTO).convert(j3, ServiceEnum.Unit.Unit_s);
+                    } else {
+                        str11 = str10;
+                        z12 = isNoise;
+                        z13 = z7;
+                        i7 = progress;
+                        str = null;
+                    }
+                    i8 = ((j & 1064992) > 0L ? 1 : ((j & 1064992) == 0L ? 0 : -1));
+                    if (i8 == 0) {
+                        ServiceEnum.EMoreThan eMoreThan2 = triggerParam != null ? triggerParam.getEMoreThan() : null;
+                        boolean z14 = eMoreThan2 == ServiceEnum.EMoreThan.Trigger_When_Lessthan;
+                        boolean z15 = eMoreThan2 == ServiceEnum.EMoreThan.Trigger_When_Morethan;
+                        if (i8 != 0) {
+                            j |= z14 ? 4194304L : PlaybackStateCompat.ACTION_SET_SHUFFLE_MODE;
+                        }
+                        if ((j & 1064992) != 0) {
+                            j |= z15 ? 16777216L : 8388608L;
+                        }
+                        i = z14 ? 4 : 0;
+                        z2 = z10;
+                        drawable = drawable2;
+                        str5 = str9;
+                        i2 = z15 ? 4 : 0;
+                    } else {
+                        z2 = z10;
+                        drawable = drawable2;
+                        str5 = str9;
+                        i = 0;
+                        i2 = 0;
+                    }
+                    str4 = str14;
+                    i4 = i6;
+                    z = z11;
+                    str2 = str11;
+                    z6 = z12;
+                    i3 = i7;
+                    z5 = z8;
+                    z3 = z13;
+                }
+            } else {
+                str9 = str8;
+                i6 = i5;
+            }
+            str10 = null;
+            if ((j & 1056800) != 0) {
+            }
+            if ((j & 1114144) == 0) {
+            }
+            i8 = ((j & 1064992) > 0L ? 1 : ((j & 1064992) == 0L ? 0 : -1));
+            if (i8 == 0) {
+            }
+            str4 = str14;
+            i4 = i6;
+            z = z11;
+            str2 = str11;
+            z6 = z12;
+            i3 = i7;
+            z5 = z8;
+            z3 = z13;
+        } else {
+            i = 0;
+            z = false;
+            z2 = false;
+            z3 = false;
+            z4 = false;
+            z5 = false;
+            i2 = 0;
+            i3 = 0;
+            z6 = false;
+            i4 = 0;
+            str = null;
+            str2 = null;
+            str3 = null;
+            drawable = null;
+            str4 = null;
+            str5 = null;
+        }
+        if ((j & 1049632) != 0) {
+            str6 = str2;
+            ImageViewBindingAdapter.setImageDrawable(this.imageView2, drawable);
+            CompoundButtonBindingAdapter.setChecked(this.polarityN, z);
+            CompoundButtonBindingAdapter.setChecked(this.polarityP, z2);
+        } else {
+            str6 = str2;
+        }
+        if ((j & 1572896) != 0) {
+            CompoundButtonBindingAdapter.setChecked(this.lessMore, z3);
+            CompoundButtonBindingAdapter.setChecked(this.lessThan, z4);
+            CompoundButtonBindingAdapter.setChecked(this.moreThan, z5);
+        }
+        if ((j & 1064992) != 0) {
+            this.lowerLimit.setVisibility(i);
+            this.lowerLimitValue.setVisibility(i);
+            this.upperLimit.setVisibility(i2);
+            this.upperLimitValue.setVisibility(i2);
+        }
+        if ((j & 1114144) != 0) {
+            TextViewBindingAdapter.setText(this.lowerLimitValue, str);
+        }
+        if ((1048708 & j) != 0) {
+            TextViewBindingAdapter.setText(this.polarityN, str12);
+        }
+        if ((1048840 & j) != 0) {
+            TextViewBindingAdapter.setText(this.polarityP, str13);
+        }
+        if ((j & 1052704) != 0) {
+            TextViewBindingAdapter.setText(this.triggerHoldoff, str3);
+        }
+        if ((j & 1310752) != 0) {
+            TextViewBindingAdapter.setText(this.triggerLevelValue, str6);
+        }
+        if ((j & 1179680) != 0) {
+            SeekBarBindingAdapter.setProgress(this.triggerLevelView, i3);
+        }
+        if ((j & 1056800) != 0) {
+            CompoundButtonBindingAdapter.setChecked(this.triggerNoiseSwitch, z6);
+        }
+        if ((j & 1051184) != 0) {
+            TextViewBindingAdapter.setText(this.triggerSource, str5);
+        }
+        if ((1050656 & j) != 0) {
+            this.triggerSource.setTextColor(i4);
+        }
+        if ((j & 1081376) != 0) {
+            TextViewBindingAdapter.setText(this.upperLimitValue, str4);
+        }
     }
 }

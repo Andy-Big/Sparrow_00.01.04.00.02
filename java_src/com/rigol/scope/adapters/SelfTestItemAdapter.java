@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.rigol.scope.data.SelfTestParam;
 import com.rigol.scope.databinding.AdapterItemSelfTestBinding;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public class SelfTestItemAdapter extends RecyclerView.Adapter<SelfTestViewHolder> {
     private Context context;
@@ -18,11 +19,13 @@ public class SelfTestItemAdapter extends RecyclerView.Adapter<SelfTestViewHolder
         this.selfTestData = list;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public SelfTestViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         return new SelfTestViewHolder(AdapterItemSelfTestBinding.inflate(LayoutInflater.from(this.context), viewGroup, false));
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(SelfTestViewHolder selfTestViewHolder, int i) {
         selfTestViewHolder.binding.setParam(this.selfTestData.get(i));

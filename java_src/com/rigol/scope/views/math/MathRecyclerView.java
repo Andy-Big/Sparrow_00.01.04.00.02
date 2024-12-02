@@ -31,6 +31,7 @@ import com.rigol.scope.views.math.MathPopupView;
 import com.rigol.scope.views.spinner.PopupSpinner;
 import java.util.ArrayList;
 import java.util.List;
+
 /* loaded from: classes2.dex */
 public class MathRecyclerView {
     private View anchorview;
@@ -208,10 +209,9 @@ public class MathRecyclerView {
         this.binding.mathViewRecycle.setAdapter(getAdapter(mathOperator));
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.rigol.scope.views.math.MathRecyclerView$3  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public static /* synthetic */ class AnonymousClass3 {
+    static /* synthetic */ class AnonymousClass3 {
         static final /* synthetic */ int[] $SwitchMap$com$rigol$scope$cil$ServiceEnum$MathOperator;
 
         static {

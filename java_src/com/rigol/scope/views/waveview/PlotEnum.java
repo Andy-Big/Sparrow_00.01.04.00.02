@@ -1,4 +1,5 @@
 package com.rigol.scope.views.waveview;
+
 /* loaded from: classes2.dex */
 public class PlotEnum {
 

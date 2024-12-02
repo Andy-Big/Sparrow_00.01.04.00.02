@@ -8,6 +8,7 @@ import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import androidx.recyclerview.widget.RecyclerView;
 import com.rigol.scope.R;
+
 /* loaded from: classes2.dex */
 public abstract class PopupviewBoardTestBinding extends ViewDataBinding {
     public final View divider5;
@@ -23,8 +24,7 @@ public abstract class PopupviewBoardTestBinding extends ViewDataBinding {
     public final TextView tvSelfTestItem;
     public final TextView tvWarning;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public PopupviewBoardTestBinding(Object obj, View view, int i, View view2, View view3, RecyclerView recyclerView, TextView textView, TextView textView2, TextView textView3, TextView textView4, TextView textView5, TextView textView6, TextView textView7, TextView textView8, TextView textView9) {
+    protected PopupviewBoardTestBinding(Object obj, View view, int i, View view2, View view3, RecyclerView recyclerView, TextView textView, TextView textView2, TextView textView3, TextView textView4, TextView textView5, TextView textView6, TextView textView7, TextView textView8, TextView textView9) {
         super(obj, view, i);
         this.divider5 = view2;
         this.divider6 = view3;

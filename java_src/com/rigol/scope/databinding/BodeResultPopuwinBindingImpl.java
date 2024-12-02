@@ -7,10 +7,13 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.Guideline;
 import androidx.databinding.DataBindingComponent;
 import androidx.databinding.ViewDataBinding;
+import androidx.databinding.adapters.TextViewBindingAdapter;
 import com.rigol.scope.R;
 import com.rigol.scope.data.BodeParam;
 import com.rigol.scope.data.FftParam;
 import com.rigol.scope.data.MappingObject;
+import java.util.ArrayList;
+
 /* loaded from: classes2.dex */
 public class BodeResultPopuwinBindingImpl extends BodeResultPopuwinBinding {
     private static final ViewDataBinding.IncludedLayouts sIncludes = null;
@@ -184,69 +187,44 @@ public class BodeResultPopuwinBindingImpl extends BodeResultPopuwinBinding {
     @Override // androidx.databinding.ViewDataBinding
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
     protected void executeBindings() {
-        /*
-            r7 = this;
-            monitor-enter(r7)
-            long r0 = r7.mDirtyFlags     // Catch: java.lang.Throwable -> L61
-            r2 = 0
-            r7.mDirtyFlags = r2     // Catch: java.lang.Throwable -> L61
-            monitor-exit(r7)     // Catch: java.lang.Throwable -> L61
-            com.rigol.scope.data.BodeParam r4 = r7.mBodeParam
-            r5 = 24
-            long r0 = r0 & r5
-            int r0 = (r0 > r2 ? 1 : (r0 == r2 ? 0 : -1))
-            r1 = 0
-            if (r0 == 0) goto L41
-            if (r4 == 0) goto L19
-            java.util.ArrayList r2 = r4.getBode_resultlist()
-            goto L1a
-        L19:
-            r2 = r1
-        L1a:
-            if (r2 == 0) goto L41
-            r1 = 4
-            java.lang.Object r1 = r2.get(r1)
-            java.lang.String r1 = (java.lang.String) r1
-            r3 = 8
-            java.lang.Object r3 = r2.get(r3)
-            java.lang.String r3 = (java.lang.String) r3
-            r4 = 7
-            java.lang.Object r4 = r2.get(r4)
-            java.lang.String r4 = (java.lang.String) r4
-            r5 = 3
-            java.lang.Object r5 = r2.get(r5)
-            java.lang.String r5 = (java.lang.String) r5
-            r6 = 5
-            java.lang.Object r2 = r2.get(r6)
-            java.lang.String r2 = (java.lang.String) r2
-            goto L45
-        L41:
-            r2 = r1
-            r3 = r2
-            r4 = r3
-            r5 = r4
-        L45:
-            if (r0 == 0) goto L60
-            android.widget.TextView r0 = r7.mboundView2
-            androidx.databinding.adapters.TextViewBindingAdapter.setText(r0, r1)
-            android.widget.TextView r0 = r7.mboundView3
-            androidx.databinding.adapters.TextViewBindingAdapter.setText(r0, r2)
-            android.widget.TextView r0 = r7.mboundView4
-            androidx.databinding.adapters.TextViewBindingAdapter.setText(r0, r4)
-            android.widget.TextView r0 = r7.mboundView5
-            androidx.databinding.adapters.TextViewBindingAdapter.setText(r0, r3)
-            android.widget.TextView r0 = r7.nothingText
-            androidx.databinding.adapters.TextViewBindingAdapter.setText(r0, r5)
-        L60:
-            return
-        L61:
-            r0 = move-exception
-            monitor-exit(r7)     // Catch: java.lang.Throwable -> L61
-            throw r0
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.rigol.scope.databinding.BodeResultPopuwinBindingImpl.executeBindings():void");
+        long j;
+        String str;
+        String str2;
+        String str3;
+        String str4;
+        synchronized (this) {
+            j = this.mDirtyFlags;
+            this.mDirtyFlags = 0L;
+        }
+        BodeParam bodeParam = this.mBodeParam;
+        int i = ((j & 24) > 0L ? 1 : ((j & 24) == 0L ? 0 : -1));
+        String str5 = null;
+        if (i != 0) {
+            ArrayList<String> bode_resultlist = bodeParam != null ? bodeParam.getBode_resultlist() : null;
+            if (bode_resultlist != null) {
+                str5 = bode_resultlist.get(4);
+                str2 = bode_resultlist.get(8);
+                str3 = bode_resultlist.get(7);
+                str4 = bode_resultlist.get(3);
+                str = bode_resultlist.get(5);
+                if (i == 0) {
+                    TextViewBindingAdapter.setText(this.mboundView2, str5);
+                    TextViewBindingAdapter.setText(this.mboundView3, str);
+                    TextViewBindingAdapter.setText(this.mboundView4, str3);
+                    TextViewBindingAdapter.setText(this.mboundView5, str2);
+                    TextViewBindingAdapter.setText(this.nothingText, str4);
+                    return;
+                }
+                return;
+            }
+        }
+        str = null;
+        str2 = null;
+        str3 = null;
+        str4 = null;
+        if (i == 0) {
+        }
     }
 }

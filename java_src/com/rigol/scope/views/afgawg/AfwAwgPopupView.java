@@ -10,6 +10,7 @@ import com.rigol.scope.adapters.AfgAwgViewPagerAdapter;
 import com.rigol.scope.databinding.PopupviewAfgAwgBinding;
 import com.rigol.scope.utilities.ViewUtil;
 import com.rigol.scope.views.baseview.BasePopupView;
+
 /* loaded from: classes2.dex */
 public class AfwAwgPopupView extends BasePopupView implements TabLayoutMediator.TabConfigurationStrategy {
     AfgAwgViewPagerAdapter afgAwgViewPagerAdapter;

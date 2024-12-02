@@ -12,6 +12,7 @@ import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ObservableBoolean;
 import androidx.databinding.ViewDataBinding;
 import com.rigol.scope.R;
+
 /* loaded from: classes2.dex */
 public abstract class PopupviewLoadingBinding extends ViewDataBinding {
     public final Button cancel;
@@ -35,8 +36,7 @@ public abstract class PopupviewLoadingBinding extends ViewDataBinding {
 
     public abstract void setShowWrning(ObservableBoolean observableBoolean);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public PopupviewLoadingBinding(Object obj, View view, int i, Button button, Button button2, TextView textView, View view2, Guideline guideline, ContentLoadingProgressBar contentLoadingProgressBar, TextView textView2, TextView textView3) {
+    protected PopupviewLoadingBinding(Object obj, View view, int i, Button button, Button button2, TextView textView, View view2, Guideline guideline, ContentLoadingProgressBar contentLoadingProgressBar, TextView textView2, TextView textView3) {
         super(obj, view, i);
         this.cancel = button;
         this.confirm = button2;

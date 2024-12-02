@@ -1,4 +1,5 @@
 package com.rigol.scope.views;
+
 /* loaded from: classes2.dex */
 public interface PanelKeyCode {
     public static final int ALARM_CH1_OVERLOAD = 241;

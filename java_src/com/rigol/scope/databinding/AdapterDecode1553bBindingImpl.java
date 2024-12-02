@@ -15,6 +15,7 @@ import com.rigol.scope.data.MappingObject;
 import com.rigol.scope.utilities.ColorUtil;
 import com.rigol.scope.utilities.UnitFormat;
 import com.rigol.scope.utilities.ViewUtil;
+
 /* loaded from: classes2.dex */
 public class AdapterDecode1553bBindingImpl extends AdapterDecode1553bBinding {
     private static final ViewDataBinding.IncludedLayouts sIncludes = null;

@@ -12,6 +12,7 @@ import androidx.databinding.ViewDataBinding;
 import com.rigol.scope.R;
 import com.rigol.scope.data.BodeParam;
 import com.rigol.scope.views.SwitchButton;
+
 /* loaded from: classes2.dex */
 public abstract class AdapterBodeBasicSeniorBinding extends ViewDataBinding {
     public final TextView bodeDisp;
@@ -32,8 +33,7 @@ public abstract class AdapterBodeBasicSeniorBinding extends ViewDataBinding {
 
     public abstract void setParma(BodeParam bodeParam);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public AdapterBodeBasicSeniorBinding(Object obj, View view, int i, TextView textView, SwitchButton switchButton, SwitchButton switchButton2, TextView textView2, TextView textView3, Guideline guideline, Guideline guideline2, Guideline guideline3, Guideline guideline4, TextView textView4, ImageView imageView, SwitchButton switchButton3, TextView textView5) {
+    protected AdapterBodeBasicSeniorBinding(Object obj, View view, int i, TextView textView, SwitchButton switchButton, SwitchButton switchButton2, TextView textView2, TextView textView3, Guideline guideline, Guideline guideline2, Guideline guideline3, Guideline guideline4, TextView textView4, ImageView imageView, SwitchButton switchButton3, TextView textView5) {
         super(obj, view, i);
         this.bodeDisp = textView;
         this.bodeFirEnable = switchButton;

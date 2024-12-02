@@ -15,6 +15,7 @@ import com.rigol.scope.R;
 import com.rigol.scope.data.MappingObject;
 import com.rigol.scope.data.TriggerParam;
 import com.rigol.scope.views.SwitchButton;
+
 /* loaded from: classes2.dex */
 public abstract class AdapterTriggerLinBinding extends ViewDataBinding {
     public final Button buttonLevel;
@@ -117,8 +118,7 @@ public abstract class AdapterTriggerLinBinding extends ViewDataBinding {
 
     public abstract void setWhenWakeUpMapping(MappingObject mappingObject);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public AdapterTriggerLinBinding(Object obj, View view, int i, Button button, Guideline guideline, Guideline guideline2, Guideline guideline3, Guideline guideline4, Guideline guideline5, TextView textView, TextView textView2, TextView textView3, TextView textView4, EditText editText, TextView textView5, TextView textView6, TextView textView7, RadioButton radioButton, RadioButton radioButton2, TextView textView8, EditText editText2, RadioButton radioButton3, RadioButton radioButton4, TextView textView9, EditText editText3, RadioButton radioButton5, RadioButton radioButton6, RadioButton radioButton7, RadioButton radioButton8, RadioButton radioButton9, RadioButton radioButton10, TextView textView10, SwitchButton switchButton, TextView textView11, EditText editText4, TextView textView12, TextView textView13, TextView textView14, TextView textView15, View view2, View view3, View view4, View view5, View view6, View view7, View view8) {
+    protected AdapterTriggerLinBinding(Object obj, View view, int i, Button button, Guideline guideline, Guideline guideline2, Guideline guideline3, Guideline guideline4, Guideline guideline5, TextView textView, TextView textView2, TextView textView3, TextView textView4, EditText editText, TextView textView5, TextView textView6, TextView textView7, RadioButton radioButton, RadioButton radioButton2, TextView textView8, EditText editText2, RadioButton radioButton3, RadioButton radioButton4, TextView textView9, EditText editText3, RadioButton radioButton5, RadioButton radioButton6, RadioButton radioButton7, RadioButton radioButton8, RadioButton radioButton9, RadioButton radioButton10, TextView textView10, SwitchButton switchButton, TextView textView11, EditText editText4, TextView textView12, TextView textView13, TextView textView14, TextView textView15, View view2, View view3, View view4, View view5, View view6, View view7, View view8) {
         super(obj, view, i);
         this.buttonLevel = button;
         this.guidelineCenter = guideline;

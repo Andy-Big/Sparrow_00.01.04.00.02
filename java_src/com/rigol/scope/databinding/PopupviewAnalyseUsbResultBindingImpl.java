@@ -1,5 +1,6 @@
 package com.rigol.scope.databinding;
 
+import android.support.v4.media.session.PlaybackStateCompat;
 import android.util.SparseIntArray;
 import android.view.View;
 import android.widget.Button;
@@ -9,9 +10,13 @@ import android.widget.TextView;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.databinding.DataBindingComponent;
 import androidx.databinding.ViewDataBinding;
+import androidx.databinding.adapters.TextViewBindingAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 import com.rigol.scope.R;
+import com.rigol.scope.cil.ServiceEnum;
+import com.rigol.scope.utilities.UnitFormat;
 import com.rigol.scope.views.busAnalyse.BusAnalyseUsbParam;
+
 /* loaded from: classes2.dex */
 public class PopupviewAnalyseUsbResultBindingImpl extends PopupviewAnalyseUsbResultBinding {
     private static final ViewDataBinding.IncludedLayouts sIncludes = null;
@@ -206,13 +211,340 @@ public class PopupviewAnalyseUsbResultBindingImpl extends PopupviewAnalyseUsbRes
     @Override // androidx.databinding.ViewDataBinding
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
     protected void executeBindings() {
-        /*
-            Method dump skipped, instructions count: 1000
-            To view this dump add '--comments-level debug' option
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.rigol.scope.databinding.PopupviewAnalyseUsbResultBindingImpl.executeBindings():void");
+        long j;
+        int i;
+        boolean z;
+        boolean z2;
+        boolean z3;
+        String str;
+        String str2;
+        String str3;
+        String str4;
+        String str5;
+        String str6;
+        String str7;
+        String str8;
+        String str9;
+        String str10;
+        String str11;
+        String str12;
+        String str13;
+        String str14;
+        String str15;
+        String str16;
+        String str17;
+        String str18;
+        long j2;
+        String str19;
+        boolean z4;
+        boolean z5;
+        boolean z6;
+        int i2;
+        int i3;
+        int i4;
+        String str20;
+        int i5;
+        String str21;
+        PopupviewAnalyseUsbResultBindingImpl popupviewAnalyseUsbResultBindingImpl;
+        BusAnalyseUsbParam busAnalyseUsbParam;
+        long j3;
+        String str22;
+        String str23;
+        String str24;
+        String str25;
+        String str26;
+        String str27;
+        String str28;
+        String str29;
+        long j4;
+        boolean z7;
+        boolean z8;
+        boolean z9;
+        long j5;
+        String str30;
+        boolean z10;
+        String str31;
+        String str32;
+        long j6;
+        synchronized (this) {
+            try {
+                j = this.mDirtyFlags;
+                this.mDirtyFlags = 0L;
+            } catch (Throwable th) {
+                th = th;
+                while (true) {
+                    try {
+                        break;
+                    } catch (Throwable th2) {
+                        th = th2;
+                    }
+                }
+                throw th;
+            }
+        }
+        BusAnalyseUsbParam busAnalyseUsbParam2 = this.mParam;
+        if ((31 & j) != 0) {
+            if ((j & 19) != 0) {
+                long srcVscale = busAnalyseUsbParam2 != null ? busAnalyseUsbParam2.getSrcVscale() : 0L;
+                j3 = j;
+                busAnalyseUsbParam = busAnalyseUsbParam2;
+                str28 = UnitFormat.newBuilder("0.##", UnitFormat.SI.MICRO).convert(srcVscale * 2, ServiceEnum.Unit.Unit_V);
+                str24 = UnitFormat.newBuilder("0.##", UnitFormat.SI.MICRO).convert(srcVscale * 0, ServiceEnum.Unit.Unit_V);
+                str25 = UnitFormat.newBuilder("0.##", UnitFormat.SI.MICRO).convert(srcVscale * (-1), ServiceEnum.Unit.Unit_V);
+                str29 = UnitFormat.newBuilder("0.##", UnitFormat.SI.MICRO).convert(srcVscale * (-2), ServiceEnum.Unit.Unit_V);
+                str26 = UnitFormat.newBuilder("0.##", UnitFormat.SI.MICRO).convert(srcVscale * 3, ServiceEnum.Unit.Unit_V);
+                str27 = UnitFormat.newBuilder("0.##", UnitFormat.SI.MICRO).convert(srcVscale * 4, ServiceEnum.Unit.Unit_V);
+                str22 = UnitFormat.newBuilder("0.##", UnitFormat.SI.MICRO).convert(srcVscale * 1, ServiceEnum.Unit.Unit_V);
+                str23 = UnitFormat.newBuilder("0.##", UnitFormat.SI.MICRO).convert(srcVscale * (-3), ServiceEnum.Unit.Unit_V);
+            } else {
+                busAnalyseUsbParam = busAnalyseUsbParam2;
+                j3 = j;
+                str22 = null;
+                str23 = null;
+                str24 = null;
+                str25 = null;
+                str26 = null;
+                str27 = null;
+                str28 = null;
+                str29 = null;
+            }
+            int i6 = ((j3 & 25) > 0L ? 1 : ((j3 & 25) == 0L ? 0 : -1));
+            if (i6 != 0) {
+                i = busAnalyseUsbParam != null ? busAnalyseUsbParam.getUsb_type() : 0;
+                z7 = i == 4;
+                z8 = i == 2;
+                z9 = i == 0;
+                j5 = i6 != 0 ? z7 ? j3 | PlaybackStateCompat.ACTION_PREPARE_FROM_SEARCH : j3 | PlaybackStateCompat.ACTION_PREPARE_FROM_MEDIA_ID : j3;
+                j4 = 0;
+                if ((j5 & 25) != 0) {
+                    j5 |= z8 ? 64L : 32L;
+                }
+                if ((j5 & 25) != 0) {
+                    j5 = z9 ? j5 | PlaybackStateCompat.ACTION_PLAY_FROM_MEDIA_ID : j5 | 512;
+                }
+            } else {
+                j4 = 0;
+                i = 0;
+                z7 = false;
+                z8 = false;
+                z9 = false;
+                j5 = j3;
+            }
+            if ((j5 & 21) != j4) {
+                if (busAnalyseUsbParam != null) {
+                    j6 = busAnalyseUsbParam.getSrcHscale();
+                    str31 = str22;
+                    str32 = str23;
+                } else {
+                    str31 = str22;
+                    str32 = str23;
+                    j6 = j4;
+                }
+                String str33 = str24;
+                String str34 = str25;
+                String str35 = str26;
+                String str36 = str27;
+                String str37 = str28;
+                str30 = str29;
+                z10 = z7;
+                boolean z11 = z8;
+                String str38 = str32;
+                String convert = UnitFormat.newBuilder("0.##", UnitFormat.SI.FEMTO).convert(j6 * 3, ServiceEnum.Unit.Unit_s);
+                String convert2 = UnitFormat.newBuilder("0.##", UnitFormat.SI.FEMTO).convert(j6 * 5, ServiceEnum.Unit.Unit_s);
+                String convert3 = UnitFormat.newBuilder("0.##", UnitFormat.SI.FEMTO).convert(j6 * j4, ServiceEnum.Unit.Unit_s);
+                String convert4 = UnitFormat.newBuilder("0.##", UnitFormat.SI.FEMTO).convert(j6 * (-3), ServiceEnum.Unit.Unit_s);
+                String convert5 = UnitFormat.newBuilder("0.##", UnitFormat.SI.FEMTO).convert(j6 * (-4), ServiceEnum.Unit.Unit_s);
+                str3 = UnitFormat.newBuilder("0.##", UnitFormat.SI.FEMTO).convert(j6 * 2, ServiceEnum.Unit.Unit_s);
+                String convert6 = UnitFormat.newBuilder("0.##", UnitFormat.SI.FEMTO).convert(j6 * (-1), ServiceEnum.Unit.Unit_s);
+                String convert7 = UnitFormat.newBuilder("0.##", UnitFormat.SI.FEMTO).convert(j6 * 1, ServiceEnum.Unit.Unit_s);
+                str8 = convert6;
+                str4 = UnitFormat.newBuilder("0.##", UnitFormat.SI.FEMTO).convert(j6 * (-2), ServiceEnum.Unit.Unit_s);
+                str = UnitFormat.newBuilder("0.##", UnitFormat.SI.FEMTO).convert(j6 * 4, ServiceEnum.Unit.Unit_s);
+                str13 = convert5;
+                str11 = convert2;
+                str17 = str33;
+                str14 = str38;
+                str12 = str35;
+                str9 = str36;
+                j = j5;
+                str18 = str31;
+                j2 = 512;
+                str7 = convert7;
+                str6 = convert3;
+                str2 = convert;
+                str5 = convert4;
+                z2 = z11;
+                z3 = z9;
+                i = i;
+                str16 = str34;
+                str10 = str37;
+            } else {
+                str30 = str29;
+                z10 = z7;
+                boolean z12 = z8;
+                boolean z13 = z9;
+                str17 = str24;
+                str14 = str23;
+                str12 = str26;
+                str9 = str27;
+                j = j5;
+                str18 = str22;
+                str10 = str28;
+                str = null;
+                str2 = null;
+                str3 = null;
+                str4 = null;
+                str5 = null;
+                str6 = null;
+                str7 = null;
+                str8 = null;
+                str11 = null;
+                str13 = null;
+                j2 = 512;
+                z2 = z12;
+                z3 = z13;
+                str16 = str25;
+            }
+            z = z10;
+            str15 = str30;
+        } else {
+            i = 0;
+            z = false;
+            z2 = false;
+            z3 = false;
+            str = null;
+            str2 = null;
+            str3 = null;
+            str4 = null;
+            str5 = null;
+            str6 = null;
+            str7 = null;
+            str8 = null;
+            str9 = null;
+            str10 = null;
+            str11 = null;
+            str12 = null;
+            str13 = null;
+            str14 = null;
+            str15 = null;
+            str16 = null;
+            str17 = null;
+            str18 = null;
+            j2 = 512;
+        }
+        if ((j & j2) != 0) {
+            str19 = str10;
+            if (i == 1) {
+                z4 = true;
+                boolean z14 = (j & PlaybackStateCompat.ACTION_PREPARE_FROM_MEDIA_ID) == 0 && i == 5;
+                if ((j & 32) == 0) {
+                    z5 = z14;
+                    if (i == 3) {
+                        z6 = true;
+                        i2 = ((j & 25) > 0L ? 1 : ((j & 25) == 0L ? 0 : -1));
+                        if (i2 != 0) {
+                            if (z2) {
+                                z6 = true;
+                            }
+                            if (z3) {
+                                z4 = true;
+                            }
+                            if (z) {
+                                z5 = true;
+                            }
+                            if (i2 != 0) {
+                                j |= z6 ? 256L : 128L;
+                            }
+                            if ((j & 25) != 0) {
+                                j |= z4 ? PlaybackStateCompat.ACTION_SKIP_TO_QUEUE_ITEM : PlaybackStateCompat.ACTION_PLAY_FROM_SEARCH;
+                            }
+                            if ((j & 25) != 0) {
+                                j |= z5 ? PlaybackStateCompat.ACTION_PREPARE : PlaybackStateCompat.ACTION_PLAY_FROM_URI;
+                            }
+                            i3 = z6 ? 0 : 8;
+                            i4 = z4 ? 0 : 8;
+                            str20 = str12;
+                            i5 = z5 ? 0 : 8;
+                        } else {
+                            i3 = 0;
+                            i4 = 0;
+                            str20 = str12;
+                            i5 = 0;
+                        }
+                        String str39 = str2;
+                        if ((j & 25) != 0) {
+                            str21 = str9;
+                            popupviewAnalyseUsbResultBindingImpl = this;
+                            popupviewAnalyseUsbResultBindingImpl.eye11Xlayout.setVisibility(i3);
+                            popupviewAnalyseUsbResultBindingImpl.eye11Ylayout.setVisibility(i3);
+                            popupviewAnalyseUsbResultBindingImpl.eye1Xlayout.setVisibility(i4);
+                            popupviewAnalyseUsbResultBindingImpl.eye1Ylayout.setVisibility(i4);
+                            popupviewAnalyseUsbResultBindingImpl.eye2Xlayout.setVisibility(i5);
+                            popupviewAnalyseUsbResultBindingImpl.eye2Ylayout.setVisibility(i5);
+                        } else {
+                            str21 = str9;
+                            popupviewAnalyseUsbResultBindingImpl = this;
+                        }
+                        if ((j & 21) != 0) {
+                            TextViewBindingAdapter.setText(popupviewAnalyseUsbResultBindingImpl.xruler10, str);
+                            TextViewBindingAdapter.setText(popupviewAnalyseUsbResultBindingImpl.xruler11, str11);
+                            TextViewBindingAdapter.setText(popupviewAnalyseUsbResultBindingImpl.xruler2, str13);
+                            TextViewBindingAdapter.setText(popupviewAnalyseUsbResultBindingImpl.xruler3, str5);
+                            TextViewBindingAdapter.setText(popupviewAnalyseUsbResultBindingImpl.xruler4, str4);
+                            TextViewBindingAdapter.setText(popupviewAnalyseUsbResultBindingImpl.xruler5, str8);
+                            TextViewBindingAdapter.setText(popupviewAnalyseUsbResultBindingImpl.xruler6, str6);
+                            TextViewBindingAdapter.setText(popupviewAnalyseUsbResultBindingImpl.xruler7, str7);
+                            TextViewBindingAdapter.setText(popupviewAnalyseUsbResultBindingImpl.xruler8, str3);
+                            TextViewBindingAdapter.setText(popupviewAnalyseUsbResultBindingImpl.xruler9, str39);
+                        }
+                        if ((19 & j) != 0) {
+                            TextViewBindingAdapter.setText(popupviewAnalyseUsbResultBindingImpl.yruler1, str21);
+                            TextViewBindingAdapter.setText(popupviewAnalyseUsbResultBindingImpl.yruler2, str20);
+                            TextViewBindingAdapter.setText(popupviewAnalyseUsbResultBindingImpl.yruler3, str19);
+                            TextViewBindingAdapter.setText(popupviewAnalyseUsbResultBindingImpl.yruler4, str18);
+                            TextViewBindingAdapter.setText(popupviewAnalyseUsbResultBindingImpl.yruler5, str17);
+                            TextViewBindingAdapter.setText(popupviewAnalyseUsbResultBindingImpl.yruler6, str16);
+                            TextViewBindingAdapter.setText(popupviewAnalyseUsbResultBindingImpl.yruler7, str15);
+                            TextViewBindingAdapter.setText(popupviewAnalyseUsbResultBindingImpl.yruler8, str14);
+                            return;
+                        }
+                        return;
+                    }
+                } else {
+                    z5 = z14;
+                }
+                z6 = false;
+                i2 = ((j & 25) > 0L ? 1 : ((j & 25) == 0L ? 0 : -1));
+                if (i2 != 0) {
+                }
+                String str392 = str2;
+                if ((j & 25) != 0) {
+                }
+                if ((j & 21) != 0) {
+                }
+                if ((19 & j) != 0) {
+                }
+            }
+        } else {
+            str19 = str10;
+        }
+        z4 = false;
+        if ((j & PlaybackStateCompat.ACTION_PREPARE_FROM_MEDIA_ID) == 0) {
+        }
+        if ((j & 32) == 0) {
+        }
+        z6 = false;
+        i2 = ((j & 25) > 0L ? 1 : ((j & 25) == 0L ? 0 : -1));
+        if (i2 != 0) {
+        }
+        String str3922 = str2;
+        if ((j & 25) != 0) {
+        }
+        if ((j & 21) != 0) {
+        }
+        if ((19 & j) != 0) {
+        }
     }
 }

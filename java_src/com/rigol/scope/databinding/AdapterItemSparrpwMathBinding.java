@@ -10,6 +10,7 @@ import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import com.rigol.scope.R;
 import com.rigol.scope.data.MathParam;
+
 /* loaded from: classes2.dex */
 public abstract class AdapterItemSparrpwMathBinding extends ViewDataBinding {
     public final ConstraintLayout itemView;
@@ -19,8 +20,7 @@ public abstract class AdapterItemSparrpwMathBinding extends ViewDataBinding {
 
     public abstract void setParam(MathParam mathParam);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public AdapterItemSparrpwMathBinding(Object obj, View view, int i, ConstraintLayout constraintLayout, TextView textView) {
+    protected AdapterItemSparrpwMathBinding(Object obj, View view, int i, ConstraintLayout constraintLayout, TextView textView) {
         super(obj, view, i);
         this.itemView = constraintLayout;
         this.text1 = textView;

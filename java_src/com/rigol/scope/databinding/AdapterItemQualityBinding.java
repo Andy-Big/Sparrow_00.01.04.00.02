@@ -13,6 +13,7 @@ import androidx.databinding.ViewDataBinding;
 import com.rigol.scope.R;
 import com.rigol.scope.data.MappingObject;
 import com.rigol.scope.data.UpaParam;
+
 /* loaded from: classes2.dex */
 public abstract class AdapterItemQualityBinding extends ViewDataBinding {
     public final View dividingLine1;
@@ -53,8 +54,7 @@ public abstract class AdapterItemQualityBinding extends ViewDataBinding {
 
     public abstract void setUpaMappingObj(MappingObject mappingObject);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public AdapterItemQualityBinding(Object obj, View view, int i, View view2, View view3, View view4, Guideline guideline, Guideline guideline2, Guideline guideline3, Guideline guideline4, TextView textView, Guideline guideline5, TextView textView2, TextView textView3, TextView textView4, TextView textView5, TextView textView6, TextView textView7, EditText editText, EditText editText2, Button button, Button button2, TextView textView8, TextView textView9, EditText editText3, TextView textView10, TextView textView11, Button button3, TextView textView12, EditText editText4, TextView textView13, TextView textView14) {
+    protected AdapterItemQualityBinding(Object obj, View view, int i, View view2, View view3, View view4, Guideline guideline, Guideline guideline2, Guideline guideline3, Guideline guideline4, TextView textView, Guideline guideline5, TextView textView2, TextView textView3, TextView textView4, TextView textView5, TextView textView6, TextView textView7, EditText editText, EditText editText2, Button button, Button button2, TextView textView8, TextView textView9, EditText editText3, TextView textView10, TextView textView11, Button button3, TextView textView12, EditText editText4, TextView textView13, TextView textView14) {
         super(obj, view, i);
         this.dividingLine1 = view2;
         this.dividingLine2 = view3;

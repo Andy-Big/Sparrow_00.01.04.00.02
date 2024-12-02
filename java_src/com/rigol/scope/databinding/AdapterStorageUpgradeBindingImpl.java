@@ -12,6 +12,7 @@ import androidx.databinding.adapters.TextViewBindingAdapter;
 import com.rigol.scope.R;
 import com.rigol.scope.data.DiskManageParam;
 import com.rigol.scope.utilities.ViewUtil;
+
 /* loaded from: classes2.dex */
 public class AdapterStorageUpgradeBindingImpl extends AdapterStorageUpgradeBinding {
     private static final ViewDataBinding.IncludedLayouts sIncludes = null;

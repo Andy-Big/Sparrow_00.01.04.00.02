@@ -13,6 +13,7 @@ import com.rigol.scope.data.MappingObject;
 import com.rigol.scope.data.UtilityParam;
 import com.rigol.scope.utilities.ColorUtil;
 import com.rigol.scope.utilities.ViewUtil;
+
 /* loaded from: classes2.dex */
 public class AdapterUtilityAllmeasureBindingImpl extends AdapterUtilityAllmeasureBinding {
     private static final ViewDataBinding.IncludedLayouts sIncludes = null;

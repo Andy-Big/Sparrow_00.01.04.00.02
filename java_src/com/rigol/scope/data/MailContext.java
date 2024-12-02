@@ -1,4 +1,5 @@
 package com.rigol.scope.data;
+
 /* loaded from: classes2.dex */
 public class MailContext {
     private String body;

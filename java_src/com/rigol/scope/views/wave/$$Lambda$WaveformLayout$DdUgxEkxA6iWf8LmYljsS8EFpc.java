@@ -1,6 +1,7 @@
 package com.rigol.scope.views.wave;
 
 import java.util.function.Function;
+
 /* compiled from: lambda */
 /* renamed from: com.rigol.scope.views.wave.-$$Lambda$WaveformLayout$DdUgxEkxA6iWf8LmYljsS8-EFpc  reason: invalid class name */
 /* loaded from: classes2.dex */

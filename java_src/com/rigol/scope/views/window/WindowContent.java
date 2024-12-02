@@ -78,6 +78,7 @@ import kotlin.Metadata;
 import kotlin.Unit;
 import kotlin.jvm.internal.Intrinsics;
 import timber.log.Timber;
+
 /* compiled from: WindowContent.kt */
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000à\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010 \n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u000b\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0017\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0010\u0007\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0019\n\u0002\u0010\u0011\n\u0002\b\u000f\n\u0002\u0018\u0002\n\u0002\b'\b\u0016\u0018\u00002\u00020\u0001:\u0002¥\u0002B\u000f\b\u0016\u0012\u0006\u0010\u0002\u001a\u00020\u0003¢\u0006\u0002\u0010\u0004B\u0019\b\u0016\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\b\u0010\u0005\u001a\u0004\u0018\u00010\u0006¢\u0006\u0002\u0010\u0007B!\b\u0016\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\b\u0010\u0005\u001a\u0004\u0018\u00010\u0006\u0012\u0006\u0010\b\u001a\u00020\t¢\u0006\u0002\u0010\nJ\b\u0010\u009c\u0001\u001a\u00030\u009d\u0001J-\u0010\u009e\u0001\u001a\u00030\u009d\u00012\u0007\u0010\u009f\u0001\u001a\u00020\u000e2\u0006\u0010v\u001a\u00020w2\u0007\u0010 \u0001\u001a\u00020\t2\u0007\u0010¡\u0001\u001a\u00020\tH\u0002J\b\u0010¢\u0001\u001a\u00030\u009d\u0001J\u0012\u0010£\u0001\u001a\u00030\u009d\u00012\b\u0010¤\u0001\u001a\u00030¥\u0001J\b\u0010¦\u0001\u001a\u00030\u009d\u0001J.\u0010§\u0001\u001a\u00030\u009d\u00012\b\u0010¨\u0001\u001a\u00030©\u00012\u0006\u0010v\u001a\u00020w2\u0007\u0010ª\u0001\u001a\u00020\t2\u0007\u0010«\u0001\u001a\u00020\tH\u0002J\b\u0010¬\u0001\u001a\u00030\u009d\u0001J\u001a\u0010\u00ad\u0001\u001a\u00030©\u00012\u0007\u0010®\u0001\u001a\u00020\t2\u0007\u0010¯\u0001\u001a\u00020\tJ\u0013\u0010°\u0001\u001a\u00030\u009d\u00012\u0007\u0010±\u0001\u001a\u00020\tH\u0002J\"\u0010²\u0001\u001a\u00030\u009d\u00012\u0007\u0010³\u0001\u001a\u00020\u00012\u0006\u0010v\u001a\u00020w2\u0007\u0010´\u0001\u001a\u00020\tJ=\u0010µ\u0001\u001a\u00030\u009d\u00012\u0007\u0010³\u0001\u001a\u00020\u00012\u0006\u0010v\u001a\u00020w2\u0007\u0010¶\u0001\u001a\u00020\t2\u0007\u0010·\u0001\u001a\u00020\t2\u0007\u0010¸\u0001\u001a\u00020\t2\u0007\u0010¹\u0001\u001a\u00020\tJ\b\u0010º\u0001\u001a\u00030\u009d\u0001J\b\u0010»\u0001\u001a\u00030\u009d\u0001J\b\u0010¼\u0001\u001a\u00030\u009d\u0001J\b\u0010½\u0001\u001a\u00030\u009d\u0001J\b\u0010¾\u0001\u001a\u00030\u009d\u0001J \u0010¿\u0001\u001a\u00030\u009d\u00012\n\u0010À\u0001\u001a\u0005\u0018\u00010Á\u00012\n\u0010¤\u0001\u001a\u0005\u0018\u00010¥\u0001J\u0019\u0010Â\u0001\u001a\u00030\u009d\u00012\u0006\u0010v\u001a\u00020w2\u0007\u0010´\u0001\u001a\u00020\tJ4\u0010Ã\u0001\u001a\u00030\u009d\u00012\u0006\u0010v\u001a\u00020w2\u0007\u0010¶\u0001\u001a\u00020\t2\u0007\u0010·\u0001\u001a\u00020\t2\u0007\u0010¸\u0001\u001a\u00020\t2\u0007\u0010¹\u0001\u001a\u00020\tJ\u0013\u0010Ä\u0001\u001a\u0005\u0018\u00010¥\u00012\u0007\u0010Å\u0001\u001a\u00020'J\u001c\u0010Ä\u0001\u001a\u0005\u0018\u00010¥\u00012\u0007\u0010Å\u0001\u001a\u00020'2\u0007\u0010±\u0001\u001a\u00020\tJ\u0015\u0010Æ\u0001\u001a\u0005\u0018\u00010Ç\u00012\u0007\u0010±\u0001\u001a\u00020\tH\u0002J*\u0010È\u0001\u001a\u0004\u0018\u00010\u0018\"\u0005\b\u0000\u0010É\u00012\u0007\u0010Å\u0001\u001a\u00020'2\u000f\u0010Ê\u0001\u001a\n\u0012\u0005\u0012\u0003HÉ\u00010Ë\u0001J3\u0010È\u0001\u001a\u0004\u0018\u00010\u0018\"\u0005\b\u0000\u0010É\u00012\u0007\u0010Å\u0001\u001a\u00020'2\u0007\u0010±\u0001\u001a\u00020\t2\u000f\u0010Ê\u0001\u001a\n\u0012\u0005\u0012\u0003HÉ\u00010Ë\u0001J\n\u0010Ì\u0001\u001a\u00030\u009d\u0001H\u0002J\n\u0010Í\u0001\u001a\u00030\u009d\u0001H\u0002J\n\u0010Î\u0001\u001a\u00030\u009d\u0001H\u0016J\b\u0010Ï\u0001\u001a\u00030\u009d\u0001J\u001b\u0010Ð\u0001\u001a\u00030¥\u00012\b\u0010Ñ\u0001\u001a\u00030Ò\u00012\u0007\u0010¯\u0001\u001a\u00020\tJ\u0013\u0010Ó\u0001\u001a\u00020q2\b\u0010Ô\u0001\u001a\u00030Õ\u0001H\u0016J7\u0010Ö\u0001\u001a\u00030\u009d\u00012\u0007\u0010×\u0001\u001a\u00020q2\u0007\u0010Ø\u0001\u001a\u00020\t2\u0007\u0010Ù\u0001\u001a\u00020\t2\u0007\u0010Ú\u0001\u001a\u00020\t2\u0007\u0010Û\u0001\u001a\u00020\tH\u0014J\u001c\u0010Ü\u0001\u001a\u00030\u009d\u00012\u0007\u0010Ý\u0001\u001a\u00020\t2\u0007\u0010Þ\u0001\u001a\u00020\tH\u0014J.\u0010ß\u0001\u001a\u00030\u009d\u00012\u0007\u0010à\u0001\u001a\u00020\t2\u0007\u0010á\u0001\u001a\u00020\t2\u0007\u0010â\u0001\u001a\u00020\t2\u0007\u0010ã\u0001\u001a\u00020\tH\u0014J\u0013\u0010ä\u0001\u001a\u00020q2\b\u0010å\u0001\u001a\u00030Õ\u0001H\u0016J\u0011\u0010æ\u0001\u001a\u00030\u009d\u00012\u0007\u0010®\u0001\u001a\u00020\tJ\u0013\u0010ç\u0001\u001a\u00030\u009d\u00012\u0007\u0010±\u0001\u001a\u00020\tH\u0002J\b\u0010è\u0001\u001a\u00030\u009d\u0001J\b\u0010é\u0001\u001a\u00030\u009d\u0001J\n\u0010ê\u0001\u001a\u00030\u009d\u0001H\u0002J\n\u0010ë\u0001\u001a\u00030\u009d\u0001H\u0002J6\u0010ì\u0001\u001a\u00030\u009d\u00012\t\u0010í\u0001\u001a\u0004\u0018\u00010m2\u0019\u0010î\u0001\u001a\u0014\u0012\u000f\u0012\r\u0012\u0006\u0012\u0004\u0018\u00010'\u0018\u00010ï\u00010ï\u0001H\u0002¢\u0006\u0003\u0010ð\u0001J\n\u0010ñ\u0001\u001a\u00030\u009d\u0001H\u0002J\n\u0010ò\u0001\u001a\u00030\u009d\u0001H\u0002J8\u0010ó\u0001\u001a\u00030\u009d\u00012\t\u0010í\u0001\u001a\u0004\u0018\u00010m2\u001b\u0010î\u0001\u001a\u0016\u0012\u000f\u0012\r\u0012\u0006\u0012\u0004\u0018\u00010'\u0018\u00010ï\u0001\u0018\u00010ï\u0001H\u0002¢\u0006\u0003\u0010ð\u0001J\n\u0010ô\u0001\u001a\u00030\u009d\u0001H\u0002J\n\u0010õ\u0001\u001a\u00030\u009d\u0001H\u0002J6\u0010ö\u0001\u001a\u00030\u009d\u00012\t\u0010í\u0001\u001a\u0004\u0018\u00010m2\u0019\u0010î\u0001\u001a\u0014\u0012\u000f\u0012\r\u0012\u0006\u0012\u0004\u0018\u00010'\u0018\u00010ï\u00010ï\u0001H\u0002¢\u0006\u0003\u0010ð\u0001J\b\u0010÷\u0001\u001a\u00030\u009d\u0001J\b\u0010ø\u0001\u001a\u00030\u009d\u0001J\b\u0010ù\u0001\u001a\u00030\u009d\u0001J\b\u0010ú\u0001\u001a\u00030\u009d\u0001J\n\u0010û\u0001\u001a\u00030\u009d\u0001H\u0002J\b\u0010ü\u0001\u001a\u00030\u009d\u0001J\u001e\u0010ý\u0001\u001a\u00030\u009d\u00012\b\u0010þ\u0001\u001a\u00030ÿ\u00012\b\u0010\u0080\u0002\u001a\u00030Ç\u0001H\u0002J&\u0010\u0081\u0002\u001a\u00030\u009d\u00012\u0007\u0010\u0082\u0002\u001a\u00020q2\u0007\u0010\u0083\u0002\u001a\u00020'2\b\u0010\u0080\u0002\u001a\u00030Ç\u0001H\u0002J\u001e\u0010\u0084\u0002\u001a\u00030\u009d\u00012\b\u0010þ\u0001\u001a\u00030ÿ\u00012\b\u0010\u0080\u0002\u001a\u00030Ç\u0001H\u0002J&\u0010\u0085\u0002\u001a\u00030\u009d\u00012\u0007\u0010\u0086\u0002\u001a\u00020q2\b\u0010\u0087\u0002\u001a\u00030ÿ\u00012\u0007\u0010±\u0001\u001a\u00020\tH\u0002J\u000e\u0010\u0088\u0002\u001a\u00030\u009d\u0001*\u00020\u000eH\u0002J\u000e\u0010\u0089\u0002\u001a\u00030\u009d\u0001*\u00020\u000eH\u0002J\u000e\u0010\u008a\u0002\u001a\u00030\u009d\u0001*\u00020\u000eH\u0002J\u000e\u0010\u008b\u0002\u001a\u00030\u009d\u0001*\u00020\u000eH\u0002J\u000e\u0010\u008c\u0002\u001a\u00030\u009d\u0001*\u00020\u000eH\u0002J\u000e\u0010\u008d\u0002\u001a\u00030\u009d\u0001*\u00020\u000eH\u0002J\u000e\u0010\u008e\u0002\u001a\u00030\u009d\u0001*\u00020\u000eH\u0002J\u000e\u0010\u008f\u0002\u001a\u00030\u009d\u0001*\u00020\u000eH\u0002J\u0019\u0010\u0090\u0002\u001a\u00030\u009d\u0001*\u00020A2\t\u0010í\u0001\u001a\u0004\u0018\u00010mH\u0002J\u0019\u0010\u0091\u0002\u001a\u00030\u009d\u0001*\u00020A2\t\u0010í\u0001\u001a\u0004\u0018\u00010mH\u0002J\u0019\u0010\u0092\u0002\u001a\u00030\u009d\u0001*\u00020A2\t\u0010í\u0001\u001a\u0004\u0018\u00010mH\u0002J\u0019\u0010\u0093\u0002\u001a\u00030\u009d\u0001*\u00020A2\t\u0010í\u0001\u001a\u0004\u0018\u00010mH\u0002J\u000e\u0010\u0094\u0002\u001a\u00030\u009d\u0001*\u00020\u000eH\u0002J\u000e\u0010\u0095\u0002\u001a\u00030\u009d\u0001*\u00020\u000eH\u0002J\u000e\u0010\u0096\u0002\u001a\u00030\u009d\u0001*\u00020\u000eH\u0002J\u000e\u0010\u0097\u0002\u001a\u00030\u009d\u0001*\u00020\u000eH\u0002J\u000e\u0010\u0098\u0002\u001a\u00030\u009d\u0001*\u00020\u000eH\u0002J\u000e\u0010\u0099\u0002\u001a\u00030\u009d\u0001*\u00020\u000eH\u0002J\u000e\u0010\u009a\u0002\u001a\u00030\u009d\u0001*\u00020\u000eH\u0002J\u000e\u0010\u009b\u0002\u001a\u00030\u009d\u0001*\u00020\u000eH\u0002J\u000e\u0010\u009c\u0002\u001a\u00030\u009d\u0001*\u00020\u000eH\u0002J\u000e\u0010\u009d\u0002\u001a\u00030\u009d\u0001*\u00020\u000eH\u0002J1\u0010\u009e\u0002\u001a\u00030\u009d\u0001*\u00020A2\u001b\u0010î\u0001\u001a\u0016\u0012\u000f\u0012\r\u0012\u0006\u0012\u0004\u0018\u00010'\u0018\u00010ï\u0001\u0018\u00010ï\u0001H\u0002¢\u0006\u0003\u0010\u009f\u0002J1\u0010 \u0002\u001a\u00030\u009d\u0001*\u00020A2\u001b\u0010î\u0001\u001a\u0016\u0012\u000f\u0012\r\u0012\u0006\u0012\u0004\u0018\u00010'\u0018\u00010ï\u0001\u0018\u00010ï\u0001H\u0002¢\u0006\u0003\u0010\u009f\u0002J1\u0010¡\u0002\u001a\u00030\u009d\u0001*\u00020A2\u001b\u0010î\u0001\u001a\u0016\u0012\u000f\u0012\r\u0012\u0006\u0012\u0004\u0018\u00010'\u0018\u00010ï\u0001\u0018\u00010ï\u0001H\u0002¢\u0006\u0003\u0010\u009f\u0002J1\u0010¢\u0002\u001a\u00030\u009d\u0001*\u00020A2\u001b\u0010î\u0001\u001a\u0016\u0012\u000f\u0012\r\u0012\u0006\u0012\u0004\u0018\u00010'\u0018\u00010ï\u0001\u0018\u00010ï\u0001H\u0002¢\u0006\u0003\u0010\u009f\u0002J\u000e\u0010£\u0002\u001a\u00030\u009d\u0001*\u00020\u000eH\u0002J\u000e\u0010¤\u0002\u001a\u00030\u009d\u0001*\u00020\u000eH\u0002R\u000e\u0010\u000b\u001a\u00020\tX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\f\u001a\u00020\tX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\r\u001a\u00020\u000eX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u000f\u001a\u00020\u000eX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0010\u001a\u00020\u000eX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0011\u001a\u00020\u000eX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0012\u001a\u00020\u000eX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0013\u001a\u00020\u000eX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0014\u001a\u00020\u000eX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0015\u001a\u00020\u000eX\u0082\u0004¢\u0006\u0002\n\u0000R\u0014\u0010\u0016\u001a\b\u0012\u0004\u0012\u00020\u00180\u0017X\u0082\u0004¢\u0006\u0002\n\u0000R\u001c\u0010\u0019\u001a\u0004\u0018\u00010\u001aX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u001b\u0010\u001c\"\u0004\b\u001d\u0010\u001eR\u0013\u0010\u001f\u001a\u0004\u0018\u00010 ¢\u0006\b\n\u0000\u001a\u0004\b!\u0010\"R\u000e\u0010#\u001a\u00020$X\u0082\u0004¢\u0006\u0002\n\u0000R \u0010%\u001a\u000e\u0012\u0004\u0012\u00020'\u0012\u0004\u0012\u00020\u00180&X\u0084\u0004¢\u0006\b\n\u0000\u001a\u0004\b(\u0010)R\u001c\u0010*\u001a\u0004\u0018\u00010+X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b,\u0010-\"\u0004\b.\u0010/R\u000e\u00100\u001a\u000201X\u0082\u0004¢\u0006\u0002\n\u0000R\u0013\u00102\u001a\u0004\u0018\u000103¢\u0006\b\n\u0000\u001a\u0004\b4\u00105R\u001c\u00106\u001a\u0004\u0018\u000107X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b8\u00109\"\u0004\b:\u0010;R\u0013\u0010<\u001a\u0004\u0018\u00010=¢\u0006\b\n\u0000\u001a\u0004\b>\u0010?R\u000e\u0010@\u001a\u00020AX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010B\u001a\u00020AX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010C\u001a\u00020AX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010D\u001a\u00020AX\u0082\u0004¢\u0006\u0002\n\u0000R\u0014\u0010E\u001a\b\u0012\u0004\u0012\u00020\u00180\u0017X\u0082\u0004¢\u0006\u0002\n\u0000R$\u0010F\u001a\f\u0012\u0006\u0012\u0004\u0018\u00010H\u0018\u00010GX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\bI\u0010J\"\u0004\bK\u0010LR\u0013\u0010M\u001a\u0004\u0018\u00010N¢\u0006\b\n\u0000\u001a\u0004\bO\u0010PR\u0013\u0010Q\u001a\u0004\u0018\u00010R¢\u0006\b\n\u0000\u001a\u0004\bS\u0010TR\u001c\u0010U\u001a\u0004\u0018\u00010VX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\bW\u0010X\"\u0004\bY\u0010ZR\u0013\u0010[\u001a\u0004\u0018\u00010\\¢\u0006\b\n\u0000\u001a\u0004\b]\u0010^R\u000e\u0010_\u001a\u00020\u000eX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010`\u001a\u00020\u000eX\u0082\u0004¢\u0006\u0002\n\u0000R\u0014\u0010a\u001a\b\u0012\u0004\u0012\u00020\u00180\u0017X\u0082\u0004¢\u0006\u0002\n\u0000R\u001c\u0010b\u001a\u0004\u0018\u00010cX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\bd\u0010e\"\u0004\bf\u0010gR\u0013\u0010h\u001a\u0004\u0018\u00010i¢\u0006\b\n\u0000\u001a\u0004\bj\u0010kR$\u0010l\u001a\f\u0012\u0006\u0012\u0004\u0018\u00010m\u0018\u00010GX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\bn\u0010J\"\u0004\bo\u0010LR\u001a\u0010p\u001a\u00020qX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\br\u0010s\"\u0004\bt\u0010uR\u0011\u0010v\u001a\u00020w¢\u0006\b\n\u0000\u001a\u0004\bx\u0010yR\u001c\u0010z\u001a\u0004\u0018\u00010{X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b|\u0010}\"\u0004\b~\u0010\u007fR\u0017\u0010\u0080\u0001\u001a\u0005\u0018\u00010\u0081\u0001¢\u0006\n\n\u0000\u001a\u0006\b\u0082\u0001\u0010\u0083\u0001R\u0017\u0010\u0084\u0001\u001a\u0005\u0018\u00010\u0085\u0001¢\u0006\n\n\u0000\u001a\u0006\b\u0086\u0001\u0010\u0087\u0001R\"\u0010\u0088\u0001\u001a\u000e\u0012\u0004\u0012\u00020'\u0012\u0004\u0012\u00020\u00180&X\u0084\u0004¢\u0006\t\n\u0000\u001a\u0005\b\u0089\u0001\u0010)R\u0017\u0010\u008a\u0001\u001a\u0005\u0018\u00010\u008b\u0001¢\u0006\n\n\u0000\u001a\u0006\b\u008c\u0001\u0010\u008d\u0001R(\u0010\u008e\u0001\u001a\r\u0012\u0007\u0012\u0005\u0018\u00010\u008f\u0001\u0018\u00010GX\u0086\u000e¢\u0006\u0010\n\u0000\u001a\u0005\b\u0090\u0001\u0010J\"\u0005\b\u0091\u0001\u0010LR\u0017\u0010\u0092\u0001\u001a\u0005\u0018\u00010\u0093\u0001¢\u0006\n\n\u0000\u001a\u0006\b\u0094\u0001\u0010\u0095\u0001R \u0010\u0096\u0001\u001a\u00030\u0097\u0001X\u0086.¢\u0006\u0012\n\u0000\u001a\u0006\b\u0098\u0001\u0010\u0099\u0001\"\u0006\b\u009a\u0001\u0010\u009b\u0001¨\u0006¦\u0002"}, d2 = {"Lcom/rigol/scope/views/window/WindowContent;", "Landroidx/constraintlayout/widget/ConstraintLayout;", "context", "Landroid/content/Context;", "(Landroid/content/Context;)V", "attrs", "Landroid/util/AttributeSet;", "(Landroid/content/Context;Landroid/util/AttributeSet;)V", "defStyleAttr", "", "(Landroid/content/Context;Landroid/util/AttributeSet;I)V", "captureStart", "captureTop", "cursorAx", "Lcom/rigol/scope/views/CursorTag;", "cursorAxShadow", "cursorAy", "cursorAyShadow", "cursorBx", "cursorBxShadow", "cursorBy", "cursorByShadow", "cursorObserver", "Landroidx/lifecycle/Observer;", "", "cursorResultParam", "Lcom/rigol/scope/data/CursorResultParam;", "getCursorResultParam", "()Lcom/rigol/scope/data/CursorResultParam;", "setCursorResultParam", "(Lcom/rigol/scope/data/CursorResultParam;)V", "cursorViewModel", "Lcom/rigol/scope/viewmodels/CursorViewModel;", "getCursorViewModel", "()Lcom/rigol/scope/viewmodels/CursorViewModel;", "dragHelper", "Landroidx/customview/widget/ViewDragHelper;", "guidelines", "Landroidx/collection/SimpleArrayMap;", "", "getGuidelines", "()Landroidx/collection/SimpleArrayMap;", "histogramParam", "Lcom/rigol/scope/views/histogram/HistogramResultParam;", "getHistogramParam", "()Lcom/rigol/scope/views/histogram/HistogramResultParam;", "setHistogramParam", "(Lcom/rigol/scope/views/histogram/HistogramResultParam;)V", "histogramRect", "Lcom/rigol/scope/views/histogram/HistogramRectView;", "histogramViewModel", "Lcom/rigol/scope/views/histogram/HistogramViewModel;", "getHistogramViewModel", "()Lcom/rigol/scope/views/histogram/HistogramViewModel;", "horizontalParam", "Lcom/rigol/scope/data/HorizontalParam;", "getHorizontalParam", "()Lcom/rigol/scope/data/HorizontalParam;", "setHorizontalParam", "(Lcom/rigol/scope/data/HorizontalParam;)V", "horizontalViewModel", "Lcom/rigol/scope/viewmodels/HorizontalViewModel;", "getHorizontalViewModel", "()Lcom/rigol/scope/viewmodels/HorizontalViewModel;", "indicatorAx", "Lcom/rigol/scope/views/baseview/Indicator;", "indicatorAy", "indicatorBx", "indicatorBy", "indicatorObserver", "mathParams", "", "Lcom/rigol/scope/data/MathParam;", "getMathParams", "()Ljava/util/List;", "setMathParams", "(Ljava/util/List;)V", "mathViewModel", "Lcom/rigol/scope/viewmodels/MathViewModel;", "getMathViewModel", "()Lcom/rigol/scope/viewmodels/MathViewModel;", "measureResultViewModel", "Lcom/rigol/scope/viewmodels/MeasureResultViewModel;", "getMeasureResultViewModel", "()Lcom/rigol/scope/viewmodels/MeasureResultViewModel;", "measureSettingParam", "Lcom/rigol/scope/data/MeasureSettingParam;", "getMeasureSettingParam", "()Lcom/rigol/scope/data/MeasureSettingParam;", "setMeasureSettingParam", "(Lcom/rigol/scope/data/MeasureSettingParam;)V", "measureSettingViewModel", "Lcom/rigol/scope/viewmodels/MeasureSettingViewModel;", "getMeasureSettingViewModel", "()Lcom/rigol/scope/viewmodels/MeasureSettingViewModel;", "messureCusorA", "messureCusorB", "refObserver", "refParam", "Lcom/rigol/scope/data/RefParam;", "getRefParam", "()Lcom/rigol/scope/data/RefParam;", "setRefParam", "(Lcom/rigol/scope/data/RefParam;)V", "refViewModel", "Lcom/rigol/scope/viewmodels/RefViewModel;", "getRefViewModel", "()Lcom/rigol/scope/viewmodels/RefViewModel;", "resultParams", "Lcom/rigol/scope/data/ResultParam;", "getResultParams", "setResultParams", "returnSuperOnTouch", "", "getReturnSuperOnTouch", "()Z", "setReturnSuperOnTouch", "(Z)V", "set", "Landroidx/constraintlayout/widget/ConstraintSet;", "getSet", "()Landroidx/constraintlayout/widget/ConstraintSet;", "sharedParam", "Lcom/rigol/scope/data/SharedParam;", "getSharedParam", "()Lcom/rigol/scope/data/SharedParam;", "setSharedParam", "(Lcom/rigol/scope/data/SharedParam;)V", "sharedViewModel", "Lcom/rigol/scope/viewmodels/SharedViewModel;", "getSharedViewModel", "()Lcom/rigol/scope/viewmodels/SharedViewModel;", "syncDataViewModel", "Lcom/rigol/scope/viewmodels/SyncDataViewModel;", "getSyncDataViewModel", "()Lcom/rigol/scope/viewmodels/SyncDataViewModel;", "tagViews", "getTagViews", "updateUIViewModel", "Lcom/rigol/scope/viewmodels/UpdateUIViewModel;", "getUpdateUIViewModel", "()Lcom/rigol/scope/viewmodels/UpdateUIViewModel;", "verticalParams", "Lcom/rigol/scope/data/VerticalParam;", "getVerticalParams", "setVerticalParams", "verticalViewModel", "Lcom/rigol/scope/viewmodels/VerticalViewModel;", "getVerticalViewModel", "()Lcom/rigol/scope/viewmodels/VerticalViewModel;", "windowParam", "Lcom/rigol/scope/data/WindowParam;", "getWindowParam", "()Lcom/rigol/scope/data/WindowParam;", "setWindowParam", "(Lcom/rigol/scope/data/WindowParam;)V", "addCursorShadowTags", "", "addCursorTag", "cursorTag", "tagViewWidth", "tagViewHeight", "addCursorTags", "addGuideLine", "guideline", "Landroidx/constraintlayout/widget/Guideline;", "addHistogramRect", "addIndicator", "indicator", "Lcom/rigol/scope/views/baseview/LineView;", "width", "height", "addIndicators", "addLine", "id", "orientation", "addRefTag", "index", "applyClear", "layout", "viewId", "applyConnect", "startId", "startSide", "endId", "endSide", "bindCursor", "bindHistogram", "bindIndicator", "bindMeasureCursor", "bindRef", "bindToGuideLine", "view", "Landroid/view/View;", "clear", "connect", "getGuideLine", "key", "getRefTag", "Lcom/rigol/scope/views/TagView;", "getTagView", ExifInterface.GPS_DIRECTION_TRUE, "clazz", "Ljava/lang/Class;", "hideABxyCursor", "hideABxyCursorShadow", "hideABxyIndicator", "hideMeasureCursor", "newGuideLine", "percent", "", "onInterceptTouchEvent", "ev", "Landroid/view/MotionEvent;", "onLayout", "changed", "left", "top", "right", "bottom", "onMeasure", "widthMeasureSpec", "heightMeasureSpec", "onSizeChanged", "w", "h", "oldw", "oldh", "onTouchEvent", NotificationCompat.CATEGORY_EVENT, "removeLine", "removeRefTag", "resetCursorTags", "setCursorTags", "showABxyCursor", "showABxyCursorShadow", "showABxyIndicator", "resultParam", "strings", "", "(Lcom/rigol/scope/data/ResultParam;[[Ljava/lang/String;)V", "showAxyCursor", "showAxyCursorShadow", "showAxyIndicator", "showBxyCursor", "showBxyCursorShadow", "showBxyIndicator", "showMeasureCursor", "unbindCursor", "unbindIndicator", "unbindRef", "updateABxyCursorShadowPosition", "updateCursorA_B", "updateRefColor", "param", "Lcom/rigol/scope/data/RefParam$Param;", "tagView", "updateRefLabel", "isShowLabel", "label", "updateRefPosition", "updateRefTag", "isCurrentWindow", "it", "getCursorAxRange", "getCursorAxShadowRange", "getCursorAyRange", "getCursorAyShadowRange", "getCursorBxRange", "getCursorBxShadowRange", "getCursorByRange", "getCursorByShadowRange", "getIndicatorAxRange", "getIndicatorAyRange", "getIndicatorBxRange", "getIndicatorByRange", "getMeasureCursorARange", "getMeasureCursorBRange", "updateCursorAxPosition", "updateCursorAxShadowPosition", "updateCursorAyPosition", "updateCursorAyShadowPosition", "updateCursorBxPosition", "updateCursorBxShadowPosition", "updateCursorByPosition", "updateCursorByShadowPosition", "updateIndicatorAxPosition", "(Lcom/rigol/scope/views/baseview/Indicator;[[Ljava/lang/String;)V", "updateIndicatorAyPosition", "updateIndicatorBxPosition", "updateIndicatorByPosition", "updateMeasureCursorAPosition", "updateMeasureCursorBPosition", "DragCallback2", "app_release"}, k = 1, mv = {1, 4, 1})
 /* loaded from: classes2.dex */
@@ -561,6 +562,7 @@ public class WindowContent extends ConstraintLayout {
             Activity topActivity = ActivityUtils.getTopActivity();
             if (topActivity != null) {
                 liveData9.observe((LifecycleOwner) topActivity, new Observer<CursorResultParam>() { // from class: com.rigol.scope.views.window.WindowContent.1
+                    /* JADX DEBUG: Method merged with bridge method */
                     @Override // androidx.lifecycle.Observer
                     public final void onChanged(CursorResultParam cursorResultParam) {
                         Timber.d("Horizontal:UI:WindowContent:HorizontalParam:" + cursorResultParam, new Object[0]);
@@ -576,6 +578,7 @@ public class WindowContent extends ConstraintLayout {
             Activity topActivity2 = ActivityUtils.getTopActivity();
             if (topActivity2 != null) {
                 liveData8.observe((LifecycleOwner) topActivity2, new Observer<HorizontalParam>() { // from class: com.rigol.scope.views.window.WindowContent.2
+                    /* JADX DEBUG: Method merged with bridge method */
                     @Override // androidx.lifecycle.Observer
                     public final void onChanged(HorizontalParam horizontalParam) {
                         WindowContent.this.setHorizontalParam(horizontalParam);
@@ -590,6 +593,7 @@ public class WindowContent extends ConstraintLayout {
             Activity topActivity3 = ActivityUtils.getTopActivity();
             if (topActivity3 != null) {
                 liveData7.observe((LifecycleOwner) topActivity3, new Observer<ArrayList<VerticalParam>>() { // from class: com.rigol.scope.views.window.WindowContent.3
+                    /* JADX DEBUG: Method merged with bridge method */
                     @Override // androidx.lifecycle.Observer
                     public final void onChanged(ArrayList<VerticalParam> arrayList) {
                         WindowContent.this.setVerticalParams(arrayList);
@@ -604,6 +608,7 @@ public class WindowContent extends ConstraintLayout {
             Activity topActivity4 = ActivityUtils.getTopActivity();
             if (topActivity4 != null) {
                 liveData6.observe((LifecycleOwner) topActivity4, new Observer<ArrayList<MathParam>>() { // from class: com.rigol.scope.views.window.WindowContent.4
+                    /* JADX DEBUG: Method merged with bridge method */
                     @Override // androidx.lifecycle.Observer
                     public final void onChanged(ArrayList<MathParam> arrayList) {
                         WindowContent.this.setMathParams(arrayList);
@@ -618,6 +623,7 @@ public class WindowContent extends ConstraintLayout {
             Activity topActivity5 = ActivityUtils.getTopActivity();
             if (topActivity5 != null) {
                 liveData5.observe((LifecycleOwner) topActivity5, new Observer<List<? extends ResultParam>>() { // from class: com.rigol.scope.views.window.WindowContent.5
+                    /* JADX DEBUG: Method merged with bridge method */
                     @Override // androidx.lifecycle.Observer
                     public final void onChanged(List<? extends ResultParam> list) {
                         WindowContent.this.setResultParams(list);
@@ -632,6 +638,7 @@ public class WindowContent extends ConstraintLayout {
             Activity topActivity6 = ActivityUtils.getTopActivity();
             if (topActivity6 != null) {
                 liveData4.observe((LifecycleOwner) topActivity6, new Observer<SharedParam>() { // from class: com.rigol.scope.views.window.WindowContent.6
+                    /* JADX DEBUG: Method merged with bridge method */
                     @Override // androidx.lifecycle.Observer
                     public final void onChanged(SharedParam sharedParam) {
                         WindowContent.this.setSharedParam(sharedParam);
@@ -646,6 +653,7 @@ public class WindowContent extends ConstraintLayout {
             Activity topActivity7 = ActivityUtils.getTopActivity();
             if (topActivity7 != null) {
                 liveData3.observe((LifecycleOwner) topActivity7, new Observer<MeasureSettingParam>() { // from class: com.rigol.scope.views.window.WindowContent.7
+                    /* JADX DEBUG: Method merged with bridge method */
                     @Override // androidx.lifecycle.Observer
                     public final void onChanged(MeasureSettingParam measureSettingParam) {
                         WindowContent.this.setMeasureSettingParam(measureSettingParam);
@@ -660,6 +668,7 @@ public class WindowContent extends ConstraintLayout {
             Activity topActivity8 = ActivityUtils.getTopActivity();
             if (topActivity8 != null) {
                 liveData2.observe((LifecycleOwner) topActivity8, new Observer<RefParam>() { // from class: com.rigol.scope.views.window.WindowContent.8
+                    /* JADX DEBUG: Method merged with bridge method */
                     @Override // androidx.lifecycle.Observer
                     public final void onChanged(RefParam refParam) {
                         WindowContent.this.setRefParam(refParam);
@@ -687,6 +696,7 @@ public class WindowContent extends ConstraintLayout {
             Activity topActivity10 = ActivityUtils.getTopActivity();
             if (topActivity10 != null) {
                 liveData.observe((LifecycleOwner) topActivity10, new Observer<HistogramResultParam>() { // from class: com.rigol.scope.views.window.WindowContent.10
+                    /* JADX DEBUG: Method merged with bridge method */
                     @Override // androidx.lifecycle.Observer
                     public final void onChanged(HistogramResultParam histogramResultParam) {
                         Timber.d("Histogram:UI:WindowContent:HistogramGram:" + histogramResultParam, new Object[0]);
@@ -1279,6 +1289,7 @@ public class WindowContent extends ConstraintLayout {
             Activity topActivity = ActivityUtils.getTopActivity();
             if (topActivity != null) {
                 liveData9.observe((LifecycleOwner) topActivity, new Observer<CursorResultParam>() { // from class: com.rigol.scope.views.window.WindowContent.1
+                    /* JADX DEBUG: Method merged with bridge method */
                     @Override // androidx.lifecycle.Observer
                     public final void onChanged(CursorResultParam cursorResultParam) {
                         Timber.d("Horizontal:UI:WindowContent:HorizontalParam:" + cursorResultParam, new Object[0]);
@@ -1294,6 +1305,7 @@ public class WindowContent extends ConstraintLayout {
             Activity topActivity2 = ActivityUtils.getTopActivity();
             if (topActivity2 != null) {
                 liveData8.observe((LifecycleOwner) topActivity2, new Observer<HorizontalParam>() { // from class: com.rigol.scope.views.window.WindowContent.2
+                    /* JADX DEBUG: Method merged with bridge method */
                     @Override // androidx.lifecycle.Observer
                     public final void onChanged(HorizontalParam horizontalParam) {
                         WindowContent.this.setHorizontalParam(horizontalParam);
@@ -1308,6 +1320,7 @@ public class WindowContent extends ConstraintLayout {
             Activity topActivity3 = ActivityUtils.getTopActivity();
             if (topActivity3 != null) {
                 liveData7.observe((LifecycleOwner) topActivity3, new Observer<ArrayList<VerticalParam>>() { // from class: com.rigol.scope.views.window.WindowContent.3
+                    /* JADX DEBUG: Method merged with bridge method */
                     @Override // androidx.lifecycle.Observer
                     public final void onChanged(ArrayList<VerticalParam> arrayList) {
                         WindowContent.this.setVerticalParams(arrayList);
@@ -1322,6 +1335,7 @@ public class WindowContent extends ConstraintLayout {
             Activity topActivity4 = ActivityUtils.getTopActivity();
             if (topActivity4 != null) {
                 liveData6.observe((LifecycleOwner) topActivity4, new Observer<ArrayList<MathParam>>() { // from class: com.rigol.scope.views.window.WindowContent.4
+                    /* JADX DEBUG: Method merged with bridge method */
                     @Override // androidx.lifecycle.Observer
                     public final void onChanged(ArrayList<MathParam> arrayList) {
                         WindowContent.this.setMathParams(arrayList);
@@ -1336,6 +1350,7 @@ public class WindowContent extends ConstraintLayout {
             Activity topActivity5 = ActivityUtils.getTopActivity();
             if (topActivity5 != null) {
                 liveData5.observe((LifecycleOwner) topActivity5, new Observer<List<? extends ResultParam>>() { // from class: com.rigol.scope.views.window.WindowContent.5
+                    /* JADX DEBUG: Method merged with bridge method */
                     @Override // androidx.lifecycle.Observer
                     public final void onChanged(List<? extends ResultParam> list) {
                         WindowContent.this.setResultParams(list);
@@ -1350,6 +1365,7 @@ public class WindowContent extends ConstraintLayout {
             Activity topActivity6 = ActivityUtils.getTopActivity();
             if (topActivity6 != null) {
                 liveData4.observe((LifecycleOwner) topActivity6, new Observer<SharedParam>() { // from class: com.rigol.scope.views.window.WindowContent.6
+                    /* JADX DEBUG: Method merged with bridge method */
                     @Override // androidx.lifecycle.Observer
                     public final void onChanged(SharedParam sharedParam) {
                         WindowContent.this.setSharedParam(sharedParam);
@@ -1364,6 +1380,7 @@ public class WindowContent extends ConstraintLayout {
             Activity topActivity7 = ActivityUtils.getTopActivity();
             if (topActivity7 != null) {
                 liveData3.observe((LifecycleOwner) topActivity7, new Observer<MeasureSettingParam>() { // from class: com.rigol.scope.views.window.WindowContent.7
+                    /* JADX DEBUG: Method merged with bridge method */
                     @Override // androidx.lifecycle.Observer
                     public final void onChanged(MeasureSettingParam measureSettingParam) {
                         WindowContent.this.setMeasureSettingParam(measureSettingParam);
@@ -1378,6 +1395,7 @@ public class WindowContent extends ConstraintLayout {
             Activity topActivity8 = ActivityUtils.getTopActivity();
             if (topActivity8 != null) {
                 liveData2.observe((LifecycleOwner) topActivity8, new Observer<RefParam>() { // from class: com.rigol.scope.views.window.WindowContent.8
+                    /* JADX DEBUG: Method merged with bridge method */
                     @Override // androidx.lifecycle.Observer
                     public final void onChanged(RefParam refParam) {
                         WindowContent.this.setRefParam(refParam);
@@ -1405,6 +1423,7 @@ public class WindowContent extends ConstraintLayout {
             Activity topActivity10 = ActivityUtils.getTopActivity();
             if (topActivity10 != null) {
                 liveData.observe((LifecycleOwner) topActivity10, new Observer<HistogramResultParam>() { // from class: com.rigol.scope.views.window.WindowContent.10
+                    /* JADX DEBUG: Method merged with bridge method */
                     @Override // androidx.lifecycle.Observer
                     public final void onChanged(HistogramResultParam histogramResultParam) {
                         Timber.d("Histogram:UI:WindowContent:HistogramGram:" + histogramResultParam, new Object[0]);
@@ -1997,6 +2016,7 @@ public class WindowContent extends ConstraintLayout {
             Activity topActivity = ActivityUtils.getTopActivity();
             if (topActivity != null) {
                 liveData9.observe((LifecycleOwner) topActivity, new Observer<CursorResultParam>() { // from class: com.rigol.scope.views.window.WindowContent.1
+                    /* JADX DEBUG: Method merged with bridge method */
                     @Override // androidx.lifecycle.Observer
                     public final void onChanged(CursorResultParam cursorResultParam) {
                         Timber.d("Horizontal:UI:WindowContent:HorizontalParam:" + cursorResultParam, new Object[0]);
@@ -2012,6 +2032,7 @@ public class WindowContent extends ConstraintLayout {
             Activity topActivity2 = ActivityUtils.getTopActivity();
             if (topActivity2 != null) {
                 liveData8.observe((LifecycleOwner) topActivity2, new Observer<HorizontalParam>() { // from class: com.rigol.scope.views.window.WindowContent.2
+                    /* JADX DEBUG: Method merged with bridge method */
                     @Override // androidx.lifecycle.Observer
                     public final void onChanged(HorizontalParam horizontalParam) {
                         WindowContent.this.setHorizontalParam(horizontalParam);
@@ -2026,6 +2047,7 @@ public class WindowContent extends ConstraintLayout {
             Activity topActivity3 = ActivityUtils.getTopActivity();
             if (topActivity3 != null) {
                 liveData7.observe((LifecycleOwner) topActivity3, new Observer<ArrayList<VerticalParam>>() { // from class: com.rigol.scope.views.window.WindowContent.3
+                    /* JADX DEBUG: Method merged with bridge method */
                     @Override // androidx.lifecycle.Observer
                     public final void onChanged(ArrayList<VerticalParam> arrayList) {
                         WindowContent.this.setVerticalParams(arrayList);
@@ -2040,6 +2062,7 @@ public class WindowContent extends ConstraintLayout {
             Activity topActivity4 = ActivityUtils.getTopActivity();
             if (topActivity4 != null) {
                 liveData6.observe((LifecycleOwner) topActivity4, new Observer<ArrayList<MathParam>>() { // from class: com.rigol.scope.views.window.WindowContent.4
+                    /* JADX DEBUG: Method merged with bridge method */
                     @Override // androidx.lifecycle.Observer
                     public final void onChanged(ArrayList<MathParam> arrayList) {
                         WindowContent.this.setMathParams(arrayList);
@@ -2054,6 +2077,7 @@ public class WindowContent extends ConstraintLayout {
             Activity topActivity5 = ActivityUtils.getTopActivity();
             if (topActivity5 != null) {
                 liveData5.observe((LifecycleOwner) topActivity5, new Observer<List<? extends ResultParam>>() { // from class: com.rigol.scope.views.window.WindowContent.5
+                    /* JADX DEBUG: Method merged with bridge method */
                     @Override // androidx.lifecycle.Observer
                     public final void onChanged(List<? extends ResultParam> list) {
                         WindowContent.this.setResultParams(list);
@@ -2068,6 +2092,7 @@ public class WindowContent extends ConstraintLayout {
             Activity topActivity6 = ActivityUtils.getTopActivity();
             if (topActivity6 != null) {
                 liveData4.observe((LifecycleOwner) topActivity6, new Observer<SharedParam>() { // from class: com.rigol.scope.views.window.WindowContent.6
+                    /* JADX DEBUG: Method merged with bridge method */
                     @Override // androidx.lifecycle.Observer
                     public final void onChanged(SharedParam sharedParam) {
                         WindowContent.this.setSharedParam(sharedParam);
@@ -2082,6 +2107,7 @@ public class WindowContent extends ConstraintLayout {
             Activity topActivity7 = ActivityUtils.getTopActivity();
             if (topActivity7 != null) {
                 liveData3.observe((LifecycleOwner) topActivity7, new Observer<MeasureSettingParam>() { // from class: com.rigol.scope.views.window.WindowContent.7
+                    /* JADX DEBUG: Method merged with bridge method */
                     @Override // androidx.lifecycle.Observer
                     public final void onChanged(MeasureSettingParam measureSettingParam) {
                         WindowContent.this.setMeasureSettingParam(measureSettingParam);
@@ -2096,6 +2122,7 @@ public class WindowContent extends ConstraintLayout {
             Activity topActivity8 = ActivityUtils.getTopActivity();
             if (topActivity8 != null) {
                 liveData2.observe((LifecycleOwner) topActivity8, new Observer<RefParam>() { // from class: com.rigol.scope.views.window.WindowContent.8
+                    /* JADX DEBUG: Method merged with bridge method */
                     @Override // androidx.lifecycle.Observer
                     public final void onChanged(RefParam refParam) {
                         WindowContent.this.setRefParam(refParam);
@@ -2123,6 +2150,7 @@ public class WindowContent extends ConstraintLayout {
             Activity topActivity10 = ActivityUtils.getTopActivity();
             if (topActivity10 != null) {
                 liveData.observe((LifecycleOwner) topActivity10, new Observer<HistogramResultParam>() { // from class: com.rigol.scope.views.window.WindowContent.10
+                    /* JADX DEBUG: Method merged with bridge method */
                     @Override // androidx.lifecycle.Observer
                     public final void onChanged(HistogramResultParam histogramResultParam) {
                         Timber.d("Histogram:UI:WindowContent:HistogramGram:" + histogramResultParam, new Object[0]);
@@ -2502,6 +2530,7 @@ public class WindowContent extends ConstraintLayout {
         this.verticalParams = list;
     }
 
+    /* JADX DEBUG: Type inference failed for r0v0. Raw type applied. Possible types: java.util.List<? extends com.rigol.scope.data.MathParam>, java.util.List<com.rigol.scope.data.MathParam> */
     public final List<MathParam> getMathParams() {
         return this.mathParams;
     }
@@ -2510,6 +2539,7 @@ public class WindowContent extends ConstraintLayout {
         this.mathParams = list;
     }
 
+    /* JADX DEBUG: Type inference failed for r0v0. Raw type applied. Possible types: java.util.List<? extends com.rigol.scope.data.ResultParam>, java.util.List<com.rigol.scope.data.ResultParam> */
     public final List<ResultParam> getResultParams() {
         return this.resultParams;
     }
@@ -2554,13 +2584,11 @@ public class WindowContent extends ConstraintLayout {
         return this.set;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public final SimpleArrayMap<String, Object> getTagViews() {
+    protected final SimpleArrayMap<String, Object> getTagViews() {
         return this.tagViews;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public final SimpleArrayMap<String, Object> getGuidelines() {
+    protected final SimpleArrayMap<String, Object> getGuidelines() {
         return this.guidelines;
     }
 
@@ -2661,6 +2689,7 @@ public class WindowContent extends ConstraintLayout {
         }
     }
 
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [('R' char), (wrap: int : 0x0031: ARITH  (r5v1 int A[REMOVE]) = (r7v0 int) + (1 int))] */
     private final void addRefTag(final int i) {
         final RefParam refParam = this.refParam;
         if (refParam != null) {
@@ -2801,6 +2830,7 @@ public class WindowContent extends ConstraintLayout {
             return i;
         }
 
+        /* JADX DEBUG: Incorrect args count in method signature: ()V */
         public DragCallback2() {
         }
 
@@ -3324,6 +3354,7 @@ public class WindowContent extends ConstraintLayout {
             Activity topActivity = ActivityUtils.getTopActivity();
             if (topActivity != null) {
                 liveData.observe((LifecycleOwner) topActivity, new Observer<MeasureSettingParam>() { // from class: com.rigol.scope.views.window.WindowContent$bindMeasureCursor$1
+                    /* JADX DEBUG: Method merged with bridge method */
                     @Override // androidx.lifecycle.Observer
                     public final void onChanged(MeasureSettingParam measureSettingParam) {
                         MeasureSettingParam measureSettingParam2 = WindowContent.this.getMeasureSettingParam();
@@ -3506,6 +3537,7 @@ public class WindowContent extends ConstraintLayout {
             throw new NullPointerException("null cannot be cast to non-null type androidx.lifecycle.LifecycleOwner");
         }
         mutableLiveData8.observe((LifecycleOwner) topActivity8, new Observer<Boolean>() { // from class: com.rigol.scope.views.window.WindowContent$bindRef$2
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // androidx.lifecycle.Observer
             public final void onChanged(Boolean it) {
                 CursorTag cursorTag;
@@ -3523,6 +3555,7 @@ public class WindowContent extends ConstraintLayout {
             throw new NullPointerException("null cannot be cast to non-null type androidx.lifecycle.LifecycleOwner");
         }
         mutableLiveData9.observe((LifecycleOwner) topActivity9, new Observer<Boolean>() { // from class: com.rigol.scope.views.window.WindowContent$bindRef$3
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // androidx.lifecycle.Observer
             public final void onChanged(Boolean it) {
                 CursorTag cursorTag;
@@ -3540,6 +3573,7 @@ public class WindowContent extends ConstraintLayout {
             throw new NullPointerException("null cannot be cast to non-null type androidx.lifecycle.LifecycleOwner");
         }
         mutableLiveData10.observe((LifecycleOwner) topActivity10, new Observer<Boolean>() { // from class: com.rigol.scope.views.window.WindowContent$bindRef$4
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // androidx.lifecycle.Observer
             public final void onChanged(Boolean it) {
                 CursorTag cursorTag;
@@ -3557,6 +3591,7 @@ public class WindowContent extends ConstraintLayout {
             throw new NullPointerException("null cannot be cast to non-null type androidx.lifecycle.LifecycleOwner");
         }
         mutableLiveData11.observe((LifecycleOwner) topActivity11, new Observer<Boolean>() { // from class: com.rigol.scope.views.window.WindowContent$bindRef$5
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // androidx.lifecycle.Observer
             public final void onChanged(Boolean it) {
                 CursorTag cursorTag;
@@ -3574,6 +3609,7 @@ public class WindowContent extends ConstraintLayout {
             throw new NullPointerException("null cannot be cast to non-null type androidx.lifecycle.LifecycleOwner");
         }
         mutableLiveData12.observe((LifecycleOwner) topActivity12, new Observer<Boolean>() { // from class: com.rigol.scope.views.window.WindowContent$bindRef$6
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // androidx.lifecycle.Observer
             public final void onChanged(Boolean bool) {
                 CursorTag cursorTag;
@@ -3596,6 +3632,7 @@ public class WindowContent extends ConstraintLayout {
             throw new NullPointerException("null cannot be cast to non-null type androidx.lifecycle.LifecycleOwner");
         }
         mutableLiveData13.observe((LifecycleOwner) topActivity13, new Observer<Float>() { // from class: com.rigol.scope.views.window.WindowContent$bindRef$7
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // androidx.lifecycle.Observer
             public final void onChanged(Float it) {
                 CursorTag cursorTag;
@@ -4592,9 +4629,8 @@ public class WindowContent extends ConstraintLayout {
         cursorTag.setPosition((int) ((((float) (measureSettingParam.getCursorB() - cursorTag.getStartX())) / ((float) (cursorTag.getEndX() - cursorTag.getStartX()))) * getWidth()));
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.view.View
-    public void onSizeChanged(int i, int i2, int i3, int i4) {
+    protected void onSizeChanged(int i, int i2, int i3, int i4) {
         super.onSizeChanged(i, i2, i3, i4);
         ThreadUtils.runOnUiThreadDelayed(new Runnable() { // from class: com.rigol.scope.views.window.WindowContent$onSizeChanged$1
             @Override // java.lang.Runnable
@@ -4646,15 +4682,13 @@ public class WindowContent extends ConstraintLayout {
         }, 100L);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // androidx.constraintlayout.widget.ConstraintLayout, android.view.View
-    public void onMeasure(int i, int i2) {
+    protected void onMeasure(int i, int i2) {
         super.onMeasure(i, i2);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // androidx.constraintlayout.widget.ConstraintLayout, android.view.ViewGroup, android.view.View
-    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
+    protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
     }
 }

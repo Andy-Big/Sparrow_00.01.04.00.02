@@ -28,6 +28,7 @@ import com.rigol.scope.views.keyboard.KeyboardPopupView;
 import com.rigol.scope.views.spinner.PopupSpinner;
 import java.util.ArrayList;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public class DecodeFlexrayAdapter extends RecyclerView.Adapter<DecodeFlexrayHolder> implements RadioGroup.OnCheckedChangeListener, View.OnClickListener, AorBManager.OnSetTextById, AorBManager.OnTextReset {
     private final View anchorView;
@@ -65,12 +66,14 @@ public class DecodeFlexrayAdapter extends RecyclerView.Adapter<DecodeFlexrayHold
         this.viewPagerHolder = viewPagerHolder;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public DecodeFlexrayHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         this.binding = AdapterDecodeFlexrayBinding.inflate(LayoutInflater.from(viewGroup.getContext()), viewGroup, false);
         return new DecodeFlexrayHolder(this.binding);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(DecodeFlexrayHolder decodeFlexrayHolder, int i) {
         this.binding.setChannelAMapping(ViewUtil.getMappingObject(R.array.msg_decode_flex_channel, 0));

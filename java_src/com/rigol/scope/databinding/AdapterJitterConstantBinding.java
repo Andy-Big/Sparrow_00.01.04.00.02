@@ -12,6 +12,7 @@ import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import com.rigol.scope.R;
 import com.rigol.scope.data.JitterParam;
+
 /* loaded from: classes2.dex */
 public abstract class AdapterJitterConstantBinding extends ViewDataBinding {
     public final ConstraintLayout jitterConstantLayout;
@@ -27,8 +28,7 @@ public abstract class AdapterJitterConstantBinding extends ViewDataBinding {
 
     public abstract void setParam(JitterParam jitterParam);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public AdapterJitterConstantBinding(Object obj, View view, int i, ConstraintLayout constraintLayout, TextView textView, TextView textView2, RadioButton radioButton, TextView textView3, RadioButton radioButton2, RadioGroup radioGroup, RadioButton radioButton3) {
+    protected AdapterJitterConstantBinding(Object obj, View view, int i, ConstraintLayout constraintLayout, TextView textView, TextView textView2, RadioButton radioButton, TextView textView3, RadioButton radioButton2, RadioGroup radioGroup, RadioButton radioButton3) {
         super(obj, view, i);
         this.jitterConstantLayout = constraintLayout;
         this.jitterDataRateLabel = textView;

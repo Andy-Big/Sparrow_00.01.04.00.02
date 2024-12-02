@@ -14,6 +14,7 @@ import com.rigol.scope.R;
 import com.rigol.scope.cil.ServiceEnum;
 import com.rigol.scope.data.UtilityParam;
 import com.rigol.scope.utilities.ContextUtil;
+
 /* loaded from: classes2.dex */
 public class AdapterUtilityScreensaverBindingImpl extends AdapterUtilityScreensaverBinding {
     private static final ViewDataBinding.IncludedLayouts sIncludes = null;

@@ -8,13 +8,13 @@ import android.widget.TextView;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import com.rigol.scope.R;
+
 /* loaded from: classes2.dex */
 public abstract class ActivityImagePreviewBinding extends ViewDataBinding {
     public final TextView close;
     public final ImageView image;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public ActivityImagePreviewBinding(Object obj, View view, int i, TextView textView, ImageView imageView) {
+    protected ActivityImagePreviewBinding(Object obj, View view, int i, TextView textView, ImageView imageView) {
         super(obj, view, i);
         this.close = textView;
         this.image = imageView;

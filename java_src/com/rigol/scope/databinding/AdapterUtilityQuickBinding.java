@@ -9,6 +9,7 @@ import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import androidx.recyclerview.widget.RecyclerView;
 import com.rigol.scope.R;
+
 /* loaded from: classes2.dex */
 public abstract class AdapterUtilityQuickBinding extends ViewDataBinding {
     public final ConstraintLayout layoutOperationType;
@@ -19,8 +20,7 @@ public abstract class AdapterUtilityQuickBinding extends ViewDataBinding {
     public final View view6;
     public final View view9;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public AdapterUtilityQuickBinding(Object obj, View view, int i, ConstraintLayout constraintLayout, TextView textView, RecyclerView recyclerView, RecyclerView recyclerView2, TextView textView2, View view2, View view3) {
+    protected AdapterUtilityQuickBinding(Object obj, View view, int i, ConstraintLayout constraintLayout, TextView textView, RecyclerView recyclerView, RecyclerView recyclerView2, TextView textView2, View view2, View view3) {
         super(obj, view, i);
         this.layoutOperationType = constraintLayout;
         this.operationValue = textView;

@@ -11,6 +11,7 @@ import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
+
 /* loaded from: classes2.dex */
 public class MessageBus {
     private static final MessageBus DEFAULT = new MessageBus();

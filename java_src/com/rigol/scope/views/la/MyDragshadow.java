@@ -6,6 +6,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.view.View;
 import com.rigol.scope.R;
+
 /* loaded from: classes2.dex */
 public class MyDragshadow extends View.DragShadowBuilder {
     private Drawable shadow;

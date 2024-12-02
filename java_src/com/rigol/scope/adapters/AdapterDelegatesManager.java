@@ -3,6 +3,7 @@ package com.rigol.scope.adapters;
 import android.view.ViewGroup;
 import androidx.collection.SparseArrayCompat;
 import androidx.databinding.ViewDataBinding;
+
 /* loaded from: classes.dex */
 public class AdapterDelegatesManager<T> {
     SparseArrayCompat<AdapterDelegate<T>> delegates = new SparseArrayCompat<>();

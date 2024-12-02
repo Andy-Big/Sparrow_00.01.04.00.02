@@ -12,6 +12,7 @@ import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import com.rigol.scope.R;
 import com.rigol.scope.data.StorageLoadParam;
+
 /* loaded from: classes2.dex */
 public abstract class PopupviewLoadBinding extends ViewDataBinding {
     public final TextView fileFormat;
@@ -25,8 +26,7 @@ public abstract class PopupviewLoadBinding extends ViewDataBinding {
 
     public abstract void setParam(StorageLoadParam storageLoadParam);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public PopupviewLoadBinding(Object obj, View view, int i, TextView textView, TextView textView2, TextView textView3, EditText editText, Guideline guideline, Button button) {
+    protected PopupviewLoadBinding(Object obj, View view, int i, TextView textView, TextView textView2, TextView textView3, EditText editText, Guideline guideline, Button button) {
         super(obj, view, i);
         this.fileFormat = textView;
         this.fileFormatSpinner = textView2;

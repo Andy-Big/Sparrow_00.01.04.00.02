@@ -40,6 +40,7 @@ import com.rigol.util.ToastUtils;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+
 /* loaded from: classes2.dex */
 public class UpaPopupview extends BasePopupView implements View.OnClickListener, CompoundButton.OnCheckedChangeListener, AorBManager.OnSetTextById, AorBManager.OnTextReset {
     private AorBManager aorBManager;

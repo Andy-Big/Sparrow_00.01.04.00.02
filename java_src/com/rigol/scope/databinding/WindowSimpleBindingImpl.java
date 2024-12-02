@@ -9,6 +9,7 @@ import androidx.databinding.DataBindingComponent;
 import androidx.databinding.ViewDataBinding;
 import com.rigol.scope.R;
 import com.rigol.scope.views.window.Window;
+
 /* loaded from: classes2.dex */
 public class WindowSimpleBindingImpl extends WindowSimpleBinding {
     private static final ViewDataBinding.IncludedLayouts sIncludes = null;

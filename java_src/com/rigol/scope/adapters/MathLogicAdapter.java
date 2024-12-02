@@ -32,6 +32,7 @@ import com.rigol.scope.views.math.MathPopupView;
 import com.rigol.scope.views.spinner.PopupSpinner;
 import java.util.ArrayList;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public class MathLogicAdapter extends RecyclerView.Adapter<MathLogicHolder> implements AorBManager.OnSetTextById, AorBManager.OnTextReset {
     private View anchorView;
@@ -74,6 +75,7 @@ public class MathLogicAdapter extends RecyclerView.Adapter<MathLogicHolder> impl
         this.holder = viewPagerHolder;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public MathLogicHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         this.binding = (AdapterMathLogicBindingImpl) AdapterMathLogicBindingImpl.inflate(LayoutInflater.from(viewGroup.getContext()));
@@ -164,6 +166,7 @@ public class MathLogicAdapter extends RecyclerView.Adapter<MathLogicHolder> impl
         }
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(MathLogicHolder mathLogicHolder, int i) {
         ShowMathLogic();
@@ -522,10 +525,9 @@ public class MathLogicAdapter extends RecyclerView.Adapter<MathLogicHolder> impl
         });
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.rigol.scope.adapters.MathLogicAdapter$2  reason: invalid class name */
     /* loaded from: classes.dex */
-    public class AnonymousClass2 implements View.OnClickListener {
+    class AnonymousClass2 implements View.OnClickListener {
         AnonymousClass2() {
         }
 
@@ -556,10 +558,9 @@ public class MathLogicAdapter extends RecyclerView.Adapter<MathLogicHolder> impl
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.rigol.scope.adapters.MathLogicAdapter$3  reason: invalid class name */
     /* loaded from: classes.dex */
-    public class AnonymousClass3 implements View.OnClickListener {
+    class AnonymousClass3 implements View.OnClickListener {
         AnonymousClass3() {
         }
 
@@ -610,10 +611,9 @@ public class MathLogicAdapter extends RecyclerView.Adapter<MathLogicHolder> impl
         this.param.saveLabel(z);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.rigol.scope.adapters.MathLogicAdapter$10  reason: invalid class name */
     /* loaded from: classes.dex */
-    public class AnonymousClass10 implements View.OnClickListener {
+    class AnonymousClass10 implements View.OnClickListener {
         AnonymousClass10() {
         }
 

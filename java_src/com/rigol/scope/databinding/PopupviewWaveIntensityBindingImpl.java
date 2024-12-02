@@ -11,6 +11,7 @@ import androidx.databinding.adapters.SeekBarBindingAdapter;
 import androidx.databinding.adapters.TextViewBindingAdapter;
 import com.rigol.scope.R;
 import com.rigol.scope.data.DisplayParam;
+
 /* loaded from: classes2.dex */
 public class PopupviewWaveIntensityBindingImpl extends PopupviewWaveIntensityBinding {
     private static final ViewDataBinding.IncludedLayouts sIncludes = null;

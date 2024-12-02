@@ -55,6 +55,7 @@ import com.rigol.util.ToastUtils;
 import java.util.ArrayList;
 import java.util.List;
 import kotlin.jvm.functions.Function1;
+
 /* loaded from: classes2.dex */
 public class DecodeRecyclerView {
     private View anchorview;
@@ -518,10 +519,9 @@ public class DecodeRecyclerView {
         adapterItemPopupviewDecodeBinding.decodeBusTypeView.setAdapter(new DecodeUsbAdapter(view, decodeParam));
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.rigol.scope.views.decode.DecodeRecyclerView$2  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public static /* synthetic */ class AnonymousClass2 {
+    static /* synthetic */ class AnonymousClass2 {
         static final /* synthetic */ int[] $SwitchMap$com$rigol$scope$cil$ServiceEnum$DecodeBusType;
 
         static {

@@ -5,6 +5,7 @@ import com.rigol.scope.R;
 import com.rigol.scope.databinding.UpaPopupviewConnectionBinding;
 import com.rigol.scope.databinding.UpaPopupviewConnectionBindingImpl;
 import com.rigol.scope.views.baseview.BasePopupView;
+
 /* loaded from: classes2.dex */
 public class UpaPopupViewConnection extends BasePopupView {
     UpaPopupviewConnectionBinding upaPopupviewConnectionBinding;

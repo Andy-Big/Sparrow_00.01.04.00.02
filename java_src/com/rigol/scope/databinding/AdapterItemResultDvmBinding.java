@@ -11,6 +11,7 @@ import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import com.rigol.scope.R;
 import com.rigol.scope.data.DvmResultParam;
+
 /* loaded from: classes2.dex */
 public abstract class AdapterItemResultDvmBinding extends ViewDataBinding {
     public final TextView currentResult;
@@ -27,8 +28,7 @@ public abstract class AdapterItemResultDvmBinding extends ViewDataBinding {
 
     public abstract void setParam(DvmResultParam dvmResultParam);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public AdapterItemResultDvmBinding(Object obj, View view, int i, TextView textView, ImageView imageView, TextView textView2, TextView textView3, TextView textView4, TextView textView5, ConstraintLayout constraintLayout, TextView textView6, ConstraintLayout constraintLayout2) {
+    protected AdapterItemResultDvmBinding(Object obj, View view, int i, TextView textView, ImageView imageView, TextView textView2, TextView textView3, TextView textView4, TextView textView5, ConstraintLayout constraintLayout, TextView textView6, ConstraintLayout constraintLayout2) {
         super(obj, view, i);
         this.currentResult = textView;
         this.icon = imageView;

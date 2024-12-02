@@ -11,6 +11,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import androidx.core.view.ViewCompat;
 import java.lang.reflect.Array;
+
 /* loaded from: classes2.dex */
 public class SelfCheckCenterTouchView extends View {
     private static final int LINES = 10;

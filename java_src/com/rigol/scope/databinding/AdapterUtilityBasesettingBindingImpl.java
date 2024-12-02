@@ -9,11 +9,17 @@ import android.widget.TextView;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.databinding.DataBindingComponent;
 import androidx.databinding.ViewDataBinding;
+import androidx.databinding.adapters.CompoundButtonBindingAdapter;
+import androidx.databinding.adapters.SeekBarBindingAdapter;
+import androidx.databinding.adapters.TextViewBindingAdapter;
 import com.rigol.scope.R;
 import com.rigol.scope.data.MappingObject;
 import com.rigol.scope.data.MaskParam;
 import com.rigol.scope.data.UtilityParam;
+import com.rigol.scope.utilities.ContextUtil;
+import com.rigol.scope.utilities.ViewUtil;
 import com.rigol.scope.views.SwitchButton;
+
 /* loaded from: classes2.dex */
 public class AdapterUtilityBasesettingBindingImpl extends AdapterUtilityBasesettingBinding {
     private static final ViewDataBinding.IncludedLayouts sIncludes = null;
@@ -264,13 +270,210 @@ public class AdapterUtilityBasesettingBindingImpl extends AdapterUtilityBasesett
     @Override // androidx.databinding.ViewDataBinding
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
     protected void executeBindings() {
-        /*
-            Method dump skipped, instructions count: 586
-            To view this dump add '--comments-level debug' option
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.rigol.scope.databinding.AdapterUtilityBasesettingBindingImpl.executeBindings():void");
+        long j;
+        String str;
+        String str2;
+        String str3;
+        String str4;
+        boolean z;
+        boolean z2;
+        boolean z3;
+        boolean z4;
+        boolean z5;
+        boolean z6;
+        boolean z7;
+        int i;
+        boolean z8;
+        boolean z9;
+        float f;
+        boolean z10;
+        boolean showzoom;
+        String time;
+        String str5;
+        int i2;
+        boolean vibration;
+        long j2;
+        boolean z11;
+        long j3;
+        boolean z12;
+        synchronized (this) {
+            j = this.mDirtyFlags;
+            this.mDirtyFlags = 0L;
+        }
+        UtilityParam utilityParam = this.mParam;
+        MaskParam maskParam = this.mMaskParam;
+        String str6 = null;
+        if ((393211 & j) != 0) {
+            z3 = ((j & 262658) == 0 || utilityParam == null) ? false : utilityParam.getAuxOut();
+            boolean powerOnSet = ((j & 262210) == 0 || utilityParam == null) ? false : utilityParam.getPowerOnSet();
+            if ((j & 262171) != 0) {
+                MappingObject mappingObject = ViewUtil.getMappingObject(R.array.msg_app_utility_language, utilityParam != null ? utilityParam.getLanguage() : 0);
+                updateRegistration(0, mappingObject);
+                if (mappingObject != null) {
+                    str = mappingObject.getStr();
+                    z4 = ((j & 264194) != 0 || utilityParam == null) ? false : utilityParam.getLockKeyboard();
+                    showzoom = ((j & 278530) != 0 || utilityParam == null) ? false : utilityParam.getShowzoom();
+                    time = ((j & 327682) != 0 || utilityParam == null) ? null : utilityParam.getTime();
+                    if ((j & 262178) == 0) {
+                        i2 = utilityParam != null ? utilityParam.getDisplayBrightness() : 0;
+                        str5 = String.valueOf(i2) + '%';
+                    } else {
+                        str5 = null;
+                        i2 = 0;
+                    }
+                    if ((j & 294914) != 0 && utilityParam != null) {
+                        str6 = utilityParam.getDate();
+                    }
+                    z7 = ((j & 270338) != 0 || utilityParam == null) ? false : utilityParam.getShowTime();
+                    vibration = ((j & 263170) != 0 || utilityParam == null) ? false : utilityParam.getVibration();
+                    if ((j & 262402) != 0 || utilityParam == null) {
+                        j2 = 262274;
+                        z11 = false;
+                    } else {
+                        z11 = utilityParam.getBeeper();
+                        j2 = 262274;
+                    }
+                    if ((j & j2) != 0 || utilityParam == null) {
+                        j3 = 266242;
+                        z12 = false;
+                    } else {
+                        z12 = utilityParam.getPowerStatus();
+                        j3 = 266242;
+                    }
+                    if ((j & j3) != 0 || utilityParam == null) {
+                        str2 = str5;
+                        z2 = vibration;
+                        str4 = str6;
+                        z5 = powerOnSet;
+                        z6 = showzoom;
+                        str3 = time;
+                        i = i2;
+                        z8 = z11;
+                        z9 = z12;
+                        z = false;
+                    } else {
+                        z = utilityParam.getVerticalExpand();
+                        str2 = str5;
+                        z2 = vibration;
+                        str4 = str6;
+                        z5 = powerOnSet;
+                        z6 = showzoom;
+                        str3 = time;
+                        i = i2;
+                        z8 = z11;
+                        z9 = z12;
+                    }
+                }
+            }
+            str = null;
+            if ((j & 264194) != 0) {
+            }
+            if ((j & 278530) != 0) {
+            }
+            if ((j & 327682) != 0) {
+            }
+            if ((j & 262178) == 0) {
+            }
+            if ((j & 294914) != 0) {
+                str6 = utilityParam.getDate();
+            }
+            if ((j & 270338) != 0) {
+            }
+            if ((j & 263170) != 0) {
+            }
+            if ((j & 262402) != 0) {
+            }
+            j2 = 262274;
+            z11 = false;
+            if ((j & j2) != 0) {
+            }
+            j3 = 266242;
+            z12 = false;
+            if ((j & j3) != 0) {
+            }
+            str2 = str5;
+            z2 = vibration;
+            str4 = str6;
+            z5 = powerOnSet;
+            z6 = showzoom;
+            str3 = time;
+            i = i2;
+            z8 = z11;
+            z9 = z12;
+            z = false;
+        } else {
+            str = null;
+            str2 = null;
+            str3 = null;
+            str4 = null;
+            z = false;
+            z2 = false;
+            z3 = false;
+            z4 = false;
+            z5 = false;
+            z6 = false;
+            z7 = false;
+            i = 0;
+            z8 = false;
+            z9 = false;
+        }
+        int i3 = ((j & 393220) > 0L ? 1 : ((j & 393220) == 0L ? 0 : -1));
+        if (i3 != 0) {
+            z10 = !(maskParam != null ? maskParam.isOperate() : false);
+            f = ContextUtil.getAlpha(z10);
+        } else {
+            f = 0.0f;
+            z10 = false;
+        }
+        if (i3 != 0) {
+            this.auxoutLayout.setEnabled(z10);
+            this.switchButtonAuxout.setEnabled(z10);
+            if (getBuildSdkInt() >= 11) {
+                this.switchButtonAuxout.setAlpha(f);
+                this.tvAuxout.setAlpha(f);
+            }
+        }
+        if ((j & 262178) != 0) {
+            TextViewBindingAdapter.setText(this.mboundView3, str2);
+            SeekBarBindingAdapter.setProgress(this.screeIntensitySeekbar, i);
+        }
+        if ((j & 262171) != 0) {
+            TextViewBindingAdapter.setText(this.spLanguage, str);
+        }
+        if ((j & 262658) != 0) {
+            CompoundButtonBindingAdapter.setChecked(this.switchButtonAuxout, z3);
+        }
+        if ((j & 262402) != 0) {
+            CompoundButtonBindingAdapter.setChecked(this.switchButtonBeeper, z8);
+        }
+        if ((j & 262210) != 0) {
+            CompoundButtonBindingAdapter.setChecked(this.switchButtonLoadLast, z5);
+        }
+        if ((j & 278530) != 0) {
+            CompoundButtonBindingAdapter.setChecked(this.switchButtonOpenzoom, z6);
+        }
+        if ((262274 & j) != 0) {
+            CompoundButtonBindingAdapter.setChecked(this.switchButtonPower, z9);
+        }
+        if ((j & 264194) != 0) {
+            CompoundButtonBindingAdapter.setChecked(this.switchButtonScreenLock, z4);
+        }
+        if ((270338 & j) != 0) {
+            CompoundButtonBindingAdapter.setChecked(this.switchButtonShowtime, z7);
+        }
+        if ((266242 & j) != 0) {
+            CompoundButtonBindingAdapter.setChecked(this.switchButtonVerticalExpand, z);
+        }
+        if ((263170 & j) != 0) {
+            CompoundButtonBindingAdapter.setChecked(this.switchButtonVibration, z2);
+        }
+        if ((j & 327682) != 0) {
+            TextViewBindingAdapter.setText(this.tvTimevalue, str3);
+        }
+        if ((j & 294914) != 0) {
+            TextViewBindingAdapter.setText(this.tvYearvalue, str4);
+        }
     }
 }

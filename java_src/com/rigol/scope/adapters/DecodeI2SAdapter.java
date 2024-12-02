@@ -28,6 +28,7 @@ import com.rigol.scope.views.keyboard.KeyboardPopupView;
 import com.rigol.scope.views.spinner.PopupSpinner;
 import java.util.ArrayList;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public class DecodeI2SAdapter extends RecyclerView.Adapter<DecodeI2SHolder> implements RadioGroup.OnCheckedChangeListener, View.OnClickListener, AorBManager.OnSetTextById, AorBManager.OnTextReset {
     private final View anchorView;
@@ -65,12 +66,14 @@ public class DecodeI2SAdapter extends RecyclerView.Adapter<DecodeI2SHolder> impl
         this.viewPagerHolder = viewPagerHolder;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public DecodeI2SHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         this.binding = AdapterDecodeI2sBinding.inflate(LayoutInflater.from(viewGroup.getContext()), viewGroup, false);
         return new DecodeI2SHolder(this.binding);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(DecodeI2SHolder decodeI2SHolder, int i) {
         this.binding.setEdgeUpMapping(ViewUtil.getMappingObject(R.array.msg_decode_i2s_sclkedge, 0));

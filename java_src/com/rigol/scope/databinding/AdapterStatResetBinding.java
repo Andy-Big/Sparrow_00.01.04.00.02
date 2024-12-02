@@ -12,6 +12,7 @@ import androidx.databinding.ViewDataBinding;
 import com.rigol.scope.R;
 import com.rigol.scope.data.MappingObject;
 import com.rigol.scope.data.UtilityParam;
+
 /* loaded from: classes2.dex */
 public abstract class AdapterStatResetBinding extends ViewDataBinding {
     @Bindable
@@ -31,8 +32,7 @@ public abstract class AdapterStatResetBinding extends ViewDataBinding {
 
     public abstract void setParam(UtilityParam utilityParam);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public AdapterStatResetBinding(Object obj, View view, int i, RadioButton radioButton, RadioButton radioButton2, RadioGroup radioGroup, TextView textView) {
+    protected AdapterStatResetBinding(Object obj, View view, int i, RadioButton radioButton, RadioButton radioButton2, RadioGroup radioGroup, TextView textView) {
         super(obj, view, i);
         this.radioButtonMask = radioButton;
         this.radioButtonMeasure = radioButton2;

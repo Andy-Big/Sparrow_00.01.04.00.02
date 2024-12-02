@@ -11,6 +11,7 @@ import androidx.databinding.Bindable;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import com.rigol.scope.R;
+
 /* loaded from: classes2.dex */
 public abstract class ActivityRigolKeyTest2Binding extends ViewDataBinding {
     public final TextView RUN;
@@ -70,8 +71,7 @@ public abstract class ActivityRigolKeyTest2Binding extends ViewDataBinding {
 
     public abstract void setOnClickListener(View.OnClickListener onClickListener);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public ActivityRigolKeyTest2Binding(Object obj, View view, int i, TextView textView, TextView textView2, TextView textView3, TextView textView4, TextView textView5, TextView textView6, TextView textView7, TextView textView8, TextView textView9, ImageButton imageButton, ImageButton imageButton2, ImageButton imageButton3, ImageButton imageButton4, ImageButton imageButton5, ImageButton imageButton6, ImageButton imageButton7, ImageButton imageButton8, TextView textView10, TextView textView11, TextView textView12, TextView textView13, TextView textView14, TextView textView15, TextView textView16, TextView textView17, TextView textView18, TextView textView19, TextView textView20, TextView textView21, Guideline guideline, TextView textView22, ImageButton imageButton9, ImageButton imageButton10, TextView textView23, ImageView imageView, TextView textView24, TextView textView25, TextView textView26, TextView textView27, TextView textView28, ImageButton imageButton11, ImageButton imageButton12, TextView textView29, TextView textView30, TextView textView31, TextView textView32, TextView textView33, ImageButton imageButton13, ImageButton imageButton14, TextView textView34, TextView textView35, TextView textView36) {
+    protected ActivityRigolKeyTest2Binding(Object obj, View view, int i, TextView textView, TextView textView2, TextView textView3, TextView textView4, TextView textView5, TextView textView6, TextView textView7, TextView textView8, TextView textView9, ImageButton imageButton, ImageButton imageButton2, ImageButton imageButton3, ImageButton imageButton4, ImageButton imageButton5, ImageButton imageButton6, ImageButton imageButton7, ImageButton imageButton8, TextView textView10, TextView textView11, TextView textView12, TextView textView13, TextView textView14, TextView textView15, TextView textView16, TextView textView17, TextView textView18, TextView textView19, TextView textView20, TextView textView21, Guideline guideline, TextView textView22, ImageButton imageButton9, ImageButton imageButton10, TextView textView23, ImageView imageView, TextView textView24, TextView textView25, TextView textView26, TextView textView27, TextView textView28, ImageButton imageButton11, ImageButton imageButton12, TextView textView29, TextView textView30, TextView textView31, TextView textView32, TextView textView33, ImageButton imageButton13, ImageButton imageButton14, TextView textView34, TextView textView35, TextView textView36) {
         super(obj, view, i);
         this.RUN = textView;
         this.RUN1 = textView2;

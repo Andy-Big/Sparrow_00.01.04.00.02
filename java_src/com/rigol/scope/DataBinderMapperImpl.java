@@ -229,6 +229,7 @@ import com.sun.mail.imap.IMAPStore;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public class DataBinderMapperImpl extends DataBinderMapper {
     private static final SparseIntArray INTERNAL_LAYOUT_ID_LOOKUP;

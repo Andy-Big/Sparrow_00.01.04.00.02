@@ -3,6 +3,7 @@ package com.rigol.scope;
 import android.view.KeyEvent;
 import androidx.appcompat.app.AppCompatActivity;
 import com.rigol.scope.utilities.KeyCodeUtil;
+
 /* loaded from: classes.dex */
 public class SelfTestActivity extends AppCompatActivity {
     private int runStopClickCount;

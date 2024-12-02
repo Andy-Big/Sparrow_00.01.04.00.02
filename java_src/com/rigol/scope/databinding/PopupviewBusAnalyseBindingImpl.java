@@ -13,6 +13,7 @@ import com.rigol.scope.R;
 import com.rigol.scope.data.MappingObject;
 import com.rigol.scope.utilities.ViewUtil;
 import com.rigol.scope.views.busAnalyse.BusAnalyseParam;
+
 /* loaded from: classes2.dex */
 public class PopupviewBusAnalyseBindingImpl extends PopupviewBusAnalyseBinding {
     private static final ViewDataBinding.IncludedLayouts sIncludes = null;

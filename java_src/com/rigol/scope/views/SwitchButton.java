@@ -8,6 +8,7 @@ import android.graphics.drawable.StateListDrawable;
 import android.util.AttributeSet;
 import androidx.appcompat.widget.SwitchCompat;
 import com.rigol.scope.R;
+
 /* loaded from: classes2.dex */
 public class SwitchButton extends SwitchCompat {
     private final float thumbHeight;

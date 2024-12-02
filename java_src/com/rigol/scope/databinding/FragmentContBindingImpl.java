@@ -1,17 +1,24 @@
 package com.rigol.scope.databinding;
 
+import android.content.Context;
+import android.graphics.drawable.Drawable;
+import android.support.v4.media.session.PlaybackStateCompat;
 import android.util.SparseIntArray;
 import android.view.View;
 import android.widget.TextView;
+import androidx.appcompat.content.res.AppCompatResources;
 import androidx.appcompat.widget.AppCompatTextView;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.databinding.DataBindingComponent;
 import androidx.databinding.ViewDataBinding;
+import androidx.databinding.adapters.TextViewBindingAdapter;
+import androidx.databinding.adapters.ViewBindingAdapter;
 import androidx.lifecycle.MutableLiveData;
 import com.rigol.scope.R;
 import com.rigol.scope.data.LeftStatusBarParam;
 import com.rigol.scope.data.MenuParam;
 import com.rigol.scope.views.waveview.AwgPlotView;
+
 /* loaded from: classes2.dex */
 public class FragmentContBindingImpl extends FragmentContBinding {
     private static final ViewDataBinding.IncludedLayouts sIncludes = null;
@@ -175,13 +182,163 @@ public class FragmentContBindingImpl extends FragmentContBinding {
     @Override // androidx.databinding.ViewDataBinding
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
     protected void executeBindings() {
-        /*
-            Method dump skipped, instructions count: 433
-            To view this dump add '--comments-level debug' option
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.rigol.scope.databinding.FragmentContBindingImpl.executeBindings():void");
+        long j;
+        boolean z;
+        boolean z2;
+        String str;
+        int i;
+        int i2;
+        Drawable drawable;
+        int i3;
+        int i4;
+        int i5;
+        int i6;
+        Drawable drawable2;
+        Context context;
+        int i7;
+        synchronized (this) {
+            j = this.mDirtyFlags;
+            this.mDirtyFlags = 0L;
+        }
+        LeftStatusBarParam leftStatusBarParam = this.mLeftStatusBarParam;
+        MenuParam menuParam = this.mMenuParam;
+        if ((87 & j) != 0) {
+            int i8 = ((j & 85) > 0L ? 1 : ((j & 85) == 0L ? 0 : -1));
+            if (i8 != 0) {
+                MutableLiveData<Boolean> selectChanEnable = leftStatusBarParam != null ? leftStatusBarParam.getSelectChanEnable() : null;
+                updateLiveDataRegistration(0, selectChanEnable);
+                z2 = ViewDataBinding.safeUnbox(selectChanEnable != null ? selectChanEnable.getValue() : null);
+                if (i8 != 0) {
+                    j = z2 ? j | PlaybackStateCompat.ACTION_PREPARE_FROM_SEARCH : j | PlaybackStateCompat.ACTION_PREPARE_FROM_MEDIA_ID;
+                }
+            } else {
+                z2 = false;
+            }
+            int i9 = ((j & 86) > 0L ? 1 : ((j & 86) == 0L ? 0 : -1));
+            if (i9 != 0) {
+                MutableLiveData<Boolean> channelEnable = leftStatusBarParam != null ? leftStatusBarParam.getChannelEnable() : null;
+                updateLiveDataRegistration(1, channelEnable);
+                z = ViewDataBinding.safeUnbox(channelEnable != null ? channelEnable.getValue() : null);
+                if (i9 != 0) {
+                    j = z ? j | 256 | PlaybackStateCompat.ACTION_PREPARE : j | 128 | PlaybackStateCompat.ACTION_PLAY_FROM_URI;
+                }
+            } else {
+                z = false;
+            }
+        } else {
+            z = false;
+            z2 = false;
+        }
+        if ((j & 104) != 0) {
+            MutableLiveData<String> waveform = menuParam != null ? menuParam.getWaveform() : null;
+            updateLiveDataRegistration(3, waveform);
+            if (waveform != null) {
+                str = waveform.getValue();
+                if ((j & 82176) == 0) {
+                    MutableLiveData<Integer> color = leftStatusBarParam != null ? leftStatusBarParam.getColor() : null;
+                    updateLiveDataRegistration(2, color);
+                    boolean z3 = ViewDataBinding.safeUnbox(color != null ? color.getValue() : null) == 0;
+                    if ((j & 256) != 0) {
+                        j |= z3 ? PlaybackStateCompat.ACTION_PLAY_FROM_MEDIA_ID : 512L;
+                    }
+                    if ((j & PlaybackStateCompat.ACTION_PREPARE) != 0) {
+                        j |= z3 ? PlaybackStateCompat.ACTION_SKIP_TO_QUEUE_ITEM : PlaybackStateCompat.ACTION_PLAY_FROM_SEARCH;
+                    }
+                    if ((j & PlaybackStateCompat.ACTION_PREPARE_FROM_SEARCH) != 0) {
+                        j |= z3 ? PlaybackStateCompat.ACTION_SET_REPEAT_MODE : PlaybackStateCompat.ACTION_PREPARE_FROM_URI;
+                    }
+                    if ((256 & j) != 0) {
+                        TextView textView = this.channelText;
+                        i = z3 ? getColorFromResource(textView, R.color.bg_channel1_color) : getColorFromResource(textView, R.color.bg_channel2_color);
+                    } else {
+                        i = 0;
+                    }
+                    if ((j & PlaybackStateCompat.ACTION_PREPARE) != 0) {
+                        i2 = z3 ? getColorFromResource(this.onText, R.color.bg_channel1_color) : getColorFromResource(this.onText, R.color.bg_channel2_color);
+                    } else {
+                        i2 = 0;
+                    }
+                    if ((j & PlaybackStateCompat.ACTION_PREPARE_FROM_SEARCH) != 0) {
+                        if (z3) {
+                            context = this.bgView.getContext();
+                            i7 = R.drawable.bg_yellow_line_menu;
+                        } else {
+                            context = this.bgView.getContext();
+                            i7 = R.drawable.bg_green_line_menu;
+                        }
+                        drawable = AppCompatResources.getDrawable(context, i7);
+                        i3 = ((86 & j) > 0L ? 1 : ((86 & j) == 0L ? 0 : -1));
+                        if (i3 != 0) {
+                            if (!z) {
+                                i = getColorFromResource(this.channelText, R.color.popup_view_background);
+                            }
+                            if (!z) {
+                                i2 = getColorFromResource(this.onText, R.color.popup_view_background);
+                            }
+                            i5 = i;
+                            i4 = i2;
+                        } else {
+                            i4 = 0;
+                            i5 = 0;
+                        }
+                        i6 = ((j & 85) > 0L ? 1 : ((j & 85) == 0L ? 0 : -1));
+                        if (i6 != 0) {
+                            if (!z2) {
+                                drawable = AppCompatResources.getDrawable(this.bgView.getContext(), R.drawable.bg_black_menu);
+                            }
+                            drawable2 = drawable;
+                        } else {
+                            drawable2 = null;
+                        }
+                        if (i6 != 0) {
+                            ViewBindingAdapter.setBackground(this.bgView, drawable2);
+                        }
+                        if (i3 != 0) {
+                            this.channelText.setTextColor(i5);
+                            this.onText.setTextColor(i4);
+                        }
+                        if ((j & 104) != 0) {
+                            TextViewBindingAdapter.setText(this.waveformSpinner, str);
+                            return;
+                        }
+                        return;
+                    }
+                } else {
+                    i = 0;
+                    i2 = 0;
+                }
+                drawable = null;
+                i3 = ((86 & j) > 0L ? 1 : ((86 & j) == 0L ? 0 : -1));
+                if (i3 != 0) {
+                }
+                i6 = ((j & 85) > 0L ? 1 : ((j & 85) == 0L ? 0 : -1));
+                if (i6 != 0) {
+                }
+                if (i6 != 0) {
+                }
+                if (i3 != 0) {
+                }
+                if ((j & 104) != 0) {
+                }
+            }
+        }
+        str = null;
+        if ((j & 82176) == 0) {
+        }
+        drawable = null;
+        i3 = ((86 & j) > 0L ? 1 : ((86 & j) == 0L ? 0 : -1));
+        if (i3 != 0) {
+        }
+        i6 = ((j & 85) > 0L ? 1 : ((j & 85) == 0L ? 0 : -1));
+        if (i6 != 0) {
+        }
+        if (i6 != 0) {
+        }
+        if (i3 != 0) {
+        }
+        if ((j & 104) != 0) {
+        }
     }
 }

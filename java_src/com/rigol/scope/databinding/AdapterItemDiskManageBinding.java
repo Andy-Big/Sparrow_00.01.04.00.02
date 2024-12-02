@@ -8,6 +8,7 @@ import android.widget.TextView;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import com.rigol.scope.R;
+
 /* loaded from: classes2.dex */
 public abstract class AdapterItemDiskManageBinding extends ViewDataBinding {
     public final TextView fileInfo;
@@ -16,8 +17,7 @@ public abstract class AdapterItemDiskManageBinding extends ViewDataBinding {
     public final ImageView image;
     public final ImageView status;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public AdapterItemDiskManageBinding(Object obj, View view, int i, TextView textView, TextView textView2, TextView textView3, ImageView imageView, ImageView imageView2) {
+    protected AdapterItemDiskManageBinding(Object obj, View view, int i, TextView textView, TextView textView2, TextView textView3, ImageView imageView, ImageView imageView2) {
         super(obj, view, i);
         this.fileInfo = textView;
         this.fileName = textView2;

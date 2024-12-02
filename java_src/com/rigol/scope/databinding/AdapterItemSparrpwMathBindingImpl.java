@@ -6,8 +6,14 @@ import android.widget.TextView;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.databinding.DataBindingComponent;
 import androidx.databinding.ViewDataBinding;
+import androidx.databinding.adapters.Converters;
+import androidx.databinding.adapters.TextViewBindingAdapter;
+import androidx.databinding.adapters.ViewBindingAdapter;
+import com.rigol.scope.R;
 import com.rigol.scope.data.MappingObject;
 import com.rigol.scope.data.MathParam;
+import com.rigol.scope.utilities.ViewUtil;
+
 /* loaded from: classes2.dex */
 public class AdapterItemSparrpwMathBindingImpl extends AdapterItemSparrpwMathBinding {
     private static final ViewDataBinding.IncludedLayouts sIncludes = null;
@@ -112,114 +118,56 @@ public class AdapterItemSparrpwMathBindingImpl extends AdapterItemSparrpwMathBin
     @Override // androidx.databinding.ViewDataBinding
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
     protected void executeBindings() {
-        /*
-            r20 = this;
-            r1 = r20
-            monitor-enter(r20)
-            long r2 = r1.mDirtyFlags     // Catch: java.lang.Throwable -> La1
-            r4 = 0
-            r1.mDirtyFlags = r4     // Catch: java.lang.Throwable -> La1
-            monitor-exit(r20)     // Catch: java.lang.Throwable -> La1
-            com.rigol.scope.data.MathParam r6 = r1.mParam
-            r7 = 31
-            long r7 = r7 & r2
-            int r7 = (r7 > r4 ? 1 : (r7 == r4 ? 0 : -1))
-            r8 = 27
-            r10 = 64
-            r12 = 21
-            r14 = 32
-            r16 = 0
-            if (r7 == 0) goto L5f
-            long r17 = r2 & r12
-            int r7 = (r17 > r4 ? 1 : (r17 == r4 ? 0 : -1))
-            if (r7 == 0) goto L34
-            if (r6 == 0) goto L2a
-            boolean r17 = r6.getStatus()
-            goto L2c
-        L2a:
-            r17 = r16
-        L2c:
-            if (r7 == 0) goto L36
-            if (r17 == 0) goto L32
-            long r2 = r2 | r10
-            goto L36
-        L32:
-            long r2 = r2 | r14
-            goto L36
-        L34:
-            r17 = r16
-        L36:
-            long r18 = r2 & r8
-            int r7 = (r18 > r4 ? 1 : (r18 == r4 ? 0 : -1))
-            if (r7 == 0) goto L61
-            if (r6 == 0) goto L43
-            int r7 = r6.getServiceId()
-            goto L45
-        L43:
-            r7 = r16
-        L45:
-            int r7 = r7 + (-17)
-            r18 = 2130903409(0x7f030171, float:1.7413635E38)
-            java.util.List r0 = com.rigol.scope.utilities.ViewUtil.getList(r18)
-            java.lang.Object r0 = r0.get(r7)
-            com.rigol.scope.data.MappingObject r0 = (com.rigol.scope.data.MappingObject) r0
-            r7 = 1
-            r1.updateRegistration(r7, r0)
-            if (r0 == 0) goto L61
-            java.lang.String r0 = r0.getStr()
-            goto L62
-        L5f:
-            r17 = r16
-        L61:
-            r0 = 0
-        L62:
-            long r14 = r14 & r2
-            int r7 = (r14 > r4 ? 1 : (r14 == r4 ? 0 : -1))
-            if (r7 == 0) goto L6e
-            if (r6 == 0) goto L6e
-            int r7 = r6.getClosedColor()
-            goto L70
-        L6e:
-            r7 = r16
-        L70:
-            long r10 = r10 & r2
-            int r10 = (r10 > r4 ? 1 : (r10 == r4 ? 0 : -1))
-            if (r10 == 0) goto L7c
-            if (r6 == 0) goto L7c
-            int r6 = r6.getDefaultColor()
-            goto L7e
-        L7c:
-            r6 = r16
-        L7e:
-            long r10 = r2 & r12
-            int r10 = (r10 > r4 ? 1 : (r10 == r4 ? 0 : -1))
-            if (r10 == 0) goto L8b
-            if (r17 == 0) goto L89
-            r16 = r6
-            goto L8b
-        L89:
-            r16 = r7
-        L8b:
-            if (r10 == 0) goto L96
-            android.widget.TextView r6 = r1.text1
-            android.graphics.drawable.ColorDrawable r7 = androidx.databinding.adapters.Converters.convertColorToDrawable(r16)
-            androidx.databinding.adapters.ViewBindingAdapter.setBackground(r6, r7)
-        L96:
-            long r2 = r2 & r8
-            int r2 = (r2 > r4 ? 1 : (r2 == r4 ? 0 : -1))
-            if (r2 == 0) goto La0
-            android.widget.TextView r2 = r1.text1
-            androidx.databinding.adapters.TextViewBindingAdapter.setText(r2, r0)
-        La0:
-            return
-        La1:
-            r0 = move-exception
-            monitor-exit(r20)     // Catch: java.lang.Throwable -> La1
-            throw r0
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.rigol.scope.databinding.AdapterItemSparrpwMathBindingImpl.executeBindings():void");
+        long j;
+        boolean z;
+        String str;
+        int i;
+        synchronized (this) {
+            j = this.mDirtyFlags;
+            this.mDirtyFlags = 0L;
+        }
+        MathParam mathParam = this.mParam;
+        if ((31 & j) != 0) {
+            int i2 = ((j & 21) > 0L ? 1 : ((j & 21) == 0L ? 0 : -1));
+            if (i2 != 0) {
+                z = mathParam != null ? mathParam.getStatus() : false;
+                if (i2 != 0) {
+                    j = z ? j | 64 : j | 32;
+                }
+            } else {
+                z = false;
+            }
+            if ((j & 27) != 0) {
+                MappingObject mappingObject = ViewUtil.getList((int) R.array.msg_math_list2).get((mathParam != null ? mathParam.getServiceId() : 0) - 17);
+                updateRegistration(1, mappingObject);
+                if (mappingObject != null) {
+                    str = mappingObject.getStr();
+                    i = ((j & 21) > 0L ? 1 : ((j & 21) == 0L ? 0 : -1));
+                    int defaultColor = i != 0 ? z ? ((64 & j) != 0 || mathParam == null) ? 0 : mathParam.getDefaultColor() : ((32 & j) != 0 || mathParam == null) ? 0 : mathParam.getClosedColor() : 0;
+                    if (i != 0) {
+                        ViewBindingAdapter.setBackground(this.text1, Converters.convertColorToDrawable(defaultColor));
+                    }
+                    if ((j & 27) == 0) {
+                        TextViewBindingAdapter.setText(this.text1, str);
+                        return;
+                    }
+                    return;
+                }
+            }
+        } else {
+            z = false;
+        }
+        str = null;
+        if ((32 & j) != 0) {
+        }
+        i = ((j & 21) > 0L ? 1 : ((j & 21) == 0L ? 0 : -1));
+        if (i != 0) {
+        }
+        if (i != 0) {
+        }
+        if ((j & 27) == 0) {
+        }
     }
 }

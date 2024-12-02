@@ -1,6 +1,7 @@
 package com.rigol.scope.utilities;
 
 import java.util.function.Supplier;
+
 /* compiled from: lambda */
 /* renamed from: com.rigol.scope.utilities.-$$Lambda$TrmQtJAKZPgWxUiTsa1erxTFMnA  reason: invalid class name */
 /* loaded from: classes2.dex */

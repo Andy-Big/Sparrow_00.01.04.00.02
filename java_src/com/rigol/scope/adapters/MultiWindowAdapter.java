@@ -16,6 +16,7 @@ import com.rigol.scope.utilities.KtUtilKt;
 import com.rigol.scope.utilities.ViewUtil;
 import com.rigol.scope.viewmodels.OptionViewModel;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public class MultiWindowAdapter extends BaseAdapter<List<ServiceEnum.WindowType>> {
     private OptionParam optionParam;

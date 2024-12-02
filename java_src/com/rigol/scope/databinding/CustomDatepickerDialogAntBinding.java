@@ -8,14 +8,14 @@ import android.widget.DatePicker;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import com.rigol.scope.R;
+
 /* loaded from: classes2.dex */
 public abstract class CustomDatepickerDialogAntBinding extends ViewDataBinding {
     public final Button confirmButton;
     public final DatePicker datePicker;
     public final View included;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public CustomDatepickerDialogAntBinding(Object obj, View view, int i, Button button, DatePicker datePicker, View view2) {
+    protected CustomDatepickerDialogAntBinding(Object obj, View view, int i, Button button, DatePicker datePicker, View view2) {
         super(obj, view, i);
         this.confirmButton = button;
         this.datePicker = datePicker;

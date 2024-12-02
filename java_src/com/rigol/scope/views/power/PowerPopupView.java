@@ -18,6 +18,7 @@ import com.rigol.scope.views.baseview.BasePopupView;
 import java.io.PrintStream;
 import java.util.Objects;
 import timber.log.Timber;
+
 /* loaded from: classes2.dex */
 public class PowerPopupView extends BasePopupView implements View.OnClickListener, PopupWindow.OnDismissListener {
     private PopupviewPowerBinding binding;

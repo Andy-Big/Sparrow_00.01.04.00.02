@@ -25,6 +25,7 @@ import com.rigol.scope.views.baseview.BasePopupView;
 import com.rigol.scope.views.keyboard.KeyboardListener;
 import com.rigol.scope.views.keyboard.KeyboardPopupView;
 import com.rigol.scope.views.spinner.PopupSpinner;
+
 /* loaded from: classes2.dex */
 public class JitterPopupView extends BasePopupView implements View.OnClickListener, CompoundButton.OnCheckedChangeListener, RadioGroup.OnCheckedChangeListener {
     private final PopupviewJitterBinding binding;

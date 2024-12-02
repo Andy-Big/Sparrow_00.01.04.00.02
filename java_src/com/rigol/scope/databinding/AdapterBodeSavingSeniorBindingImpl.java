@@ -10,11 +10,15 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.Guideline;
 import androidx.databinding.DataBindingComponent;
 import androidx.databinding.ViewDataBinding;
+import androidx.databinding.adapters.TextViewBindingAdapter;
 import com.rigol.scope.R;
 import com.rigol.scope.data.BodeParam;
 import com.rigol.scope.data.MappingObject;
 import com.rigol.scope.data.StorageLoadParam;
 import com.rigol.scope.data.StorageSaveParam;
+import com.rigol.scope.utilities.ContextUtil;
+import com.rigol.scope.utilities.ViewUtil;
+
 /* loaded from: classes2.dex */
 public class AdapterBodeSavingSeniorBindingImpl extends AdapterBodeSavingSeniorBinding {
     private static final ViewDataBinding.IncludedLayouts sIncludes = null;
@@ -241,13 +245,119 @@ public class AdapterBodeSavingSeniorBindingImpl extends AdapterBodeSavingSeniorB
     @Override // androidx.databinding.ViewDataBinding
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
     protected void executeBindings() {
-        /*
-            Method dump skipped, instructions count: 409
-            To view this dump add '--comments-level debug' option
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.rigol.scope.databinding.AdapterBodeSavingSeniorBindingImpl.executeBindings():void");
+        long j;
+        String str;
+        String str2;
+        String str3;
+        String str4;
+        String str5;
+        float f;
+        String str6;
+        synchronized (this) {
+            j = this.mDirtyFlags;
+            this.mDirtyFlags = 0L;
+        }
+        StorageLoadParam storageLoadParam = this.mStorageParam;
+        StorageSaveParam storageSaveParam = this.mParam;
+        BodeParam bodeParam = this.mBodeParam;
+        String str7 = null;
+        if ((8549 & j) != 0) {
+            if ((j & 8485) != 0) {
+                MappingObject mappingObject = ViewUtil.getMappingObject(R.array.msg_storage_filetype, storageLoadParam != null ? storageLoadParam.getBodeFileType() : 0);
+                updateRegistration(2, mappingObject);
+                if (mappingObject != null) {
+                    str2 = mappingObject.getStr();
+                    if ((j & 8257) == 0) {
+                        str = ViewUtil.getDiskUIPathName(storageLoadParam != null ? storageLoadParam.getPathName() : null);
+                    } else {
+                        str = null;
+                    }
+                }
+            }
+            str2 = null;
+            if ((j & 8257) == 0) {
+            }
+        } else {
+            str = null;
+            str2 = null;
+        }
+        if ((j & 11914) != 0) {
+            if ((j & 10248) != 0) {
+                str6 = ViewUtil.getDiskUIPathName(storageSaveParam != null ? storageSaveParam.getPathName() : null);
+            } else {
+                str6 = null;
+            }
+            String prefix = ((j & 9224) == 0 || storageSaveParam == null) ? null : storageSaveParam.getPrefix();
+            if ((j & 8842) != 0) {
+                MappingObject mappingObject2 = ViewUtil.getMappingObject(R.array.msg_storage_filetype, storageSaveParam != null ? storageSaveParam.getBodeFileType() : 0);
+                updateRegistration(1, mappingObject2);
+                if (mappingObject2 != null) {
+                    str7 = mappingObject2.getStr();
+                }
+            }
+            str5 = str6;
+            str3 = str7;
+            str4 = prefix;
+        } else {
+            str3 = null;
+            str4 = null;
+            str5 = null;
+        }
+        int i = ((j & 12304) > 0L ? 1 : ((j & 12304) == 0L ? 0 : -1));
+        if (i != 0) {
+            r15 = bodeParam != null ? bodeParam.getBodeEnable() : false;
+            f = ContextUtil.getAlpha(r15);
+        } else {
+            f = 0.0f;
+        }
+        if (i != 0) {
+            if (getBuildSdkInt() >= 11) {
+                this.fileFormat.setAlpha(f);
+                this.fileFormatSpinner.setAlpha(f);
+                this.fileName.setAlpha(f);
+                this.fileNameText.setAlpha(f);
+                this.filePath.setAlpha(f);
+                this.filePathText.setAlpha(f);
+                this.loadBtn.setAlpha(f);
+                this.loadText.setAlpha(f);
+                this.mboundView1.setAlpha(f);
+                this.pathLoadName.setAlpha(f);
+                this.pathNameEditLoad.setAlpha(f);
+                this.saveBtn.setAlpha(f);
+                this.waveFileFormatSpinner.setAlpha(f);
+                this.waveFileLoadText.setAlpha(f);
+            }
+            this.fileFormat.setEnabled(r15);
+            this.fileFormatSpinner.setEnabled(r15);
+            this.fileName.setEnabled(r15);
+            this.fileNameText.setEnabled(r15);
+            this.filePath.setEnabled(r15);
+            this.filePathText.setEnabled(r15);
+            this.loadBtn.setEnabled(r15);
+            this.loadText.setEnabled(r15);
+            this.mboundView1.setEnabled(r15);
+            this.pathLoadName.setEnabled(r15);
+            this.pathNameEditLoad.setEnabled(r15);
+            this.saveBtn.setEnabled(r15);
+            this.waveFileFormatSpinner.setEnabled(r15);
+            this.waveFileLoadText.setEnabled(r15);
+        }
+        if ((j & 8842) != 0) {
+            TextViewBindingAdapter.setText(this.fileFormatSpinner, str3);
+        }
+        if ((j & 9224) != 0) {
+            TextViewBindingAdapter.setText(this.fileNameText, str4);
+        }
+        if ((j & 10248) != 0) {
+            TextViewBindingAdapter.setText(this.filePathText, str5);
+        }
+        if ((j & 8257) != 0) {
+            TextViewBindingAdapter.setText(this.pathNameEditLoad, str);
+        }
+        if ((j & 8485) != 0) {
+            TextViewBindingAdapter.setText(this.waveFileFormatSpinner, str2);
+        }
     }
 }

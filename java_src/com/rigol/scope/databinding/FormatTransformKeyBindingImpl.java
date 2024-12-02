@@ -14,6 +14,7 @@ import androidx.databinding.adapters.TextViewBindingAdapter;
 import com.rigol.scope.R;
 import com.rigol.scope.data.MappingObject;
 import com.rigol.scope.data.TriggerParam;
+
 /* loaded from: classes2.dex */
 public class FormatTransformKeyBindingImpl extends FormatTransformKeyBinding {
     private static final ViewDataBinding.IncludedLayouts sIncludes = null;

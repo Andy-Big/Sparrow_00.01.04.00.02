@@ -14,6 +14,7 @@ import androidx.databinding.ViewDataBinding;
 import com.rigol.scope.R;
 import com.rigol.scope.data.StorageSaveParam;
 import com.rigol.scope.views.SwitchButton;
+
 /* loaded from: classes2.dex */
 public abstract class AdapterStorageSaveBinding extends ViewDataBinding {
     public final TextView autoName;
@@ -54,8 +55,7 @@ public abstract class AdapterStorageSaveBinding extends ViewDataBinding {
 
     public abstract void setParam(StorageSaveParam storageSaveParam);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public AdapterStorageSaveBinding(Object obj, View view, int i, TextView textView, SwitchButton switchButton, CheckBox checkBox, CheckBox checkBox2, CheckBox checkBox3, CheckBox checkBox4, TextView textView2, View view2, TextView textView3, View view3, Guideline guideline, TextView textView4, SwitchButton switchButton2, TextView textView5, TextView textView6, TextView textView7, SwitchButton switchButton3, TextView textView8, SwitchButton switchButton4, TextView textView9, EditText editText, TextView textView10, EditText editText2, Button button, TextView textView11, TextView textView12, TextView textView13, SwitchButton switchButton5, TextView textView14, TextView textView15, TextView textView16, TextView textView17, TextView textView18) {
+    protected AdapterStorageSaveBinding(Object obj, View view, int i, TextView textView, SwitchButton switchButton, CheckBox checkBox, CheckBox checkBox2, CheckBox checkBox3, CheckBox checkBox4, TextView textView2, View view2, TextView textView3, View view3, Guideline guideline, TextView textView4, SwitchButton switchButton2, TextView textView5, TextView textView6, TextView textView7, SwitchButton switchButton3, TextView textView8, SwitchButton switchButton4, TextView textView9, EditText editText, TextView textView10, EditText editText2, Button button, TextView textView11, TextView textView12, TextView textView13, SwitchButton switchButton5, TextView textView14, TextView textView15, TextView textView16, TextView textView17, TextView textView18) {
         super(obj, view, i);
         this.autoName = textView;
         this.autoNameSwitch = switchButton;

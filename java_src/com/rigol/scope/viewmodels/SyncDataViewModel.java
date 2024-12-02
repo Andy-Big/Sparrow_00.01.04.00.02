@@ -14,6 +14,7 @@ import com.rigol.scope.views.baseview.ThresholdLine;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+
 /* loaded from: classes2.dex */
 public class SyncDataViewModel extends ViewModel {
     private final Map<String, MutableLiveData<Object>> bus = new HashMap();
@@ -228,8 +229,7 @@ public class SyncDataViewModel extends ViewModel {
         });
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ void lambda$bind$2(DecodeParam decodeParam, ThresholdLine thresholdLine, Object obj) {
+    static /* synthetic */ void lambda$bind$2(DecodeParam decodeParam, ThresholdLine thresholdLine, Object obj) {
         if (decodeParam.getPal_bus() == 11) {
             thresholdLine.setPosition(decodeParam.getBus_chan(), decodeParam.getPal_dat_thres());
         } else {

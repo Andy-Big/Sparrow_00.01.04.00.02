@@ -34,6 +34,7 @@ import com.rigol.scope.views.spinner.PopupSpinner;
 import com.rigol.scope.views.trigger.TriggerPopupView;
 import java.util.ArrayList;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public class TriggerOverAdapter extends RecyclerView.Adapter<TriggerOverHolder> implements View.OnClickListener, CompoundButton.OnCheckedChangeListener, AorBManager.OnSetTextById, AorBManager.OnTextReset, AorBManager.OnSetTextByTriggerLevelRoll {
     private View anchorView;
@@ -85,6 +86,7 @@ public class TriggerOverAdapter extends RecyclerView.Adapter<TriggerOverHolder> 
         this.serviceId = triggerParam.getServiceId();
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public TriggerOverHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         this.binding = AdapterTriggerOverBinding.inflate(LayoutInflater.from(viewGroup.getContext()), viewGroup, false);
@@ -156,6 +158,7 @@ public class TriggerOverAdapter extends RecyclerView.Adapter<TriggerOverHolder> 
         }
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(TriggerOverHolder triggerOverHolder, int i) {
         ShowTriggerOver();

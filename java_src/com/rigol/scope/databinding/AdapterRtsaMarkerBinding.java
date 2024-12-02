@@ -10,6 +10,7 @@ import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import com.rigol.scope.R;
 import com.rigol.scope.data.FftParam;
+
 /* loaded from: classes2.dex */
 public abstract class AdapterRtsaMarkerBinding extends ViewDataBinding {
     public final Button addAllBtn;
@@ -27,8 +28,7 @@ public abstract class AdapterRtsaMarkerBinding extends ViewDataBinding {
 
     public abstract void setParam(FftParam fftParam);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public AdapterRtsaMarkerBinding(Object obj, View view, int i, Button button, CheckBox checkBox, CheckBox checkBox2, CheckBox checkBox3, CheckBox checkBox4, CheckBox checkBox5, CheckBox checkBox6, CheckBox checkBox7, CheckBox checkBox8, Button button2) {
+    protected AdapterRtsaMarkerBinding(Object obj, View view, int i, Button button, CheckBox checkBox, CheckBox checkBox2, CheckBox checkBox3, CheckBox checkBox4, CheckBox checkBox5, CheckBox checkBox6, CheckBox checkBox7, CheckBox checkBox8, Button button2) {
         super(obj, view, i);
         this.addAllBtn = button;
         this.checkBoxMarker1 = checkBox;

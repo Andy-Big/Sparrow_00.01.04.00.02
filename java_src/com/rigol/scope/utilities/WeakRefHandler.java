@@ -4,6 +4,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import java.lang.ref.WeakReference;
+
 /* loaded from: classes2.dex */
 public class WeakRefHandler extends Handler {
     private final WeakReference<Handler.Callback> weakReference;

@@ -7,6 +7,7 @@ import android.widget.TextView;
 import androidx.databinding.DataBindingComponent;
 import androidx.databinding.ViewDataBinding;
 import com.rigol.scope.R;
+
 /* loaded from: classes2.dex */
 public class AdapterUtilityInformationBindingImpl extends AdapterUtilityInformationBinding {
     private static final ViewDataBinding.IncludedLayouts sIncludes = null;

@@ -12,6 +12,7 @@ import androidx.databinding.ViewDataBinding;
 import com.rigol.scope.R;
 import com.rigol.scope.views.DisableTouchEventRecyclerView;
 import com.rigol.scope.views.histogram.MeasHistogramResultParam;
+
 /* loaded from: classes2.dex */
 public abstract class AdapterItemResultMeasHistogramBinding extends ViewDataBinding {
     public final ImageView icon;
@@ -23,8 +24,7 @@ public abstract class AdapterItemResultMeasHistogramBinding extends ViewDataBind
 
     public abstract void setParam(MeasHistogramResultParam measHistogramResultParam);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public AdapterItemResultMeasHistogramBinding(Object obj, View view, int i, ImageView imageView, DisableTouchEventRecyclerView disableTouchEventRecyclerView, TextView textView, ConstraintLayout constraintLayout) {
+    protected AdapterItemResultMeasHistogramBinding(Object obj, View view, int i, ImageView imageView, DisableTouchEventRecyclerView disableTouchEventRecyclerView, TextView textView, ConstraintLayout constraintLayout) {
         super(obj, view, i);
         this.icon = imageView;
         this.resultList = disableTouchEventRecyclerView;

@@ -13,6 +13,7 @@ import com.rigol.scope.viewmodels.SharedViewModel;
 import com.rigol.scope.viewmodels.SyncDataViewModel;
 import com.rigol.scope.viewmodels.UpdateUIViewModel;
 import timber.log.Timber;
+
 /* loaded from: classes.dex */
 public class BaseFragment extends Fragment {
     protected AppCompatActivity mActivity;
@@ -51,8 +52,7 @@ public class BaseFragment extends Fragment {
         this.mActivity = (AppCompatActivity) context;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public ViewModelProvider getAppViewModelProvider() {
+    protected ViewModelProvider getAppViewModelProvider() {
         return ((App) this.mActivity.getApplicationContext()).getAppViewModelProvider(this.mActivity);
     }
 

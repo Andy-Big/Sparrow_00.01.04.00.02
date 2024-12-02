@@ -5,6 +5,7 @@ import android.graphics.Paint;
 import androidx.recyclerview.widget.RecyclerView;
 import com.rigol.scope.R;
 import com.rigol.scope.utilities.ContextUtil;
+
 /* loaded from: classes2.dex */
 public class BackgroundItemDecoration extends RecyclerView.ItemDecoration {
     private int itemHeight;

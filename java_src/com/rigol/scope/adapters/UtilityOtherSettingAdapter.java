@@ -27,6 +27,7 @@ import com.rigol.scope.views.spinner.PopupSpinner;
 import java.util.ArrayList;
 import java.util.List;
 import kotlinx.coroutines.DebugKt;
+
 /* loaded from: classes.dex */
 public class UtilityOtherSettingAdapter extends RecyclerView.Adapter<OtherSettingViewHolder> {
     private static final String SYS_DP_STATE = "sys.hdmi_status.aux";
@@ -51,6 +52,7 @@ public class UtilityOtherSettingAdapter extends RecyclerView.Adapter<OtherSettin
         this.baseView = view;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public OtherSettingViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         this.binding = AdapterUtilityOtherBinding.inflate(LayoutInflater.from(viewGroup.getContext()), viewGroup, false);
@@ -65,6 +67,7 @@ public class UtilityOtherSettingAdapter extends RecyclerView.Adapter<OtherSettin
         return new OtherSettingViewHolder(this.binding);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(OtherSettingViewHolder otherSettingViewHolder, int i) {
         final HorizontalParam value = this.horizontalViewModel.getLiveData().getValue();
@@ -113,22 +116,19 @@ public class UtilityOtherSettingAdapter extends RecyclerView.Adapter<OtherSettin
         });
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ void lambda$onBindViewHolder$0(HorizontalParam horizontalParam, CompoundButton compoundButton, boolean z) {
+    static /* synthetic */ void lambda$onBindViewHolder$0(HorizontalParam horizontalParam, CompoundButton compoundButton, boolean z) {
         if (compoundButton.isPressed() && horizontalParam != null) {
             horizontalParam.saveFilter1(z);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ void lambda$onBindViewHolder$1(HorizontalParam horizontalParam, CompoundButton compoundButton, boolean z) {
+    static /* synthetic */ void lambda$onBindViewHolder$1(HorizontalParam horizontalParam, CompoundButton compoundButton, boolean z) {
         if (compoundButton.isPressed() && horizontalParam != null) {
             horizontalParam.saveFilter2(z);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ void lambda$onBindViewHolder$2(UtilityParam utilityParam, CompoundButton compoundButton, boolean z) {
+    static /* synthetic */ void lambda$onBindViewHolder$2(UtilityParam utilityParam, CompoundButton compoundButton, boolean z) {
         if (compoundButton.isPressed() && utilityParam != null) {
             if (z) {
                 utilityParam.saveRefClock(ServiceEnum.RefClock.REF_10MHz_IN);
@@ -138,21 +138,18 @@ public class UtilityOtherSettingAdapter extends RecyclerView.Adapter<OtherSettin
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ void lambda$onBindViewHolder$3(UtilityParam utilityParam, CompoundButton compoundButton, boolean z) {
+    static /* synthetic */ void lambda$onBindViewHolder$3(UtilityParam utilityParam, CompoundButton compoundButton, boolean z) {
         if (compoundButton.isPressed() && utilityParam != null) {
             utilityParam.saveZbdLed(z);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.rigol.scope.adapters.UtilityOtherSettingAdapter$1  reason: invalid class name */
     /* loaded from: classes.dex */
-    public class AnonymousClass1 implements View.OnClickListener {
+    class AnonymousClass1 implements View.OnClickListener {
         final /* synthetic */ UtilityParam val$utilityParam;
 
-        /* JADX INFO: Access modifiers changed from: package-private */
-        public static /* synthetic */ void lambda$onClick$0(ShellUtils.CommandResult commandResult) {
+        static /* synthetic */ void lambda$onClick$0(ShellUtils.CommandResult commandResult) {
         }
 
         AnonymousClass1(UtilityParam utilityParam) {
@@ -171,8 +168,7 @@ public class UtilityOtherSettingAdapter extends RecyclerView.Adapter<OtherSettin
             });
         }
 
-        /* JADX INFO: Access modifiers changed from: package-private */
-        public static /* synthetic */ void lambda$onClick$2(UtilityParam utilityParam, View view, RecyclerView.ViewHolder viewHolder, int i, MappingObject mappingObject) {
+        static /* synthetic */ void lambda$onClick$2(UtilityParam utilityParam, View view, RecyclerView.ViewHolder viewHolder, int i, MappingObject mappingObject) {
             String str;
             if (utilityParam != null) {
                 ServiceEnum.HDMI_Ratio hDMI_RatioFromValue1 = ServiceEnum.getHDMI_RatioFromValue1(mappingObject.getValue());
@@ -228,10 +224,9 @@ public class UtilityOtherSettingAdapter extends RecyclerView.Adapter<OtherSettin
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.rigol.scope.adapters.UtilityOtherSettingAdapter$2  reason: invalid class name */
     /* loaded from: classes.dex */
-    public static /* synthetic */ class AnonymousClass2 {
+    static /* synthetic */ class AnonymousClass2 {
         static final /* synthetic */ int[] $SwitchMap$com$rigol$scope$cil$ServiceEnum$HDMI_Ratio;
 
         static {
@@ -272,8 +267,7 @@ public class UtilityOtherSettingAdapter extends RecyclerView.Adapter<OtherSettin
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ void lambda$onBindViewHolder$4(View view) {
+    static /* synthetic */ void lambda$onBindViewHolder$4(View view) {
         BasePopupView basePopupView = PopupViewManager.getInstance().get(OpenSourceLicensePopupView.class);
         if (basePopupView == null) {
             OpenSourceLicensePopupView openSourceLicensePopupView = new OpenSourceLicensePopupView();

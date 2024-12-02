@@ -48,6 +48,7 @@ import com.rigol.util.ToastUtils;
 import java.util.ArrayList;
 import java.util.List;
 import timber.log.Timber;
+
 /* loaded from: classes2.dex */
 public class SearchPopupView extends BasePopupView implements View.OnClickListener, CompoundButton.OnCheckedChangeListener {
     static final /* synthetic */ boolean $assertionsDisabled = false;
@@ -83,6 +84,7 @@ public class SearchPopupView extends BasePopupView implements View.OnClickListen
         this.searchViewModel = searchViewModel;
         if (searchViewModel != null) {
             searchViewModel.getLiveData().observe((LifecycleOwner) ActivityUtils.getTopActivity(), new Observer<SearchParam>() { // from class: com.rigol.scope.views.search.SearchPopupView.1
+                /* JADX DEBUG: Method merged with bridge method */
                 @Override // androidx.lifecycle.Observer
                 public void onChanged(SearchParam searchParam) {
                     SearchPopupView.this.searchParam = searchParam;
@@ -98,6 +100,7 @@ public class SearchPopupView extends BasePopupView implements View.OnClickListen
         this.horizontalViewModel = horizontalViewModel;
         if (horizontalViewModel != null) {
             horizontalViewModel.getLiveData().observe((LifecycleOwner) ActivityUtils.getTopActivity(), new Observer<HorizontalParam>() { // from class: com.rigol.scope.views.search.SearchPopupView.2
+                /* JADX DEBUG: Method merged with bridge method */
                 @Override // androidx.lifecycle.Observer
                 public void onChanged(HorizontalParam horizontalParam) {
                     SearchPopupView.this.horizontalParam = horizontalParam;
@@ -240,10 +243,9 @@ public class SearchPopupView extends BasePopupView implements View.OnClickListen
         this.searchPulseAdapter.setMove(false);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.rigol.scope.views.search.SearchPopupView$5  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public static /* synthetic */ class AnonymousClass5 {
+    static /* synthetic */ class AnonymousClass5 {
         static final /* synthetic */ int[] $SwitchMap$com$rigol$scope$cil$ServiceEnum$enumSearchType;
 
         static {

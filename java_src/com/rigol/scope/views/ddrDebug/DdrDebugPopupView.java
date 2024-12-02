@@ -24,6 +24,7 @@ import com.rigol.scope.views.keyboard.KeyboardListener;
 import com.rigol.scope.views.keyboard.KeyboardPopupView;
 import java.util.Objects;
 import javax.mail.UIDFolder;
+
 /* loaded from: classes2.dex */
 public class DdrDebugPopupView extends BasePopupView implements View.OnClickListener {
     private final PopupviewDdrBinding binding;
@@ -42,6 +43,7 @@ public class DdrDebugPopupView extends BasePopupView implements View.OnClickList
         StorageViewModel storageViewModel = (StorageViewModel) ContextUtil.getAppViewModel(StorageViewModel.class);
         if (storageViewModel != null) {
             storageViewModel.getSaveLiveData().observe((LifecycleOwner) ActivityUtils.getTopActivity(), new Observer<StorageSaveParam>() { // from class: com.rigol.scope.views.ddrDebug.DdrDebugPopupView.1
+                /* JADX DEBUG: Method merged with bridge method */
                 @Override // androidx.lifecycle.Observer
                 public void onChanged(StorageSaveParam storageSaveParam) {
                     DdrDebugPopupView.this.param = storageSaveParam;

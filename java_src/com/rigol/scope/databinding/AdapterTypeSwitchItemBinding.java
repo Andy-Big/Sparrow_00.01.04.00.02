@@ -8,13 +8,13 @@ import android.widget.TextView;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import com.rigol.scope.R;
+
 /* loaded from: classes2.dex */
 public abstract class AdapterTypeSwitchItemBinding extends ViewDataBinding {
     public final Switch switchButton;
     public final TextView text1;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public AdapterTypeSwitchItemBinding(Object obj, View view, int i, Switch r4, TextView textView) {
+    protected AdapterTypeSwitchItemBinding(Object obj, View view, int i, Switch r4, TextView textView) {
         super(obj, view, i);
         this.switchButton = r4;
         this.text1 = textView;

@@ -6,6 +6,7 @@ import com.rigol.scope.data.BaseParam;
 import com.rigol.scope.data.OptionParam;
 import com.rigol.scope.utilities.ContextUtil;
 import com.rigol.scope.viewmodels.OptionViewModel;
+
 /* loaded from: classes2.dex */
 public class BusAnalyseParam extends BaseParam {
     private static final int DEFAULT_ANASELECT = ServiceEnum.BusAnalyseType.AnalyseUsb.value1;

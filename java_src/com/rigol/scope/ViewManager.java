@@ -12,6 +12,7 @@ import com.rigol.scope.utilities.ViewUtil;
 import com.rigol.scope.views.spinner.PopupSpinner;
 import java.util.ArrayList;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public class ViewManager {
     private static Context context;

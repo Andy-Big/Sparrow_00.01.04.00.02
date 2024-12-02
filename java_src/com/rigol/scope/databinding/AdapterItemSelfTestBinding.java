@@ -9,6 +9,7 @@ import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import com.rigol.scope.R;
 import com.rigol.scope.data.SelfTestParam;
+
 /* loaded from: classes2.dex */
 public abstract class AdapterItemSelfTestBinding extends ViewDataBinding {
     @Bindable
@@ -24,8 +25,7 @@ public abstract class AdapterItemSelfTestBinding extends ViewDataBinding {
 
     public abstract void setParam(SelfTestParam selfTestParam);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public AdapterItemSelfTestBinding(Object obj, View view, int i, TextView textView, TextView textView2, TextView textView3, TextView textView4) {
+    protected AdapterItemSelfTestBinding(Object obj, View view, int i, TextView textView, TextView textView2, TextView textView3, TextView textView4) {
         super(obj, view, i);
         this.tvId = textView;
         this.tvItemValue = textView2;

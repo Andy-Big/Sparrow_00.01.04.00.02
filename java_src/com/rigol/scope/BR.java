@@ -1,4 +1,5 @@
 package com.rigol.scope;
+
 /* loaded from: classes.dex */
 public class BR {
     public static final int AmpOrderMapping = 1;

@@ -14,6 +14,7 @@ import androidx.databinding.ViewDataBinding;
 import com.rigol.scope.R;
 import com.rigol.scope.data.DecodeParam;
 import com.rigol.scope.data.MappingObject;
+
 /* loaded from: classes2.dex */
 public abstract class AdapterDecodeSpiBinding extends ViewDataBinding {
     public final RadioButton decodeSpiClkEdgeDownRadioButton;
@@ -108,8 +109,7 @@ public abstract class AdapterDecodeSpiBinding extends ViewDataBinding {
 
     public abstract void setPolarityPositiveMapping(MappingObject mappingObject);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public AdapterDecodeSpiBinding(Object obj, View view, int i, RadioButton radioButton, TextView textView, RadioGroup radioGroup, RadioButton radioButton2, TextView textView2, TextView textView3, TextView textView4, TextView textView5, TextView textView6, TextView textView7, RadioButton radioButton3, RadioButton radioButton4, RadioGroup radioGroup2, TextView textView8, TextView textView9, TextView textView10, RadioButton radioButton5, TextView textView11, RadioButton radioButton6, RadioGroup radioGroup3, ConstraintLayout constraintLayout, TextView textView12, TextView textView13, TextView textView14, TextView textView15, RadioButton radioButton7, TextView textView16, RadioGroup radioGroup4, RadioButton radioButton8, TextView textView17, TextView textView18, TextView textView19, TextView textView20, TextView textView21, RadioButton radioButton9, RadioButton radioButton10, RadioGroup radioGroup5, TextView textView22, TextView textView23, TextView textView24, TextView textView25, View view2, Guideline guideline, Guideline guideline2, Guideline guideline3, Guideline guideline4, Guideline guideline5) {
+    protected AdapterDecodeSpiBinding(Object obj, View view, int i, RadioButton radioButton, TextView textView, RadioGroup radioGroup, RadioButton radioButton2, TextView textView2, TextView textView3, TextView textView4, TextView textView5, TextView textView6, TextView textView7, RadioButton radioButton3, RadioButton radioButton4, RadioGroup radioGroup2, TextView textView8, TextView textView9, TextView textView10, RadioButton radioButton5, TextView textView11, RadioButton radioButton6, RadioGroup radioGroup3, ConstraintLayout constraintLayout, TextView textView12, TextView textView13, TextView textView14, TextView textView15, RadioButton radioButton7, TextView textView16, RadioGroup radioGroup4, RadioButton radioButton8, TextView textView17, TextView textView18, TextView textView19, TextView textView20, TextView textView21, RadioButton radioButton9, RadioButton radioButton10, RadioGroup radioGroup5, TextView textView22, TextView textView23, TextView textView24, TextView textView25, View view2, Guideline guideline, Guideline guideline2, Guideline guideline3, Guideline guideline4, Guideline guideline5) {
         super(obj, view, i);
         this.decodeSpiClkEdgeDownRadioButton = radioButton;
         this.decodeSpiClkEdgeLabel = textView;

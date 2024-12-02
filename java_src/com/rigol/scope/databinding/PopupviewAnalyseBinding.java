@@ -7,12 +7,12 @@ import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import androidx.recyclerview.widget.RecyclerView;
 import com.rigol.scope.R;
+
 /* loaded from: classes2.dex */
 public abstract class PopupviewAnalyseBinding extends ViewDataBinding {
     public final RecyclerView analyseList;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public PopupviewAnalyseBinding(Object obj, View view, int i, RecyclerView recyclerView) {
+    protected PopupviewAnalyseBinding(Object obj, View view, int i, RecyclerView recyclerView) {
         super(obj, view, i);
         this.analyseList = recyclerView;
     }

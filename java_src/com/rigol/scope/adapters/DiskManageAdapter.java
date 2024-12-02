@@ -14,6 +14,7 @@ import com.rigol.scope.databinding.AdapterItemDiskManageBinding;
 import com.rigol.scope.utilities.ContextUtil;
 import com.rigol.scope.viewmodels.DiskManageViewModel;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public class DiskManageAdapter extends BaseAdapter<List<FileParam>> {
     private DiskManageParam diskManageParam;
@@ -45,6 +46,7 @@ public class DiskManageAdapter extends BaseAdapter<List<FileParam>> {
         this.onSelectedListener = onSelectedListener;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.rigol.scope.adapters.MultiItemTypeAdapter, androidx.recyclerview.widget.RecyclerView.Adapter
     public BaseViewHolder<? extends ViewDataBinding> onCreateViewHolder(ViewGroup viewGroup, int i) {
         final BaseViewHolder<? extends ViewDataBinding> onCreateViewHolder = super.onCreateViewHolder(viewGroup, i);

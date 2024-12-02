@@ -33,6 +33,7 @@ import com.rigol.scope.views.spinner.PopupSpinner;
 import com.rigol.scope.views.trigger.TriggerPopupView;
 import java.util.ArrayList;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public class TriggerRuntAdapter extends RecyclerView.Adapter<TriggerRuntHolder> implements View.OnClickListener, CompoundButton.OnCheckedChangeListener, AorBManager.OnSetTextById, AorBManager.OnTextReset, AorBManager.OnSetTextByTriggerLevelRoll {
     private View anchorView;
@@ -84,6 +85,7 @@ public class TriggerRuntAdapter extends RecyclerView.Adapter<TriggerRuntHolder> 
         this.serviceId = triggerParam.getServiceId();
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public TriggerRuntHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         this.binding = AdapterTriggerRuntBinding.inflate(LayoutInflater.from(viewGroup.getContext()), viewGroup, false);
@@ -161,6 +163,7 @@ public class TriggerRuntAdapter extends RecyclerView.Adapter<TriggerRuntHolder> 
         }
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(TriggerRuntHolder triggerRuntHolder, int i) {
         ShowTriggerRunt();

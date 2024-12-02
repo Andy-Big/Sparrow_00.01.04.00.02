@@ -14,6 +14,7 @@ import com.rigol.scope.R;
 import com.rigol.scope.data.FftParam;
 import com.rigol.scope.data.HorizontalParam;
 import com.rigol.scope.views.SwitchButton;
+
 /* loaded from: classes2.dex */
 public abstract class AdapterRtsaBasesettingBinding extends ViewDataBinding {
     public final TextView ampt;
@@ -61,8 +62,7 @@ public abstract class AdapterRtsaBasesettingBinding extends ViewDataBinding {
 
     public abstract void setParam(FftParam fftParam);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public AdapterRtsaBasesettingBinding(Object obj, View view, int i, TextView textView, ImageView imageView, Button button, TextView textView2, ImageView imageView2, TextView textView3, EditText editText, TextView textView4, EditText editText2, TextView textView5, EditText editText3, TextView textView6, EditText editText4, TextView textView7, ImageView imageView3, Button button2, Button button3, TextView textView8, TextView textView9, Button button4, TextView textView10, TextView textView11, SwitchButton switchButton, TextView textView12, TextView textView13, EditText editText5, TextView textView14, EditText editText6, TextView textView15, TextView textView16, TextView textView17, ImageView imageView4, TextView textView18, TextView textView19, TextView textView20, TextView textView21) {
+    protected AdapterRtsaBasesettingBinding(Object obj, View view, int i, TextView textView, ImageView imageView, Button button, TextView textView2, ImageView imageView2, TextView textView3, EditText editText, TextView textView4, EditText editText2, TextView textView5, EditText editText3, TextView textView6, EditText editText4, TextView textView7, ImageView imageView3, Button button2, Button button3, TextView textView8, TextView textView9, Button button4, TextView textView10, TextView textView11, SwitchButton switchButton, TextView textView12, TextView textView13, EditText editText5, TextView textView14, EditText editText6, TextView textView15, TextView textView16, TextView textView17, ImageView imageView4, TextView textView18, TextView textView19, TextView textView20, TextView textView21) {
         super(obj, view, i);
         this.ampt = textView;
         this.amptRectangle = imageView;

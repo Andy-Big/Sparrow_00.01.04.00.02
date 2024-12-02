@@ -21,6 +21,7 @@ import com.rigol.scope.R;
 import com.rigol.scope.data.CalibrationParam;
 import com.rigol.scope.data.UtilityParam;
 import com.rigol.scope.views.NumberProgressBar;
+
 /* loaded from: classes2.dex */
 public class PopupviewCalibrationBindingImpl extends PopupviewCalibrationBinding {
     private static final ViewDataBinding.IncludedLayouts sIncludes = null;

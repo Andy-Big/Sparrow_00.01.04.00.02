@@ -44,6 +44,7 @@ import kotlin.NotImplementedError;
 import kotlin.Unit;
 import kotlin.jvm.internal.Intrinsics;
 import timber.log.Timber;
+
 /* compiled from: HistogramSettingPopupView.kt */
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0098\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010 \n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0002\b\n\u0018\u00002\u00020\u00012\u00020\u00022\u00020\u00032\u00020\u0004B\u0005¢\u0006\u0002\u0010\u0005J\u0010\u0010(\u001a\u00020)2\b\u0010*\u001a\u0004\u0018\u00010+J\u0010\u0010,\u001a\u0004\u0018\u00010-2\u0006\u0010.\u001a\u00020)J\u0018\u0010/\u001a\u0002002\u0006\u00101\u001a\u0002022\u0006\u00103\u001a\u000204H\u0016J\u0010\u00105\u001a\u0002002\u0006\u00106\u001a\u00020\u000bH\u0016J\u0010\u00107\u001a\u0002002\u0006\u00108\u001a\u00020)H\u0016J\u000e\u00109\u001a\u0002002\u0006\u0010.\u001a\u00020)J\u0006\u0010:\u001a\u000200J\u0006\u0010;\u001a\u000200J\u000e\u0010<\u001a\u0002002\u0006\u0010.\u001a\u00020)J\u000e\u0010=\u001a\u0002002\u0006\u0010.\u001a\u00020)R\u0010\u0010\u0006\u001a\u0004\u0018\u00010\u0007X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\b\u001a\u00020\tX\u0082\u0004¢\u0006\u0002\n\u0000R\u0010\u0010\n\u001a\u0004\u0018\u00010\u000bX\u0082\u0004¢\u0006\u0002\n\u0000R\u0013\u0010\f\u001a\u0004\u0018\u00010\r8F¢\u0006\u0006\u001a\u0004\b\u000e\u0010\u000fR\u0010\u0010\u0010\u001a\u0004\u0018\u00010\rX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0011\u001a\u0004\u0018\u00010\u0012X\u0082\u000e¢\u0006\u0002\n\u0000R\u001e\u0010\u0013\u001a\u0012\u0012\u0004\u0012\u00020\u00150\u0014j\b\u0012\u0004\u0012\u00020\u0015`\u0016X\u0082\u0004¢\u0006\u0002\n\u0000R\u0016\u0010\u0017\u001a\n\u0012\u0004\u0012\u00020\u0019\u0018\u00010\u0018X\u0082\u0004¢\u0006\u0002\n\u0000R\u0010\u0010\u001a\u001a\u0004\u0018\u00010\u001bX\u0082\u000e¢\u0006\u0002\n\u0000R\u001a\u0010\u001c\u001a\u00020\u001dX\u0086.¢\u0006\u000e\n\u0000\u001a\u0004\b\u001e\u0010\u001f\"\u0004\b \u0010!R\u0010\u0010\"\u001a\u0004\u0018\u00010#X\u0082\u0004¢\u0006\u0002\n\u0000R\u0010\u0010$\u001a\u0004\u0018\u00010%X\u0082\u0004¢\u0006\u0002\n\u0000R\u0010\u0010&\u001a\u0004\u0018\u00010'X\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006>"}, d2 = {"Lcom/rigol/scope/views/histogram/HistogramSettingPopupView;", "Lcom/rigol/scope/views/baseview/BaseDeletePopupView;", "Landroid/widget/CompoundButton$OnCheckedChangeListener;", "Landroid/view/View$OnClickListener;", "Lcom/rigol/scope/utilities/AorBManager$OnTextReset;", "()V", "aorBManager", "Lcom/rigol/scope/utilities/AorBManager;", "binding", "Lcom/rigol/scope/databinding/PopupviewResultHistogramBinding;", "clickedView", "Landroid/view/View;", "horParam", "Lcom/rigol/scope/data/HorizontalParam;", "getHorParam", "()Lcom/rigol/scope/data/HorizontalParam;", "horizontalParam", "keyboardPopupView", "Lcom/rigol/scope/views/keyboard/KeyboardPopupView;", "list_aorbParam", "Ljava/util/ArrayList;", "Lcom/rigol/scope/data/AorBParam;", "Lkotlin/collections/ArrayList;", "mappingObjects", "", "Lcom/rigol/scope/data/MappingObject;", "panelKeyViewModel", "Lcom/rigol/scope/viewmodels/PanelKeyViewModel;", "param", "Lcom/rigol/scope/views/histogram/HistogramResultParam;", "getParam", "()Lcom/rigol/scope/views/histogram/HistogramResultParam;", "setParam", "(Lcom/rigol/scope/views/histogram/HistogramResultParam;)V", "popupSpinner", "Lcom/rigol/scope/views/spinner/PopupSpinner;", "spinnerAdapter", "Lcom/rigol/scope/adapters/SpinnerAdapter;", "syncDataViewModel", "Lcom/rigol/scope/viewmodels/SyncDataViewModel;", "getServiceIDByChan", "", "chan", "Lcom/rigol/scope/cil/ServiceEnum$Chan;", "getVerticalParamByServiceID", "Lcom/rigol/scope/data/VerticalParam;", "serviceID", "onCheckedChanged", "", "buttonView", "Landroid/widget/CompoundButton;", "isChecked", "", "onClick", "v", "onResetDefault", "viewId", "updateBottomAttr", "updateLeftAttr", "updateRightAttr", "updateTopAttr", "updateVerUnit", "app_release"}, k = 1, mv = {1, 4, 1})
 /* loaded from: classes2.dex */
@@ -104,6 +105,7 @@ public final class HistogramSettingPopupView extends BaseDeletePopupView impleme
                 throw new NullPointerException("null cannot be cast to non-null type androidx.lifecycle.LifecycleOwner");
             }
             liveData2.observe((LifecycleOwner) topActivity, new Observer<HistogramResultParam>() { // from class: com.rigol.scope.views.histogram.HistogramSettingPopupView.2
+                /* JADX DEBUG: Method merged with bridge method */
                 @Override // androidx.lifecycle.Observer
                 public final void onChanged(HistogramResultParam histogramResultParam) {
                     HistogramSettingPopupView histogramSettingPopupView = HistogramSettingPopupView.this;
@@ -120,6 +122,7 @@ public final class HistogramSettingPopupView extends BaseDeletePopupView impleme
                 throw new NullPointerException("null cannot be cast to non-null type androidx.lifecycle.LifecycleOwner");
             }
             liveData.observe((LifecycleOwner) topActivity2, new Observer<HorizontalParam>() { // from class: com.rigol.scope.views.histogram.HistogramSettingPopupView.3
+                /* JADX DEBUG: Method merged with bridge method */
                 @Override // androidx.lifecycle.Observer
                 public final void onChanged(HorizontalParam horizontalParam) {
                     HistogramSettingPopupView.this.horizontalParam = horizontalParam;
@@ -315,6 +318,7 @@ public final class HistogramSettingPopupView extends BaseDeletePopupView impleme
                     throw new NullPointerException("null cannot be cast to non-null type androidx.lifecycle.LifecycleOwner");
                 }
                 onKeyUpData.observe((LifecycleOwner) topActivity3, new Observer<KeyEvent>() { // from class: com.rigol.scope.views.histogram.HistogramSettingPopupView.13
+                    /* JADX DEBUG: Method merged with bridge method */
                     @Override // androidx.lifecycle.Observer
                     public final void onChanged(KeyEvent keyEvent) {
                         if (PopupViewManager.getInstance().isShowing(HistogramSettingPopupView.class)) {
@@ -506,6 +510,7 @@ public final class HistogramSettingPopupView extends BaseDeletePopupView impleme
             case R.id.histogram_type_spinner /* 2131363057 */:
                 final List<MappingObject> list = ViewUtil.getList((int) R.array.msg_histo_type);
                 ViewUtil.showSpinner(this.anchor, v, list, new PopupSpinner.OnItemClickListener<MappingObject>() { // from class: com.rigol.scope.views.histogram.HistogramSettingPopupView$onClick$2
+                    /* JADX DEBUG: Method merged with bridge method */
                     @Override // com.rigol.scope.views.spinner.PopupSpinner.OnItemClickListener
                     public final void onItemClick(View view3, RecyclerView.ViewHolder viewHolder, int i, MappingObject mappingObject) {
                         MappingObject mappingObject2 = (MappingObject) list.get(i);
@@ -653,6 +658,7 @@ public final class HistogramSettingPopupView extends BaseDeletePopupView impleme
             case R.id.source_spinner /* 2131363901 */:
                 final List<MappingObject> filterChan = ViewUtil.filterChan(ViewUtil.getList((int) R.array.msg_chan_list));
                 ViewUtil.showChanSpinner(this.anchor, v, filterChan, new PopupSpinner.OnItemClickListener<MappingObject>() { // from class: com.rigol.scope.views.histogram.HistogramSettingPopupView$onClick$1
+                    /* JADX DEBUG: Method merged with bridge method */
                     @Override // com.rigol.scope.views.spinner.PopupSpinner.OnItemClickListener
                     public final void onItemClick(View view6, RecyclerView.ViewHolder viewHolder, int i, MappingObject mappingObject) {
                         MappingObject mappingObject2 = (MappingObject) filterChan.get(i);

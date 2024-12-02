@@ -19,6 +19,7 @@ import com.rigol.scope.utilities.ContextUtil;
 import com.rigol.scope.utilities.ViewUtil;
 import com.rigol.scope.views.DisableTouchEventRecyclerView;
 import com.rigol.scope.views.resultItem.ResultItemConstraintLayout;
+
 /* loaded from: classes2.dex */
 public class AdapterItemResultCursorBindingImpl extends AdapterItemResultCursorBinding {
     private static final ViewDataBinding.IncludedLayouts sIncludes = null;

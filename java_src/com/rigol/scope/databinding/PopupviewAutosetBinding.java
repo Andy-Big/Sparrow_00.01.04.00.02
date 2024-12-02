@@ -7,12 +7,12 @@ import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import androidx.recyclerview.widget.RecyclerView;
 import com.rigol.scope.R;
+
 /* loaded from: classes2.dex */
 public abstract class PopupviewAutosetBinding extends ViewDataBinding {
     public final RecyclerView list;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public PopupviewAutosetBinding(Object obj, View view, int i, RecyclerView recyclerView) {
+    protected PopupviewAutosetBinding(Object obj, View view, int i, RecyclerView recyclerView) {
         super(obj, view, i);
         this.list = recyclerView;
     }

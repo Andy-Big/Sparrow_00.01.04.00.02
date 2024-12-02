@@ -20,6 +20,7 @@ import com.rigol.scope.viewmodels.SyncDataViewModel;
 import com.rigol.scope.viewmodels.UpdateUIViewModel;
 import org.json.JSONArray;
 import org.json.JSONException;
+
 /* loaded from: classes2.dex */
 public class SearchMarkerView extends View {
     private int mainMarkNum;

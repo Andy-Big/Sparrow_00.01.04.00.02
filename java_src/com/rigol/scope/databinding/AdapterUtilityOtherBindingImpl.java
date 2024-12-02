@@ -1,5 +1,6 @@
 package com.rigol.scope.databinding;
 
+import android.support.v4.media.session.PlaybackStateCompat;
 import android.util.SparseIntArray;
 import android.view.View;
 import android.widget.ImageView;
@@ -7,11 +8,16 @@ import android.widget.TextView;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.databinding.DataBindingComponent;
 import androidx.databinding.ViewDataBinding;
+import androidx.databinding.adapters.CompoundButtonBindingAdapter;
+import androidx.databinding.adapters.TextViewBindingAdapter;
 import com.rigol.scope.R;
+import com.rigol.scope.cil.ServiceEnum;
 import com.rigol.scope.data.HorizontalParam;
 import com.rigol.scope.data.MappingObject;
 import com.rigol.scope.data.UtilityParam;
+import com.rigol.scope.utilities.ViewUtil;
 import com.rigol.scope.views.SwitchButton;
+
 /* loaded from: classes2.dex */
 public class AdapterUtilityOtherBindingImpl extends AdapterUtilityOtherBinding {
     private static final ViewDataBinding.IncludedLayouts sIncludes = null;
@@ -186,13 +192,102 @@ public class AdapterUtilityOtherBindingImpl extends AdapterUtilityOtherBinding {
     @Override // androidx.databinding.ViewDataBinding
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
     protected void executeBindings() {
-        /*
-            Method dump skipped, instructions count: 281
-            To view this dump add '--comments-level debug' option
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.rigol.scope.databinding.AdapterUtilityOtherBindingImpl.executeBindings():void");
+        long j;
+        String str;
+        int i;
+        boolean z;
+        boolean z2;
+        boolean z3;
+        boolean z4;
+        int i2;
+        synchronized (this) {
+            j = this.mDirtyFlags;
+            this.mDirtyFlags = 0L;
+        }
+        UtilityParam utilityParam = this.mUtilityParam;
+        HorizontalParam horizontalParam = this.mHorizontalParam;
+        boolean z5 = false;
+        if ((635 & j) != 0) {
+            if ((j & 579) != 0) {
+                ServiceEnum.HDMI_Ratio hdmiRatio = utilityParam != null ? utilityParam.getHdmiRatio() : null;
+                MappingObject mappingObject = ViewUtil.getMappingObject(R.array.msg_app_utility_hdmi_ratio, hdmiRatio != null ? hdmiRatio.value1 : 0);
+                updateRegistration(1, mappingObject);
+                if (mappingObject != null) {
+                    str = mappingObject.getStr();
+                    if ((j & 529) != 0) {
+                        if ((utilityParam != null ? utilityParam.getRefClock() : null) == ServiceEnum.RefClock.REF_10MHz_IN) {
+                            z = true;
+                            z2 = ((j & 545) != 0 || utilityParam == null) ? false : utilityParam.getZbdLed();
+                            i2 = ((j & 521) > 0L ? 1 : ((j & 521) == 0L ? 0 : -1));
+                            if (i2 != 0) {
+                                boolean projectMode = utilityParam != null ? utilityParam.getProjectMode() : false;
+                                if (i2 != 0) {
+                                    j |= projectMode ? PlaybackStateCompat.ACTION_PLAY_FROM_SEARCH : PlaybackStateCompat.ACTION_PLAY_FROM_MEDIA_ID;
+                                }
+                                if (!projectMode) {
+                                    i = 8;
+                                }
+                            }
+                            i = 0;
+                        }
+                    }
+                    z = false;
+                    if ((j & 545) != 0) {
+                    }
+                    i2 = ((j & 521) > 0L ? 1 : ((j & 521) == 0L ? 0 : -1));
+                    if (i2 != 0) {
+                    }
+                    i = 0;
+                }
+            }
+            str = null;
+            if ((j & 529) != 0) {
+            }
+            z = false;
+            if ((j & 545) != 0) {
+            }
+            i2 = ((j & 521) > 0L ? 1 : ((j & 521) == 0L ? 0 : -1));
+            if (i2 != 0) {
+            }
+            i = 0;
+        } else {
+            str = null;
+            i = 0;
+            z = false;
+            z2 = false;
+        }
+        if ((j & 900) != 0) {
+            boolean filter2 = ((j & 772) == 0 || horizontalParam == null) ? false : horizontalParam.getFilter2();
+            if ((j & 644) != 0 && horizontalParam != null) {
+                z5 = horizontalParam.getFilter1();
+            }
+            z4 = filter2;
+            z3 = z5;
+        } else {
+            z3 = false;
+            z4 = false;
+        }
+        if ((521 & j) != 0) {
+            this.filter2Layout.setVisibility(i);
+            this.hdmi.setVisibility(i);
+            this.hdmiSpinner.setVisibility(i);
+        }
+        if ((579 & j) != 0) {
+            TextViewBindingAdapter.setText(this.hdmiSpinner, str);
+        }
+        if ((j & 644) != 0) {
+            CompoundButtonBindingAdapter.setChecked(this.switchButtonFilter1, z3);
+        }
+        if ((j & 772) != 0) {
+            CompoundButtonBindingAdapter.setChecked(this.switchButtonFilter2, z4);
+        }
+        if ((j & 529) != 0) {
+            CompoundButtonBindingAdapter.setChecked(this.switchButtonRefClock, z);
+        }
+        if ((j & 545) != 0) {
+            CompoundButtonBindingAdapter.setChecked(this.switchButtonZbd, z2);
+        }
     }
 }

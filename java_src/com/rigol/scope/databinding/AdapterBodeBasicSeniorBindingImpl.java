@@ -1,18 +1,27 @@
 package com.rigol.scope.databinding;
 
+import android.graphics.drawable.Drawable;
 import android.support.v4.media.session.PlaybackStateCompat;
 import android.util.SparseIntArray;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import androidx.appcompat.content.res.AppCompatResources;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.Guideline;
 import androidx.databinding.DataBindingComponent;
 import androidx.databinding.ViewDataBinding;
+import androidx.databinding.adapters.CompoundButtonBindingAdapter;
+import androidx.databinding.adapters.ImageViewBindingAdapter;
+import androidx.databinding.adapters.TextViewBindingAdapter;
 import com.rigol.scope.R;
 import com.rigol.scope.data.BodeParam;
 import com.rigol.scope.data.MappingObject;
+import com.rigol.scope.utilities.ColorUtil;
+import com.rigol.scope.utilities.ContextUtil;
+import com.rigol.scope.utilities.ViewUtil;
 import com.rigol.scope.views.SwitchButton;
+
 /* loaded from: classes2.dex */
 public class AdapterBodeBasicSeniorBindingImpl extends AdapterBodeBasicSeniorBinding {
     private static final ViewDataBinding.IncludedLayouts sIncludes = null;
@@ -203,13 +212,242 @@ public class AdapterBodeBasicSeniorBindingImpl extends AdapterBodeBasicSeniorBin
     @Override // androidx.databinding.ViewDataBinding
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
     protected void executeBindings() {
-        /*
-            Method dump skipped, instructions count: 621
-            To view this dump add '--comments-level debug' option
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.rigol.scope.databinding.AdapterBodeBasicSeniorBindingImpl.executeBindings():void");
+        long j;
+        long j2;
+        float f;
+        String str;
+        boolean z;
+        int i;
+        String str2;
+        String str3;
+        String str4;
+        Drawable drawable;
+        boolean z2;
+        int i2;
+        boolean z3;
+        boolean z4;
+        Drawable drawable2;
+        float f2;
+        boolean z5;
+        Drawable drawable3;
+        boolean z6;
+        String str5;
+        int i3;
+        String str6;
+        long j3;
+        String str7;
+        synchronized (this) {
+            j = this.mDirtyFlags;
+            j2 = 0;
+            this.mDirtyFlags = 0L;
+        }
+        BodeParam bodeParam = this.mParma;
+        if ((8191 & j) != 0) {
+            int i4 = ((j & 4176) > 0L ? 1 : ((j & 4176) == 0L ? 0 : -1));
+            if (i4 != 0) {
+                z5 = bodeParam != null ? bodeParam.getBodeRunStopEnable() : false;
+                boolean z7 = z5;
+                if (i4 != 0) {
+                    j |= z7 ? PlaybackStateCompat.ACTION_PREPARE_FROM_SEARCH : PlaybackStateCompat.ACTION_PREPARE_FROM_MEDIA_ID;
+                }
+                drawable3 = AppCompatResources.getDrawable(this.operateButton.getContext(), z7 ? 17301539 : 17301540);
+            } else {
+                z5 = false;
+                drawable3 = null;
+            }
+            int i5 = ((j & 4208) > 0L ? 1 : ((j & 4208) == 0L ? 0 : -1));
+            if (i5 != 0) {
+                z6 = bodeParam != null ? bodeParam.getBodeEnable() : false;
+                if (i5 != 0) {
+                    j = z6 ? j | PlaybackStateCompat.ACTION_PREPARE : j | PlaybackStateCompat.ACTION_PLAY_FROM_URI;
+                }
+                if ((j & 4144) != 0) {
+                    f = ContextUtil.getAlpha(z6);
+                    if ((j & 4241) == 0) {
+                        int bodeSourceIn = bodeParam != null ? bodeParam.getBodeSourceIn() : 0;
+                        MappingObject mappingObject = ViewUtil.getMappingObject(R.array.msg_bode_source_in, bodeSourceIn);
+                        updateRegistration(0, mappingObject);
+                        str5 = mappingObject != null ? mappingObject.getStr() : null;
+                        if ((j & 4240) != 0) {
+                            i3 = ColorUtil.getColor(getRoot().getContext(), bodeSourceIn);
+                            if ((j & 4376) != 0) {
+                                MappingObject mappingObject2 = ViewUtil.getMappingObject(R.array.msg_bode_sweep_type, bodeParam != null ? bodeParam.getBodeSweepType() : 0);
+                                updateRegistration(3, mappingObject2);
+                                if (mappingObject2 != null) {
+                                    str3 = mappingObject2.getStr();
+                                    boolean firEnable = ((j & 6160) != 0 || bodeParam == null) ? false : bodeParam.getFirEnable();
+                                    if ((j & 4626) != 0) {
+                                        MappingObject mappingObject3 = ViewUtil.getMappingObject(R.array.msg_bode_disp_type, bodeParam != null ? bodeParam.getBodedispType() : 0);
+                                        updateRegistration(1, mappingObject3);
+                                        if (mappingObject3 != null) {
+                                            str6 = mappingObject3.getStr();
+                                            if ((j & 5140) != 0) {
+                                                int bodeSourceOut = bodeParam != null ? bodeParam.getBodeSourceOut() : 0;
+                                                MappingObject mappingObject4 = ViewUtil.getMappingObject(R.array.msg_bode_source_out, bodeSourceOut);
+                                                updateRegistration(2, mappingObject4);
+                                                if (mappingObject4 != null) {
+                                                    str7 = mappingObject4.getStr();
+                                                    j3 = 5136;
+                                                } else {
+                                                    j3 = 5136;
+                                                    str7 = null;
+                                                }
+                                                long j4 = j & j3;
+                                                j2 = 0;
+                                                if (j4 != 0) {
+                                                    i2 = ColorUtil.getColor(getRoot().getContext(), bodeSourceOut);
+                                                    z2 = firEnable;
+                                                } else {
+                                                    z2 = firEnable;
+                                                    i2 = 0;
+                                                }
+                                                str4 = str5;
+                                                i = i3;
+                                                str2 = str6;
+                                                drawable = drawable3;
+                                                str = str7;
+                                                z3 = z5;
+                                                z = z6;
+                                            } else {
+                                                z3 = z5;
+                                                z2 = firEnable;
+                                                z = z6;
+                                                i2 = 0;
+                                                str4 = str5;
+                                                i = i3;
+                                                str2 = str6;
+                                                drawable = drawable3;
+                                                str = null;
+                                            }
+                                        }
+                                    }
+                                    str6 = null;
+                                    if ((j & 5140) != 0) {
+                                    }
+                                }
+                            }
+                            str3 = null;
+                            if ((j & 6160) != 0) {
+                            }
+                            if ((j & 4626) != 0) {
+                            }
+                            str6 = null;
+                            if ((j & 5140) != 0) {
+                            }
+                        }
+                    } else {
+                        str5 = null;
+                    }
+                    i3 = 0;
+                    if ((j & 4376) != 0) {
+                    }
+                    str3 = null;
+                    if ((j & 6160) != 0) {
+                    }
+                    if ((j & 4626) != 0) {
+                    }
+                    str6 = null;
+                    if ((j & 5140) != 0) {
+                    }
+                }
+            } else {
+                z6 = false;
+            }
+            f = 0.0f;
+            if ((j & 4241) == 0) {
+            }
+            i3 = 0;
+            if ((j & 4376) != 0) {
+            }
+            str3 = null;
+            if ((j & 6160) != 0) {
+            }
+            if ((j & 4626) != 0) {
+            }
+            str6 = null;
+            if ((j & 5140) != 0) {
+            }
+        } else {
+            f = 0.0f;
+            str = null;
+            z = false;
+            i = 0;
+            str2 = null;
+            str3 = null;
+            str4 = null;
+            drawable = null;
+            z2 = false;
+            i2 = 0;
+            z3 = false;
+        }
+        if ((j & PlaybackStateCompat.ACTION_PREPARE) != j2) {
+            if (bodeParam != null) {
+                z3 = bodeParam.getBodeRunStopEnable();
+            }
+            z4 = !z3;
+        } else {
+            z4 = false;
+        }
+        int i6 = ((j & 4208) > 0L ? 1 : ((j & 4208) == 0L ? 0 : -1));
+        if (i6 != 0) {
+            if (!z) {
+                z4 = false;
+            }
+            drawable2 = drawable;
+            f2 = ContextUtil.getAlpha(z4);
+        } else {
+            drawable2 = drawable;
+            f2 = 0.0f;
+            z4 = false;
+        }
+        if (i6 != 0) {
+            if (getBuildSdkInt() >= 11) {
+                this.bodeDisp.setAlpha(f2);
+                this.bodeSourceOut.setAlpha(f2);
+                this.bodeSweepType.setAlpha(f2);
+                this.msgBodeSourceIn.setAlpha(f2);
+            }
+            this.bodeDisp.setEnabled(z4);
+            this.bodeSourceOut.setEnabled(z4);
+            this.bodeSweepType.setEnabled(z4);
+            this.msgBodeSourceIn.setEnabled(z4);
+        }
+        if ((j & 4626) != 0) {
+            TextViewBindingAdapter.setText(this.bodeDisp, str2);
+        }
+        if ((4144 & j) != 0) {
+            if (getBuildSdkInt() >= 11) {
+                this.bodeFirEnable.setAlpha(f);
+                this.bodeImpedance.setAlpha(f);
+                this.operateButton.setAlpha(f);
+            }
+            this.bodeFirEnable.setEnabled(z);
+            this.bodeImpedance.setEnabled(z);
+            this.operateButton.setEnabled(z);
+            CompoundButtonBindingAdapter.setChecked(this.showBodeSwitch, z);
+        }
+        if ((6160 & j) != 0) {
+            CompoundButtonBindingAdapter.setChecked(this.bodeFirEnable, z2);
+        }
+        if ((5136 & j) != 0) {
+            this.bodeSourceOut.setTextColor(i2);
+        }
+        if ((5140 & j) != 0) {
+            TextViewBindingAdapter.setText(this.bodeSourceOut, str);
+        }
+        if ((j & 4376) != 0) {
+            TextViewBindingAdapter.setText(this.bodeSweepType, str3);
+        }
+        if ((4240 & j) != 0) {
+            this.msgBodeSourceIn.setTextColor(i);
+        }
+        if ((j & 4241) != 0) {
+            TextViewBindingAdapter.setText(this.msgBodeSourceIn, str4);
+        }
+        if ((j & 4176) != 0) {
+            ImageViewBindingAdapter.setImageDrawable(this.operateButton, drawable2);
+        }
     }
 }

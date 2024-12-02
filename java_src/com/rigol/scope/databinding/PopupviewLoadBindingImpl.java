@@ -9,9 +9,12 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.Guideline;
 import androidx.databinding.DataBindingComponent;
 import androidx.databinding.ViewDataBinding;
+import androidx.databinding.adapters.TextViewBindingAdapter;
 import com.rigol.scope.R;
 import com.rigol.scope.data.MappingObject;
 import com.rigol.scope.data.StorageLoadParam;
+import com.rigol.scope.utilities.ViewUtil;
+
 /* loaded from: classes2.dex */
 public class PopupviewLoadBindingImpl extends PopupviewLoadBinding {
     private static final ViewDataBinding.IncludedLayouts sIncludes = null;
@@ -131,75 +134,42 @@ public class PopupviewLoadBindingImpl extends PopupviewLoadBinding {
     @Override // androidx.databinding.ViewDataBinding
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
     protected void executeBindings() {
-        /*
-            r13 = this;
-            monitor-enter(r13)
-            long r0 = r13.mDirtyFlags     // Catch: java.lang.Throwable -> L60
-            r2 = 0
-            r13.mDirtyFlags = r2     // Catch: java.lang.Throwable -> L60
-            monitor-exit(r13)     // Catch: java.lang.Throwable -> L60
-            com.rigol.scope.data.StorageLoadParam r4 = r13.mParam
-            r5 = 63
-            long r5 = r5 & r0
-            int r5 = (r5 > r2 ? 1 : (r5 == r2 ? 0 : -1))
-            r6 = 50
-            r8 = 47
-            r10 = 0
-            if (r5 == 0) goto L4a
-            long r11 = r0 & r8
-            int r5 = (r11 > r2 ? 1 : (r11 == r2 ? 0 : -1))
-            if (r5 == 0) goto L36
-            r5 = 0
-            if (r4 == 0) goto L24
-            int r11 = r4.getFileType()
-            goto L25
-        L24:
-            r11 = r5
-        L25:
-            r12 = 2130903496(0x7f0301c8, float:1.7413812E38)
-            com.rigol.scope.data.MappingObject r11 = com.rigol.scope.utilities.ViewUtil.getMappingObject(r12, r11)
-            r13.updateRegistration(r5, r11)
-            if (r11 == 0) goto L36
-            java.lang.String r5 = r11.getStr()
-            goto L37
-        L36:
-            r5 = r10
-        L37:
-            long r11 = r0 & r6
-            int r11 = (r11 > r2 ? 1 : (r11 == r2 ? 0 : -1))
-            if (r11 == 0) goto L47
-            if (r4 == 0) goto L43
-            java.lang.String r10 = r4.getPathName()
-        L43:
-            java.lang.String r10 = com.rigol.scope.utilities.ViewUtil.getDiskUIPathName(r10)
-        L47:
-            r4 = r10
-            r10 = r5
-            goto L4b
-        L4a:
-            r4 = r10
-        L4b:
-            long r8 = r8 & r0
-            int r5 = (r8 > r2 ? 1 : (r8 == r2 ? 0 : -1))
-            if (r5 == 0) goto L55
-            android.widget.TextView r5 = r13.fileFormatSpinner
-            androidx.databinding.adapters.TextViewBindingAdapter.setText(r5, r10)
-        L55:
-            long r0 = r0 & r6
-            int r0 = (r0 > r2 ? 1 : (r0 == r2 ? 0 : -1))
-            if (r0 == 0) goto L5f
-            android.widget.EditText r0 = r13.filePathText
-            androidx.databinding.adapters.TextViewBindingAdapter.setText(r0, r4)
-        L5f:
-            return
-        L60:
-            r0 = move-exception
-            monitor-exit(r13)     // Catch: java.lang.Throwable -> L60
-            throw r0
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.rigol.scope.databinding.PopupviewLoadBindingImpl.executeBindings():void");
+        long j;
+        String str;
+        String str2;
+        synchronized (this) {
+            j = this.mDirtyFlags;
+            this.mDirtyFlags = 0L;
+        }
+        StorageLoadParam storageLoadParam = this.mParam;
+        if ((63 & j) != 0) {
+            if ((j & 47) != 0) {
+                MappingObject mappingObject = ViewUtil.getMappingObject(R.array.msg_storage_filetype, storageLoadParam != null ? storageLoadParam.getFileType() : 0);
+                updateRegistration(0, mappingObject);
+                if (mappingObject != null) {
+                    str2 = mappingObject.getStr();
+                    if ((j & 50) != 0) {
+                        r10 = ViewUtil.getDiskUIPathName(storageLoadParam != null ? storageLoadParam.getPathName() : null);
+                    }
+                    str = r10;
+                    r10 = str2;
+                }
+            }
+            str2 = null;
+            if ((j & 50) != 0) {
+            }
+            str = r10;
+            r10 = str2;
+        } else {
+            str = null;
+        }
+        if ((47 & j) != 0) {
+            TextViewBindingAdapter.setText(this.fileFormatSpinner, r10);
+        }
+        if ((j & 50) != 0) {
+            TextViewBindingAdapter.setText(this.filePathText, str);
+        }
     }
 }

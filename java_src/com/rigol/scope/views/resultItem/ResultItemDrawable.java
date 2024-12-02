@@ -6,6 +6,7 @@ import android.graphics.ColorFilter;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
+
 /* loaded from: classes2.dex */
 public class ResultItemDrawable extends Drawable {
     public static final int STATE_CHECKED = 1;

@@ -19,6 +19,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
+
 /* loaded from: classes2.dex */
 public class FlexKnobParam extends BaseParam {
     private ServiceEnum.Chan[] chanArr;
@@ -324,10 +325,9 @@ public class FlexKnobParam extends BaseParam {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.rigol.scope.data.FlexKnobParam$1  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    static /* synthetic */ class AnonymousClass1 {
         static final /* synthetic */ int[] $SwitchMap$com$rigol$scope$cil$ServiceEnum$FlexKnobEnum;
 
         static {

@@ -16,6 +16,7 @@ import com.rigol.scope.R;
 import com.rigol.scope.data.MappingObject;
 import com.rigol.scope.data.TriggerParam;
 import com.rigol.scope.views.SwitchButton;
+
 /* loaded from: classes2.dex */
 public abstract class AdapterTrigger1553bBinding extends ViewDataBinding {
     public final Button buttonLevela;
@@ -129,8 +130,7 @@ public abstract class AdapterTrigger1553bBinding extends ViewDataBinding {
 
     public abstract void setWhenSyncMapping(MappingObject mappingObject);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public AdapterTrigger1553bBinding(Object obj, View view, int i, Button button, Button button2, Guideline guideline, Guideline guideline2, Guideline guideline3, Guideline guideline4, Guideline guideline5, View view2, TextView textView, RadioButton radioButton, TextView textView2, EditText editText, RadioButton radioButton2, RadioButton radioButton3, TextView textView3, TextView textView4, RadioButton radioButton4, RadioButton radioButton5, CheckBox checkBox, RadioButton radioButton6, RadioButton radioButton7, RadioButton radioButton8, RadioButton radioButton9, RadioButton radioButton10, TextView textView5, RadioButton radioButton11, RadioButton radioButton12, TextView textView6, EditText editText2, RadioButton radioButton13, TextView textView7, EditText editText3, RadioButton radioButton14, TextView textView8, TextView textView9, RadioButton radioButton15, TextView textView10, EditText editText4, TextView textView11, TextView textView12, TextView textView13, EditText editText5, TextView textView14, EditText editText6, TextView textView15, SwitchButton switchButton, TextView textView16, TextView textView17, TextView textView18, View view3, View view4, View view5, View view6, View view7) {
+    protected AdapterTrigger1553bBinding(Object obj, View view, int i, Button button, Button button2, Guideline guideline, Guideline guideline2, Guideline guideline3, Guideline guideline4, Guideline guideline5, View view2, TextView textView, RadioButton radioButton, TextView textView2, EditText editText, RadioButton radioButton2, RadioButton radioButton3, TextView textView3, TextView textView4, RadioButton radioButton4, RadioButton radioButton5, CheckBox checkBox, RadioButton radioButton6, RadioButton radioButton7, RadioButton radioButton8, RadioButton radioButton9, RadioButton radioButton10, TextView textView5, RadioButton radioButton11, RadioButton radioButton12, TextView textView6, EditText editText2, RadioButton radioButton13, TextView textView7, EditText editText3, RadioButton radioButton14, TextView textView8, TextView textView9, RadioButton radioButton15, TextView textView10, EditText editText4, TextView textView11, TextView textView12, TextView textView13, EditText editText5, TextView textView14, EditText editText6, TextView textView15, SwitchButton switchButton, TextView textView16, TextView textView17, TextView textView18, View view3, View view4, View view5, View view6, View view7) {
         super(obj, view, i);
         this.buttonLevela = button;
         this.buttonLevelb = button2;

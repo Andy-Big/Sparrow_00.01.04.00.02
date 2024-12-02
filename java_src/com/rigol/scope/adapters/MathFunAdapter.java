@@ -32,6 +32,7 @@ import com.rigol.scope.views.math.MathPopupView;
 import com.rigol.scope.views.spinner.PopupSpinner;
 import java.util.ArrayList;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public class MathFunAdapter extends RecyclerView.Adapter<MathFunHolder> implements AorBManager.OnSetTextById, AorBManager.OnTextReset {
     private View anchorView;
@@ -75,6 +76,7 @@ public class MathFunAdapter extends RecyclerView.Adapter<MathFunHolder> implemen
         this.holder = viewPagerHolder;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public MathFunHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         this.binding = AdapterMathFunBindingImpl.inflate(LayoutInflater.from(viewGroup.getContext()));
@@ -151,6 +153,7 @@ public class MathFunAdapter extends RecyclerView.Adapter<MathFunHolder> implemen
         }
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(MathFunHolder mathFunHolder, int i) {
         showMathFun();

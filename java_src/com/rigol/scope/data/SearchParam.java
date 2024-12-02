@@ -5,6 +5,7 @@ import com.rigol.scope.cil.MessageAttr;
 import com.rigol.scope.cil.MessageID;
 import com.rigol.scope.cil.ServiceEnum;
 import com.rigol.scope.utilities.AorBManager;
+
 /* loaded from: classes2.dex */
 public class SearchParam extends BaseParam {
     private AorBManager edgeAorBManager;

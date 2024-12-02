@@ -16,6 +16,7 @@ import com.rigol.scope.R;
 import com.rigol.scope.data.HorizontalParam;
 import com.rigol.scope.data.SearchParam;
 import com.rigol.scope.views.SwitchButton;
+
 /* loaded from: classes2.dex */
 public abstract class PopupviewSearchBinding extends ViewDataBinding {
     public final Button copyFromTriggerBtn;
@@ -44,8 +45,7 @@ public abstract class PopupviewSearchBinding extends ViewDataBinding {
 
     public abstract void setParam(SearchParam searchParam);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public PopupviewSearchBinding(Object obj, View view, int i, Button button, Button button2, View view2, View view3, TextView textView, SwitchButton switchButton, Guideline guideline, TextView textView2, SwitchButton switchButton2, Button button3, EditText editText, ImageView imageView, ImageView imageView2, Button button4, RecyclerView recyclerView, TextView textView3, TextView textView4) {
+    protected PopupviewSearchBinding(Object obj, View view, int i, Button button, Button button2, View view2, View view3, TextView textView, SwitchButton switchButton, Guideline guideline, TextView textView2, SwitchButton switchButton2, Button button3, EditText editText, ImageView imageView, ImageView imageView2, Button button4, RecyclerView recyclerView, TextView textView3, TextView textView4) {
         super(obj, view, i);
         this.copyFromTriggerBtn = button;
         this.copyToTriggerBtn = button2;

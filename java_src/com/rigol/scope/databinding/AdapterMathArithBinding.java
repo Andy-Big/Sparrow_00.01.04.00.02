@@ -18,6 +18,7 @@ import com.rigol.scope.data.MappingObject;
 import com.rigol.scope.data.MathParam;
 import com.rigol.scope.views.SwitchButton;
 import com.rigol.scope.views.baseview.BaseEditText;
+
 /* loaded from: classes2.dex */
 public abstract class AdapterMathArithBinding extends ViewDataBinding {
     public final Button autoSettingBtn;
@@ -80,8 +81,7 @@ public abstract class AdapterMathArithBinding extends ViewDataBinding {
 
     public abstract void setParam(MathParam mathParam);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public AdapterMathArithBinding(Object obj, View view, int i, Button button, RadioButton radioButton, TextView textView, RadioGroup radioGroup, RadioButton radioButton2, RadioButton radioButton3, TextView textView2, RadioGroup radioGroup2, RadioButton radioButton4, TextView textView3, SwitchButton switchButton, TextView textView4, BaseEditText baseEditText, SwitchButton switchButton2, ImageButton imageButton, ImageButton imageButton2, View view2, Guideline guideline, ImageButton imageButton3, ImageButton imageButton4, RadioButton radioButton5, TextView textView5, EditText editText, TextView textView6, EditText editText2, TextView textView7, TextView textView8, TextView textView9, TextView textView10, TextView textView11, SwitchButton switchButton3) {
+    protected AdapterMathArithBinding(Object obj, View view, int i, Button button, RadioButton radioButton, TextView textView, RadioGroup radioGroup, RadioButton radioButton2, RadioButton radioButton3, TextView textView2, RadioGroup radioGroup2, RadioButton radioButton4, TextView textView3, SwitchButton switchButton, TextView textView4, BaseEditText baseEditText, SwitchButton switchButton2, ImageButton imageButton, ImageButton imageButton2, View view2, Guideline guideline, ImageButton imageButton3, ImageButton imageButton4, RadioButton radioButton5, TextView textView5, EditText editText, TextView textView6, EditText editText2, TextView textView7, TextView textView8, TextView textView9, TextView textView10, TextView textView11, SwitchButton switchButton3) {
         super(obj, view, i);
         this.autoSettingBtn = button;
         this.centerRadioButton = radioButton;

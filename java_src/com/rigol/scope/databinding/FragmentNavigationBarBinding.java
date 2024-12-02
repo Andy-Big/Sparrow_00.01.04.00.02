@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.rigol.scope.R;
 import com.rigol.scope.data.HorizontalParam;
 import com.rigol.scope.data.TriggerParam;
+
 /* loaded from: classes2.dex */
 public abstract class FragmentNavigationBarBinding extends ViewDataBinding {
     public final Button acquireBtn;
@@ -46,8 +47,7 @@ public abstract class FragmentNavigationBarBinding extends ViewDataBinding {
 
     public abstract void setTriggerParam(TriggerParam triggerParam);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public FragmentNavigationBarBinding(Object obj, View view, int i, Button button, ConstraintLayout constraintLayout, TextView textView, TextView textView2, TextView textView3, ImageButton imageButton, ConstraintLayout constraintLayout2, RecyclerView recyclerView, ImageView imageView, ImageView imageView2, Button button2, TextView textView4, Button button3, TextView textView5, ImageView imageView3, ImageView imageView4, ConstraintLayout constraintLayout3, TextView textView6, Button button4, ConstraintLayout constraintLayout4) {
+    protected FragmentNavigationBarBinding(Object obj, View view, int i, Button button, ConstraintLayout constraintLayout, TextView textView, TextView textView2, TextView textView3, ImageButton imageButton, ConstraintLayout constraintLayout2, RecyclerView recyclerView, ImageView imageView, ImageView imageView2, Button button2, TextView textView4, Button button3, TextView textView5, ImageView imageView3, ImageView imageView4, ConstraintLayout constraintLayout3, TextView textView6, Button button4, ConstraintLayout constraintLayout4) {
         super(obj, view, i);
         this.acquireBtn = button;
         this.acquireInfo = constraintLayout;

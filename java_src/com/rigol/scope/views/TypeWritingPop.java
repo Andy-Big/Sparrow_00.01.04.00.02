@@ -27,6 +27,7 @@ import com.rigol.scope.utilities.ContextUtil;
 import com.rigol.scope.views.baseview.BasePopupView;
 import com.rigol.util.ToastUtils;
 import java.io.IOException;
+
 /* loaded from: classes2.dex */
 public class TypeWritingPop extends BasePopupView implements View.OnClickListener {
     private static EditText edInputMessage;

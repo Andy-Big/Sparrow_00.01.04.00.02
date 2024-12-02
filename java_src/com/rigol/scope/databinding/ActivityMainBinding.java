@@ -12,6 +12,7 @@ import androidx.databinding.ViewDataBinding;
 import androidx.fragment.app.FragmentContainerView;
 import com.rigol.scope.R;
 import com.rigol.scope.data.SharedParam;
+
 /* loaded from: classes2.dex */
 public abstract class ActivityMainBinding extends ViewDataBinding {
     public final ImageView imageLogo;
@@ -31,8 +32,7 @@ public abstract class ActivityMainBinding extends ViewDataBinding {
 
     public abstract void setShowMainContent(ObservableBoolean observableBoolean);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public ActivityMainBinding(Object obj, View view, int i, ImageView imageView, ConstraintLayout constraintLayout, FragmentContainerView fragmentContainerView, ImageView imageView2, FragmentContainerView fragmentContainerView2, ImageView imageView3, FragmentContainerView fragmentContainerView3, FragmentContainerView fragmentContainerView4) {
+    protected ActivityMainBinding(Object obj, View view, int i, ImageView imageView, ConstraintLayout constraintLayout, FragmentContainerView fragmentContainerView, ImageView imageView2, FragmentContainerView fragmentContainerView2, ImageView imageView3, FragmentContainerView fragmentContainerView3, FragmentContainerView fragmentContainerView4) {
         super(obj, view, i);
         this.imageLogo = imageView;
         this.mainLayout = constraintLayout;

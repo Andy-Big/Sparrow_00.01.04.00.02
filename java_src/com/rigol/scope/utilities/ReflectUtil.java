@@ -5,6 +5,7 @@ import android.util.Log;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+
 /* loaded from: classes2.dex */
 public class ReflectUtil {
     public static String getVariableNameByValue(Class cls, Object obj) {

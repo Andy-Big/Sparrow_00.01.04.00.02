@@ -16,6 +16,7 @@ import com.rigol.scope.utilities.ViewUtil;
 import com.rigol.scope.viewmodels.ViewStateViewModel;
 import com.rigol.scope.views.baseview.BasePopupView;
 import com.rigol.scope.views.grid.GridSpaceItemDecoration;
+
 /* loaded from: classes2.dex */
 public class PopupSpinner extends BasePopupView {
     private static final int DEFAULT_MAX_ROW_COUNT = 7;
@@ -139,9 +140,8 @@ public class PopupSpinner extends BasePopupView {
         super.showAsDropDown(view, view2, i, i2, i3);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.rigol.scope.views.baseview.BasePopupView
-    public void onShow() {
+    protected void onShow() {
         super.onShow();
         this.viewStateViewModel.getIsFirstShow().setValue(true);
     }

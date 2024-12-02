@@ -18,6 +18,7 @@ import com.rigol.scope.data.TriggerParam;
 import com.rigol.scope.views.SwitchButton;
 import com.rigol.scope.views.vertical.VerticalSeekBar;
 import com.rigol.scope.views.vertical.VerticalSeekBarWrapper;
+
 /* loaded from: classes2.dex */
 public abstract class AdapterTriggerPulseBinding extends ViewDataBinding {
     public final Button buttonLevel;
@@ -74,8 +75,7 @@ public abstract class AdapterTriggerPulseBinding extends ViewDataBinding {
 
     public abstract void setSweepSingleMapping(MappingObject mappingObject);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public AdapterTriggerPulseBinding(Object obj, View view, int i, Button button, Guideline guideline, Guideline guideline2, Guideline guideline3, ImageView imageView, RadioButton radioButton, RadioButton radioButton2, TextView textView, EditText editText, RadioButton radioButton3, RadioButton radioButton4, RadioButton radioButton5, EditText editText2, TextView textView2, TextView textView3, EditText editText3, VerticalSeekBar verticalSeekBar, View view2, TextView textView4, SwitchButton switchButton, TextView textView5, TextView textView6, TextView textView7, TextView textView8, TextView textView9, EditText editText4, VerticalSeekBarWrapper verticalSeekBarWrapper, View view3, View view4) {
+    protected AdapterTriggerPulseBinding(Object obj, View view, int i, Button button, Guideline guideline, Guideline guideline2, Guideline guideline3, ImageView imageView, RadioButton radioButton, RadioButton radioButton2, TextView textView, EditText editText, RadioButton radioButton3, RadioButton radioButton4, RadioButton radioButton5, EditText editText2, TextView textView2, TextView textView3, EditText editText3, VerticalSeekBar verticalSeekBar, View view2, TextView textView4, SwitchButton switchButton, TextView textView5, TextView textView6, TextView textView7, TextView textView8, TextView textView9, EditText editText4, VerticalSeekBarWrapper verticalSeekBarWrapper, View view3, View view4) {
         super(obj, view, i);
         this.buttonLevel = button;
         this.guidelineCenter = guideline;

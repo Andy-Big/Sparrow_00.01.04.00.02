@@ -25,6 +25,7 @@ import com.rigol.scope.viewmodels.HorizontalViewModel;
 import com.rigol.scope.viewmodels.UpdateUIViewModel;
 import com.rigol.scope.views.rtsa.RtsaViewPagerAdapter;
 import java.util.List;
+
 /* loaded from: classes2.dex */
 public class RtsaViewPagerAdapter extends MultiItemTypeAdapter<List<MappingObject>> {
     private BasicDelegate basicDelegate;
@@ -57,9 +58,8 @@ public class RtsaViewPagerAdapter extends MultiItemTypeAdapter<List<MappingObjec
         private OnItemClickCallback onItemClickCallback;
         private FftParam param;
 
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.rigol.scope.adapters.AdapterDelegate
-        public /* bridge */ /* synthetic */ void onBindViewHolder(Object obj, int i, BaseViewHolder baseViewHolder) {
+        protected /* bridge */ /* synthetic */ void onBindViewHolder(Object obj, int i, BaseViewHolder baseViewHolder) {
             onBindViewHolder((List) obj, i, (BaseViewHolder<? extends ViewDataBinding>) baseViewHolder);
         }
 
@@ -105,6 +105,7 @@ public class RtsaViewPagerAdapter extends MultiItemTypeAdapter<List<MappingObjec
             }
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.rigol.scope.adapters.AdapterDelegate
         public boolean isForViewType(List<MappingObject> list, int i) {
@@ -155,9 +156,8 @@ public class RtsaViewPagerAdapter extends MultiItemTypeAdapter<List<MappingObjec
         private OnItemClickCallback onItemClickCallback;
         private FftParam param;
 
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.rigol.scope.adapters.AdapterDelegate
-        public /* bridge */ /* synthetic */ void onBindViewHolder(Object obj, int i, BaseViewHolder baseViewHolder) {
+        protected /* bridge */ /* synthetic */ void onBindViewHolder(Object obj, int i, BaseViewHolder baseViewHolder) {
             onBindViewHolder((List) obj, i, (BaseViewHolder<? extends ViewDataBinding>) baseViewHolder);
         }
 
@@ -182,6 +182,7 @@ public class RtsaViewPagerAdapter extends MultiItemTypeAdapter<List<MappingObjec
             }
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.rigol.scope.adapters.AdapterDelegate
         public boolean isForViewType(List<MappingObject> list, int i) {
@@ -225,9 +226,8 @@ public class RtsaViewPagerAdapter extends MultiItemTypeAdapter<List<MappingObjec
         private OnItemClickCallback onItemClickCallback;
         private FftParam param;
 
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.rigol.scope.adapters.AdapterDelegate
-        public /* bridge */ /* synthetic */ void onBindViewHolder(Object obj, int i, BaseViewHolder baseViewHolder) {
+        protected /* bridge */ /* synthetic */ void onBindViewHolder(Object obj, int i, BaseViewHolder baseViewHolder) {
             onBindViewHolder((List) obj, i, (BaseViewHolder<? extends ViewDataBinding>) baseViewHolder);
         }
 
@@ -273,6 +273,7 @@ public class RtsaViewPagerAdapter extends MultiItemTypeAdapter<List<MappingObjec
             }
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.rigol.scope.adapters.AdapterDelegate
         public boolean isForViewType(List<MappingObject> list, int i) {

@@ -1,6 +1,7 @@
 package com.rigol.scope.utilities;
 
 import com.rigol.scope.data.MessageBus;
+
 /* loaded from: classes2.dex */
 public class MotorManager {
     private static MotorManager instance;

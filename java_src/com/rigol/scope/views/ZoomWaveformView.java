@@ -16,6 +16,7 @@ import com.rigol.scope.utilities.ContextUtil;
 import com.rigol.scope.utilities.ViewUtil;
 import com.rigol.scope.viewmodels.SharedViewModel;
 import com.rigol.scope.views.baseview.BaseWaveformView;
+
 /* loaded from: classes2.dex */
 public class ZoomWaveformView extends BaseWaveformView {
     public ZoomWaveformView(Context context) {

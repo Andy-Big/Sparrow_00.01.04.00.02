@@ -12,6 +12,7 @@ import com.rigol.scope.databinding.AdapterBusEthAnalyse100basetBinding;
 import com.rigol.scope.utilities.ViewUtil;
 import com.rigol.scope.views.busAnalyse.BusAnalyseEthParam;
 import com.rigol.scope.views.spinner.PopupSpinner;
+
 /* loaded from: classes.dex */
 public class BusAnalyseEth100BaseTAdapter extends RecyclerView.Adapter<BusAnalyseEth100BaseTViewHolder> implements CompoundButton.OnCheckedChangeListener, View.OnClickListener {
     private final View anchorView;
@@ -28,12 +29,14 @@ public class BusAnalyseEth100BaseTAdapter extends RecyclerView.Adapter<BusAnalys
         this.param = busAnalyseEthParam;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public BusAnalyseEth100BaseTViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         this.binding = AdapterBusEthAnalyse100basetBinding.inflate(LayoutInflater.from(viewGroup.getContext()), viewGroup, false);
         return new BusAnalyseEth100BaseTViewHolder(this.binding);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(BusAnalyseEth100BaseTViewHolder busAnalyseEth100BaseTViewHolder, int i) {
         this.binding.ethAnalyse100basetClkValue.setOnClickListener(this);
@@ -86,9 +89,8 @@ public class BusAnalyseEth100BaseTAdapter extends RecyclerView.Adapter<BusAnalys
         this.binding.setParam(this.param);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static class BusAnalyseEth100BaseTViewHolder extends RecyclerView.ViewHolder {
+    static class BusAnalyseEth100BaseTViewHolder extends RecyclerView.ViewHolder {
         public BusAnalyseEth100BaseTViewHolder(AdapterBusEthAnalyse100basetBinding adapterBusEthAnalyse100basetBinding) {
             super(adapterBusEthAnalyse100basetBinding.getRoot());
         }

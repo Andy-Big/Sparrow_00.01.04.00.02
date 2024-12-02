@@ -28,6 +28,7 @@ import com.rigol.scope.views.keyboard.KeyboardPopupView;
 import com.rigol.scope.views.spinner.PopupSpinner;
 import java.util.ArrayList;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public class DecodeSpiAdapter extends RecyclerView.Adapter<DecodeSpiHolder> implements RadioGroup.OnCheckedChangeListener, View.OnClickListener, AorBManager.OnSetTextById, AorBManager.OnTextReset {
     private final View anchorView;
@@ -65,12 +66,14 @@ public class DecodeSpiAdapter extends RecyclerView.Adapter<DecodeSpiHolder> impl
         this.viewPagerHolder = viewPagerHolder;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public DecodeSpiHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         this.binding = AdapterDecodeSpiBinding.inflate(LayoutInflater.from(viewGroup.getContext()), viewGroup, false);
         return new DecodeSpiHolder(this.binding);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(DecodeSpiHolder decodeSpiHolder, int i) {
         this.binding.setEdgeUpMapping(ViewUtil.getMappingObject(R.array.msg_decode_clk_edge, 0));

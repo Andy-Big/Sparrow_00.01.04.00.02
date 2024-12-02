@@ -13,6 +13,7 @@ import com.rigol.scope.R;
 import com.rigol.scope.data.HorizontalParam;
 import com.rigol.scope.data.UtilityParam;
 import com.rigol.scope.views.SwitchButton;
+
 /* loaded from: classes2.dex */
 public abstract class AdapterUtilityOtherBinding extends ViewDataBinding {
     public final ConstraintLayout filter1Layout;
@@ -41,8 +42,7 @@ public abstract class AdapterUtilityOtherBinding extends ViewDataBinding {
 
     public abstract void setUtilityParam(UtilityParam utilityParam);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public AdapterUtilityOtherBinding(Object obj, View view, int i, ConstraintLayout constraintLayout, ConstraintLayout constraintLayout2, TextView textView, TextView textView2, ImageView imageView, TextView textView3, ConstraintLayout constraintLayout3, TextView textView4, ConstraintLayout constraintLayout4, SwitchButton switchButton, SwitchButton switchButton2, SwitchButton switchButton3, SwitchButton switchButton4, TextView textView5, TextView textView6, TextView textView7, ConstraintLayout constraintLayout5) {
+    protected AdapterUtilityOtherBinding(Object obj, View view, int i, ConstraintLayout constraintLayout, ConstraintLayout constraintLayout2, TextView textView, TextView textView2, ImageView imageView, TextView textView3, ConstraintLayout constraintLayout3, TextView textView4, ConstraintLayout constraintLayout4, SwitchButton switchButton, SwitchButton switchButton2, SwitchButton switchButton3, SwitchButton switchButton4, TextView textView5, TextView textView6, TextView textView7, ConstraintLayout constraintLayout5) {
         super(obj, view, i);
         this.filter1Layout = constraintLayout;
         this.filter2Layout = constraintLayout2;

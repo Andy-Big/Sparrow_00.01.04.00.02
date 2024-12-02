@@ -10,15 +10,14 @@ import com.rigol.util.EthernetUtil;
 import java.net.InetAddress;
 import javax.jmdns.impl.JmDNSImpl;
 import kotlin.Metadata;
-/* JADX INFO: Access modifiers changed from: package-private */
+
 /* compiled from: IOParam.kt */
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\b\n\u0000\n\u0002\u0010\u0002\n\u0000\u0010\u0000\u001a\u00020\u0001H\n¢\u0006\u0002\b\u0002"}, d2 = {"<anonymous>", "", "run"}, k = 3, mv = {1, 4, 1})
 /* loaded from: classes2.dex */
-public final class IOParam$apply$4 implements Runnable {
+final class IOParam$apply$4 implements Runnable {
     final /* synthetic */ IOParam this$0;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public IOParam$apply$4(IOParam iOParam) {
+    IOParam$apply$4(IOParam iOParam) {
         this.this$0 = iOParam;
     }
 
@@ -50,6 +49,7 @@ public final class IOParam$apply$4 implements Runnable {
                     @Override // java.lang.Runnable
                     public final void run() {
                         NetworkUtils.isAvailableAsync(new Utils.Consumer<Boolean>() { // from class: com.rigol.scope.data.IOParam.apply.4.4.1
+                            /* JADX DEBUG: Method merged with bridge method */
                             @Override // com.blankj.utilcode.util.Utils.Consumer
                             public final void accept(Boolean bool) {
                                 if (TextUtils.isEmpty(IOParam$apply$4.this.this$0.getIpAddress()) || TextUtils.isEmpty(IOParam$apply$4.this.this$0.getHostName())) {

@@ -19,6 +19,7 @@ import java.util.List;
 import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.text.StringsKt;
+
 /* compiled from: VerticalParam.kt */
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0088\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0010\t\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0010\u000b\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0014\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b+\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\b\r\n\u0002\u0018\u0002\n\u0002\b\u000e\n\u0002\u0010\u0002\n\u0002\b<\u0018\u00002\u00020\u0001B\u0017\u0012\b\u0010\u0002\u001a\u0004\u0018\u00010\u0003\u0012\u0006\u0010\u0004\u001a\u00020\u0005¢\u0006\u0002\u0010\u0006J\u0007\u0010 \u0001\u001a\u00020\bJ\u0010\u0010¡\u0001\u001a\u00030¢\u00012\u0006\u0010?\u001a\u00020\bJ\u0010\u0010£\u0001\u001a\u00020\b2\u0007\u0010¤\u0001\u001a\u00020\u0005J\u0010\u0010¥\u0001\u001a\u00020\b2\u0007\u0010¤\u0001\u001a\u00020\u0005J\u0010\u0010¦\u0001\u001a\u00020\b2\u0007\u0010¤\u0001\u001a\u00020\u0005J\u0010\u0010§\u0001\u001a\u00020\b2\u0007\u0010¤\u0001\u001a\u00020\u0005J\u0007\u0010V\u001a\u00030¢\u0001J\b\u0010¨\u0001\u001a\u00030¢\u0001J\n\u0010©\u0001\u001a\u00030¢\u0001H\u0016J\u0007\u0010ª\u0001\u001a\u00020\u0014J\u0007\u0010«\u0001\u001a\u00020\bJ\u0007\u0010¬\u0001\u001a\u00020!J\u0007\u0010\u00ad\u0001\u001a\u00020(J\u0007\u0010®\u0001\u001a\u00020.J\u0007\u0010¯\u0001\u001a\u00020(J\t\u0010°\u0001\u001a\u0004\u0018\u00010\u0003J\u0007\u0010±\u0001\u001a\u00020\bJ\u0007\u0010²\u0001\u001a\u00020\bJ\u0007\u0010³\u0001\u001a\u00020\bJ\b\u0010´\u0001\u001a\u00030¢\u0001J\u0007\u0010µ\u0001\u001a\u00020(J\u0007\u0010¶\u0001\u001a\u00020\bJ\u0007\u0010·\u0001\u001a\u00020\bJ\b\u0010¸\u0001\u001a\u00030¢\u0001J\u0007\u0010¹\u0001\u001a\u00020\u0003J\u0007\u0010º\u0001\u001a\u00020(J\u0007\u0010»\u0001\u001a\u00020sJ\u0007\u0010¼\u0001\u001a\u00020|J\b\u0010½\u0001\u001a\u00030\u0085\u0001J\u0007\u0010¾\u0001\u001a\u00020\bJ\u0007\u0010¿\u0001\u001a\u00020\bJ\u0007\u0010À\u0001\u001a\u00020(J\b\u0010Á\u0001\u001a\u00030\u0093\u0001J\u0007\u0010Â\u0001\u001a\u00020|J\n\u0010Ã\u0001\u001a\u00030¢\u0001H\u0016J\b\u0010Ä\u0001\u001a\u00030¢\u0001J\u0010\u0010Å\u0001\u001a\u00030¢\u00012\u0006\u0010\u0015\u001a\u00020\u0014J\u0010\u0010Æ\u0001\u001a\u00030¢\u00012\u0006\u0010\u001e\u001a\u00020\bJ\u0010\u0010Ç\u0001\u001a\u00030¢\u00012\u0006\u0010\"\u001a\u00020!J\u0010\u0010È\u0001\u001a\u00030¢\u00012\u0006\u0010)\u001a\u00020(J\u0010\u0010É\u0001\u001a\u00030¢\u00012\u0006\u0010/\u001a\u00020.J\u0010\u0010Ê\u0001\u001a\u00030¢\u00012\u0006\u00107\u001a\u00020(J\u0012\u0010Ë\u0001\u001a\u00030¢\u00012\b\u0010:\u001a\u0004\u0018\u00010\u0003J\u0010\u0010Ì\u0001\u001a\u00030¢\u00012\u0006\u0010?\u001a\u00020\bJ\u0010\u0010Í\u0001\u001a\u00030¢\u00012\u0006\u0010?\u001a\u00020\bJ\u0010\u0010Î\u0001\u001a\u00030¢\u00012\u0006\u0010L\u001a\u00020\bJ\u0010\u0010Ï\u0001\u001a\u00030¢\u00012\u0006\u0010Q\u001a\u00020\bJ\u0010\u0010Ð\u0001\u001a\u00030¢\u00012\u0006\u0010\\\u001a\u00020\bJ\u0010\u0010Ñ\u0001\u001a\u00030¢\u00012\u0006\u0010_\u001a\u00020\bJ\u0010\u0010Ò\u0001\u001a\u00030¢\u00012\u0006\u0010t\u001a\u00020sJ\u0010\u0010Ó\u0001\u001a\u00030¢\u00012\u0006\u0010}\u001a\u00020|J\u0011\u0010Ô\u0001\u001a\u00030¢\u00012\u0007\u0010\u008b\u0001\u001a\u00020\bJ\u0011\u0010Õ\u0001\u001a\u00030¢\u00012\u0007\u0010\u0090\u0001\u001a\u00020(J\u0012\u0010Ö\u0001\u001a\u00030¢\u00012\b\u0010\u0094\u0001\u001a\u00030\u0093\u0001J\u0011\u0010×\u0001\u001a\u00030¢\u00012\u0007\u0010\u009a\u0001\u001a\u00020|J\u0011\u0010Ø\u0001\u001a\u00030¢\u00012\u0007\u0010¤\u0001\u001a\u00020\u0005J\u0011\u0010Ù\u0001\u001a\u00030¢\u00012\u0007\u0010¤\u0001\u001a\u00020\u0005J\b\u0010Ú\u0001\u001a\u00030¢\u0001J\b\u0010Û\u0001\u001a\u00030¢\u0001J\b\u0010Ü\u0001\u001a\u00030¢\u0001J\b\u0010Ý\u0001\u001a\u00030¢\u0001R&\u0010\t\u001a\u00020\b2\u0006\u0010\u0007\u001a\u00020\b8G@FX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\n\u0010\u000b\"\u0004\b\f\u0010\rR\u001a\u0010\u000e\u001a\u00020\u000fX\u0086.¢\u0006\u000e\n\u0000\u001a\u0004\b\u0010\u0010\u0011\"\u0004\b\u0012\u0010\u0013R&\u0010\u0015\u001a\u00020\u00142\u0006\u0010\u0007\u001a\u00020\u00148G@FX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0016\u0010\u0017\"\u0004\b\u0018\u0010\u0019R\u0011\u0010\u001a\u001a\u00020\u001b¢\u0006\b\n\u0000\u001a\u0004\b\u001c\u0010\u001dR&\u0010\u001e\u001a\u00020\b2\u0006\u0010\u0007\u001a\u00020\b8G@FX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u001f\u0010\u000b\"\u0004\b \u0010\rR&\u0010\"\u001a\u00020!2\u0006\u0010\u0007\u001a\u00020!8G@FX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b#\u0010$\"\u0004\b%\u0010&R\u000e\u0010'\u001a\u00020(X\u0082\u000e¢\u0006\u0002\n\u0000R&\u0010)\u001a\u00020(2\u0006\u0010\u0007\u001a\u00020(8G@FX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b*\u0010+\"\u0004\b,\u0010-R&\u0010/\u001a\u00020.2\u0006\u0010\u0007\u001a\u00020.8G@FX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b0\u00101\"\u0004\b2\u00103R&\u00104\u001a\u00020(2\u0006\u0010\u0007\u001a\u00020(8G@FX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b5\u0010+\"\u0004\b6\u0010-R&\u00107\u001a\u00020(2\u0006\u0010\u0007\u001a\u00020(8G@FX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b8\u0010+\"\u0004\b9\u0010-R*\u0010:\u001a\u0004\u0018\u00010\u00032\b\u0010\u0007\u001a\u0004\u0018\u00010\u00038G@FX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b;\u0010<\"\u0004\b=\u0010>R&\u0010?\u001a\u00020\b2\u0006\u0010\u0007\u001a\u00020\b8G@FX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b@\u0010\u000b\"\u0004\bA\u0010\rR\u0011\u0010B\u001a\u00020C¢\u0006\b\n\u0000\u001a\u0004\bD\u0010ER\u001c\u0010F\u001a\u0004\u0018\u00010GX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\bH\u0010I\"\u0004\bJ\u0010KR&\u0010L\u001a\u00020\b2\u0006\u0010\u0007\u001a\u00020\b8G@FX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\bM\u0010\u000b\"\u0004\bN\u0010\rR\u0011\u0010O\u001a\u00020C¢\u0006\b\n\u0000\u001a\u0004\bP\u0010ER&\u0010Q\u001a\u00020\b2\u0006\u0010\u0007\u001a\u00020\b8G@FX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\bR\u0010\u000b\"\u0004\bS\u0010\rR\u0011\u0010T\u001a\u00020C¢\u0006\b\n\u0000\u001a\u0004\bU\u0010ER&\u0010V\u001a\u00020(2\u0006\u0010\u0007\u001a\u00020(8G@FX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\bW\u0010+\"\u0004\bX\u0010-R&\u0010Y\u001a\u00020\u00032\u0006\u0010\u0007\u001a\u00020\u00038G@FX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\bZ\u0010<\"\u0004\b[\u0010>R&\u0010\\\u001a\u00020\b2\u0006\u0010\u0007\u001a\u00020\b8G@FX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b]\u0010\u000b\"\u0004\b^\u0010\rR&\u0010_\u001a\u00020\b2\u0006\u0010\u0007\u001a\u00020\b8G@FX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b`\u0010\u000b\"\u0004\ba\u0010\rR\u0011\u0010b\u001a\u00020C¢\u0006\b\n\u0000\u001a\u0004\bc\u0010ER&\u0010d\u001a\u00020(2\u0006\u0010\u0007\u001a\u00020(8G@FX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\be\u0010+\"\u0004\bf\u0010-R&\u0010g\u001a\u00020\u00032\u0006\u0010\u0007\u001a\u00020\u00038G@FX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\bh\u0010<\"\u0004\bi\u0010>R&\u0010j\u001a\u00020(2\u0006\u0010\u0007\u001a\u00020(8G@FX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\bk\u0010+\"\u0004\bl\u0010-R&\u0010m\u001a\u00020\u00032\u0006\u0010\u0007\u001a\u00020\u00038G@FX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\bn\u0010<\"\u0004\bo\u0010>R&\u0010p\u001a\u00020\u00032\u0006\u0010\u0007\u001a\u00020\u00038G@FX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\bq\u0010<\"\u0004\br\u0010>R&\u0010t\u001a\u00020s2\u0006\u0010\u0007\u001a\u00020s8G@FX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\bu\u0010v\"\u0004\bw\u0010xR&\u0010y\u001a\u00020(2\u0006\u0010\u0007\u001a\u00020(8G@FX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\bz\u0010+\"\u0004\b{\u0010-R(\u0010}\u001a\u00020|2\u0006\u0010\u0007\u001a\u00020|8G@FX\u0086\u000e¢\u0006\u0010\n\u0000\u001a\u0004\b~\u0010\u007f\"\u0006\b\u0080\u0001\u0010\u0081\u0001R)\u0010\u0082\u0001\u001a\u00020\u00032\u0006\u0010\u0007\u001a\u00020\u00038G@FX\u0086\u000e¢\u0006\u0010\n\u0000\u001a\u0005\b\u0083\u0001\u0010<\"\u0005\b\u0084\u0001\u0010>R-\u0010\u0086\u0001\u001a\u00030\u0085\u00012\u0007\u0010\u0007\u001a\u00030\u0085\u00018G@FX\u0086\u000e¢\u0006\u0012\n\u0000\u001a\u0006\b\u0087\u0001\u0010\u0088\u0001\"\u0006\b\u0089\u0001\u0010\u008a\u0001R)\u0010\u008b\u0001\u001a\u00020\b2\u0006\u0010\u0007\u001a\u00020\b8G@FX\u0086\u000e¢\u0006\u0010\n\u0000\u001a\u0005\b\u008c\u0001\u0010\u000b\"\u0005\b\u008d\u0001\u0010\rR\u0013\u0010\u008e\u0001\u001a\u00020C¢\u0006\t\n\u0000\u001a\u0005\b\u008f\u0001\u0010ER)\u0010\u0090\u0001\u001a\u00020(2\u0006\u0010\u0007\u001a\u00020(8G@FX\u0086\u000e¢\u0006\u0010\n\u0000\u001a\u0005\b\u0091\u0001\u0010+\"\u0005\b\u0092\u0001\u0010-R-\u0010\u0094\u0001\u001a\u00030\u0093\u00012\u0007\u0010\u0007\u001a\u00030\u0093\u00018G@FX\u0086\u000e¢\u0006\u0012\n\u0000\u001a\u0006\b\u0095\u0001\u0010\u0096\u0001\"\u0006\b\u0097\u0001\u0010\u0098\u0001R\u0014\u0010\u0002\u001a\u0004\u0018\u00010\u0003¢\u0006\t\n\u0000\u001a\u0005\b\u0099\u0001\u0010<R*\u0010\u009a\u0001\u001a\u00020|2\u0006\u0010\u0007\u001a\u00020|8G@FX\u0086\u000e¢\u0006\u0011\n\u0000\u001a\u0005\b\u009b\u0001\u0010\u007f\"\u0006\b\u009c\u0001\u0010\u0081\u0001R\u001d\u0010\u009d\u0001\u001a\u00020\u0003X\u0086\u000e¢\u0006\u0010\n\u0000\u001a\u0005\b\u009e\u0001\u0010<\"\u0005\b\u009f\u0001\u0010>¨\u0006Þ\u0001"}, d2 = {"Lcom/rigol/scope/data/VerticalParam;", "Lcom/rigol/scope/data/BaseParam;", "title", "", "serviceId", "", "(Ljava/lang/String;I)V", "value", "", "RealScale", "getRealScale", "()J", "setRealScale", "(J)V", "aorBManager", "Lcom/rigol/scope/utilities/AorBManager;", "getAorBManager", "()Lcom/rigol/scope/utilities/AorBManager;", "setAorBManager", "(Lcom/rigol/scope/utilities/AorBManager;)V", "Lcom/rigol/scope/cil/ServiceEnum$Bandwidth;", "bandLimit", "getBandLimit", "()Lcom/rigol/scope/cil/ServiceEnum$Bandwidth;", "setBandLimit", "(Lcom/rigol/scope/cil/ServiceEnum$Bandwidth;)V", "chan", "Lcom/rigol/scope/cil/ServiceEnum$Chan;", "getChan", "()Lcom/rigol/scope/cil/ServiceEnum$Chan;", "chanDelay", "getChanDelay", "setChanDelay", "Lcom/rigol/scope/cil/ServiceEnum$Coupling;", "coupling", "getCoupling", "()Lcom/rigol/scope/cil/ServiceEnum$Coupling;", "setCoupling", "(Lcom/rigol/scope/cil/ServiceEnum$Coupling;)V", "enableToSetOffset", "", "fine", "getFine", "()Z", "setFine", "(Z)V", "Lcom/rigol/scope/cil/ServiceEnum$Impedance;", "impedance", "getImpedance", "()Lcom/rigol/scope/cil/ServiceEnum$Impedance;", "setImpedance", "(Lcom/rigol/scope/cil/ServiceEnum$Impedance;)V", "impedanceEnable", "getImpedanceEnable", "setImpedanceEnable", "invert", "getInvert", "setInvert", "label", "getLabel", "()Ljava/lang/String;", "setLabel", "(Ljava/lang/String;)V", "offset", "getOffset", "setOffset", "offsetAttr", "Lcom/rigol/scope/cil/MessageAttr;", "getOffsetAttr", "()Lcom/rigol/scope/cil/MessageAttr;", "popupSpinner", "Lcom/rigol/scope/views/spinner/PopupSpinner;", "getPopupSpinner", "()Lcom/rigol/scope/views/spinner/PopupSpinner;", "setPopupSpinner", "(Lcom/rigol/scope/views/spinner/PopupSpinner;)V", "position", "getPosition", "setPosition", "positionAttr", "getPositionAttr", "probeBias", "getProbeBias", "setProbeBias", "probeBiasAttr", "getProbeBiasAttr", "probeCal", "getProbeCal", "setProbeCal", "probeCalTime", "getProbeCalTime", "setProbeCalTime", "probeCurrentBias", "getProbeCurrentBias", "setProbeCurrentBias", "probeDelay", "getProbeDelay", "setProbeDelay", "probeDelayAttr", "getProbeDelayAttr", "probeDemagVisible", "getProbeDemagVisible", "setProbeDemagVisible", "probeDetail", "getProbeDetail", "setProbeDetail", "probeInsert", "getProbeInsert", "setProbeInsert", "probeMFR", "getProbeMFR", "setProbeMFR", "probeModel", "getProbeModel", "setProbeModel", "Lcom/rigol/scope/cil/ServiceEnum$ProbeX;", "probeRatio", "getProbeRatio", "()Lcom/rigol/scope/cil/ServiceEnum$ProbeX;", "setProbeRatio", "(Lcom/rigol/scope/cil/ServiceEnum$ProbeX;)V", "probeRatioEnable", "getProbeRatioEnable", "setProbeRatioEnable", "Lcom/rigol/scope/cil/ServiceEnum$Unit;", "probeRatioUnit", "getProbeRatioUnit", "()Lcom/rigol/scope/cil/ServiceEnum$Unit;", "setProbeRatioUnit", "(Lcom/rigol/scope/cil/ServiceEnum$Unit;)V", "probeSN", "getProbeSN", "setProbeSN", "Lcom/rigol/scope/cil/ServiceEnum$ProbeType;", "probeType", "getProbeType", "()Lcom/rigol/scope/cil/ServiceEnum$ProbeType;", "setProbeType", "(Lcom/rigol/scope/cil/ServiceEnum$ProbeType;)V", "scale", "getScale", "setScale", "scaleAttr", "getScaleAttr", "showLabel", "getShowLabel", "setShowLabel", "Lcom/rigol/scope/cil/ServiceEnum$enChanStatus;", NotificationCompat.CATEGORY_STATUS, "getStatus", "()Lcom/rigol/scope/cil/ServiceEnum$enChanStatus;", "setStatus", "(Lcom/rigol/scope/cil/ServiceEnum$enChanStatus;)V", "getTitle", "unit", "getUnit", "setUnit", "unitHz", "getUnitHz", "setUnitHz", "getScaleValue", "moveOffset", "", "offsetLarger", "count", "offsetSmaller", "positionLarger", "positionSmaller", "probeDemag", "readAll", "readBandLimit", "readChanDelay", "readCoupling", "readFine", "readImpedance", "readInvert", "readLabel", "readOffset", "readPosition", "readProbeBias", "readProbeBiasAttr", "readProbeCal", "readProbeCurrentBias", "readProbeDelay", "readProbeDelayAttr", "readProbeDetail", "readProbeInsert", "readProbeRatio", "readProbeRatioUnit", "readProbeType", "readRealScale", "readScale", "readShowLabel", "readStatus", "readUnit", "reset", "resetOffset", "saveBandwidth", "saveChanDelay", "saveCoupling", "saveFine", "saveImpedance", "saveInvert", "saveLabel", "saveOffset", "saveOffsetReal", "savePosition", "saveProbeBias", "saveProbeCurrentBias", "saveProbeDelay", "saveProbeRatio", "saveProbeRatioUnit", "saveScale", "saveShowLabel", "saveStatus", "saveUnit", "scaleLarger", "scaleSmaller", "toggleFine", "toggleStatus", "turnActive", "turnOff", "app_release"}, k = 1, mv = {1, 4, 1})
 /* loaded from: classes2.dex */
@@ -67,30 +68,16 @@ public final class VerticalParam extends BaseParam {
 
     public VerticalParam(String str, int i) {
         super(i);
-        ServiceEnum.enChanStatus enchanstatus;
-        ServiceEnum.Coupling coupling;
-        ServiceEnum.Bandwidth bandwidth;
-        ServiceEnum.ProbeX probeX;
-        ServiceEnum.Unit unit;
-        ServiceEnum.Impedance impedance;
-        ServiceEnum.Unit unit2;
-        long j;
-        long j2;
         this.title = str;
         ServiceEnum.Chan chanFromServiceId = ViewUtil.getChanFromServiceId(i);
         Intrinsics.checkNotNullExpressionValue(chanFromServiceId, "ViewUtil.getChanFromServiceId(serviceId)");
         this.chan = chanFromServiceId;
         this.unitHz = "Hz";
-        enchanstatus = VerticalParamKt.DEFAULT_STATUS;
-        this.status = enchanstatus;
-        coupling = VerticalParamKt.DEFAULT_COUPING;
-        this.coupling = coupling;
-        bandwidth = VerticalParamKt.DEFAULT_BANDWIDTH;
-        this.bandLimit = bandwidth;
-        probeX = VerticalParamKt.DEFAULT_PROBE_RATIO;
-        this.probeRatio = probeX;
-        unit = VerticalParamKt.DEFAULT_PROBE_RATIO_UNIT;
-        this.probeRatioUnit = unit;
+        this.status = VerticalParamKt.access$getDEFAULT_STATUS$p();
+        this.coupling = VerticalParamKt.access$getDEFAULT_COUPING$p();
+        this.bandLimit = VerticalParamKt.access$getDEFAULT_BANDWIDTH$p();
+        this.probeRatio = VerticalParamKt.access$getDEFAULT_PROBE_RATIO$p();
+        this.probeRatioUnit = VerticalParamKt.access$getDEFAULT_PROBE_RATIO_UNIT$p();
         this.probeDetail = "";
         this.probeMFR = "";
         this.probeModel = "";
@@ -99,14 +86,10 @@ public final class VerticalParam extends BaseParam {
         this.probeType = ServiceEnum.ProbeType.Probe_BNC;
         this.probeRatioEnable = true;
         this.impedanceEnable = true;
-        impedance = VerticalParamKt.DEFAULT_IMPEDANCE;
-        this.impedance = impedance;
-        unit2 = VerticalParamKt.DEFAULT_UNIT;
-        this.unit = unit2;
-        j = VerticalParamKt.DEFAULT_SCALE;
-        this.scale = j;
-        j2 = VerticalParamKt.DEFAULT_SCALE;
-        this.RealScale = j2;
+        this.impedance = VerticalParamKt.access$getDEFAULT_IMPEDANCE$p();
+        this.unit = VerticalParamKt.access$getDEFAULT_UNIT$p();
+        this.scale = VerticalParamKt.access$getDEFAULT_SCALE$p();
+        this.RealScale = VerticalParamKt.access$getDEFAULT_SCALE$p();
         this.scaleAttr = new MessageAttr();
         this.offsetAttr = new MessageAttr();
         this.positionAttr = new MessageAttr();
@@ -899,37 +882,21 @@ public final class VerticalParam extends BaseParam {
 
     @Override // com.rigol.scope.data.BaseParam
     public void reset() {
-        long j;
-        ServiceEnum.Impedance impedance;
-        ServiceEnum.Coupling coupling;
-        ServiceEnum.Bandwidth bandwidth;
-        ServiceEnum.Unit unit;
-        ServiceEnum.ProbeX probeX;
-        ServiceEnum.Unit unit2;
-        long j2;
         super.reset();
-        j = VerticalParamKt.DEFAULT_SCALE;
-        setScale(j);
+        setScale(VerticalParamKt.access$getDEFAULT_SCALE$p());
         setOffset(0L);
         setPosition(0L);
-        impedance = VerticalParamKt.DEFAULT_IMPEDANCE;
-        setImpedance(impedance);
-        coupling = VerticalParamKt.DEFAULT_COUPING;
-        setCoupling(coupling);
+        setImpedance(VerticalParamKt.access$getDEFAULT_IMPEDANCE$p());
+        setCoupling(VerticalParamKt.access$getDEFAULT_COUPING$p());
         setInvert(false);
-        bandwidth = VerticalParamKt.DEFAULT_BANDWIDTH;
-        setBandLimit(bandwidth);
-        unit = VerticalParamKt.DEFAULT_UNIT;
-        setUnit(unit);
+        setBandLimit(VerticalParamKt.access$getDEFAULT_BANDWIDTH$p());
+        setUnit(VerticalParamKt.access$getDEFAULT_UNIT$p());
         setLabel("CH" + ((getServiceId() - 1) + 1));
         setShowLabel(false);
         setFine(false);
-        probeX = VerticalParamKt.DEFAULT_PROBE_RATIO;
-        setProbeRatio(probeX);
-        unit2 = VerticalParamKt.DEFAULT_PROBE_RATIO_UNIT;
-        setProbeRatioUnit(unit2);
-        j2 = VerticalParamKt.DEFAULT_SCALE;
-        setRealScale(j2);
+        setProbeRatio(VerticalParamKt.access$getDEFAULT_PROBE_RATIO$p());
+        setProbeRatioUnit(VerticalParamKt.access$getDEFAULT_PROBE_RATIO_UNIT$p());
+        setRealScale(VerticalParamKt.access$getDEFAULT_SCALE$p());
     }
 
     public final long getScaleValue() {

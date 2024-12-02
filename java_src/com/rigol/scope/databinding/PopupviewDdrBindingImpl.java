@@ -14,6 +14,7 @@ import com.rigol.scope.R;
 import com.rigol.scope.data.StorageSaveParam;
 import com.rigol.scope.utilities.ViewUtil;
 import com.rigol.scope.views.NumberProgressBar;
+
 /* loaded from: classes2.dex */
 public class PopupviewDdrBindingImpl extends PopupviewDdrBinding {
     private static final ViewDataBinding.IncludedLayouts sIncludes = null;

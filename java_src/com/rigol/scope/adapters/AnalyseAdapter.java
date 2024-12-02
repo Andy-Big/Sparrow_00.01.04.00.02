@@ -22,6 +22,7 @@ import com.rigol.scope.views.mask.MaskPopupView;
 import com.rigol.scope.views.record.RecordPopupView;
 import com.rigol.util.ToastUtils;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public class AnalyseAdapter extends BaseAdapter<List<ServiceEnum.Function>> {
     private List<MappingObject> mappings;

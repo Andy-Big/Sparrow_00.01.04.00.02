@@ -10,6 +10,7 @@ import com.rigol.scope.utilities.ViewUtil;
 import com.rigol.scope.viewmodels.VerticalViewModel;
 import java.util.ArrayList;
 import java.util.List;
+
 /* loaded from: classes2.dex */
 public class FftParam extends BaseParam {
     private static final boolean DEFAULT_AUTORBW = true;
@@ -619,9 +620,8 @@ public class FftParam extends BaseParam {
         return Math.round(Math.log10(((j * 1.0d) / 1.0E9d) * 1000.0d) * 10.0d * 1.0E9d);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
-    public class Marker {
+    class Marker {
         public ServiceEnum.RtsaMarker markerId;
         public long freq = 0;
         public long vlot = 0;

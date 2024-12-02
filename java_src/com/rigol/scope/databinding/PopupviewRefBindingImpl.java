@@ -11,11 +11,19 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.Guideline;
 import androidx.databinding.DataBindingComponent;
 import androidx.databinding.ViewDataBinding;
+import androidx.databinding.adapters.CompoundButtonBindingAdapter;
+import androidx.databinding.adapters.TextViewBindingAdapter;
 import com.rigol.scope.R;
+import com.rigol.scope.cil.ServiceEnum;
 import com.rigol.scope.data.MappingObject;
 import com.rigol.scope.data.RefParam;
+import com.rigol.scope.utilities.ColorUtil;
+import com.rigol.scope.utilities.ContextUtil;
+import com.rigol.scope.utilities.UnitFormat;
+import com.rigol.scope.utilities.ViewUtil;
 import com.rigol.scope.views.SwitchButton;
 import com.rigol.scope.views.baseview.BaseEditText;
+
 /* loaded from: classes2.dex */
 public class PopupviewRefBindingImpl extends PopupviewRefBinding {
     private static final ViewDataBinding.IncludedLayouts sIncludes = null;
@@ -277,13 +285,275 @@ public class PopupviewRefBindingImpl extends PopupviewRefBinding {
     @Override // androidx.databinding.ViewDataBinding
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
     protected void executeBindings() {
-        /*
-            Method dump skipped, instructions count: 754
-            To view this dump add '--comments-level debug' option
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.rigol.scope.databinding.PopupviewRefBindingImpl.executeBindings():void");
+        long j;
+        RefParam.Param param;
+        String str;
+        String str2;
+        String str3;
+        String str4;
+        String str5;
+        String str6;
+        int i;
+        boolean z;
+        float f;
+        boolean z2;
+        boolean z3;
+        int i2;
+        float f2;
+        boolean z4;
+        String str7;
+        int i3;
+        String str8;
+        int i4;
+        String str9;
+        String str10;
+        String str11;
+        String str12;
+        long j2;
+        synchronized (this) {
+            j = this.mDirtyFlags;
+            this.mDirtyFlags = 0L;
+        }
+        RefParam refParam = this.mParam;
+        if ((131071 & j) != 0) {
+            if ((j & 69649) != 0) {
+                MappingObject mappingObject = ViewUtil.getMappingObject(R.array.msg_ref_channel, refParam != null ? refParam.getRefChan() : 0);
+                updateRegistration(0, mappingObject);
+                if (mappingObject != null) {
+                    str = mappingObject.getStr();
+                    if ((69598 & j) == 0) {
+                        RefParam.Param param2 = refParam != null ? refParam.getParam() : null;
+                        updateRegistration(3, param2);
+                        String label = ((j & 66584) == 0 || param2 == null) ? null : param2.getLabel();
+                        if ((j & 67610) != 0) {
+                            ServiceEnum.RefColor refColor = param2 != null ? param2.getRefColor() : null;
+                            MappingObject mappingObject2 = ViewUtil.getMappingObject(R.array.msg_ref_color, refColor != null ? refColor.value1 : 0);
+                            updateRegistration(1, mappingObject2);
+                            if (mappingObject2 != null) {
+                                str8 = mappingObject2.getStr();
+                                i4 = ((j & 66328) > 0L ? 1 : ((j & 66328) == 0L ? 0 : -1));
+                                if (i4 == 0) {
+                                    if (param2 != null) {
+                                        str9 = str8;
+                                        j2 = param2.getVerOffset();
+                                    } else {
+                                        str9 = str8;
+                                        j2 = 0;
+                                    }
+                                    str10 = UnitFormat.newBuilder(UnitFormat.SI.NANO).convert(j2);
+                                } else {
+                                    str9 = str8;
+                                    str10 = null;
+                                }
+                                if ((66456 & j) == 0) {
+                                    ServiceEnum.Unit unit = param2 != null ? param2.getUnit() : null;
+                                    str11 = unit != null ? unit.value2 : null;
+                                    if (i4 != 0) {
+                                        str2 = str10 + str11;
+                                    } else {
+                                        str2 = null;
+                                    }
+                                } else {
+                                    str2 = null;
+                                    str11 = null;
+                                }
+                                if ((j & 65944) == 0) {
+                                    str12 = UnitFormat.newBuilder(UnitFormat.SI.NANO).convert(param2 != null ? param2.getVerScale() : 0L) + str11;
+                                } else {
+                                    str12 = null;
+                                }
+                                if ((j & 65628) == 0) {
+                                    ServiceEnum.Chan srcChan = param2 != null ? param2.getSrcChan() : null;
+                                    MappingObject mappingObject3 = ViewUtil.getMappingObject(R.array.msg_ref_source, srcChan != null ? srcChan.value1 : 0);
+                                    updateRegistration(2, mappingObject3);
+                                    String str13 = mappingObject3 != null ? mappingObject3.getStr() : null;
+                                    if ((j & 65624) != 0) {
+                                        str6 = str13;
+                                        str5 = label;
+                                        i = ColorUtil.getColor(getRoot().getContext(), srcChan);
+                                        str4 = str12;
+                                        str3 = str9;
+                                        z2 = ((j & 73744) != 0 || refParam == null) ? false : refParam.isShowLabel();
+                                        i3 = ((j & 114736) > 0L ? 1 : ((j & 114736) == 0L ? 0 : -1));
+                                        if (i3 != 0) {
+                                            param = refParam != null ? refParam.getParam() : null;
+                                            updateRegistration(5, param);
+                                            z = param != null ? param.isOnOff() : false;
+                                            if (i3 != 0) {
+                                                j = z ? j | PlaybackStateCompat.ACTION_SET_REPEAT_MODE : j | PlaybackStateCompat.ACTION_PREPARE_FROM_URI;
+                                            }
+                                            if ((j & 81968) != 0) {
+                                                f = ContextUtil.getAlpha(z);
+                                            }
+                                        } else {
+                                            param = null;
+                                            z = false;
+                                        }
+                                        f = 0.0f;
+                                    } else {
+                                        str4 = str12;
+                                        str6 = str13;
+                                        str3 = str9;
+                                        str5 = label;
+                                    }
+                                } else {
+                                    str4 = str12;
+                                    str5 = label;
+                                    str6 = null;
+                                    str3 = str9;
+                                }
+                            }
+                        }
+                        str8 = null;
+                        i4 = ((j & 66328) > 0L ? 1 : ((j & 66328) == 0L ? 0 : -1));
+                        if (i4 == 0) {
+                        }
+                        if ((66456 & j) == 0) {
+                        }
+                        if ((j & 65944) == 0) {
+                        }
+                        if ((j & 65628) == 0) {
+                        }
+                    } else {
+                        str2 = null;
+                        str3 = null;
+                        str4 = null;
+                        str5 = null;
+                        str6 = null;
+                    }
+                    i = 0;
+                    if ((j & 73744) != 0) {
+                    }
+                    i3 = ((j & 114736) > 0L ? 1 : ((j & 114736) == 0L ? 0 : -1));
+                    if (i3 != 0) {
+                    }
+                    f = 0.0f;
+                }
+            }
+            str = null;
+            if ((69598 & j) == 0) {
+            }
+            i = 0;
+            if ((j & 73744) != 0) {
+            }
+            i3 = ((j & 114736) > 0L ? 1 : ((j & 114736) == 0L ? 0 : -1));
+            if (i3 != 0) {
+            }
+            f = 0.0f;
+        } else {
+            param = null;
+            str = null;
+            str2 = null;
+            str3 = null;
+            str4 = null;
+            str5 = null;
+            str6 = null;
+            i = 0;
+            z = false;
+            f = 0.0f;
+            z2 = false;
+        }
+        if ((j & PlaybackStateCompat.ACTION_SET_REPEAT_MODE) != 0) {
+            ServiceEnum.Chan srcChan2 = param != null ? param.getSrcChan() : null;
+            if ((srcChan2 != null ? srcChan2.value1 : 0) < ServiceEnum.Chan.d0.value1) {
+                z3 = true;
+                i2 = ((j & 114736) > 0L ? 1 : ((j & 114736) == 0L ? 0 : -1));
+                if (i2 == 0) {
+                    if (!z) {
+                        z3 = false;
+                    }
+                    f2 = ContextUtil.getAlpha(z3);
+                    z4 = z3;
+                } else {
+                    f2 = 0.0f;
+                    z4 = false;
+                }
+                int i5 = i;
+                if ((j & 81968) == 0) {
+                    str7 = str6;
+                    if (getBuildSdkInt() >= 11) {
+                        this.cleanBtn.setAlpha(f);
+                        this.mathOffsetDown.setAlpha(f);
+                        this.mathOffsetUp.setAlpha(f);
+                        this.offset.setAlpha(f);
+                        this.offsetEditText.setAlpha(f);
+                        this.refExportBtn.setAlpha(f);
+                        this.refResetBtn.setAlpha(f);
+                        this.scale.setAlpha(f);
+                    }
+                    this.cleanBtn.setEnabled(z);
+                    this.mathOffsetDown.setEnabled(z);
+                    this.mathOffsetUp.setEnabled(z);
+                    this.offsetEditText.setEnabled(z);
+                    this.refExportBtn.setEnabled(z);
+                    this.refResetBtn.setEnabled(z);
+                } else {
+                    str7 = str6;
+                }
+                if ((j & 66584) != 0) {
+                    TextViewBindingAdapter.setText(this.labelEditText, str5);
+                }
+                if ((j & 73744) != 0) {
+                    CompoundButtonBindingAdapter.setChecked(this.labelSwitch, z2);
+                }
+                if (i2 != 0) {
+                    if (getBuildSdkInt() >= 11) {
+                        this.mainScaleNomal.setAlpha(f2);
+                        this.mainScaleVertical.setAlpha(f2);
+                        this.scaleEditText.setAlpha(f2);
+                    }
+                    this.mainScaleNomal.setEnabled(z4);
+                    this.mainScaleVertical.setEnabled(z4);
+                    this.scaleEditText.setEnabled(z4);
+                }
+                if ((66328 & j) != 0) {
+                    TextViewBindingAdapter.setText(this.offsetEditText, str2);
+                }
+                if ((j & 69649) != 0) {
+                    TextViewBindingAdapter.setText(this.refChannelSpinner, str);
+                }
+                if ((67610 & j) != 0) {
+                    TextViewBindingAdapter.setText(this.refColorSpinner, str3);
+                }
+                if ((65944 & j) != 0) {
+                    TextViewBindingAdapter.setText(this.scaleEditText, str4);
+                }
+                if ((65628 & j) != 0) {
+                    TextViewBindingAdapter.setText(this.sourceSpinner, str7);
+                }
+                if ((j & 65624) == 0) {
+                    this.sourceSpinner.setTextColor(i5);
+                    return;
+                }
+                return;
+            }
+        }
+        z3 = false;
+        i2 = ((j & 114736) > 0L ? 1 : ((j & 114736) == 0L ? 0 : -1));
+        if (i2 == 0) {
+        }
+        int i52 = i;
+        if ((j & 81968) == 0) {
+        }
+        if ((j & 66584) != 0) {
+        }
+        if ((j & 73744) != 0) {
+        }
+        if (i2 != 0) {
+        }
+        if ((66328 & j) != 0) {
+        }
+        if ((j & 69649) != 0) {
+        }
+        if ((67610 & j) != 0) {
+        }
+        if ((65944 & j) != 0) {
+        }
+        if ((65628 & j) != 0) {
+        }
+        if ((j & 65624) == 0) {
+        }
     }
 }

@@ -14,6 +14,7 @@ import com.rigol.scope.databinding.AdapterJitterConstantBinding;
 import com.rigol.scope.utilities.ViewUtil;
 import com.rigol.scope.views.keyboard.KeyboardListener;
 import com.rigol.scope.views.keyboard.KeyboardPopupView;
+
 /* loaded from: classes.dex */
 public class JitterConstantAdapter extends RecyclerView.Adapter<JitterConstantHolder> implements RadioGroup.OnCheckedChangeListener, View.OnClickListener {
     private View anchorView;
@@ -33,12 +34,14 @@ public class JitterConstantAdapter extends RecyclerView.Adapter<JitterConstantHo
         this.context = context;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public JitterConstantHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         this.binding = AdapterJitterConstantBinding.inflate(LayoutInflater.from(viewGroup.getContext()), viewGroup, false);
         return new JitterConstantHolder(this.binding);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(JitterConstantHolder jitterConstantHolder, int i) {
         ShowJitterConstant();

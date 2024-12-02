@@ -12,6 +12,7 @@ import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import com.rigol.scope.R;
 import com.rigol.scope.data.JitterParam;
+
 /* loaded from: classes2.dex */
 public abstract class AdapterJitterPllBinding extends ViewDataBinding {
     public final TextView jitterDampFactorLabel;
@@ -30,8 +31,7 @@ public abstract class AdapterJitterPllBinding extends ViewDataBinding {
 
     public abstract void setParam(JitterParam jitterParam);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public AdapterJitterPllBinding(Object obj, View view, int i, TextView textView, TextView textView2, TextView textView3, TextView textView4, RadioButton radioButton, ConstraintLayout constraintLayout, TextView textView5, RadioGroup radioGroup, TextView textView6, TextView textView7, RadioButton radioButton2) {
+    protected AdapterJitterPllBinding(Object obj, View view, int i, TextView textView, TextView textView2, TextView textView3, TextView textView4, RadioButton radioButton, ConstraintLayout constraintLayout, TextView textView5, RadioGroup radioGroup, TextView textView6, TextView textView7, RadioButton radioButton2) {
         super(obj, view, i);
         this.jitterDampFactorLabel = textView;
         this.jitterDampFactorValue = textView2;

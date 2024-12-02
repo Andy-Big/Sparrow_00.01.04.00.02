@@ -73,6 +73,7 @@ import java.util.List;
 import java.util.Queue;
 import org.json.JSONException;
 import timber.log.Timber;
+
 /* loaded from: classes.dex */
 public class ResultListAdapter extends MultiItemTypeAdapter<List<ResultParam>> {
     public static final String CACHED_RESULT_LIST_KEY = "cached_result_list";
@@ -777,9 +778,8 @@ public class ResultListAdapter extends MultiItemTypeAdapter<List<ResultParam>> {
 
     /* loaded from: classes.dex */
     public static class MeasureDelegate extends BaseMeasureAdapterDelegate {
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.rigol.scope.adapters.ResultListAdapter.BaseMeasureAdapterDelegate, com.rigol.scope.adapters.AdapterDelegate
-        public /* bridge */ /* synthetic */ void onBindViewHolder(Object obj, int i, BaseViewHolder baseViewHolder) {
+        protected /* bridge */ /* synthetic */ void onBindViewHolder(Object obj, int i, BaseViewHolder baseViewHolder) {
             onBindViewHolder((List) obj, i, (BaseViewHolder<? extends ViewDataBinding>) baseViewHolder);
         }
 
@@ -787,6 +787,7 @@ public class ResultListAdapter extends MultiItemTypeAdapter<List<ResultParam>> {
             super(i);
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.rigol.scope.adapters.ResultListAdapter.BaseMeasureAdapterDelegate, com.rigol.scope.adapters.AdapterDelegate
         public boolean isForViewType(List<ResultParam> list, int i) {
@@ -829,8 +830,7 @@ public class ResultListAdapter extends MultiItemTypeAdapter<List<ResultParam>> {
             });
         }
 
-        /* JADX INFO: Access modifiers changed from: package-private */
-        public static /* synthetic */ void lambda$onBindViewHolder$0(MeasureResultParam measureResultParam, AdapterItemResultMeasureBinding adapterItemResultMeasureBinding, View view) {
+        static /* synthetic */ void lambda$onBindViewHolder$0(MeasureResultParam measureResultParam, AdapterItemResultMeasureBinding adapterItemResultMeasureBinding, View view) {
             if (measureResultParam.getStat() == 1) {
                 measureResultParam.setStats(0);
                 API.getInstance().UI_PostInt32(28, MessageID.MSG_APP_MEAS_ITEM_CHECKED, ViewUtil.getMeasureItem(measureResultParam.getMeasType().value1, measureResultParam.getSourceA().value1, measureResultParam.getSourceB().value1));
@@ -842,9 +842,8 @@ public class ResultListAdapter extends MultiItemTypeAdapter<List<ResultParam>> {
             API.getInstance().UI_PostInt32(28, MessageID.MSG_MEAS_ITEM_STAT, ViewUtil.getMeasureItem(measureResultParam.getStat(), measureResultParam.getMeasType().value1, measureResultParam.getSourceA().value1, measureResultParam.getSourceB().value1));
         }
 
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.rigol.scope.adapters.BaseAdapterDelegate, com.rigol.scope.adapters.AdapterDelegate
-        public BaseViewHolder<? extends ViewDataBinding> onCreateViewHolder(ViewGroup viewGroup) {
+        protected BaseViewHolder<? extends ViewDataBinding> onCreateViewHolder(ViewGroup viewGroup) {
             AdapterItemResultMeasureBinding adapterItemResultMeasureBinding = (AdapterItemResultMeasureBinding) DataBindingUtil.inflate(LayoutInflater.from(viewGroup.getContext()), getLayoutId(), viewGroup, false);
             ViewUtil.setTouchDelegate(adapterItemResultMeasureBinding.arrow, (ViewGroup) adapterItemResultMeasureBinding.getRoot(), 15);
             adapterItemResultMeasureBinding.resultList.setVisibility(8);
@@ -862,9 +861,8 @@ public class ResultListAdapter extends MultiItemTypeAdapter<List<ResultParam>> {
 
     /* loaded from: classes.dex */
     public static class HistogramDelegate extends BaseMeasureAdapterDelegate {
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.rigol.scope.adapters.ResultListAdapter.BaseMeasureAdapterDelegate, com.rigol.scope.adapters.AdapterDelegate
-        public /* bridge */ /* synthetic */ void onBindViewHolder(Object obj, int i, BaseViewHolder baseViewHolder) {
+        protected /* bridge */ /* synthetic */ void onBindViewHolder(Object obj, int i, BaseViewHolder baseViewHolder) {
             onBindViewHolder((List) obj, i, (BaseViewHolder<? extends ViewDataBinding>) baseViewHolder);
         }
 
@@ -872,6 +870,7 @@ public class ResultListAdapter extends MultiItemTypeAdapter<List<ResultParam>> {
             super(i);
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.rigol.scope.adapters.ResultListAdapter.BaseMeasureAdapterDelegate, com.rigol.scope.adapters.AdapterDelegate
         public boolean isForViewType(List<ResultParam> list, int i) {
@@ -892,9 +891,8 @@ public class ResultListAdapter extends MultiItemTypeAdapter<List<ResultParam>> {
             itemAdapter.notifyDataSetChanged();
         }
 
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.rigol.scope.adapters.BaseAdapterDelegate, com.rigol.scope.adapters.AdapterDelegate
-        public BaseViewHolder<? extends ViewDataBinding> onCreateViewHolder(ViewGroup viewGroup) {
+        protected BaseViewHolder<? extends ViewDataBinding> onCreateViewHolder(ViewGroup viewGroup) {
             BaseViewHolder<? extends ViewDataBinding> onCreateViewHolder = super.onCreateViewHolder(viewGroup);
             AdapterItemResultHistogramBinding adapterItemResultHistogramBinding = (AdapterItemResultHistogramBinding) onCreateViewHolder.getBinding();
             adapterItemResultHistogramBinding.resultList.setAdapter(new ItemAdapter(adapterItemResultHistogramBinding.getRoot().getContext(), new ArrayList(), R.layout.adapter_item_result_item_towview));
@@ -904,9 +902,8 @@ public class ResultListAdapter extends MultiItemTypeAdapter<List<ResultParam>> {
 
     /* loaded from: classes.dex */
     public static class MeasHistogramDelegate extends BaseMeasureAdapterDelegate {
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.rigol.scope.adapters.ResultListAdapter.BaseMeasureAdapterDelegate, com.rigol.scope.adapters.AdapterDelegate
-        public /* bridge */ /* synthetic */ void onBindViewHolder(Object obj, int i, BaseViewHolder baseViewHolder) {
+        protected /* bridge */ /* synthetic */ void onBindViewHolder(Object obj, int i, BaseViewHolder baseViewHolder) {
             onBindViewHolder((List) obj, i, (BaseViewHolder<? extends ViewDataBinding>) baseViewHolder);
         }
 
@@ -914,6 +911,7 @@ public class ResultListAdapter extends MultiItemTypeAdapter<List<ResultParam>> {
             super(i);
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.rigol.scope.adapters.ResultListAdapter.BaseMeasureAdapterDelegate, com.rigol.scope.adapters.AdapterDelegate
         public boolean isForViewType(List<ResultParam> list, int i) {
@@ -934,9 +932,8 @@ public class ResultListAdapter extends MultiItemTypeAdapter<List<ResultParam>> {
             itemAdapter.notifyDataSetChanged();
         }
 
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.rigol.scope.adapters.BaseAdapterDelegate, com.rigol.scope.adapters.AdapterDelegate
-        public BaseViewHolder<? extends ViewDataBinding> onCreateViewHolder(ViewGroup viewGroup) {
+        protected BaseViewHolder<? extends ViewDataBinding> onCreateViewHolder(ViewGroup viewGroup) {
             BaseViewHolder<? extends ViewDataBinding> onCreateViewHolder = super.onCreateViewHolder(viewGroup);
             AdapterItemResultMeasHistogramBinding adapterItemResultMeasHistogramBinding = (AdapterItemResultMeasHistogramBinding) onCreateViewHolder.getBinding();
             adapterItemResultMeasHistogramBinding.resultList.setAdapter(new ItemAdapter(adapterItemResultMeasHistogramBinding.getRoot().getContext(), new ArrayList(), R.layout.adapter_item_result_item_towview));
@@ -946,9 +943,8 @@ public class ResultListAdapter extends MultiItemTypeAdapter<List<ResultParam>> {
 
     /* loaded from: classes.dex */
     public static class CursorDelegate extends BaseMeasureAdapterDelegate {
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.rigol.scope.adapters.ResultListAdapter.BaseMeasureAdapterDelegate, com.rigol.scope.adapters.AdapterDelegate
-        public /* bridge */ /* synthetic */ void onBindViewHolder(Object obj, int i, BaseViewHolder baseViewHolder) {
+        protected /* bridge */ /* synthetic */ void onBindViewHolder(Object obj, int i, BaseViewHolder baseViewHolder) {
             onBindViewHolder((List) obj, i, (BaseViewHolder<? extends ViewDataBinding>) baseViewHolder);
         }
 
@@ -956,6 +952,7 @@ public class ResultListAdapter extends MultiItemTypeAdapter<List<ResultParam>> {
             super(i);
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.rigol.scope.adapters.ResultListAdapter.BaseMeasureAdapterDelegate, com.rigol.scope.adapters.AdapterDelegate
         public boolean isForViewType(List<ResultParam> list, int i) {
@@ -975,9 +972,8 @@ public class ResultListAdapter extends MultiItemTypeAdapter<List<ResultParam>> {
             }
         }
 
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.rigol.scope.adapters.BaseAdapterDelegate, com.rigol.scope.adapters.AdapterDelegate
-        public BaseViewHolder<? extends ViewDataBinding> onCreateViewHolder(ViewGroup viewGroup) {
+        protected BaseViewHolder<? extends ViewDataBinding> onCreateViewHolder(ViewGroup viewGroup) {
             BaseViewHolder<? extends ViewDataBinding> onCreateViewHolder = super.onCreateViewHolder(viewGroup);
             AdapterItemResultCursorBinding adapterItemResultCursorBinding = (AdapterItemResultCursorBinding) onCreateViewHolder.getBinding();
             adapterItemResultCursorBinding.resultList.setAdapter(new ItemAdapter(adapterItemResultCursorBinding.getRoot().getContext(), new ArrayList(), R.layout.adapter_item_result_item_towview));
@@ -987,9 +983,8 @@ public class ResultListAdapter extends MultiItemTypeAdapter<List<ResultParam>> {
 
     /* loaded from: classes.dex */
     public static class DvmDelegate extends BaseMeasureAdapterDelegate {
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.rigol.scope.adapters.ResultListAdapter.BaseMeasureAdapterDelegate, com.rigol.scope.adapters.AdapterDelegate
-        public /* bridge */ /* synthetic */ void onBindViewHolder(Object obj, int i, BaseViewHolder baseViewHolder) {
+        protected /* bridge */ /* synthetic */ void onBindViewHolder(Object obj, int i, BaseViewHolder baseViewHolder) {
             onBindViewHolder((List) obj, i, (BaseViewHolder<? extends ViewDataBinding>) baseViewHolder);
         }
 
@@ -997,6 +992,7 @@ public class ResultListAdapter extends MultiItemTypeAdapter<List<ResultParam>> {
             super(i);
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.rigol.scope.adapters.ResultListAdapter.BaseMeasureAdapterDelegate, com.rigol.scope.adapters.AdapterDelegate
         public boolean isForViewType(List<ResultParam> list, int i) {
@@ -1015,9 +1011,8 @@ public class ResultListAdapter extends MultiItemTypeAdapter<List<ResultParam>> {
 
     /* loaded from: classes.dex */
     public static class CounterDelegate extends BaseMeasureAdapterDelegate {
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.rigol.scope.adapters.ResultListAdapter.BaseMeasureAdapterDelegate, com.rigol.scope.adapters.AdapterDelegate
-        public /* bridge */ /* synthetic */ void onBindViewHolder(Object obj, int i, BaseViewHolder baseViewHolder) {
+        protected /* bridge */ /* synthetic */ void onBindViewHolder(Object obj, int i, BaseViewHolder baseViewHolder) {
             onBindViewHolder((List) obj, i, (BaseViewHolder<? extends ViewDataBinding>) baseViewHolder);
         }
 
@@ -1025,6 +1020,7 @@ public class ResultListAdapter extends MultiItemTypeAdapter<List<ResultParam>> {
             super(i);
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.rigol.scope.adapters.ResultListAdapter.BaseMeasureAdapterDelegate, com.rigol.scope.adapters.AdapterDelegate
         public boolean isForViewType(List<ResultParam> list, int i) {
@@ -1066,9 +1062,8 @@ public class ResultListAdapter extends MultiItemTypeAdapter<List<ResultParam>> {
 
     /* loaded from: classes.dex */
     public static class EyeDelegate extends BaseMeasureAdapterDelegate {
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.rigol.scope.adapters.ResultListAdapter.BaseMeasureAdapterDelegate, com.rigol.scope.adapters.AdapterDelegate
-        public /* bridge */ /* synthetic */ void onBindViewHolder(Object obj, int i, BaseViewHolder baseViewHolder) {
+        protected /* bridge */ /* synthetic */ void onBindViewHolder(Object obj, int i, BaseViewHolder baseViewHolder) {
             onBindViewHolder((List) obj, i, (BaseViewHolder<? extends ViewDataBinding>) baseViewHolder);
         }
 
@@ -1076,6 +1071,7 @@ public class ResultListAdapter extends MultiItemTypeAdapter<List<ResultParam>> {
             super(i);
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.rigol.scope.adapters.ResultListAdapter.BaseMeasureAdapterDelegate, com.rigol.scope.adapters.AdapterDelegate
         public boolean isForViewType(List<ResultParam> list, int i) {
@@ -1095,9 +1091,8 @@ public class ResultListAdapter extends MultiItemTypeAdapter<List<ResultParam>> {
             }
         }
 
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.rigol.scope.adapters.BaseAdapterDelegate, com.rigol.scope.adapters.AdapterDelegate
-        public BaseViewHolder<? extends ViewDataBinding> onCreateViewHolder(ViewGroup viewGroup) {
+        protected BaseViewHolder<? extends ViewDataBinding> onCreateViewHolder(ViewGroup viewGroup) {
             BaseViewHolder<? extends ViewDataBinding> onCreateViewHolder = super.onCreateViewHolder(viewGroup);
             AdapterItemResultEyeBinding adapterItemResultEyeBinding = (AdapterItemResultEyeBinding) onCreateViewHolder.getBinding();
             adapterItemResultEyeBinding.resultList.setAdapter(new ItemAdapter(adapterItemResultEyeBinding.getRoot().getContext(), new ArrayList(), R.layout.adapter_item_result_item_towview));
@@ -1107,9 +1102,8 @@ public class ResultListAdapter extends MultiItemTypeAdapter<List<ResultParam>> {
 
     /* loaded from: classes.dex */
     public static class JitterDelegate extends BaseMeasureAdapterDelegate {
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.rigol.scope.adapters.ResultListAdapter.BaseMeasureAdapterDelegate, com.rigol.scope.adapters.AdapterDelegate
-        public /* bridge */ /* synthetic */ void onBindViewHolder(Object obj, int i, BaseViewHolder baseViewHolder) {
+        protected /* bridge */ /* synthetic */ void onBindViewHolder(Object obj, int i, BaseViewHolder baseViewHolder) {
             onBindViewHolder((List) obj, i, (BaseViewHolder<? extends ViewDataBinding>) baseViewHolder);
         }
 
@@ -1117,6 +1111,7 @@ public class ResultListAdapter extends MultiItemTypeAdapter<List<ResultParam>> {
             super(i);
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.rigol.scope.adapters.ResultListAdapter.BaseMeasureAdapterDelegate, com.rigol.scope.adapters.AdapterDelegate
         public boolean isForViewType(List<ResultParam> list, int i) {
@@ -1136,9 +1131,8 @@ public class ResultListAdapter extends MultiItemTypeAdapter<List<ResultParam>> {
             }
         }
 
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.rigol.scope.adapters.BaseAdapterDelegate, com.rigol.scope.adapters.AdapterDelegate
-        public BaseViewHolder<? extends ViewDataBinding> onCreateViewHolder(ViewGroup viewGroup) {
+        protected BaseViewHolder<? extends ViewDataBinding> onCreateViewHolder(ViewGroup viewGroup) {
             BaseViewHolder<? extends ViewDataBinding> onCreateViewHolder = super.onCreateViewHolder(viewGroup);
             AdapterItemResultJitterBinding adapterItemResultJitterBinding = (AdapterItemResultJitterBinding) onCreateViewHolder.getBinding();
             adapterItemResultJitterBinding.resultList.setAdapter(new ItemAdapter(adapterItemResultJitterBinding.getRoot().getContext(), new ArrayList(), R.layout.adapter_item_result_item_towview));
@@ -1148,9 +1142,8 @@ public class ResultListAdapter extends MultiItemTypeAdapter<List<ResultParam>> {
 
     /* loaded from: classes.dex */
     public static class MaskDelegate extends BaseMeasureAdapterDelegate {
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.rigol.scope.adapters.ResultListAdapter.BaseMeasureAdapterDelegate, com.rigol.scope.adapters.AdapterDelegate
-        public /* bridge */ /* synthetic */ void onBindViewHolder(Object obj, int i, BaseViewHolder baseViewHolder) {
+        protected /* bridge */ /* synthetic */ void onBindViewHolder(Object obj, int i, BaseViewHolder baseViewHolder) {
             onBindViewHolder((List) obj, i, (BaseViewHolder<? extends ViewDataBinding>) baseViewHolder);
         }
 
@@ -1158,6 +1151,7 @@ public class ResultListAdapter extends MultiItemTypeAdapter<List<ResultParam>> {
             super(i);
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.rigol.scope.adapters.ResultListAdapter.BaseMeasureAdapterDelegate, com.rigol.scope.adapters.AdapterDelegate
         public boolean isForViewType(List<ResultParam> list, int i) {
@@ -1177,9 +1171,8 @@ public class ResultListAdapter extends MultiItemTypeAdapter<List<ResultParam>> {
             }
         }
 
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.rigol.scope.adapters.BaseAdapterDelegate, com.rigol.scope.adapters.AdapterDelegate
-        public BaseViewHolder<? extends ViewDataBinding> onCreateViewHolder(ViewGroup viewGroup) {
+        protected BaseViewHolder<? extends ViewDataBinding> onCreateViewHolder(ViewGroup viewGroup) {
             BaseViewHolder<? extends ViewDataBinding> onCreateViewHolder = super.onCreateViewHolder(viewGroup);
             AdapterItemResultMaskBinding adapterItemResultMaskBinding = (AdapterItemResultMaskBinding) onCreateViewHolder.getBinding();
             adapterItemResultMaskBinding.resultList.setAdapter(new ItemAdapter(adapterItemResultMaskBinding.getRoot().getContext(), new ArrayList(), R.layout.adapter_item_result_item_towview));
@@ -1189,9 +1182,8 @@ public class ResultListAdapter extends MultiItemTypeAdapter<List<ResultParam>> {
 
     /* loaded from: classes.dex */
     public static class RtsaMarkerDelegate extends BaseMeasureAdapterDelegate {
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.rigol.scope.adapters.ResultListAdapter.BaseMeasureAdapterDelegate, com.rigol.scope.adapters.AdapterDelegate
-        public /* bridge */ /* synthetic */ void onBindViewHolder(Object obj, int i, BaseViewHolder baseViewHolder) {
+        protected /* bridge */ /* synthetic */ void onBindViewHolder(Object obj, int i, BaseViewHolder baseViewHolder) {
             onBindViewHolder((List) obj, i, (BaseViewHolder<? extends ViewDataBinding>) baseViewHolder);
         }
 
@@ -1199,6 +1191,7 @@ public class ResultListAdapter extends MultiItemTypeAdapter<List<ResultParam>> {
             super(i);
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.rigol.scope.adapters.ResultListAdapter.BaseMeasureAdapterDelegate, com.rigol.scope.adapters.AdapterDelegate
         public boolean isForViewType(List<ResultParam> list, int i) {
@@ -1218,9 +1211,8 @@ public class ResultListAdapter extends MultiItemTypeAdapter<List<ResultParam>> {
             }
         }
 
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.rigol.scope.adapters.BaseAdapterDelegate, com.rigol.scope.adapters.AdapterDelegate
-        public BaseViewHolder<? extends ViewDataBinding> onCreateViewHolder(ViewGroup viewGroup) {
+        protected BaseViewHolder<? extends ViewDataBinding> onCreateViewHolder(ViewGroup viewGroup) {
             BaseViewHolder<? extends ViewDataBinding> onCreateViewHolder = super.onCreateViewHolder(viewGroup);
             AdapterItemResultMarkerBinding adapterItemResultMarkerBinding = (AdapterItemResultMarkerBinding) onCreateViewHolder.getBinding();
             adapterItemResultMarkerBinding.resultList.setAdapter(new ItemAdapter(adapterItemResultMarkerBinding.getRoot().getContext(), new ArrayList(), R.layout.adapter_item_result_item_towview));
@@ -1232,15 +1224,15 @@ public class ResultListAdapter extends MultiItemTypeAdapter<List<ResultParam>> {
     public static class BaseMeasureAdapterDelegate extends BaseAdapterDelegate<List<ResultParam>> {
         private int selectedPosition;
 
+        /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.rigol.scope.adapters.AdapterDelegate
         public boolean isForViewType(List<ResultParam> list, int i) {
             return false;
         }
 
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.rigol.scope.adapters.AdapterDelegate
-        public /* bridge */ /* synthetic */ void onBindViewHolder(Object obj, int i, BaseViewHolder baseViewHolder) {
+        protected /* bridge */ /* synthetic */ void onBindViewHolder(Object obj, int i, BaseViewHolder baseViewHolder) {
             onBindViewHolder((List) obj, i, (BaseViewHolder<? extends ViewDataBinding>) baseViewHolder);
         }
 

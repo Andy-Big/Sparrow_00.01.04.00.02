@@ -31,6 +31,7 @@ import com.rigol.scope.views.math.MathPopupView;
 import com.rigol.scope.views.spinner.PopupSpinner;
 import java.util.ArrayList;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public class MathFilterAdapter extends RecyclerView.Adapter<MathFilterHolder> implements AorBManager.OnSetTextById, AorBManager.OnTextReset {
     private View anchorView;
@@ -74,6 +75,7 @@ public class MathFilterAdapter extends RecyclerView.Adapter<MathFilterHolder> im
         this.holder = viewPagerHolder;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public MathFilterHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         this.binding = (AdapterMathFilterBindingImpl) AdapterMathFilterBindingImpl.inflate(LayoutInflater.from(viewGroup.getContext()));
@@ -152,6 +154,7 @@ public class MathFilterAdapter extends RecyclerView.Adapter<MathFilterHolder> im
         }
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(MathFilterHolder mathFilterHolder, int i) {
         showMathFilter();

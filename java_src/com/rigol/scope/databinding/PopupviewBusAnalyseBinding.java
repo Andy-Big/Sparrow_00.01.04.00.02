@@ -11,6 +11,7 @@ import androidx.databinding.ViewDataBinding;
 import androidx.recyclerview.widget.RecyclerView;
 import com.rigol.scope.R;
 import com.rigol.scope.views.busAnalyse.BusAnalyseParam;
+
 /* loaded from: classes2.dex */
 public abstract class PopupviewBusAnalyseBinding extends ViewDataBinding {
     public final View busAnalyseDivider1;
@@ -32,8 +33,7 @@ public abstract class PopupviewBusAnalyseBinding extends ViewDataBinding {
 
     public abstract void setView(View view);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public PopupviewBusAnalyseBinding(Object obj, View view, int i, View view2, TextView textView, TextView textView2, RecyclerView recyclerView, Guideline guideline, Guideline guideline2) {
+    protected PopupviewBusAnalyseBinding(Object obj, View view, int i, View view2, TextView textView, TextView textView2, RecyclerView recyclerView, Guideline guideline, Guideline guideline2) {
         super(obj, view, i);
         this.busAnalyseDivider1 = view2;
         this.busAnalyseSelectLabel = textView;

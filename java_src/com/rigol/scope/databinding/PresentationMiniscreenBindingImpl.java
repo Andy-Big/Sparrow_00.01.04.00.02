@@ -9,10 +9,13 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.Guideline;
 import androidx.databinding.DataBindingComponent;
 import androidx.databinding.ViewDataBinding;
+import androidx.databinding.adapters.TextViewBindingAdapter;
 import androidx.viewpager2.widget.ViewPager2;
 import com.rigol.scope.R;
+import com.rigol.scope.cil.ServiceEnum;
 import com.rigol.scope.data.MiniScreenParam;
 import me.relex.circleindicator.CircleIndicator3;
+
 /* loaded from: classes2.dex */
 public class PresentationMiniscreenBindingImpl extends PresentationMiniscreenBinding {
     private static final ViewDataBinding.IncludedLayouts sIncludes = null;
@@ -131,62 +134,46 @@ public class PresentationMiniscreenBindingImpl extends PresentationMiniscreenBin
     @Override // androidx.databinding.ViewDataBinding
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
     protected void executeBindings() {
-        /*
-            r8 = this;
-            monitor-enter(r8)
-            long r0 = r8.mDirtyFlags     // Catch: java.lang.Throwable -> L54
-            r2 = 0
-            r8.mDirtyFlags = r2     // Catch: java.lang.Throwable -> L54
-            monitor-exit(r8)     // Catch: java.lang.Throwable -> L54
-            com.rigol.scope.data.MiniScreenParam r4 = r8.mParam
-            r5 = 7
-            long r0 = r0 & r5
-            int r0 = (r0 > r2 ? 1 : (r0 == r2 ? 0 : -1))
-            r1 = 0
-            if (r0 == 0) goto L34
-            if (r4 == 0) goto L19
-            com.rigol.scope.cil.ServiceEnum$Function r2 = r4.getFunction()
-            goto L1a
-        L19:
-            r2 = r1
-        L1a:
-            if (r4 == 0) goto L34
-            java.lang.String r1 = r4.getTopRightCornerTips(r2)
-            java.lang.String r3 = r4.getTopCenterString(r2)
-            java.lang.String r5 = r4.getTopLeftCornerString(r2)
-            java.lang.String r6 = r4.getTopRightCornerString(r2)
-            java.lang.String r2 = r4.getTopLeftCornerTips(r2)
-            r7 = r3
-            r3 = r1
-            r1 = r7
-            goto L38
-        L34:
-            r2 = r1
-            r3 = r2
-            r5 = r3
-            r6 = r5
-        L38:
-            if (r0 == 0) goto L53
-            android.widget.TextView r0 = r8.topCenterPosition
-            androidx.databinding.adapters.TextViewBindingAdapter.setText(r0, r1)
-            android.widget.TextView r0 = r8.topLeftCornerPressTv
-            androidx.databinding.adapters.TextViewBindingAdapter.setText(r0, r2)
-            android.widget.TextView r0 = r8.topLeftCornerTv
-            androidx.databinding.adapters.TextViewBindingAdapter.setText(r0, r5)
-            android.widget.TextView r0 = r8.topRightCornerPressTv
-            androidx.databinding.adapters.TextViewBindingAdapter.setText(r0, r3)
-            android.widget.TextView r0 = r8.topRightCornerTv
-            androidx.databinding.adapters.TextViewBindingAdapter.setText(r0, r6)
-        L53:
-            return
-        L54:
-            r0 = move-exception
-            monitor-exit(r8)     // Catch: java.lang.Throwable -> L54
-            throw r0
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.rigol.scope.databinding.PresentationMiniscreenBindingImpl.executeBindings():void");
+        long j;
+        String str;
+        String str2;
+        String str3;
+        String str4;
+        synchronized (this) {
+            j = this.mDirtyFlags;
+            this.mDirtyFlags = 0L;
+        }
+        MiniScreenParam miniScreenParam = this.mParam;
+        int i = ((j & 7) > 0L ? 1 : ((j & 7) == 0L ? 0 : -1));
+        String str5 = null;
+        if (i != 0) {
+            ServiceEnum.Function function = miniScreenParam != null ? miniScreenParam.getFunction() : null;
+            if (miniScreenParam != null) {
+                String topRightCornerTips = miniScreenParam.getTopRightCornerTips(function);
+                String topCenterString = miniScreenParam.getTopCenterString(function);
+                str3 = miniScreenParam.getTopLeftCornerString(function);
+                str4 = miniScreenParam.getTopRightCornerString(function);
+                str = miniScreenParam.getTopLeftCornerTips(function);
+                str2 = topRightCornerTips;
+                str5 = topCenterString;
+                if (i == 0) {
+                    TextViewBindingAdapter.setText(this.topCenterPosition, str5);
+                    TextViewBindingAdapter.setText(this.topLeftCornerPressTv, str);
+                    TextViewBindingAdapter.setText(this.topLeftCornerTv, str3);
+                    TextViewBindingAdapter.setText(this.topRightCornerPressTv, str2);
+                    TextViewBindingAdapter.setText(this.topRightCornerTv, str4);
+                    return;
+                }
+                return;
+            }
+        }
+        str = null;
+        str2 = null;
+        str3 = null;
+        str4 = null;
+        if (i == 0) {
+        }
     }
 }

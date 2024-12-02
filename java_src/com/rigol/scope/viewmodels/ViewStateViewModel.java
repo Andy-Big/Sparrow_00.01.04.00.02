@@ -2,6 +2,7 @@ package com.rigol.scope.viewmodels;
 
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
+
 /* loaded from: classes2.dex */
 public class ViewStateViewModel extends ViewModel {
     MutableLiveData<Boolean> isFirstShow;

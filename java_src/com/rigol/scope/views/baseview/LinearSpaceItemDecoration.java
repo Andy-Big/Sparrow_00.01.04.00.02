@@ -4,6 +4,7 @@ import android.graphics.Rect;
 import android.view.View;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
 /* loaded from: classes2.dex */
 public class LinearSpaceItemDecoration extends RecyclerView.ItemDecoration {
     private final int spacing;

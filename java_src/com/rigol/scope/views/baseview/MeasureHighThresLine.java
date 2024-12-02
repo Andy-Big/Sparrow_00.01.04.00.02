@@ -30,6 +30,7 @@ import java.util.List;
 import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.text.Regex;
+
 /* compiled from: LineView.kt */
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000F\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u0002\n\u0000\n\u0002\u0010\b\n\u0000\n\u0002\u0010\t\n\u0000\u0018\u00002\u00020\u0001B\u0019\u0012\b\u0010\u0002\u001a\u0004\u0018\u00010\u0003\u0012\b\u0010\u0004\u001a\u0004\u0018\u00010\u0005¢\u0006\u0002\u0010\u0006J\u0016\u0010\u0013\u001a\u00020\u00142\u0006\u0010\u0015\u001a\u00020\u00162\u0006\u0010\u0017\u001a\u00020\u0018R\u000e\u0010\u0007\u001a\u00020\bX\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\t\u001a\u00020\nX\u0082.¢\u0006\u0002\n\u0000R*\u0010\u000b\u001a\u0012\u0012\u0004\u0012\u00020\r0\fj\b\u0012\u0004\u0012\u00020\r`\u000eX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u000f\u0010\u0010\"\u0004\b\u0011\u0010\u0012¨\u0006\u0019"}, d2 = {"Lcom/rigol/scope/views/baseview/MeasureHighThresLine;", "Lcom/rigol/scope/views/baseview/LineView;", "context", "Landroid/content/Context;", "attrs", "Landroid/util/AttributeSet;", "(Landroid/content/Context;Landroid/util/AttributeSet;)V", "measureSettingParam", "Lcom/rigol/scope/data/MeasureSettingParam;", "sharedParam", "Lcom/rigol/scope/data/SharedParam;", "verticalParams", "Ljava/util/ArrayList;", "Lcom/rigol/scope/data/VerticalParam;", "Lkotlin/collections/ArrayList;", "getVerticalParams", "()Ljava/util/ArrayList;", "setVerticalParams", "(Ljava/util/ArrayList;)V", "setPosition", "", "chanValue", "", "thres", "", "app_release"}, k = 1, mv = {1, 4, 1})
 /* loaded from: classes2.dex */
@@ -81,6 +82,7 @@ public final class MeasureHighThresLine extends LineView {
             Activity topActivity3 = ActivityUtils.getTopActivity();
             if (topActivity3 != null) {
                 liveData3.observe((LifecycleOwner) topActivity3, new Observer<ArrayList<VerticalParam>>() { // from class: com.rigol.scope.views.baseview.MeasureHighThresLine.3
+                    /* JADX DEBUG: Method merged with bridge method */
                     @Override // androidx.lifecycle.Observer
                     public final void onChanged(ArrayList<VerticalParam> verticalParams) {
                         MeasureHighThresLine measureHighThresLine = MeasureHighThresLine.this;
@@ -97,6 +99,7 @@ public final class MeasureHighThresLine extends LineView {
             Activity topActivity4 = ActivityUtils.getTopActivity();
             if (topActivity4 != null) {
                 liveData2.observe((LifecycleOwner) topActivity4, new Observer<SharedParam>() { // from class: com.rigol.scope.views.baseview.MeasureHighThresLine.4
+                    /* JADX DEBUG: Method merged with bridge method */
                     @Override // androidx.lifecycle.Observer
                     public final void onChanged(SharedParam sharedParam) {
                         MeasureHighThresLine measureHighThresLine = MeasureHighThresLine.this;
@@ -113,6 +116,7 @@ public final class MeasureHighThresLine extends LineView {
             Activity topActivity5 = ActivityUtils.getTopActivity();
             if (topActivity5 != null) {
                 liveData.observe((LifecycleOwner) topActivity5, new Observer<MeasureSettingParam>() { // from class: com.rigol.scope.views.baseview.MeasureHighThresLine.5
+                    /* JADX DEBUG: Method merged with bridge method */
                     @Override // androidx.lifecycle.Observer
                     public final void onChanged(MeasureSettingParam measureSettingParam) {
                         MeasureHighThresLine measureHighThresLine = MeasureHighThresLine.this;

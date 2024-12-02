@@ -23,6 +23,7 @@ import com.rigol.scope.viewmodels.UpdateUIViewModel;
 import com.rigol.scope.views.baseview.BasePopupView;
 import java.util.List;
 import java.util.Objects;
+
 /* loaded from: classes2.dex */
 public class SmbSettingPopupView extends BasePopupView implements View.OnClickListener {
     private final PopupviewSmbSettingBinding binding;

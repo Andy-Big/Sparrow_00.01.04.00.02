@@ -33,6 +33,7 @@ import com.rigol.scope.views.spinner.PopupSpinner;
 import com.rigol.scope.views.trigger.TriggerPopupView;
 import java.util.ArrayList;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public class TriggerI2cAdapter extends RecyclerView.Adapter<TriggerI2cHolder> implements View.OnClickListener, CompoundButton.OnCheckedChangeListener, AorBManager.OnSetTextById, AorBManager.OnTextReset {
     private View anchorView;
@@ -84,6 +85,7 @@ public class TriggerI2cAdapter extends RecyclerView.Adapter<TriggerI2cHolder> im
         this.serviceId = triggerParam.getServiceId();
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public TriggerI2cHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         this.binding = AdapterTriggerI2cBinding.inflate(LayoutInflater.from(viewGroup.getContext()), viewGroup, false);
@@ -161,9 +163,11 @@ public class TriggerI2cAdapter extends RecyclerView.Adapter<TriggerI2cHolder> im
         }
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(TriggerI2cHolder triggerI2cHolder, int i) {
         this.triggerViewModel.getLiveData().observe((LifecycleOwner) this.context, new Observer<TriggerParam>() { // from class: com.rigol.scope.adapters.TriggerI2cAdapter.2
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // androidx.lifecycle.Observer
             public void onChanged(TriggerParam triggerParam) {
                 TriggerI2cAdapter.this.param = triggerParam;

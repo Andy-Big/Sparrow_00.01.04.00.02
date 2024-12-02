@@ -1,5 +1,7 @@
 package com.rigol.scope.databinding;
 
+import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.support.v4.media.session.PlaybackStateCompat;
 import android.util.SparseIntArray;
 import android.view.View;
@@ -10,15 +12,25 @@ import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import androidx.appcompat.content.res.AppCompatResources;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.Guideline;
 import androidx.databinding.DataBindingComponent;
 import androidx.databinding.ViewDataBinding;
+import androidx.databinding.adapters.CompoundButtonBindingAdapter;
+import androidx.databinding.adapters.ImageViewBindingAdapter;
+import androidx.databinding.adapters.TextViewBindingAdapter;
 import com.rigol.scope.R;
+import com.rigol.scope.cil.ServiceEnum;
 import com.rigol.scope.data.MappingObject;
 import com.rigol.scope.data.MathParam;
+import com.rigol.scope.utilities.ColorUtil;
+import com.rigol.scope.utilities.ContextUtil;
+import com.rigol.scope.utilities.UnitFormat;
+import com.rigol.scope.utilities.ViewUtil;
 import com.rigol.scope.views.SwitchButton;
 import com.rigol.scope.views.baseview.BaseEditText;
+
 /* loaded from: classes2.dex */
 public class AdapterMathFftBindingImpl extends AdapterMathFftBinding {
     private static final ViewDataBinding.IncludedLayouts sIncludes = null;
@@ -606,13 +618,666 @@ public class AdapterMathFftBindingImpl extends AdapterMathFftBinding {
     @Override // androidx.databinding.ViewDataBinding
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
     protected void executeBindings() {
-        /*
-            Method dump skipped, instructions count: 2150
-            To view this dump add '--comments-level debug' option
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.rigol.scope.databinding.AdapterMathFftBindingImpl.executeBindings():void");
+        long j;
+        long j2;
+        String str;
+        String str2;
+        int i;
+        boolean z;
+        int i2;
+        boolean z2;
+        boolean z3;
+        boolean z4;
+        boolean z5;
+        int i3;
+        boolean z6;
+        boolean z7;
+        int i4;
+        boolean z8;
+        boolean z9;
+        boolean z10;
+        boolean z11;
+        boolean z12;
+        boolean z13;
+        int i5;
+        boolean z14;
+        Drawable drawable;
+        String str3;
+        String str4;
+        String str5;
+        String str6;
+        String str7;
+        String str8;
+        String str9;
+        String str10;
+        String str11;
+        String str12;
+        String str13;
+        float f;
+        float f2;
+        float f3;
+        float f4;
+        String str14;
+        String str15;
+        boolean z15;
+        String str16;
+        long j3;
+        int i6;
+        String str17;
+        boolean z16;
+        float f5;
+        String str18;
+        int i7;
+        boolean z17;
+        String str19;
+        String str20;
+        boolean z18;
+        float f6;
+        String str21;
+        boolean z19;
+        float f7;
+        String str22;
+        String str23;
+        String str24;
+        String str25;
+        String str26;
+        boolean z20;
+        boolean z21;
+        boolean z22;
+        boolean z23;
+        boolean z24;
+        boolean z25;
+        String str27;
+        boolean z26;
+        boolean z27;
+        boolean z28;
+        float f8;
+        int i8;
+        int i9;
+        Drawable drawable2;
+        String str28;
+        boolean z29;
+        boolean z30;
+        boolean z31;
+        String str29;
+        String str30;
+        boolean z32;
+        int i10;
+        boolean z33;
+        boolean z34;
+        boolean z35;
+        boolean z36;
+        boolean z37;
+        String str31;
+        String str32;
+        boolean z38;
+        ServiceEnum.MathWaveType mathWaveType;
+        int i11;
+        ServiceEnum.enPeakOrder enpeakorder;
+        long j4;
+        long j5;
+        long j6;
+        long j7;
+        long j8;
+        long j9;
+        int i12;
+        synchronized (this) {
+            j = this.mDirtyFlags;
+            this.mDirtyFlags = 0L;
+        }
+        MappingObject mappingObject = this.mGridFullMapping;
+        MappingObject mappingObject2 = this.mDbMapping;
+        MappingObject mappingObject3 = this.mVrmsMapping;
+        MathParam mathParam = this.mParam;
+        MappingObject mappingObject4 = this.mGridHalfMapping;
+        MappingObject mappingObject5 = this.mGridNoneMapping;
+        MappingObject mappingObject6 = this.mFreqOrderMapping;
+        MappingObject mappingObject7 = this.mSPanCenterMapping;
+        MappingObject mappingObject8 = this.mStartEndMapping;
+        MappingObject mappingObject9 = this.mAmpOrderMapping;
+        String str33 = null;
+        String str34 = ((j & 35184372097025L) == 0 || mappingObject == null) ? null : mappingObject.getStr();
+        String str35 = ((j & 35184372105218L) == 0 || mappingObject2 == null) ? null : mappingObject2.getStr();
+        String str36 = ((j & 35184372121608L) == 0 || mappingObject3 == null) ? null : mappingObject3.getStr();
+        float f9 = 0.0f;
+        boolean z39 = false;
+        if ((j & 35734127839252L) != 0) {
+            String peakExcursionStr = ((j & 35321811042320L) == 0 || mathParam == null) ? null : mathParam.getPeakExcursionStr();
+            String fftScaleStr = ((j & 35184640524304L) == 0 || mathParam == null) ? null : mathParam.getFftScaleStr();
+            if ((j & 35184372154388L) != 0) {
+                ServiceEnum.Chan sourceFftIndex = mathParam != null ? mathParam.getSourceFftIndex() : null;
+                MappingObject mappingObject10 = ViewUtil.getMappingObject(R.array.msg_math_fft_s32src, sourceFftIndex != null ? sourceFftIndex.value1 : 0);
+                updateRegistration(2, mappingObject10);
+                str17 = mappingObject10 != null ? mappingObject10.getStr() : null;
+                j3 = 0;
+                i6 = (j & 35184372154384L) != 0 ? ColorUtil.getColor(getRoot().getContext(), sourceFftIndex) : 0;
+            } else {
+                j3 = 0;
+                i6 = 0;
+                str17 = null;
+            }
+            if ((j & 35201551958032L) != j3) {
+                z16 = mathParam != null ? mathParam.isPeakSearch() : false;
+                f5 = ContextUtil.getAlpha(z16);
+            } else {
+                z16 = false;
+                f5 = 0.0f;
+            }
+            if ((j & 35218731827216L) != j3) {
+                if (mathParam != null) {
+                    i7 = i6;
+                    str18 = str17;
+                    i12 = mathParam.getPeakNum();
+                } else {
+                    str18 = str17;
+                    i7 = i6;
+                    i12 = 0;
+                }
+                z17 = z16;
+                str19 = str35;
+                str = str36;
+                str20 = UnitFormat.newBuilder(UnitFormat.PATTERN_SIGN, UnitFormat.SI.NONE).convert(i12);
+            } else {
+                str18 = str17;
+                i7 = i6;
+                str = str36;
+                z17 = z16;
+                str19 = str35;
+                str20 = null;
+            }
+            String peakThresholdStr = ((j & 35253091565584L) == 0 || mathParam == null) ? null : mathParam.getPeakThresholdStr();
+            if ((j & 35192962023440L) != 0) {
+                z18 = mathParam != null ? mathParam.getStatus() : false;
+                f6 = ContextUtil.getAlpha(z18);
+            } else {
+                z18 = false;
+                f6 = 0.0f;
+            }
+            boolean isColorGrade = ((j & 35186519572496L) == 0 || mathParam == null) ? false : mathParam.isColorGrade();
+            String str37 = str20;
+            if ((j & 35184373137424L) != 0) {
+                if (mathParam != null) {
+                    str21 = peakThresholdStr;
+                    j9 = mathParam.getFftSpan();
+                    z19 = z18;
+                } else {
+                    str21 = peakThresholdStr;
+                    z19 = z18;
+                    j9 = 0;
+                }
+                f7 = f6;
+                str22 = ViewUtil.subNumber(UnitFormat.newBuilder("0.##########", UnitFormat.SI.MICRO).convert(j9) + ServiceEnum.Unit.Unit_hz.value2, 6);
+            } else {
+                str21 = peakThresholdStr;
+                z19 = z18;
+                f7 = f6;
+                str22 = null;
+            }
+            String labelString = ((35184908959760L & j) == 0 || mathParam == null) ? null : mathParam.getLabelString();
+            if ((35184388866064L & j) != 0) {
+                if (mathParam != null) {
+                    j8 = mathParam.getFftEnd();
+                    str23 = str22;
+                } else {
+                    str23 = str22;
+                    j8 = 0;
+                }
+                str24 = labelString;
+                str25 = ViewUtil.subNumber(UnitFormat.newBuilder("0.##########", UnitFormat.SI.MICRO).convert(j8) + ServiceEnum.Unit.Unit_hz.value2, 6);
+            } else {
+                str23 = str22;
+                str24 = labelString;
+                str25 = null;
+            }
+            if ((35188667056144L & j) != 0) {
+                ServiceEnum.EWaveGrids grids = mathParam != null ? mathParam.getGrids() : null;
+                z22 = grids == ServiceEnum.EWaveGrids.GRID_IS_FULL;
+                str26 = str25;
+                z21 = grids == ServiceEnum.EWaveGrids.GRID_IS_HALF;
+                z20 = grids == ServiceEnum.EWaveGrids.GRID_IS_NONE;
+            } else {
+                str26 = str25;
+                z20 = false;
+                z21 = false;
+                z22 = false;
+            }
+            if ((j & 35184380477456L) != 0) {
+                if (mathParam != null) {
+                    z23 = z20;
+                    z24 = z21;
+                    j7 = mathParam.getFftStart();
+                } else {
+                    z23 = z20;
+                    z24 = z21;
+                    j7 = 0;
+                }
+                z25 = z22;
+                str27 = ViewUtil.subNumber(UnitFormat.newBuilder("0.##########", UnitFormat.SI.MICRO).convert(j7) + ServiceEnum.Unit.Unit_hz.value2, 6);
+            } else {
+                z23 = z20;
+                z24 = z21;
+                z25 = z22;
+                str27 = null;
+            }
+            if ((35184372613136L & j) != 0) {
+                ServiceEnum.fftSpecUnit fftUnitIndex = mathParam != null ? mathParam.getFftUnitIndex() : null;
+                z27 = fftUnitIndex == ServiceEnum.fftSpecUnit.fft_spec_db;
+                z26 = fftUnitIndex == ServiceEnum.fftSpecUnit.fft_spec_rms;
+            } else {
+                z26 = false;
+                z27 = false;
+            }
+            if ((j & 35184439197712L) != 0) {
+                z28 = mathParam != null ? mathParam.isZoomEn() : false;
+                f8 = ContextUtil.getAlpha(z28);
+            } else {
+                z28 = false;
+                f8 = 0.0f;
+            }
+            int i13 = ((j & 35184372219920L) > 0L ? 1 : ((j & 35184372219920L) == 0L ? 0 : -1));
+            int i14 = 8;
+            if (i13 != 0) {
+                boolean isShowPeakSetting = mathParam != null ? mathParam.isShowPeakSetting() : false;
+                if (i13 != 0) {
+                    if (isShowPeakSetting) {
+                        j5 = j | 2251799813685248L | 9007199254740992L;
+                        j6 = 36028797018963968L;
+                    } else {
+                        j5 = j | 1125899906842624L | 4503599627370496L;
+                        j6 = 18014398509481984L;
+                    }
+                    j = j5 | j6;
+                }
+                int i15 = isShowPeakSetting ? 0 : 8;
+                i9 = isShowPeakSetting ? 8 : 0;
+                long j10 = j;
+                Context context = this.peakSearchImage.getContext();
+                int i16 = isShowPeakSetting ? R.drawable.ic_arrow_down3 : R.drawable.ic_arrow_up3;
+                i8 = i15;
+                drawable2 = AppCompatResources.getDrawable(context, i16);
+                j = j10;
+            } else {
+                i8 = 0;
+                i9 = 0;
+                drawable2 = null;
+            }
+            if ((j & 35184376283152L) != 0) {
+                if (mathParam != null) {
+                    z30 = z27;
+                    str28 = str27;
+                    z29 = z26;
+                    j4 = mathParam.getFftCenter();
+                } else {
+                    str28 = str27;
+                    z29 = z26;
+                    z30 = z27;
+                    j4 = 0;
+                }
+                z31 = z28;
+                str29 = ViewUtil.subNumber(UnitFormat.newBuilder("0.##########", UnitFormat.SI.MICRO).convert(j4) + ServiceEnum.Unit.Unit_hz.value2, 6);
+            } else {
+                str28 = str27;
+                z29 = z26;
+                z30 = z27;
+                z31 = z28;
+                str29 = null;
+            }
+            int i17 = ((j & 35184372350992L) > 0L ? 1 : ((j & 35184372350992L) == 0L ? 0 : -1));
+            if (i17 != 0) {
+                ServiceEnum.FftxType fftxTypeIndex = mathParam != null ? mathParam.getFftxTypeIndex() : null;
+                str30 = str29;
+                z33 = fftxTypeIndex == ServiceEnum.FftxType.fft_start_end;
+                z32 = fftxTypeIndex == ServiceEnum.FftxType.fft_span_center;
+                if (i17 != 0) {
+                    j |= z33 ? 140737488355328L : 70368744177664L;
+                }
+                if ((j & 35184372350992L) != 0) {
+                    j |= z32 ? 562949953421312L : 281474976710656L;
+                }
+                i10 = z33 ? 0 : 8;
+                if (z32) {
+                    i14 = 0;
+                }
+            } else {
+                str30 = str29;
+                z32 = false;
+                i10 = 0;
+                z33 = false;
+                i14 = 0;
+            }
+            if ((j & 35459249995792L) != 0) {
+                if (mathParam != null) {
+                    enpeakorder = mathParam.getFftPeakOrderIndex();
+                    z34 = z32;
+                } else {
+                    z34 = z32;
+                    enpeakorder = null;
+                }
+                z36 = enpeakorder == ServiceEnum.enPeakOrder.fft_peak_AmpOrder;
+                z35 = enpeakorder == ServiceEnum.enPeakOrder.fft_peak_FreqOrder;
+            } else {
+                z34 = z32;
+                z35 = false;
+                z36 = false;
+            }
+            if ((j & 35184405645328L) != 0) {
+                ServiceEnum.fftWindow fftWindowIndex = mathParam != null ? mathParam.getFftWindowIndex() : null;
+                if (fftWindowIndex != null) {
+                    i11 = fftWindowIndex.value1;
+                    z37 = z35;
+                } else {
+                    z37 = z35;
+                    i11 = 0;
+                }
+                MappingObject mappingObject11 = ViewUtil.getMappingObject(R.array.msg_math_fft_s32window, i11);
+                updateRegistration(11, mappingObject11);
+                if (mappingObject11 != null) {
+                    str31 = mappingObject11.getStr();
+                    if ((j & 35184374186000L) == 0) {
+                        if (mathParam != null) {
+                            mathWaveType = mathParam.getWaveType();
+                            str32 = str31;
+                        } else {
+                            str32 = str31;
+                            mathWaveType = null;
+                        }
+                        boolean z40 = mathWaveType == ServiceEnum.MathWaveType.MathWave_Zoom;
+                        f9 = ContextUtil.getAlpha(mathWaveType == ServiceEnum.MathWaveType.MathWave_Main);
+                        z38 = z40;
+                    } else {
+                        str32 = str31;
+                        z38 = false;
+                    }
+                    j2 = 0;
+                    String fftOffsetStr = ((j & 35184506306576L) != 0 || mathParam == null) ? null : mathParam.getFftOffsetStr();
+                    if ((j & 35185445830672L) != 0 && mathParam != null) {
+                        z39 = mathParam.isLabel();
+                    }
+                    z8 = z38;
+                    i4 = i10;
+                    z7 = z33;
+                    z12 = z39;
+                    str12 = peakExcursionStr;
+                    f2 = f9;
+                    str13 = fftScaleStr;
+                    f = f5;
+                    str3 = str18;
+                    i5 = i7;
+                    z5 = z17;
+                    str11 = str21;
+                    str14 = str37;
+                    str9 = str30;
+                    z13 = z19;
+                    f3 = f7;
+                    str7 = str23;
+                    str5 = str24;
+                    z11 = z23;
+                    z10 = z24;
+                    z9 = z25;
+                    f4 = f8;
+                    drawable = drawable2;
+                    i3 = i14;
+                    i2 = i8;
+                    str6 = str28;
+                    z4 = z29;
+                    z = z30;
+                    z14 = z31;
+                    z6 = z34;
+                    z2 = z36;
+                    str10 = str32;
+                    str2 = str34;
+                    str4 = fftOffsetStr;
+                    str15 = str19;
+                    z15 = isColorGrade;
+                    str8 = str26;
+                    i = i9;
+                    z3 = z37;
+                }
+            } else {
+                z37 = z35;
+            }
+            str31 = null;
+            if ((j & 35184374186000L) == 0) {
+            }
+            j2 = 0;
+            if ((j & 35184506306576L) != 0) {
+            }
+            if ((j & 35185445830672L) != 0) {
+                z39 = mathParam.isLabel();
+            }
+            z8 = z38;
+            i4 = i10;
+            z7 = z33;
+            z12 = z39;
+            str12 = peakExcursionStr;
+            f2 = f9;
+            str13 = fftScaleStr;
+            f = f5;
+            str3 = str18;
+            i5 = i7;
+            z5 = z17;
+            str11 = str21;
+            str14 = str37;
+            str9 = str30;
+            z13 = z19;
+            f3 = f7;
+            str7 = str23;
+            str5 = str24;
+            z11 = z23;
+            z10 = z24;
+            z9 = z25;
+            f4 = f8;
+            drawable = drawable2;
+            i3 = i14;
+            i2 = i8;
+            str6 = str28;
+            z4 = z29;
+            z = z30;
+            z14 = z31;
+            z6 = z34;
+            z2 = z36;
+            str10 = str32;
+            str2 = str34;
+            str4 = fftOffsetStr;
+            str15 = str19;
+            z15 = isColorGrade;
+            str8 = str26;
+            i = i9;
+            z3 = z37;
+        } else {
+            j2 = 0;
+            str = str36;
+            str2 = str34;
+            i = 0;
+            z = false;
+            i2 = 0;
+            z2 = false;
+            z3 = false;
+            z4 = false;
+            z5 = false;
+            i3 = 0;
+            z6 = false;
+            z7 = false;
+            i4 = 0;
+            z8 = false;
+            z9 = false;
+            z10 = false;
+            z11 = false;
+            z12 = false;
+            z13 = false;
+            i5 = 0;
+            z14 = false;
+            drawable = null;
+            str3 = null;
+            str4 = null;
+            str5 = null;
+            str6 = null;
+            str7 = null;
+            str8 = null;
+            str9 = null;
+            str10 = null;
+            str11 = null;
+            str12 = null;
+            str13 = null;
+            f = 0.0f;
+            f2 = 0.0f;
+            f3 = 0.0f;
+            f4 = 0.0f;
+            str14 = null;
+            str15 = str35;
+            z15 = false;
+        }
+        int i18 = ((j & 35734127902752L) > j2 ? 1 : ((j & 35734127902752L) == j2 ? 0 : -1));
+        String str38 = (i18 == 0 || mappingObject4 == null) ? null : mappingObject4.getStr();
+        int i19 = ((j & 36283883716672L) > j2 ? 1 : ((j & 36283883716672L) == j2 ? 0 : -1));
+        String str39 = (i19 == 0 || mappingObject5 == null) ? null : mappingObject5.getStr();
+        int i20 = ((j & 37383395344512L) > j2 ? 1 : ((j & 37383395344512L) == j2 ? 0 : -1));
+        String str40 = (i20 == 0 || mappingObject6 == null) ? null : mappingObject6.getStr();
+        int i21 = ((j & 39582418600192L) > j2 ? 1 : ((j & 39582418600192L) == j2 ? 0 : -1));
+        String str41 = (i21 == 0 || mappingObject7 == null) ? null : mappingObject7.getStr();
+        int i22 = ((j & 43980465111552L) > j2 ? 1 : ((j & 43980465111552L) == j2 ? 0 : -1));
+        String str42 = (i22 == 0 || mappingObject8 == null) ? null : mappingObject8.getStr();
+        int i23 = ((j & 52776558134272L) > j2 ? 1 : ((j & 52776558134272L) == j2 ? 0 : -1));
+        if (i23 != 0 && mappingObject9 != null) {
+            str33 = mappingObject9.getStr();
+        }
+        String str43 = str33;
+        if ((j & 35459249995792L) != j2) {
+            str16 = str42;
+            CompoundButtonBindingAdapter.setChecked(this.AmpRadioButton, z2);
+            CompoundButtonBindingAdapter.setChecked(this.FreqRadioButton, z3);
+        } else {
+            str16 = str42;
+        }
+        if (i23 != 0) {
+            TextViewBindingAdapter.setText(this.AmpRadioButton, str43);
+        }
+        if (i20 != 0) {
+            TextViewBindingAdapter.setText(this.FreqRadioButton, str40);
+        }
+        if ((35184372219920L & j) != 0) {
+            this.basicSetting.setVisibility(i);
+            ImageViewBindingAdapter.setImageDrawable(this.peakSearchImage, drawable);
+            this.peakSearchSetting.setVisibility(i2);
+        }
+        if ((j & 35186519572496L) != 0) {
+            CompoundButtonBindingAdapter.setChecked(this.colorGradeSwitch, z15);
+        }
+        if ((35184372613136L & j) != 0) {
+            CompoundButtonBindingAdapter.setChecked(this.dbRadioButton, z);
+            CompoundButtonBindingAdapter.setChecked(this.vrmsRadioButton, z4);
+        }
+        if ((j & 35184372105218L) != 0) {
+            TextViewBindingAdapter.setText(this.dbRadioButton, str15);
+        }
+        if ((j & 35321811042320L) != 0) {
+            TextViewBindingAdapter.setText(this.excursionEditText, str12);
+        }
+        if ((j & 35201551958032L) != 0) {
+            if (getBuildSdkInt() >= 11) {
+                this.exportBtn.setAlpha(f);
+            }
+            boolean z41 = z5;
+            this.exportBtn.setEnabled(z41);
+            CompoundButtonBindingAdapter.setChecked(this.peakSearchSwitch, z41);
+        }
+        if ((35184374186000L & j) != 0) {
+            if (getBuildSdkInt() >= 11) {
+                this.fftCenter.setAlpha(f2);
+            }
+            CompoundButtonBindingAdapter.setChecked(this.waveTypeSwitch, z8);
+        }
+        if ((j & 35184372350992L) != 0) {
+            int i24 = i3;
+            this.fftCenter.setVisibility(i24);
+            this.fftCenterEditText.setVisibility(i24);
+            int i25 = i4;
+            this.fftEnd.setVisibility(i25);
+            this.fftEndEditText.setVisibility(i25);
+            this.fftSpan.setVisibility(i24);
+            this.fftSpanEditText.setVisibility(i24);
+            this.fftStart.setVisibility(i25);
+            this.fftStartEditText.setVisibility(i25);
+            CompoundButtonBindingAdapter.setChecked(this.spanCenterRadioButton, z6);
+            CompoundButtonBindingAdapter.setChecked(this.startEndRadioButton, z7);
+        }
+        if ((35184376283152L & j) != 0) {
+            TextViewBindingAdapter.setText(this.fftCenterEditText, str9);
+        }
+        if ((35184388866064L & j) != 0) {
+            TextViewBindingAdapter.setText(this.fftEndEditText, str8);
+        }
+        if ((35184373137424L & j) != 0) {
+            TextViewBindingAdapter.setText(this.fftSpanEditText, str7);
+        }
+        if ((35184380477456L & j) != 0) {
+            TextViewBindingAdapter.setText(this.fftStartEditText, str6);
+        }
+        if ((35188667056144L & j) != 0) {
+            CompoundButtonBindingAdapter.setChecked(this.fullRadioButton, z9);
+            CompoundButtonBindingAdapter.setChecked(this.halfRadioButton, z10);
+            CompoundButtonBindingAdapter.setChecked(this.noneRadioButton, z11);
+        }
+        if ((35184372097025L & j) != 0) {
+            TextViewBindingAdapter.setText(this.fullRadioButton, str2);
+        }
+        if (i18 != 0) {
+            TextViewBindingAdapter.setText(this.halfRadioButton, str38);
+        }
+        if ((35184908959760L & j) != 0) {
+            TextViewBindingAdapter.setText(this.labelEditText, str5);
+        }
+        if ((35185445830672L & j) != 0) {
+            CompoundButtonBindingAdapter.setChecked(this.labelSwitch, z12);
+        }
+        if (i19 != 0) {
+            TextViewBindingAdapter.setText(this.noneRadioButton, str39);
+        }
+        if ((35184506306576L & j) != 0) {
+            TextViewBindingAdapter.setText(this.offsetEditText, str4);
+        }
+        if ((j & 35218731827216L) != 0) {
+            TextViewBindingAdapter.setText(this.peakNumberEditText, str14);
+        }
+        if ((j & 35192962023440L) != 0) {
+            if (getBuildSdkInt() >= 11) {
+                this.peakSearchSwitch.setAlpha(f3);
+            }
+            this.peakSearchSwitch.setEnabled(z13);
+        }
+        if ((j & 35184640524304L) != 0) {
+            TextViewBindingAdapter.setText(this.scaleEditText, str13);
+        }
+        if ((j & 35184372154388L) != 0) {
+            TextViewBindingAdapter.setText(this.sourceASpinner, str3);
+        }
+        if ((j & 35184372154384L) != 0) {
+            this.sourceASpinner.setTextColor(i5);
+        }
+        if (i21 != 0) {
+            TextViewBindingAdapter.setText(this.spanCenterRadioButton, str41);
+        }
+        if (i22 != 0) {
+            TextViewBindingAdapter.setText(this.startEndRadioButton, str16);
+        }
+        if ((j & 35253091565584L) != 0) {
+            TextViewBindingAdapter.setText(this.thresholdEditText, str11);
+        }
+        if ((j & 35184372121608L) != 0) {
+            TextViewBindingAdapter.setText(this.vrmsRadioButton, str);
+        }
+        if ((35184439197712L & j) != 0) {
+            if (getBuildSdkInt() >= 11) {
+                float f10 = f4;
+                this.waveType.setAlpha(f10);
+                this.waveTypeSwitch.setAlpha(f10);
+            }
+            this.waveTypeSwitch.setEnabled(z14);
+        }
+        if ((j & 35184405645328L) != 0) {
+            TextViewBindingAdapter.setText(this.windowSpinner, str10);
+        }
     }
 }

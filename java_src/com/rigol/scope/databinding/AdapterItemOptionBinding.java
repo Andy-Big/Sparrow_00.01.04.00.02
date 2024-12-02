@@ -7,14 +7,14 @@ import android.widget.TextView;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import com.rigol.scope.R;
+
 /* loaded from: classes2.dex */
 public abstract class AdapterItemOptionBinding extends ViewDataBinding {
     public final TextView index;
     public final TextView text1;
     public final TextView text2;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public AdapterItemOptionBinding(Object obj, View view, int i, TextView textView, TextView textView2, TextView textView3) {
+    protected AdapterItemOptionBinding(Object obj, View view, int i, TextView textView, TextView textView2, TextView textView3) {
         super(obj, view, i);
         this.index = textView;
         this.text1 = textView2;

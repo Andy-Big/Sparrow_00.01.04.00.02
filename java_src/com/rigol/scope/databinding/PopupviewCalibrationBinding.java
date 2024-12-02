@@ -17,6 +17,7 @@ import com.rigol.scope.R;
 import com.rigol.scope.data.CalibrationParam;
 import com.rigol.scope.data.UtilityParam;
 import com.rigol.scope.views.NumberProgressBar;
+
 /* loaded from: classes2.dex */
 public abstract class PopupviewCalibrationBinding extends ViewDataBinding {
     public final Button close;
@@ -54,8 +55,7 @@ public abstract class PopupviewCalibrationBinding extends ViewDataBinding {
 
     public abstract void setUtilityParam(UtilityParam utilityParam);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public PopupviewCalibrationBinding(Object obj, View view, int i, Button button, TextView textView, ImageView imageView, TextView textView2, ScrollView scrollView, View view2, Guideline guideline, Guideline guideline2, TextView textView3, TextView textView4, TextView textView5, TextView textView6, ConstraintLayout constraintLayout, NumberProgressBar numberProgressBar, TextView textView7, TextView textView8, Button button2, TextView textView9) {
+    protected PopupviewCalibrationBinding(Object obj, View view, int i, Button button, TextView textView, ImageView imageView, TextView textView2, ScrollView scrollView, View view2, Guideline guideline, Guideline guideline2, TextView textView3, TextView textView4, TextView textView5, TextView textView6, ConstraintLayout constraintLayout, NumberProgressBar numberProgressBar, TextView textView7, TextView textView8, Button button2, TextView textView9) {
         super(obj, view, i);
         this.close = button;
         this.detail = textView;

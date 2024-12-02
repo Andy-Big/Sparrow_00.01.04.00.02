@@ -17,6 +17,7 @@ import com.rigol.scope.data.FftParam;
 import com.rigol.scope.data.HorizontalParam;
 import com.rigol.scope.data.MappingObject;
 import com.rigol.scope.views.SwitchButton;
+
 /* loaded from: classes2.dex */
 public abstract class AdapterRtsaPeakBinding extends ViewDataBinding {
     public final RadioButton AmpRadioButton;
@@ -59,8 +60,7 @@ public abstract class AdapterRtsaPeakBinding extends ViewDataBinding {
 
     public abstract void setParam(FftParam fftParam);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public AdapterRtsaPeakBinding(Object obj, View view, int i, RadioButton radioButton, RadioButton radioButton2, TextView textView, EditText editText, Button button, Button button2, TextView textView2, TextView textView3, EditText editText2, ImageView imageView, TextView textView4, TextView textView5, SwitchButton switchButton, ImageView imageView2, TextView textView6, SwitchButton switchButton2, Button button3, ImageView imageView3, TextView textView7, TextView textView8, RadioGroup radioGroup, TextView textView9, EditText editText3) {
+    protected AdapterRtsaPeakBinding(Object obj, View view, int i, RadioButton radioButton, RadioButton radioButton2, TextView textView, EditText editText, Button button, Button button2, TextView textView2, TextView textView3, EditText editText2, ImageView imageView, TextView textView4, TextView textView5, SwitchButton switchButton, ImageView imageView2, TextView textView6, SwitchButton switchButton2, Button button3, ImageView imageView3, TextView textView7, TextView textView8, RadioGroup radioGroup, TextView textView9, EditText editText3) {
         super(obj, view, i);
         this.AmpRadioButton = radioButton;
         this.FreqRadioButton = radioButton2;

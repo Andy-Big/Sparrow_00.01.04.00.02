@@ -12,6 +12,7 @@ import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import com.rigol.scope.R;
 import com.rigol.scope.views.adc.AdcSettingParam;
+
 /* loaded from: classes2.dex */
 public abstract class PopupviewAdcSettingBinding extends ViewDataBinding {
     public final TextView adc1;
@@ -56,8 +57,7 @@ public abstract class PopupviewAdcSettingBinding extends ViewDataBinding {
 
     public abstract void setParam(AdcSettingParam adcSettingParam);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public PopupviewAdcSettingBinding(Object obj, View view, int i, TextView textView, TextView textView2, SeekBar seekBar, TextView textView3, SeekBar seekBar2, TextView textView4, SeekBar seekBar3, TextView textView5, SeekBar seekBar4, TextView textView6, SeekBar seekBar5, TextView textView7, SeekBar seekBar6, TextView textView8, CheckBox checkBox, TextView textView9, SeekBar seekBar7, TextView textView10, TextView textView11, SeekBar seekBar8, TextView textView12, SeekBar seekBar9, TextView textView13, SeekBar seekBar10, TextView textView14, SeekBar seekBar11, TextView textView15, SeekBar seekBar12, TextView textView16, SeekBar seekBar13, TextView textView17, CheckBox checkBox2, TextView textView18, SeekBar seekBar14, Guideline guideline, Guideline guideline2, Guideline guideline3) {
+    protected PopupviewAdcSettingBinding(Object obj, View view, int i, TextView textView, TextView textView2, SeekBar seekBar, TextView textView3, SeekBar seekBar2, TextView textView4, SeekBar seekBar3, TextView textView5, SeekBar seekBar4, TextView textView6, SeekBar seekBar5, TextView textView7, SeekBar seekBar6, TextView textView8, CheckBox checkBox, TextView textView9, SeekBar seekBar7, TextView textView10, TextView textView11, SeekBar seekBar8, TextView textView12, SeekBar seekBar9, TextView textView13, SeekBar seekBar10, TextView textView14, SeekBar seekBar11, TextView textView15, SeekBar seekBar12, TextView textView16, SeekBar seekBar13, TextView textView17, CheckBox checkBox2, TextView textView18, SeekBar seekBar14, Guideline guideline, Guideline guideline2, Guideline guideline3) {
         super(obj, view, i);
         this.adc1 = textView;
         this.adc1A = textView2;

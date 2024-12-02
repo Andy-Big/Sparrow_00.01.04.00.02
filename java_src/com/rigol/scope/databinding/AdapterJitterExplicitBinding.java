@@ -10,6 +10,7 @@ import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import com.rigol.scope.R;
 import com.rigol.scope.data.JitterParam;
+
 /* loaded from: classes2.dex */
 public abstract class AdapterJitterExplicitBinding extends ViewDataBinding {
     public final ConstraintLayout jitterExplicitLayout;
@@ -20,8 +21,7 @@ public abstract class AdapterJitterExplicitBinding extends ViewDataBinding {
 
     public abstract void setParam(JitterParam jitterParam);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public AdapterJitterExplicitBinding(Object obj, View view, int i, ConstraintLayout constraintLayout, TextView textView, TextView textView2) {
+    protected AdapterJitterExplicitBinding(Object obj, View view, int i, ConstraintLayout constraintLayout, TextView textView, TextView textView2) {
         super(obj, view, i);
         this.jitterExplicitLayout = constraintLayout;
         this.jitterExternalClockSourceLabel = textView;

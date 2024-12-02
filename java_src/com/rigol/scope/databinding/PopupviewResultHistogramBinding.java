@@ -14,6 +14,7 @@ import com.rigol.scope.R;
 import com.rigol.scope.data.MappingObject;
 import com.rigol.scope.views.SwitchButton;
 import com.rigol.scope.views.histogram.HistogramResultParam;
+
 /* loaded from: classes2.dex */
 public abstract class PopupviewResultHistogramBinding extends ViewDataBinding {
     public final TextView dispgrid;
@@ -82,8 +83,7 @@ public abstract class PopupviewResultHistogramBinding extends ViewDataBinding {
 
     public abstract void setVerticalMappingObject(MappingObject mappingObject);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public PopupviewResultHistogramBinding(Object obj, View view, int i, TextView textView, EditText editText, View view2, TextView textView2, Guideline guideline, Guideline guideline2, Guideline guideline3, TextView textView3, EditText editText2, TextView textView4, SwitchButton switchButton, TextView textView5, TextView textView6, TextView textView7, EditText editText3, TextView textView8, EditText editText4, TextView textView9, Button button, TextView textView10, EditText editText5, TextView textView11, TextView textView12, TextView textView13, SwitchButton switchButton2) {
+    protected PopupviewResultHistogramBinding(Object obj, View view, int i, TextView textView, EditText editText, View view2, TextView textView2, Guideline guideline, Guideline guideline2, Guideline guideline3, TextView textView3, EditText editText2, TextView textView4, SwitchButton switchButton, TextView textView5, TextView textView6, TextView textView7, EditText editText3, TextView textView8, EditText editText4, TextView textView9, Button button, TextView textView10, EditText editText5, TextView textView11, TextView textView12, TextView textView13, SwitchButton switchButton2) {
         super(obj, view, i);
         this.dispgrid = textView;
         this.dispgridEditText = editText;

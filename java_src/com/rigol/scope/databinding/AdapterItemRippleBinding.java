@@ -14,6 +14,7 @@ import com.rigol.scope.R;
 import com.rigol.scope.data.MappingObject;
 import com.rigol.scope.data.UpaParam;
 import com.rigol.scope.data.UpaRippleParam;
+
 /* loaded from: classes2.dex */
 public abstract class AdapterItemRippleBinding extends ViewDataBinding {
     public final Guideline leftGuideline;
@@ -38,8 +39,7 @@ public abstract class AdapterItemRippleBinding extends ViewDataBinding {
 
     public abstract void setUpaMappingObj(MappingObject mappingObject);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public AdapterItemRippleBinding(Object obj, View view, int i, Guideline guideline, Guideline guideline2, Guideline guideline3, Button button, Button button2, EditText editText, TextView textView, TextView textView2, TextView textView3) {
+    protected AdapterItemRippleBinding(Object obj, View view, int i, Guideline guideline, Guideline guideline2, Guideline guideline3, Button button, Button button2, EditText editText, TextView textView, TextView textView2, TextView textView3) {
         super(obj, view, i);
         this.leftGuideline = guideline;
         this.leftGuideline2 = guideline2;

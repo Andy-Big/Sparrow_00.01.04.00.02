@@ -3,6 +3,7 @@ package com.rigol.scope.adapters;
 import androidx.recyclerview.widget.DiffUtil;
 import com.rigol.scope.data.SelfTestParam;
 import java.util.List;
+
 /* loaded from: classes.dex */
 class SelfTestDiffCallback extends DiffUtil.Callback {
     private List<SelfTestParam> newParamList;

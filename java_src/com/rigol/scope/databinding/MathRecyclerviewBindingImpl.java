@@ -16,6 +16,7 @@ import com.rigol.scope.data.MappingObject;
 import com.rigol.scope.data.MathParam;
 import com.rigol.scope.utilities.ViewUtil;
 import com.rigol.scope.views.SwitchButton;
+
 /* loaded from: classes2.dex */
 public class MathRecyclerviewBindingImpl extends MathRecyclerviewBinding {
     private static final ViewDataBinding.IncludedLayouts sIncludes = null;

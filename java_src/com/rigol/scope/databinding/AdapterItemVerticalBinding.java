@@ -10,6 +10,7 @@ import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import com.rigol.scope.R;
 import com.rigol.scope.data.VerticalParam;
+
 /* loaded from: classes2.dex */
 public abstract class AdapterItemVerticalBinding extends ViewDataBinding {
     public final ImageView bandLimit;
@@ -25,8 +26,7 @@ public abstract class AdapterItemVerticalBinding extends ViewDataBinding {
 
     public abstract void setParam(VerticalParam verticalParam);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public AdapterItemVerticalBinding(Object obj, View view, int i, ImageView imageView, TextView textView, ImageView imageView2, ImageView imageView3, ImageView imageView4, TextView textView2, TextView textView3, TextView textView4) {
+    protected AdapterItemVerticalBinding(Object obj, View view, int i, ImageView imageView, TextView textView, ImageView imageView2, ImageView imageView3, ImageView imageView4, TextView textView2, TextView textView3, TextView textView4) {
         super(obj, view, i);
         this.bandLimit = imageView;
         this.bandLimitText = textView;

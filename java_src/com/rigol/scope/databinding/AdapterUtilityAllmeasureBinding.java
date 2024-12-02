@@ -9,6 +9,7 @@ import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import com.rigol.scope.R;
 import com.rigol.scope.data.UtilityParam;
+
 /* loaded from: classes2.dex */
 public abstract class AdapterUtilityAllmeasureBinding extends ViewDataBinding {
     @Bindable
@@ -18,8 +19,7 @@ public abstract class AdapterUtilityAllmeasureBinding extends ViewDataBinding {
 
     public abstract void setParam(UtilityParam utilityParam);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public AdapterUtilityAllmeasureBinding(Object obj, View view, int i, TextView textView, TextView textView2) {
+    protected AdapterUtilityAllmeasureBinding(Object obj, View view, int i, TextView textView, TextView textView2) {
         super(obj, view, i);
         this.tvAllmeasure = textView;
         this.tvAllmeasureValue = textView2;

@@ -29,6 +29,7 @@ import com.rigol.scope.views.spinner.PopupSpinner;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
+
 /* loaded from: classes2.dex */
 public abstract class AorBManager {
     Context context;

@@ -17,6 +17,7 @@ import com.rigol.scope.data.CursorResultParam;
 import com.rigol.scope.data.MappingObject;
 import com.rigol.scope.data.SharedParam;
 import com.rigol.scope.views.SwitchButton;
+
 /* loaded from: classes2.dex */
 public abstract class PopupviewResultCursorBinding extends ViewDataBinding {
     public final TextView aLocation;
@@ -73,8 +74,7 @@ public abstract class PopupviewResultCursorBinding extends ViewDataBinding {
 
     public abstract void setXyMapping(MappingObject mappingObject);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public PopupviewResultCursorBinding(Object obj, View view, int i, TextView textView, EditText editText, TextView textView2, TextView textView3, TextView textView4, TextView textView5, TextView textView6, EditText editText2, TextView textView7, TextView textView8, TextView textView9, SwitchButton switchButton, Button button, TextView textView10, Button button2, Guideline guideline, Guideline guideline2, Guideline guideline3, RadioButton radioButton, TextView textView11, RadioGroup radioGroup, TextView textView12, TextView textView13, RadioButton radioButton2, TextView textView14, TextView textView15, TextView textView16, SwitchButton switchButton2, RadioButton radioButton3) {
+    protected PopupviewResultCursorBinding(Object obj, View view, int i, TextView textView, EditText editText, TextView textView2, TextView textView3, TextView textView4, TextView textView5, TextView textView6, EditText editText2, TextView textView7, TextView textView8, TextView textView9, SwitchButton switchButton, Button button, TextView textView10, Button button2, Guideline guideline, Guideline guideline2, Guideline guideline3, RadioButton radioButton, TextView textView11, RadioGroup radioGroup, TextView textView12, TextView textView13, RadioButton radioButton2, TextView textView14, TextView textView15, TextView textView16, SwitchButton switchButton2, RadioButton radioButton3) {
         super(obj, view, i);
         this.aLocation = textView;
         this.aLocationEditText = editText;

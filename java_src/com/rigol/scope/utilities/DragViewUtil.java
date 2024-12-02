@@ -8,6 +8,7 @@ import android.widget.PopupWindow;
 import com.blankj.utilcode.util.LogUtils;
 import com.rigol.scope.views.baseview.BasePopupView;
 import timber.log.Timber;
+
 /* loaded from: classes2.dex */
 public class DragViewUtil {
 

@@ -7,6 +7,7 @@ import com.rigol.scope.data.JitterParam;
 import com.rigol.scope.data.SharedParam;
 import com.rigol.scope.data.TwoTuple;
 import com.rigol.util.DiskUtil;
+
 /* loaded from: classes2.dex */
 public class SharedViewModel extends BaseViewModel<SharedParam> {
     public final MutableLiveData<EyeParam> eyeParamState;

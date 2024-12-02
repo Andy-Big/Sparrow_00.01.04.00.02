@@ -10,6 +10,7 @@ import com.scwang.smartrefresh.layout.api.RefreshKernel;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.constant.RefreshState;
 import com.scwang.smartrefresh.layout.constant.SpinnerStyle;
+
 /* loaded from: classes2.dex */
 public class MRefreshHeader extends LinearLayout implements RefreshHeader {
     @Override // com.scwang.smartrefresh.layout.api.RefreshInternal

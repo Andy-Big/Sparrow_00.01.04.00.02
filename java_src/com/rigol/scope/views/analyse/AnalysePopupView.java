@@ -17,6 +17,7 @@ import com.rigol.scope.views.baseview.BasePopupView;
 import com.rigol.scope.views.grid.GridSpaceItemDecoration;
 import java.util.ArrayList;
 import java.util.List;
+
 /* loaded from: classes2.dex */
 public class AnalysePopupView extends BasePopupView {
     AnalyseAdapter analyseAdapter;

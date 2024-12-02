@@ -14,6 +14,7 @@ import android.view.View;
 import androidx.core.view.ViewCompat;
 import java.util.ArrayList;
 import java.util.List;
+
 /* loaded from: classes2.dex */
 public class SelfCheckBorderTouchView extends View {
     private Paint PromptPaint;

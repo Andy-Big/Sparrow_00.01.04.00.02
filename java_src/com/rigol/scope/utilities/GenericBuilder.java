@@ -7,6 +7,7 @@ import java.util.Objects;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
+
 /* loaded from: classes2.dex */
 public class GenericBuilder<T> {
     private final Supplier<T> instantiator;
@@ -60,10 +61,9 @@ public class GenericBuilder<T> {
         return t;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     @FunctionalInterface
     /* loaded from: classes2.dex */
-    public interface KeyValueConsumer<T, K, V> {
+    interface KeyValueConsumer<T, K, V> {
         void accept(T t, K k, V v);
 
         default KeyValueConsumer<T, K, V> andThen(final KeyValueConsumer<? super T, ? super K, ? super V> keyValueConsumer) {

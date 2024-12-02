@@ -11,6 +11,7 @@ import androidx.databinding.ViewDataBinding;
 import com.rigol.scope.R;
 import com.rigol.scope.cil.ServiceEnum;
 import com.rigol.scope.data.MappingObject;
+
 /* loaded from: classes2.dex */
 public abstract class AdapterItemShortcutBinding extends ViewDataBinding {
     public final ImageView icon;
@@ -24,8 +25,7 @@ public abstract class AdapterItemShortcutBinding extends ViewDataBinding {
 
     public abstract void setObj(MappingObject mappingObject);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public AdapterItemShortcutBinding(Object obj, View view, int i, ImageView imageView, TextView textView) {
+    protected AdapterItemShortcutBinding(Object obj, View view, int i, ImageView imageView, TextView textView) {
         super(obj, view, i);
         this.icon = imageView;
         this.title = textView;

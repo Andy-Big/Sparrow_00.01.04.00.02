@@ -8,6 +8,7 @@ import com.rigol.scope.utilities.ContextUtil;
 import com.rigol.scope.viewmodels.FftViewModel;
 import java.util.ArrayList;
 import java.util.List;
+
 /* loaded from: classes2.dex */
 public class RtsaMarkerResultParam extends ResultParam {
     private transient String Ampt;

@@ -33,6 +33,7 @@ import com.rigol.scope.views.spinner.PopupSpinner;
 import com.rigol.scope.views.trigger.TriggerPopupView;
 import java.util.ArrayList;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public class TriggerVideoAdapter extends RecyclerView.Adapter<TriggerVideoHolder> implements View.OnClickListener, CompoundButton.OnCheckedChangeListener, AorBManager.OnSetTextById, AorBManager.OnTextReset {
     private View anchorView;
@@ -84,6 +85,7 @@ public class TriggerVideoAdapter extends RecyclerView.Adapter<TriggerVideoHolder
         this.serviceId = triggerParam.getServiceId();
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public TriggerVideoHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         this.binding = AdapterTriggerVideoBinding.inflate(LayoutInflater.from(viewGroup.getContext()), viewGroup, false);
@@ -160,6 +162,7 @@ public class TriggerVideoAdapter extends RecyclerView.Adapter<TriggerVideoHolder
         }
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(TriggerVideoHolder triggerVideoHolder, int i) {
         ShowTriggerVideo();

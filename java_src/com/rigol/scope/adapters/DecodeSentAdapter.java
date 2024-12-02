@@ -15,6 +15,7 @@ import com.rigol.scope.utilities.ViewUtil;
 import com.rigol.scope.views.keyboard.KeyboardListener;
 import com.rigol.scope.views.keyboard.KeyboardPopupView;
 import com.rigol.scope.views.spinner.PopupSpinner;
+
 /* loaded from: classes.dex */
 public class DecodeSentAdapter extends RecyclerView.Adapter<DecodeSentHolder> implements View.OnClickListener {
     private final View anchorView;
@@ -32,12 +33,14 @@ public class DecodeSentAdapter extends RecyclerView.Adapter<DecodeSentHolder> im
         this.anchorView = view;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public DecodeSentHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         this.binding = AdapterDecodeSentBinding.inflate(LayoutInflater.from(viewGroup.getContext()), viewGroup, false);
         return new DecodeSentHolder(this.binding);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(DecodeSentHolder decodeSentHolder, int i) {
         this.binding.decodeSentSrcValue.setOnClickListener(this);

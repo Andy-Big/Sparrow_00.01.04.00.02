@@ -45,6 +45,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import kotlin.jvm.functions.Function1;
+
 /* loaded from: classes.dex */
 public class VerticalViewPagerAdapter extends BaseAdapter<List<VerticalParam>> implements AorBManager.OnSetTextById, AorBManager.OnTextReset {
     private boolean[] adapterInitArr;
@@ -160,6 +161,7 @@ public class VerticalViewPagerAdapter extends BaseAdapter<List<VerticalParam>> i
         adapterItemPopupviewVerticalBinding.setHorizontalParam(value);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.rigol.scope.adapters.MultiItemTypeAdapter, androidx.recyclerview.widget.RecyclerView.Adapter
     public BaseViewHolder<? extends ViewDataBinding> onCreateViewHolder(ViewGroup viewGroup, int i) {
         BaseViewHolder<? extends ViewDataBinding> onCreateViewHolder = super.onCreateViewHolder(viewGroup, i);

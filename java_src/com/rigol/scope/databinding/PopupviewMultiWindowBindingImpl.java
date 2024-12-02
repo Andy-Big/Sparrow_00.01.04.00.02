@@ -1,5 +1,7 @@
 package com.rigol.scope.databinding;
 
+import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
 import android.support.v4.media.session.PlaybackStateCompat;
 import android.util.SparseIntArray;
 import android.view.View;
@@ -11,11 +13,18 @@ import androidx.databinding.DataBindingComponent;
 import androidx.databinding.ObservableBoolean;
 import androidx.databinding.ObservableInt;
 import androidx.databinding.ViewDataBinding;
+import androidx.databinding.adapters.ImageViewBindingAdapter;
+import androidx.databinding.adapters.TextViewBindingAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 import com.rigol.scope.R;
+import com.rigol.scope.cil.ServiceEnum;
 import com.rigol.scope.data.MappingObject;
 import com.rigol.scope.data.WindowParam;
 import com.rigol.scope.generated.callback.OnClickListener;
+import com.rigol.scope.utilities.ColorUtil;
+import com.rigol.scope.utilities.ContextUtil;
+import com.rigol.scope.utilities.ViewUtil;
+
 /* loaded from: classes2.dex */
 public class PopupviewMultiWindowBindingImpl extends PopupviewMultiWindowBinding implements OnClickListener.Listener {
     private static final ViewDataBinding.IncludedLayouts sIncludes = null;
@@ -481,14 +490,835 @@ public class PopupviewMultiWindowBindingImpl extends PopupviewMultiWindowBinding
     @Override // androidx.databinding.ViewDataBinding
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
     protected void executeBindings() {
-        /*
-            Method dump skipped, instructions count: 1456
-            To view this dump add '--comments-level debug' option
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.rigol.scope.databinding.PopupviewMultiWindowBindingImpl.executeBindings():void");
+        long j;
+        int i;
+        int i2;
+        String str;
+        ServiceEnum.WindowType windowType;
+        String str2;
+        String str3;
+        String str4;
+        String str5;
+        String str6;
+        Drawable drawable;
+        int i3;
+        int i4;
+        int i5;
+        boolean z;
+        int i6;
+        int i7;
+        int i8;
+        int i9;
+        boolean z2;
+        int i10;
+        int i11;
+        int i12;
+        long j2;
+        String str7;
+        float f;
+        boolean z3;
+        int i13;
+        int i14;
+        int i15;
+        int i16;
+        int i17;
+        boolean z4;
+        String str8;
+        int i18;
+        int i19;
+        int i20;
+        float f2;
+        boolean z5;
+        int i21;
+        int i22;
+        boolean z6;
+        long j3;
+        String str9;
+        int i23;
+        int i24;
+        int i25;
+        Drawable drawable2;
+        ServiceEnum.WindowType windowType2;
+        boolean z7;
+        int i26;
+        Drawable drawable3;
+        String str10;
+        String str11;
+        String str12;
+        int i27;
+        int i28;
+        String str13;
+        String str14;
+        long j4;
+        String str15;
+        int i29;
+        ServiceEnum.Chan chan;
+        int i30;
+        int i31;
+        long j5;
+        String string;
+        Resources resources;
+        int i32;
+        long j6;
+        long j7;
+        String str16;
+        synchronized (this) {
+            j = this.mDirtyFlags;
+            this.mDirtyFlags = 0L;
+        }
+        ObservableBoolean observableBoolean = this.mShowSource3;
+        ObservableInt observableInt = this.mSourceArrayId;
+        ObservableBoolean observableBoolean2 = this.mOkButtonEnable;
+        View.OnClickListener onClickListener = this.mOnClickListener;
+        WindowParam windowParam = this.mWindowParam;
+        ObservableInt observableInt2 = this.mTypeArrayId;
+        ObservableBoolean observableBoolean3 = this.mShowType;
+        ObservableBoolean observableBoolean4 = this.mUiEnable;
+        ObservableBoolean observableBoolean5 = this.mShowSource1;
+        ObservableBoolean observableBoolean6 = this.mShowSource2;
+        int i33 = ((j & 8388610) > 0L ? 1 : ((j & 8388610) == 0L ? 0 : -1));
+        if (i33 != 0) {
+            boolean z8 = observableBoolean != null ? observableBoolean.get() : false;
+            if (i33 != 0) {
+                j |= z8 ? 8796093022208L : 4398046511104L;
+            }
+            if (!z8) {
+                i = 8;
+                int i34 = ((14174277 & j) != 0 || observableInt == null) ? 0 : observableInt.get();
+                String str17 = null;
+                if ((16697429 & j) == 0) {
+                    if ((j & 10518608) != 0) {
+                        ServiceEnum.Chan source3 = windowParam != null ? windowParam.getSource3() : null;
+                        int i35 = source3 != null ? source3.value1 : 0;
+                        MappingObject mappingObject = ViewUtil.getMappingObject(R.array.msg_chan_list2, i35);
+                        updateRegistration(4, mappingObject);
+                        str9 = mappingObject != null ? mappingObject.getStr() : null;
+                        j3 = 0;
+                        if ((j & 10485824) != 0) {
+                            i23 = ColorUtil.getColor(getRoot().getContext(), ServiceEnum.getChanFromValue1(i35));
+                            i24 = ((j & 8519744) > j3 ? 1 : ((j & 8519744) == j3 ? 0 : -1));
+                            if (i24 == 0) {
+                                windowType2 = windowParam != null ? windowParam.getType() : null;
+                                str5 = str9;
+                                if (windowType2 != null) {
+                                    str16 = windowType2.pic2;
+                                    i25 = i23;
+                                } else {
+                                    i25 = i23;
+                                    str16 = null;
+                                }
+                                z7 = windowType2 == ServiceEnum.WindowType.WIN_MEASURE;
+                                if (i24 != 0) {
+                                    j = z7 ? j | 134217728 : j | 67108864;
+                                }
+                                drawable2 = ContextUtil.getDrawable(getRoot().getContext(), str16);
+                            } else {
+                                str5 = str9;
+                                i25 = i23;
+                                drawable2 = null;
+                                windowType2 = null;
+                                z7 = false;
+                            }
+                            i26 = ((j & 8650816) > 0L ? 1 : ((j & 8650816) == 0L ? 0 : -1));
+                            if (i26 == 0) {
+                                if (windowParam != null) {
+                                    drawable3 = drawable2;
+                                    i31 = windowParam.getServiceID();
+                                } else {
+                                    drawable3 = drawable2;
+                                    i31 = 0;
+                                }
+                                z = z7;
+                                i28 = ColorUtil.getColor(getRoot().getContext(), i31);
+                                boolean z9 = i31 == 56;
+                                if (i26 != 0) {
+                                    if (z9) {
+                                        j6 = j | 536870912 | 2147483648L;
+                                        j7 = 8589934592L;
+                                    } else {
+                                        j6 = j | 268435456 | 1073741824;
+                                        j7 = 4294967296L;
+                                    }
+                                    j = j6 | j7;
+                                }
+                                if (z9) {
+                                    j5 = j;
+                                    string = this.holder3Title.getResources().getString(R.string.msg_xy_srcy);
+                                } else {
+                                    j5 = j;
+                                    string = this.holder3Title.getResources().getString(R.string.msg_app_meas_srcb);
+                                }
+                                String string2 = this.holder4Title.getResources().getString(z9 ? R.string.msg_xy_srcz : R.string.msg_app_meas_srcc);
+                                if (z9) {
+                                    resources = this.holder2Title.getResources();
+                                    i32 = R.string.msg_xy_srcx;
+                                } else {
+                                    resources = this.holder2Title.getResources();
+                                    i32 = R.string.msg_app_meas_srca;
+                                }
+                                String string3 = resources.getString(i32);
+                                i27 = i31;
+                                str10 = string;
+                                str11 = string2;
+                                j = j5;
+                                str12 = string3;
+                            } else {
+                                drawable3 = drawable2;
+                                z = z7;
+                                str10 = null;
+                                str11 = null;
+                                str12 = null;
+                                i27 = 0;
+                                i28 = 0;
+                            }
+                            if ((j & 8929349) == 0) {
+                                if (windowParam != null) {
+                                    str13 = str10;
+                                    chan = windowParam.getSource1();
+                                } else {
+                                    str13 = str10;
+                                    chan = null;
+                                }
+                                if (chan != null) {
+                                    i30 = chan.value1;
+                                    str14 = str11;
+                                } else {
+                                    str14 = str11;
+                                    i30 = 0;
+                                }
+                                MappingObject mappingObject2 = ViewUtil.getMappingObject(i34, i30);
+                                i6 = i27;
+                                updateRegistration(0, mappingObject2);
+                                str15 = mappingObject2 != null ? mappingObject2.getStr() : null;
+                                j4 = 0;
+                                if ((j & 8912960) != 0) {
+                                    i29 = ColorUtil.getColor(getRoot().getContext(), ServiceEnum.getChanFromValue1(i30));
+                                    if ((j & 13633604) != j4) {
+                                        ServiceEnum.Chan source2 = windowParam != null ? windowParam.getSource2() : null;
+                                        int i36 = source2 != null ? source2.value1 : 0;
+                                        long j8 = j;
+                                        int color = (j & 9437248) != 0 ? ColorUtil.getColor(getRoot().getContext(), ServiceEnum.getChanFromValue1(i36)) : 0;
+                                        MappingObject mappingObject3 = ViewUtil.getMappingObject(i34, i36);
+                                        updateRegistration(11, mappingObject3);
+                                        if (mappingObject3 != null) {
+                                            i2 = i;
+                                            i7 = i25;
+                                            drawable = drawable3;
+                                            str3 = str12;
+                                            str2 = str13;
+                                            str = str14;
+                                            i4 = color;
+                                            str6 = mappingObject3.getStr();
+                                        } else {
+                                            i2 = i;
+                                            i7 = i25;
+                                            drawable = drawable3;
+                                            str3 = str12;
+                                            str2 = str13;
+                                            str = str14;
+                                            i4 = color;
+                                            str6 = null;
+                                        }
+                                        j = j8;
+                                    } else {
+                                        i2 = i;
+                                        i7 = i25;
+                                        drawable = drawable3;
+                                        str3 = str12;
+                                        str2 = str13;
+                                        str = str14;
+                                        i4 = 0;
+                                        str6 = null;
+                                    }
+                                    int i37 = i28;
+                                    i5 = i29;
+                                    windowType = windowType2;
+                                    str4 = str15;
+                                    i3 = i37;
+                                }
+                            } else {
+                                str13 = str10;
+                                str14 = str11;
+                                i6 = i27;
+                                j4 = 0;
+                                str15 = null;
+                            }
+                            i29 = 0;
+                            if ((j & 13633604) != j4) {
+                            }
+                            int i372 = i28;
+                            i5 = i29;
+                            windowType = windowType2;
+                            str4 = str15;
+                            i3 = i372;
+                        }
+                    } else {
+                        j3 = 0;
+                        str9 = null;
+                    }
+                    i23 = 0;
+                    i24 = ((j & 8519744) > j3 ? 1 : ((j & 8519744) == j3 ? 0 : -1));
+                    if (i24 == 0) {
+                    }
+                    i26 = ((j & 8650816) > 0L ? 1 : ((j & 8650816) == 0L ? 0 : -1));
+                    if (i26 == 0) {
+                    }
+                    if ((j & 8929349) == 0) {
+                    }
+                    i29 = 0;
+                    if ((j & 13633604) != j4) {
+                    }
+                    int i3722 = i28;
+                    i5 = i29;
+                    windowType = windowType2;
+                    str4 = str15;
+                    i3 = i3722;
+                } else {
+                    i2 = i;
+                    str = null;
+                    windowType = null;
+                    str2 = null;
+                    str3 = null;
+                    str4 = null;
+                    str5 = null;
+                    str6 = null;
+                    drawable = null;
+                    i3 = 0;
+                    i4 = 0;
+                    i5 = 0;
+                    z = false;
+                    i6 = 0;
+                    i7 = 0;
+                }
+                i8 = ((j & 8716512) > 0L ? 1 : ((j & 8716512) == 0L ? 0 : -1));
+                if (i8 == 0) {
+                    i9 = observableInt2 != null ? observableInt2.get() : 0;
+                    z2 = i9 != 0;
+                    if (i8 != 0) {
+                        j |= z2 ? 35184372088832L : 17592186044416L;
+                    }
+                } else {
+                    i9 = 0;
+                    z2 = false;
+                }
+                i10 = ((j & 8388864) > 0L ? 1 : ((j & 8388864) == 0L ? 0 : -1));
+                if (i10 != 0) {
+                    boolean z10 = observableBoolean3 != null ? observableBoolean3.get() : false;
+                    if (i10 != 0) {
+                        j |= z10 ? 137438953472L : 68719476736L;
+                    }
+                    if (!z10) {
+                        i11 = 8;
+                        i12 = ((j & 8389128) > 0L ? 1 : ((j & 8389128) == 0L ? 0 : -1));
+                        if (i12 != 0) {
+                            z3 = observableBoolean4 != null ? observableBoolean4.get() : false;
+                            if (i12 != 0) {
+                                j = z3 ? j | 549755813888L : j | 274877906944L;
+                            }
+                            j2 = 0;
+                            if ((j & 8389120) != 0) {
+                                str7 = str4;
+                                f = ContextUtil.getAlpha(z3);
+                            } else {
+                                str7 = str4;
+                                f = 0.0f;
+                            }
+                        } else {
+                            j2 = 0;
+                            str7 = str4;
+                            f = 0.0f;
+                            z3 = false;
+                        }
+                        i13 = ((j & 8389632) > j2 ? 1 : ((j & 8389632) == j2 ? 0 : -1));
+                        if (i13 != 0) {
+                            boolean z11 = observableBoolean5 != null ? observableBoolean5.get() : false;
+                            if (i13 != 0) {
+                                j |= z11 ? 33554432L : 16777216L;
+                            }
+                            if (!z11) {
+                                i14 = 8;
+                                i15 = ((j & 8392704) > 0L ? 1 : ((j & 8392704) == 0L ? 0 : -1));
+                                if (i15 != 0) {
+                                    boolean z12 = observableBoolean6 != null ? observableBoolean6.get() : false;
+                                    if (i15 != 0) {
+                                        j |= z12 ? 34359738368L : 17179869184L;
+                                    }
+                                    if (!z12) {
+                                        i16 = 8;
+                                        if ((j & 67108864) != 0) {
+                                            i17 = i16;
+                                            if (windowType == ServiceEnum.WindowType.WIN_MAIN_WAVEFORM) {
+                                                z4 = true;
+                                                boolean z13 = ((j & 549755813888L) != 0 || observableBoolean2 == null) ? false : observableBoolean2.get();
+                                                if ((j & 35184372088832L) != 0) {
+                                                    if (windowParam != null) {
+                                                        i6 = windowParam.getServiceID();
+                                                    }
+                                                    MappingObject mappingObject4 = ViewUtil.getMappingObject(i9, i6);
+                                                    updateRegistration(5, mappingObject4);
+                                                    if (mappingObject4 != null) {
+                                                        str8 = mappingObject4.getStr();
+                                                        i18 = ((j & 8519744) > 0L ? 1 : ((j & 8519744) == 0L ? 0 : -1));
+                                                        if (i18 != 0) {
+                                                            boolean z14 = z ? true : z4;
+                                                            if (i18 != 0) {
+                                                                j |= z14 ? 2199023255552L : 1099511627776L;
+                                                            }
+                                                            i19 = z14 ? 8 : 0;
+                                                        } else {
+                                                            i19 = 0;
+                                                        }
+                                                        i20 = ((j & 8389128) > 0L ? 1 : ((j & 8389128) == 0L ? 0 : -1));
+                                                        if (i20 != 0) {
+                                                            boolean z15 = z3 ? z13 : false;
+                                                            z5 = z15;
+                                                            f2 = ContextUtil.getAlpha(z15);
+                                                        } else {
+                                                            f2 = 0.0f;
+                                                            z5 = false;
+                                                        }
+                                                        i21 = ((j & 8716512) > 0L ? 1 : ((j & 8716512) == 0L ? 0 : -1));
+                                                        if (i21 != 0) {
+                                                            if (!z2) {
+                                                                str8 = "";
+                                                            }
+                                                            str17 = str8;
+                                                        }
+                                                        String str18 = str17;
+                                                        if ((j & 8388608) != 0) {
+                                                            i22 = i19;
+                                                            z6 = z5;
+                                                            this.holder1Spinner.setOnClickListener(this.mCallback51);
+                                                            this.holder2Spinner.setOnClickListener(this.mCallback52);
+                                                            this.holder3Spinner.setOnClickListener(this.mCallback53);
+                                                            this.holder4Spinner.setOnClickListener(this.mCallback54);
+                                                            this.okButton.setOnClickListener(this.mCallback55);
+                                                        } else {
+                                                            i22 = i19;
+                                                            z6 = z5;
+                                                        }
+                                                        if (i21 != 0) {
+                                                            TextViewBindingAdapter.setText(this.holder1Spinner, str18);
+                                                        }
+                                                        if ((j & 8650816) != 0) {
+                                                            this.holder1Spinner.setTextColor(i3);
+                                                            TextViewBindingAdapter.setText(this.holder2Title, str3);
+                                                            TextViewBindingAdapter.setText(this.holder3Title, str2);
+                                                            TextViewBindingAdapter.setText(this.holder4Title, str);
+                                                        }
+                                                        if ((j & 8388864) != 0) {
+                                                            this.holder1Spinner.setVisibility(i11);
+                                                            this.holder1Title.setVisibility(i11);
+                                                        }
+                                                        if ((j & 8389120) != 0) {
+                                                            if (getBuildSdkInt() >= 11) {
+                                                                this.holder2Spinner.setAlpha(f);
+                                                                this.holder2Title.setAlpha(f);
+                                                                this.holder3Spinner.setAlpha(f);
+                                                                this.holder3Title.setAlpha(f);
+                                                                this.holder4Spinner.setAlpha(f);
+                                                                this.holder4Title.setAlpha(f);
+                                                            }
+                                                            this.holder2Spinner.setEnabled(z3);
+                                                            this.holder2Title.setEnabled(z3);
+                                                            this.holder3Spinner.setEnabled(z3);
+                                                            this.holder3Title.setEnabled(z3);
+                                                            this.holder4Spinner.setEnabled(z3);
+                                                            this.holder4Title.setEnabled(z3);
+                                                        }
+                                                        if ((j & 8929349) != 0) {
+                                                            TextViewBindingAdapter.setText(this.holder2Spinner, str7);
+                                                        }
+                                                        if ((8912960 & j) != 0) {
+                                                            this.holder2Spinner.setTextColor(i5);
+                                                        }
+                                                        if ((j & 8389632) != 0) {
+                                                            this.holder2Spinner.setVisibility(i14);
+                                                            this.holder2Title.setVisibility(i14);
+                                                        }
+                                                        if ((j & 13633604) != 0) {
+                                                            TextViewBindingAdapter.setText(this.holder3Spinner, str6);
+                                                        }
+                                                        if ((9437248 & j) != 0) {
+                                                            this.holder3Spinner.setTextColor(i4);
+                                                        }
+                                                        if ((j & 8392704) != 0) {
+                                                            int i38 = i17;
+                                                            this.holder3Spinner.setVisibility(i38);
+                                                            this.holder3Title.setVisibility(i38);
+                                                        }
+                                                        if ((j & 10518608) != 0) {
+                                                            TextViewBindingAdapter.setText(this.holder4Spinner, str5);
+                                                        }
+                                                        if ((j & 10485824) != 0) {
+                                                            this.holder4Spinner.setTextColor(i7);
+                                                        }
+                                                        if ((8388610 & j) != 0) {
+                                                            int i39 = i2;
+                                                            this.holder4Spinner.setVisibility(i39);
+                                                            this.holder4Title.setVisibility(i39);
+                                                        }
+                                                        if (i20 != 0) {
+                                                            if (getBuildSdkInt() >= 11) {
+                                                                this.okButton.setAlpha(f2);
+                                                            }
+                                                            this.okButton.setEnabled(z6);
+                                                        }
+                                                        if ((j & 8519744) != 0) {
+                                                            ImageViewBindingAdapter.setImageDrawable(this.pic, drawable);
+                                                            this.sourceLayout.setVisibility(i22);
+                                                            return;
+                                                        }
+                                                        return;
+                                                    }
+                                                }
+                                                str8 = null;
+                                                i18 = ((j & 8519744) > 0L ? 1 : ((j & 8519744) == 0L ? 0 : -1));
+                                                if (i18 != 0) {
+                                                }
+                                                i20 = ((j & 8389128) > 0L ? 1 : ((j & 8389128) == 0L ? 0 : -1));
+                                                if (i20 != 0) {
+                                                }
+                                                i21 = ((j & 8716512) > 0L ? 1 : ((j & 8716512) == 0L ? 0 : -1));
+                                                if (i21 != 0) {
+                                                }
+                                                String str182 = str17;
+                                                if ((j & 8388608) != 0) {
+                                                }
+                                                if (i21 != 0) {
+                                                }
+                                                if ((j & 8650816) != 0) {
+                                                }
+                                                if ((j & 8388864) != 0) {
+                                                }
+                                                if ((j & 8389120) != 0) {
+                                                }
+                                                if ((j & 8929349) != 0) {
+                                                }
+                                                if ((8912960 & j) != 0) {
+                                                }
+                                                if ((j & 8389632) != 0) {
+                                                }
+                                                if ((j & 13633604) != 0) {
+                                                }
+                                                if ((9437248 & j) != 0) {
+                                                }
+                                                if ((j & 8392704) != 0) {
+                                                }
+                                                if ((j & 10518608) != 0) {
+                                                }
+                                                if ((j & 10485824) != 0) {
+                                                }
+                                                if ((8388610 & j) != 0) {
+                                                }
+                                                if (i20 != 0) {
+                                                }
+                                                if ((j & 8519744) != 0) {
+                                                }
+                                            }
+                                        } else {
+                                            i17 = i16;
+                                        }
+                                        z4 = false;
+                                        if ((j & 549755813888L) != 0) {
+                                        }
+                                        if ((j & 35184372088832L) != 0) {
+                                        }
+                                        str8 = null;
+                                        i18 = ((j & 8519744) > 0L ? 1 : ((j & 8519744) == 0L ? 0 : -1));
+                                        if (i18 != 0) {
+                                        }
+                                        i20 = ((j & 8389128) > 0L ? 1 : ((j & 8389128) == 0L ? 0 : -1));
+                                        if (i20 != 0) {
+                                        }
+                                        i21 = ((j & 8716512) > 0L ? 1 : ((j & 8716512) == 0L ? 0 : -1));
+                                        if (i21 != 0) {
+                                        }
+                                        String str1822 = str17;
+                                        if ((j & 8388608) != 0) {
+                                        }
+                                        if (i21 != 0) {
+                                        }
+                                        if ((j & 8650816) != 0) {
+                                        }
+                                        if ((j & 8388864) != 0) {
+                                        }
+                                        if ((j & 8389120) != 0) {
+                                        }
+                                        if ((j & 8929349) != 0) {
+                                        }
+                                        if ((8912960 & j) != 0) {
+                                        }
+                                        if ((j & 8389632) != 0) {
+                                        }
+                                        if ((j & 13633604) != 0) {
+                                        }
+                                        if ((9437248 & j) != 0) {
+                                        }
+                                        if ((j & 8392704) != 0) {
+                                        }
+                                        if ((j & 10518608) != 0) {
+                                        }
+                                        if ((j & 10485824) != 0) {
+                                        }
+                                        if ((8388610 & j) != 0) {
+                                        }
+                                        if (i20 != 0) {
+                                        }
+                                        if ((j & 8519744) != 0) {
+                                        }
+                                    }
+                                }
+                                i16 = 0;
+                                if ((j & 67108864) != 0) {
+                                }
+                                z4 = false;
+                                if ((j & 549755813888L) != 0) {
+                                }
+                                if ((j & 35184372088832L) != 0) {
+                                }
+                                str8 = null;
+                                i18 = ((j & 8519744) > 0L ? 1 : ((j & 8519744) == 0L ? 0 : -1));
+                                if (i18 != 0) {
+                                }
+                                i20 = ((j & 8389128) > 0L ? 1 : ((j & 8389128) == 0L ? 0 : -1));
+                                if (i20 != 0) {
+                                }
+                                i21 = ((j & 8716512) > 0L ? 1 : ((j & 8716512) == 0L ? 0 : -1));
+                                if (i21 != 0) {
+                                }
+                                String str18222 = str17;
+                                if ((j & 8388608) != 0) {
+                                }
+                                if (i21 != 0) {
+                                }
+                                if ((j & 8650816) != 0) {
+                                }
+                                if ((j & 8388864) != 0) {
+                                }
+                                if ((j & 8389120) != 0) {
+                                }
+                                if ((j & 8929349) != 0) {
+                                }
+                                if ((8912960 & j) != 0) {
+                                }
+                                if ((j & 8389632) != 0) {
+                                }
+                                if ((j & 13633604) != 0) {
+                                }
+                                if ((9437248 & j) != 0) {
+                                }
+                                if ((j & 8392704) != 0) {
+                                }
+                                if ((j & 10518608) != 0) {
+                                }
+                                if ((j & 10485824) != 0) {
+                                }
+                                if ((8388610 & j) != 0) {
+                                }
+                                if (i20 != 0) {
+                                }
+                                if ((j & 8519744) != 0) {
+                                }
+                            }
+                        }
+                        i14 = 0;
+                        i15 = ((j & 8392704) > 0L ? 1 : ((j & 8392704) == 0L ? 0 : -1));
+                        if (i15 != 0) {
+                        }
+                        i16 = 0;
+                        if ((j & 67108864) != 0) {
+                        }
+                        z4 = false;
+                        if ((j & 549755813888L) != 0) {
+                        }
+                        if ((j & 35184372088832L) != 0) {
+                        }
+                        str8 = null;
+                        i18 = ((j & 8519744) > 0L ? 1 : ((j & 8519744) == 0L ? 0 : -1));
+                        if (i18 != 0) {
+                        }
+                        i20 = ((j & 8389128) > 0L ? 1 : ((j & 8389128) == 0L ? 0 : -1));
+                        if (i20 != 0) {
+                        }
+                        i21 = ((j & 8716512) > 0L ? 1 : ((j & 8716512) == 0L ? 0 : -1));
+                        if (i21 != 0) {
+                        }
+                        String str182222 = str17;
+                        if ((j & 8388608) != 0) {
+                        }
+                        if (i21 != 0) {
+                        }
+                        if ((j & 8650816) != 0) {
+                        }
+                        if ((j & 8388864) != 0) {
+                        }
+                        if ((j & 8389120) != 0) {
+                        }
+                        if ((j & 8929349) != 0) {
+                        }
+                        if ((8912960 & j) != 0) {
+                        }
+                        if ((j & 8389632) != 0) {
+                        }
+                        if ((j & 13633604) != 0) {
+                        }
+                        if ((9437248 & j) != 0) {
+                        }
+                        if ((j & 8392704) != 0) {
+                        }
+                        if ((j & 10518608) != 0) {
+                        }
+                        if ((j & 10485824) != 0) {
+                        }
+                        if ((8388610 & j) != 0) {
+                        }
+                        if (i20 != 0) {
+                        }
+                        if ((j & 8519744) != 0) {
+                        }
+                    }
+                }
+                i11 = 0;
+                i12 = ((j & 8389128) > 0L ? 1 : ((j & 8389128) == 0L ? 0 : -1));
+                if (i12 != 0) {
+                }
+                i13 = ((j & 8389632) > j2 ? 1 : ((j & 8389632) == j2 ? 0 : -1));
+                if (i13 != 0) {
+                }
+                i14 = 0;
+                i15 = ((j & 8392704) > 0L ? 1 : ((j & 8392704) == 0L ? 0 : -1));
+                if (i15 != 0) {
+                }
+                i16 = 0;
+                if ((j & 67108864) != 0) {
+                }
+                z4 = false;
+                if ((j & 549755813888L) != 0) {
+                }
+                if ((j & 35184372088832L) != 0) {
+                }
+                str8 = null;
+                i18 = ((j & 8519744) > 0L ? 1 : ((j & 8519744) == 0L ? 0 : -1));
+                if (i18 != 0) {
+                }
+                i20 = ((j & 8389128) > 0L ? 1 : ((j & 8389128) == 0L ? 0 : -1));
+                if (i20 != 0) {
+                }
+                i21 = ((j & 8716512) > 0L ? 1 : ((j & 8716512) == 0L ? 0 : -1));
+                if (i21 != 0) {
+                }
+                String str1822222 = str17;
+                if ((j & 8388608) != 0) {
+                }
+                if (i21 != 0) {
+                }
+                if ((j & 8650816) != 0) {
+                }
+                if ((j & 8388864) != 0) {
+                }
+                if ((j & 8389120) != 0) {
+                }
+                if ((j & 8929349) != 0) {
+                }
+                if ((8912960 & j) != 0) {
+                }
+                if ((j & 8389632) != 0) {
+                }
+                if ((j & 13633604) != 0) {
+                }
+                if ((9437248 & j) != 0) {
+                }
+                if ((j & 8392704) != 0) {
+                }
+                if ((j & 10518608) != 0) {
+                }
+                if ((j & 10485824) != 0) {
+                }
+                if ((8388610 & j) != 0) {
+                }
+                if (i20 != 0) {
+                }
+                if ((j & 8519744) != 0) {
+                }
+            }
+        }
+        i = 0;
+        if ((14174277 & j) != 0) {
+        }
+        String str172 = null;
+        if ((16697429 & j) == 0) {
+        }
+        i8 = ((j & 8716512) > 0L ? 1 : ((j & 8716512) == 0L ? 0 : -1));
+        if (i8 == 0) {
+        }
+        i10 = ((j & 8388864) > 0L ? 1 : ((j & 8388864) == 0L ? 0 : -1));
+        if (i10 != 0) {
+        }
+        i11 = 0;
+        i12 = ((j & 8389128) > 0L ? 1 : ((j & 8389128) == 0L ? 0 : -1));
+        if (i12 != 0) {
+        }
+        i13 = ((j & 8389632) > j2 ? 1 : ((j & 8389632) == j2 ? 0 : -1));
+        if (i13 != 0) {
+        }
+        i14 = 0;
+        i15 = ((j & 8392704) > 0L ? 1 : ((j & 8392704) == 0L ? 0 : -1));
+        if (i15 != 0) {
+        }
+        i16 = 0;
+        if ((j & 67108864) != 0) {
+        }
+        z4 = false;
+        if ((j & 549755813888L) != 0) {
+        }
+        if ((j & 35184372088832L) != 0) {
+        }
+        str8 = null;
+        i18 = ((j & 8519744) > 0L ? 1 : ((j & 8519744) == 0L ? 0 : -1));
+        if (i18 != 0) {
+        }
+        i20 = ((j & 8389128) > 0L ? 1 : ((j & 8389128) == 0L ? 0 : -1));
+        if (i20 != 0) {
+        }
+        i21 = ((j & 8716512) > 0L ? 1 : ((j & 8716512) == 0L ? 0 : -1));
+        if (i21 != 0) {
+        }
+        String str18222222 = str172;
+        if ((j & 8388608) != 0) {
+        }
+        if (i21 != 0) {
+        }
+        if ((j & 8650816) != 0) {
+        }
+        if ((j & 8388864) != 0) {
+        }
+        if ((j & 8389120) != 0) {
+        }
+        if ((j & 8929349) != 0) {
+        }
+        if ((8912960 & j) != 0) {
+        }
+        if ((j & 8389632) != 0) {
+        }
+        if ((j & 13633604) != 0) {
+        }
+        if ((9437248 & j) != 0) {
+        }
+        if ((j & 8392704) != 0) {
+        }
+        if ((j & 10518608) != 0) {
+        }
+        if ((j & 10485824) != 0) {
+        }
+        if ((8388610 & j) != 0) {
+        }
+        if (i20 != 0) {
+        }
+        if ((j & 8519744) != 0) {
+        }
     }
 
     @Override // com.rigol.scope.generated.callback.OnClickListener.Listener

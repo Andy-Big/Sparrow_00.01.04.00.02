@@ -36,6 +36,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import timber.log.Timber;
+
 /* loaded from: classes2.dex */
 public class AnalyseEthResultPopupView extends BasePopupView implements View.OnClickListener {
     private final PopupviewAnalyseEthResultBinding binding;
@@ -118,6 +119,7 @@ public class AnalyseEthResultPopupView extends BasePopupView implements View.OnC
                 ((AdapterItemResultTableContentBinding) baseViewHolder.getBinding()).content.setText(list.get(i));
             }
 
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // com.rigol.scope.adapters.MultiItemTypeAdapter, androidx.recyclerview.widget.RecyclerView.Adapter
             public BaseViewHolder<? extends ViewDataBinding> onCreateViewHolder(ViewGroup viewGroup, int i) {
                 BaseViewHolder<? extends ViewDataBinding> onCreateViewHolder = super.onCreateViewHolder(viewGroup, i);

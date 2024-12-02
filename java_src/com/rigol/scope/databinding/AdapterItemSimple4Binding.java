@@ -11,6 +11,7 @@ import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import com.rigol.scope.R;
 import com.rigol.scope.data.MappingObject;
+
 /* loaded from: classes2.dex */
 public abstract class AdapterItemSimple4Binding extends ViewDataBinding {
     public final ImageView icon;
@@ -21,8 +22,7 @@ public abstract class AdapterItemSimple4Binding extends ViewDataBinding {
 
     public abstract void setObj(MappingObject mappingObject);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public AdapterItemSimple4Binding(Object obj, View view, int i, ImageView imageView, ConstraintLayout constraintLayout, TextView textView) {
+    protected AdapterItemSimple4Binding(Object obj, View view, int i, ImageView imageView, ConstraintLayout constraintLayout, TextView textView) {
         super(obj, view, i);
         this.icon = imageView;
         this.itemView = constraintLayout;

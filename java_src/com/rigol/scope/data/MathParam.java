@@ -24,6 +24,7 @@ import com.rigol.scope.utilities.ViewUtil;
 import java.util.ArrayList;
 import java.util.List;
 import org.slf4j.Marker;
+
 /* loaded from: classes2.dex */
 public class MathParam extends BaseParam {
     private static final boolean DEFAULT_COLORGRADE = false;
@@ -2329,10 +2330,9 @@ public class MathParam extends BaseParam {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.rigol.scope.data.MathParam$1  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    static /* synthetic */ class AnonymousClass1 {
         static final /* synthetic */ int[] $SwitchMap$com$rigol$scope$cil$ServiceEnum$LaScale;
         static final /* synthetic */ int[] $SwitchMap$com$rigol$scope$cil$ServiceEnum$MathOperator;
 

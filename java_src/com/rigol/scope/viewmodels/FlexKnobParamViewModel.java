@@ -6,6 +6,7 @@ import com.rigol.scope.cil.ServiceEnum;
 import com.rigol.scope.data.FlexKnobParam;
 import com.rigol.scope.utilities.ContextUtil;
 import com.rigol.scope.utilities.FunctionManager;
+
 /* loaded from: classes2.dex */
 public class FlexKnobParamViewModel extends ViewModel {
     private MutableLiveData<FlexKnobParam> paramMutableLiveData = new MutableLiveData<>();

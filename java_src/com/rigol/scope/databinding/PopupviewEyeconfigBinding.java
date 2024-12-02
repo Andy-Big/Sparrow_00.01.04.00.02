@@ -9,6 +9,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import com.rigol.scope.R;
+
 /* loaded from: classes2.dex */
 public abstract class PopupviewEyeconfigBinding extends ViewDataBinding {
     public final TextView eyeMove;
@@ -16,8 +17,7 @@ public abstract class PopupviewEyeconfigBinding extends ViewDataBinding {
     public final Button eyeSetting;
     public final ConstraintLayout triggerEdgeLayout;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public PopupviewEyeconfigBinding(Object obj, View view, int i, TextView textView, Button button, Button button2, ConstraintLayout constraintLayout) {
+    protected PopupviewEyeconfigBinding(Object obj, View view, int i, TextView textView, Button button, Button button2, ConstraintLayout constraintLayout) {
         super(obj, view, i);
         this.eyeMove = textView;
         this.eyeResult = button;

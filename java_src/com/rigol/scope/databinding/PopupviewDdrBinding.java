@@ -13,6 +13,7 @@ import androidx.databinding.ViewDataBinding;
 import com.rigol.scope.R;
 import com.rigol.scope.data.StorageSaveParam;
 import com.rigol.scope.views.NumberProgressBar;
+
 /* loaded from: classes2.dex */
 public abstract class PopupviewDdrBinding extends ViewDataBinding {
     public final TextView fileName;
@@ -32,8 +33,7 @@ public abstract class PopupviewDdrBinding extends ViewDataBinding {
 
     public abstract void setParam(StorageSaveParam storageSaveParam);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public PopupviewDdrBinding(Object obj, View view, int i, TextView textView, EditText editText, TextView textView2, EditText editText2, Guideline guideline, Button button, NumberProgressBar numberProgressBar, Button button2, TextView textView3, EditText editText3, TextView textView4, EditText editText4) {
+    protected PopupviewDdrBinding(Object obj, View view, int i, TextView textView, EditText editText, TextView textView2, EditText editText2, Guideline guideline, Button button, NumberProgressBar numberProgressBar, Button button2, TextView textView3, EditText editText3, TextView textView4, EditText editText4) {
         super(obj, view, i);
         this.fileName = textView;
         this.fileNameText = editText;

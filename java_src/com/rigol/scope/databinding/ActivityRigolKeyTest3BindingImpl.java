@@ -10,6 +10,7 @@ import androidx.constraintlayout.widget.Guideline;
 import androidx.databinding.DataBindingComponent;
 import androidx.databinding.ViewDataBinding;
 import com.rigol.scope.R;
+
 /* loaded from: classes2.dex */
 public class ActivityRigolKeyTest3BindingImpl extends ActivityRigolKeyTest3Binding {
     private static final ViewDataBinding.IncludedLayouts sIncludes = null;

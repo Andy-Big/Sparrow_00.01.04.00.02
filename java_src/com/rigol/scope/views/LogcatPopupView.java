@@ -29,6 +29,7 @@ import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+
 /* loaded from: classes2.dex */
 public class LogcatPopupView extends BasePopupView implements View.OnClickListener {
     private PopupviewLogcatBinding binding;
@@ -65,10 +66,9 @@ public class LogcatPopupView extends BasePopupView implements View.OnClickListen
         showLog();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.rigol.scope.views.LogcatPopupView$4  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public static /* synthetic */ class AnonymousClass4 {
+    static /* synthetic */ class AnonymousClass4 {
         static final /* synthetic */ int[] $SwitchMap$com$rigol$scope$cil$ServiceEnum$LogGrade;
 
         static {
@@ -104,6 +104,7 @@ public class LogcatPopupView extends BasePopupView implements View.OnClickListen
             str2 = str2 + "| grep " + str + " ";
         }
         ShellUtils.execCmdAsync(str2 + "> /mnt/tmp/Log.txt", true, new Utils.Consumer<ShellUtils.CommandResult>() { // from class: com.rigol.scope.views.LogcatPopupView.2
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // com.blankj.utilcode.util.Utils.Consumer
             public void accept(ShellUtils.CommandResult commandResult) {
             }
@@ -195,6 +196,7 @@ public class LogcatPopupView extends BasePopupView implements View.OnClickListen
                 return;
             }
             ShellUtils.execCmdAsync("logcat -d *:V > " + (value2.getPathName() + "/Log_" + replace + ".txt"), true, new Utils.Consumer<ShellUtils.CommandResult>() { // from class: com.rigol.scope.views.LogcatPopupView.3
+                /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.blankj.utilcode.util.Utils.Consumer
                 public void accept(ShellUtils.CommandResult commandResult) {
                 }

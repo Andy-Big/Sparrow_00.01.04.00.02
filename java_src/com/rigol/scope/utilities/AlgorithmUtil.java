@@ -3,6 +3,7 @@ package com.rigol.scope.utilities;
 import java.math.BigDecimal;
 import java.math.MathContext;
 import java.math.RoundingMode;
+
 /* loaded from: classes2.dex */
 public class AlgorithmUtil {
     public static float easeOutQuart(float f) {

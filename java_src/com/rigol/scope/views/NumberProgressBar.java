@@ -2,6 +2,7 @@ package com.rigol.scope.views;
 
 import android.content.Context;
 import android.util.AttributeSet;
+
 /* loaded from: classes2.dex */
 public class NumberProgressBar extends com.daimajia.numberprogressbar.NumberProgressBar {
     public NumberProgressBar(Context context) {

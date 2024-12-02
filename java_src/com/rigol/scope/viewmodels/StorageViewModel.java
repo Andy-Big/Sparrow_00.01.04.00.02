@@ -5,6 +5,7 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.MutableLiveData;
 import com.rigol.scope.data.StorageLoadParam;
 import com.rigol.scope.data.StorageSaveParam;
+
 /* loaded from: classes2.dex */
 public class StorageViewModel extends AndroidViewModel {
     private final MutableLiveData<StorageLoadParam> loadLiveData;

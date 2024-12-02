@@ -11,6 +11,7 @@ import androidx.databinding.ViewDataBinding;
 import androidx.viewpager2.widget.ViewPager2;
 import com.google.android.material.tabs.TabLayout;
 import com.rigol.scope.R;
+
 /* loaded from: classes2.dex */
 public class PopupviewStorageBindingImpl extends PopupviewStorageBinding {
     private static final ViewDataBinding.IncludedLayouts sIncludes = null;

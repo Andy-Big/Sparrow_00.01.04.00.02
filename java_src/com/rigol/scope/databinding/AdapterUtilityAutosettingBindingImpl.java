@@ -18,6 +18,7 @@ import com.rigol.scope.R;
 import com.rigol.scope.data.BaseProperty;
 import com.rigol.scope.views.SwitchButton;
 import com.rigol.scope.views.auto.AutosetParam;
+
 /* loaded from: classes2.dex */
 public class AdapterUtilityAutosettingBindingImpl extends AdapterUtilityAutosettingBinding {
     private static final ViewDataBinding.IncludedLayouts sIncludes = null;

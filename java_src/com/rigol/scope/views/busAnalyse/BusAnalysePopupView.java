@@ -24,6 +24,7 @@ import com.rigol.scope.views.baseview.BasePopupView;
 import com.rigol.scope.views.spinner.PopupSpinner;
 import java.util.List;
 import kotlin.jvm.functions.Function1;
+
 /* loaded from: classes2.dex */
 public class BusAnalysePopupView extends BasePopupView implements View.OnClickListener {
     private final PopupviewBusAnalyseBinding binding;
@@ -96,8 +97,7 @@ public class BusAnalysePopupView extends BasePopupView implements View.OnClickLi
         });
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ Boolean lambda$updateList$3(OptionParam optionParam, MappingObject mappingObject) {
+    static /* synthetic */ Boolean lambda$updateList$3(OptionParam optionParam, MappingObject mappingObject) {
         if (mappingObject == null) {
             return true;
         }
@@ -178,9 +178,8 @@ public class BusAnalysePopupView extends BasePopupView implements View.OnClickLi
         return this.binding;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.rigol.scope.views.baseview.BasePopupView
-    public void onPrepare() {
+    protected void onPrepare() {
         super.onPrepare();
         updateList(this.optionParam);
         showAdapter();

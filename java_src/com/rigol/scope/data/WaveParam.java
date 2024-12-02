@@ -1,4 +1,5 @@
 package com.rigol.scope.data;
+
 /* loaded from: classes2.dex */
 public class WaveParam {
     public static final int DEFAULT_BASIC_WAVE_DRAW_HEIGHT = 278;

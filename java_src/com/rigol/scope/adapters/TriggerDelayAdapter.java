@@ -33,6 +33,7 @@ import com.rigol.scope.views.spinner.PopupSpinner;
 import com.rigol.scope.views.trigger.TriggerPopupView;
 import java.util.ArrayList;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public class TriggerDelayAdapter extends RecyclerView.Adapter<TriggerDelayHolder> implements View.OnClickListener, CompoundButton.OnCheckedChangeListener, AorBManager.OnSetTextById, AorBManager.OnTextReset {
     private View anchorView;
@@ -84,6 +85,7 @@ public class TriggerDelayAdapter extends RecyclerView.Adapter<TriggerDelayHolder
         this.serviceId = triggerParam.getServiceId();
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public TriggerDelayHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         this.binding = AdapterTriggerDelayBinding.inflate(LayoutInflater.from(viewGroup.getContext()), viewGroup, false);
@@ -156,6 +158,7 @@ public class TriggerDelayAdapter extends RecyclerView.Adapter<TriggerDelayHolder
         }
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(TriggerDelayHolder triggerDelayHolder, int i) {
         ShowTriggerDelay();

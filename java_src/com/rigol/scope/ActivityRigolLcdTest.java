@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.TextView;
 import androidx.core.internal.view.SupportMenu;
 import androidx.core.view.ViewCompat;
+
 /* loaded from: classes.dex */
 public class ActivityRigolLcdTest extends SelfTestActivity {
     private static final int[] COLORS = {SupportMenu.CATEGORY_MASK, -16711936, -1, ViewCompat.MEASURED_STATE_MASK, -16776961, -7829368, Color.rgb(128, 0, 0), Color.rgb(0, 0, 128), Color.rgb(64, 0, 0), Color.rgb(0, 64, 0), Color.rgb(0, 0, 64), Color.rgb(192, 0, 0), Color.rgb(0, 192, 0), Color.rgb(0, 0, 192), Color.rgb(0, 0, 0)};
@@ -24,9 +25,8 @@ public class ActivityRigolLcdTest extends SelfTestActivity {
         return i;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // androidx.appcompat.app.AppCompatActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
-    public void onCreate(Bundle bundle) {
+    protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         getWindow().setFlags(1024, 1024);
         setContentView(R.layout.activity_rigol_lcd_test);

@@ -7,13 +7,13 @@ import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import androidx.recyclerview.widget.RecyclerView;
 import com.rigol.scope.R;
+
 /* loaded from: classes2.dex */
 public abstract class PopupviewUtilityBinding extends ViewDataBinding {
     public final RecyclerView utilLeft;
     public final RecyclerView utilRight;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public PopupviewUtilityBinding(Object obj, View view, int i, RecyclerView recyclerView, RecyclerView recyclerView2) {
+    protected PopupviewUtilityBinding(Object obj, View view, int i, RecyclerView recyclerView, RecyclerView recyclerView2) {
         super(obj, view, i);
         this.utilLeft = recyclerView;
         this.utilRight = recyclerView2;

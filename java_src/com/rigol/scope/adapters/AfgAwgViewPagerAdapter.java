@@ -40,6 +40,7 @@ import java.io.FileFilter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+
 /* loaded from: classes.dex */
 public class AfgAwgViewPagerAdapter extends MultiItemTypeAdapter<List<MappingObject>> {
     public AfgBasicDelegate afgBasicDelegate;
@@ -85,9 +86,8 @@ public class AfgAwgViewPagerAdapter extends MultiItemTypeAdapter<List<MappingObj
         private StorageLoadParam storageLoadParam;
         private SyncDataViewModel syncDataViewModel;
 
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.rigol.scope.adapters.AdapterDelegate
-        public /* bridge */ /* synthetic */ void onBindViewHolder(Object obj, int i, BaseViewHolder baseViewHolder) {
+        protected /* bridge */ /* synthetic */ void onBindViewHolder(Object obj, int i, BaseViewHolder baseViewHolder) {
             onBindViewHolder((List) obj, i, (BaseViewHolder<? extends ViewDataBinding>) baseViewHolder);
         }
 
@@ -313,8 +313,7 @@ public class AfgAwgViewPagerAdapter extends MultiItemTypeAdapter<List<MappingObj
             }
         }
 
-        /* JADX INFO: Access modifiers changed from: package-private */
-        public static /* synthetic */ boolean lambda$onClick$2(File file) {
+        static /* synthetic */ boolean lambda$onClick$2(File file) {
             return file.getName().endsWith(".csv") || file.isDirectory();
         }
 
@@ -325,6 +324,7 @@ public class AfgAwgViewPagerAdapter extends MultiItemTypeAdapter<List<MappingObj
             }
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.rigol.scope.adapters.AdapterDelegate
         public boolean isForViewType(List<MappingObject> list, int i) {
@@ -551,9 +551,8 @@ public class AfgAwgViewPagerAdapter extends MultiItemTypeAdapter<List<MappingObj
         private SpinnerAdapter spinnerAdapter;
         private SyncDataViewModel syncDataViewModel;
 
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.rigol.scope.adapters.AdapterDelegate
-        public /* bridge */ /* synthetic */ void onBindViewHolder(Object obj, int i, BaseViewHolder baseViewHolder) {
+        protected /* bridge */ /* synthetic */ void onBindViewHolder(Object obj, int i, BaseViewHolder baseViewHolder) {
             onBindViewHolder((List) obj, i, (BaseViewHolder<? extends ViewDataBinding>) baseViewHolder);
         }
 
@@ -774,6 +773,7 @@ public class AfgAwgViewPagerAdapter extends MultiItemTypeAdapter<List<MappingObj
             }
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.rigol.scope.adapters.AdapterDelegate
         public boolean isForViewType(List<MappingObject> list, int i) {

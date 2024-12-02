@@ -5,6 +5,7 @@ import android.graphics.drawable.StateListDrawable;
 import android.util.AttributeSet;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import com.rigol.scope.R;
+
 /* loaded from: classes2.dex */
 public class ResultItemConstraintLayout extends ConstraintLayout {
     public ResultItemConstraintLayout(Context context) {
@@ -27,9 +28,8 @@ public class ResultItemConstraintLayout extends ConstraintLayout {
         setBackground(stateListDrawable);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // androidx.constraintlayout.widget.ConstraintLayout, android.view.ViewGroup, android.view.View
-    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
+    protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
         initBackground();
     }

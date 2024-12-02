@@ -13,6 +13,7 @@ import androidx.databinding.ViewDataBinding;
 import com.rigol.scope.R;
 import com.rigol.scope.data.DecodeParam;
 import com.rigol.scope.data.MappingObject;
+
 /* loaded from: classes2.dex */
 public abstract class AdapterDecodeUsbBinding extends ViewDataBinding {
     public final TextView decodeUsbDiffLabel;
@@ -53,8 +54,7 @@ public abstract class AdapterDecodeUsbBinding extends ViewDataBinding {
 
     public abstract void setUsbMidMapping(MappingObject mappingObject);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public AdapterDecodeUsbBinding(Object obj, View view, int i, TextView textView, TextView textView2, TextView textView3, TextView textView4, TextView textView5, TextView textView6, TextView textView7, TextView textView8, TextView textView9, TextView textView10, TextView textView11, TextView textView12, TextView textView13, TextView textView14, RadioButton radioButton, ConstraintLayout constraintLayout, RadioButton radioButton2, RadioButton radioButton3, TextView textView15, RadioGroup radioGroup, View view2) {
+    protected AdapterDecodeUsbBinding(Object obj, View view, int i, TextView textView, TextView textView2, TextView textView3, TextView textView4, TextView textView5, TextView textView6, TextView textView7, TextView textView8, TextView textView9, TextView textView10, TextView textView11, TextView textView12, TextView textView13, TextView textView14, RadioButton radioButton, ConstraintLayout constraintLayout, RadioButton radioButton2, RadioButton radioButton3, TextView textView15, RadioGroup radioGroup, View view2) {
         super(obj, view, i);
         this.decodeUsbDiffLabel = textView;
         this.decodeUsbDiffThreHLabel = textView2;

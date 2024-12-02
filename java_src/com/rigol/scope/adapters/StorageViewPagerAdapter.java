@@ -24,6 +24,7 @@ import com.rigol.scope.utilities.ViewUtil;
 import com.rigol.scope.viewmodels.StorageViewModel;
 import com.rigol.scope.viewmodels.SyncDataViewModel;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public class StorageViewPagerAdapter extends MultiItemTypeAdapter<List<MappingObject>> {
     private LoadDelegate loadDelegate;
@@ -59,9 +60,8 @@ public class StorageViewPagerAdapter extends MultiItemTypeAdapter<List<MappingOb
         private OnItemClickCallback onItemClickCallback;
         private final StorageSaveParam param;
 
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.rigol.scope.adapters.AdapterDelegate
-        public /* bridge */ /* synthetic */ void onBindViewHolder(Object obj, int i, BaseViewHolder baseViewHolder) {
+        protected /* bridge */ /* synthetic */ void onBindViewHolder(Object obj, int i, BaseViewHolder baseViewHolder) {
             onBindViewHolder((List) obj, i, (BaseViewHolder<? extends ViewDataBinding>) baseViewHolder);
         }
 
@@ -78,6 +78,7 @@ public class StorageViewPagerAdapter extends MultiItemTypeAdapter<List<MappingOb
             this.aorBManager = aorBManager;
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.rigol.scope.adapters.AdapterDelegate
         public boolean isForViewType(List<MappingObject> list, int i) {
@@ -154,9 +155,8 @@ public class StorageViewPagerAdapter extends MultiItemTypeAdapter<List<MappingOb
         private OnItemClickCallback onItemClickCallback;
         private final StorageLoadParam param;
 
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.rigol.scope.adapters.AdapterDelegate
-        public /* bridge */ /* synthetic */ void onBindViewHolder(Object obj, int i, BaseViewHolder baseViewHolder) {
+        protected /* bridge */ /* synthetic */ void onBindViewHolder(Object obj, int i, BaseViewHolder baseViewHolder) {
             onBindViewHolder((List) obj, i, (BaseViewHolder<? extends ViewDataBinding>) baseViewHolder);
         }
 
@@ -173,6 +173,7 @@ public class StorageViewPagerAdapter extends MultiItemTypeAdapter<List<MappingOb
             this.aorBManager = aorBManager;
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.rigol.scope.adapters.AdapterDelegate
         public boolean isForViewType(List<MappingObject> list, int i) {
@@ -221,9 +222,8 @@ public class StorageViewPagerAdapter extends MultiItemTypeAdapter<List<MappingOb
         private OnItemClickCallback onItemClickCallback;
         private SyncDataViewModel syncDataViewModel;
 
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.rigol.scope.adapters.AdapterDelegate
-        public /* bridge */ /* synthetic */ void onBindViewHolder(Object obj, int i, BaseViewHolder baseViewHolder) {
+        protected /* bridge */ /* synthetic */ void onBindViewHolder(Object obj, int i, BaseViewHolder baseViewHolder) {
             onBindViewHolder((List) obj, i, (BaseViewHolder<? extends ViewDataBinding>) baseViewHolder);
         }
 
@@ -231,6 +231,7 @@ public class StorageViewPagerAdapter extends MultiItemTypeAdapter<List<MappingOb
             super(i);
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.rigol.scope.adapters.AdapterDelegate
         public boolean isForViewType(List<MappingObject> list, int i) {

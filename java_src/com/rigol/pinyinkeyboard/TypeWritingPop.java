@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.rigol.pinyinkeyboard.TypeWritingUtils;
 import java.io.IOException;
+
 /* loaded from: classes.dex */
 public class TypeWritingPop extends BasePopup<TypeWritingPop> implements View.OnClickListener {
     private AssetManager assetManager;
@@ -104,6 +105,7 @@ public class TypeWritingPop extends BasePopup<TypeWritingPop> implements View.On
         setFocusAndOutsideEnable(true).setBackgroundDimEnable(false).setDimValue(0.0f);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.rigol.pinyinkeyboard.BasePopup
     public void initViews(View view, TypeWritingPop typeWritingPop) {

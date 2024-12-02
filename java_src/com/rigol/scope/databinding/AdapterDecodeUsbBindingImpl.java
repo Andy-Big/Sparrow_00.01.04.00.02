@@ -9,9 +9,14 @@ import android.widget.TextView;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.databinding.DataBindingComponent;
 import androidx.databinding.ViewDataBinding;
+import androidx.databinding.adapters.CompoundButtonBindingAdapter;
+import androidx.databinding.adapters.TextViewBindingAdapter;
 import com.rigol.scope.R;
 import com.rigol.scope.data.DecodeParam;
 import com.rigol.scope.data.MappingObject;
+import com.rigol.scope.utilities.ColorUtil;
+import com.rigol.scope.utilities.ViewUtil;
+
 /* loaded from: classes2.dex */
 public class AdapterDecodeUsbBindingImpl extends AdapterDecodeUsbBinding {
     private static final ViewDataBinding.IncludedLayouts sIncludes = null;
@@ -319,13 +324,430 @@ public class AdapterDecodeUsbBindingImpl extends AdapterDecodeUsbBinding {
     @Override // androidx.databinding.ViewDataBinding
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
     protected void executeBindings() {
-        /*
-            Method dump skipped, instructions count: 882
-            To view this dump add '--comments-level debug' option
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.rigol.scope.databinding.AdapterDecodeUsbBindingImpl.executeBindings():void");
+        long j;
+        int i;
+        String str;
+        boolean z;
+        boolean z2;
+        int i2;
+        int i3;
+        boolean z3;
+        int i4;
+        String str2;
+        String str3;
+        String str4;
+        String str5;
+        String str6;
+        String str7;
+        String str8;
+        String str9;
+        String str10;
+        int i5;
+        String str11;
+        String str12;
+        int i6;
+        int i7;
+        int i8;
+        boolean z4;
+        boolean z5;
+        int i9;
+        String str13;
+        int i10;
+        String str14;
+        String str15;
+        long j2;
+        int i11;
+        String str16;
+        String str17;
+        int i12;
+        int i13;
+        long j3;
+        String str18;
+        long j4;
+        long j5;
+        int i14;
+        long j6;
+        long j7;
+        long j8;
+        synchronized (this) {
+            j = this.mDirtyFlags;
+            this.mDirtyFlags = 0L;
+        }
+        MappingObject mappingObject = this.mUsbHighMapping;
+        MappingObject mappingObject2 = this.mUsbMidMapping;
+        MappingObject mappingObject3 = this.mUsbLowMapping;
+        DecodeParam decodeParam = this.mParam;
+        String str19 = ((j & 2097410) == 0 || mappingObject == null) ? null : mappingObject.getStr();
+        String str20 = ((j & 2097668) == 0 || mappingObject2 == null) ? null : mappingObject2.getStr();
+        String str21 = ((j & 2099216) == 0 || mappingObject3 == null) ? null : mappingObject3.getStr();
+        if ((j & 4191465) != 0) {
+            if ((j & 2129984) != 0) {
+                long usb_dp_thres = decodeParam != null ? decodeParam.getUsb_dp_thres() : 0L;
+                if (decodeParam != null) {
+                    str12 = decodeParam.getDecodeLevelStr(usb_dp_thres);
+                    i6 = ((j & 2105408) > 0L ? 1 : ((j & 2105408) == 0L ? 0 : -1));
+                    if (i6 == 0) {
+                        long usb_rate = decodeParam != null ? decodeParam.getUsb_rate() : 0L;
+                        z3 = usb_rate == 2;
+                        z5 = usb_rate == 0;
+                        z4 = usb_rate == 1;
+                        if (i6 != 0) {
+                            if (z3) {
+                                j7 = j | 33554432 | 134217728;
+                                j8 = 536870912;
+                            } else {
+                                j7 = j | 16777216 | 67108864;
+                                j8 = 268435456;
+                            }
+                            j = j7 | j8;
+                        }
+                        if ((j & 2105408) != 0) {
+                            j |= z5 ? 2147483648L : 1073741824L;
+                        }
+                        if ((j & 2105408) != 0) {
+                            j |= z4 ? 8388608L : 4194304L;
+                        }
+                        i7 = 8;
+                        i8 = z3 ? 8 : 0;
+                        if (z3) {
+                            i7 = 0;
+                        }
+                    } else {
+                        i7 = 0;
+                        z3 = false;
+                        i8 = 0;
+                        z4 = false;
+                        z5 = false;
+                    }
+                    if ((j & 2117728) == 0) {
+                        int usb_dp = decodeParam != null ? decodeParam.getUsb_dp() : 0;
+                        i9 = (j & 2113600) != 0 ? ColorUtil.getColor(getRoot().getContext(), usb_dp) : 0;
+                        MappingObject mappingObject4 = ViewUtil.getMappingObject(R.array.msg_decode_usb_dp, usb_dp);
+                        updateRegistration(5, mappingObject4);
+                        if (mappingObject4 != null) {
+                            str13 = mappingObject4.getStr();
+                            if ((j & 2621504) != 0) {
+                                if (decodeParam != null) {
+                                    i10 = i7;
+                                    j6 = decodeParam.getUsb_diff_low_thres();
+                                } else {
+                                    i10 = i7;
+                                    j6 = 0;
+                                }
+                                if (decodeParam != null) {
+                                    str14 = decodeParam.getDecodeLevelStr(j6);
+                                    if ((j & 2228288) != 0) {
+                                        long usb_ds_thres = decodeParam != null ? decodeParam.getUsb_ds_thres() : 0L;
+                                        if (decodeParam != null) {
+                                            str15 = decodeParam.getDecodeLevelStr(usb_ds_thres);
+                                            if ((j & 2163784) != 0) {
+                                                int usb_ds = decodeParam != null ? decodeParam.getUsb_ds() : 0;
+                                                MappingObject mappingObject5 = ViewUtil.getMappingObject(R.array.msg_decode_usb_ds, usb_ds);
+                                                updateRegistration(3, mappingObject5);
+                                                str16 = mappingObject5 != null ? mappingObject5.getStr() : null;
+                                                j2 = 0;
+                                                i11 = (j & 2162752) != 0 ? ColorUtil.getColor(getRoot().getContext(), usb_ds) : 0;
+                                            } else {
+                                                j2 = 0;
+                                                i11 = 0;
+                                                str16 = null;
+                                            }
+                                            if ((j & 2359489) != j2) {
+                                                if (decodeParam != null) {
+                                                    i14 = decodeParam.getUsb_diff();
+                                                    str17 = str15;
+                                                } else {
+                                                    str17 = str15;
+                                                    i14 = 0;
+                                                }
+                                                MappingObject mappingObject6 = ViewUtil.getMappingObject(R.array.msg_decode_usb_diff, i14);
+                                                i12 = i11;
+                                                i13 = 0;
+                                                updateRegistration(0, mappingObject6);
+                                                str18 = mappingObject6 != null ? mappingObject6.getStr() : null;
+                                                j3 = 0;
+                                                if ((j & 2359360) != 0) {
+                                                    i13 = ColorUtil.getColor(getRoot().getContext(), i14);
+                                                }
+                                            } else {
+                                                str17 = str15;
+                                                i12 = i11;
+                                                i13 = 0;
+                                                j3 = 0;
+                                                str18 = null;
+                                            }
+                                            if ((j & 3145792) != j3) {
+                                                if (decodeParam != null) {
+                                                    long j9 = j;
+                                                    j5 = decodeParam.getUsb_diff_high_thres();
+                                                    j4 = j9;
+                                                } else {
+                                                    j4 = j;
+                                                    j5 = 0;
+                                                }
+                                                if (decodeParam != null) {
+                                                    String decodeLevelStr = decodeParam.getDecodeLevelStr(j5);
+                                                    str3 = str21;
+                                                    i5 = i9;
+                                                    str9 = str12;
+                                                    str10 = str16;
+                                                    z2 = z4;
+                                                    i4 = i12;
+                                                    str6 = decodeLevelStr;
+                                                    str8 = str18;
+                                                    i3 = i13;
+                                                    i = i8;
+                                                    z = z5;
+                                                    j = j4;
+                                                    str = str19;
+                                                    str4 = str17;
+                                                    int i15 = i10;
+                                                    str2 = str20;
+                                                    str5 = str13;
+                                                    str7 = str14;
+                                                    i2 = i15;
+                                                }
+                                            } else {
+                                                j4 = j;
+                                            }
+                                            str3 = str21;
+                                            i5 = i9;
+                                            str9 = str12;
+                                            str10 = str16;
+                                            z2 = z4;
+                                            i4 = i12;
+                                            j = j4;
+                                            str6 = null;
+                                            str8 = str18;
+                                            i3 = i13;
+                                            i = i8;
+                                            z = z5;
+                                            str = str19;
+                                            str4 = str17;
+                                            int i152 = i10;
+                                            str2 = str20;
+                                            str5 = str13;
+                                            str7 = str14;
+                                            i2 = i152;
+                                        }
+                                    }
+                                    str15 = null;
+                                    if ((j & 2163784) != 0) {
+                                    }
+                                    if ((j & 2359489) != j2) {
+                                    }
+                                    if ((j & 3145792) != j3) {
+                                    }
+                                    str3 = str21;
+                                    i5 = i9;
+                                    str9 = str12;
+                                    str10 = str16;
+                                    z2 = z4;
+                                    i4 = i12;
+                                    j = j4;
+                                    str6 = null;
+                                    str8 = str18;
+                                    i3 = i13;
+                                    i = i8;
+                                    z = z5;
+                                    str = str19;
+                                    str4 = str17;
+                                    int i1522 = i10;
+                                    str2 = str20;
+                                    str5 = str13;
+                                    str7 = str14;
+                                    i2 = i1522;
+                                }
+                            } else {
+                                i10 = i7;
+                            }
+                            str14 = null;
+                            if ((j & 2228288) != 0) {
+                            }
+                            str15 = null;
+                            if ((j & 2163784) != 0) {
+                            }
+                            if ((j & 2359489) != j2) {
+                            }
+                            if ((j & 3145792) != j3) {
+                            }
+                            str3 = str21;
+                            i5 = i9;
+                            str9 = str12;
+                            str10 = str16;
+                            z2 = z4;
+                            i4 = i12;
+                            j = j4;
+                            str6 = null;
+                            str8 = str18;
+                            i3 = i13;
+                            i = i8;
+                            z = z5;
+                            str = str19;
+                            str4 = str17;
+                            int i15222 = i10;
+                            str2 = str20;
+                            str5 = str13;
+                            str7 = str14;
+                            i2 = i15222;
+                        }
+                    } else {
+                        i9 = 0;
+                    }
+                    str13 = null;
+                    if ((j & 2621504) != 0) {
+                    }
+                    str14 = null;
+                    if ((j & 2228288) != 0) {
+                    }
+                    str15 = null;
+                    if ((j & 2163784) != 0) {
+                    }
+                    if ((j & 2359489) != j2) {
+                    }
+                    if ((j & 3145792) != j3) {
+                    }
+                    str3 = str21;
+                    i5 = i9;
+                    str9 = str12;
+                    str10 = str16;
+                    z2 = z4;
+                    i4 = i12;
+                    j = j4;
+                    str6 = null;
+                    str8 = str18;
+                    i3 = i13;
+                    i = i8;
+                    z = z5;
+                    str = str19;
+                    str4 = str17;
+                    int i152222 = i10;
+                    str2 = str20;
+                    str5 = str13;
+                    str7 = str14;
+                    i2 = i152222;
+                }
+            }
+            str12 = null;
+            i6 = ((j & 2105408) > 0L ? 1 : ((j & 2105408) == 0L ? 0 : -1));
+            if (i6 == 0) {
+            }
+            if ((j & 2117728) == 0) {
+            }
+            str13 = null;
+            if ((j & 2621504) != 0) {
+            }
+            str14 = null;
+            if ((j & 2228288) != 0) {
+            }
+            str15 = null;
+            if ((j & 2163784) != 0) {
+            }
+            if ((j & 2359489) != j2) {
+            }
+            if ((j & 3145792) != j3) {
+            }
+            str3 = str21;
+            i5 = i9;
+            str9 = str12;
+            str10 = str16;
+            z2 = z4;
+            i4 = i12;
+            j = j4;
+            str6 = null;
+            str8 = str18;
+            i3 = i13;
+            i = i8;
+            z = z5;
+            str = str19;
+            str4 = str17;
+            int i1522222 = i10;
+            str2 = str20;
+            str5 = str13;
+            str7 = str14;
+            i2 = i1522222;
+        } else {
+            i = 0;
+            str = str19;
+            z = false;
+            z2 = false;
+            i2 = 0;
+            i3 = 0;
+            z3 = false;
+            i4 = 0;
+            str2 = str20;
+            str3 = str21;
+            str4 = null;
+            str5 = null;
+            str6 = null;
+            str7 = null;
+            str8 = null;
+            str9 = null;
+            str10 = null;
+            i5 = 0;
+        }
+        if ((j & 2105408) != 0) {
+            str11 = str4;
+            this.decodeUsbDiffLabel.setVisibility(i2);
+            this.decodeUsbDiffThreHLabel.setVisibility(i2);
+            this.decodeUsbDiffThreHValue.setVisibility(i2);
+            this.decodeUsbDiffThreLLabel.setVisibility(i2);
+            this.decodeUsbDiffThreLValue.setVisibility(i2);
+            this.decodeUsbDiffValue.setVisibility(i2);
+            this.decodeUsbDpLabel.setVisibility(i);
+            this.decodeUsbDpThresLabel.setVisibility(i);
+            this.decodeUsbDpThresValue.setVisibility(i);
+            this.decodeUsbDpValue.setVisibility(i);
+            this.decodeUsbDsLabel.setVisibility(i);
+            this.decodeUsbDsThresLabel.setVisibility(i);
+            this.decodeUsbDsThresValue.setVisibility(i);
+            this.decodeUsbDsValue.setVisibility(i);
+            CompoundButtonBindingAdapter.setChecked(this.decodeUsbHighRadioButton, z3);
+            CompoundButtonBindingAdapter.setChecked(this.decodeUsbLowRadioButton, z);
+            CompoundButtonBindingAdapter.setChecked(this.decodeUsbMidRadioButton, z2);
+        } else {
+            str11 = str4;
+        }
+        if ((j & 3145792) != 0) {
+            TextViewBindingAdapter.setText(this.decodeUsbDiffThreHValue, str6);
+        }
+        if ((j & 2621504) != 0) {
+            TextViewBindingAdapter.setText(this.decodeUsbDiffThreLValue, str7);
+        }
+        if ((j & 2359489) != 0) {
+            TextViewBindingAdapter.setText(this.decodeUsbDiffValue, str8);
+        }
+        if ((j & 2359360) != 0) {
+            this.decodeUsbDiffValue.setTextColor(i3);
+        }
+        if ((j & 2129984) != 0) {
+            TextViewBindingAdapter.setText(this.decodeUsbDpThresValue, str9);
+        }
+        if ((j & 2117728) != 0) {
+            TextViewBindingAdapter.setText(this.decodeUsbDpValue, str5);
+        }
+        if ((j & 2113600) != 0) {
+            this.decodeUsbDpValue.setTextColor(i5);
+        }
+        if ((j & 2228288) != 0) {
+            TextViewBindingAdapter.setText(this.decodeUsbDsThresValue, str11);
+        }
+        if ((j & 2163784) != 0) {
+            TextViewBindingAdapter.setText(this.decodeUsbDsValue, str10);
+        }
+        if ((j & 2162752) != 0) {
+            this.decodeUsbDsValue.setTextColor(i4);
+        }
+        if ((2097410 & j) != 0) {
+            TextViewBindingAdapter.setText(this.decodeUsbHighRadioButton, str);
+        }
+        if ((2099216 & j) != 0) {
+            TextViewBindingAdapter.setText(this.decodeUsbLowRadioButton, str3);
+        }
+        if ((j & 2097668) != 0) {
+            TextViewBindingAdapter.setText(this.decodeUsbMidRadioButton, str2);
+        }
     }
 }

@@ -50,6 +50,7 @@ import com.rigol.scope.views.window.WindowHolder;
 import com.rigol.util.ToastUtils;
 import java.util.ArrayList;
 import java.util.List;
+
 /* loaded from: classes2.dex */
 public class MultiWindowPopupView extends BasePopupView implements View.OnClickListener {
     private AorBManager aorBManager;
@@ -435,10 +436,9 @@ public class MultiWindowPopupView extends BasePopupView implements View.OnClickL
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.rigol.scope.views.multi.MultiWindowPopupView$4  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public static /* synthetic */ class AnonymousClass4 {
+    static /* synthetic */ class AnonymousClass4 {
         static final /* synthetic */ int[] $SwitchMap$com$rigol$scope$cil$ServiceEnum$WindowType;
 
         static {

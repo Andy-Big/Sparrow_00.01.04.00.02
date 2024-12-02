@@ -44,6 +44,7 @@ import com.rigol.scope.views.spinner.PopupSpinner;
 import com.rigol.util.ToastUtils;
 import java.util.ArrayList;
 import java.util.List;
+
 /* loaded from: classes2.dex */
 public class MaskPopupView extends BasePopupView implements RadioGroup.OnCheckedChangeListener, CompoundButton.OnCheckedChangeListener, View.OnClickListener, PopupWindow.OnDismissListener, AorBManager.OnTextReset, AorBManager.OnSetTextById {
     private final String BIGGER;

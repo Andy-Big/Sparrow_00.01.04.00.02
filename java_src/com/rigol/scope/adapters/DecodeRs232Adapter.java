@@ -31,6 +31,7 @@ import com.rigol.scope.views.keyboard.KeyboardPopupView;
 import com.rigol.scope.views.spinner.PopupSpinner;
 import java.util.ArrayList;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public class DecodeRs232Adapter extends RecyclerView.Adapter<DecodeRs232Holder> implements RadioGroup.OnCheckedChangeListener, View.OnClickListener, CompoundButton.OnCheckedChangeListener, View.OnLongClickListener, AorBManager.OnSetTextById, AorBManager.OnTextReset {
     private final View anchorView;
@@ -68,12 +69,14 @@ public class DecodeRs232Adapter extends RecyclerView.Adapter<DecodeRs232Holder> 
         this.viewPagerHolder = viewPagerHolder;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public DecodeRs232Holder onCreateViewHolder(ViewGroup viewGroup, int i) {
         this.binding = AdapterDecodeRs232Binding.inflate(LayoutInflater.from(viewGroup.getContext()), viewGroup, false);
         return new DecodeRs232Holder(this.binding);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(DecodeRs232Holder decodeRs232Holder, int i) {
         this.binding.setPositiveMapping(ViewUtil.getMappingObject(R.array.msg_decode_rs232_pol, 1));

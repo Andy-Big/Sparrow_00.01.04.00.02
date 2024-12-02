@@ -15,6 +15,7 @@ import androidx.databinding.ViewDataBinding;
 import com.rigol.scope.R;
 import com.rigol.scope.data.MappingObject;
 import com.rigol.scope.data.TriggerParam;
+
 /* loaded from: classes2.dex */
 public abstract class FormatTransformKeyBinding extends ViewDataBinding {
     public final EditText binaryValue;
@@ -61,8 +62,7 @@ public abstract class FormatTransformKeyBinding extends ViewDataBinding {
 
     public abstract void setParam(TriggerParam triggerParam);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public FormatTransformKeyBinding(Object obj, View view, int i, EditText editText, RadioButton radioButton, RadioButton radioButton2, Button button, Button button2, Button button3, Button button4, Button button5, Button button6, ImageButton imageButton, Button button7, Button button8, Button button9, Button button10, Button button11, ImageButton imageButton2, Button button12, Button button13, Button button14, ImageButton imageButton3, Button button15, Button button16, Button button17, Button button18, Button button19, Button button20, ConstraintLayout constraintLayout, TextView textView, TextView textView2, TextView textView3, EditText editText2) {
+    protected FormatTransformKeyBinding(Object obj, View view, int i, EditText editText, RadioButton radioButton, RadioButton radioButton2, Button button, Button button2, Button button3, Button button4, Button button5, Button button6, ImageButton imageButton, Button button7, Button button8, Button button9, Button button10, Button button11, ImageButton imageButton2, Button button12, Button button13, Button button14, ImageButton imageButton3, Button button15, Button button16, Button button17, Button button18, Button button19, Button button20, ConstraintLayout constraintLayout, TextView textView, TextView textView2, TextView textView3, EditText editText2) {
         super(obj, view, i);
         this.binaryValue = editText;
         this.formatBin = radioButton;

@@ -9,6 +9,7 @@ import com.rigol.scope.databinding.AdapterItemVerticalBinding;
 import com.rigol.scope.utilities.ViewUtil;
 import com.rigol.scope.views.vertical.VerticalPopupView;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public class VerticalAdapter extends BaseAdapter<List<VerticalParam>> {
     final int[] locationOnScreen;
@@ -25,6 +26,7 @@ public class VerticalAdapter extends BaseAdapter<List<VerticalParam>> {
         adapterItemVerticalBinding.getRoot().setTag(VerticalPopupView.class.getSimpleName());
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.rigol.scope.adapters.MultiItemTypeAdapter, androidx.recyclerview.widget.RecyclerView.Adapter
     public BaseViewHolder<? extends ViewDataBinding> onCreateViewHolder(ViewGroup viewGroup, int i) {
         BaseViewHolder<? extends ViewDataBinding> onCreateViewHolder = super.onCreateViewHolder(viewGroup, i);

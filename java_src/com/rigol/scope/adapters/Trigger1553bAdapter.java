@@ -33,6 +33,7 @@ import com.rigol.scope.views.spinner.PopupSpinner;
 import com.rigol.scope.views.trigger.TriggerPopupView;
 import java.util.ArrayList;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public class Trigger1553bAdapter extends RecyclerView.Adapter<Trigger1553bHolder> implements View.OnClickListener, CompoundButton.OnCheckedChangeListener, AorBManager.OnSetTextById, AorBManager.OnTextReset, AorBManager.OnSetTextByTriggerLevelRoll {
     private View anchorView;
@@ -91,6 +92,7 @@ public class Trigger1553bAdapter extends RecyclerView.Adapter<Trigger1553bHolder
         this.serviceId = triggerParam.getServiceId();
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public Trigger1553bHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         this.binding = AdapterTrigger1553bBinding.inflate(LayoutInflater.from(viewGroup.getContext()), viewGroup, false);
@@ -163,6 +165,7 @@ public class Trigger1553bAdapter extends RecyclerView.Adapter<Trigger1553bHolder
         }
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(Trigger1553bHolder trigger1553bHolder, int i) {
         ShowTrigger1553b();

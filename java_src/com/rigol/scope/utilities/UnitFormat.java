@@ -9,6 +9,7 @@ import java.math.MathContext;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
 import java.util.function.BiConsumer;
+
 /* loaded from: classes2.dex */
 public class UnitFormat {
     private static final int DEFAULT_BASE = 1000;

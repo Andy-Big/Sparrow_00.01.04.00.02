@@ -19,6 +19,7 @@ import com.rigol.scope.data.HorizontalParam;
 import com.rigol.scope.data.MappingObject;
 import com.rigol.scope.data.MaskParam;
 import com.rigol.scope.views.SwitchButton;
+
 /* loaded from: classes2.dex */
 public abstract class PopupviewMaskBinding extends ViewDataBinding {
     public final Button buttonMaskCreateMenu;
@@ -97,8 +98,7 @@ public abstract class PopupviewMaskBinding extends ViewDataBinding {
 
     public abstract void setScreenMapping(MappingObject mappingObject);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public PopupviewMaskBinding(Object obj, View view, int i, Button button, Button button2, Button button3, CheckBox checkBox, CheckBox checkBox2, CheckBox checkBox3, View view2, View view3, TextView textView, SwitchButton switchButton, Guideline guideline, ImageButton imageButton, ImageButton imageButton2, ImageButton imageButton3, ImageButton imageButton4, TextView textView2, TextView textView3, ImageView imageView, RadioButton radioButton, RadioButton radioButton2, RadioButton radioButton3, RadioButton radioButton4, RadioButton radioButton5, RadioButton radioButton6, RadioGroup radioGroup, RadioGroup radioGroup2, RadioGroup radioGroup3, Button button4, TextView textView4, TextView textView5, SwitchButton switchButton2, TextView textView6, TextView textView7, TextView textView8, TextView textView9, TextView textView10, TextView textView11, TextView textView12, TextView textView13, TextView textView14, TextView textView15, TextView textView16, TextView textView17) {
+    protected PopupviewMaskBinding(Object obj, View view, int i, Button button, Button button2, Button button3, CheckBox checkBox, CheckBox checkBox2, CheckBox checkBox3, View view2, View view3, TextView textView, SwitchButton switchButton, Guideline guideline, ImageButton imageButton, ImageButton imageButton2, ImageButton imageButton3, ImageButton imageButton4, TextView textView2, TextView textView3, ImageView imageView, RadioButton radioButton, RadioButton radioButton2, RadioButton radioButton3, RadioButton radioButton4, RadioButton radioButton5, RadioButton radioButton6, RadioGroup radioGroup, RadioGroup radioGroup2, RadioGroup radioGroup3, Button button4, TextView textView4, TextView textView5, SwitchButton switchButton2, TextView textView6, TextView textView7, TextView textView8, TextView textView9, TextView textView10, TextView textView11, TextView textView12, TextView textView13, TextView textView14, TextView textView15, TextView textView16, TextView textView17) {
         super(obj, view, i);
         this.buttonMaskCreateMenu = button;
         this.buttonMaskLoad = button2;

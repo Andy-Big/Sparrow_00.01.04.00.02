@@ -5,6 +5,7 @@ import android.view.View;
 import android.widget.CheckBox;
 import androidx.databinding.DataBindingComponent;
 import androidx.databinding.ViewDataBinding;
+
 /* loaded from: classes2.dex */
 public class AdapterItemSimple3BindingImpl extends AdapterItemSimple3Binding {
     private static final ViewDataBinding.IncludedLayouts sIncludes = null;

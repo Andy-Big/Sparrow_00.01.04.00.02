@@ -12,6 +12,7 @@ import com.rigol.scope.cil.MessageID;
 import com.rigol.scope.cil.ServiceEnum;
 import java.util.Locale;
 import timber.log.Timber;
+
 /* loaded from: classes2.dex */
 public class LanguageUtil {
     public static boolean isFirstStart = false;

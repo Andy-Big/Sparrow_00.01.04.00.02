@@ -14,6 +14,7 @@ import androidx.databinding.ViewDataBinding;
 import com.rigol.scope.R;
 import com.rigol.scope.views.SwitchButton;
 import com.rigol.scope.views.auto.AutosetParam;
+
 /* loaded from: classes2.dex */
 public abstract class AdapterUtilityAutosettingBinding extends ViewDataBinding {
     public final ConstraintLayout autoRangeLayout;
@@ -46,8 +47,7 @@ public abstract class AdapterUtilityAutosettingBinding extends ViewDataBinding {
 
     public abstract void setParam(AutosetParam autosetParam);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public AdapterUtilityAutosettingBinding(Object obj, View view, int i, ConstraintLayout constraintLayout, ConstraintLayout constraintLayout2, Button button, EditText editText, EditText editText2, EditText editText3, ImageView imageView, ConstraintLayout constraintLayout3, ConstraintLayout constraintLayout4, ConstraintLayout constraintLayout5, SwitchButton switchButton, SwitchButton switchButton2, SwitchButton switchButton3, SwitchButton switchButton4, TextView textView, TextView textView2, TextView textView3, TextView textView4, TextView textView5, TextView textView6, TextView textView7, TextView textView8, TextView textView9, View view2, View view3) {
+    protected AdapterUtilityAutosettingBinding(Object obj, View view, int i, ConstraintLayout constraintLayout, ConstraintLayout constraintLayout2, Button button, EditText editText, EditText editText2, EditText editText3, ImageView imageView, ConstraintLayout constraintLayout3, ConstraintLayout constraintLayout4, ConstraintLayout constraintLayout5, SwitchButton switchButton, SwitchButton switchButton2, SwitchButton switchButton3, SwitchButton switchButton4, TextView textView, TextView textView2, TextView textView3, TextView textView4, TextView textView5, TextView textView6, TextView textView7, TextView textView8, TextView textView9, View view2, View view3) {
         super(obj, view, i);
         this.autoRangeLayout = constraintLayout;
         this.channelLayout = constraintLayout2;

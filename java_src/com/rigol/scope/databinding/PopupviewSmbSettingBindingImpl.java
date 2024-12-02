@@ -17,6 +17,7 @@ import com.rigol.scope.data.MappingObject;
 import com.rigol.scope.data.StorageSaveParam;
 import com.rigol.scope.utilities.ViewUtil;
 import com.rigol.scope.views.SwitchButton;
+
 /* loaded from: classes2.dex */
 public class PopupviewSmbSettingBindingImpl extends PopupviewSmbSettingBinding {
     private static final ViewDataBinding.IncludedLayouts sIncludes = null;

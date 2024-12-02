@@ -3,6 +3,7 @@ package com.rigol.scope.adapters;
 import android.view.MotionEvent;
 import android.view.View;
 import androidx.recyclerview.widget.RecyclerView;
+
 /* loaded from: classes.dex */
 public class OnItemGestureDetectorListener {
     public boolean onContextClick(MotionEvent motionEvent, View view, RecyclerView.ViewHolder viewHolder, int i) {

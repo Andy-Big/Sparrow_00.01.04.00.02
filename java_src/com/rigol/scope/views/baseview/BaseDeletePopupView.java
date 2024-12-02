@@ -2,6 +2,7 @@ package com.rigol.scope.views.baseview;
 
 import android.view.View;
 import com.rigol.scope.R;
+
 /* loaded from: classes2.dex */
 public class BaseDeletePopupView extends BasePopupView implements View.OnClickListener {
     protected View.OnClickListener onDeleteAllClickListener;

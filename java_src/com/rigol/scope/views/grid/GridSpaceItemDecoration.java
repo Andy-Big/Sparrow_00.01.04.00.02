@@ -5,6 +5,7 @@ import android.util.Log;
 import android.view.View;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
 /* loaded from: classes2.dex */
 public class GridSpaceItemDecoration extends RecyclerView.ItemDecoration {
     protected final boolean includeEdge;

@@ -14,6 +14,7 @@ import androidx.databinding.ViewDataBinding;
 import com.rigol.scope.R;
 import com.rigol.scope.data.EyeParam;
 import com.rigol.scope.data.MappingObject;
+
 /* loaded from: classes2.dex */
 public abstract class AdapterEyePllBinding extends ViewDataBinding {
     public final Guideline centerGuideline;
@@ -51,8 +52,7 @@ public abstract class AdapterEyePllBinding extends ViewDataBinding {
 
     public abstract void setSecondOrderMapping(MappingObject mappingObject);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public AdapterEyePllBinding(Object obj, View view, int i, Guideline guideline, TextView textView, TextView textView2, TextView textView3, TextView textView4, RadioButton radioButton, ConstraintLayout constraintLayout, TextView textView5, RadioGroup radioGroup, TextView textView6, TextView textView7, RadioButton radioButton2, Guideline guideline2, Guideline guideline3) {
+    protected AdapterEyePllBinding(Object obj, View view, int i, Guideline guideline, TextView textView, TextView textView2, TextView textView3, TextView textView4, RadioButton radioButton, ConstraintLayout constraintLayout, TextView textView5, RadioGroup radioGroup, TextView textView6, TextView textView7, RadioButton radioButton2, Guideline guideline2, Guideline guideline3) {
         super(obj, view, i);
         this.centerGuideline = guideline;
         this.eyeDampFactorLabel = textView;

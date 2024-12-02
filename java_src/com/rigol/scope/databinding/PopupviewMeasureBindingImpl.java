@@ -1,5 +1,6 @@
 package com.rigol.scope.databinding;
 
+import android.graphics.drawable.Drawable;
 import android.support.v4.media.session.PlaybackStateCompat;
 import android.util.SparseIntArray;
 import android.view.View;
@@ -10,12 +11,19 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.databinding.DataBindingComponent;
 import androidx.databinding.ObservableInt;
 import androidx.databinding.ViewDataBinding;
+import androidx.databinding.adapters.ImageViewBindingAdapter;
+import androidx.databinding.adapters.TextViewBindingAdapter;
 import androidx.viewpager2.widget.ViewPager2;
 import com.google.android.material.tabs.TabLayout;
 import com.rigol.scope.R;
+import com.rigol.scope.cil.ServiceEnum;
 import com.rigol.scope.data.MappingObject;
 import com.rigol.scope.data.MeasureSettingParam;
 import com.rigol.scope.generated.callback.OnClickListener;
+import com.rigol.scope.utilities.ColorUtil;
+import com.rigol.scope.utilities.ContextUtil;
+import com.rigol.scope.utilities.ViewUtil;
+
 /* loaded from: classes2.dex */
 public class PopupviewMeasureBindingImpl extends PopupviewMeasureBinding implements OnClickListener.Listener {
     private static final ViewDataBinding.IncludedLayouts sIncludes = null;
@@ -208,14 +216,113 @@ public class PopupviewMeasureBindingImpl extends PopupviewMeasureBinding impleme
     @Override // androidx.databinding.ViewDataBinding
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
     protected void executeBindings() {
-        /*
-            Method dump skipped, instructions count: 367
-            To view this dump add '--comments-level debug' option
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.rigol.scope.databinding.PopupviewMeasureBindingImpl.executeBindings():void");
+        long j;
+        String str;
+        String str2;
+        int i;
+        int i2;
+        int i3;
+        int i4;
+        synchronized (this) {
+            j = this.mDirtyFlags;
+            this.mDirtyFlags = 0L;
+        }
+        MeasureSettingParam measureSettingParam = this.mParam;
+        View.OnClickListener onClickListener = this.mOnClickListener;
+        ObservableInt observableInt = this.mPicObservable;
+        Drawable drawable = null;
+        if ((2027 & j) != 0) {
+            if ((j & 1577) != 0) {
+                ServiceEnum.Chan selectSourceA = measureSettingParam != null ? measureSettingParam.getSelectSourceA() : null;
+                int i5 = selectSourceA != null ? selectSourceA.value1 : 0;
+                MappingObject mappingObject = ViewUtil.getMappingObject(R.array.msg_app_meas_srca, i5);
+                updateRegistration(3, mappingObject);
+                str2 = mappingObject != null ? mappingObject.getStr() : null;
+                if ((j & 1057) != 0) {
+                    i2 = ColorUtil.getColor(getRoot().getContext(), ServiceEnum.getChanFromValue1(i5));
+                    if ((j & 1411) == 0) {
+                        ServiceEnum.Chan selectSourceB = measureSettingParam != null ? measureSettingParam.getSelectSourceB() : null;
+                        int i6 = selectSourceB != null ? selectSourceB.value1 : 0;
+                        MappingObject mappingObject2 = ViewUtil.getMappingObject(R.array.msg_app_meas_srcb, i6);
+                        updateRegistration(1, mappingObject2);
+                        str = mappingObject2 != null ? mappingObject2.getStr() : null;
+                        if ((j & 1153) != 0) {
+                            i3 = ColorUtil.getColor(getRoot().getContext(), ServiceEnum.getChanFromValue1(i6));
+                            i4 = ((j & 1089) > 0L ? 1 : ((j & 1089) == 0L ? 0 : -1));
+                            if (i4 != 0) {
+                                boolean showSelectSourceB = measureSettingParam != null ? measureSettingParam.getShowSelectSourceB() : false;
+                                if (i4 != 0) {
+                                    j |= showSelectSourceB ? PlaybackStateCompat.ACTION_SKIP_TO_QUEUE_ITEM : PlaybackStateCompat.ACTION_PLAY_FROM_SEARCH;
+                                }
+                                if (!showSelectSourceB) {
+                                    i = 8;
+                                }
+                            }
+                            i = 0;
+                        }
+                    } else {
+                        str = null;
+                    }
+                    i3 = 0;
+                    i4 = ((j & 1089) > 0L ? 1 : ((j & 1089) == 0L ? 0 : -1));
+                    if (i4 != 0) {
+                    }
+                    i = 0;
+                }
+            } else {
+                str2 = null;
+            }
+            i2 = 0;
+            if ((j & 1411) == 0) {
+            }
+            i3 = 0;
+            i4 = ((j & 1089) > 0L ? 1 : ((j & 1089) == 0L ? 0 : -1));
+            if (i4 != 0) {
+            }
+            i = 0;
+        } else {
+            str = null;
+            str2 = null;
+            i = 0;
+            i2 = 0;
+            i3 = 0;
+        }
+        int i7 = ((1040 & j) > 0L ? 1 : ((1040 & j) == 0L ? 0 : -1));
+        int i8 = ((1028 & j) > 0L ? 1 : ((1028 & j) == 0L ? 0 : -1));
+        if (i8 != 0) {
+            ServiceEnum.MeasType measTypeFromValue1 = ServiceEnum.getMeasTypeFromValue1(observableInt != null ? observableInt.get() : 0);
+            drawable = ContextUtil.getDrawable(getRoot().getContext(), measTypeFromValue1 != null ? measTypeFromValue1.pic2 : null);
+        }
+        Drawable drawable2 = drawable;
+        if ((PlaybackStateCompat.ACTION_PLAY_FROM_MEDIA_ID & j) != 0) {
+            this.holder1Spinner.setOnClickListener(this.mCallback56);
+            this.holder2Spinner.setOnClickListener(this.mCallback57);
+        }
+        if ((j & 1577) != 0) {
+            TextViewBindingAdapter.setText(this.holder1Spinner, str2);
+        }
+        if ((1057 & j) != 0) {
+            this.holder1Spinner.setTextColor(i2);
+        }
+        if ((1411 & j) != 0) {
+            TextViewBindingAdapter.setText(this.holder2Spinner, str);
+        }
+        if ((1153 & j) != 0) {
+            this.holder2Spinner.setTextColor(i3);
+        }
+        if ((j & 1089) != 0) {
+            this.holder2Spinner.setVisibility(i);
+            this.holder2Title.setVisibility(i);
+        }
+        if (i8 != 0) {
+            ImageViewBindingAdapter.setImageDrawable(this.pic, drawable2);
+        }
+        if (i7 != 0) {
+            this.settingBtn.setOnClickListener(onClickListener);
+            this.verticalSetting.setOnClickListener(onClickListener);
+        }
     }
 
     @Override // com.rigol.scope.generated.callback.OnClickListener.Listener

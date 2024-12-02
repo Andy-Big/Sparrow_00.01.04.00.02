@@ -9,6 +9,7 @@ import androidx.databinding.DataBindingComponent;
 import androidx.databinding.ViewDataBinding;
 import com.rigol.scope.R;
 import com.rigol.scope.data.MappingObject;
+
 /* loaded from: classes2.dex */
 public class AdapterItemSimple4BindingImpl extends AdapterItemSimple4Binding {
     private static final ViewDataBinding.IncludedLayouts sIncludes = null;

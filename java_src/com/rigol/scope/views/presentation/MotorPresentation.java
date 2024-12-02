@@ -14,6 +14,7 @@ import com.rigol.scope.views.VibrationTouchListener;
 import com.rigol.scope.views.baseview.BasePresentation;
 import com.rigol.scope.views.baseview.FanScaleView;
 import timber.log.Timber;
+
 /* loaded from: classes2.dex */
 public class MotorPresentation extends BasePresentation {
     final int defalutFilpPosition;

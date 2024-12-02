@@ -1,5 +1,6 @@
 package com.rigol.scope.databinding;
 
+import android.graphics.drawable.Drawable;
 import android.support.v4.media.session.PlaybackStateCompat;
 import android.util.SparseIntArray;
 import android.view.View;
@@ -12,12 +13,21 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.Guideline;
 import androidx.databinding.DataBindingComponent;
 import androidx.databinding.ViewDataBinding;
+import androidx.databinding.adapters.CompoundButtonBindingAdapter;
+import androidx.databinding.adapters.ImageViewBindingAdapter;
+import androidx.databinding.adapters.SeekBarBindingAdapter;
+import androidx.databinding.adapters.TextViewBindingAdapter;
 import com.rigol.scope.R;
+import com.rigol.scope.cil.ServiceEnum;
 import com.rigol.scope.data.MappingObject;
 import com.rigol.scope.data.TriggerParam;
+import com.rigol.scope.utilities.ColorUtil;
+import com.rigol.scope.utilities.UnitFormat;
+import com.rigol.scope.utilities.ViewUtil;
 import com.rigol.scope.views.SwitchButton;
 import com.rigol.scope.views.vertical.VerticalSeekBar;
 import com.rigol.scope.views.vertical.VerticalSeekBarWrapper;
+
 /* loaded from: classes2.dex */
 public class AdapterTriggerVideoBindingImpl extends AdapterTriggerVideoBinding {
     private static final ViewDataBinding.IncludedLayouts sIncludes = null;
@@ -429,13 +439,401 @@ public class AdapterTriggerVideoBindingImpl extends AdapterTriggerVideoBinding {
     @Override // androidx.databinding.ViewDataBinding
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
     protected void executeBindings() {
-        /*
-            Method dump skipped, instructions count: 948
-            To view this dump add '--comments-level debug' option
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.rigol.scope.databinding.AdapterTriggerVideoBindingImpl.executeBindings():void");
+        long j;
+        boolean z;
+        String str;
+        boolean z2;
+        ServiceEnum.Trigger_Video_Format trigger_Video_Format;
+        Drawable drawable;
+        boolean z3;
+        boolean z4;
+        boolean z5;
+        int i;
+        boolean z6;
+        boolean z7;
+        String str2;
+        int i2;
+        String str3;
+        boolean z8;
+        String str4;
+        int i3;
+        String str5;
+        String str6;
+        String str7;
+        String str8;
+        boolean z9;
+        String str9;
+        boolean z10;
+        String str10;
+        int i4;
+        String str11;
+        int i5;
+        String str12;
+        boolean z11;
+        boolean z12;
+        Drawable drawable2;
+        int i6;
+        boolean z13;
+        boolean z14;
+        boolean z15;
+        boolean z16;
+        int i7;
+        boolean z17;
+        boolean z18;
+        String str13;
+        int i8;
+        String str14;
+        long j2;
+        int i9;
+        int i10;
+        synchronized (this) {
+            j = this.mDirtyFlags;
+            this.mDirtyFlags = 0L;
+        }
+        MappingObject mappingObject = this.mPolarityNegativeMapping;
+        TriggerParam triggerParam = this.mParam;
+        MappingObject mappingObject2 = this.mPolarityPositiveMapping;
+        String str15 = ((j & 268439553) == 0 || mappingObject == null) ? null : mappingObject.getStr();
+        if ((343909386 & j) != 0) {
+            if ((j & 335578120) != 0) {
+                ServiceEnum.Chan chan = triggerParam != null ? triggerParam.getChan() : null;
+                MappingObject mappingObject3 = ViewUtil.getMappingObject(R.array.msg_trigger_source_la, chan != null ? chan.value1 : 0);
+                updateRegistration(10, mappingObject3);
+                str11 = mappingObject3 != null ? mappingObject3.getStr() : null;
+                if ((j & 268468232) != 0) {
+                    i5 = ColorUtil.getColor(getRoot().getContext(), chan);
+                    if ((j & 268697608) != 0) {
+                        long level = triggerParam != null ? triggerParam.getLevel() : 0L;
+                        if (triggerParam != null) {
+                            str12 = triggerParam.getTriggerLevelStr(level);
+                            boolean isNoise = ((j & 270532616) != 0 || triggerParam == null) ? false : triggerParam.getIsNoise();
+                            if ((j & 268501000) != 0) {
+                                ServiceEnum.TriggerPulsePolarity videoPolarity = triggerParam != null ? triggerParam.getVideoPolarity() : null;
+                                boolean z19 = videoPolarity == ServiceEnum.TriggerPulsePolarity.Trigger_pulse_positive;
+                                drawable2 = ViewUtil.getTriggerVideoPolarityPic(videoPolarity);
+                                z12 = videoPolarity == ServiceEnum.TriggerPulsePolarity.Trigger_pulse_negative;
+                                z11 = z19;
+                            } else {
+                                z11 = false;
+                                z12 = false;
+                                drawable2 = null;
+                            }
+                            i6 = ((j & 269484040) > 0L ? 1 : ((j & 269484040) == 0L ? 0 : -1));
+                            if (i6 != 0) {
+                                ServiceEnum.Trigger_Video_Sync videoSync = triggerParam != null ? triggerParam.getVideoSync() : null;
+                                z16 = videoSync == ServiceEnum.Trigger_Video_Sync.trig_video_even;
+                                boolean z20 = videoSync == ServiceEnum.Trigger_Video_Sync.trig_video_odd;
+                                z13 = videoSync == ServiceEnum.Trigger_Video_Sync.trig_video_x_line;
+                                boolean z21 = videoSync == ServiceEnum.Trigger_Video_Sync.trig_video_any_line;
+                                if (i6 != 0) {
+                                    j |= z13 ? 1073741824L : 536870912L;
+                                }
+                                z15 = z21;
+                                z14 = z20;
+                                i7 = z13 ? 0 : 8;
+                            } else {
+                                z13 = false;
+                                z14 = false;
+                                z15 = false;
+                                z16 = false;
+                                i7 = 0;
+                            }
+                            if ((j & 272629768) != 0) {
+                                if (triggerParam != null) {
+                                    i10 = triggerParam.getLinesNumber();
+                                    z17 = z13;
+                                } else {
+                                    z17 = z13;
+                                    i10 = 0;
+                                }
+                                z18 = z14;
+                                str13 = str11;
+                                i8 = i5;
+                                str14 = UnitFormat.newBuilder(" 0.###  ", UnitFormat.SI.NONE).convert(i10, ServiceEnum.Unit.Unit_none);
+                            } else {
+                                z17 = z13;
+                                z18 = z14;
+                                str13 = str11;
+                                i8 = i5;
+                                str14 = null;
+                            }
+                            if ((j & 268959752) != 0 || triggerParam == null) {
+                                j2 = 268574730;
+                                i9 = 0;
+                            } else {
+                                i9 = triggerParam.getProgress();
+                                j2 = 268574730;
+                            }
+                            if ((j & j2) != 0) {
+                                ServiceEnum.Trigger_Video_Format videoFormat = triggerParam != null ? triggerParam.getVideoFormat() : null;
+                                MappingObject mappingObject4 = ViewUtil.getMappingObject(R.array.msg_trigger_video_standard, videoFormat != null ? videoFormat.value1 : 0);
+                                updateRegistration(1, mappingObject4);
+                                String str16 = mappingObject4 != null ? mappingObject4.getStr() : null;
+                                int i11 = ((j & 268566536) > 0L ? 1 : ((j & 268566536) == 0L ? 0 : -1));
+                                if (i11 != 0) {
+                                    boolean z22 = videoFormat == ServiceEnum.Trigger_Video_Format.Video_Stardard_NTSC;
+                                    if (i11 != 0) {
+                                        j = z22 ? j | 4294967296L : j | 2147483648L;
+                                    }
+                                    drawable = drawable2;
+                                    i3 = i9;
+                                    str2 = str16;
+                                    trigger_Video_Format = videoFormat;
+                                    z2 = z18;
+                                    str4 = str12;
+                                    z4 = z15;
+                                    z7 = z11;
+                                    i = i7;
+                                    str3 = str13;
+                                    str = str14;
+                                    z = z17;
+                                    z8 = isNoise;
+                                    z5 = z22;
+                                    z3 = z12;
+                                    z6 = z16;
+                                    i2 = i8;
+                                } else {
+                                    z3 = z12;
+                                    drawable = drawable2;
+                                    z6 = z16;
+                                    i2 = i8;
+                                    i3 = i9;
+                                    str2 = str16;
+                                    trigger_Video_Format = videoFormat;
+                                    z2 = z18;
+                                }
+                            } else {
+                                z3 = z12;
+                                drawable = drawable2;
+                                z6 = z16;
+                                z2 = z18;
+                                i2 = i8;
+                                i3 = i9;
+                                trigger_Video_Format = null;
+                                str2 = null;
+                            }
+                            str4 = str12;
+                            z4 = z15;
+                            z7 = z11;
+                            i = i7;
+                            str3 = str13;
+                            str = str14;
+                            z = z17;
+                            z8 = isNoise;
+                            z5 = false;
+                        }
+                    }
+                    str12 = null;
+                    if ((j & 270532616) != 0) {
+                    }
+                    if ((j & 268501000) != 0) {
+                    }
+                    i6 = ((j & 269484040) > 0L ? 1 : ((j & 269484040) == 0L ? 0 : -1));
+                    if (i6 != 0) {
+                    }
+                    if ((j & 272629768) != 0) {
+                    }
+                    if ((j & 268959752) != 0) {
+                    }
+                    j2 = 268574730;
+                    i9 = 0;
+                    if ((j & j2) != 0) {
+                    }
+                    str4 = str12;
+                    z4 = z15;
+                    z7 = z11;
+                    i = i7;
+                    str3 = str13;
+                    str = str14;
+                    z = z17;
+                    z8 = isNoise;
+                    z5 = false;
+                }
+            } else {
+                str11 = null;
+            }
+            i5 = 0;
+            if ((j & 268697608) != 0) {
+            }
+            str12 = null;
+            if ((j & 270532616) != 0) {
+            }
+            if ((j & 268501000) != 0) {
+            }
+            i6 = ((j & 269484040) > 0L ? 1 : ((j & 269484040) == 0L ? 0 : -1));
+            if (i6 != 0) {
+            }
+            if ((j & 272629768) != 0) {
+            }
+            if ((j & 268959752) != 0) {
+            }
+            j2 = 268574730;
+            i9 = 0;
+            if ((j & j2) != 0) {
+            }
+            str4 = str12;
+            z4 = z15;
+            z7 = z11;
+            i = i7;
+            str3 = str13;
+            str = str14;
+            z = z17;
+            z8 = isNoise;
+            z5 = false;
+        } else {
+            z = false;
+            str = null;
+            z2 = false;
+            trigger_Video_Format = null;
+            drawable = null;
+            z3 = false;
+            z4 = false;
+            z5 = false;
+            i = 0;
+            z6 = false;
+            z7 = false;
+            str2 = null;
+            i2 = 0;
+            str3 = null;
+            z8 = false;
+            str4 = null;
+            i3 = 0;
+        }
+        String str17 = str15;
+        if ((j & 402653184) != 0) {
+            str5 = str;
+            str6 = ViewUtil.getMappingObject(R.array.msg_trigger_video_sync, 1).getStr();
+        } else {
+            str5 = str;
+            str6 = null;
+        }
+        if ((j & 268451840) != 0) {
+            str7 = str6;
+            str8 = ViewUtil.getMappingObject(R.array.msg_trigger_video_sync, 0).getStr();
+        } else {
+            str7 = str6;
+            str8 = null;
+        }
+        if ((j & 285212672) != 0) {
+            z9 = z7;
+            str9 = ViewUtil.getMappingObject(R.array.msg_trigger_video_sync, 3).getStr();
+        } else {
+            z9 = z7;
+            str9 = null;
+        }
+        if ((j & 276824064) != 0) {
+            z10 = z3;
+            str10 = ViewUtil.getMappingObject(R.array.msg_trigger_video_sync, 2).getStr();
+        } else {
+            z10 = z3;
+            str10 = null;
+        }
+        String str18 = ((j & 301990400) == 0 || mappingObject2 == null) ? null : mappingObject2.getStr();
+        boolean z23 = (j & 2147483648L) != 0 && trigger_Video_Format == ServiceEnum.Trigger_Video_Format.Video_Stardard_PAL;
+        int i12 = ((j & 268566536) > 0L ? 1 : ((j & 268566536) == 0L ? 0 : -1));
+        if (i12 != 0) {
+            if (z5) {
+                z23 = true;
+            }
+            if (i12 != 0) {
+                j |= z23 ? 17179869184L : 8589934592L;
+            }
+            if (!z23) {
+                i4 = 4;
+                if ((j & 269484040) != 0) {
+                    CompoundButtonBindingAdapter.setChecked(this.allLines, z4);
+                    CompoundButtonBindingAdapter.setChecked(this.even, z6);
+                    CompoundButtonBindingAdapter.setChecked(this.lines, z);
+                    this.linesNumber.setVisibility(i);
+                    this.linesNumberValue.setVisibility(i);
+                    CompoundButtonBindingAdapter.setChecked(this.odd, z2);
+                }
+                if ((j & 268451840) != 0) {
+                    TextViewBindingAdapter.setText(this.allLines, str8);
+                }
+                if ((j & 285212672) != 0) {
+                    TextViewBindingAdapter.setText(this.even, str9);
+                }
+                if ((j & 268566536) != 0) {
+                    this.even.setVisibility(i4);
+                    this.odd.setVisibility(i4);
+                }
+                if ((j & 268501000) != 0) {
+                    ImageViewBindingAdapter.setImageDrawable(this.imageView2, drawable);
+                    CompoundButtonBindingAdapter.setChecked(this.polarityN, z10);
+                    CompoundButtonBindingAdapter.setChecked(this.polarityP, z9);
+                }
+                if ((j & 402653184) != 0) {
+                    TextViewBindingAdapter.setText(this.lines, str7);
+                }
+                if ((j & 272629768) != 0) {
+                    TextViewBindingAdapter.setText(this.linesNumberValue, str5);
+                }
+                if ((j & 276824064) != 0) {
+                    TextViewBindingAdapter.setText(this.odd, str10);
+                }
+                if ((268439553 & j) != 0) {
+                    TextViewBindingAdapter.setText(this.polarityN, str17);
+                }
+                if ((j & 301990400) != 0) {
+                    TextViewBindingAdapter.setText(this.polarityP, str18);
+                }
+                if ((j & 268697608) != 0) {
+                    TextViewBindingAdapter.setText(this.triggerLevelValue, str4);
+                }
+                if ((268959752 & j) != 0) {
+                    SeekBarBindingAdapter.setProgress(this.triggerLevelView, i3);
+                }
+                if ((j & 270532616) != 0) {
+                    CompoundButtonBindingAdapter.setChecked(this.triggerNoiseSwitch, z8);
+                }
+                if ((j & 335578120) != 0) {
+                    TextViewBindingAdapter.setText(this.triggerSource, str3);
+                }
+                if ((j & 268468232) != 0) {
+                    this.triggerSource.setTextColor(i2);
+                }
+                if ((j & 268574730) == 0) {
+                    TextViewBindingAdapter.setText(this.videoStandardValue, str2);
+                    return;
+                }
+                return;
+            }
+        }
+        i4 = 0;
+        if ((j & 269484040) != 0) {
+        }
+        if ((j & 268451840) != 0) {
+        }
+        if ((j & 285212672) != 0) {
+        }
+        if ((j & 268566536) != 0) {
+        }
+        if ((j & 268501000) != 0) {
+        }
+        if ((j & 402653184) != 0) {
+        }
+        if ((j & 272629768) != 0) {
+        }
+        if ((j & 276824064) != 0) {
+        }
+        if ((268439553 & j) != 0) {
+        }
+        if ((j & 301990400) != 0) {
+        }
+        if ((j & 268697608) != 0) {
+        }
+        if ((268959752 & j) != 0) {
+        }
+        if ((j & 270532616) != 0) {
+        }
+        if ((j & 335578120) != 0) {
+        }
+        if ((j & 268468232) != 0) {
+        }
+        if ((j & 268574730) == 0) {
+        }
     }
 }

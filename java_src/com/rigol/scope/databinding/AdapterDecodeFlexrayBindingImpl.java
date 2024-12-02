@@ -10,9 +10,16 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.Guideline;
 import androidx.databinding.DataBindingComponent;
 import androidx.databinding.ViewDataBinding;
+import androidx.databinding.adapters.CompoundButtonBindingAdapter;
+import androidx.databinding.adapters.TextViewBindingAdapter;
 import com.rigol.scope.R;
+import com.rigol.scope.cil.ServiceEnum;
 import com.rigol.scope.data.DecodeParam;
 import com.rigol.scope.data.MappingObject;
+import com.rigol.scope.utilities.ColorUtil;
+import com.rigol.scope.utilities.UnitFormat;
+import com.rigol.scope.utilities.ViewUtil;
+
 /* loaded from: classes2.dex */
 public class AdapterDecodeFlexrayBindingImpl extends AdapterDecodeFlexrayBinding {
     private static final ViewDataBinding.IncludedLayouts sIncludes = null;
@@ -269,13 +276,154 @@ public class AdapterDecodeFlexrayBindingImpl extends AdapterDecodeFlexrayBinding
     @Override // androidx.databinding.ViewDataBinding
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
     protected void executeBindings() {
-        /*
-            Method dump skipped, instructions count: 415
-            To view this dump add '--comments-level debug' option
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.rigol.scope.databinding.AdapterDecodeFlexrayBindingImpl.executeBindings():void");
+        long j;
+        String str;
+        boolean z;
+        String str2;
+        int i;
+        String str3;
+        boolean z2;
+        String str4;
+        String str5;
+        String str6;
+        String str7;
+        String str8;
+        String str9;
+        boolean z3;
+        long j2;
+        ServiceEnum.Unit unit;
+        synchronized (this) {
+            j = this.mDirtyFlags;
+            this.mDirtyFlags = 0L;
+        }
+        MappingObject mappingObject = this.mChannelAMapping;
+        DecodeParam decodeParam = this.mParam;
+        MappingObject mappingObject2 = this.mChannelBMapping;
+        int i2 = ((65666 & j) > 0L ? 1 : ((65666 & j) == 0L ? 0 : -1));
+        String str10 = (i2 == 0 || mappingObject == null) ? null : mappingObject.getStr();
+        if ((98141 & j) != 0) {
+            if ((j & 67600) != 0) {
+                if (decodeParam != null) {
+                    unit = decodeParam.getUnit();
+                    j2 = decodeParam.getFlex_thres();
+                } else {
+                    j2 = 0;
+                    unit = null;
+                }
+                str6 = UnitFormat.newBuilder(UnitFormat.SI.NANO).convert(j2, unit);
+            } else {
+                str6 = null;
+            }
+            if ((j & 66129) != 0) {
+                MappingObject mappingObject3 = ViewUtil.getMappingObject(R.array.msg_decode_flex_baud, decodeParam != null ? decodeParam.getFlex_baud() : 0);
+                updateRegistration(0, mappingObject3);
+                if (mappingObject3 != null) {
+                    str7 = mappingObject3.getStr();
+                    if ((j & 69912) != 0) {
+                        MappingObject mappingObject4 = ViewUtil.getMappingObject(R.array.msg_decode_flex_signal, decodeParam != null ? decodeParam.getFlex_signal() : 0);
+                        updateRegistration(3, mappingObject4);
+                        if (mappingObject4 != null) {
+                            str8 = mappingObject4.getStr();
+                            if ((j & 73744) != 0) {
+                                str9 = UnitFormat.newBuilder(UnitFormat.SI.NONE).convert(decodeParam != null ? decodeParam.getFlex_samp() : 0L, ServiceEnum.Unit.Unit_percent);
+                            } else {
+                                str9 = null;
+                            }
+                            if ((j & 81936) != 0) {
+                                z2 = decodeParam != null ? decodeParam.isFlex_channel() : false;
+                                z3 = !z2;
+                            } else {
+                                z2 = false;
+                                z3 = false;
+                            }
+                            if ((j & 66580) != 0) {
+                                int flex_source = decodeParam != null ? decodeParam.getFlex_source() : 0;
+                                int color = (j & 66576) != 0 ? ColorUtil.getColor(getRoot().getContext(), flex_source) : 0;
+                                MappingObject mappingObject5 = ViewUtil.getMappingObject(R.array.msg_decode_flex_src, flex_source);
+                                updateRegistration(2, mappingObject5);
+                                if (mappingObject5 != null) {
+                                    str = mappingObject5.getStr();
+                                    str5 = str8;
+                                } else {
+                                    str5 = str8;
+                                    str = null;
+                                }
+                                str3 = str6;
+                                str2 = str9;
+                                z = z3;
+                                str4 = str7;
+                                i = color;
+                            } else {
+                                str5 = str8;
+                                str = null;
+                                str3 = str6;
+                                str2 = str9;
+                                z = z3;
+                                str4 = str7;
+                                i = 0;
+                            }
+                        }
+                    }
+                    str8 = null;
+                    if ((j & 73744) != 0) {
+                    }
+                    if ((j & 81936) != 0) {
+                    }
+                    if ((j & 66580) != 0) {
+                    }
+                }
+            }
+            str7 = null;
+            if ((j & 69912) != 0) {
+            }
+            str8 = null;
+            if ((j & 73744) != 0) {
+            }
+            if ((j & 81936) != 0) {
+            }
+            if ((j & 66580) != 0) {
+            }
+        } else {
+            str = null;
+            z = false;
+            str2 = null;
+            i = 0;
+            str3 = null;
+            z2 = false;
+            str4 = null;
+            str5 = null;
+        }
+        int i3 = ((j & 98336) > 0L ? 1 : ((j & 98336) == 0L ? 0 : -1));
+        String str11 = (i3 == 0 || mappingObject2 == null) ? null : mappingObject2.getStr();
+        if ((j & 66129) != 0) {
+            TextViewBindingAdapter.setText(this.decodeFlexBaudValue, str4);
+        }
+        if ((j & 81936) != 0) {
+            CompoundButtonBindingAdapter.setChecked(this.decodeFlexChannelARadioButton, z);
+            CompoundButtonBindingAdapter.setChecked(this.decodeFlexChannelBRadioButton, z2);
+        }
+        if (i2 != 0) {
+            TextViewBindingAdapter.setText(this.decodeFlexChannelARadioButton, str10);
+        }
+        if (i3 != 0) {
+            TextViewBindingAdapter.setText(this.decodeFlexChannelBRadioButton, str11);
+        }
+        if ((73744 & j) != 0) {
+            TextViewBindingAdapter.setText(this.decodeFlexSampValue, str2);
+        }
+        if ((j & 69912) != 0) {
+            TextViewBindingAdapter.setText(this.decodeFlexSignalValue, str5);
+        }
+        if ((66580 & j) != 0) {
+            TextViewBindingAdapter.setText(this.decodeFlexSrcValue, str);
+        }
+        if ((66576 & j) != 0) {
+            this.decodeFlexSrcValue.setTextColor(i);
+        }
+        if ((j & 67600) != 0) {
+            TextViewBindingAdapter.setText(this.decodeFlexThresValue, str3);
+        }
     }
 }

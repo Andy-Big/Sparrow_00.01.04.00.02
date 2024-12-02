@@ -27,6 +27,7 @@ import com.rigol.scope.views.grid.GridSpaceItemDecoration;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+
 /* loaded from: classes2.dex */
 public class MathListPopuView extends BasePopupView {
     private final PopupMathListBinding binding;
@@ -60,6 +61,7 @@ public class MathListPopuView extends BasePopupView {
                 adapterItemMathBinding.getRoot().setTag(MathListPopuView.class.getSimpleName());
             }
 
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // com.rigol.scope.adapters.MultiItemTypeAdapter, androidx.recyclerview.widget.RecyclerView.Adapter
             public BaseViewHolder<? extends ViewDataBinding> onCreateViewHolder(ViewGroup viewGroup, int i) {
                 BaseViewHolder<? extends ViewDataBinding> onCreateViewHolder = super.onCreateViewHolder(viewGroup, i);
@@ -134,8 +136,7 @@ public class MathListPopuView extends BasePopupView {
         PopupViewManager.getInstance().add(MathPopupView.class, new MathPopupView());
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ void lambda$loadMathInfo$0(BaseAdapter baseAdapter, ArrayList arrayList) {
+    static /* synthetic */ void lambda$loadMathInfo$0(BaseAdapter baseAdapter, ArrayList arrayList) {
         baseAdapter.setItems(arrayList);
         baseAdapter.notifyDataSetChanged();
         Iterator it = arrayList.iterator();

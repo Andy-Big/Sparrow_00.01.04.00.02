@@ -32,6 +32,7 @@ import kotlinx.coroutines.BuildersKt__Builders_commonKt;
 import kotlinx.coroutines.CoroutineScopeKt;
 import kotlinx.coroutines.DebugKt;
 import kotlinx.coroutines.Dispatchers;
+
 /* compiled from: IOParam.kt */
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000T\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\b\n\u0002\u0010\b\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u000b\n\u0002\u0010\u000b\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\b\u0011\n\u0002\u0018\u0002\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\b\f\n\u0002\u0010\u0002\n\u0002\b&\n\u0002\u0018\u0002\n\u0002\b\u0003\u0018\u00002\u00020\u0001B\u0005¢\u0006\u0002\u0010\u0002J\u0006\u0010R\u001a\u00020SJ\u000e\u0010T\u001a\u00020S2\u0006\u0010\u0003\u001a\u00020 J\b\u0010U\u001a\u00020SH\u0016J\u0006\u0010V\u001a\u00020 J\u0006\u0010W\u001a\u00020\u0004J\u0006\u0010X\u001a\u00020 J\u0006\u0010Y\u001a\u00020\rJ\u0006\u0010Z\u001a\u00020\u0004J\u0006\u0010[\u001a\u00020\u0004J\u0006\u0010\\\u001a\u00020\u0004J\u0006\u0010]\u001a\u00020\u0004J\b\u0010^\u001a\u00020\u0004H\u0002J\u0006\u0010_\u001a\u00020\u0004J\u0006\u0010`\u001a\u00020\rJ\b\u0010a\u001a\u00020\u0004H\u0002J\u0006\u0010b\u001a\u00020 J\u0006\u0010c\u001a\u00020FJ\u0006\u0010d\u001a\u00020\u0004J\u0006\u0010e\u001a\u00020 J\b\u0010f\u001a\u00020SH\u0002J\u000e\u0010g\u001a\u00020S2\u0006\u0010h\u001a\u00020 J\u000e\u0010i\u001a\u00020S2\u0006\u0010\u0005\u001a\u00020\u0004J\u000e\u0010j\u001a\u00020S2\u0006\u0010k\u001a\u00020 J\u000e\u0010l\u001a\u00020S2\u0006\u0010\u000e\u001a\u00020\rJ\u000e\u0010m\u001a\u00020S2\u0006\u0010\n\u001a\u00020\u0004J\u000e\u0010n\u001a\u00020S2\u0006\u0010\u001a\u001a\u00020\u0004J\u000e\u0010o\u001a\u00020S2\u0006\u0010\u001d\u001a\u00020\u0004J\u000e\u0010p\u001a\u00020S2\u0006\u0010/\u001a\u00020\u0004J\u000e\u0010q\u001a\u00020S2\u0006\u00105\u001a\u00020\u0004J\u000e\u0010r\u001a\u00020S2\u0006\u0010@\u001a\u00020\rJ\u000e\u0010s\u001a\u00020S2\u0006\u0010t\u001a\u00020 J\u000e\u0010u\u001a\u00020S2\u0006\u0010G\u001a\u00020FJ\u000e\u0010v\u001a\u00020S2\u0006\u0010w\u001a\u00020 J(\u0010x\u001a\u00020S2\u0006\u0010y\u001a\u00020z2\u0006\u0010C\u001a\u00020\u00042\u0006\u0010{\u001a\u00020\u00042\u0006\u0010|\u001a\u00020\rH\u0002R&\u0010\u0005\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u00048G@FX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0006\u0010\u0007\"\u0004\b\b\u0010\tR&\u0010\n\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u00048G@FX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u000b\u0010\u0007\"\u0004\b\f\u0010\tR&\u0010\u000e\u001a\u00020\r2\u0006\u0010\u0003\u001a\u00020\r8G@FX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u000f\u0010\u0010\"\u0004\b\u0011\u0010\u0012R\u0011\u0010\u0013\u001a\u00020\u0014¢\u0006\b\n\u0000\u001a\u0004\b\u0015\u0010\u0016R&\u0010\u0017\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u00048G@FX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0018\u0010\u0007\"\u0004\b\u0019\u0010\tR&\u0010\u001a\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u00048G@FX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u001b\u0010\u0007\"\u0004\b\u001c\u0010\tR&\u0010\u001d\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u00048G@FX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u001e\u0010\u0007\"\u0004\b\u001f\u0010\tR&\u0010!\u001a\u00020 2\u0006\u0010\u0003\u001a\u00020 8G@FX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b!\u0010\"\"\u0004\b#\u0010$R&\u0010%\u001a\u00020 2\u0006\u0010\u0003\u001a\u00020 8G@FX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b%\u0010\"\"\u0004\b&\u0010$R&\u0010'\u001a\u00020 2\u0006\u0010\u0003\u001a\u00020 8G@FX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b'\u0010\"\"\u0004\b(\u0010$R\u001c\u0010)\u001a\u0004\u0018\u00010*X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b+\u0010,\"\u0004\b-\u0010.R&\u0010/\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u00048G@FX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b0\u0010\u0007\"\u0004\b1\u0010\tR&\u00102\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u00048G@FX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b3\u0010\u0007\"\u0004\b4\u0010\tR&\u00105\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u00048G@FX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b6\u0010\u0007\"\u0004\b7\u0010\tR&\u00108\u001a\u00020 2\u0006\u0010\u0003\u001a\u00020 8G@FX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b9\u0010\"\"\u0004\b:\u0010$R\u000e\u0010;\u001a\u00020<X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010=\u001a\u00020<X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010>\u001a\u00020<X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010?\u001a\u00020<X\u0082\u0004¢\u0006\u0002\n\u0000R&\u0010@\u001a\u00020\r2\u0006\u0010\u0003\u001a\u00020\r8G@FX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\bA\u0010\u0010\"\u0004\bB\u0010\u0012R&\u0010C\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u00048G@FX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\bD\u0010\u0007\"\u0004\bE\u0010\tR&\u0010G\u001a\u00020F2\u0006\u0010\u0003\u001a\u00020F8G@FX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\bH\u0010I\"\u0004\bJ\u0010KR&\u0010L\u001a\u00020 2\u0006\u0010\u0003\u001a\u00020 8G@FX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\bM\u0010\"\"\u0004\bN\u0010$R&\u0010O\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u00048G@FX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\bP\u0010\u0007\"\u0004\bQ\u0010\t¨\u0006}"}, d2 = {"Lcom/rigol/scope/data/IOParam;", "Lcom/rigol/scope/data/BaseParam;", "()V", "value", "", "dns", "getDns", "()Ljava/lang/String;", "setDns", "(Ljava/lang/String;)V", "gateway", "getGateway", "setGateway", "", "gpib", "getGpib", "()I", "setGpib", "(I)V", "gpibAttr", "Lcom/rigol/scope/cil/MessageAttr;", "getGpibAttr", "()Lcom/rigol/scope/cil/MessageAttr;", "gpibStr", "getGpibStr", "setGpibStr", "hostName", "getHostName", "setHostName", "ipAddress", "getIpAddress", "setIpAddress", "", "isAutoSelected", "()Z", "setAutoSelected", "(Z)V", "isDHCPSelected", "setDHCPSelected", "isStaticSelected", "setStaticSelected", "jmDNS", "Ljavax/jmdns/impl/JmDNSImpl;", "getJmDNS", "()Ljavax/jmdns/impl/JmDNSImpl;", "setJmDNS", "(Ljavax/jmdns/impl/JmDNSImpl;)V", "macAddress", "getMacAddress", "setMacAddress", "manufacturer", "getManufacturer", "setManufacturer", "mask", "getMask", "setMask", "mdns", "getMdns", "setMdns", "registerationHttpListener", "Lcom/rigol/scope/utilities/NsdRegistrationListenerAdapter;", "registerationLxiListener", "registerationScpiListener", "registerationVxiListener", "select", "getSelect", "setSelect", "serviceName", "getServiceName", "setServiceName", "Lcom/rigol/scope/cil/ServiceEnum$tagNET_STATUS_EN;", NotificationCompat.CATEGORY_STATUS, "getStatus", "()Lcom/rigol/scope/cil/ServiceEnum$tagNET_STATUS_EN;", "setStatus", "(Lcom/rigol/scope/cil/ServiceEnum$tagNET_STATUS_EN;)V", "valid", "getValid", "setValid", "visaAddress", "getVisaAddress", "setVisaAddress", "apply", "", "applyMdns", "readAll", "readAuto", "readDNS", "readDhcp", "readGPIB", "readGateWay", "readHostName", "readIPAddress", "readMacAddress", "readManufacturer", "readMask", "readSelect", "readServiceName", "readStatic", "readStatues", "readVISAAddress", "readmDns", "resetSelect", "saveAuto", DebugKt.DEBUG_PROPERTY_VALUE_AUTO, "saveDNS", "saveDhcp", "dhcp", "saveGPIB", "saveGateWay", "saveHostName", "saveIPAddress", "saveMacAddress", "saveMask", "saveSelect", "saveStatic", "static", "saveStatus", "savemDns", "mDns", "setNsdServiceInfo", "serviceInfo", "Landroid/net/nsd/NsdServiceInfo;", "serviceType", "port", "app_release"}, k = 1, mv = {1, 4, 1})
 /* loaded from: classes2.dex */
@@ -219,17 +220,18 @@ public final class IOParam extends BaseParam {
             return;
         }
         ThreadsKt.thread$default(false, false, null, null, 0, new Function0<Unit>() { // from class: com.rigol.scope.data.IOParam$ipAddress$2
-            /* JADX INFO: Access modifiers changed from: package-private */
             {
                 super(0);
             }
 
+            /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
             @Override // kotlin.jvm.functions.Function0
             public /* bridge */ /* synthetic */ Unit invoke() {
                 invoke2();
                 return Unit.INSTANCE;
             }
 
+            /* JADX DEBUG: Possible override for method kotlin.jvm.functions.Function0.invoke()Ljava/lang/Object; */
             /* renamed from: invoke  reason: avoid collision after fix types in other method */
             public final void invoke2() {
                 String str2;
@@ -493,6 +495,7 @@ public final class IOParam extends BaseParam {
                 @Override // java.lang.Runnable
                 public final void run() {
                     NetworkUtils.isAvailableAsync(new Utils.Consumer<Boolean>() { // from class: com.rigol.scope.data.IOParam$readmDns$1.1
+                        /* JADX DEBUG: Method merged with bridge method */
                         @Override // com.blankj.utilcode.util.Utils.Consumer
                         public final void accept(Boolean bool) {
                             if (TextUtils.isEmpty(IOParam.this.getIpAddress()) || TextUtils.isEmpty(IOParam.this.getHostName())) {
@@ -641,18 +644,19 @@ public final class IOParam extends BaseParam {
                 }
                 final NsdServiceInfo nsdServiceInfo = new NsdServiceInfo();
                 ThreadsKt.thread$default(false, false, null, null, 0, new Function0<Unit>() { // from class: com.rigol.scope.data.IOParam$applyMdns$$inlined$let$lambda$1
-                    /* JADX INFO: Access modifiers changed from: package-private */
                     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                     {
                         super(0);
                     }
 
+                    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
                     @Override // kotlin.jvm.functions.Function0
                     public /* bridge */ /* synthetic */ Unit invoke() {
                         invoke2();
                         return Unit.INSTANCE;
                     }
 
+                    /* JADX DEBUG: Possible override for method kotlin.jvm.functions.Function0.invoke()Ljava/lang/Object; */
                     /* renamed from: invoke  reason: avoid collision after fix types in other method */
                     public final void invoke2() {
                         NsdServiceInfo nsdServiceInfo2 = nsdServiceInfo;
@@ -729,17 +733,18 @@ public final class IOParam extends BaseParam {
             }
         }
         ThreadsKt.thread$default(false, false, null, null, 0, new Function0<Unit>() { // from class: com.rigol.scope.data.IOParam$applyMdns$3
-            /* JADX INFO: Access modifiers changed from: package-private */
             {
                 super(0);
             }
 
+            /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
             @Override // kotlin.jvm.functions.Function0
             public /* bridge */ /* synthetic */ Unit invoke() {
                 invoke2();
                 return Unit.INSTANCE;
             }
 
+            /* JADX DEBUG: Possible override for method kotlin.jvm.functions.Function0.invoke()Ljava/lang/Object; */
             /* renamed from: invoke  reason: avoid collision after fix types in other method */
             public final void invoke2() {
                 JmDNSImpl jmDNS = IOParam.this.getJmDNS();
@@ -772,6 +777,7 @@ public final class IOParam extends BaseParam {
                 @Override // java.lang.Runnable
                 public final void run() {
                     NetworkUtils.isAvailableAsync(new Utils.Consumer<Boolean>() { // from class: com.rigol.scope.data.IOParam$apply$2.1
+                        /* JADX DEBUG: Method merged with bridge method */
                         @Override // com.blankj.utilcode.util.Utils.Consumer
                         public final void accept(Boolean bool) {
                             if (TextUtils.isEmpty(IOParam.this.getIpAddress()) || TextUtils.isEmpty(IOParam.this.getHostName())) {

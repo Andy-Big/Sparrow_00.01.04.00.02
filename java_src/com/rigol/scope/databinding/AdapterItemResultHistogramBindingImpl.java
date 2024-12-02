@@ -1,5 +1,7 @@
 package com.rigol.scope.databinding;
 
+import android.graphics.drawable.Drawable;
+import android.text.SpannableString;
 import android.util.SparseIntArray;
 import android.view.View;
 import android.widget.ImageView;
@@ -7,10 +9,16 @@ import android.widget.TextView;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.databinding.DataBindingComponent;
 import androidx.databinding.ViewDataBinding;
+import androidx.databinding.adapters.ImageViewBindingAdapter;
+import androidx.databinding.adapters.TextViewBindingAdapter;
 import com.rigol.scope.R;
+import com.rigol.scope.cil.ServiceEnum;
+import com.rigol.scope.utilities.ContextUtil;
+import com.rigol.scope.utilities.ViewUtil;
 import com.rigol.scope.views.DisableTouchEventRecyclerView;
 import com.rigol.scope.views.histogram.HistogramResultParam;
 import com.rigol.scope.views.resultItem.ResultItemConstraintLayout;
+
 /* loaded from: classes2.dex */
 public class AdapterItemResultHistogramBindingImpl extends AdapterItemResultHistogramBinding {
     private static final ViewDataBinding.IncludedLayouts sIncludes = null;
@@ -117,13 +125,81 @@ public class AdapterItemResultHistogramBindingImpl extends AdapterItemResultHist
     @Override // androidx.databinding.ViewDataBinding
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
     protected void executeBindings() {
-        /*
-            Method dump skipped, instructions count: 185
-            To view this dump add '--comments-level debug' option
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.rigol.scope.databinding.AdapterItemResultHistogramBindingImpl.executeBindings():void");
+        long j;
+        boolean z;
+        SpannableString spannableString;
+        Drawable drawable;
+        int i;
+        String str;
+        ServiceEnum.Chan chan;
+        synchronized (this) {
+            j = this.mDirtyFlags;
+            this.mDirtyFlags = 0L;
+        }
+        HistogramResultParam histogramResultParam = this.mParam;
+        int i2 = 0;
+        if ((31 & j) != 0) {
+            if ((j & 29) != 0) {
+                if (histogramResultParam != null) {
+                    str = histogramResultParam.getTitle();
+                    chan = histogramResultParam.getSourceA();
+                } else {
+                    str = null;
+                    chan = null;
+                }
+                spannableString = ViewUtil.getTitleWithSrc(getRoot().getContext(), str, chan);
+            } else {
+                spannableString = null;
+            }
+            int i3 = ((j & 19) > 0L ? 1 : ((j & 19) == 0L ? 0 : -1));
+            if (i3 != 0) {
+                ServiceEnum.MeasType measType = histogramResultParam != null ? histogramResultParam.getMeasType() : null;
+                boolean z2 = measType != null;
+                if (i3 != 0) {
+                    j = z2 ? j | 64 : j | 32;
+                }
+                boolean z3 = z2;
+                drawable = ContextUtil.getDrawable(getRoot().getContext(), measType != null ? measType.pic1 : null);
+                z = z3;
+                boolean z4 = (64 & j) == 0 && drawable != null;
+                i = ((j & 19) > 0L ? 1 : ((j & 19) == 0L ? 0 : -1));
+                if (i != 0) {
+                    if (!z) {
+                        z4 = false;
+                    }
+                    if (i != 0) {
+                        j |= z4 ? 256L : 128L;
+                    }
+                    if (!z4) {
+                        i2 = 8;
+                    }
+                }
+                if ((j & 19) != 0) {
+                    ImageViewBindingAdapter.setImageDrawable(this.icon, drawable);
+                    this.icon.setVisibility(i2);
+                }
+                if ((j & 29) == 0) {
+                    TextViewBindingAdapter.setText(this.title, spannableString);
+                    return;
+                }
+                return;
+            }
+            z = false;
+        } else {
+            z = false;
+            spannableString = null;
+        }
+        drawable = null;
+        if ((64 & j) == 0) {
+        }
+        i = ((j & 19) > 0L ? 1 : ((j & 19) == 0L ? 0 : -1));
+        if (i != 0) {
+        }
+        if ((j & 19) != 0) {
+        }
+        if ((j & 29) == 0) {
+        }
     }
 }

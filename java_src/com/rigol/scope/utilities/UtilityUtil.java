@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.List;
+
 /* loaded from: classes2.dex */
 public class UtilityUtil {
     public static void setAndroidSystemDate(int i, int i2, int i3, Context context) {

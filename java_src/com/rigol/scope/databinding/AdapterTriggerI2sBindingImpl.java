@@ -11,10 +11,17 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.Guideline;
 import androidx.databinding.DataBindingComponent;
 import androidx.databinding.ViewDataBinding;
+import androidx.databinding.adapters.CompoundButtonBindingAdapter;
+import androidx.databinding.adapters.TextViewBindingAdapter;
 import com.rigol.scope.R;
+import com.rigol.scope.cil.ServiceEnum;
 import com.rigol.scope.data.MappingObject;
 import com.rigol.scope.data.TriggerParam;
+import com.rigol.scope.utilities.ColorUtil;
+import com.rigol.scope.utilities.UnitFormat;
+import com.rigol.scope.utilities.ViewUtil;
 import com.rigol.scope.views.SwitchButton;
+
 /* loaded from: classes2.dex */
 public class AdapterTriggerI2sBindingImpl extends AdapterTriggerI2sBinding {
     private static final ViewDataBinding.IncludedLayouts sIncludes = null;
@@ -420,13 +427,827 @@ public class AdapterTriggerI2sBindingImpl extends AdapterTriggerI2sBinding {
     @Override // androidx.databinding.ViewDataBinding
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
     protected void executeBindings() {
-        /*
-            Method dump skipped, instructions count: 1475
-            To view this dump add '--comments-level debug' option
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.rigol.scope.databinding.AdapterTriggerI2sBindingImpl.executeBindings():void");
+        long j;
+        long j2;
+        String str;
+        String str2;
+        String str3;
+        String str4;
+        String str5;
+        String str6;
+        String str7;
+        String str8;
+        String str9;
+        String str10;
+        String str11;
+        String str12;
+        String str13;
+        String str14;
+        boolean z;
+        boolean z2;
+        boolean z3;
+        boolean z4;
+        boolean z5;
+        boolean z6;
+        int i;
+        int i2;
+        boolean z7;
+        int i3;
+        String str15;
+        int i4;
+        boolean z8;
+        boolean z9;
+        String str16;
+        String str17;
+        int i5;
+        int i6;
+        String str18;
+        String str19;
+        int i7;
+        String str20;
+        String str21;
+        String str22;
+        int i8;
+        boolean z10;
+        boolean z11;
+        boolean z12;
+        boolean z13;
+        boolean z14;
+        boolean z15;
+        String str23;
+        String str24;
+        String str25;
+        String str26;
+        String str27;
+        String str28;
+        String str29;
+        long j3;
+        String str30;
+        int i9;
+        String str31;
+        int i10;
+        String str32;
+        String str33;
+        int i11;
+        int i12;
+        String str34;
+        String str35;
+        String str36;
+        String str37;
+        String str38;
+        int i13;
+        int i14;
+        long j4;
+        int i15;
+        int i16;
+        int i17;
+        long j5;
+        synchronized (this) {
+            j = this.mDirtyFlags;
+            this.mDirtyFlags = 0L;
+        }
+        TriggerParam triggerParam = this.mParam;
+        String str39 = null;
+        if ((8589934539L & j) != 0) {
+            String formatValue5MinStr = ((j & 4299161602L) == 0 || triggerParam == null) ? null : triggerParam.getFormatValue5MinStr();
+            if ((j & 4831854722L) != 0) {
+                ServiceEnum.Chan iisChanC = triggerParam != null ? triggerParam.getIisChanC() : null;
+                MappingObject mappingObject = ViewUtil.getMappingObject(R.array.msg_trigger_iis_sda, iisChanC != null ? iisChanC.value1 : 0);
+                updateRegistration(7, mappingObject);
+                str19 = mappingObject != null ? mappingObject.getStr() : null;
+                if ((j & 4294983682L) != 0) {
+                    i7 = ColorUtil.getColor(getRoot().getContext(), iisChanC);
+                    if ((j & 6442455554L) != 0) {
+                        ServiceEnum.EdgeSlope iisSlope = triggerParam != null ? triggerParam.getIisSlope() : null;
+                        MappingObject mappingObject2 = ViewUtil.getMappingObject(R.array.msg_trigger_iis_slope, iisSlope != null ? iisSlope.value1 : 0);
+                        updateRegistration(9, mappingObject2);
+                        if (mappingObject2 != null) {
+                            str20 = mappingObject2.getStr();
+                            if ((j & 4311744514L) != 0) {
+                                str21 = UnitFormat.newBuilder(" # ", UnitFormat.SI.NONE).convert(triggerParam != null ? triggerParam.getAllWidth() : 0, ServiceEnum.Unit.Unit_none);
+                            } else {
+                                str21 = null;
+                            }
+                            str5 = ((j & 4328521730L) != 0 || triggerParam == null) ? null : triggerParam.getFormatValue5Str();
+                            if ((j & 4294975490L) != 0) {
+                                long iislevelC = triggerParam != null ? triggerParam.getIislevelC() : 0L;
+                                if (triggerParam != null) {
+                                    str22 = triggerParam.getTriggerLevelCStr(iislevelC);
+                                    i8 = ((j & 4295491586L) > 0L ? 1 : ((j & 4295491586L) == 0L ? 0 : -1));
+                                    if (i8 == 0) {
+                                        ServiceEnum.Trigger_IIS_data_cmp trigger_IIS_data_cmp = triggerParam != null ? triggerParam.getTrigger_IIS_data_cmp() : null;
+                                        z6 = trigger_IIS_data_cmp == ServiceEnum.Trigger_IIS_data_cmp.trig_iis_data_mt;
+                                        boolean z16 = trigger_IIS_data_cmp == ServiceEnum.Trigger_IIS_data_cmp.trig_iis_data_neq;
+                                        boolean z17 = trigger_IIS_data_cmp == ServiceEnum.Trigger_IIS_data_cmp.trig_iis_data_lt;
+                                        z12 = trigger_IIS_data_cmp == ServiceEnum.Trigger_IIS_data_cmp.trig_iis_data_in;
+                                        z13 = trigger_IIS_data_cmp == ServiceEnum.Trigger_IIS_data_cmp.trig_iis_data_out;
+                                        boolean z18 = trigger_IIS_data_cmp == ServiceEnum.Trigger_IIS_data_cmp.trig_iis_data_eq;
+                                        if (i8 != 0) {
+                                            j |= z6 ? 68719476736L : 34359738368L;
+                                        }
+                                        if ((j & 4295491586L) != 0) {
+                                            j |= z17 ? 4398046511104L : 2199023255552L;
+                                        }
+                                        if ((j & 4295491586L) != 0) {
+                                            j |= z18 ? 17592186044416L : 8796093022208L;
+                                        }
+                                        z5 = z17;
+                                        z11 = z18;
+                                        z10 = z16;
+                                    } else {
+                                        z10 = false;
+                                        z11 = false;
+                                        z5 = false;
+                                        z6 = false;
+                                        z12 = false;
+                                        z13 = false;
+                                    }
+                                    boolean isNoise = ((j & 4362076162L) != 0 || triggerParam == null) ? false : triggerParam.getIsNoise();
+                                    if ((j & 4295000066L) == 0) {
+                                        if (triggerParam != null) {
+                                            z14 = z10;
+                                            z15 = z11;
+                                            j5 = triggerParam.getIislevelB();
+                                        } else {
+                                            z14 = z10;
+                                            z15 = z11;
+                                            j5 = 0;
+                                        }
+                                        if (triggerParam != null) {
+                                            str23 = triggerParam.getTriggerLevelBStr(j5);
+                                            if ((j & 5369757954L) != 0) {
+                                                ServiceEnum.Trigger_IIS_Spec trigger_IIS_Spec = triggerParam != null ? triggerParam.getTrigger_IIS_Spec() : null;
+                                                if (trigger_IIS_Spec != null) {
+                                                    i17 = trigger_IIS_Spec.value1;
+                                                    str24 = str23;
+                                                } else {
+                                                    str24 = str23;
+                                                    i17 = 0;
+                                                }
+                                                MappingObject mappingObject3 = ViewUtil.getMappingObject(R.array.msg_trigger_iis_alignment, i17);
+                                                updateRegistration(8, mappingObject3);
+                                                if (mappingObject3 != null) {
+                                                    str25 = mappingObject3.getStr();
+                                                    if ((j & 4563404866L) == 0) {
+                                                        ServiceEnum.Trigger_IIS_Ch trigger_IIS_Ch = triggerParam != null ? triggerParam.getTrigger_IIS_Ch() : null;
+                                                        if (trigger_IIS_Ch != null) {
+                                                            i16 = trigger_IIS_Ch.value1;
+                                                            str26 = str25;
+                                                        } else {
+                                                            str26 = str25;
+                                                            i16 = 0;
+                                                        }
+                                                        MappingObject mappingObject4 = ViewUtil.getMappingObject(R.array.msg_trigger_iis_ws_low, i16);
+                                                        updateRegistration(6, mappingObject4);
+                                                        if (mappingObject4 != null) {
+                                                            str27 = mappingObject4.getStr();
+                                                            if ((j & 4429447178L) != 0) {
+                                                                ServiceEnum.Chan iisChanA = triggerParam != null ? triggerParam.getIisChanA() : null;
+                                                                str28 = str27;
+                                                                if (iisChanA != null) {
+                                                                    i15 = iisChanA.value1;
+                                                                    str29 = formatValue5MinStr;
+                                                                } else {
+                                                                    str29 = formatValue5MinStr;
+                                                                    i15 = 0;
+                                                                }
+                                                                MappingObject mappingObject5 = ViewUtil.getMappingObject(R.array.msg_trigger_iis_sclk, i15);
+                                                                updateRegistration(3, mappingObject5);
+                                                                str30 = mappingObject5 != null ? mappingObject5.getStr() : null;
+                                                                j3 = 0;
+                                                                if ((j & 4295229442L) != 0) {
+                                                                    i9 = ColorUtil.getColor(getRoot().getContext(), iisChanA);
+                                                                    if ((j & 4295098370L) == j3) {
+                                                                        if (triggerParam != null) {
+                                                                            str31 = str30;
+                                                                            i10 = i9;
+                                                                            j4 = triggerParam.getIislevelA();
+                                                                        } else {
+                                                                            str31 = str30;
+                                                                            i10 = i9;
+                                                                            j4 = 0;
+                                                                        }
+                                                                        if (triggerParam != null) {
+                                                                            str32 = triggerParam.getTriggerLevelStr(j4);
+                                                                            if ((j & 4295033859L) != 0) {
+                                                                                ServiceEnum.Chan iisChanB = triggerParam != null ? triggerParam.getIisChanB() : null;
+                                                                                if ((j & 4295032834L) != 0) {
+                                                                                    str33 = str32;
+                                                                                    i13 = ColorUtil.getColor(getRoot().getContext(), iisChanB);
+                                                                                } else {
+                                                                                    str33 = str32;
+                                                                                    i13 = 0;
+                                                                                }
+                                                                                if (iisChanB != null) {
+                                                                                    i14 = iisChanB.value1;
+                                                                                    i12 = i13;
+                                                                                } else {
+                                                                                    i12 = i13;
+                                                                                    i14 = 0;
+                                                                                }
+                                                                                MappingObject mappingObject6 = ViewUtil.getMappingObject(R.array.msg_trigger_iis_ws, i14);
+                                                                                i11 = 0;
+                                                                                updateRegistration(0, mappingObject6);
+                                                                                if (mappingObject6 != null) {
+                                                                                    str34 = mappingObject6.getStr();
+                                                                                    if ((j & 4303355906L) == 0) {
+                                                                                        if (triggerParam != null) {
+                                                                                            str35 = str34;
+                                                                                            i11 = triggerParam.getWidth();
+                                                                                        } else {
+                                                                                            str35 = str34;
+                                                                                        }
+                                                                                        str36 = str31;
+                                                                                        str37 = str19;
+                                                                                        str38 = UnitFormat.newBuilder(" # ", UnitFormat.SI.NONE).convert(i11, ServiceEnum.Unit.Unit_none);
+                                                                                    } else {
+                                                                                        str35 = str34;
+                                                                                        str36 = str31;
+                                                                                        str37 = str19;
+                                                                                        str38 = null;
+                                                                                    }
+                                                                                    j2 = 0;
+                                                                                    if ((j & 4297064450L) != 0 && triggerParam != null) {
+                                                                                        str39 = triggerParam.getFormatValue5MaxStr();
+                                                                                    }
+                                                                                    str12 = str20;
+                                                                                    str10 = str22;
+                                                                                    z = z13;
+                                                                                    z3 = z15;
+                                                                                    str8 = str24;
+                                                                                    str2 = str26;
+                                                                                    str6 = str28;
+                                                                                    str = str29;
+                                                                                    i3 = i12;
+                                                                                    str9 = str33;
+                                                                                    str14 = str35;
+                                                                                    str11 = str36;
+                                                                                    str13 = str37;
+                                                                                    str4 = str38;
+                                                                                    z2 = z14;
+                                                                                    i = i7;
+                                                                                    str3 = str21;
+                                                                                    z4 = z12;
+                                                                                    z7 = isNoise;
+                                                                                    str7 = str39;
+                                                                                    i2 = i10;
+                                                                                }
+                                                                            } else {
+                                                                                str33 = str32;
+                                                                                i11 = 0;
+                                                                                i12 = 0;
+                                                                            }
+                                                                            str34 = null;
+                                                                            if ((j & 4303355906L) == 0) {
+                                                                            }
+                                                                            j2 = 0;
+                                                                            if ((j & 4297064450L) != 0) {
+                                                                                str39 = triggerParam.getFormatValue5MaxStr();
+                                                                            }
+                                                                            str12 = str20;
+                                                                            str10 = str22;
+                                                                            z = z13;
+                                                                            z3 = z15;
+                                                                            str8 = str24;
+                                                                            str2 = str26;
+                                                                            str6 = str28;
+                                                                            str = str29;
+                                                                            i3 = i12;
+                                                                            str9 = str33;
+                                                                            str14 = str35;
+                                                                            str11 = str36;
+                                                                            str13 = str37;
+                                                                            str4 = str38;
+                                                                            z2 = z14;
+                                                                            i = i7;
+                                                                            str3 = str21;
+                                                                            z4 = z12;
+                                                                            z7 = isNoise;
+                                                                            str7 = str39;
+                                                                            i2 = i10;
+                                                                        }
+                                                                    } else {
+                                                                        str31 = str30;
+                                                                        i10 = i9;
+                                                                    }
+                                                                    str32 = null;
+                                                                    if ((j & 4295033859L) != 0) {
+                                                                    }
+                                                                    str34 = null;
+                                                                    if ((j & 4303355906L) == 0) {
+                                                                    }
+                                                                    j2 = 0;
+                                                                    if ((j & 4297064450L) != 0) {
+                                                                    }
+                                                                    str12 = str20;
+                                                                    str10 = str22;
+                                                                    z = z13;
+                                                                    z3 = z15;
+                                                                    str8 = str24;
+                                                                    str2 = str26;
+                                                                    str6 = str28;
+                                                                    str = str29;
+                                                                    i3 = i12;
+                                                                    str9 = str33;
+                                                                    str14 = str35;
+                                                                    str11 = str36;
+                                                                    str13 = str37;
+                                                                    str4 = str38;
+                                                                    z2 = z14;
+                                                                    i = i7;
+                                                                    str3 = str21;
+                                                                    z4 = z12;
+                                                                    z7 = isNoise;
+                                                                    str7 = str39;
+                                                                    i2 = i10;
+                                                                }
+                                                            } else {
+                                                                str28 = str27;
+                                                                str29 = formatValue5MinStr;
+                                                                j3 = 0;
+                                                                str30 = null;
+                                                            }
+                                                            i9 = 0;
+                                                            if ((j & 4295098370L) == j3) {
+                                                            }
+                                                            str32 = null;
+                                                            if ((j & 4295033859L) != 0) {
+                                                            }
+                                                            str34 = null;
+                                                            if ((j & 4303355906L) == 0) {
+                                                            }
+                                                            j2 = 0;
+                                                            if ((j & 4297064450L) != 0) {
+                                                            }
+                                                            str12 = str20;
+                                                            str10 = str22;
+                                                            z = z13;
+                                                            z3 = z15;
+                                                            str8 = str24;
+                                                            str2 = str26;
+                                                            str6 = str28;
+                                                            str = str29;
+                                                            i3 = i12;
+                                                            str9 = str33;
+                                                            str14 = str35;
+                                                            str11 = str36;
+                                                            str13 = str37;
+                                                            str4 = str38;
+                                                            z2 = z14;
+                                                            i = i7;
+                                                            str3 = str21;
+                                                            z4 = z12;
+                                                            z7 = isNoise;
+                                                            str7 = str39;
+                                                            i2 = i10;
+                                                        }
+                                                    } else {
+                                                        str26 = str25;
+                                                    }
+                                                    str27 = null;
+                                                    if ((j & 4429447178L) != 0) {
+                                                    }
+                                                    i9 = 0;
+                                                    if ((j & 4295098370L) == j3) {
+                                                    }
+                                                    str32 = null;
+                                                    if ((j & 4295033859L) != 0) {
+                                                    }
+                                                    str34 = null;
+                                                    if ((j & 4303355906L) == 0) {
+                                                    }
+                                                    j2 = 0;
+                                                    if ((j & 4297064450L) != 0) {
+                                                    }
+                                                    str12 = str20;
+                                                    str10 = str22;
+                                                    z = z13;
+                                                    z3 = z15;
+                                                    str8 = str24;
+                                                    str2 = str26;
+                                                    str6 = str28;
+                                                    str = str29;
+                                                    i3 = i12;
+                                                    str9 = str33;
+                                                    str14 = str35;
+                                                    str11 = str36;
+                                                    str13 = str37;
+                                                    str4 = str38;
+                                                    z2 = z14;
+                                                    i = i7;
+                                                    str3 = str21;
+                                                    z4 = z12;
+                                                    z7 = isNoise;
+                                                    str7 = str39;
+                                                    i2 = i10;
+                                                }
+                                            } else {
+                                                str24 = str23;
+                                            }
+                                            str25 = null;
+                                            if ((j & 4563404866L) == 0) {
+                                            }
+                                            str27 = null;
+                                            if ((j & 4429447178L) != 0) {
+                                            }
+                                            i9 = 0;
+                                            if ((j & 4295098370L) == j3) {
+                                            }
+                                            str32 = null;
+                                            if ((j & 4295033859L) != 0) {
+                                            }
+                                            str34 = null;
+                                            if ((j & 4303355906L) == 0) {
+                                            }
+                                            j2 = 0;
+                                            if ((j & 4297064450L) != 0) {
+                                            }
+                                            str12 = str20;
+                                            str10 = str22;
+                                            z = z13;
+                                            z3 = z15;
+                                            str8 = str24;
+                                            str2 = str26;
+                                            str6 = str28;
+                                            str = str29;
+                                            i3 = i12;
+                                            str9 = str33;
+                                            str14 = str35;
+                                            str11 = str36;
+                                            str13 = str37;
+                                            str4 = str38;
+                                            z2 = z14;
+                                            i = i7;
+                                            str3 = str21;
+                                            z4 = z12;
+                                            z7 = isNoise;
+                                            str7 = str39;
+                                            i2 = i10;
+                                        }
+                                    } else {
+                                        z14 = z10;
+                                        z15 = z11;
+                                    }
+                                    str23 = null;
+                                    if ((j & 5369757954L) != 0) {
+                                    }
+                                    str25 = null;
+                                    if ((j & 4563404866L) == 0) {
+                                    }
+                                    str27 = null;
+                                    if ((j & 4429447178L) != 0) {
+                                    }
+                                    i9 = 0;
+                                    if ((j & 4295098370L) == j3) {
+                                    }
+                                    str32 = null;
+                                    if ((j & 4295033859L) != 0) {
+                                    }
+                                    str34 = null;
+                                    if ((j & 4303355906L) == 0) {
+                                    }
+                                    j2 = 0;
+                                    if ((j & 4297064450L) != 0) {
+                                    }
+                                    str12 = str20;
+                                    str10 = str22;
+                                    z = z13;
+                                    z3 = z15;
+                                    str8 = str24;
+                                    str2 = str26;
+                                    str6 = str28;
+                                    str = str29;
+                                    i3 = i12;
+                                    str9 = str33;
+                                    str14 = str35;
+                                    str11 = str36;
+                                    str13 = str37;
+                                    str4 = str38;
+                                    z2 = z14;
+                                    i = i7;
+                                    str3 = str21;
+                                    z4 = z12;
+                                    z7 = isNoise;
+                                    str7 = str39;
+                                    i2 = i10;
+                                }
+                            }
+                            str22 = null;
+                            i8 = ((j & 4295491586L) > 0L ? 1 : ((j & 4295491586L) == 0L ? 0 : -1));
+                            if (i8 == 0) {
+                            }
+                            if ((j & 4362076162L) != 0) {
+                            }
+                            if ((j & 4295000066L) == 0) {
+                            }
+                            str23 = null;
+                            if ((j & 5369757954L) != 0) {
+                            }
+                            str25 = null;
+                            if ((j & 4563404866L) == 0) {
+                            }
+                            str27 = null;
+                            if ((j & 4429447178L) != 0) {
+                            }
+                            i9 = 0;
+                            if ((j & 4295098370L) == j3) {
+                            }
+                            str32 = null;
+                            if ((j & 4295033859L) != 0) {
+                            }
+                            str34 = null;
+                            if ((j & 4303355906L) == 0) {
+                            }
+                            j2 = 0;
+                            if ((j & 4297064450L) != 0) {
+                            }
+                            str12 = str20;
+                            str10 = str22;
+                            z = z13;
+                            z3 = z15;
+                            str8 = str24;
+                            str2 = str26;
+                            str6 = str28;
+                            str = str29;
+                            i3 = i12;
+                            str9 = str33;
+                            str14 = str35;
+                            str11 = str36;
+                            str13 = str37;
+                            str4 = str38;
+                            z2 = z14;
+                            i = i7;
+                            str3 = str21;
+                            z4 = z12;
+                            z7 = isNoise;
+                            str7 = str39;
+                            i2 = i10;
+                        }
+                    }
+                    str20 = null;
+                    if ((j & 4311744514L) != 0) {
+                    }
+                    if ((j & 4328521730L) != 0) {
+                    }
+                    if ((j & 4294975490L) != 0) {
+                    }
+                    str22 = null;
+                    i8 = ((j & 4295491586L) > 0L ? 1 : ((j & 4295491586L) == 0L ? 0 : -1));
+                    if (i8 == 0) {
+                    }
+                    if ((j & 4362076162L) != 0) {
+                    }
+                    if ((j & 4295000066L) == 0) {
+                    }
+                    str23 = null;
+                    if ((j & 5369757954L) != 0) {
+                    }
+                    str25 = null;
+                    if ((j & 4563404866L) == 0) {
+                    }
+                    str27 = null;
+                    if ((j & 4429447178L) != 0) {
+                    }
+                    i9 = 0;
+                    if ((j & 4295098370L) == j3) {
+                    }
+                    str32 = null;
+                    if ((j & 4295033859L) != 0) {
+                    }
+                    str34 = null;
+                    if ((j & 4303355906L) == 0) {
+                    }
+                    j2 = 0;
+                    if ((j & 4297064450L) != 0) {
+                    }
+                    str12 = str20;
+                    str10 = str22;
+                    z = z13;
+                    z3 = z15;
+                    str8 = str24;
+                    str2 = str26;
+                    str6 = str28;
+                    str = str29;
+                    i3 = i12;
+                    str9 = str33;
+                    str14 = str35;
+                    str11 = str36;
+                    str13 = str37;
+                    str4 = str38;
+                    z2 = z14;
+                    i = i7;
+                    str3 = str21;
+                    z4 = z12;
+                    z7 = isNoise;
+                    str7 = str39;
+                    i2 = i10;
+                }
+            } else {
+                str19 = null;
+            }
+            i7 = 0;
+            if ((j & 6442455554L) != 0) {
+            }
+            str20 = null;
+            if ((j & 4311744514L) != 0) {
+            }
+            if ((j & 4328521730L) != 0) {
+            }
+            if ((j & 4294975490L) != 0) {
+            }
+            str22 = null;
+            i8 = ((j & 4295491586L) > 0L ? 1 : ((j & 4295491586L) == 0L ? 0 : -1));
+            if (i8 == 0) {
+            }
+            if ((j & 4362076162L) != 0) {
+            }
+            if ((j & 4295000066L) == 0) {
+            }
+            str23 = null;
+            if ((j & 5369757954L) != 0) {
+            }
+            str25 = null;
+            if ((j & 4563404866L) == 0) {
+            }
+            str27 = null;
+            if ((j & 4429447178L) != 0) {
+            }
+            i9 = 0;
+            if ((j & 4295098370L) == j3) {
+            }
+            str32 = null;
+            if ((j & 4295033859L) != 0) {
+            }
+            str34 = null;
+            if ((j & 4303355906L) == 0) {
+            }
+            j2 = 0;
+            if ((j & 4297064450L) != 0) {
+            }
+            str12 = str20;
+            str10 = str22;
+            z = z13;
+            z3 = z15;
+            str8 = str24;
+            str2 = str26;
+            str6 = str28;
+            str = str29;
+            i3 = i12;
+            str9 = str33;
+            str14 = str35;
+            str11 = str36;
+            str13 = str37;
+            str4 = str38;
+            z2 = z14;
+            i = i7;
+            str3 = str21;
+            z4 = z12;
+            z7 = isNoise;
+            str7 = str39;
+            i2 = i10;
+        } else {
+            j2 = 0;
+            str = null;
+            str2 = null;
+            str3 = null;
+            str4 = null;
+            str5 = null;
+            str6 = null;
+            str7 = null;
+            str8 = null;
+            str9 = null;
+            str10 = null;
+            str11 = null;
+            str12 = null;
+            str13 = null;
+            str14 = null;
+            z = false;
+            z2 = false;
+            z3 = false;
+            z4 = false;
+            z5 = false;
+            z6 = false;
+            i = 0;
+            i2 = 0;
+            z7 = false;
+            i3 = 0;
+        }
+        int i18 = ((j & 4295491586L) > j2 ? 1 : ((j & 4295491586L) == j2 ? 0 : -1));
+        if (i18 != 0) {
+            z8 = z6 ? true : z4;
+            z9 = z5 ? true : z4;
+            boolean z19 = z3 ? true : z2;
+            if (i18 != 0) {
+                j |= z8 ? 281474976710656L : 140737488355328L;
+            }
+            if ((j & 4295491586L) != 0) {
+                j |= z9 ? 1099511627776L : 549755813888L;
+            }
+            if ((j & 4295491586L) != 0) {
+                j |= z19 ? 17179869184L : 8589934592L;
+            }
+            str15 = str4;
+            i4 = z19 ? 0 : 8;
+        } else {
+            str15 = str4;
+            i4 = 0;
+            z8 = false;
+            z9 = false;
+        }
+        int i19 = ((j & 4295491586L) > 0L ? 1 : ((j & 4295491586L) == 0L ? 0 : -1));
+        if (i19 != 0) {
+            boolean z20 = z9 ? true : z;
+            boolean z21 = z8 ? true : z;
+            if (i19 != 0) {
+                j |= z20 ? 70368744177664L : 35184372088832L;
+            }
+            if ((j & 4295491586L) != 0) {
+                j |= z21 ? 274877906944L : 137438953472L;
+            }
+            int i20 = z20 ? 0 : 8;
+            int i21 = z21 ? 0 : 8;
+            str16 = str2;
+            str17 = str3;
+            i6 = i21;
+            i5 = i20;
+        } else {
+            str16 = str2;
+            str17 = str3;
+            i5 = 0;
+            i6 = 0;
+        }
+        if ((j & 4563404866L) != 0) {
+            str18 = str5;
+            TextViewBindingAdapter.setText(this.triggerAudioValue, str6);
+        } else {
+            str18 = str5;
+        }
+        if ((j & 4295491586L) != 0) {
+            this.triggerI2sDataLabel.setVisibility(i4);
+            this.triggerI2sDataLowLabel.setVisibility(i6);
+            this.triggerI2sDataLowValue.setVisibility(i6);
+            this.triggerI2sDataUpLabel.setVisibility(i5);
+            this.triggerI2sDataUpValue.setVisibility(i5);
+            this.triggerI2sDataValue.setVisibility(i4);
+            CompoundButtonBindingAdapter.setChecked(this.triggerIisEq, z3);
+            CompoundButtonBindingAdapter.setChecked(this.triggerIisLessthan, z5);
+            CompoundButtonBindingAdapter.setChecked(this.triggerIisMoreless, z);
+            CompoundButtonBindingAdapter.setChecked(this.triggerIisMorethan, z6);
+            CompoundButtonBindingAdapter.setChecked(this.triggerIisNeq, z2);
+            CompoundButtonBindingAdapter.setChecked(this.triggerIisUnmoreless, z4);
+        }
+        if ((j & 4299161602L) != 0) {
+            TextViewBindingAdapter.setText(this.triggerI2sDataLowValue, str);
+        }
+        if ((j & 4297064450L) != 0) {
+            TextViewBindingAdapter.setText(this.triggerI2sDataUpValue, str7);
+        }
+        if ((j & 4328521730L) != 0) {
+            TextViewBindingAdapter.setText(this.triggerI2sDataValue, str18);
+        }
+        if ((j & 5369757954L) != 0) {
+            TextViewBindingAdapter.setText(this.triggerIisAlignmentValue, str16);
+        }
+        if ((j & 4311744514L) != 0) {
+            TextViewBindingAdapter.setText(this.triggerIisAllwidthValue, str17);
+        }
+        if ((4303355906L & j) != 0) {
+            TextViewBindingAdapter.setText(this.triggerIisWidthValue, str15);
+        }
+        if ((4295098370L & j) != 0) {
+            TextViewBindingAdapter.setText(this.triggerLevelValue, str9);
+        }
+        if ((4295000066L & j) != 0) {
+            TextViewBindingAdapter.setText(this.triggerLevelbValue, str8);
+        }
+        if ((j & 4294975490L) != 0) {
+            TextViewBindingAdapter.setText(this.triggerLevelcValue, str10);
+        }
+        if ((j & 4362076162L) != 0) {
+            CompoundButtonBindingAdapter.setChecked(this.triggerNoiseSwitch, z7);
+        }
+        if ((4429447178L & j) != 0) {
+            TextViewBindingAdapter.setText(this.triggerSourceScl, str11);
+        }
+        if ((4295229442L & j) != 0) {
+            this.triggerSourceScl.setTextColor(i2);
+        }
+        if ((j & 6442455554L) != 0) {
+            TextViewBindingAdapter.setText(this.triggerSourceSclkEdgeValue, str12);
+        }
+        if ((j & 4831854722L) != 0) {
+            TextViewBindingAdapter.setText(this.triggerSourceSda, str13);
+        }
+        if ((j & 4294983682L) != 0) {
+            this.triggerSourceSda.setTextColor(i);
+        }
+        if ((4295033859L & j) != 0) {
+            TextViewBindingAdapter.setText(this.triggerSourceWs, str14);
+        }
+        if ((j & 4295032834L) != 0) {
+            this.triggerSourceWs.setTextColor(i3);
+        }
     }
 }

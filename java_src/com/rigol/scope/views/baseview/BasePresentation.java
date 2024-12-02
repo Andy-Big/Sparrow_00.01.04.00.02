@@ -9,6 +9,7 @@ import com.rigol.scope.data.UtilityParamKt;
 import com.rigol.scope.utilities.PopupViewManager;
 import com.rigol.scope.utilities.ViewUtil;
 import com.rigol.util.ToastUtils;
+
 /* loaded from: classes2.dex */
 public class BasePresentation extends Presentation {
     public void onLocaleChanged() {

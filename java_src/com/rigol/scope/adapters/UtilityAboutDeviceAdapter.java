@@ -22,6 +22,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+
 /* loaded from: classes.dex */
 public class UtilityAboutDeviceAdapter extends RecyclerView.Adapter<AboutViewHolder> {
     private AboutAdapter aboutAdapter;
@@ -37,11 +38,13 @@ public class UtilityAboutDeviceAdapter extends RecyclerView.Adapter<AboutViewHol
         this.context = context;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public AboutViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         return new AboutViewHolder(AdapterUtilityAboutItemBinding.inflate(LayoutInflater.from(viewGroup.getContext()), viewGroup, false));
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(AboutViewHolder aboutViewHolder, int i) {
         this.aboutAdapter = new AboutAdapter(loadAboutData());
@@ -134,9 +137,8 @@ public class UtilityAboutDeviceAdapter extends RecyclerView.Adapter<AboutViewHol
         this.aboutAdapter.setData(loadAboutData());
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static class AboutAdapter extends RecyclerView.Adapter<DetialViewHolder> {
+    private static class AboutAdapter extends RecyclerView.Adapter<DetialViewHolder> {
         private List<String> list;
 
         public AboutAdapter(List<String> list) {
@@ -148,11 +150,13 @@ public class UtilityAboutDeviceAdapter extends RecyclerView.Adapter<AboutViewHol
             notifyDataSetChanged();
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
         public DetialViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
             return new DetialViewHolder(AdapterUtilityInformationBinding.inflate(LayoutInflater.from(viewGroup.getContext())));
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
         public void onBindViewHolder(DetialViewHolder detialViewHolder, int i) {
             String str = this.list.get(i);
@@ -172,9 +176,8 @@ public class UtilityAboutDeviceAdapter extends RecyclerView.Adapter<AboutViewHol
             return this.list.size();
         }
 
-        /* JADX INFO: Access modifiers changed from: private */
         /* loaded from: classes.dex */
-        public static class DetialViewHolder extends RecyclerView.ViewHolder {
+        private static class DetialViewHolder extends RecyclerView.ViewHolder {
             AdapterUtilityInformationBinding binding;
 
             public DetialViewHolder(AdapterUtilityInformationBinding adapterUtilityInformationBinding) {

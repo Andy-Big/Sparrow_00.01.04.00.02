@@ -1,6 +1,7 @@
 package com.rigol.scope.data;
 
 import com.rigol.scope.cil.MessageAttr;
+
 /* loaded from: classes2.dex */
 public class CommonDataParam {
     public static final int AFG_CH_COUNT = 4;

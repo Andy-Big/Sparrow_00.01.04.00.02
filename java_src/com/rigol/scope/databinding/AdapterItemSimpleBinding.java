@@ -8,13 +8,13 @@ import android.widget.TextView;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import com.rigol.scope.R;
+
 /* loaded from: classes2.dex */
 public abstract class AdapterItemSimpleBinding extends ViewDataBinding {
     public final ImageView icon;
     public final TextView text1;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public AdapterItemSimpleBinding(Object obj, View view, int i, ImageView imageView, TextView textView) {
+    protected AdapterItemSimpleBinding(Object obj, View view, int i, ImageView imageView, TextView textView) {
         super(obj, view, i);
         this.icon = imageView;
         this.text1 = textView;

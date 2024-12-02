@@ -13,6 +13,7 @@ import androidx.databinding.ViewDataBinding;
 import com.rigol.scope.R;
 import com.rigol.scope.data.StorageSaveParam;
 import com.rigol.scope.views.SwitchButton;
+
 /* loaded from: classes2.dex */
 public abstract class PopupviewSmbSettingBinding extends ViewDataBinding {
     public final Button connect;
@@ -35,8 +36,7 @@ public abstract class PopupviewSmbSettingBinding extends ViewDataBinding {
 
     public abstract void setParam(StorageSaveParam storageSaveParam);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public PopupviewSmbSettingBinding(Object obj, View view, int i, Button button, Button button2, Guideline guideline, TextView textView, EditText editText, TextView textView2, EditText editText2, TextView textView3, SwitchButton switchButton, TextView textView4, TextView textView5, TextView textView6, EditText editText3, TextView textView7, EditText editText4) {
+    protected PopupviewSmbSettingBinding(Object obj, View view, int i, Button button, Button button2, Guideline guideline, TextView textView, EditText editText, TextView textView2, EditText editText2, TextView textView3, SwitchButton switchButton, TextView textView4, TextView textView5, TextView textView6, EditText editText3, TextView textView7, EditText editText4) {
         super(obj, view, i);
         this.connect = button;
         this.disconnect = button2;

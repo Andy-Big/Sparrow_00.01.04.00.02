@@ -8,6 +8,7 @@ import android.widget.TextView;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import com.rigol.scope.R;
+
 /* loaded from: classes2.dex */
 public abstract class PopupviewLogcatBinding extends ViewDataBinding {
     public final Button buttonRefresh;
@@ -19,8 +20,7 @@ public abstract class PopupviewLogcatBinding extends ViewDataBinding {
     public final TextView gradeSpinner;
     public final TextView log;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public PopupviewLogcatBinding(Object obj, View view, int i, Button button, Button button2, View view2, TextView textView, TextView textView2, TextView textView3, TextView textView4, TextView textView5) {
+    protected PopupviewLogcatBinding(Object obj, View view, int i, Button button, Button button2, View view2, TextView textView, TextView textView2, TextView textView3, TextView textView4, TextView textView5) {
         super(obj, view, i);
         this.buttonRefresh = button;
         this.buttonSave = button2;

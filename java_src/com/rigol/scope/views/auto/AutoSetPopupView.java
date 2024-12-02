@@ -19,6 +19,7 @@ import com.rigol.scope.views.UtilityPopupView;
 import com.rigol.scope.views.baseview.BasePopupView;
 import com.rigol.scope.views.horizontal.HorizontalSpaceItemDecoration;
 import java.util.List;
+
 /* loaded from: classes2.dex */
 public class AutoSetPopupView extends BasePopupView {
     public AutoSetPopupView() {

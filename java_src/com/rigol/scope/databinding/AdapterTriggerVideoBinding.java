@@ -18,6 +18,7 @@ import com.rigol.scope.data.TriggerParam;
 import com.rigol.scope.views.SwitchButton;
 import com.rigol.scope.views.vertical.VerticalSeekBar;
 import com.rigol.scope.views.vertical.VerticalSeekBarWrapper;
+
 /* loaded from: classes2.dex */
 public abstract class AdapterTriggerVideoBinding extends ViewDataBinding {
     public final RadioButton allLines;
@@ -75,8 +76,7 @@ public abstract class AdapterTriggerVideoBinding extends ViewDataBinding {
 
     public abstract void setSweepSingleMapping(MappingObject mappingObject);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public AdapterTriggerVideoBinding(Object obj, View view, int i, RadioButton radioButton, Button button, RadioButton radioButton2, Guideline guideline, Guideline guideline2, Guideline guideline3, Guideline guideline4, ImageView imageView, RadioButton radioButton3, TextView textView, EditText editText, RadioButton radioButton4, RadioButton radioButton5, RadioButton radioButton6, TextView textView2, EditText editText2, VerticalSeekBar verticalSeekBar, TextView textView3, SwitchButton switchButton, TextView textView4, TextView textView5, TextView textView6, TextView textView7, VerticalSeekBarWrapper verticalSeekBarWrapper, TextView textView8, TextView textView9, View view2, View view3, View view4, View view5) {
+    protected AdapterTriggerVideoBinding(Object obj, View view, int i, RadioButton radioButton, Button button, RadioButton radioButton2, Guideline guideline, Guideline guideline2, Guideline guideline3, Guideline guideline4, ImageView imageView, RadioButton radioButton3, TextView textView, EditText editText, RadioButton radioButton4, RadioButton radioButton5, RadioButton radioButton6, TextView textView2, EditText editText2, VerticalSeekBar verticalSeekBar, TextView textView3, SwitchButton switchButton, TextView textView4, TextView textView5, TextView textView6, TextView textView7, VerticalSeekBarWrapper verticalSeekBarWrapper, TextView textView8, TextView textView9, View view2, View view3, View view4, View view5) {
         super(obj, view, i);
         this.allLines = radioButton;
         this.buttonLevel = button;

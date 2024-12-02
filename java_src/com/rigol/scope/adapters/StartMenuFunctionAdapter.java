@@ -23,6 +23,7 @@ import com.rigol.scope.viewmodels.OptionViewModel;
 import java.util.List;
 import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
+
 /* compiled from: FunctionAdapter.kt */
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000B\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010 \n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0002\u0018\u00002\u0012\u0012\u000e\u0012\f\u0012\u0006\u0012\u0004\u0018\u00010\u0003\u0018\u00010\u00020\u0001B)\u0012\b\u0010\u0004\u001a\u0004\u0018\u00010\u0005\u0012\u0010\u0010\u0006\u001a\f\u0012\u0006\u0012\u0004\u0018\u00010\u0003\u0018\u00010\u0002\u0012\u0006\u0010\u0007\u001a\u00020\b¢\u0006\u0002\u0010\tJ4\u0010\f\u001a\u00020\r2\u0010\u0010\u000e\u001a\f\u0012\u0006\b\u0001\u0012\u00020\u0010\u0018\u00010\u000f2\u0010\u0010\u0011\u001a\f\u0012\u0006\u0012\u0004\u0018\u00010\u0003\u0018\u00010\u00022\u0006\u0010\u0012\u001a\u00020\bH\u0014J \u0010\u0013\u001a\n\u0012\u0006\b\u0001\u0012\u00020\u00100\u000f2\u0006\u0010\u0014\u001a\u00020\u00152\u0006\u0010\u0016\u001a\u00020\bH\u0016R\u0010\u0010\n\u001a\u0004\u0018\u00010\u000bX\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006\u0017"}, d2 = {"Lcom/rigol/scope/adapters/StartMenuFunctionAdapter;", "Lcom/rigol/scope/adapters/BaseAdapter;", "", "Lcom/rigol/scope/data/MappingObject;", "context", "Landroid/content/Context;", "data", "layoutId", "", "(Landroid/content/Context;Ljava/util/List;I)V", "optionParam", "Lcom/rigol/scope/data/OptionParam;", "convert", "", "holder", "Lcom/rigol/scope/adapters/BaseViewHolder;", "Landroidx/databinding/ViewDataBinding;", "t", "position", "onCreateViewHolder", "parent", "Landroid/view/ViewGroup;", "viewType", "app_release"}, k = 1, mv = {1, 4, 1})
 /* loaded from: classes.dex */
@@ -39,6 +40,7 @@ public final class StartMenuFunctionAdapter extends BaseAdapter<List<? extends M
         Activity topActivity = ActivityUtils.getTopActivity();
         if (topActivity != null) {
             liveData.observe((LifecycleOwner) topActivity, new Observer<OptionParam>() { // from class: com.rigol.scope.adapters.StartMenuFunctionAdapter.1
+                /* JADX DEBUG: Method merged with bridge method */
                 @Override // androidx.lifecycle.Observer
                 public final void onChanged(OptionParam optionParam) {
                     Intrinsics.checkNotNullParameter(optionParam, "optionParam");
@@ -69,6 +71,7 @@ public final class StartMenuFunctionAdapter extends BaseAdapter<List<? extends M
         root.setAlpha(ContextUtil.getAlpha(functionEnable));
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.rigol.scope.adapters.MultiItemTypeAdapter, androidx.recyclerview.widget.RecyclerView.Adapter
     public BaseViewHolder<? extends ViewDataBinding> onCreateViewHolder(ViewGroup parent, int i) {
         Intrinsics.checkNotNullParameter(parent, "parent");

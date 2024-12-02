@@ -20,6 +20,7 @@ import com.rigol.scope.utilities.MailUtil;
 import com.rigol.scope.utilities.ViewUtil;
 import com.rigol.util.ToastUtils;
 import java.util.Objects;
+
 /* loaded from: classes.dex */
 public class UtilityEmailAdapter extends RecyclerView.Adapter<EmailViewHolder> implements View.OnClickListener {
     private View baseView;
@@ -38,6 +39,7 @@ public class UtilityEmailAdapter extends RecyclerView.Adapter<EmailViewHolder> i
         this.baseView = view;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public EmailViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         this.binding = AdapterUtilityEmailBinding.inflate(LayoutInflater.from(viewGroup.getContext()), viewGroup, false);
@@ -45,6 +47,7 @@ public class UtilityEmailAdapter extends RecyclerView.Adapter<EmailViewHolder> i
         return new EmailViewHolder(this.binding);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(final EmailViewHolder emailViewHolder, int i) {
         ViewUtil.setSwitchButton(this.binding.switchButtonSecurityProtocol);
@@ -112,8 +115,7 @@ public class UtilityEmailAdapter extends RecyclerView.Adapter<EmailViewHolder> i
         });
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ void lambda$onBindViewHolder$0(boolean z) {
+    static /* synthetic */ void lambda$onBindViewHolder$0(boolean z) {
         if (z) {
             ToastUtils.showShort("邮件发送成功");
         } else {

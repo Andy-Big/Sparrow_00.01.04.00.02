@@ -16,6 +16,7 @@ import com.rigol.scope.utilities.ContextUtil;
 import com.rigol.scope.views.DisableTouchEventRecyclerView;
 import com.rigol.scope.views.histogram.MeasHistogramResultParam;
 import com.rigol.scope.views.resultItem.ResultItemConstraintLayout;
+
 /* loaded from: classes2.dex */
 public class AdapterItemResultMeasHistogramBindingImpl extends AdapterItemResultMeasHistogramBinding {
     private static final ViewDataBinding.IncludedLayouts sIncludes = null;

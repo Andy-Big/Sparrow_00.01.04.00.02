@@ -8,6 +8,7 @@ import com.rigol.scope.cil.ServiceEnum;
 import com.rigol.scope.utilities.AorBManager;
 import com.rigol.scope.utilities.ContextUtil;
 import com.rigol.scope.utilities.UnitFormat;
+
 /* loaded from: classes2.dex */
 public class DvmResultParam extends ResultParam {
     private static final boolean DEFAULT_BEEPER = false;

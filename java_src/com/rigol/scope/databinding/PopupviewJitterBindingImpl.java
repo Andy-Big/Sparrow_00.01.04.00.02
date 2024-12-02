@@ -22,6 +22,7 @@ import com.rigol.scope.utilities.ColorUtil;
 import com.rigol.scope.utilities.UnitFormat;
 import com.rigol.scope.utilities.ViewUtil;
 import com.rigol.scope.views.SwitchButton;
+
 /* loaded from: classes2.dex */
 public class PopupviewJitterBindingImpl extends PopupviewJitterBinding {
     private static final ViewDataBinding.IncludedLayouts sIncludes = null;

@@ -24,6 +24,7 @@ import com.rigol.scope.views.keyboard.KeyboardListener;
 import com.rigol.scope.views.keyboard.KeyboardPopupView;
 import com.rigol.util.ToastUtils;
 import java.util.Objects;
+
 /* loaded from: classes.dex */
 public class UtilityAutoConfigAdapter extends RecyclerView.Adapter<AutoSettingHolder> implements CompoundButton.OnCheckedChangeListener, View.OnClickListener {
     private AutosetParam autosetParam;
@@ -42,12 +43,14 @@ public class UtilityAutoConfigAdapter extends RecyclerView.Adapter<AutoSettingHo
         this.baseView = view;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public AutoSettingHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         this.binding = AdapterUtilityAutosettingBinding.inflate(LayoutInflater.from(viewGroup.getContext()), viewGroup, false);
         return new AutoSettingHolder(this.binding);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(AutoSettingHolder autoSettingHolder, int i) {
         initViewStyle();

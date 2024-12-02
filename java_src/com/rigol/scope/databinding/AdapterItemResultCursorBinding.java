@@ -12,6 +12,7 @@ import androidx.databinding.ViewDataBinding;
 import com.rigol.scope.R;
 import com.rigol.scope.data.CursorResultParam;
 import com.rigol.scope.views.DisableTouchEventRecyclerView;
+
 /* loaded from: classes2.dex */
 public abstract class AdapterItemResultCursorBinding extends ViewDataBinding {
     public final ImageView icon;
@@ -23,8 +24,7 @@ public abstract class AdapterItemResultCursorBinding extends ViewDataBinding {
 
     public abstract void setParam(CursorResultParam cursorResultParam);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public AdapterItemResultCursorBinding(Object obj, View view, int i, ImageView imageView, DisableTouchEventRecyclerView disableTouchEventRecyclerView, TextView textView, ConstraintLayout constraintLayout) {
+    protected AdapterItemResultCursorBinding(Object obj, View view, int i, ImageView imageView, DisableTouchEventRecyclerView disableTouchEventRecyclerView, TextView textView, ConstraintLayout constraintLayout) {
         super(obj, view, i);
         this.icon = imageView;
         this.resultList = disableTouchEventRecyclerView;

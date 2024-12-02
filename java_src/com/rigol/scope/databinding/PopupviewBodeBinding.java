@@ -11,6 +11,7 @@ import androidx.viewpager2.widget.ViewPager2;
 import com.google.android.material.tabs.TabLayout;
 import com.rigol.scope.R;
 import com.rigol.scope.data.BodeParam;
+
 /* loaded from: classes2.dex */
 public abstract class PopupviewBodeBinding extends ViewDataBinding {
     public final Guideline leftGuideline;
@@ -24,8 +25,7 @@ public abstract class PopupviewBodeBinding extends ViewDataBinding {
 
     public abstract void setParma(BodeParam bodeParam);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public PopupviewBodeBinding(Object obj, View view, int i, Guideline guideline, Guideline guideline2, Guideline guideline3, Guideline guideline4, TabLayout tabLayout, ViewPager2 viewPager2) {
+    protected PopupviewBodeBinding(Object obj, View view, int i, Guideline guideline, Guideline guideline2, Guideline guideline3, Guideline guideline4, TabLayout tabLayout, ViewPager2 viewPager2) {
         super(obj, view, i);
         this.leftGuideline = guideline;
         this.leftGuideline1 = guideline2;

@@ -6,6 +6,7 @@ import android.view.KeyEvent;
 import androidx.appcompat.widget.AppCompatEditText;
 import com.rigol.scope.BaseActivity;
 import com.rigol.scope.utilities.ViewUtil;
+
 /* loaded from: classes2.dex */
 public class BaseEditText extends AppCompatEditText {
     public BaseEditText(Context context) {

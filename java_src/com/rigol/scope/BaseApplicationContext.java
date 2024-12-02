@@ -1,6 +1,7 @@
 package com.rigol.scope;
 
 import android.content.Context;
+
 /* loaded from: classes.dex */
 public class BaseApplicationContext {
     private static Context mContext;

@@ -14,6 +14,7 @@ import androidx.databinding.ViewDataBinding;
 import com.rigol.scope.R;
 import com.rigol.scope.data.IOParam;
 import com.rigol.scope.views.SwitchButton;
+
 /* loaded from: classes2.dex */
 public abstract class AdapterUtilityLansettingItemBinding extends ViewDataBinding {
     public final Button apply;
@@ -59,8 +60,7 @@ public abstract class AdapterUtilityLansettingItemBinding extends ViewDataBindin
 
     public abstract void setIoParam(IOParam iOParam);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public AdapterUtilityLansettingItemBinding(Object obj, View view, int i, Button button, ConstraintLayout constraintLayout, ConstraintLayout constraintLayout2, View view2, View view3, View view4, TextView textView, EditText editText, EditText editText2, EditText editText3, EditText editText4, EditText editText5, ConstraintLayout constraintLayout3, ConstraintLayout constraintLayout4, ConstraintLayout constraintLayout5, CheckBox checkBox, CheckBox checkBox2, ConstraintLayout constraintLayout6, CheckBox checkBox3, ConstraintLayout constraintLayout7, ConstraintLayout constraintLayout8, ConstraintLayout constraintLayout9, TextView textView2, ConstraintLayout constraintLayout10, SwitchButton switchButton, TextView textView3, TextView textView4, TextView textView5, TextView textView6, TextView textView7, TextView textView8, TextView textView9, TextView textView10, EditText editText6, TextView textView11, TextView textView12, TextView textView13, ConstraintLayout constraintLayout11) {
+    protected AdapterUtilityLansettingItemBinding(Object obj, View view, int i, Button button, ConstraintLayout constraintLayout, ConstraintLayout constraintLayout2, View view2, View view3, View view4, TextView textView, EditText editText, EditText editText2, EditText editText3, EditText editText4, EditText editText5, ConstraintLayout constraintLayout3, ConstraintLayout constraintLayout4, ConstraintLayout constraintLayout5, CheckBox checkBox, CheckBox checkBox2, ConstraintLayout constraintLayout6, CheckBox checkBox3, ConstraintLayout constraintLayout7, ConstraintLayout constraintLayout8, ConstraintLayout constraintLayout9, TextView textView2, ConstraintLayout constraintLayout10, SwitchButton switchButton, TextView textView3, TextView textView4, TextView textView5, TextView textView6, TextView textView7, TextView textView8, TextView textView9, TextView textView10, EditText editText6, TextView textView11, TextView textView12, TextView textView13, ConstraintLayout constraintLayout11) {
         super(obj, view, i);
         this.apply = button;
         this.constraintLayout25 = constraintLayout;

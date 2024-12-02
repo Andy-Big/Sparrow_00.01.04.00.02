@@ -18,6 +18,7 @@ import com.rigol.scope.data.MappingObject;
 import com.rigol.scope.utilities.ContextUtil;
 import com.rigol.scope.utilities.UnitFormat;
 import com.rigol.scope.utilities.ViewUtil;
+
 /* loaded from: classes2.dex */
 public class AdapterJitterConstantBindingImpl extends AdapterJitterConstantBinding {
     private static final ViewDataBinding.IncludedLayouts sIncludes = null;

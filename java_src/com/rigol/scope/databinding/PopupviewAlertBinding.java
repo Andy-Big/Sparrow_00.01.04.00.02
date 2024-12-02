@@ -10,6 +10,7 @@ import androidx.constraintlayout.widget.Guideline;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import com.rigol.scope.R;
+
 /* loaded from: classes2.dex */
 public abstract class PopupviewAlertBinding extends ViewDataBinding {
     public final View buttonBackground;
@@ -21,8 +22,7 @@ public abstract class PopupviewAlertBinding extends ViewDataBinding {
     public final Button ok;
     public final TextView title;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public PopupviewAlertBinding(Object obj, View view, int i, View view2, Button button, TextView textView, View view3, Guideline guideline, ImageView imageView, Button button2, TextView textView2) {
+    protected PopupviewAlertBinding(Object obj, View view, int i, View view2, Button button, TextView textView, View view3, Guideline guideline, ImageView imageView, Button button2, TextView textView2) {
         super(obj, view, i);
         this.buttonBackground = view2;
         this.cancel = button;

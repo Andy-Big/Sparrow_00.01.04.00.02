@@ -30,6 +30,7 @@ import com.rigol.scope.views.keyboard.KeyboardPopupView;
 import com.rigol.scope.views.spinner.PopupSpinner;
 import java.util.ArrayList;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public class DecodeParallelAdapter extends RecyclerView.Adapter<DecodeParallelHolder> implements RadioGroup.OnCheckedChangeListener, View.OnClickListener, CompoundButton.OnCheckedChangeListener, AorBManager.OnSetTextById, AorBManager.OnTextReset {
     private final View anchorView;
@@ -67,12 +68,14 @@ public class DecodeParallelAdapter extends RecyclerView.Adapter<DecodeParallelHo
         this.viewPagerHolder = viewPagerHolder;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public DecodeParallelHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         this.binding = AdapterDecodeParallelBinding.inflate(LayoutInflater.from(viewGroup.getContext()), viewGroup, false);
         return new DecodeParallelHolder(this.binding);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(DecodeParallelHolder decodeParallelHolder, int i) {
         this.binding.decodePalClkValue.setOnClickListener(this);

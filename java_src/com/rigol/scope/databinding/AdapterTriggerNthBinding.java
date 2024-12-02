@@ -18,6 +18,7 @@ import com.rigol.scope.data.TriggerParam;
 import com.rigol.scope.views.SwitchButton;
 import com.rigol.scope.views.vertical.VerticalSeekBar;
 import com.rigol.scope.views.vertical.VerticalSeekBarWrapper;
+
 /* loaded from: classes2.dex */
 public abstract class AdapterTriggerNthBinding extends ViewDataBinding {
     public final Button buttonLevel;
@@ -71,8 +72,7 @@ public abstract class AdapterTriggerNthBinding extends ViewDataBinding {
 
     public abstract void setSweepSingleMapping(MappingObject mappingObject);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public AdapterTriggerNthBinding(Object obj, View view, int i, Button button, Guideline guideline, Guideline guideline2, Guideline guideline3, Guideline guideline4, Guideline guideline5, ImageView imageView, TextView textView, EditText editText, VerticalSeekBar verticalSeekBar, View view2, TextView textView2, SwitchButton switchButton, RadioButton radioButton, TextView textView3, TextView textView4, EditText editText2, RadioButton radioButton2, TextView textView5, EditText editText3, TextView textView6, TextView textView7, VerticalSeekBarWrapper verticalSeekBarWrapper, View view3, View view4, View view5) {
+    protected AdapterTriggerNthBinding(Object obj, View view, int i, Button button, Guideline guideline, Guideline guideline2, Guideline guideline3, Guideline guideline4, Guideline guideline5, ImageView imageView, TextView textView, EditText editText, VerticalSeekBar verticalSeekBar, View view2, TextView textView2, SwitchButton switchButton, RadioButton radioButton, TextView textView3, TextView textView4, EditText editText2, RadioButton radioButton2, TextView textView5, EditText editText3, TextView textView6, TextView textView7, VerticalSeekBarWrapper verticalSeekBarWrapper, View view3, View view4, View view5) {
         super(obj, view, i);
         this.buttonLevel = button;
         this.guidelineCenter = guideline;

@@ -22,6 +22,7 @@ import com.rigol.scope.views.keyboard.KeyboardListener;
 import com.rigol.scope.views.keyboard.KeyboardPopupView;
 import java.io.File;
 import java.io.FileFilter;
+
 /* loaded from: classes.dex */
 public class UtilityScreenSaverAdapter extends RecyclerView.Adapter<ScreenSaverViewHolder> implements RadioGroup.OnCheckedChangeListener, View.OnClickListener {
     private final View baseView;
@@ -41,6 +42,7 @@ public class UtilityScreenSaverAdapter extends RecyclerView.Adapter<ScreenSaverV
         this.utilityParam = utilityParam;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public ScreenSaverViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         AdapterUtilityScreensaverBinding inflate = AdapterUtilityScreensaverBinding.inflate(LayoutInflater.from(viewGroup.getContext()), viewGroup, false);
@@ -49,6 +51,7 @@ public class UtilityScreenSaverAdapter extends RecyclerView.Adapter<ScreenSaverV
         return new ScreenSaverViewHolder(this.binding);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(ScreenSaverViewHolder screenSaverViewHolder, int i) {
         initClicke(screenSaverViewHolder);
@@ -144,8 +147,7 @@ public class UtilityScreenSaverAdapter extends RecyclerView.Adapter<ScreenSaverV
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ boolean lambda$onClick$0(File file) {
+    static /* synthetic */ boolean lambda$onClick$0(File file) {
         return file != null && (ViewUtil.isImageFile(file.getPath()) || file.isDirectory());
     }
 

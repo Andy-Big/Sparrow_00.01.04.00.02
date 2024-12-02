@@ -14,6 +14,7 @@ import androidx.databinding.ViewDataBinding;
 import com.rigol.scope.R;
 import com.rigol.scope.data.EyeParam;
 import com.rigol.scope.data.MappingObject;
+
 /* loaded from: classes2.dex */
 public abstract class AdapterEyeConstantBinding extends ViewDataBinding {
     public final ConstraintLayout eyeConstantLayout;
@@ -51,8 +52,7 @@ public abstract class AdapterEyeConstantBinding extends ViewDataBinding {
 
     public abstract void setSemiautoMapping(MappingObject mappingObject);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public AdapterEyeConstantBinding(Object obj, View view, int i, ConstraintLayout constraintLayout, TextView textView, TextView textView2, RadioButton radioButton, TextView textView3, RadioButton radioButton2, RadioGroup radioGroup, RadioButton radioButton3, Guideline guideline, Guideline guideline2) {
+    protected AdapterEyeConstantBinding(Object obj, View view, int i, ConstraintLayout constraintLayout, TextView textView, TextView textView2, RadioButton radioButton, TextView textView3, RadioButton radioButton2, RadioGroup radioGroup, RadioButton radioButton3, Guideline guideline, Guideline guideline2) {
         super(obj, view, i);
         this.eyeConstantLayout = constraintLayout;
         this.eyeDataRateLabel = textView;

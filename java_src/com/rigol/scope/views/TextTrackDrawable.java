@@ -4,8 +4,10 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.ColorFilter;
 import android.graphics.Paint;
+import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import androidx.core.view.ViewCompat;
+
 /* loaded from: classes2.dex */
 public class TextTrackDrawable extends Drawable {
     private final Paint mBackgroundPaint;
@@ -61,107 +63,63 @@ public class TextTrackDrawable extends Drawable {
     @Override // android.graphics.drawable.Drawable
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    public void draw(android.graphics.Canvas r13) {
-        /*
-            r12 = this;
-            android.graphics.Rect r0 = r13.getClipBounds()
-            int r8 = r0.width()
-            int r0 = r12.mSelectedWidth
-            if (r0 == 0) goto L16
-            boolean r1 = r12.mSwitchChecked
-            if (r1 == 0) goto L11
-            goto L18
-        L11:
-            int r1 = r8 - r0
-            r10 = r0
-            r9 = r1
-            goto L1c
-        L16:
-            int r0 = r8 / 2
-        L18:
-            int r1 = r8 - r0
-            r9 = r0
-            r10 = r1
-        L1c:
-            boolean r0 = r12.mSwitchChecked
-            if (r0 == 0) goto L4f
-            boolean r0 = r12.mShowFullBackground
-            if (r0 != 0) goto L4f
-            r1 = 0
-            r2 = 0
-            float r11 = (float) r9
-            android.graphics.Rect r0 = r13.getClipBounds()
-            int r0 = r0.height()
-            float r4 = (float) r0
-            r5 = 1084227584(0x40a00000, float:5.0)
-            r6 = 1084227584(0x40a00000, float:5.0)
-            android.graphics.Paint r7 = r12.mBackgroundPaint
-            r0 = r13
-            r3 = r11
-            r0.drawRoundRect(r1, r2, r3, r4, r5, r6, r7)
-            int r0 = r9 + (-5)
-            float r1 = (float) r0
-            android.graphics.Rect r0 = r13.getClipBounds()
-            int r0 = r0.height()
-            float r4 = (float) r0
-            r5 = 0
-            r6 = 0
-            android.graphics.Paint r7 = r12.mBackgroundPaint
-            r0 = r13
-            r0.drawRoundRect(r1, r2, r3, r4, r5, r6, r7)
-        L4f:
-            boolean r0 = r12.mShowFullBackground
-            if (r0 == 0) goto L69
-            r1 = 0
-            r2 = 0
-            float r3 = (float) r8
-            android.graphics.Rect r0 = r13.getClipBounds()
-            int r0 = r0.height()
-            float r4 = (float) r0
-            r5 = 1084227584(0x40a00000, float:5.0)
-            r6 = 1084227584(0x40a00000, float:5.0)
-            android.graphics.Paint r7 = r12.mBackgroundPaint
-            r0 = r13
-            r0.drawRoundRect(r1, r2, r3, r4, r5, r6, r7)
-        L69:
-            android.graphics.Rect r0 = new android.graphics.Rect
-            r0.<init>()
-            android.graphics.Paint r1 = r12.mTextPaint
-            java.lang.String r2 = r12.mRightText
-            r3 = 0
-            int r4 = r2.length()
-            r1.getTextBounds(r2, r3, r4, r0)
-            android.graphics.Rect r1 = r13.getClipBounds()
-            int r1 = r1.height()
-            int r1 = r1 / 2
-            int r0 = r0.height()
-            int r0 = r0 / 2
-            int r1 = r1 + r0
-            int r0 = r12.mSelectedWidth
-            if (r0 == 0) goto L9a
-            double r2 = (double) r9
-            r4 = 4611686018427387904(0x4000000000000000, double:2.0)
-            double r6 = r2 / r4
-            float r0 = (float) r6
-            double r6 = (double) r10
-            double r6 = r6 / r4
-            double r2 = r2 + r6
-            float r2 = (float) r2
-            goto La1
-        L9a:
-            int r0 = r9 >> 1
-            float r0 = (float) r0
-            int r2 = r10 >> 1
-            int r9 = r9 + r2
-            float r2 = (float) r9
-        La1:
-            r12.drawLeftText(r13, r0, r1)
-            r12.drawRightText(r13, r2, r1)
-            return
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.rigol.scope.views.TextTrackDrawable.draw(android.graphics.Canvas):void");
+    public void draw(Canvas canvas) {
+        int i;
+        int i2;
+        float f;
+        float f2;
+        int width = canvas.getClipBounds().width();
+        int i3 = this.mSelectedWidth;
+        if (i3 != 0) {
+            if (!this.mSwitchChecked) {
+                i2 = i3;
+                i = width - i3;
+                if (this.mSwitchChecked && !this.mShowFullBackground) {
+                    float f3 = i;
+                    canvas.drawRoundRect(0.0f, 0.0f, f3, canvas.getClipBounds().height(), 5.0f, 5.0f, this.mBackgroundPaint);
+                    canvas.drawRoundRect(i - 5, 0.0f, f3, canvas.getClipBounds().height(), 0.0f, 0.0f, this.mBackgroundPaint);
+                }
+                if (this.mShowFullBackground) {
+                    canvas.drawRoundRect(0.0f, 0.0f, width, canvas.getClipBounds().height(), 5.0f, 5.0f, this.mBackgroundPaint);
+                }
+                Rect rect = new Rect();
+                Paint paint = this.mTextPaint;
+                String str = this.mRightText;
+                paint.getTextBounds(str, 0, str.length(), rect);
+                int height = (canvas.getClipBounds().height() / 2) + (rect.height() / 2);
+                if (this.mSelectedWidth == 0) {
+                    double d = i;
+                    f = (float) (d / 2.0d);
+                    f2 = (float) (d + (i2 / 2.0d));
+                } else {
+                    f = i >> 1;
+                    f2 = i + (i2 >> 1);
+                }
+                drawLeftText(canvas, f, height);
+                drawRightText(canvas, f2, height);
+            }
+        } else {
+            i3 = width / 2;
+        }
+        i = i3;
+        i2 = width - i3;
+        if (this.mSwitchChecked) {
+            float f32 = i;
+            canvas.drawRoundRect(0.0f, 0.0f, f32, canvas.getClipBounds().height(), 5.0f, 5.0f, this.mBackgroundPaint);
+            canvas.drawRoundRect(i - 5, 0.0f, f32, canvas.getClipBounds().height(), 0.0f, 0.0f, this.mBackgroundPaint);
+        }
+        if (this.mShowFullBackground) {
+        }
+        Rect rect2 = new Rect();
+        Paint paint2 = this.mTextPaint;
+        String str2 = this.mRightText;
+        paint2.getTextBounds(str2, 0, str2.length(), rect2);
+        int height2 = (canvas.getClipBounds().height() / 2) + (rect2.height() / 2);
+        if (this.mSelectedWidth == 0) {
+        }
+        drawLeftText(canvas, f, height2);
+        drawRightText(canvas, f2, height2);
     }
 
     private void drawLeftText(Canvas canvas, float f, int i) {

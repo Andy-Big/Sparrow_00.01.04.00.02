@@ -9,6 +9,7 @@ import android.widget.TextView;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import com.rigol.scope.R;
+
 /* loaded from: classes2.dex */
 public abstract class AdapterStorageUpgradeBinding extends ViewDataBinding {
     public final TextView pathName;
@@ -17,8 +18,7 @@ public abstract class AdapterStorageUpgradeBinding extends ViewDataBinding {
     public final TextView tvMemUnenoughHint;
     public final Button upgrade;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public AdapterStorageUpgradeBinding(Object obj, View view, int i, TextView textView, EditText editText, TextView textView2, TextView textView3, Button button) {
+    protected AdapterStorageUpgradeBinding(Object obj, View view, int i, TextView textView, EditText editText, TextView textView2, TextView textView3, Button button) {
         super(obj, view, i);
         this.pathName = textView;
         this.pathNameEditText = editText;

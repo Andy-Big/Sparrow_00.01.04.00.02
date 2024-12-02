@@ -12,6 +12,7 @@ import com.rigol.scope.R;
 import com.rigol.scope.data.BodeParam;
 import com.rigol.scope.data.FftParam;
 import com.rigol.scope.data.MappingObject;
+
 /* loaded from: classes2.dex */
 public abstract class BodeResultPopuwinBinding extends ViewDataBinding {
     public final Guideline guidelineCenter;
@@ -40,8 +41,7 @@ public abstract class BodeResultPopuwinBinding extends ViewDataBinding {
 
     public abstract void setParam(FftParam fftParam);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public BodeResultPopuwinBinding(Object obj, View view, int i, Guideline guideline, Guideline guideline2, Guideline guideline3, TextView textView, TextView textView2, TextView textView3, TextView textView4, TextView textView5, TextView textView6) {
+    protected BodeResultPopuwinBinding(Object obj, View view, int i, Guideline guideline, Guideline guideline2, Guideline guideline3, TextView textView, TextView textView2, TextView textView3, TextView textView4, TextView textView5, TextView textView6) {
         super(obj, view, i);
         this.guidelineCenter = guideline;
         this.guidelineCenter12 = guideline2;

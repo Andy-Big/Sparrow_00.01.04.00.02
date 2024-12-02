@@ -9,6 +9,7 @@ import com.rigol.scope.adapters.LaViewPagerAdapter;
 import com.rigol.scope.databinding.PopupviewLaBinding;
 import com.rigol.scope.utilities.ViewUtil;
 import com.rigol.scope.views.baseview.BasePopupView;
+
 /* loaded from: classes2.dex */
 public class LapopupView extends BasePopupView implements TabLayoutMediator.TabConfigurationStrategy {
     private LaViewPagerAdapter laViewPagerAdapter;

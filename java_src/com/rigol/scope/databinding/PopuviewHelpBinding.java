@@ -7,13 +7,13 @@ import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import com.github.barteksc.pdfviewer.PDFView;
 import com.rigol.scope.R;
+
 /* loaded from: classes2.dex */
 public abstract class PopuviewHelpBinding extends ViewDataBinding {
     public final View titleLayout;
     public final PDFView webview;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public PopuviewHelpBinding(Object obj, View view, int i, View view2, PDFView pDFView) {
+    protected PopuviewHelpBinding(Object obj, View view, int i, View view2, PDFView pDFView) {
         super(obj, view, i);
         this.titleLayout = view2;
         this.webview = pDFView;

@@ -10,6 +10,7 @@ import androidx.databinding.ViewDataBinding;
 import com.rigol.scope.R;
 import com.rigol.scope.data.LaParam;
 import com.rigol.scope.views.SwitchButton;
+
 /* loaded from: classes2.dex */
 public abstract class AdapterLaColorBinding extends ViewDataBinding {
     public final TextView laLabelEdit;
@@ -25,8 +26,7 @@ public abstract class AdapterLaColorBinding extends ViewDataBinding {
 
     public abstract void setParma(LaParam laParam);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public AdapterLaColorBinding(Object obj, View view, int i, TextView textView, TextView textView2, TextView textView3, TextView textView4, TextView textView5, TextView textView6, TextView textView7, SwitchButton switchButton) {
+    protected AdapterLaColorBinding(Object obj, View view, int i, TextView textView, TextView textView2, TextView textView3, TextView textView4, TextView textView5, TextView textView6, TextView textView7, SwitchButton switchButton) {
         super(obj, view, i);
         this.laLabelEdit = textView;
         this.laLabelEn = textView2;

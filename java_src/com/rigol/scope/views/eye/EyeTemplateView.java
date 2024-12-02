@@ -10,6 +10,7 @@ import com.rigol.scope.cil.API;
 import com.rigol.scope.cil.MessageID;
 import com.rigol.scope.cil.ServiceEnum;
 import com.rigol.scope.views.window.WindowType;
+
 /* loaded from: classes2.dex */
 public class EyeTemplateView extends View {
     private Context mContext;

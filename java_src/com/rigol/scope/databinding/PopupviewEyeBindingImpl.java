@@ -11,13 +11,22 @@ import android.widget.TextView;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.Guideline;
 import androidx.databinding.DataBindingComponent;
+import androidx.databinding.InverseBindingListener;
 import androidx.databinding.ViewDataBinding;
+import androidx.databinding.adapters.CompoundButtonBindingAdapter;
+import androidx.databinding.adapters.RadioGroupBindingAdapter;
+import androidx.databinding.adapters.TextViewBindingAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 import com.rigol.scope.R;
+import com.rigol.scope.cil.ServiceEnum;
 import com.rigol.scope.data.BaseProperty;
 import com.rigol.scope.data.EyeParam;
 import com.rigol.scope.data.MappingObject;
+import com.rigol.scope.utilities.ColorUtil;
+import com.rigol.scope.utilities.UnitFormat;
+import com.rigol.scope.utilities.ViewUtil;
 import com.rigol.scope.views.SwitchButton;
+
 /* loaded from: classes2.dex */
 public class PopupviewEyeBindingImpl extends PopupviewEyeBinding {
     private static final ViewDataBinding.IncludedLayouts sIncludes = null;
@@ -639,13 +648,457 @@ public class PopupviewEyeBindingImpl extends PopupviewEyeBinding {
     @Override // androidx.databinding.ViewDataBinding
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
     protected void executeBindings() {
-        /*
-            Method dump skipped, instructions count: 1438
-            To view this dump add '--comments-level debug' option
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.rigol.scope.databinding.PopupviewEyeBindingImpl.executeBindings():void");
+        long j;
+        String str;
+        String str2;
+        int i;
+        RadioGroup.OnCheckedChangeListener onCheckedChangeListener;
+        String str3;
+        String str4;
+        String str5;
+        String str6;
+        String str7;
+        boolean z;
+        boolean z2;
+        boolean z3;
+        boolean z4;
+        boolean z5;
+        boolean z6;
+        int i2;
+        boolean z7;
+        boolean z8;
+        boolean z9;
+        boolean z10;
+        String str8;
+        String str9;
+        String str10;
+        RadioGroup.OnCheckedChangeListener onCheckedChangeListener2;
+        String str11;
+        long j2;
+        String str12;
+        int i3;
+        boolean z11;
+        boolean z12;
+        int i4;
+        boolean z13;
+        String str13;
+        boolean z14;
+        boolean z15;
+        boolean z16;
+        boolean z17;
+        String str14;
+        String str15;
+        int i5;
+        String str16;
+        String str17;
+        boolean z18;
+        boolean z19;
+        String str18;
+        boolean z20;
+        boolean z21;
+        boolean z22;
+        boolean z23;
+        BaseProperty<Integer> baseProperty;
+        BaseProperty<Boolean> baseProperty2;
+        BaseProperty<Integer> baseProperty3;
+        BaseProperty<Integer> baseProperty4;
+        BaseProperty<Integer> baseProperty5;
+        BaseProperty<Integer> baseProperty6;
+        int i6;
+        synchronized (this) {
+            j = this.mDirtyFlags;
+            this.mDirtyFlags = 0L;
+        }
+        MappingObject mappingObject = this.mGridFullMapping;
+        MappingObject mappingObject2 = this.mPllMapping;
+        RadioGroup.OnCheckedChangeListener onCheckedChangeListener3 = this.mOnCheckedChangeListener;
+        MappingObject mappingObject3 = this.mConstantMapping;
+        CompoundButton.OnCheckedChangeListener onCheckedChangeListener4 = this.mOnSwitchCheckedChangeListener;
+        EyeParam eyeParam = this.mParam;
+        View.OnClickListener onClickListener = this.mOnClickListener;
+        MappingObject mappingObject4 = this.mGridHalfMapping;
+        MappingObject mappingObject5 = this.mGridNoneMapping;
+        MappingObject mappingObject6 = this.mExplicitMapping;
+        int i7 = ((35184405643265L & j) > 0L ? 1 : ((35184405643265L & j) == 0L ? 0 : -1));
+        String str19 = (i7 == 0 || mappingObject == null) ? null : mappingObject.getStr();
+        int i8 = ((j & 35184640524296L) > 0L ? 1 : ((j & 35184640524296L) == 0L ? 0 : -1));
+        String str20 = (i8 == 0 || mappingObject2 == null) ? null : mappingObject2.getStr();
+        int i9 = ((j & 35184376283136L) > 0L ? 1 : ((j & 35184376283136L) == 0L ? 0 : -1));
+        int i10 = ((j & 35184908959760L) > 0L ? 1 : ((j & 35184908959760L) == 0L ? 0 : -1));
+        String str21 = (i10 == 0 || mappingObject3 == null) ? null : mappingObject3.getStr();
+        int i11 = ((j & 35184380477440L) > 0L ? 1 : ((j & 35184380477440L) == 0L ? 0 : -1));
+        boolean z24 = false;
+        if ((j & 69805233110246L) != 0) {
+            if ((j & 35184439197762L) != 0) {
+                BaseProperty<Integer> noiseHoldUp = eyeParam != null ? eyeParam.getNoiseHoldUp() : null;
+                updateRegistration(1, noiseHoldUp);
+                str = str19;
+                i = i7;
+                str10 = UnitFormat.newBuilder(" 0.000", UnitFormat.SI.MICRO).convert(ViewDataBinding.safeUnbox(noiseHoldUp != null ? noiseHoldUp.getValue() : null), ServiceEnum.Unit.Unit_V);
+            } else {
+                str = str19;
+                i = i7;
+                str10 = null;
+            }
+            if ((j & 35184506306628L) != 0) {
+                BaseProperty<Integer> midThres = eyeParam != null ? eyeParam.getMidThres() : null;
+                updateRegistration(2, midThres);
+                str2 = str20;
+                onCheckedChangeListener2 = onCheckedChangeListener3;
+                str11 = UnitFormat.newBuilder(UnitFormat.PATTERN_SIGN, UnitFormat.SI.NONE).convert(ViewDataBinding.safeUnbox(midThres != null ? midThres.getValue() : null)) + ServiceEnum.Unit.Unit_percent.value2;
+            } else {
+                str2 = str20;
+                onCheckedChangeListener2 = onCheckedChangeListener3;
+                str11 = null;
+            }
+            if ((j & 35219805571168L) != 0) {
+                BaseProperty<Integer> chan = eyeParam != null ? eyeParam.getChan() : null;
+                updateRegistration(5, chan);
+                int safeUnbox = ViewDataBinding.safeUnbox(chan != null ? chan.getValue() : null);
+                MappingObject mappingObject7 = ViewUtil.getMappingObject(R.array.msg_eye_source, safeUnbox);
+                updateRegistration(11, mappingObject7);
+                str12 = mappingObject7 != null ? mappingObject7.getStr() : null;
+                j2 = 0;
+                if ((j & 35185445830752L) != 0) {
+                    i3 = ColorUtil.getColor(getRoot().getContext(), ServiceEnum.getChanFromValue1(safeUnbox));
+                    if ((j & 35186519572672L) == j2) {
+                        if (eyeParam != null) {
+                            baseProperty6 = eyeParam.getRecoveryType();
+                            str6 = str10;
+                        } else {
+                            str6 = str10;
+                            baseProperty6 = null;
+                        }
+                        updateRegistration(7, baseProperty6);
+                        int safeUnbox2 = ViewDataBinding.safeUnbox(baseProperty6 != null ? baseProperty6.getValue() : null);
+                        if (safeUnbox2 == 2) {
+                            i6 = true;
+                            z12 = true;
+                        } else {
+                            z12 = false;
+                            i6 = true;
+                        }
+                        i4 = safeUnbox2 == i6 ? i6 : false;
+                        z11 = safeUnbox2 == 0 ? i6 : false;
+                    } else {
+                        str6 = str10;
+                        z11 = false;
+                        z12 = false;
+                        i4 = false;
+                    }
+                    if ((j & 35201551959104L) == 0) {
+                        if (eyeParam != null) {
+                            z13 = z11;
+                            baseProperty5 = eyeParam.getGrids();
+                        } else {
+                            z13 = z11;
+                            baseProperty5 = null;
+                        }
+                        updateRegistration(10, baseProperty5);
+                        int safeUnbox3 = ViewDataBinding.safeUnbox(baseProperty5 != null ? baseProperty5.getValue() : null);
+                        str13 = str11;
+                        z15 = safeUnbox3 == ServiceEnum.EWaveGrids.GRID_IS_HALF.value1;
+                        z16 = safeUnbox3 == ServiceEnum.EWaveGrids.GRID_IS_NONE.value1;
+                        z14 = safeUnbox3 == ServiceEnum.EWaveGrids.GRID_IS_FULL.value1;
+                    } else {
+                        z13 = z11;
+                        str13 = str11;
+                        z14 = false;
+                        z15 = false;
+                        z16 = false;
+                    }
+                    if ((j & 39651138342976L) == 0) {
+                        if (eyeParam != null) {
+                            baseProperty4 = eyeParam.getEyeTemplate();
+                            z17 = z14;
+                        } else {
+                            z17 = z14;
+                            baseProperty4 = null;
+                        }
+                        updateRegistration(12, baseProperty4);
+                        MappingObject mappingObject8 = ViewUtil.getMappingObject(R.array.msg_eye_template, ViewDataBinding.safeUnbox(baseProperty4 != null ? baseProperty4.getValue() : null));
+                        updateRegistration(18, mappingObject8);
+                        if (mappingObject8 != null) {
+                            str14 = mappingObject8.getStr();
+                            if ((j & 35321811050560L) != 0) {
+                                if (eyeParam != null) {
+                                    baseProperty3 = eyeParam.getLowThres();
+                                    str15 = str14;
+                                } else {
+                                    str15 = str14;
+                                    baseProperty3 = null;
+                                }
+                                updateRegistration(13, baseProperty3);
+                                i5 = i3;
+                                str16 = str12;
+                                str17 = UnitFormat.newBuilder(UnitFormat.PATTERN_SIGN, UnitFormat.SI.NONE).convert(ViewDataBinding.safeUnbox(baseProperty3 != null ? baseProperty3.getValue() : null)) + ServiceEnum.Unit.Unit_percent.value2;
+                            } else {
+                                str15 = str14;
+                                i5 = i3;
+                                str16 = str12;
+                                str17 = null;
+                            }
+                            if ((j & 35459250012224L) != 0) {
+                                BaseProperty<Boolean> enabled = eyeParam != null ? eyeParam.getEnabled() : null;
+                                updateRegistration(14, enabled);
+                                z18 = ViewDataBinding.safeUnbox(enabled != null ? enabled.getValue() : null);
+                            } else {
+                                z18 = false;
+                            }
+                            if ((j & 36283883782208L) != 0) {
+                                BaseProperty<Boolean> persistance = eyeParam != null ? eyeParam.getPersistance() : null;
+                                updateRegistration(16, persistance);
+                                z19 = ViewDataBinding.safeUnbox(persistance != null ? persistance.getValue() : null);
+                            } else {
+                                z19 = false;
+                            }
+                            if ((j & 37383395475520L) != 0) {
+                                if (eyeParam != null) {
+                                    baseProperty2 = eyeParam.getResult();
+                                    str18 = str17;
+                                } else {
+                                    str18 = str17;
+                                    baseProperty2 = null;
+                                }
+                                updateRegistration(17, baseProperty2);
+                                z20 = ViewDataBinding.safeUnbox(baseProperty2 != null ? baseProperty2.getValue() : null);
+                            } else {
+                                str18 = str17;
+                                z20 = false;
+                            }
+                            if ((j & 43980465635392L) != 0) {
+                                if (eyeParam != null) {
+                                    baseProperty = eyeParam.getHighThres();
+                                    z21 = z20;
+                                } else {
+                                    z21 = z20;
+                                    baseProperty = null;
+                                }
+                                updateRegistration(19, baseProperty);
+                                z22 = z18;
+                                z23 = z19;
+                                str3 = UnitFormat.newBuilder(UnitFormat.PATTERN_SIGN, UnitFormat.SI.NONE).convert(ViewDataBinding.safeUnbox(baseProperty != null ? baseProperty.getValue() : null)) + ServiceEnum.Unit.Unit_percent.value2;
+                            } else {
+                                z21 = z20;
+                                z22 = z18;
+                                z23 = z19;
+                                str3 = null;
+                            }
+                            if ((j & 52776559181888L) != 0) {
+                                BaseProperty<Boolean> templateFlag = eyeParam != null ? eyeParam.getTemplateFlag() : null;
+                                updateRegistration(20, templateFlag);
+                                z24 = ViewDataBinding.safeUnbox(templateFlag != null ? templateFlag.getValue() : null);
+                            }
+                            z9 = z15;
+                            z7 = z24;
+                            z2 = i4;
+                            z8 = z17;
+                            z4 = z13;
+                            str7 = str13;
+                            z10 = z16;
+                            str8 = str15;
+                            i2 = i5;
+                            str5 = str16;
+                            str4 = str18;
+                            z3 = z21;
+                            z = z22;
+                            z6 = z23;
+                            boolean z25 = z12;
+                            onCheckedChangeListener = onCheckedChangeListener2;
+                            z5 = z25;
+                        }
+                    } else {
+                        z17 = z14;
+                    }
+                    str14 = null;
+                    if ((j & 35321811050560L) != 0) {
+                    }
+                    if ((j & 35459250012224L) != 0) {
+                    }
+                    if ((j & 36283883782208L) != 0) {
+                    }
+                    if ((j & 37383395475520L) != 0) {
+                    }
+                    if ((j & 43980465635392L) != 0) {
+                    }
+                    if ((j & 52776559181888L) != 0) {
+                    }
+                    z9 = z15;
+                    z7 = z24;
+                    z2 = i4;
+                    z8 = z17;
+                    z4 = z13;
+                    str7 = str13;
+                    z10 = z16;
+                    str8 = str15;
+                    i2 = i5;
+                    str5 = str16;
+                    str4 = str18;
+                    z3 = z21;
+                    z = z22;
+                    z6 = z23;
+                    boolean z252 = z12;
+                    onCheckedChangeListener = onCheckedChangeListener2;
+                    z5 = z252;
+                }
+            } else {
+                j2 = 0;
+                str12 = null;
+            }
+            i3 = 0;
+            if ((j & 35186519572672L) == j2) {
+            }
+            if ((j & 35201551959104L) == 0) {
+            }
+            if ((j & 39651138342976L) == 0) {
+            }
+            str14 = null;
+            if ((j & 35321811050560L) != 0) {
+            }
+            if ((j & 35459250012224L) != 0) {
+            }
+            if ((j & 36283883782208L) != 0) {
+            }
+            if ((j & 37383395475520L) != 0) {
+            }
+            if ((j & 43980465635392L) != 0) {
+            }
+            if ((j & 52776559181888L) != 0) {
+            }
+            z9 = z15;
+            z7 = z24;
+            z2 = i4;
+            z8 = z17;
+            z4 = z13;
+            str7 = str13;
+            z10 = z16;
+            str8 = str15;
+            i2 = i5;
+            str5 = str16;
+            str4 = str18;
+            z3 = z21;
+            z = z22;
+            z6 = z23;
+            boolean z2522 = z12;
+            onCheckedChangeListener = onCheckedChangeListener2;
+            z5 = z2522;
+        } else {
+            str = str19;
+            str2 = str20;
+            i = i7;
+            onCheckedChangeListener = onCheckedChangeListener3;
+            str3 = null;
+            str4 = null;
+            str5 = null;
+            str6 = null;
+            str7 = null;
+            z = false;
+            z2 = false;
+            z3 = false;
+            z4 = false;
+            z5 = false;
+            z6 = false;
+            i2 = 0;
+            z7 = false;
+            z8 = false;
+            z9 = false;
+            z10 = false;
+            str8 = null;
+        }
+        int i12 = ((j & 35184388866048L) > 0L ? 1 : ((j & 35184388866048L) == 0L ? 0 : -1));
+        int i13 = ((j & 35188667056384L) > 0L ? 1 : ((j & 35188667056384L) == 0L ? 0 : -1));
+        String str22 = (i13 == 0 || mappingObject4 == null) ? null : mappingObject4.getStr();
+        int i14 = ((j & 35192962023936L) > 0L ? 1 : ((j & 35192962023936L) == 0L ? 0 : -1));
+        String str23 = (i14 == 0 || mappingObject5 == null) ? null : mappingObject5.getStr();
+        int i15 = ((j & 35734127935488L) > 0L ? 1 : ((j & 35734127935488L) == 0L ? 0 : -1));
+        String str24 = (i15 == 0 || mappingObject6 == null) ? null : mappingObject6.getStr();
+        if ((j & 35186519572672L) != 0) {
+            str9 = str23;
+            CompoundButtonBindingAdapter.setChecked(this.eyeConstantRadioButton, z4);
+            CompoundButtonBindingAdapter.setChecked(this.eyeExplicitRadioButton, z5);
+            CompoundButtonBindingAdapter.setChecked(this.eyePllRadioButton, z2);
+        } else {
+            str9 = str23;
+        }
+        if (i10 != 0) {
+            TextViewBindingAdapter.setText(this.eyeConstantRadioButton, str21);
+        }
+        if (i15 != 0) {
+            TextViewBindingAdapter.setText(this.eyeExplicitRadioButton, str24);
+        }
+        if ((j & 35459250012224L) != 0) {
+            CompoundButtonBindingAdapter.setChecked(this.eyeEyeEnSwitchButton, z);
+        }
+        if (i11 != 0) {
+            InverseBindingListener inverseBindingListener = null;
+            CompoundButtonBindingAdapter.setListeners(this.eyeEyeEnSwitchButton, onCheckedChangeListener4, inverseBindingListener);
+            CompoundButtonBindingAdapter.setListeners(this.eyeMeasEnSwitchButton, onCheckedChangeListener4, inverseBindingListener);
+            CompoundButtonBindingAdapter.setListeners(this.eyePersistanceSwitchButton, onCheckedChangeListener4, inverseBindingListener);
+            CompoundButtonBindingAdapter.setListeners(this.eyeTemplateStatusSwitchButton, onCheckedChangeListener4, inverseBindingListener);
+        }
+        if (i12 != 0) {
+            this.eyeHighThresValue.setOnClickListener(onClickListener);
+            this.eyeLowThresValue.setOnClickListener(onClickListener);
+            this.eyeMidThresValue.setOnClickListener(onClickListener);
+            this.eyeNoiseHoldupValue.setOnClickListener(onClickListener);
+            this.eyeSourceValue.setOnClickListener(onClickListener);
+            this.eyeTemplateValue.setOnClickListener(onClickListener);
+            this.resetColorButton.setOnClickListener(onClickListener);
+        }
+        if ((j & 43980465635392L) != 0) {
+            TextViewBindingAdapter.setText(this.eyeHighThresValue, str3);
+        }
+        if ((j & 35321811050560L) != 0) {
+            TextViewBindingAdapter.setText(this.eyeLowThresValue, str4);
+        }
+        if ((j & 37383395475520L) != 0) {
+            CompoundButtonBindingAdapter.setChecked(this.eyeMeasEnSwitchButton, z3);
+        }
+        if ((j & 35184506306628L) != 0) {
+            TextViewBindingAdapter.setText(this.eyeMidThresValue, str7);
+        }
+        if ((j & 35184439197762L) != 0) {
+            TextViewBindingAdapter.setText(this.eyeNoiseHoldupValue, str6);
+        }
+        if ((j & 36283883782208L) != 0) {
+            CompoundButtonBindingAdapter.setChecked(this.eyePersistanceSwitchButton, z6);
+        }
+        if (i8 != 0) {
+            TextViewBindingAdapter.setText(this.eyePllRadioButton, str2);
+        }
+        if (i9 != 0) {
+            InverseBindingListener inverseBindingListener2 = null;
+            RadioGroup.OnCheckedChangeListener onCheckedChangeListener5 = onCheckedChangeListener;
+            RadioGroupBindingAdapter.setListeners(this.eyeRecoverTypeRadioGroup, onCheckedChangeListener5, inverseBindingListener2);
+            RadioGroupBindingAdapter.setListeners(this.gridTypeRadioGroup, onCheckedChangeListener5, inverseBindingListener2);
+        }
+        if ((j & 35219805571168L) != 0) {
+            TextViewBindingAdapter.setText(this.eyeSourceValue, str5);
+        }
+        if ((j & 35185445830752L) != 0) {
+            this.eyeSourceValue.setTextColor(i2);
+        }
+        if ((j & 52776559181888L) != 0) {
+            CompoundButtonBindingAdapter.setChecked(this.eyeTemplateStatusSwitchButton, z7);
+        }
+        if ((j & 39651138342976L) != 0) {
+            TextViewBindingAdapter.setText(this.eyeTemplateValue, str8);
+        }
+        if ((j & 35201551959104L) != 0) {
+            CompoundButtonBindingAdapter.setChecked(this.fullRadioButton, z8);
+            CompoundButtonBindingAdapter.setChecked(this.halfRadioButton, z9);
+            CompoundButtonBindingAdapter.setChecked(this.noneRadioButton, z10);
+        }
+        if (i != 0) {
+            TextViewBindingAdapter.setText(this.fullRadioButton, str);
+        }
+        if (i13 != 0) {
+            TextViewBindingAdapter.setText(this.halfRadioButton, str22);
+        }
+        if (i14 != 0) {
+            TextViewBindingAdapter.setText(this.noneRadioButton, str9);
+        }
     }
 }

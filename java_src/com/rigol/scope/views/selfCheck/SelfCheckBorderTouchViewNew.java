@@ -9,6 +9,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import androidx.core.view.ViewCompat;
 import java.util.Arrays;
+
 /* loaded from: classes2.dex */
 public class SelfCheckBorderTouchViewNew extends View {
     private Paint PromptPaint;

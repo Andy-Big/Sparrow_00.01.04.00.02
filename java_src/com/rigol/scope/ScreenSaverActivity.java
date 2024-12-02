@@ -17,14 +17,14 @@ import com.rigol.scope.databinding.ActivityScreenSaverBinding;
 import com.rigol.scope.utilities.ContextUtil;
 import com.rigol.scope.viewmodels.UtilityViewModel;
 import java.io.File;
+
 /* loaded from: classes.dex */
 public class ScreenSaverActivity extends BaseActivity {
     private ActivityScreenSaverBinding binding;
     private UtilityParam utilityParam;
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.rigol.scope.BaseActivity, androidx.appcompat.app.AppCompatActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
-    public void onCreate(Bundle bundle) {
+    protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         requestWindowFeature(1);
         getWindow().addFlags(1024);
@@ -157,15 +157,13 @@ public class ScreenSaverActivity extends BaseActivity {
         });
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onResume() {
+    protected void onResume() {
         super.onResume();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onPause() {
+    protected void onPause() {
         super.onPause();
     }
 
@@ -191,9 +189,8 @@ public class ScreenSaverActivity extends BaseActivity {
         return super.onSearchRequested();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.rigol.scope.BaseActivity, androidx.appcompat.app.AppCompatActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onDestroy() {
+    protected void onDestroy() {
         super.onDestroy();
     }
 }

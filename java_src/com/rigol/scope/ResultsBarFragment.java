@@ -66,6 +66,7 @@ import com.rigol.scope.views.quick.QuickPopupView;
 import java.util.List;
 import java.util.Objects;
 import org.json.JSONException;
+
 /* loaded from: classes.dex */
 public class ResultsBarFragment extends BaseFragment {
     private FragmentResultsBarBinding binding;

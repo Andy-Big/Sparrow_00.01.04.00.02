@@ -34,6 +34,7 @@ import com.rigol.scope.views.trigger.TriggerPopupView;
 import com.rigol.util.ToastUtils;
 import java.util.ArrayList;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public class TriggerDurationAdapter extends RecyclerView.Adapter<TriggerDurationHolder> implements View.OnClickListener, CompoundButton.OnCheckedChangeListener, AorBManager.OnSetTextById, AorBManager.OnTextReset {
     private View anchorView;
@@ -86,6 +87,7 @@ public class TriggerDurationAdapter extends RecyclerView.Adapter<TriggerDuration
         this.serviceId = triggerParam.getServiceId();
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public TriggerDurationHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         this.binding = AdapterTriggerDurationBinding.inflate(LayoutInflater.from(viewGroup.getContext()), viewGroup, false);
@@ -164,6 +166,7 @@ public class TriggerDurationAdapter extends RecyclerView.Adapter<TriggerDuration
         }
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(TriggerDurationHolder triggerDurationHolder, int i) {
         ShowTriggerDuration();

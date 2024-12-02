@@ -1,4 +1,5 @@
 package com.rigol.scope.cil;
+
 /* loaded from: classes2.dex */
 public class MessageID {
     public static final int ALERT_POPUP_TITLE_SWITCH = 24603;

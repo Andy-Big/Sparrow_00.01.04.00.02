@@ -17,6 +17,7 @@ import com.rigol.scope.data.WindowParam;
 import com.rigol.scope.utilities.ContextUtil;
 import com.rigol.scope.viewmodels.UpdateUIViewModel;
 import timber.log.Timber;
+
 /* loaded from: classes2.dex */
 public class BaseSurfaceView extends TextureView implements TextureView.SurfaceTextureListener {
     GestureDetector gestureDetector;

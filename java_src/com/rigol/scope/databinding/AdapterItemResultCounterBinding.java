@@ -11,6 +11,7 @@ import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import com.rigol.scope.R;
 import com.rigol.scope.data.CounterResultParam;
+
 /* loaded from: classes2.dex */
 public abstract class AdapterItemResultCounterBinding extends ViewDataBinding {
     public final TextView avg;
@@ -31,8 +32,7 @@ public abstract class AdapterItemResultCounterBinding extends ViewDataBinding {
 
     public abstract void setParam(CounterResultParam counterResultParam);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public AdapterItemResultCounterBinding(Object obj, View view, int i, TextView textView, TextView textView2, TextView textView3, ImageView imageView, TextView textView4, TextView textView5, TextView textView6, TextView textView7, ConstraintLayout constraintLayout, TextView textView8, ConstraintLayout constraintLayout2, TextView textView9, TextView textView10) {
+    protected AdapterItemResultCounterBinding(Object obj, View view, int i, TextView textView, TextView textView2, TextView textView3, ImageView imageView, TextView textView4, TextView textView5, TextView textView6, TextView textView7, ConstraintLayout constraintLayout, TextView textView8, ConstraintLayout constraintLayout2, TextView textView9, TextView textView10) {
         super(obj, view, i);
         this.avg = textView;
         this.avgTitle = textView2;

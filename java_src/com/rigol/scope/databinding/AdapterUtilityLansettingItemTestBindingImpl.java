@@ -11,6 +11,7 @@ import androidx.databinding.DataBindingComponent;
 import androidx.databinding.ViewDataBinding;
 import com.rigol.scope.R;
 import com.rigol.scope.views.SwitchButton;
+
 /* loaded from: classes2.dex */
 public class AdapterUtilityLansettingItemTestBindingImpl extends AdapterUtilityLansettingItemTestBinding {
     private static final ViewDataBinding.IncludedLayouts sIncludes = null;

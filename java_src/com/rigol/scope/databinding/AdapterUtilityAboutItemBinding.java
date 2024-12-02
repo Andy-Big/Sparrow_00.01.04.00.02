@@ -8,13 +8,13 @@ import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import androidx.recyclerview.widget.RecyclerView;
 import com.rigol.scope.R;
+
 /* loaded from: classes2.dex */
 public abstract class AdapterUtilityAboutItemBinding extends ViewDataBinding {
     public final ConstraintLayout left;
     public final RecyclerView recyclerDeviceInformation;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public AdapterUtilityAboutItemBinding(Object obj, View view, int i, ConstraintLayout constraintLayout, RecyclerView recyclerView) {
+    protected AdapterUtilityAboutItemBinding(Object obj, View view, int i, ConstraintLayout constraintLayout, RecyclerView recyclerView) {
         super(obj, view, i);
         this.left = constraintLayout;
         this.recyclerDeviceInformation = recyclerView;

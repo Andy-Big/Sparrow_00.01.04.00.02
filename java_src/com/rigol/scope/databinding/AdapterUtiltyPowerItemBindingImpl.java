@@ -9,6 +9,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.databinding.DataBindingComponent;
 import androidx.databinding.ViewDataBinding;
 import com.rigol.scope.R;
+
 /* loaded from: classes2.dex */
 public class AdapterUtiltyPowerItemBindingImpl extends AdapterUtiltyPowerItemBinding {
     private static final ViewDataBinding.IncludedLayouts sIncludes = null;

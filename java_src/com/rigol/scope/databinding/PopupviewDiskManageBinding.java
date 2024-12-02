@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.rigol.scope.R;
 import com.rigol.scope.data.DiskManageParam;
 import com.rigol.scope.data.SharedParam;
+
 /* loaded from: classes2.dex */
 public abstract class PopupviewDiskManageBinding extends ViewDataBinding {
     public final ImageView backward;
@@ -57,8 +58,7 @@ public abstract class PopupviewDiskManageBinding extends ViewDataBinding {
 
     public abstract void setShareParam(SharedParam sharedParam);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public PopupviewDiskManageBinding(Object obj, View view, int i, ImageView imageView, View view2, ConstraintLayout constraintLayout, Button button, Button button2, Button button3, Button button4, Button button5, TextView textView, Button button6, Button button7, ImageView imageView2, View view3, TextView textView2, RecyclerView recyclerView, ImageView imageView3, TextView textView3, Button button8, Button button9, Button button10, ImageButton imageButton, ImageButton imageButton2) {
+    protected PopupviewDiskManageBinding(Object obj, View view, int i, ImageView imageView, View view2, ConstraintLayout constraintLayout, Button button, Button button2, Button button3, Button button4, Button button5, TextView textView, Button button6, Button button7, ImageView imageView2, View view3, TextView textView2, RecyclerView recyclerView, ImageView imageView3, TextView textView3, Button button8, Button button9, Button button10, ImageButton imageButton, ImageButton imageButton2) {
         super(obj, view, i);
         this.backward = imageView;
         this.bottomDividingLine = view2;

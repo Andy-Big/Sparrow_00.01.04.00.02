@@ -15,6 +15,7 @@ import com.rigol.scope.data.MappingObject;
 import com.rigol.scope.utilities.ColorUtil;
 import com.rigol.scope.utilities.ViewUtil;
 import com.rigol.scope.views.busAnalyse.BusAnalyseEthParam;
+
 /* loaded from: classes2.dex */
 public class AdapterBusEthAnalyse100basetBindingImpl extends AdapterBusEthAnalyse100basetBinding {
     private static final ViewDataBinding.IncludedLayouts sIncludes = null;

@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.rigol.scope.R;
 import com.rigol.scope.data.MathParam;
 import com.rigol.scope.views.SwitchButton;
+
 /* loaded from: classes2.dex */
 public abstract class MathRecyclerviewBinding extends ViewDataBinding {
     @Bindable
@@ -27,8 +28,7 @@ public abstract class MathRecyclerviewBinding extends ViewDataBinding {
 
     public abstract void setParam(MathParam mathParam);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public MathRecyclerviewBinding(Object obj, View view, int i, Guideline guideline, ConstraintLayout constraintLayout, RecyclerView recyclerView, TextView textView, TextView textView2, TextView textView3, SwitchButton switchButton) {
+    protected MathRecyclerviewBinding(Object obj, View view, int i, Guideline guideline, ConstraintLayout constraintLayout, RecyclerView recyclerView, TextView textView, TextView textView2, TextView textView3, SwitchButton switchButton) {
         super(obj, view, i);
         this.mathGuidelineCenter = guideline;
         this.mathView = constraintLayout;

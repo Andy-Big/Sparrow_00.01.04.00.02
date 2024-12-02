@@ -36,6 +36,7 @@ import com.rigol.scope.views.search.SearchPopupView;
 import com.rigol.scope.views.spinner.PopupSpinner;
 import java.util.ArrayList;
 import java.util.List;
+
 /* loaded from: classes2.dex */
 public class NavigatePopupView extends BasePopupView implements View.OnClickListener, RadioGroup.OnCheckedChangeListener, AorBManager.OnSetTextById, AorBManager.OnTextReset {
     private final String BIGGER;
@@ -89,6 +90,7 @@ public class NavigatePopupView extends BasePopupView implements View.OnClickList
         this.horizontalViewModel = horizontalViewModel;
         if (horizontalViewModel != null) {
             horizontalViewModel.getLiveData().observe((LifecycleOwner) ActivityUtils.getTopActivity(), new Observer<HorizontalParam>() { // from class: com.rigol.scope.views.navigate.NavigatePopupView.2
+                /* JADX DEBUG: Method merged with bridge method */
                 @Override // androidx.lifecycle.Observer
                 public void onChanged(HorizontalParam horizontalParam) {
                     NavigatePopupView.this.horizonParam = horizontalParam;
@@ -134,9 +136,8 @@ public class NavigatePopupView extends BasePopupView implements View.OnClickList
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.rigol.scope.views.baseview.BasePopupView
-    public void onShow() {
+    protected void onShow() {
         super.onShow();
         this.navigateParam.readHorRun();
         this.navigateParam.readNavMode();
@@ -212,13 +213,13 @@ public class NavigatePopupView extends BasePopupView implements View.OnClickList
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.rigol.scope.views.navigate.NavigatePopupView$4  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public class AnonymousClass4 implements Observer<KeyEvent> {
+    class AnonymousClass4 implements Observer<KeyEvent> {
         AnonymousClass4() {
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.lifecycle.Observer
         public void onChanged(KeyEvent keyEvent) {
             if (PopupViewManager.getInstance().isShowing(NavigatePopupView.class)) {

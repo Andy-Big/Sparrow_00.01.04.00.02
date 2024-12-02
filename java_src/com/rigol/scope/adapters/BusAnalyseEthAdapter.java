@@ -17,6 +17,7 @@ import com.rigol.scope.views.baseview.BasePopupView;
 import com.rigol.scope.views.busAnalyse.BusAnalyseEthParam;
 import com.rigol.scope.views.busAnalyse.BusAnalysePopupView;
 import com.rigol.scope.views.spinner.PopupSpinner;
+
 /* loaded from: classes.dex */
 public class BusAnalyseEthAdapter extends RecyclerView.Adapter<BusAnalyseEthHolder> implements View.OnClickListener {
     private final BasePopupView basePopupView;
@@ -33,6 +34,7 @@ public class BusAnalyseEthAdapter extends RecyclerView.Adapter<BusAnalyseEthHold
         this.basePopupView = basePopupView;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public BusAnalyseEthHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         AdapterBusEthAnalyseBinding inflate = AdapterBusEthAnalyseBinding.inflate(LayoutInflater.from(viewGroup.getContext()), viewGroup, false);
@@ -42,6 +44,7 @@ public class BusAnalyseEthAdapter extends RecyclerView.Adapter<BusAnalyseEthHold
         return new BusAnalyseEthHolder(this.binding);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(BusAnalyseEthHolder busAnalyseEthHolder, int i) {
         showBusAnalyseEthAdapter(this.param.getEth_type());
@@ -91,8 +94,7 @@ public class BusAnalyseEthAdapter extends RecyclerView.Adapter<BusAnalyseEthHold
         this.param.saveEth_source(mappingObject.getValue());
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ void lambda$onClick$2(View view) {
+    static /* synthetic */ void lambda$onClick$2(View view) {
         API.getInstance().UI_PostBool(49, MessageID.MSG_ETH_ANALYSE_ENABLE, false);
         PopupViewManager.getInstance().show(BusAnalysePopupView.class);
     }

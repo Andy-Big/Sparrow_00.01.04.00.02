@@ -16,6 +16,7 @@ import com.rigol.scope.utilities.UnitFormat;
 import com.rigol.scope.utilities.ViewUtil;
 import com.rigol.scope.views.keyboard.KeyboardListener;
 import com.rigol.scope.views.keyboard.KeyboardPopupView;
+
 /* loaded from: classes.dex */
 public class JitterPllAdapter extends RecyclerView.Adapter<JitterPllHolder> implements RadioGroup.OnCheckedChangeListener, View.OnClickListener, CompoundButton.OnCheckedChangeListener {
     private View anchorView;
@@ -39,12 +40,14 @@ public class JitterPllAdapter extends RecyclerView.Adapter<JitterPllHolder> impl
         this.context = context;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public JitterPllHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         this.binding = AdapterJitterPllBinding.inflate(LayoutInflater.from(viewGroup.getContext()), viewGroup, false);
         return new JitterPllHolder(this.binding);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(JitterPllHolder jitterPllHolder, int i) {
         ShowJitterPll();

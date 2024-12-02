@@ -36,6 +36,7 @@ import com.rigol.scope.views.math.MathPopupView;
 import com.rigol.scope.views.spinner.PopupSpinner;
 import java.util.ArrayList;
 import java.util.List;
+
 /* loaded from: classes2.dex */
 public class FlexKnobPopupView extends BasePopupView implements CompoundButton.OnCheckedChangeListener {
     private AorBManager aorBManager;
@@ -67,13 +68,13 @@ public class FlexKnobPopupView extends BasePopupView implements CompoundButton.O
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.rigol.scope.views.knob.FlexKnobPopupView$1  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public class AnonymousClass1 implements Observer<FlexKnobParam> {
+    class AnonymousClass1 implements Observer<FlexKnobParam> {
         AnonymousClass1() {
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.lifecycle.Observer
         public void onChanged(FlexKnobParam flexKnobParam) {
             FlexKnobPopupView.this.param = flexKnobParam;

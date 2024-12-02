@@ -5,6 +5,7 @@ import android.view.View;
 import androidx.databinding.DataBindingComponent;
 import androidx.databinding.ViewDataBinding;
 import com.rigol.scope.views.multi.MultiWindow;
+
 /* loaded from: classes2.dex */
 public class FragmentWaveformBindingImpl extends FragmentWaveformBinding {
     private static final ViewDataBinding.IncludedLayouts sIncludes = null;

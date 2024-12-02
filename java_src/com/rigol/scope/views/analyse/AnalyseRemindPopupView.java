@@ -7,6 +7,7 @@ import com.rigol.scope.databinding.PopupviewRemindBinding;
 import com.rigol.scope.utilities.PopupViewManager;
 import com.rigol.scope.views.baseview.BasePopupView;
 import com.rigol.scope.views.busAnalyse.BusAnalysePopupView;
+
 /* loaded from: classes2.dex */
 public class AnalyseRemindPopupView extends BasePopupView implements View.OnClickListener {
     private PopupviewRemindBinding binding;

@@ -21,6 +21,7 @@ import com.rigol.scope.data.UtilityParam;
 import com.rigol.scope.utilities.DrawView1;
 import com.rigol.scope.utilities.MRefreshHeader;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
+
 /* loaded from: classes2.dex */
 public abstract class FragmentSettingsBarBinding extends ViewDataBinding {
     public final ImageView beeper;
@@ -69,8 +70,7 @@ public abstract class FragmentSettingsBarBinding extends ViewDataBinding {
 
     public abstract void setUtilityParam(UtilityParam utilityParam);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public FragmentSettingsBarBinding(Object obj, View view, int i, ImageView imageView, RecyclerView recyclerView, TextView textView, ImageView imageView2, RecyclerView recyclerView2, RecyclerView recyclerView3, MRefreshHeader mRefreshHeader, View view2, RecyclerView recyclerView4, DrawView1 drawView1, ImageView imageView3, ImageButton imageButton, LinearLayoutCompat linearLayoutCompat, TextView textView2, ConstraintLayout constraintLayout, TextView textView3, ImageView imageView4, SmartRefreshLayout smartRefreshLayout, ConstraintLayout constraintLayout2, SmartRefreshLayout smartRefreshLayout2, TextView textView4, ConstraintLayout constraintLayout3, RecyclerView recyclerView5, ConstraintLayout constraintLayout4, ConstraintLayout constraintLayout5) {
+    protected FragmentSettingsBarBinding(Object obj, View view, int i, ImageView imageView, RecyclerView recyclerView, TextView textView, ImageView imageView2, RecyclerView recyclerView2, RecyclerView recyclerView3, MRefreshHeader mRefreshHeader, View view2, RecyclerView recyclerView4, DrawView1 drawView1, ImageView imageView3, ImageButton imageButton, LinearLayoutCompat linearLayoutCompat, TextView textView2, ConstraintLayout constraintLayout, TextView textView3, ImageView imageView4, SmartRefreshLayout smartRefreshLayout, ConstraintLayout constraintLayout2, SmartRefreshLayout smartRefreshLayout2, TextView textView4, ConstraintLayout constraintLayout3, RecyclerView recyclerView5, ConstraintLayout constraintLayout4, ConstraintLayout constraintLayout5) {
         super(obj, view, i);
         this.beeper = imageView;
         this.dItemList = recyclerView;

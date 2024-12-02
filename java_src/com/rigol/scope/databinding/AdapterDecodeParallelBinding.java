@@ -16,6 +16,7 @@ import androidx.databinding.ViewDataBinding;
 import com.rigol.scope.R;
 import com.rigol.scope.data.DecodeParam;
 import com.rigol.scope.views.SwitchButton;
+
 /* loaded from: classes2.dex */
 public abstract class AdapterDecodeParallelBinding extends ViewDataBinding {
     public final Button bitOne;
@@ -64,8 +65,7 @@ public abstract class AdapterDecodeParallelBinding extends ViewDataBinding {
 
     public abstract void setParam(DecodeParam decodeParam);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public AdapterDecodeParallelBinding(Object obj, View view, int i, Button button, Button button2, Button button3, TextView textView, TextView textView2, AppCompatTextView appCompatTextView, TextView textView3, TextView textView4, SwitchButton switchButton, TextView textView5, TextView textView6, TextView textView7, TextView textView8, RadioGroup radioGroup, TextView textView9, TextView textView10, TextView textView11, TextView textView12, RadioButton radioButton, TextView textView13, RadioGroup radioGroup2, RadioButton radioButton2, RadioButton radioButton3, RadioButton radioButton4, TextView textView14, TextView textView15, TextView textView16, RadioGroup radioGroup3, RadioButton radioButton5, TextView textView17, TextView textView18, RadioButton radioButton6, RadioButton radioButton7, ConstraintLayout constraintLayout, View view2, Guideline guideline, Guideline guideline2, Guideline guideline3, Guideline guideline4, Guideline guideline5, TextView textView19) {
+    protected AdapterDecodeParallelBinding(Object obj, View view, int i, Button button, Button button2, Button button3, TextView textView, TextView textView2, AppCompatTextView appCompatTextView, TextView textView3, TextView textView4, SwitchButton switchButton, TextView textView5, TextView textView6, TextView textView7, TextView textView8, RadioGroup radioGroup, TextView textView9, TextView textView10, TextView textView11, TextView textView12, RadioButton radioButton, TextView textView13, RadioGroup radioGroup2, RadioButton radioButton2, RadioButton radioButton3, RadioButton radioButton4, TextView textView14, TextView textView15, TextView textView16, RadioGroup radioGroup3, RadioButton radioButton5, TextView textView17, TextView textView18, RadioButton radioButton6, RadioButton radioButton7, ConstraintLayout constraintLayout, View view2, Guideline guideline, Guideline guideline2, Guideline guideline3, Guideline guideline4, Guideline guideline5, TextView textView19) {
         super(obj, view, i);
         this.bitOne = button;
         this.bitThree = button2;

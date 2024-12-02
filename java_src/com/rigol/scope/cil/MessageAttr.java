@@ -1,6 +1,7 @@
 package com.rigol.scope.cil;
 
 import android.util.Log;
+
 /* loaded from: classes2.dex */
 public class MessageAttr {
     private Object m_CurValue;

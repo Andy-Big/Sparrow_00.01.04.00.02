@@ -11,6 +11,7 @@ import androidx.databinding.ViewDataBinding;
 import com.rigol.scope.R;
 import com.rigol.scope.data.ResultParam;
 import com.rigol.scope.views.DisableTouchEventRecyclerView;
+
 /* loaded from: classes2.dex */
 public abstract class AdapterItemResultMarkerBinding extends ViewDataBinding {
     @Bindable
@@ -21,8 +22,7 @@ public abstract class AdapterItemResultMarkerBinding extends ViewDataBinding {
 
     public abstract void setParam(ResultParam resultParam);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public AdapterItemResultMarkerBinding(Object obj, View view, int i, DisableTouchEventRecyclerView disableTouchEventRecyclerView, TextView textView, ConstraintLayout constraintLayout) {
+    protected AdapterItemResultMarkerBinding(Object obj, View view, int i, DisableTouchEventRecyclerView disableTouchEventRecyclerView, TextView textView, ConstraintLayout constraintLayout) {
         super(obj, view, i);
         this.resultList = disableTouchEventRecyclerView;
         this.title = textView;

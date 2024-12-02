@@ -13,6 +13,7 @@ import com.rigol.scope.data.JitterParam;
 import com.rigol.scope.data.MappingObject;
 import com.rigol.scope.utilities.ColorUtil;
 import com.rigol.scope.utilities.ViewUtil;
+
 /* loaded from: classes2.dex */
 public class AdapterJitterExplicitBindingImpl extends AdapterJitterExplicitBinding {
     private static final ViewDataBinding.IncludedLayouts sIncludes = null;

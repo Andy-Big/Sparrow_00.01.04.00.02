@@ -6,10 +6,10 @@ import android.view.ViewGroup;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import com.rigol.scope.R;
+
 /* loaded from: classes2.dex */
 public abstract class PopupviewUpgradeBinding extends ViewDataBinding {
-    /* JADX INFO: Access modifiers changed from: protected */
-    public PopupviewUpgradeBinding(Object obj, View view, int i) {
+    protected PopupviewUpgradeBinding(Object obj, View view, int i) {
         super(obj, view, i);
     }
 

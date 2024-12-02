@@ -10,6 +10,7 @@ import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import com.rigol.scope.R;
 import com.rigol.scope.views.window.Window;
+
 /* loaded from: classes2.dex */
 public abstract class WindowSimpleBinding extends ViewDataBinding {
     public final ConstraintLayout contentLayout;
@@ -24,8 +25,7 @@ public abstract class WindowSimpleBinding extends ViewDataBinding {
     public final ImageButton windowMove;
     public final ImageButton windowSetting;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public WindowSimpleBinding(Object obj, View view, int i, ConstraintLayout constraintLayout, TextView textView, TextView textView2, TextView textView3, TextView textView4, ConstraintLayout constraintLayout2, TextView textView5, ImageButton imageButton, Window window, ImageButton imageButton2, ImageButton imageButton3) {
+    protected WindowSimpleBinding(Object obj, View view, int i, ConstraintLayout constraintLayout, TextView textView, TextView textView2, TextView textView3, TextView textView4, ConstraintLayout constraintLayout2, TextView textView5, ImageButton imageButton, Window window, ImageButton imageButton2, ImageButton imageButton3) {
         super(obj, view, i);
         this.contentLayout = constraintLayout;
         this.empty = textView;

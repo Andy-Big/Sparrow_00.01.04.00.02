@@ -10,10 +10,18 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.Guideline;
 import androidx.databinding.DataBindingComponent;
 import androidx.databinding.ViewDataBinding;
+import androidx.databinding.adapters.CompoundButtonBindingAdapter;
+import androidx.databinding.adapters.TextViewBindingAdapter;
 import com.rigol.scope.R;
+import com.rigol.scope.cil.ServiceEnum;
 import com.rigol.scope.data.MappingObject;
 import com.rigol.scope.data.TriggerParam;
+import com.rigol.scope.utilities.ColorUtil;
+import com.rigol.scope.utilities.ContextUtil;
+import com.rigol.scope.utilities.UnitFormat;
+import com.rigol.scope.utilities.ViewUtil;
 import com.rigol.scope.views.SwitchButton;
+
 /* loaded from: classes2.dex */
 public class AdapterTriggerCanBindingImpl extends AdapterTriggerCanBinding {
     private static final ViewDataBinding.IncludedLayouts sIncludes = null;
@@ -427,13 +435,417 @@ public class AdapterTriggerCanBindingImpl extends AdapterTriggerCanBinding {
     @Override // androidx.databinding.ViewDataBinding
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
     protected void executeBindings() {
-        /*
-            Method dump skipped, instructions count: 1099
-            To view this dump add '--comments-level debug' option
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.rigol.scope.databinding.AdapterTriggerCanBindingImpl.executeBindings():void");
+        long j;
+        String str;
+        String str2;
+        String str3;
+        String str4;
+        String str5;
+        String str6;
+        String str7;
+        ServiceEnum.Trigger_Serv_Can_When trigger_Serv_Can_When;
+        String str8;
+        String str9;
+        String str10;
+        String str11;
+        boolean z;
+        boolean z2;
+        boolean z3;
+        boolean z4;
+        boolean z5;
+        int i;
+        String str12;
+        boolean z6;
+        int i2;
+        String str13;
+        boolean z7;
+        boolean z8;
+        float f;
+        float f2;
+        boolean z9;
+        int i3;
+        float f3;
+        String str14;
+        boolean z10;
+        String str15;
+        int i4;
+        String str16;
+        boolean z11;
+        boolean z12;
+        String str17;
+        String str18;
+        String str19;
+        String str20;
+        String str21;
+        String str22;
+        String str23;
+        String str24;
+        int i5;
+        String str25;
+        int i6;
+        int i7;
+        synchronized (this) {
+            j = this.mDirtyFlags;
+            this.mDirtyFlags = 0L;
+        }
+        TriggerParam triggerParam = this.mParam;
+        String str26 = null;
+        if ((268435234 & j) != 0) {
+            if ((j & 134250498) != 0) {
+                str15 = UnitFormat.newBuilder(UnitFormat.SI.NONE).convert(triggerParam != null ? triggerParam.getSamplePoints() : 0L, ServiceEnum.Unit.Unit_percent);
+            } else {
+                str15 = null;
+            }
+            if ((j & 138412034) != 0) {
+                i4 = ColorUtil.getColor(getRoot().getContext(), triggerParam != null ? triggerParam.getChan() : null);
+            } else {
+                i4 = 0;
+            }
+            if ((j & 135266306) != 0) {
+                long level = triggerParam != null ? triggerParam.getLevel() : 0L;
+                if (triggerParam != null) {
+                    str5 = triggerParam.getTriggerLevelStr(level);
+                    str6 = ((j & 134219778) != 0 || triggerParam == null) ? null : triggerParam.getFormatValue3IdStr();
+                    z2 = ((j & 142606338) != 0 || triggerParam == null) ? false : triggerParam.getIsNoise();
+                    if ((j & 134283266) == 0) {
+                        str7 = UnitFormat.newBuilder(UnitFormat.SI.NONE).convert(triggerParam != null ? triggerParam.getFdSamplePoints() : 0L, ServiceEnum.Unit.Unit_percent);
+                    } else {
+                        str7 = null;
+                    }
+                    if ((j & 150996002) == 0) {
+                        trigger_Serv_Can_When = triggerParam != null ? triggerParam.getTrigger_Serv_Can_When() : null;
+                        int i8 = ((j & 134218754) > 0L ? 1 : ((j & 134218754) == 0L ? 0 : -1));
+                        if (i8 != 0) {
+                            z4 = trigger_Serv_Can_When == ServiceEnum.Trigger_Serv_Can_When.trig_can_when_frame_data;
+                            z5 = trigger_Serv_Can_When == ServiceEnum.Trigger_Serv_Can_When.trig_can_when_frame_data_id;
+                            z11 = trigger_Serv_Can_When == ServiceEnum.Trigger_Serv_Can_When.trig_can_when_remote_id;
+                            if (i8 != 0) {
+                                j |= z4 ? 2147483648L : 1073741824L;
+                            }
+                            if ((j & 134218754) != 0) {
+                                j |= z5 ? 8589934592L : 4294967296L;
+                            }
+                            if ((j & 134218754) != 0) {
+                                j = z11 ? j | 34359738368L : j | 17179869184L;
+                            }
+                        } else {
+                            z11 = false;
+                            z4 = false;
+                            z5 = false;
+                        }
+                        MappingObject mappingObject = ViewUtil.getMappingObject(R.array.msg_trigger_can_when, trigger_Serv_Can_When != null ? trigger_Serv_Can_When.value1 : 0);
+                        updateRegistration(5, mappingObject);
+                        str16 = mappingObject != null ? mappingObject.getStr() : null;
+                    } else {
+                        str16 = null;
+                        trigger_Serv_Can_When = null;
+                        z11 = false;
+                        z4 = false;
+                        z5 = false;
+                    }
+                    if ((j & 134742018) == 0) {
+                        if (triggerParam != null) {
+                            i7 = triggerParam.getCanBaud();
+                            z12 = z11;
+                        } else {
+                            z12 = z11;
+                            i7 = 0;
+                        }
+                        str17 = str16;
+                        str18 = str15;
+                        str19 = UnitFormat.newBuilder(" 0.###  ", UnitFormat.SI.NONE).convert(i7, ServiceEnum.Unit.Unit_none) + "bps";
+                    } else {
+                        z12 = z11;
+                        str17 = str16;
+                        str18 = str15;
+                        str19 = null;
+                    }
+                    if ((j & 169869570) != 0) {
+                        ServiceEnum.Chan chan = triggerParam != null ? triggerParam.getChan() : null;
+                        MappingObject mappingObject2 = ViewUtil.getMappingObject(R.array.msg_trigger_source_la, chan != null ? chan.value1 : 0);
+                        updateRegistration(8, mappingObject2);
+                        if (mappingObject2 != null) {
+                            str20 = mappingObject2.getStr();
+                            String formatValue3DataStr = ((j & 134225922) != 0 || triggerParam == null) ? null : triggerParam.getFormatValue3DataStr();
+                            z3 = ((j & 134234114) != 0 || triggerParam == null) ? false : triggerParam.getIdExtended();
+                            if ((j & 134221826) != 0) {
+                                str21 = String.valueOf(triggerParam != null ? triggerParam.getDataByte() : 0);
+                            } else {
+                                str21 = null;
+                            }
+                            if ((j & 134348802) != 0) {
+                                if (triggerParam != null) {
+                                    str23 = str20;
+                                    str22 = str19;
+                                    i6 = triggerParam.getCanFdBaud();
+                                } else {
+                                    str22 = str19;
+                                    str23 = str20;
+                                    i6 = 0;
+                                }
+                                str24 = formatValue3DataStr;
+                                i5 = i4;
+                                str25 = UnitFormat.newBuilder(" 0.###  ", UnitFormat.SI.NONE).convert(i6, ServiceEnum.Unit.Unit_none) + "bps";
+                            } else {
+                                str22 = str19;
+                                str23 = str20;
+                                str24 = formatValue3DataStr;
+                                i5 = i4;
+                                str25 = null;
+                            }
+                            if ((j & 201589250) != 0) {
+                                ServiceEnum.Trigger_Can_Phy trigger_Can_Phy = triggerParam != null ? triggerParam.getTrigger_Can_Phy() : null;
+                                MappingObject mappingObject3 = ViewUtil.getMappingObject(R.array.msg_trigger_can_singnal, trigger_Can_Phy != null ? trigger_Can_Phy.value1 : 0);
+                                updateRegistration(9, mappingObject3);
+                                if (mappingObject3 != null) {
+                                    str26 = mappingObject3.getStr();
+                                }
+                            }
+                            str8 = str25;
+                            z = z12;
+                            str9 = str26;
+                            str11 = str17;
+                            str3 = str18;
+                            str = str21;
+                            str4 = str22;
+                            str10 = str23;
+                            str2 = str24;
+                            i = i5;
+                        }
+                    }
+                    str20 = null;
+                    if ((j & 134225922) != 0) {
+                    }
+                    if ((j & 134234114) != 0) {
+                    }
+                    if ((j & 134221826) != 0) {
+                    }
+                    if ((j & 134348802) != 0) {
+                    }
+                    if ((j & 201589250) != 0) {
+                    }
+                    str8 = str25;
+                    z = z12;
+                    str9 = str26;
+                    str11 = str17;
+                    str3 = str18;
+                    str = str21;
+                    str4 = str22;
+                    str10 = str23;
+                    str2 = str24;
+                    i = i5;
+                }
+            }
+            str5 = null;
+            if ((j & 134219778) != 0) {
+            }
+            if ((j & 142606338) != 0) {
+            }
+            if ((j & 134283266) == 0) {
+            }
+            if ((j & 150996002) == 0) {
+            }
+            if ((j & 134742018) == 0) {
+            }
+            if ((j & 169869570) != 0) {
+            }
+            str20 = null;
+            if ((j & 134225922) != 0) {
+            }
+            if ((j & 134234114) != 0) {
+            }
+            if ((j & 134221826) != 0) {
+            }
+            if ((j & 134348802) != 0) {
+            }
+            if ((j & 201589250) != 0) {
+            }
+            str8 = str25;
+            z = z12;
+            str9 = str26;
+            str11 = str17;
+            str3 = str18;
+            str = str21;
+            str4 = str22;
+            str10 = str23;
+            str2 = str24;
+            i = i5;
+        } else {
+            str = null;
+            str2 = null;
+            str3 = null;
+            str4 = null;
+            str5 = null;
+            str6 = null;
+            str7 = null;
+            trigger_Serv_Can_When = null;
+            str8 = null;
+            str9 = null;
+            str10 = null;
+            str11 = null;
+            z = false;
+            z2 = false;
+            z3 = false;
+            z4 = false;
+            z5 = false;
+            i = 0;
+        }
+        if ((j & 17179869184L) != 0) {
+            str12 = str4;
+            if (trigger_Serv_Can_When == ServiceEnum.Trigger_Serv_Can_When.trig_can_when_frame_id) {
+                z6 = true;
+                i2 = ((j & 134218754) > 0L ? 1 : ((j & 134218754) == 0L ? 0 : -1));
+                if (i2 == 0) {
+                    boolean z13 = z4 ? true : z5;
+                    if (z5) {
+                        z4 = true;
+                    }
+                    float alpha = ContextUtil.getAlpha(z13);
+                    str13 = str3;
+                    f = ContextUtil.getAlpha(z4);
+                    boolean z14 = z13;
+                    z7 = z6;
+                    z9 = z14;
+                    z8 = z5;
+                    f2 = alpha;
+                } else {
+                    str13 = str3;
+                    z7 = z6;
+                    z8 = z5;
+                    f = 0.0f;
+                    f2 = 0.0f;
+                    z9 = false;
+                    z4 = false;
+                }
+                if (i2 == 0) {
+                    if (z) {
+                        z7 = true;
+                    }
+                    if (i2 != 0) {
+                        j |= z7 ? 536870912L : 268435456L;
+                    }
+                } else {
+                    z7 = false;
+                }
+                i3 = ((j & 134218754) > 0L ? 1 : ((j & 134218754) == 0L ? 0 : -1));
+                if (i3 == 0) {
+                    boolean z15 = z7 ? true : z8;
+                    f3 = ContextUtil.getAlpha(z15);
+                    str14 = str7;
+                    z10 = z15;
+                } else {
+                    f3 = 0.0f;
+                    str14 = str7;
+                    z10 = false;
+                }
+                if (i3 != 0) {
+                    this.triggerCanDataByteLabel.setEnabled(z4);
+                    this.triggerCanDataByteValue.setEnabled(z4);
+                    this.triggerCanDataLabel.setEnabled(z9);
+                    this.triggerCanDataValue.setEnabled(z9);
+                    this.triggerCanIdExtendedLabel.setEnabled(z10);
+                    this.triggerCanIdExtendedValue.setEnabled(z10);
+                    this.triggerCanIdLabel.setEnabled(z10);
+                    this.triggerCanIdValue.setEnabled(z10);
+                    if (getBuildSdkInt() >= 11) {
+                        this.triggerCanDataByteLabel.setAlpha(f);
+                        this.triggerCanDataByteValue.setAlpha(f);
+                        this.triggerCanDataLabel.setAlpha(f2);
+                        this.triggerCanDataValue.setAlpha(f2);
+                        this.triggerCanIdExtendedLabel.setAlpha(f3);
+                        this.triggerCanIdExtendedValue.setAlpha(f3);
+                        this.triggerCanIdLabel.setAlpha(f3);
+                        this.triggerCanIdValue.setAlpha(f3);
+                    }
+                }
+                if ((j & 134221826) != 0) {
+                    TextViewBindingAdapter.setText(this.triggerCanDataByteValue, str);
+                }
+                if ((j & 134225922) != 0) {
+                    TextViewBindingAdapter.setText(this.triggerCanDataValue, str2);
+                }
+                if ((134234114 & j) != 0) {
+                    CompoundButtonBindingAdapter.setChecked(this.triggerCanIdExtendedValue, z3);
+                }
+                if ((j & 134219778) != 0) {
+                    TextViewBindingAdapter.setText(this.triggerCanIdValue, str6);
+                }
+                if ((j & 135266306) != 0) {
+                    TextViewBindingAdapter.setText(this.triggerLevelValue, str5);
+                }
+                if ((j & 142606338) != 0) {
+                    CompoundButtonBindingAdapter.setChecked(this.triggerNoiseSwitch, z2);
+                }
+                if ((j & 134283266) != 0) {
+                    TextViewBindingAdapter.setText(this.triggerSamplePointsFdValue, str14);
+                }
+                if ((j & 134250498) != 0) {
+                    TextViewBindingAdapter.setText(this.triggerSamplePointsValue, str13);
+                }
+                if ((134742018 & j) != 0) {
+                    TextViewBindingAdapter.setText(this.triggerSourceCanBaudValue, str12);
+                }
+                if ((134348802 & j) != 0) {
+                    TextViewBindingAdapter.setText(this.triggerSourceCanFdBaudValue, str8);
+                }
+                if ((201589250 & j) != 0) {
+                    TextViewBindingAdapter.setText(this.triggerSourceCanHValue, str9);
+                }
+                if ((169869570 & j) != 0) {
+                    TextViewBindingAdapter.setText(this.triggerSourceCanValue, str10);
+                }
+                if ((j & 138412034) != 0) {
+                    this.triggerSourceCanValue.setTextColor(i);
+                }
+                if ((j & 150996002) == 0) {
+                    TextViewBindingAdapter.setText(this.triggerSourceCanWhenValue, str11);
+                    return;
+                }
+                return;
+            }
+        } else {
+            str12 = str4;
+        }
+        z6 = false;
+        i2 = ((j & 134218754) > 0L ? 1 : ((j & 134218754) == 0L ? 0 : -1));
+        if (i2 == 0) {
+        }
+        if (i2 == 0) {
+        }
+        i3 = ((j & 134218754) > 0L ? 1 : ((j & 134218754) == 0L ? 0 : -1));
+        if (i3 == 0) {
+        }
+        if (i3 != 0) {
+        }
+        if ((j & 134221826) != 0) {
+        }
+        if ((j & 134225922) != 0) {
+        }
+        if ((134234114 & j) != 0) {
+        }
+        if ((j & 134219778) != 0) {
+        }
+        if ((j & 135266306) != 0) {
+        }
+        if ((j & 142606338) != 0) {
+        }
+        if ((j & 134283266) != 0) {
+        }
+        if ((j & 134250498) != 0) {
+        }
+        if ((134742018 & j) != 0) {
+        }
+        if ((134348802 & j) != 0) {
+        }
+        if ((201589250 & j) != 0) {
+        }
+        if ((169869570 & j) != 0) {
+        }
+        if ((j & 138412034) != 0) {
+        }
+        if ((j & 150996002) == 0) {
+        }
     }
 }

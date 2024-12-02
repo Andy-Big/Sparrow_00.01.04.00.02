@@ -19,6 +19,7 @@ import com.rigol.scope.data.BaseProperty;
 import com.rigol.scope.data.EyeParam;
 import com.rigol.scope.data.MappingObject;
 import com.rigol.scope.utilities.UnitFormat;
+
 /* loaded from: classes2.dex */
 public class AdapterEyePllBindingImpl extends AdapterEyePllBinding {
     private static final ViewDataBinding.IncludedLayouts sIncludes = null;

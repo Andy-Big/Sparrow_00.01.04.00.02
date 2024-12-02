@@ -10,6 +10,7 @@ import com.rigol.scope.utilities.ScaleNumUtil;
 import com.rigol.scope.utilities.UnitFormat;
 import java.util.ArrayList;
 import java.util.List;
+
 /* loaded from: classes2.dex */
 public class RefParam extends BaseParam {
     private static final boolean DEFAULT_LABELONOFF = false;

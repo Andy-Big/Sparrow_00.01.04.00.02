@@ -9,6 +9,7 @@ import androidx.constraintlayout.widget.Guideline;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import com.rigol.scope.R;
+
 /* loaded from: classes2.dex */
 public abstract class PopupviewRemindBinding extends ViewDataBinding {
     public final Button cancel;
@@ -18,8 +19,7 @@ public abstract class PopupviewRemindBinding extends ViewDataBinding {
     public final Button ok;
     public final TextView title;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public PopupviewRemindBinding(Object obj, View view, int i, Button button, TextView textView, View view2, Guideline guideline, Button button2, TextView textView2) {
+    protected PopupviewRemindBinding(Object obj, View view, int i, Button button, TextView textView, View view2, Guideline guideline, Button button2, TextView textView2) {
         super(obj, view, i);
         this.cancel = button;
         this.content = textView;

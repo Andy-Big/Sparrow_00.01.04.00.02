@@ -14,6 +14,7 @@ import com.rigol.scope.databinding.AdapterJitterExplicitBinding;
 import com.rigol.scope.utilities.ViewUtil;
 import com.rigol.scope.views.spinner.PopupSpinner;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public class JitterExplicitAdapter extends RecyclerView.Adapter<JitterExplicitHolder> implements View.OnClickListener, CompoundButton.OnCheckedChangeListener {
     private View anchorView;
@@ -36,12 +37,14 @@ public class JitterExplicitAdapter extends RecyclerView.Adapter<JitterExplicitHo
         this.context = context;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public JitterExplicitHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         this.binding = AdapterJitterExplicitBinding.inflate(LayoutInflater.from(viewGroup.getContext()), viewGroup, false);
         return new JitterExplicitHolder(this.binding);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(JitterExplicitHolder jitterExplicitHolder, int i) {
         ShowJitterExplicit();

@@ -7,6 +7,7 @@ import com.blankj.utilcode.util.GsonUtils;
 import com.rigol.scope.data.MappingObject;
 import java.util.ArrayList;
 import java.util.List;
+
 /* loaded from: classes2.dex */
 public class MappingHelper {
     private static MappingHelper instance;

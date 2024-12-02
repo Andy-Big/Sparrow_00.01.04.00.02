@@ -6,6 +6,7 @@ import android.widget.SeekBar;
 import com.rigol.scope.R;
 import com.rigol.scope.databinding.PopupviewAdcSettingBinding;
 import com.rigol.scope.views.baseview.BasePopupView;
+
 /* loaded from: classes2.dex */
 public class ADCSettingPopupView extends BasePopupView implements CompoundButton.OnCheckedChangeListener, SeekBar.OnSeekBarChangeListener {
     private final AdcSettingParam param;

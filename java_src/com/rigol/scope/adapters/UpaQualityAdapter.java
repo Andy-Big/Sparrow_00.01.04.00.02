@@ -30,6 +30,7 @@ import com.rigol.scope.views.upa.UpaPopupViewConnection;
 import com.rigol.scope.views.upa.UpaPopupview;
 import java.util.ArrayList;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public class UpaQualityAdapter extends RecyclerView.Adapter<UpaHolder> implements View.OnClickListener, AorBManager.OnSetTextById, AorBManager.OnTextReset {
     View anchorView;
@@ -66,6 +67,7 @@ public class UpaQualityAdapter extends RecyclerView.Adapter<UpaHolder> implement
         this.context = context;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public UpaHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         this.binding = AdapterItemQualityBindingImpl.inflate(LayoutInflater.from(viewGroup.getContext()));
@@ -145,6 +147,7 @@ public class UpaQualityAdapter extends RecyclerView.Adapter<UpaHolder> implement
         }
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(UpaHolder upaHolder, int i) {
         this.binding.upaPassageway.setOnClickListener(this);

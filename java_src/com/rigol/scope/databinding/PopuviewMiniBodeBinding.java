@@ -11,6 +11,7 @@ import androidx.databinding.ViewDataBinding;
 import com.rigol.scope.R;
 import com.rigol.scope.data.BodeParam;
 import com.rigol.scope.views.SwitchButton;
+
 /* loaded from: classes2.dex */
 public abstract class PopuviewMiniBodeBinding extends ViewDataBinding {
     public final Guideline leftGuideline;
@@ -24,8 +25,7 @@ public abstract class PopuviewMiniBodeBinding extends ViewDataBinding {
 
     public abstract void setParma(BodeParam bodeParam);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public PopuviewMiniBodeBinding(Object obj, View view, int i, Guideline guideline, Guideline guideline2, Guideline guideline3, Guideline guideline4, ImageView imageView, SwitchButton switchButton) {
+    protected PopuviewMiniBodeBinding(Object obj, View view, int i, Guideline guideline, Guideline guideline2, Guideline guideline3, Guideline guideline4, ImageView imageView, SwitchButton switchButton) {
         super(obj, view, i);
         this.leftGuideline = guideline;
         this.leftGuideline1 = guideline2;

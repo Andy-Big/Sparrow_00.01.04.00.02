@@ -1,5 +1,6 @@
 package com.rigol.scope.databinding;
 
+import android.support.v4.media.session.PlaybackStateCompat;
 import android.util.SparseIntArray;
 import android.view.View;
 import android.widget.TextView;
@@ -7,13 +8,17 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.Guideline;
 import androidx.databinding.DataBindingComponent;
 import androidx.databinding.ViewDataBinding;
+import androidx.databinding.adapters.CompoundButtonBindingAdapter;
+import androidx.databinding.adapters.TextViewBindingAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 import com.rigol.scope.R;
 import com.rigol.scope.data.HorizontalParam;
 import com.rigol.scope.data.MappingObject;
 import com.rigol.scope.data.UpaParam;
 import com.rigol.scope.data.UpaRippleParam;
+import com.rigol.scope.utilities.ViewUtil;
 import com.rigol.scope.views.SwitchButton;
+
 /* loaded from: classes2.dex */
 public class PopupviewUpaBindingImpl extends PopupviewUpaBinding {
     private static final ViewDataBinding.IncludedLayouts sIncludes = null;
@@ -211,112 +216,57 @@ public class PopupviewUpaBindingImpl extends PopupviewUpaBinding {
     @Override // androidx.databinding.ViewDataBinding
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
     protected void executeBindings() {
-        /*
-            r22 = this;
-            r1 = r22
-            monitor-enter(r22)
-            long r2 = r1.mDirtyFlags     // Catch: java.lang.Throwable -> L96
-            r4 = 0
-            r1.mDirtyFlags = r4     // Catch: java.lang.Throwable -> L96
-            monitor-exit(r22)     // Catch: java.lang.Throwable -> L96
-            com.rigol.scope.data.UpaParam r0 = r1.mParam
-            com.rigol.scope.data.UpaRippleParam r7 = r1.mUpaRippleParam
-            r8 = 1005(0x3ed, double:4.965E-321)
-            long r8 = r8 & r2
-            int r8 = (r8 > r4 ? 1 : (r8 == r4 ? 0 : -1))
-            r9 = 809(0x329, double:3.997E-321)
-            r11 = 741(0x2e5, double:3.66E-321)
-            r13 = 2048(0x800, double:1.0118E-320)
-            r15 = 1024(0x400, double:5.06E-321)
-            r17 = 0
-            if (r8 == 0) goto L57
-            if (r0 == 0) goto L26
-            int r8 = r0.getType()
-            goto L28
-        L26:
-            r8 = r17
-        L28:
-            long r18 = r2 & r11
-            int r18 = (r18 > r4 ? 1 : (r18 == r4 ? 0 : -1))
-            if (r18 == 0) goto L3d
-            if (r8 != 0) goto L33
-            r19 = 1
-            goto L35
-        L33:
-            r19 = r17
-        L35:
-            if (r18 == 0) goto L3f
-            if (r19 == 0) goto L3b
-            long r2 = r2 | r13
-            goto L3f
-        L3b:
-            long r2 = r2 | r15
-            goto L3f
-        L3d:
-            r19 = r17
-        L3f:
-            long r20 = r2 & r9
-            int r18 = (r20 > r4 ? 1 : (r20 == r4 ? 0 : -1))
-            if (r18 == 0) goto L59
-            r6 = 2130903615(0x7f03023f, float:1.7414053E38)
-            com.rigol.scope.data.MappingObject r6 = com.rigol.scope.utilities.ViewUtil.getMappingObject(r6, r8)
-            r8 = 3
-            r1.updateRegistration(r8, r6)
-            if (r6 == 0) goto L59
-            java.lang.String r6 = r6.getStr()
-            goto L5a
-        L57:
-            r19 = r17
-        L59:
-            r6 = 0
-        L5a:
-            long r15 = r15 & r2
-            int r8 = (r15 > r4 ? 1 : (r15 == r4 ? 0 : -1))
-            if (r8 == 0) goto L66
-            if (r7 == 0) goto L66
-            boolean r7 = r7.getRefPowerDisp()
-            goto L68
-        L66:
-            r7 = r17
-        L68:
-            long r13 = r13 & r2
-            int r8 = (r13 > r4 ? 1 : (r13 == r4 ? 0 : -1))
-            if (r8 == 0) goto L74
-            if (r0 == 0) goto L74
-            boolean r0 = r0.getRefPowerDisp()
-            goto L76
-        L74:
-            r0 = r17
-        L76:
-            long r11 = r11 & r2
-            int r8 = (r11 > r4 ? 1 : (r11 == r4 ? 0 : -1))
-            if (r8 == 0) goto L82
-            if (r19 == 0) goto L80
-            r17 = r0
-            goto L82
-        L80:
-            r17 = r7
-        L82:
-            r0 = r17
-            if (r8 == 0) goto L8b
-            com.rigol.scope.views.SwitchButton r7 = r1.displayOnoffSwitchButton
-            androidx.databinding.adapters.CompoundButtonBindingAdapter.setChecked(r7, r0)
-        L8b:
-            long r2 = r2 & r9
-            int r0 = (r2 > r4 ? 1 : (r2 == r4 ? 0 : -1))
-            if (r0 == 0) goto L95
-            android.widget.TextView r0 = r1.upaAnalysisSpinner
-            androidx.databinding.adapters.TextViewBindingAdapter.setText(r0, r6)
-        L95:
-            return
-        L96:
-            r0 = move-exception
-            monitor-exit(r22)     // Catch: java.lang.Throwable -> L96
-            throw r0
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.rigol.scope.databinding.PopupviewUpaBindingImpl.executeBindings():void");
+        long j;
+        boolean z;
+        String str;
+        int i;
+        synchronized (this) {
+            j = this.mDirtyFlags;
+            this.mDirtyFlags = 0L;
+        }
+        UpaParam upaParam = this.mParam;
+        UpaRippleParam upaRippleParam = this.mUpaRippleParam;
+        if ((1005 & j) != 0) {
+            int type = upaParam != null ? upaParam.getType() : 0;
+            int i2 = ((j & 741) > 0L ? 1 : ((j & 741) == 0L ? 0 : -1));
+            if (i2 != 0) {
+                z = type == 0;
+                if (i2 != 0) {
+                    j = z ? j | PlaybackStateCompat.ACTION_PLAY_FROM_SEARCH : j | PlaybackStateCompat.ACTION_PLAY_FROM_MEDIA_ID;
+                }
+            } else {
+                z = false;
+            }
+            if ((j & 809) != 0) {
+                MappingObject mappingObject = ViewUtil.getMappingObject(R.array.msg_upa_type, type);
+                updateRegistration(3, mappingObject);
+                if (mappingObject != null) {
+                    str = mappingObject.getStr();
+                    i = ((741 & j) > 0L ? 1 : ((741 & j) == 0L ? 0 : -1));
+                    boolean refPowerDisp = i != 0 ? z ? ((PlaybackStateCompat.ACTION_PLAY_FROM_SEARCH & j) != 0 || upaParam == null) ? false : upaParam.getRefPowerDisp() : ((PlaybackStateCompat.ACTION_PLAY_FROM_MEDIA_ID & j) != 0 || upaRippleParam == null) ? false : upaRippleParam.getRefPowerDisp() : false;
+                    if (i != 0) {
+                        CompoundButtonBindingAdapter.setChecked(this.displayOnoffSwitchButton, refPowerDisp);
+                    }
+                    if ((j & 809) == 0) {
+                        TextViewBindingAdapter.setText(this.upaAnalysisSpinner, str);
+                        return;
+                    }
+                    return;
+                }
+            }
+        } else {
+            z = false;
+        }
+        str = null;
+        if ((PlaybackStateCompat.ACTION_PLAY_FROM_MEDIA_ID & j) != 0) {
+        }
+        i = ((741 & j) > 0L ? 1 : ((741 & j) == 0L ? 0 : -1));
+        boolean refPowerDisp2 = i != 0 ? z ? ((PlaybackStateCompat.ACTION_PLAY_FROM_SEARCH & j) != 0 || upaParam == null) ? false : upaParam.getRefPowerDisp() : ((PlaybackStateCompat.ACTION_PLAY_FROM_MEDIA_ID & j) != 0 || upaRippleParam == null) ? false : upaRippleParam.getRefPowerDisp() : false;
+        if (i != 0) {
+        }
+        if ((j & 809) == 0) {
+        }
     }
 }

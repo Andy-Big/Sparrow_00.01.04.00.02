@@ -10,6 +10,7 @@ import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import androidx.recyclerview.widget.RecyclerView;
 import com.rigol.scope.R;
+
 /* loaded from: classes2.dex */
 public abstract class AdapterBusSettingBinding extends ViewDataBinding {
     public final ConstraintLayout constraintLayout8;
@@ -19,8 +20,7 @@ public abstract class AdapterBusSettingBinding extends ViewDataBinding {
     public final TextView settingType;
     public final TextView textView23;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public AdapterBusSettingBinding(Object obj, View view, int i, ConstraintLayout constraintLayout, ImageView imageView, ConstraintLayout constraintLayout2, RecyclerView recyclerView, TextView textView, TextView textView2) {
+    protected AdapterBusSettingBinding(Object obj, View view, int i, ConstraintLayout constraintLayout, ImageView imageView, ConstraintLayout constraintLayout2, RecyclerView recyclerView, TextView textView, TextView textView2) {
         super(obj, view, i);
         this.constraintLayout8 = constraintLayout;
         this.imageView4 = imageView;

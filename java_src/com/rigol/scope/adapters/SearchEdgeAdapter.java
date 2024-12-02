@@ -28,6 +28,7 @@ import com.rigol.scope.views.search.SearchPopupView;
 import com.rigol.scope.views.spinner.PopupSpinner;
 import java.util.ArrayList;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public class SearchEdgeAdapter extends RecyclerView.Adapter<SearchEdgeHolder> implements View.OnClickListener, RadioGroup.OnCheckedChangeListener, AorBManager.OnSetTextById, AorBManager.OnTextReset {
     private View anchor;
@@ -51,6 +52,7 @@ public class SearchEdgeAdapter extends RecyclerView.Adapter<SearchEdgeHolder> im
         return 1;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(SearchEdgeHolder searchEdgeHolder, int i) {
     }
@@ -153,6 +155,7 @@ public class SearchEdgeAdapter extends RecyclerView.Adapter<SearchEdgeHolder> im
         this.searchParam.saveEageSrc(ServiceEnum.getChanFromValue1(mappingObject.getValue()));
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public SearchEdgeHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         AdapterSearchEdgeBinding inflate = AdapterSearchEdgeBinding.inflate(LayoutInflater.from(this.context));

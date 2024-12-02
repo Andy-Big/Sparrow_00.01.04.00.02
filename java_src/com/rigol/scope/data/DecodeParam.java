@@ -15,6 +15,7 @@ import com.rigol.scope.utilities.UnitFormat;
 import com.rigol.scope.utilities.ViewUtil;
 import java.util.ArrayList;
 import java.util.List;
+
 /* loaded from: classes2.dex */
 public class DecodeParam extends BaseParam {
     private static final boolean DEFAULT_EVENT = false;

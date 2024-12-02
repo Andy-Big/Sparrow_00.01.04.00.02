@@ -14,6 +14,7 @@ import androidx.databinding.ViewDataBinding;
 import com.rigol.scope.R;
 import com.rigol.scope.data.DecodeParam;
 import com.rigol.scope.data.MappingObject;
+
 /* loaded from: classes2.dex */
 public abstract class AdapterDecodeFlexrayBinding extends ViewDataBinding {
     public final TextView decodeFlexBaudLabel;
@@ -49,8 +50,7 @@ public abstract class AdapterDecodeFlexrayBinding extends ViewDataBinding {
 
     public abstract void setParam(DecodeParam decodeParam);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public AdapterDecodeFlexrayBinding(Object obj, View view, int i, TextView textView, TextView textView2, RadioButton radioButton, RadioButton radioButton2, TextView textView3, RadioGroup radioGroup, TextView textView4, TextView textView5, TextView textView6, TextView textView7, TextView textView8, TextView textView9, TextView textView10, TextView textView11, ConstraintLayout constraintLayout, Guideline guideline, Guideline guideline2, Guideline guideline3, Guideline guideline4, Guideline guideline5) {
+    protected AdapterDecodeFlexrayBinding(Object obj, View view, int i, TextView textView, TextView textView2, RadioButton radioButton, RadioButton radioButton2, TextView textView3, RadioGroup radioGroup, TextView textView4, TextView textView5, TextView textView6, TextView textView7, TextView textView8, TextView textView9, TextView textView10, TextView textView11, ConstraintLayout constraintLayout, Guideline guideline, Guideline guideline2, Guideline guideline3, Guideline guideline4, Guideline guideline5) {
         super(obj, view, i);
         this.decodeFlexBaudLabel = textView;
         this.decodeFlexBaudValue = textView2;

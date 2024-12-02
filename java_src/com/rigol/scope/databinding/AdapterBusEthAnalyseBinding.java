@@ -13,6 +13,7 @@ import androidx.databinding.ViewDataBinding;
 import androidx.recyclerview.widget.RecyclerView;
 import com.rigol.scope.R;
 import com.rigol.scope.views.busAnalyse.BusAnalyseEthParam;
+
 /* loaded from: classes2.dex */
 public abstract class AdapterBusEthAnalyseBinding extends ViewDataBinding {
     public final Button busAnalyseEthAutoSetButton;
@@ -37,8 +38,7 @@ public abstract class AdapterBusEthAnalyseBinding extends ViewDataBinding {
 
     public abstract void setParam(BusAnalyseEthParam busAnalyseEthParam);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public AdapterBusEthAnalyseBinding(Object obj, View view, int i, Button button, ConstraintLayout constraintLayout, View view2, View view3, TextView textView, TextView textView2, Button button2, TextView textView3, TextView textView4, RecyclerView recyclerView, Guideline guideline, Guideline guideline2, Guideline guideline3) {
+    protected AdapterBusEthAnalyseBinding(Object obj, View view, int i, Button button, ConstraintLayout constraintLayout, View view2, View view3, TextView textView, TextView textView2, Button button2, TextView textView3, TextView textView4, RecyclerView recyclerView, Guideline guideline, Guideline guideline2, Guideline guideline3) {
         super(obj, view, i);
         this.busAnalyseEthAutoSetButton = button;
         this.busAnalyseEthCommonLayout = constraintLayout;

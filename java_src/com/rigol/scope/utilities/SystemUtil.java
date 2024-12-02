@@ -10,6 +10,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.IWindowManager;
 import java.lang.reflect.InvocationTargetException;
+
 /* loaded from: classes2.dex */
 public class SystemUtil {
     private static final String TAG = SystemUtil.class.getSimpleName();

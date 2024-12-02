@@ -49,6 +49,7 @@ import com.rigol.scope.views.ddrDebug.DdrDebugPopupView;
 import com.rigol.scope.views.xy.XYPopupView;
 import java.util.Arrays;
 import java.util.List;
+
 /* loaded from: classes2.dex */
 public class UtilityPopupView extends BasePopupView {
     private int clickAboutCount;
@@ -80,6 +81,7 @@ public class UtilityPopupView extends BasePopupView {
         this.utilityViewModel = utilityViewModel;
         if (utilityViewModel != null) {
             utilityViewModel.getLiveData().observe((LifecycleOwner) ActivityUtils.getTopActivity(), new Observer<UtilityParam>() { // from class: com.rigol.scope.views.UtilityPopupView.1
+                /* JADX DEBUG: Method merged with bridge method */
                 @Override // androidx.lifecycle.Observer
                 public void onChanged(UtilityParam utilityParam) {
                     UtilityPopupView.this.utilityParam = utilityParam;
@@ -156,8 +158,7 @@ public class UtilityPopupView extends BasePopupView {
         return list;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ boolean lambda$getLeftMappingObjects$3(UtilityParam utilityParam, MappingObject mappingObject) {
+    static /* synthetic */ boolean lambda$getLeftMappingObjects$3(UtilityParam utilityParam, MappingObject mappingObject) {
         ServiceEnum.UtilityType utilityTypeFromValue1;
         return mappingObject == null || (utilityTypeFromValue1 = ServiceEnum.getUtilityTypeFromValue1(mappingObject.getValue())) == null || utilityParam == null || utilityParam.getProjectMode() || utilityTypeFromValue1 != ServiceEnum.UtilityType.Utility_Debug;
     }
@@ -308,8 +309,7 @@ public class UtilityPopupView extends BasePopupView {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ void lambda$setUtilsTitleRecycler$4(List list, View view, RecyclerView.ViewHolder viewHolder, int i) {
+    static /* synthetic */ void lambda$setUtilsTitleRecycler$4(List list, View view, RecyclerView.ViewHolder viewHolder, int i) {
         ServiceEnum.DebugType debugTypeFromValue1;
         MappingObject mappingObject = (MappingObject) list.get(i);
         if (mappingObject == null || (debugTypeFromValue1 = ServiceEnum.getDebugTypeFromValue1(mappingObject.getValue())) == null) {
@@ -330,10 +330,9 @@ public class UtilityPopupView extends BasePopupView {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.rigol.scope.views.UtilityPopupView$3  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public static /* synthetic */ class AnonymousClass3 {
+    static /* synthetic */ class AnonymousClass3 {
         static final /* synthetic */ int[] $SwitchMap$com$rigol$scope$cil$ServiceEnum$DebugType;
         static final /* synthetic */ int[] $SwitchMap$com$rigol$scope$cil$ServiceEnum$UtilityType;
 

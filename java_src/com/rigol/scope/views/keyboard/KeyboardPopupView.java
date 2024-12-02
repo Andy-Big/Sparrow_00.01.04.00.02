@@ -23,6 +23,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.regex.Pattern;
 import timber.log.Timber;
+
 /* loaded from: classes2.dex */
 public class KeyboardPopupView extends BasePopupView implements View.OnClickListener {
     private final String IPDefaultValues;
@@ -50,8 +51,7 @@ public class KeyboardPopupView extends BasePopupView implements View.OnClickList
     private final ServiceEnum.Unit unitType;
     private ViewStateViewModel viewStateViewModel;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ boolean lambda$new$0(View view) {
+    static /* synthetic */ boolean lambda$new$0(View view) {
         return true;
     }
 
@@ -196,10 +196,9 @@ public class KeyboardPopupView extends BasePopupView implements View.OnClickList
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.rigol.scope.views.keyboard.KeyboardPopupView$2  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public static /* synthetic */ class AnonymousClass2 {
+    static /* synthetic */ class AnonymousClass2 {
         static final /* synthetic */ int[] $SwitchMap$com$rigol$scope$cil$ServiceEnum$Unit;
 
         static {

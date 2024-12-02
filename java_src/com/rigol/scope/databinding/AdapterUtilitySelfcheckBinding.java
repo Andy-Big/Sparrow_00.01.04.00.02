@@ -9,6 +9,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import com.rigol.scope.R;
+
 /* loaded from: classes2.dex */
 public abstract class AdapterUtilitySelfcheckBinding extends ViewDataBinding {
     public final ImageView imageView11;
@@ -24,8 +25,7 @@ public abstract class AdapterUtilitySelfcheckBinding extends ViewDataBinding {
     public final TextView tvSelfTest;
     public final TextView tvTouchTest;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public AdapterUtilitySelfcheckBinding(Object obj, View view, int i, ImageView imageView, ImageView imageView2, ImageView imageView3, ImageView imageView4, ConstraintLayout constraintLayout, ConstraintLayout constraintLayout2, ConstraintLayout constraintLayout3, ConstraintLayout constraintLayout4, TextView textView, TextView textView2, TextView textView3, TextView textView4) {
+    protected AdapterUtilitySelfcheckBinding(Object obj, View view, int i, ImageView imageView, ImageView imageView2, ImageView imageView3, ImageView imageView4, ConstraintLayout constraintLayout, ConstraintLayout constraintLayout2, ConstraintLayout constraintLayout3, ConstraintLayout constraintLayout4, TextView textView, TextView textView2, TextView textView3, TextView textView4) {
         super(obj, view, i);
         this.imageView11 = imageView;
         this.imageView12 = imageView2;

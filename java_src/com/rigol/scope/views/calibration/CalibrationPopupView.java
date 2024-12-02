@@ -24,6 +24,7 @@ import com.rigol.scope.viewmodels.UtilityViewModel;
 import com.rigol.scope.viewmodels.VerticalViewModel;
 import com.rigol.scope.views.baseview.BasePopupView;
 import java.util.Objects;
+
 /* loaded from: classes2.dex */
 public class CalibrationPopupView extends BasePopupView implements View.OnClickListener {
     private final PopupviewCalibrationBinding binding;

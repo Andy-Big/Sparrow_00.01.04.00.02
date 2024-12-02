@@ -14,6 +14,7 @@ import androidx.databinding.ViewDataBinding;
 import com.rigol.scope.R;
 import com.rigol.scope.data.MappingObject;
 import com.rigol.scope.data.SearchParam;
+
 /* loaded from: classes2.dex */
 public abstract class AdapterSearchTriggerPulseBinding extends ViewDataBinding {
     public final ImageView imageView2;
@@ -61,8 +62,7 @@ public abstract class AdapterSearchTriggerPulseBinding extends ViewDataBinding {
 
     public abstract void setSweepSingleMapping(MappingObject mappingObject);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public AdapterSearchTriggerPulseBinding(Object obj, View view, int i, ImageView imageView, RadioButton radioButton, RadioButton radioButton2, TextView textView, EditText editText, TextView textView2, RadioButton radioButton3, RadioButton radioButton4, RadioButton radioButton5, EditText editText2, View view2, TextView textView3, TextView textView4, ConstraintLayout constraintLayout, TextView textView5, TextView textView6, TextView textView7, EditText editText3, View view3, View view4) {
+    protected AdapterSearchTriggerPulseBinding(Object obj, View view, int i, ImageView imageView, RadioButton radioButton, RadioButton radioButton2, TextView textView, EditText editText, TextView textView2, RadioButton radioButton3, RadioButton radioButton4, RadioButton radioButton5, EditText editText2, View view2, TextView textView3, TextView textView4, ConstraintLayout constraintLayout, TextView textView5, TextView textView6, TextView textView7, EditText editText3, View view3, View view4) {
         super(obj, view, i);
         this.imageView2 = imageView;
         this.lessMore = radioButton;

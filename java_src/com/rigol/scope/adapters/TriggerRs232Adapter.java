@@ -33,6 +33,7 @@ import com.rigol.scope.views.spinner.PopupSpinner;
 import com.rigol.scope.views.trigger.TriggerPopupView;
 import java.util.ArrayList;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public class TriggerRs232Adapter extends RecyclerView.Adapter<TriggerRs232Holder> implements View.OnClickListener, CompoundButton.OnCheckedChangeListener, View.OnLongClickListener, AorBManager.OnSetTextById, AorBManager.OnTextReset {
     private View anchorView;
@@ -85,6 +86,7 @@ public class TriggerRs232Adapter extends RecyclerView.Adapter<TriggerRs232Holder
         this.serviceId = triggerParam.getServiceId();
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public TriggerRs232Holder onCreateViewHolder(ViewGroup viewGroup, int i) {
         this.binding = AdapterTriggerRs232Binding.inflate(LayoutInflater.from(viewGroup.getContext()), viewGroup, false);
@@ -163,6 +165,7 @@ public class TriggerRs232Adapter extends RecyclerView.Adapter<TriggerRs232Holder
         }
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(TriggerRs232Holder triggerRs232Holder, int i) {
         ShowTriggerRs232();

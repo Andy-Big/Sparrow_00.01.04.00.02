@@ -15,6 +15,7 @@ import com.rigol.scope.R;
 import com.rigol.scope.data.DecodeParam;
 import com.rigol.scope.data.MappingObject;
 import com.rigol.scope.views.SwitchButton;
+
 /* loaded from: classes2.dex */
 public abstract class AdapterDecodeRs232Binding extends ViewDataBinding {
     public final TextView decodeRs232BaudLabel;
@@ -63,8 +64,7 @@ public abstract class AdapterDecodeRs232Binding extends ViewDataBinding {
 
     public abstract void setPositiveMapping(MappingObject mappingObject);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public AdapterDecodeRs232Binding(Object obj, View view, int i, TextView textView, TextView textView2, TextView textView3, TextView textView4, RadioButton radioButton, ConstraintLayout constraintLayout, RadioButton radioButton2, TextView textView5, SwitchButton switchButton, TextView textView6, TextView textView7, TextView textView8, TextView textView9, TextView textView10, RadioGroup radioGroup, TextView textView11, TextView textView12, TextView textView13, TextView textView14, TextView textView15, TextView textView16, TextView textView17, TextView textView18, TextView textView19, TextView textView20, TextView textView21, TextView textView22, View view2, Guideline guideline, Guideline guideline2, Guideline guideline3, Guideline guideline4, Guideline guideline5) {
+    protected AdapterDecodeRs232Binding(Object obj, View view, int i, TextView textView, TextView textView2, TextView textView3, TextView textView4, RadioButton radioButton, ConstraintLayout constraintLayout, RadioButton radioButton2, TextView textView5, SwitchButton switchButton, TextView textView6, TextView textView7, TextView textView8, TextView textView9, TextView textView10, RadioGroup radioGroup, TextView textView11, TextView textView12, TextView textView13, TextView textView14, TextView textView15, TextView textView16, TextView textView17, TextView textView18, TextView textView19, TextView textView20, TextView textView21, TextView textView22, View view2, Guideline guideline, Guideline guideline2, Guideline guideline3, Guideline guideline4, Guideline guideline5) {
         super(obj, view, i);
         this.decodeRs232BaudLabel = textView;
         this.decodeRs232BaudValue = textView2;

@@ -33,6 +33,7 @@ import com.rigol.scope.views.spinner.PopupSpinner;
 import com.rigol.scope.views.trigger.TriggerPopupView;
 import java.util.ArrayList;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public class TriggerSetupHoldAdapter extends RecyclerView.Adapter<TriggerSetupHoldHolder> implements View.OnClickListener, CompoundButton.OnCheckedChangeListener, AorBManager.OnSetTextById, AorBManager.OnTextReset {
     private View anchorView;
@@ -84,6 +85,7 @@ public class TriggerSetupHoldAdapter extends RecyclerView.Adapter<TriggerSetupHo
         this.serviceId = triggerParam.getServiceId();
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public TriggerSetupHoldHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         this.binding = AdapterTriggerSetupHoldBinding.inflate(LayoutInflater.from(viewGroup.getContext()), viewGroup, false);
@@ -164,6 +166,7 @@ public class TriggerSetupHoldAdapter extends RecyclerView.Adapter<TriggerSetupHo
         }
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(TriggerSetupHoldHolder triggerSetupHoldHolder, int i) {
         ShowTriggerSetupHold();

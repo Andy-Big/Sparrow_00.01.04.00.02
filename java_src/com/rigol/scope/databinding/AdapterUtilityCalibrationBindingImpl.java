@@ -11,6 +11,7 @@ import androidx.databinding.ViewDataBinding;
 import androidx.recyclerview.widget.RecyclerView;
 import com.rigol.scope.R;
 import com.rigol.scope.data.UtilityParam;
+
 /* loaded from: classes2.dex */
 public class AdapterUtilityCalibrationBindingImpl extends AdapterUtilityCalibrationBinding {
     private static final ViewDataBinding.IncludedLayouts sIncludes = null;

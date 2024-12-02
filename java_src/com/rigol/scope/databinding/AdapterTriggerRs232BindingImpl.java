@@ -11,10 +11,17 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.Guideline;
 import androidx.databinding.DataBindingComponent;
 import androidx.databinding.ViewDataBinding;
+import androidx.databinding.adapters.CompoundButtonBindingAdapter;
+import androidx.databinding.adapters.TextViewBindingAdapter;
 import com.rigol.scope.R;
+import com.rigol.scope.cil.ServiceEnum;
 import com.rigol.scope.data.MappingObject;
 import com.rigol.scope.data.TriggerParam;
+import com.rigol.scope.utilities.ColorUtil;
+import com.rigol.scope.utilities.UnitFormat;
+import com.rigol.scope.utilities.ViewUtil;
 import com.rigol.scope.views.SwitchButton;
+
 /* loaded from: classes2.dex */
 public class AdapterTriggerRs232BindingImpl extends AdapterTriggerRs232Binding {
     private static final ViewDataBinding.IncludedLayouts sIncludes = null;
@@ -669,13 +676,542 @@ public class AdapterTriggerRs232BindingImpl extends AdapterTriggerRs232Binding {
     @Override // androidx.databinding.ViewDataBinding
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
     protected void executeBindings() {
-        /*
-            Method dump skipped, instructions count: 1423
-            To view this dump add '--comments-level debug' option
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.rigol.scope.databinding.AdapterTriggerRs232BindingImpl.executeBindings():void");
+        long j;
+        String str;
+        MappingObject mappingObject;
+        MappingObject mappingObject2;
+        String str2;
+        long j2;
+        String str3;
+        String str4;
+        String str5;
+        String str6;
+        boolean z;
+        boolean z2;
+        int i;
+        boolean z3;
+        boolean z4;
+        boolean z5;
+        boolean z6;
+        boolean z7;
+        boolean z8;
+        boolean z9;
+        boolean z10;
+        int i2;
+        boolean z11;
+        boolean z12;
+        boolean z13;
+        String str7;
+        String str8;
+        String str9;
+        String str10;
+        String str11;
+        AdapterTriggerRs232BindingImpl adapterTriggerRs232BindingImpl;
+        boolean z14;
+        boolean z15;
+        boolean z16;
+        boolean z17;
+        boolean z18;
+        int i3;
+        boolean z19;
+        boolean z20;
+        boolean z21;
+        boolean z22;
+        int i4;
+        boolean z23;
+        long j3;
+        String str12;
+        int i5;
+        String str13;
+        String str14;
+        int i6;
+        String str15;
+        boolean z24;
+        boolean z25;
+        boolean z26;
+        boolean z27;
+        boolean z28;
+        String str16;
+        String str17;
+        boolean z29;
+        boolean z30;
+        boolean z31;
+        String str18;
+        long j4;
+        ServiceEnum.Trigger_RS232_Width trigger_RS232_Width;
+        int i7;
+        ServiceEnum.Trigger_RS232_Parity trigger_RS232_Parity;
+        long j5;
+        ServiceEnum.Chan chan;
+        int i8;
+        ServiceEnum.Trigger_RS232_When trigger_RS232_When;
+        ServiceEnum.TriggerPulsePolarity triggerPulsePolarity;
+        synchronized (this) {
+            try {
+                j = this.mDirtyFlags;
+                this.mDirtyFlags = 0L;
+            } catch (Throwable th) {
+                th = th;
+                while (true) {
+                    try {
+                        break;
+                    } catch (Throwable th2) {
+                        th = th2;
+                    }
+                }
+                throw th;
+            }
+        }
+        MappingObject mappingObject3 = this.mStopBit1Mapping;
+        MappingObject mappingObject4 = this.mPolarityNegativeMapping;
+        TriggerParam triggerParam = this.mParam;
+        MappingObject mappingObject5 = this.mWhenCheckMapping;
+        MappingObject mappingObject6 = this.mWhenStartMapping;
+        MappingObject mappingObject7 = this.mWhenErrorMapping;
+        MappingObject mappingObject8 = this.mPolarityPositiveMapping;
+        MappingObject mappingObject9 = this.mParityNoneMapping;
+        MappingObject mappingObject10 = this.mStopBit2Mapping;
+        MappingObject mappingObject11 = this.mWhenDataMapping;
+        MappingObject mappingObject12 = this.mParityEvenMapping;
+        MappingObject mappingObject13 = this.mParityOddMapping;
+        MappingObject mappingObject14 = this.mStopBit15Mapping;
+        String str19 = null;
+        String str20 = ((j & 4398046773249L) == 0 || mappingObject3 == null) ? null : mappingObject3.getStr();
+        String str21 = ((j & 4398047035394L) == 0 || mappingObject4 == null) ? null : mappingObject4.getStr();
+        if ((j & 4402340429868L) != 0) {
+            boolean z32 = true;
+            if ((j & 4398583382024L) != 0) {
+                if (triggerParam != null) {
+                    str2 = str21;
+                    str = str20;
+                    triggerPulsePolarity = triggerParam.getPulsePolarity();
+                } else {
+                    str = str20;
+                    str2 = str21;
+                    triggerPulsePolarity = null;
+                }
+                boolean z33 = triggerPulsePolarity == ServiceEnum.TriggerPulsePolarity.Trigger_pulse_negative;
+                z14 = triggerPulsePolarity == ServiceEnum.TriggerPulsePolarity.Trigger_pulse_positive;
+                z15 = z33;
+            } else {
+                str = str20;
+                str2 = str21;
+                z14 = false;
+                z15 = false;
+            }
+            int i9 = ((j & 4398048608264L) > 0L ? 1 : ((j & 4398048608264L) == 0L ? 0 : -1));
+            if (i9 != 0) {
+                if (triggerParam != null) {
+                    z17 = z15;
+                    z16 = z14;
+                    trigger_RS232_When = triggerParam.getTrigger_RS232_When();
+                } else {
+                    z16 = z14;
+                    z17 = z15;
+                    trigger_RS232_When = null;
+                }
+                mappingObject2 = mappingObject14;
+                z19 = trigger_RS232_When == ServiceEnum.Trigger_RS232_When.rs232_when_data;
+                z20 = trigger_RS232_When == ServiceEnum.Trigger_RS232_When.rs232_when_check_error;
+                z21 = trigger_RS232_When == ServiceEnum.Trigger_RS232_When.rs232_when_error;
+                z18 = trigger_RS232_When == ServiceEnum.Trigger_RS232_When.rs232_when_start;
+                if (i9 != 0) {
+                    j |= z19 ? 17592186044416L : 8796093022208L;
+                }
+                i3 = z19 ? 0 : 8;
+            } else {
+                z16 = z14;
+                mappingObject2 = mappingObject14;
+                z17 = z15;
+                z18 = false;
+                i3 = 0;
+                z19 = false;
+                z20 = false;
+                z21 = false;
+            }
+            if ((j & 4398315995148L) != 0) {
+                if (triggerParam != null) {
+                    z22 = z18;
+                    chan = triggerParam.getChan();
+                } else {
+                    z22 = z18;
+                    chan = null;
+                }
+                i4 = i3;
+                if (chan != null) {
+                    i8 = chan.value1;
+                    z23 = z19;
+                } else {
+                    z23 = z19;
+                    i8 = 0;
+                }
+                MappingObject mappingObject15 = ViewUtil.getMappingObject(R.array.msg_trigger_source_la_ext_ac, i8);
+                updateRegistration(2, mappingObject15);
+                str12 = mappingObject15 != null ? mappingObject15.getStr() : null;
+                j3 = 0;
+                if ((j & 4398314946568L) != 0) {
+                    i5 = ColorUtil.getColor(getRoot().getContext(), chan);
+                    if ((j & 4398180728840L) == j3) {
+                        if (triggerParam != null) {
+                            str13 = str12;
+                            j5 = triggerParam.getLevel();
+                        } else {
+                            str13 = str12;
+                            j5 = 0;
+                        }
+                        if (triggerParam != null) {
+                            str14 = triggerParam.getTriggerLevelStr(j5);
+                            boolean isNoise = ((j & 4399120252936L) != 0 || triggerParam == null) ? false : triggerParam.getIsNoise();
+                            if ((j & 4398050705416L) != 0) {
+                                if (triggerParam != null) {
+                                    str15 = str14;
+                                    i6 = i5;
+                                    trigger_RS232_Parity = triggerParam.getTrigger_RS232_Parity();
+                                } else {
+                                    i6 = i5;
+                                    str15 = str14;
+                                    trigger_RS232_Parity = null;
+                                }
+                                boolean z34 = trigger_RS232_Parity == ServiceEnum.Trigger_RS232_Parity.RS232_Parity_Odd;
+                                z26 = trigger_RS232_Parity == ServiceEnum.Trigger_RS232_Parity.RS232_Parity_None;
+                                z24 = trigger_RS232_Parity == ServiceEnum.Trigger_RS232_Parity.RS232_Parity_Even;
+                                z25 = z34;
+                            } else {
+                                i6 = i5;
+                                str15 = str14;
+                                z24 = false;
+                                z25 = false;
+                                z26 = false;
+                            }
+                            if ((j & 4400210772008L) != 0) {
+                                if (triggerParam != null) {
+                                    z27 = z24;
+                                    trigger_RS232_Width = triggerParam.getTrigger_RS232_Width();
+                                } else {
+                                    z27 = z24;
+                                    trigger_RS232_Width = null;
+                                }
+                                if (trigger_RS232_Width != null) {
+                                    i7 = trigger_RS232_Width.value1;
+                                    z28 = z25;
+                                } else {
+                                    z28 = z25;
+                                    i7 = 0;
+                                }
+                                MappingObject mappingObject16 = ViewUtil.getMappingObject(R.array.msg_trigger_rs232_datawidth, i7);
+                                updateRegistration(5, mappingObject16);
+                                if (mappingObject16 != null) {
+                                    str16 = mappingObject16.getStr();
+                                    if ((j & 4398113619976L) == 0) {
+                                        if (triggerParam != null) {
+                                            long rs232Data = triggerParam.getRs232Data();
+                                            str18 = triggerParam.rs232DataConvert();
+                                            str17 = str16;
+                                            z29 = isNoise;
+                                            j4 = rs232Data;
+                                        } else {
+                                            str17 = str16;
+                                            z29 = isNoise;
+                                            str18 = null;
+                                            j4 = 0;
+                                        }
+                                        mappingObject = mappingObject13;
+                                        str3 = ((UnitFormat.newBuilder(" # ", UnitFormat.SI.NONE).convert(j4, ServiceEnum.Unit.Unit_none) + "(0x") + str18) + ")";
+                                    } else {
+                                        str17 = str16;
+                                        mappingObject = mappingObject13;
+                                        z29 = isNoise;
+                                        str3 = null;
+                                    }
+                                    if ((j & 4398054899720L) == 0) {
+                                        ServiceEnum.Trigger_RS232_Stop trigger_RS232_Stop = triggerParam != null ? triggerParam.getTrigger_RS232_Stop() : null;
+                                        z30 = trigger_RS232_Stop == ServiceEnum.Trigger_RS232_Stop.STOP_WIDTH_2;
+                                        z31 = trigger_RS232_Stop == ServiceEnum.Trigger_RS232_Stop.STOP_WIDTH_1;
+                                        if (trigger_RS232_Stop != ServiceEnum.Trigger_RS232_Stop.STOP_WIDTH_1_5) {
+                                            z32 = false;
+                                        }
+                                    } else {
+                                        z30 = false;
+                                        z31 = false;
+                                        z32 = false;
+                                    }
+                                    if ((j & 4398080065544L) == 0) {
+                                        int rs232BaudRate = triggerParam != null ? triggerParam.getRs232BaudRate() : 0;
+                                        String str22 = str3;
+                                        j2 = j;
+                                        str4 = UnitFormat.newBuilder(" 0.###  ", UnitFormat.SI.NONE).convert(rs232BaudRate, ServiceEnum.Unit.Unit_none) + "bps";
+                                        z13 = z30;
+                                        z11 = z31;
+                                        str3 = str22;
+                                    } else {
+                                        j2 = j;
+                                        z13 = z30;
+                                        z11 = z31;
+                                        str4 = null;
+                                    }
+                                    z12 = z32;
+                                    z2 = z22;
+                                    z10 = z16;
+                                    z9 = z17;
+                                    z4 = z20;
+                                    z5 = z21;
+                                    i = i4;
+                                    z3 = z23;
+                                    str7 = str13;
+                                    i2 = i6;
+                                    str5 = str15;
+                                    z = z27;
+                                    z6 = z26;
+                                    z7 = z28;
+                                    str6 = str17;
+                                    z8 = z29;
+                                }
+                            } else {
+                                z27 = z24;
+                                z28 = z25;
+                            }
+                            str16 = null;
+                            if ((j & 4398113619976L) == 0) {
+                            }
+                            if ((j & 4398054899720L) == 0) {
+                            }
+                            if ((j & 4398080065544L) == 0) {
+                            }
+                            z12 = z32;
+                            z2 = z22;
+                            z10 = z16;
+                            z9 = z17;
+                            z4 = z20;
+                            z5 = z21;
+                            i = i4;
+                            z3 = z23;
+                            str7 = str13;
+                            i2 = i6;
+                            str5 = str15;
+                            z = z27;
+                            z6 = z26;
+                            z7 = z28;
+                            str6 = str17;
+                            z8 = z29;
+                        }
+                    } else {
+                        str13 = str12;
+                    }
+                    str14 = null;
+                    if ((j & 4399120252936L) != 0) {
+                    }
+                    if ((j & 4398050705416L) != 0) {
+                    }
+                    if ((j & 4400210772008L) != 0) {
+                    }
+                    str16 = null;
+                    if ((j & 4398113619976L) == 0) {
+                    }
+                    if ((j & 4398054899720L) == 0) {
+                    }
+                    if ((j & 4398080065544L) == 0) {
+                    }
+                    z12 = z32;
+                    z2 = z22;
+                    z10 = z16;
+                    z9 = z17;
+                    z4 = z20;
+                    z5 = z21;
+                    i = i4;
+                    z3 = z23;
+                    str7 = str13;
+                    i2 = i6;
+                    str5 = str15;
+                    z = z27;
+                    z6 = z26;
+                    z7 = z28;
+                    str6 = str17;
+                    z8 = z29;
+                }
+            } else {
+                z22 = z18;
+                i4 = i3;
+                z23 = z19;
+                j3 = 0;
+                str12 = null;
+            }
+            i5 = 0;
+            if ((j & 4398180728840L) == j3) {
+            }
+            str14 = null;
+            if ((j & 4399120252936L) != 0) {
+            }
+            if ((j & 4398050705416L) != 0) {
+            }
+            if ((j & 4400210772008L) != 0) {
+            }
+            str16 = null;
+            if ((j & 4398113619976L) == 0) {
+            }
+            if ((j & 4398054899720L) == 0) {
+            }
+            if ((j & 4398080065544L) == 0) {
+            }
+            z12 = z32;
+            z2 = z22;
+            z10 = z16;
+            z9 = z17;
+            z4 = z20;
+            z5 = z21;
+            i = i4;
+            z3 = z23;
+            str7 = str13;
+            i2 = i6;
+            str5 = str15;
+            z = z27;
+            z6 = z26;
+            z7 = z28;
+            str6 = str17;
+            z8 = z29;
+        } else {
+            str = str20;
+            mappingObject = mappingObject13;
+            mappingObject2 = mappingObject14;
+            str2 = str21;
+            j2 = j;
+            str3 = null;
+            str4 = null;
+            str5 = null;
+            str6 = null;
+            z = false;
+            z2 = false;
+            i = 0;
+            z3 = false;
+            z4 = false;
+            z5 = false;
+            z6 = false;
+            z7 = false;
+            z8 = false;
+            z9 = false;
+            z10 = false;
+            i2 = 0;
+            z11 = false;
+            z12 = false;
+            z13 = false;
+            str7 = null;
+        }
+        int i10 = ((j2 & 4402341478464L) > 0L ? 1 : ((j2 & 4402341478464L) == 0L ? 0 : -1));
+        String str23 = (i10 == 0 || mappingObject5 == null) ? null : mappingObject5.getStr();
+        int i11 = ((j2 & 4406636445824L) > 0L ? 1 : ((j2 & 4406636445824L) == 0L ? 0 : -1));
+        String str24 = (i11 == 0 || mappingObject6 == null) ? null : mappingObject6.getStr();
+        int i12 = ((j2 & 4415226380544L) > 0L ? 1 : ((j2 & 4415226380544L) == 0L ? 0 : -1));
+        String str25 = (i12 == 0 || mappingObject7 == null) ? null : mappingObject7.getStr();
+        int i13 = ((j2 & 4432406251520L) > 0L ? 1 : ((j2 & 4432406251520L) == 0L ? 0 : -1));
+        String str26 = (i13 == 0 || mappingObject8 == null) ? null : mappingObject8.getStr();
+        int i14 = ((j2 & 4466765991936L) > 0L ? 1 : ((j2 & 4466765991936L) == 0L ? 0 : -1));
+        String str27 = (i14 == 0 || mappingObject9 == null) ? null : mappingObject9.getStr();
+        int i15 = ((j2 & 4535485472768L) > 0L ? 1 : ((j2 & 4535485472768L) == 0L ? 0 : -1));
+        String str28 = (i15 == 0 || mappingObject10 == null) ? null : mappingObject10.getStr();
+        int i16 = ((j2 & 4672924434432L) > 0L ? 1 : ((j2 & 4672924434432L) == 0L ? 0 : -1));
+        String str29 = (i16 == 0 || mappingObject11 == null) ? null : mappingObject11.getStr();
+        int i17 = ((j2 & 4947802357760L) > 0L ? 1 : ((j2 & 4947802357760L) == 0L ? 0 : -1));
+        String str30 = (i17 == 0 || mappingObject12 == null) ? null : mappingObject12.getStr();
+        int i18 = ((j2 & 5497558204416L) > 0L ? 1 : ((j2 & 5497558204416L) == 0L ? 0 : -1));
+        if (i18 == 0 || mappingObject == null) {
+            str8 = str28;
+            str9 = null;
+        } else {
+            str8 = str28;
+            str9 = mappingObject.getStr();
+        }
+        int i19 = ((j2 & 6597069897728L) > 0L ? 1 : ((j2 & 6597069897728L) == 0L ? 0 : -1));
+        if (i19 != 0 && mappingObject2 != null) {
+            str19 = mappingObject2.getStr();
+        }
+        String str31 = str19;
+        if ((j2 & 4398048608264L) != 0) {
+            str10 = str24;
+            str11 = str26;
+            adapterTriggerRs232BindingImpl = this;
+            adapterTriggerRs232BindingImpl.dataLabel.setVisibility(i);
+            adapterTriggerRs232BindingImpl.dataValue.setVisibility(i);
+            CompoundButtonBindingAdapter.setChecked(adapterTriggerRs232BindingImpl.triggerRs232Check, z4);
+            CompoundButtonBindingAdapter.setChecked(adapterTriggerRs232BindingImpl.triggerRs232Data, z3);
+            CompoundButtonBindingAdapter.setChecked(adapterTriggerRs232BindingImpl.triggerRs232Error, z5);
+            CompoundButtonBindingAdapter.setChecked(adapterTriggerRs232BindingImpl.triggerRs232Start, z2);
+            adapterTriggerRs232BindingImpl.view2.setVisibility(i);
+        } else {
+            str10 = str24;
+            str11 = str26;
+            adapterTriggerRs232BindingImpl = this;
+        }
+        if ((j2 & 4398113619976L) != 0) {
+            TextViewBindingAdapter.setText(adapterTriggerRs232BindingImpl.dataValue, str3);
+        }
+        if ((j2 & 4398080065544L) != 0) {
+            TextViewBindingAdapter.setText(adapterTriggerRs232BindingImpl.triggerBaudrate, str4);
+        }
+        if ((j2 & 4398050705416L) != 0) {
+            CompoundButtonBindingAdapter.setChecked(adapterTriggerRs232BindingImpl.triggerCheckEven, z);
+            CompoundButtonBindingAdapter.setChecked(adapterTriggerRs232BindingImpl.triggerCheckNone, z6);
+            CompoundButtonBindingAdapter.setChecked(adapterTriggerRs232BindingImpl.triggerCheckOdd, z7);
+        }
+        if (i17 != 0) {
+            TextViewBindingAdapter.setText(adapterTriggerRs232BindingImpl.triggerCheckEven, str30);
+        }
+        if (i14 != 0) {
+            TextViewBindingAdapter.setText(adapterTriggerRs232BindingImpl.triggerCheckNone, str27);
+        }
+        if (i18 != 0) {
+            TextViewBindingAdapter.setText(adapterTriggerRs232BindingImpl.triggerCheckOdd, str9);
+        }
+        if ((j2 & 4400210772008L) != 0) {
+            TextViewBindingAdapter.setText(adapterTriggerRs232BindingImpl.triggerDataWidth, str6);
+        }
+        if ((j2 & 4398180728840L) != 0) {
+            TextViewBindingAdapter.setText(adapterTriggerRs232BindingImpl.triggerLevelValue, str5);
+        }
+        if ((j2 & 4399120252936L) != 0) {
+            CompoundButtonBindingAdapter.setChecked(adapterTriggerRs232BindingImpl.triggerNoiseSwitch, z8);
+        }
+        if (i10 != 0) {
+            TextViewBindingAdapter.setText(adapterTriggerRs232BindingImpl.triggerRs232Check, str23);
+        }
+        if (i16 != 0) {
+            TextViewBindingAdapter.setText(adapterTriggerRs232BindingImpl.triggerRs232Data, str29);
+        }
+        if (i12 != 0) {
+            TextViewBindingAdapter.setText(adapterTriggerRs232BindingImpl.triggerRs232Error, str25);
+        }
+        if ((j2 & 4398583382024L) != 0) {
+            CompoundButtonBindingAdapter.setChecked(adapterTriggerRs232BindingImpl.triggerRs232Negative, z9);
+            CompoundButtonBindingAdapter.setChecked(adapterTriggerRs232BindingImpl.triggerRs232Positive, z10);
+        }
+        if ((j2 & 4398047035394L) != 0) {
+            TextViewBindingAdapter.setText(adapterTriggerRs232BindingImpl.triggerRs232Negative, str2);
+        }
+        if (i13 != 0) {
+            TextViewBindingAdapter.setText(adapterTriggerRs232BindingImpl.triggerRs232Positive, str11);
+        }
+        if (i11 != 0) {
+            TextViewBindingAdapter.setText(adapterTriggerRs232BindingImpl.triggerRs232Start, str10);
+        }
+        if ((j2 & 4398315995148L) != 0) {
+            TextViewBindingAdapter.setText(adapterTriggerRs232BindingImpl.triggerSource, str7);
+        }
+        if ((j2 & 4398314946568L) != 0) {
+            adapterTriggerRs232BindingImpl.triggerSource.setTextColor(i2);
+        }
+        if ((j2 & 4398054899720L) != 0) {
+            CompoundButtonBindingAdapter.setChecked(adapterTriggerRs232BindingImpl.triggerStopBit1, z11);
+            CompoundButtonBindingAdapter.setChecked(adapterTriggerRs232BindingImpl.triggerStopBit15, z12);
+            CompoundButtonBindingAdapter.setChecked(adapterTriggerRs232BindingImpl.triggerStopBit2, z13);
+        }
+        if ((j2 & 4398046773249L) != 0) {
+            TextViewBindingAdapter.setText(adapterTriggerRs232BindingImpl.triggerStopBit1, str);
+        }
+        if (i19 != 0) {
+            TextViewBindingAdapter.setText(adapterTriggerRs232BindingImpl.triggerStopBit15, str31);
+        }
+        if (i15 != 0) {
+            TextViewBindingAdapter.setText(adapterTriggerRs232BindingImpl.triggerStopBit2, str8);
+        }
     }
 }

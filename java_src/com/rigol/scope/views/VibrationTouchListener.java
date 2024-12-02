@@ -5,6 +5,7 @@ import android.view.View;
 import com.rigol.scope.utilities.ContextUtil;
 import com.rigol.scope.utilities.ViewUtil;
 import com.rigol.scope.viewmodels.UtilityViewModel;
+
 /* loaded from: classes2.dex */
 public class VibrationTouchListener implements View.OnTouchListener {
     private final UtilityViewModel utilityViewModel = (UtilityViewModel) ContextUtil.getAppViewModel(UtilityViewModel.class);

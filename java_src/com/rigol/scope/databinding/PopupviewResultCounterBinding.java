@@ -16,6 +16,7 @@ import com.rigol.scope.R;
 import com.rigol.scope.data.CounterResultParam;
 import com.rigol.scope.data.MappingObject;
 import com.rigol.scope.views.SwitchButton;
+
 /* loaded from: classes2.dex */
 public abstract class PopupviewResultCounterBinding extends ViewDataBinding {
     public final TextView clear;
@@ -55,8 +56,7 @@ public abstract class PopupviewResultCounterBinding extends ViewDataBinding {
 
     public abstract void setTotalizeMappingObject(MappingObject mappingObject);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public PopupviewResultCounterBinding(Object obj, View view, int i, TextView textView, Button button, SwitchButton switchButton, TextView textView2, Button button2, RadioButton radioButton, Guideline guideline, RadioButton radioButton2, TextView textView3, EditText editText, TextView textView4, TextView textView5, TextView textView6, RadioButton radioButton3, TextView textView7, RadioGroup radioGroup) {
+    protected PopupviewResultCounterBinding(Object obj, View view, int i, TextView textView, Button button, SwitchButton switchButton, TextView textView2, Button button2, RadioButton radioButton, Guideline guideline, RadioButton radioButton2, TextView textView3, EditText editText, TextView textView4, TextView textView5, TextView textView6, RadioButton radioButton3, TextView textView7, RadioGroup radioGroup) {
         super(obj, view, i);
         this.clear = textView;
         this.clearButton = button;

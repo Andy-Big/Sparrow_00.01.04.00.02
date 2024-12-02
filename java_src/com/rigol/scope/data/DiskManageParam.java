@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
+
 /* loaded from: classes2.dex */
 public class DiskManageParam extends BaseParam {
     public static final String DEFAULT_PATH = "/data/UserData";

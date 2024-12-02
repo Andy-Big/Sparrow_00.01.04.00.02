@@ -31,6 +31,7 @@ import com.rigol.scope.viewmodels.SyncDataViewModel;
 import com.rigol.scope.viewmodels.UtilityViewModel;
 import com.rigol.scope.views.spinner.PopupSpinner;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public class UtilityQuickSettingAdapter extends RecyclerView.Adapter<QuickViewHolder> {
     private final View baseView;
@@ -68,12 +69,14 @@ public class UtilityQuickSettingAdapter extends RecyclerView.Adapter<QuickViewHo
         updateQuickOperationUI();
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public QuickViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         this.binding = AdapterUtilityQuickBinding.inflate(LayoutInflater.from(viewGroup.getContext()), viewGroup, false);
         return new QuickViewHolder(this.binding);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(QuickViewHolder quickViewHolder, int i) {
         this.utilitQuickOperationTitleAdapter = new UtilitQuickOperationTitleAdapter(this.context, this.titleList, this.utilityParam);
@@ -81,9 +84,8 @@ public class UtilityQuickSettingAdapter extends RecyclerView.Adapter<QuickViewHo
         setContent(this.utilityParam.getQuickOper().value1);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     /* loaded from: classes.dex */
-    public static class QuickViewHolder extends RecyclerView.ViewHolder {
+    protected static class QuickViewHolder extends RecyclerView.ViewHolder {
         private final AdapterUtilityQuickBinding binding;
 
         public QuickViewHolder(AdapterUtilityQuickBinding adapterUtilityQuickBinding) {
@@ -143,10 +145,9 @@ public class UtilityQuickSettingAdapter extends RecyclerView.Adapter<QuickViewHo
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.rigol.scope.adapters.UtilityQuickSettingAdapter$1  reason: invalid class name */
     /* loaded from: classes.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    static /* synthetic */ class AnonymousClass1 {
         static final /* synthetic */ int[] $SwitchMap$com$rigol$scope$cil$ServiceEnum$UtilityQuickOperationType;
 
         static {
@@ -244,6 +245,7 @@ public class UtilityQuickSettingAdapter extends RecyclerView.Adapter<QuickViewHo
             this.utilityParam = utilityParam;
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
         public UtilityQuickOperationTitleViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
             final UtilityQuickOperationTitleViewHolder utilityQuickOperationTitleViewHolder = new UtilityQuickOperationTitleViewHolder(AdapterUtilityQuickTitleBinding.inflate(LayoutInflater.from(this.context), viewGroup, false));
@@ -265,6 +267,7 @@ public class UtilityQuickSettingAdapter extends RecyclerView.Adapter<QuickViewHo
             notifyDataSetChanged();
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
         public void onBindViewHolder(UtilityQuickOperationTitleViewHolder utilityQuickOperationTitleViewHolder, int i) {
             if (this.utilityParam.getQuickOper().value1 == this.titleList.get(i).getValue()) {
@@ -312,6 +315,7 @@ public class UtilityQuickSettingAdapter extends RecyclerView.Adapter<QuickViewHo
             return 1;
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
         public void onBindViewHolder(UtilityQuickOperationContentViewHolder utilityQuickOperationContentViewHolder, int i) {
         }
@@ -333,6 +337,7 @@ public class UtilityQuickSettingAdapter extends RecyclerView.Adapter<QuickViewHo
             this.storageSaveParam = storageSaveParam;
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
         public UtilityQuickOperationContentViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
             AdapterUtilityQuickScreenshotBinding inflate = AdapterUtilityQuickScreenshotBinding.inflate(LayoutInflater.from(this.context), viewGroup, false);
@@ -377,9 +382,8 @@ public class UtilityQuickSettingAdapter extends RecyclerView.Adapter<QuickViewHo
             }
         }
 
-        /* JADX INFO: Access modifiers changed from: private */
         /* loaded from: classes.dex */
-        public static class UtilityQuickOperationContentViewHolder extends RecyclerView.ViewHolder {
+        private static class UtilityQuickOperationContentViewHolder extends RecyclerView.ViewHolder {
             AdapterUtilityQuickScreenshotBinding binding;
 
             public UtilityQuickOperationContentViewHolder(AdapterUtilityQuickScreenshotBinding adapterUtilityQuickScreenshotBinding) {
@@ -400,6 +404,7 @@ public class UtilityQuickSettingAdapter extends RecyclerView.Adapter<QuickViewHo
             return 1;
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
         public void onBindViewHolder(UtilityQuickSaveWaveViewHolder utilityQuickSaveWaveViewHolder, int i) {
         }
@@ -421,6 +426,7 @@ public class UtilityQuickSettingAdapter extends RecyclerView.Adapter<QuickViewHo
             this.storageSaveParam = storageSaveParam;
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
         public UtilityQuickSaveWaveViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
             AdapterUtilitySaveWaveBinding inflate = AdapterUtilitySaveWaveBinding.inflate(LayoutInflater.from(this.context), viewGroup, false);
@@ -463,9 +469,8 @@ public class UtilityQuickSettingAdapter extends RecyclerView.Adapter<QuickViewHo
             }
         }
 
-        /* JADX INFO: Access modifiers changed from: private */
         /* loaded from: classes.dex */
-        public static class UtilityQuickSaveWaveViewHolder extends RecyclerView.ViewHolder {
+        private static class UtilityQuickSaveWaveViewHolder extends RecyclerView.ViewHolder {
             AdapterUtilitySaveWaveBinding binding;
 
             public UtilityQuickSaveWaveViewHolder(AdapterUtilitySaveWaveBinding adapterUtilitySaveWaveBinding) {
@@ -487,6 +492,7 @@ public class UtilityQuickSettingAdapter extends RecyclerView.Adapter<QuickViewHo
             return 1;
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
         public void onBindViewHolder(UtilityAllMeasureViewHolder utilityAllMeasureViewHolder, int i) {
         }
@@ -497,6 +503,7 @@ public class UtilityQuickSettingAdapter extends RecyclerView.Adapter<QuickViewHo
             this.utilityParam = utilityParam;
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
         public UtilityAllMeasureViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
             this.binding = AdapterUtilityAllmeasureBinding.inflate(LayoutInflater.from(this.context), viewGroup, false);
@@ -531,9 +538,8 @@ public class UtilityQuickSettingAdapter extends RecyclerView.Adapter<QuickViewHo
             this.utilityParam.saveMeasSrc(chanFromValue1);
         }
 
-        /* JADX INFO: Access modifiers changed from: private */
         /* loaded from: classes.dex */
-        public static class UtilityAllMeasureViewHolder extends RecyclerView.ViewHolder {
+        private static class UtilityAllMeasureViewHolder extends RecyclerView.ViewHolder {
             AdapterUtilityAllmeasureBinding binding;
 
             public UtilityAllMeasureViewHolder(AdapterUtilityAllmeasureBinding adapterUtilityAllmeasureBinding) {
@@ -554,6 +560,7 @@ public class UtilityQuickSettingAdapter extends RecyclerView.Adapter<QuickViewHo
             return 1;
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
         public void onBindViewHolder(UtilityStatResetViewHolder utilityStatResetViewHolder, int i) {
         }
@@ -563,6 +570,7 @@ public class UtilityQuickSettingAdapter extends RecyclerView.Adapter<QuickViewHo
             this.utilityParam = utilityParam;
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
         public UtilityStatResetViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
             AdapterStatResetBinding inflate = AdapterStatResetBinding.inflate(LayoutInflater.from(this.context), viewGroup, false);
@@ -587,9 +595,8 @@ public class UtilityQuickSettingAdapter extends RecyclerView.Adapter<QuickViewHo
             }
         }
 
-        /* JADX INFO: Access modifiers changed from: private */
         /* loaded from: classes.dex */
-        public static class UtilityStatResetViewHolder extends RecyclerView.ViewHolder {
+        private static class UtilityStatResetViewHolder extends RecyclerView.ViewHolder {
             AdapterStatResetBinding binding;
 
             public UtilityStatResetViewHolder(AdapterStatResetBinding adapterStatResetBinding) {
@@ -610,6 +617,7 @@ public class UtilityQuickSettingAdapter extends RecyclerView.Adapter<QuickViewHo
             return 1;
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
         public void onBindViewHolder(UtilitySaveGroupViewHolder utilitySaveGroupViewHolder, int i) {
         }
@@ -619,6 +627,7 @@ public class UtilityQuickSettingAdapter extends RecyclerView.Adapter<QuickViewHo
             this.utilityParam = utilityParam;
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
         public UtilitySaveGroupViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
             AdapterUtilitySaveGroupBinding inflate = AdapterUtilitySaveGroupBinding.inflate(LayoutInflater.from(this.context), viewGroup, false);
@@ -665,9 +674,8 @@ public class UtilityQuickSettingAdapter extends RecyclerView.Adapter<QuickViewHo
             }
         }
 
-        /* JADX INFO: Access modifiers changed from: private */
         /* loaded from: classes.dex */
-        public static class UtilitySaveGroupViewHolder extends RecyclerView.ViewHolder {
+        private static class UtilitySaveGroupViewHolder extends RecyclerView.ViewHolder {
             AdapterUtilitySaveGroupBinding binding;
 
             public UtilitySaveGroupViewHolder(AdapterUtilitySaveGroupBinding adapterUtilitySaveGroupBinding) {

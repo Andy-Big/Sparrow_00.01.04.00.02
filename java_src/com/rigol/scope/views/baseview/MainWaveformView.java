@@ -15,6 +15,7 @@ import com.rigol.scope.data.WindowParam;
 import com.rigol.scope.utilities.ContextUtil;
 import com.rigol.scope.viewmodels.MeasureSettingViewModel;
 import com.rigol.scope.viewmodels.SharedViewModel;
+
 /* loaded from: classes2.dex */
 public class MainWaveformView extends BaseWaveformView {
     public MainWaveformView(Context context) {
@@ -32,9 +33,8 @@ public class MainWaveformView extends BaseWaveformView {
         init();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.rigol.scope.views.baseview.BaseWaveformView, com.rigol.scope.views.window.WindowContent, android.view.View
-    public void onSizeChanged(int i, int i2, int i3, int i4) {
+    protected void onSizeChanged(int i, int i2, int i3, int i4) {
         super.onSizeChanged(i, i2, i3, i4);
         if (i != i3) {
             postDelayed(new Runnable() { // from class: com.rigol.scope.views.baseview.-$$Lambda$MainWaveformView$hMxzPn5PIrYFUpC1LjC2eILKqY0
@@ -60,6 +60,7 @@ public class MainWaveformView extends BaseWaveformView {
         MeasureSettingViewModel measureSettingViewModel = (MeasureSettingViewModel) ContextUtil.getAppViewModel(MeasureSettingViewModel.class);
         if (measureSettingViewModel != null) {
             measureSettingViewModel.getLiveData().observe((LifecycleOwner) ActivityUtils.getTopActivity(), new Observer<MeasureSettingParam>() { // from class: com.rigol.scope.views.baseview.MainWaveformView.1
+                /* JADX DEBUG: Method merged with bridge method */
                 @Override // androidx.lifecycle.Observer
                 public void onChanged(MeasureSettingParam measureSettingParam) {
                 }

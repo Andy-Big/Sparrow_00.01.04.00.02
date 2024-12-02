@@ -14,6 +14,7 @@ import com.rigol.scope.R;
 import com.rigol.scope.data.MaskParam;
 import com.rigol.scope.data.UtilityParam;
 import com.rigol.scope.views.SwitchButton;
+
 /* loaded from: classes2.dex */
 public abstract class AdapterUtilityBasesettingBinding extends ViewDataBinding {
     public final ConstraintLayout auxoutLayout;
@@ -69,8 +70,7 @@ public abstract class AdapterUtilityBasesettingBinding extends ViewDataBinding {
 
     public abstract void setParam(UtilityParam utilityParam);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public AdapterUtilityBasesettingBinding(Object obj, View view, int i, ConstraintLayout constraintLayout, ConstraintLayout constraintLayout2, ConstraintLayout constraintLayout3, ConstraintLayout constraintLayout4, ConstraintLayout constraintLayout5, ConstraintLayout constraintLayout6, ConstraintLayout constraintLayout7, ConstraintLayout constraintLayout8, TextView textView, SeekBar seekBar, ConstraintLayout constraintLayout9, ConstraintLayout constraintLayout10, ConstraintLayout constraintLayout11, TextView textView2, Space space, SwitchButton switchButton, SwitchButton switchButton2, SwitchButton switchButton3, SwitchButton switchButton4, SwitchButton switchButton5, SwitchButton switchButton6, SwitchButton switchButton7, SwitchButton switchButton8, SwitchButton switchButton9, ConstraintLayout constraintLayout12, TextView textView3, TextView textView4, TextView textView5, TextView textView6, TextView textView7, TextView textView8, TextView textView9, TextView textView10, TextView textView11, TextView textView12, TextView textView13, TextView textView14, TextView textView15, TextView textView16, ConstraintLayout constraintLayout13, ConstraintLayout constraintLayout14, View view2, View view3, ConstraintLayout constraintLayout15) {
+    protected AdapterUtilityBasesettingBinding(Object obj, View view, int i, ConstraintLayout constraintLayout, ConstraintLayout constraintLayout2, ConstraintLayout constraintLayout3, ConstraintLayout constraintLayout4, ConstraintLayout constraintLayout5, ConstraintLayout constraintLayout6, ConstraintLayout constraintLayout7, ConstraintLayout constraintLayout8, TextView textView, SeekBar seekBar, ConstraintLayout constraintLayout9, ConstraintLayout constraintLayout10, ConstraintLayout constraintLayout11, TextView textView2, Space space, SwitchButton switchButton, SwitchButton switchButton2, SwitchButton switchButton3, SwitchButton switchButton4, SwitchButton switchButton5, SwitchButton switchButton6, SwitchButton switchButton7, SwitchButton switchButton8, SwitchButton switchButton9, ConstraintLayout constraintLayout12, TextView textView3, TextView textView4, TextView textView5, TextView textView6, TextView textView7, TextView textView8, TextView textView9, TextView textView10, TextView textView11, TextView textView12, TextView textView13, TextView textView14, TextView textView15, TextView textView16, ConstraintLayout constraintLayout13, ConstraintLayout constraintLayout14, View view2, View view3, ConstraintLayout constraintLayout15) {
         super(obj, view, i);
         this.auxoutLayout = constraintLayout;
         this.beeperLayout = constraintLayout2;

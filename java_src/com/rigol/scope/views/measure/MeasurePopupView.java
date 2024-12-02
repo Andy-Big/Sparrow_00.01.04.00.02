@@ -48,6 +48,7 @@ import com.rigol.scope.views.vertical.VerticalPopupView;
 import java.util.ArrayList;
 import java.util.List;
 import timber.log.Timber;
+
 /* loaded from: classes2.dex */
 public class MeasurePopupView extends BasePopupView implements View.OnClickListener, MeasureViewPagerAdapter.OnItemClickListener {
     private AorBManager aorBManager;
@@ -122,6 +123,7 @@ public class MeasurePopupView extends BasePopupView implements View.OnClickListe
         this.sharedViewModel = sharedViewModel;
         if (sharedViewModel != null) {
             sharedViewModel.hasChangeMeasureItem.observe((LifecycleOwner) ActivityUtils.getTopActivity(), new Observer<Boolean>() { // from class: com.rigol.scope.views.measure.MeasurePopupView.2
+                /* JADX DEBUG: Method merged with bridge method */
                 @Override // androidx.lifecycle.Observer
                 public void onChanged(Boolean bool) {
                     MeasurePopupView.this.isChangeItem = bool.booleanValue();
@@ -453,9 +455,8 @@ public class MeasurePopupView extends BasePopupView implements View.OnClickListe
         }, 100L);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.rigol.scope.views.baseview.BasePopupView
-    public void onPrepare() {
+    protected void onPrepare() {
         super.onPrepare();
         setSelectSourceA(this.verticalParams);
     }

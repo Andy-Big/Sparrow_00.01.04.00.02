@@ -17,6 +17,7 @@ import com.rigol.scope.R;
 import com.rigol.scope.data.EyeParam;
 import com.rigol.scope.data.MappingObject;
 import com.rigol.scope.views.SwitchButton;
+
 /* loaded from: classes2.dex */
 public abstract class PopupviewEyeBinding extends ViewDataBinding {
     public final Guideline centerGuideline;
@@ -102,8 +103,7 @@ public abstract class PopupviewEyeBinding extends ViewDataBinding {
 
     public abstract void setView(View view);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public PopupviewEyeBinding(Object obj, View view, int i, Guideline guideline, RadioButton radioButton, View view2, View view3, View view4, TextView textView, RadioButton radioButton2, SwitchButton switchButton, TextView textView2, TextView textView3, TextView textView4, TextView textView5, TextView textView6, SwitchButton switchButton2, TextView textView7, TextView textView8, TextView textView9, TextView textView10, TextView textView11, SwitchButton switchButton3, RadioButton radioButton3, TextView textView12, RadioGroup radioGroup, RecyclerView recyclerView, TextView textView13, TextView textView14, TextView textView15, TextView textView16, SwitchButton switchButton4, TextView textView17, RadioButton radioButton4, TextView textView18, RadioGroup radioGroup2, RadioButton radioButton5, Guideline guideline2, RadioButton radioButton6, Button button, Guideline guideline3) {
+    protected PopupviewEyeBinding(Object obj, View view, int i, Guideline guideline, RadioButton radioButton, View view2, View view3, View view4, TextView textView, RadioButton radioButton2, SwitchButton switchButton, TextView textView2, TextView textView3, TextView textView4, TextView textView5, TextView textView6, SwitchButton switchButton2, TextView textView7, TextView textView8, TextView textView9, TextView textView10, TextView textView11, SwitchButton switchButton3, RadioButton radioButton3, TextView textView12, RadioGroup radioGroup, RecyclerView recyclerView, TextView textView13, TextView textView14, TextView textView15, TextView textView16, SwitchButton switchButton4, TextView textView17, RadioButton radioButton4, TextView textView18, RadioGroup radioGroup2, RadioButton radioButton5, Guideline guideline2, RadioButton radioButton6, Button button, Guideline guideline3) {
         super(obj, view, i);
         this.centerGuideline = guideline;
         this.eyeConstantRadioButton = radioButton;

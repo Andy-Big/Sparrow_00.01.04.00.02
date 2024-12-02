@@ -20,6 +20,7 @@ import com.rigol.scope.utilities.ViewUtil;
 import com.rigol.scope.utilities.WindowHolderManager;
 import com.rigol.scope.viewmodels.BodeViewModel;
 import com.rigol.scope.views.baseview.BasePopupView;
+
 /* loaded from: classes2.dex */
 public class BodeResultPopuwin extends BasePopupView implements View.OnClickListener {
     private final String SMALLER;

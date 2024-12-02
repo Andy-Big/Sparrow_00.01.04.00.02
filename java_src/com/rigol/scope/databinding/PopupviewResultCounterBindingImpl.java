@@ -12,11 +12,17 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.Guideline;
 import androidx.databinding.DataBindingComponent;
 import androidx.databinding.ViewDataBinding;
+import androidx.databinding.adapters.CompoundButtonBindingAdapter;
+import androidx.databinding.adapters.TextViewBindingAdapter;
 import com.rigol.scope.R;
+import com.rigol.scope.cil.ServiceEnum;
 import com.rigol.scope.data.CounterResultParam;
 import com.rigol.scope.data.MappingObject;
 import com.rigol.scope.generated.callback.OnClickListener;
+import com.rigol.scope.utilities.ColorUtil;
+import com.rigol.scope.utilities.ViewUtil;
 import com.rigol.scope.views.SwitchButton;
+
 /* loaded from: classes2.dex */
 public class PopupviewResultCounterBindingImpl extends PopupviewResultCounterBinding implements OnClickListener.Listener {
     private static final ViewDataBinding.IncludedLayouts sIncludes = null;
@@ -272,14 +278,157 @@ public class PopupviewResultCounterBindingImpl extends PopupviewResultCounterBin
     @Override // androidx.databinding.ViewDataBinding
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
     protected void executeBindings() {
-        /*
-            Method dump skipped, instructions count: 520
-            To view this dump add '--comments-level debug' option
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.rigol.scope.databinding.PopupviewResultCounterBindingImpl.executeBindings():void");
+        long j;
+        String str;
+        int i;
+        int i2;
+        int i3;
+        int i4;
+        int i5;
+        boolean z;
+        boolean z2;
+        boolean z3;
+        boolean z4;
+        String str2;
+        String str3;
+        int i6;
+        String str4;
+        int i7;
+        int i8;
+        long j2;
+        long j3;
+        synchronized (this) {
+            j = this.mDirtyFlags;
+            this.mDirtyFlags = 0L;
+        }
+        MappingObject mappingObject = this.mTotalizeMappingObject;
+        MappingObject mappingObject2 = this.mPeriodMappingObject;
+        MappingObject mappingObject3 = this.mFrequencyMappingObject;
+        CounterResultParam counterResultParam = this.mParam;
+        View.OnClickListener onClickListener = this.mOnClickListener;
+        String str5 = ((j & 16449) == 0 || mappingObject == null) ? null : mappingObject.getStr();
+        String str6 = ((j & 16514) == 0 || mappingObject2 == null) ? null : mappingObject2.getStr();
+        String str7 = ((j & 16644) == 0 || mappingObject3 == null) ? null : mappingObject3.getStr();
+        if ((j & 32280) != 0) {
+            z = ((j & 24592) == 0 || counterResultParam == null) ? false : counterResultParam.isCounterSwitch();
+            if ((j & 20496) != 0) {
+                str4 = String.valueOf(counterResultParam != null ? counterResultParam.getResolution() : 0);
+            } else {
+                str4 = null;
+            }
+            if ((j & 17944) != 0) {
+                ServiceEnum.Chan sourceA = counterResultParam != null ? counterResultParam.getSourceA() : null;
+                i7 = (j & 17424) != 0 ? ColorUtil.getColor(getRoot().getContext(), sourceA) : 0;
+                MappingObject mappingObject4 = ViewUtil.getMappingObject(R.array.msg_counter_1_src, sourceA != null ? sourceA.value1 : 0);
+                updateRegistration(3, mappingObject4);
+                if (mappingObject4 != null) {
+                    str2 = mappingObject4.getStr();
+                    i8 = ((j & 18448) > 0L ? 1 : ((j & 18448) == 0L ? 0 : -1));
+                    if (i8 == 0) {
+                        ServiceEnum.CounterType counterType = counterResultParam != null ? counterResultParam.getCounterType() : null;
+                        z2 = counterType == ServiceEnum.CounterType.FREQ;
+                        z3 = counterType == ServiceEnum.CounterType.PERIOD;
+                        z4 = counterType == ServiceEnum.CounterType.TOTALIZE;
+                        boolean z5 = counterType != ServiceEnum.CounterType.TOTALIZE;
+                        if (i8 != 0) {
+                            j |= z4 ? PlaybackStateCompat.ACTION_SET_REPEAT_MODE : PlaybackStateCompat.ACTION_PREPARE_FROM_URI;
+                        }
+                        if ((j & 18448) != 0) {
+                            if (z5) {
+                                j2 = j | PlaybackStateCompat.ACTION_PREPARE_FROM_SEARCH | PlaybackStateCompat.ACTION_SET_CAPTIONING_ENABLED;
+                                j3 = 4194304;
+                            } else {
+                                j2 = j | PlaybackStateCompat.ACTION_PREPARE_FROM_MEDIA_ID | PlaybackStateCompat.ACTION_SET_SHUFFLE_MODE_ENABLED;
+                                j3 = PlaybackStateCompat.ACTION_SET_SHUFFLE_MODE;
+                            }
+                            j = j2 | j3;
+                        }
+                        int i9 = z4 ? 4 : 0;
+                        int i10 = z5 ? 8 : 0;
+                        int i11 = z5 ? 0 : 4;
+                        i2 = z5 ? 8 : 4;
+                        str = str5;
+                        i4 = i9;
+                        i = i7;
+                        i3 = i10;
+                        i5 = i11;
+                    } else {
+                        str = str5;
+                        i = i7;
+                        i2 = 0;
+                        i3 = 0;
+                        i4 = 0;
+                        i5 = 0;
+                        z2 = false;
+                        z3 = false;
+                        z4 = false;
+                    }
+                    str3 = str4;
+                }
+            } else {
+                i7 = 0;
+            }
+            str2 = null;
+            i8 = ((j & 18448) > 0L ? 1 : ((j & 18448) == 0L ? 0 : -1));
+            if (i8 == 0) {
+            }
+            str3 = str4;
+        } else {
+            str = str5;
+            i = 0;
+            i2 = 0;
+            i3 = 0;
+            i4 = 0;
+            i5 = 0;
+            z = false;
+            z2 = false;
+            z3 = false;
+            z4 = false;
+            str2 = null;
+            str3 = null;
+        }
+        if ((j & 18448) != 0) {
+            i6 = i;
+            this.clear.setVisibility(i2);
+            this.clearButton.setVisibility(i3);
+            this.counterStatSwitch.setVisibility(i4);
+            CompoundButtonBindingAdapter.setChecked(this.frequencyRadioButton, z2);
+            CompoundButtonBindingAdapter.setChecked(this.periodRadioButton, z3);
+            this.resolution.setVisibility(i5);
+            this.resolutionEditText.setVisibility(i5);
+            this.stat.setVisibility(i4);
+            CompoundButtonBindingAdapter.setChecked(this.totalizeRadioButton, z4);
+        } else {
+            i6 = i;
+        }
+        if ((PlaybackStateCompat.ACTION_PREPARE & j) != 0) {
+            this.clearButton.setOnClickListener(this.mCallback32);
+            this.resolutionEditText.setOnClickListener(this.mCallback31);
+            this.sourceSpinner.setOnClickListener(this.mCallback30);
+        }
+        if ((j & 24592) != 0) {
+            CompoundButtonBindingAdapter.setChecked(this.counterStatSwitch, z);
+        }
+        if ((16644 & j) != 0) {
+            TextViewBindingAdapter.setText(this.frequencyRadioButton, str7);
+        }
+        if ((16514 & j) != 0) {
+            TextViewBindingAdapter.setText(this.periodRadioButton, str6);
+        }
+        if ((j & 20496) != 0) {
+            TextViewBindingAdapter.setText(this.resolutionEditText, str3);
+        }
+        if ((j & 17944) != 0) {
+            TextViewBindingAdapter.setText(this.sourceSpinner, str2);
+        }
+        if ((j & 17424) != 0) {
+            this.sourceSpinner.setTextColor(i6);
+        }
+        if ((j & 16449) != 0) {
+            TextViewBindingAdapter.setText(this.totalizeRadioButton, str);
+        }
     }
 
     @Override // com.rigol.scope.generated.callback.OnClickListener.Listener

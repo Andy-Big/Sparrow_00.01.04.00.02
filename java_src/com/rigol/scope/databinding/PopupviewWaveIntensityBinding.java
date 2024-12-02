@@ -10,6 +10,7 @@ import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import com.rigol.scope.R;
 import com.rigol.scope.data.DisplayParam;
+
 /* loaded from: classes2.dex */
 public abstract class PopupviewWaveIntensityBinding extends ViewDataBinding {
     @Bindable
@@ -20,8 +21,7 @@ public abstract class PopupviewWaveIntensityBinding extends ViewDataBinding {
 
     public abstract void setParam(DisplayParam displayParam);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public PopupviewWaveIntensityBinding(Object obj, View view, int i, TextView textView, SeekBar seekBar, TextView textView2) {
+    protected PopupviewWaveIntensityBinding(Object obj, View view, int i, TextView textView, SeekBar seekBar, TextView textView2) {
         super(obj, view, i);
         this.waveIntensity = textView;
         this.waveIntensitySeekbar = seekBar;

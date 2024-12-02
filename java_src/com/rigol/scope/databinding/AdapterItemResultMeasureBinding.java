@@ -12,6 +12,7 @@ import androidx.databinding.ViewDataBinding;
 import com.rigol.scope.R;
 import com.rigol.scope.data.MeasureResultParam;
 import com.rigol.scope.views.DisableTouchEventRecyclerView;
+
 /* loaded from: classes2.dex */
 public abstract class AdapterItemResultMeasureBinding extends ViewDataBinding {
     public final ImageView arrow;
@@ -25,8 +26,7 @@ public abstract class AdapterItemResultMeasureBinding extends ViewDataBinding {
 
     public abstract void setParam(MeasureResultParam measureResultParam);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public AdapterItemResultMeasureBinding(Object obj, View view, int i, ImageView imageView, TextView textView, ImageView imageView2, DisableTouchEventRecyclerView disableTouchEventRecyclerView, TextView textView2, LinearLayout linearLayout) {
+    protected AdapterItemResultMeasureBinding(Object obj, View view, int i, ImageView imageView, TextView textView, ImageView imageView2, DisableTouchEventRecyclerView disableTouchEventRecyclerView, TextView textView2, LinearLayout linearLayout) {
         super(obj, view, i);
         this.arrow = imageView;
         this.currentResult = textView;

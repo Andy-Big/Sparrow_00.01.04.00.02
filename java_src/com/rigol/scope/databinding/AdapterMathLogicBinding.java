@@ -17,6 +17,7 @@ import com.rigol.scope.data.MappingObject;
 import com.rigol.scope.data.MathParam;
 import com.rigol.scope.views.SwitchButton;
 import com.rigol.scope.views.baseview.BaseEditText;
+
 /* loaded from: classes2.dex */
 public abstract class AdapterMathLogicBinding extends ViewDataBinding {
     public final RadioButton fullRadioButton;
@@ -87,8 +88,7 @@ public abstract class AdapterMathLogicBinding extends ViewDataBinding {
 
     public abstract void setSmallMapping(MappingObject mappingObject);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public AdapterMathLogicBinding(Object obj, View view, int i, RadioButton radioButton, TextView textView, RadioGroup radioGroup, RadioButton radioButton2, TextView textView2, BaseEditText baseEditText, SwitchButton switchButton, RadioButton radioButton3, View view2, Guideline guideline, ImageButton imageButton, ImageButton imageButton2, RadioButton radioButton4, RadioButton radioButton5, TextView textView3, EditText editText, TextView textView4, EditText editText2, TextView textView5, RadioGroup radioGroup2, RadioButton radioButton6, TextView textView6, TextView textView7, TextView textView8, TextView textView9, TextView textView10, EditText editText3, TextView textView11, EditText editText4, TextView textView12, EditText editText5, TextView textView13, EditText editText6, TextView textView14, SwitchButton switchButton2) {
+    protected AdapterMathLogicBinding(Object obj, View view, int i, RadioButton radioButton, TextView textView, RadioGroup radioGroup, RadioButton radioButton2, TextView textView2, BaseEditText baseEditText, SwitchButton switchButton, RadioButton radioButton3, View view2, Guideline guideline, ImageButton imageButton, ImageButton imageButton2, RadioButton radioButton4, RadioButton radioButton5, TextView textView3, EditText editText, TextView textView4, EditText editText2, TextView textView5, RadioGroup radioGroup2, RadioButton radioButton6, TextView textView6, TextView textView7, TextView textView8, TextView textView9, TextView textView10, EditText editText3, TextView textView11, EditText editText4, TextView textView12, EditText editText5, TextView textView13, EditText editText6, TextView textView14, SwitchButton switchButton2) {
         super(obj, view, i);
         this.fullRadioButton = radioButton;
         this.gridType = textView;

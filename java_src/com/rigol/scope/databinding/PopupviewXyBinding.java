@@ -17,6 +17,7 @@ import com.rigol.scope.data.WindowParam;
 import com.rigol.scope.data.XYParam;
 import com.rigol.scope.views.SwitchButton;
 import com.rigol.scope.views.TouchableSeekBar;
+
 /* loaded from: classes2.dex */
 public abstract class PopupviewXyBinding extends ViewDataBinding {
     public final TextView afterglow;
@@ -73,8 +74,7 @@ public abstract class PopupviewXyBinding extends ViewDataBinding {
 
     public abstract void setXyParam(XYParam xYParam);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public PopupviewXyBinding(Object obj, View view, int i, TextView textView, TextView textView2, TextView textView3, TouchableSeekBar touchableSeekBar, TextView textView4, TouchableSeekBar touchableSeekBar2, TextView textView5, SwitchButton switchButton, RadioButton radioButton, TextView textView6, RadioGroup radioGroup, RadioButton radioButton2, TextView textView7, TextView textView8, TouchableSeekBar touchableSeekBar3, Guideline guideline, RadioButton radioButton3, TextView textView9, TouchableSeekBar touchableSeekBar4, TextView textView10, TextView textView11, SwitchButton switchButton2, TextView textView12, TextView textView13, TextView textView14, TextView textView15, TextView textView16, TextView textView17, TouchableSeekBar touchableSeekBar5) {
+    protected PopupviewXyBinding(Object obj, View view, int i, TextView textView, TextView textView2, TextView textView3, TouchableSeekBar touchableSeekBar, TextView textView4, TouchableSeekBar touchableSeekBar2, TextView textView5, SwitchButton switchButton, RadioButton radioButton, TextView textView6, RadioGroup radioGroup, RadioButton radioButton2, TextView textView7, TextView textView8, TouchableSeekBar touchableSeekBar3, Guideline guideline, RadioButton radioButton3, TextView textView9, TouchableSeekBar touchableSeekBar4, TextView textView10, TextView textView11, SwitchButton switchButton2, TextView textView12, TextView textView13, TextView textView14, TextView textView15, TextView textView16, TextView textView17, TouchableSeekBar touchableSeekBar5) {
         super(obj, view, i);
         this.afterglow = textView;
         this.afterglowInframe = textView2;

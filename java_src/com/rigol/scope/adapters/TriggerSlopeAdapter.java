@@ -33,6 +33,7 @@ import com.rigol.scope.views.spinner.PopupSpinner;
 import com.rigol.scope.views.trigger.TriggerPopupView;
 import java.util.ArrayList;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public class TriggerSlopeAdapter extends RecyclerView.Adapter<TriggerSlopeHolder> implements View.OnClickListener, CompoundButton.OnCheckedChangeListener, AorBManager.OnSetTextById, AorBManager.OnTextReset, AorBManager.OnSetTextByTriggerLevelRoll {
     private AorBManager aorBManager;
@@ -88,6 +89,7 @@ public class TriggerSlopeAdapter extends RecyclerView.Adapter<TriggerSlopeHolder
         this.serviceId = triggerParam.getServiceId();
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public TriggerSlopeHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         this.binding = AdapterTriggerSlopeBinding.inflate(LayoutInflater.from(viewGroup.getContext()), viewGroup, false);
@@ -161,6 +163,7 @@ public class TriggerSlopeAdapter extends RecyclerView.Adapter<TriggerSlopeHolder
         }
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(TriggerSlopeHolder triggerSlopeHolder, int i) {
         ShowTriggerSlope();

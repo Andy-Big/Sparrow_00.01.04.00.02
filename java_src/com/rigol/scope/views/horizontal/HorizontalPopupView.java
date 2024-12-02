@@ -52,6 +52,7 @@ import java.util.ArrayList;
 import java.util.List;
 import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
+
 /* compiled from: HorizontalPopupView.kt */
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000º\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010 \n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0005\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\t\n\u0002\u0018\u0002\n\u0000\u0018\u00002\u00020\u00012\u00020\u00022\u00020\u00032\u00020\u00042\u00020\u0005B\u0005¢\u0006\u0002\u0010\u0006J\u0018\u0010L\u001a\u00020M2\u0006\u0010N\u001a\u00020O2\u0006\u0010P\u001a\u00020QH\u0016J\u0010\u0010R\u001a\u00020M2\u0006\u0010S\u001a\u00020\u0012H\u0016J\b\u0010T\u001a\u00020MH\u0016J\u0010\u0010U\u001a\u00020M2\u0006\u0010V\u001a\u00020WH\u0016J \u0010X\u001a\u00020M2\u0006\u0010Y\u001a\u00020Z2\u0006\u0010V\u001a\u00020W2\u0006\u0010[\u001a\u00020QH\u0016J\b\u0010\\\u001a\u00020MH\u0002J\u0010\u0010]\u001a\u00020M2\u0006\u0010^\u001a\u00020%H\u0002J\u0010\u0010_\u001a\u00020M2\u0006\u0010^\u001a\u00020%H\u0002J\u0010\u0010`\u001a\u00020M2\u0006\u0010^\u001a\u00020%H\u0002J\u0010\u0010a\u001a\u00020M2\u0006\u0010^\u001a\u00020%H\u0002J,\u0010b\u001a\u00020M2\f\u0010#\u001a\b\u0012\u0004\u0012\u00020%0$2\u0006\u0010S\u001a\u00020\u00122\f\u0010c\u001a\b\u0012\u0004\u0012\u00020%0dH\u0002R\u001c\u0010\u0007\u001a\u0004\u0018\u00010\bX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\t\u0010\n\"\u0004\b\u000b\u0010\fR\u000e\u0010\r\u001a\u00020\u000eX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u000f\u001a\u0004\u0018\u00010\u0010X\u0082\u000e¢\u0006\u0002\n\u0000R\u001c\u0010\u0011\u001a\u0004\u0018\u00010\u0012X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0013\u0010\u0014\"\u0004\b\u0015\u0010\u0016R\u001c\u0010\u0017\u001a\u0004\u0018\u00010\u0018X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0019\u0010\u001a\"\u0004\b\u001b\u0010\u001cR!\u0010\u001d\u001a\u0012\u0012\u0004\u0012\u00020\u001f0\u001ej\b\u0012\u0004\u0012\u00020\u001f` ¢\u0006\b\n\u0000\u001a\u0004\b!\u0010\"R\"\u0010#\u001a\n\u0012\u0004\u0012\u00020%\u0018\u00010$X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b&\u0010'\"\u0004\b(\u0010)R\u0010\u0010*\u001a\u0004\u0018\u00010+X\u0082\u000e¢\u0006\u0002\n\u0000R\u001c\u0010,\u001a\u0004\u0018\u00010-X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b.\u0010/\"\u0004\b0\u00101R\u0010\u00102\u001a\u0004\u0018\u000103X\u0082\u0004¢\u0006\u0002\n\u0000R\u001c\u00104\u001a\u0004\u0018\u000105X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b6\u00107\"\u0004\b8\u00109R\u001c\u0010:\u001a\u0004\u0018\u00010;X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b<\u0010=\"\u0004\b>\u0010?R\u001c\u0010@\u001a\u0004\u0018\u00010AX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\bB\u0010C\"\u0004\bD\u0010ER\u001c\u0010F\u001a\u0004\u0018\u00010GX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\bH\u0010I\"\u0004\bJ\u0010K¨\u0006e"}, d2 = {"Lcom/rigol/scope/views/horizontal/HorizontalPopupView;", "Lcom/rigol/scope/views/baseview/BasePopupView;", "Landroid/widget/CompoundButton$OnCheckedChangeListener;", "Landroid/view/View$OnClickListener;", "Lcom/rigol/scope/utilities/AorBManager$OnSetTextById;", "Lcom/rigol/scope/utilities/AorBManager$OnTextReset;", "()V", "aorBManager", "Lcom/rigol/scope/utilities/AorBManager;", "getAorBManager", "()Lcom/rigol/scope/utilities/AorBManager;", "setAorBManager", "(Lcom/rigol/scope/utilities/AorBManager;)V", "binding", "Lcom/rigol/scope/databinding/PopupviewHorizontalBinding;", "bodeParam", "Lcom/rigol/scope/data/BodeParam;", "clickedView", "Landroid/view/View;", "getClickedView", "()Landroid/view/View;", "setClickedView", "(Landroid/view/View;)V", "keyboardPopupView", "Lcom/rigol/scope/views/keyboard/KeyboardPopupView;", "getKeyboardPopupView", "()Lcom/rigol/scope/views/keyboard/KeyboardPopupView;", "setKeyboardPopupView", "(Lcom/rigol/scope/views/keyboard/KeyboardPopupView;)V", "list_aorbParam", "Ljava/util/ArrayList;", "Lcom/rigol/scope/data/AorBParam;", "Lkotlin/collections/ArrayList;", "getList_aorbParam", "()Ljava/util/ArrayList;", "mappingObjects", "", "Lcom/rigol/scope/data/MappingObject;", "getMappingObjects", "()Ljava/util/List;", "setMappingObjects", "(Ljava/util/List;)V", "measureSettingParam", "Lcom/rigol/scope/data/MeasureSettingParam;", "panelKeyViewModel", "Lcom/rigol/scope/viewmodels/PanelKeyViewModel;", "getPanelKeyViewModel", "()Lcom/rigol/scope/viewmodels/PanelKeyViewModel;", "setPanelKeyViewModel", "(Lcom/rigol/scope/viewmodels/PanelKeyViewModel;)V", "param", "Lcom/rigol/scope/data/HorizontalParam;", "popupSpinner", "Lcom/rigol/scope/views/spinner/PopupSpinner;", "getPopupSpinner", "()Lcom/rigol/scope/views/spinner/PopupSpinner;", "setPopupSpinner", "(Lcom/rigol/scope/views/spinner/PopupSpinner;)V", "spinnerAdapter", "Lcom/rigol/scope/adapters/SpinnerAdapter;", "getSpinnerAdapter", "()Lcom/rigol/scope/adapters/SpinnerAdapter;", "setSpinnerAdapter", "(Lcom/rigol/scope/adapters/SpinnerAdapter;)V", "waveformFragment", "Lcom/rigol/scope/WaveformFragment;", "getWaveformFragment", "()Lcom/rigol/scope/WaveformFragment;", "setWaveformFragment", "(Lcom/rigol/scope/WaveformFragment;)V", "windowParam", "Lcom/rigol/scope/data/WindowParam;", "getWindowParam", "()Lcom/rigol/scope/data/WindowParam;", "setWindowParam", "(Lcom/rigol/scope/data/WindowParam;)V", "onCheckedChanged", "", "buttonView", "Landroid/widget/CompoundButton;", "isChecked", "", "onClick", "v", "onLocaleChanged", "onResetDefault", "viewId", "", "onViewIdCallback", "keyEvent", "Landroid/view/KeyEvent;", "isRoll", "refreshUltraAndXYStatus", "selectBandWidth", "item", "selectDisplay", "selectExpand", "selectMemDepth", "spinnerClick", "onSpinnerClickListener", "Lcom/rigol/scope/utilities/AorBManager$OnSpinnerClickListener;", "app_release"}, k = 1, mv = {1, 4, 1})
 /* loaded from: classes2.dex */
@@ -108,6 +109,7 @@ public final class HorizontalPopupView extends BasePopupView implements Compound
             Activity topActivity = ActivityUtils.getTopActivity();
             if (topActivity != null) {
                 liveData.observe((LifecycleOwner) topActivity, new Observer<MeasureSettingParam>() { // from class: com.rigol.scope.views.horizontal.HorizontalPopupView.1
+                    /* JADX DEBUG: Method merged with bridge method */
                     @Override // androidx.lifecycle.Observer
                     public final void onChanged(MeasureSettingParam measureSettingParam) {
                         HorizontalPopupView.this.measureSettingParam = measureSettingParam;
@@ -198,6 +200,7 @@ public final class HorizontalPopupView extends BasePopupView implements Compound
                 throw new NullPointerException("null cannot be cast to non-null type androidx.lifecycle.LifecycleOwner");
             }
             onKeyUpData.observe((LifecycleOwner) context2, new Observer<KeyEvent>() { // from class: com.rigol.scope.views.horizontal.HorizontalPopupView.5
+                /* JADX DEBUG: Method merged with bridge method */
                 @Override // androidx.lifecycle.Observer
                 public final void onChanged(KeyEvent keyEvent) {
                     if (PopupViewManager.getInstance().isShowing(HorizontalPopupView.class)) {
@@ -302,6 +305,7 @@ public final class HorizontalPopupView extends BasePopupView implements Compound
         this.clickedView = view;
     }
 
+    /* JADX DEBUG: Type inference failed for r0v0. Raw type applied. Possible types: java.util.List<? extends com.rigol.scope.data.MappingObject>, java.util.List<com.rigol.scope.data.MappingObject> */
     public final List<MappingObject> getMappingObjects() {
         return this.mappingObjects;
     }
@@ -506,6 +510,7 @@ public final class HorizontalPopupView extends BasePopupView implements Compound
                     HorizontalPopupView.this.setClickedView(view2);
                 }
             }, new PopupSpinner.OnItemClickListener<MappingObject>() { // from class: com.rigol.scope.views.horizontal.HorizontalPopupView$spinnerClick$2
+                /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.rigol.scope.views.spinner.PopupSpinner.OnItemClickListener
                 public final void onItemClick(View view2, RecyclerView.ViewHolder viewHolder, int i, MappingObject mappingObject) {
                     AorBManager.OnSpinnerClickListener.this.onSpinnerClick(mappingObject);
@@ -579,6 +584,7 @@ public final class HorizontalPopupView extends BasePopupView implements Compound
             List<MappingObject> depthMappings = ViewUtil.getDepthSpinnerList();
             Intrinsics.checkNotNullExpressionValue(depthMappings, "depthMappings");
             spinnerClick(depthMappings, v, new AorBManager.OnSpinnerClickListener<MappingObject>() { // from class: com.rigol.scope.views.horizontal.HorizontalPopupView$onClick$1
+                /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.rigol.scope.utilities.AorBManager.OnSpinnerClickListener
                 public final void onSpinnerClick(MappingObject it) {
                     HorizontalPopupView horizontalPopupView = HorizontalPopupView.this;
@@ -590,6 +596,7 @@ public final class HorizontalPopupView extends BasePopupView implements Compound
             List<MappingObject> list = ViewUtil.getList((int) R.array.msg_hor_expand);
             Intrinsics.checkNotNullExpressionValue(list, "ViewUtil.getList(R.array.msg_hor_expand)");
             spinnerClick(list, v, new AorBManager.OnSpinnerClickListener<MappingObject>() { // from class: com.rigol.scope.views.horizontal.HorizontalPopupView$onClick$2
+                /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.rigol.scope.utilities.AorBManager.OnSpinnerClickListener
                 public final void onSpinnerClick(MappingObject it) {
                     HorizontalPopupView horizontalPopupView = HorizontalPopupView.this;
@@ -604,6 +611,7 @@ public final class HorizontalPopupView extends BasePopupView implements Compound
             }
             Intrinsics.checkNotNullExpressionValue(listBIt, "listBIt");
             spinnerClick(listBIt, v, new AorBManager.OnSpinnerClickListener<MappingObject>() { // from class: com.rigol.scope.views.horizontal.HorizontalPopupView$onClick$3
+                /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.rigol.scope.utilities.AorBManager.OnSpinnerClickListener
                 public final void onSpinnerClick(MappingObject it) {
                     HorizontalPopupView horizontalPopupView = HorizontalPopupView.this;
@@ -615,6 +623,7 @@ public final class HorizontalPopupView extends BasePopupView implements Compound
             List<MappingObject> list2 = ViewUtil.getList((int) R.array.msg_acq_ultra_displaymode);
             Intrinsics.checkNotNullExpressionValue(list2, "ViewUtil.getList(R.array…sg_acq_ultra_displaymode)");
             spinnerClick(list2, v, new AorBManager.OnSpinnerClickListener<MappingObject>() { // from class: com.rigol.scope.views.horizontal.HorizontalPopupView$onClick$4
+                /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.rigol.scope.utilities.AorBManager.OnSpinnerClickListener
                 public final void onSpinnerClick(MappingObject it) {
                     HorizontalPopupView horizontalPopupView = HorizontalPopupView.this;

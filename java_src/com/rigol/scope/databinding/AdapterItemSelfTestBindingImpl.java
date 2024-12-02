@@ -10,6 +10,7 @@ import androidx.databinding.ViewDataBinding;
 import androidx.databinding.adapters.TextViewBindingAdapter;
 import com.rigol.scope.R;
 import com.rigol.scope.data.SelfTestParam;
+
 /* loaded from: classes2.dex */
 public class AdapterItemSelfTestBindingImpl extends AdapterItemSelfTestBinding {
     private static final ViewDataBinding.IncludedLayouts sIncludes = null;

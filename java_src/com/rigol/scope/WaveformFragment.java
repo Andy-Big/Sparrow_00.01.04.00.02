@@ -93,6 +93,7 @@ import com.rigol.util.ToastUtils;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public class WaveformFragment extends BaseFragment {
     private FragmentWaveformBinding binding;
@@ -124,8 +125,7 @@ public class WaveformFragment extends BaseFragment {
     private MeasHistogramResultParam measHistogramResultParam = null;
     public Boolean show_is_main = false;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ void lambda$onViewCreated$32(SharedParam sharedParam) {
+    static /* synthetic */ void lambda$onViewCreated$32(SharedParam sharedParam) {
     }
 
     public /* synthetic */ void lambda$onViewCreated$12$WaveformFragment(MeasHistogramResultParam measHistogramResultParam) {
@@ -784,10 +784,9 @@ public class WaveformFragment extends BaseFragment {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.rigol.scope.WaveformFragment$2  reason: invalid class name */
     /* loaded from: classes.dex */
-    public static /* synthetic */ class AnonymousClass2 {
+    static /* synthetic */ class AnonymousClass2 {
         static final /* synthetic */ int[] $SwitchMap$com$rigol$scope$cil$ServiceEnum$WindowType;
 
         static {
@@ -872,8 +871,7 @@ public class WaveformFragment extends BaseFragment {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ void lambda$addWindow$33() {
+    static /* synthetic */ void lambda$addWindow$33() {
         MessageBus.getInstance().onSyncData(MessageBus.getKey(60, MessageID.MSG_LA_ENABLE), true);
         ((SharedViewModel) ContextUtil.getAppViewModel(SharedViewModel.class)).getLiveData().getValue().setShowResultBar(((SharedViewModel) ContextUtil.getAppViewModel(SharedViewModel.class)).getLiveData().getValue().getShowResultBar());
     }

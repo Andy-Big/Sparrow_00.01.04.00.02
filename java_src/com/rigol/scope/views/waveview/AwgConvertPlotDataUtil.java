@@ -4,6 +4,7 @@ import com.blankj.utilcode.util.CollectionUtils;
 import com.blankj.utilcode.util.LogUtils;
 import java.util.ArrayList;
 import java.util.List;
+
 /* loaded from: classes2.dex */
 public class AwgConvertPlotDataUtil {
     public static float[] convertShortPlotDataToFullView(short[] sArr, short s, short s2, int i, int i2) {

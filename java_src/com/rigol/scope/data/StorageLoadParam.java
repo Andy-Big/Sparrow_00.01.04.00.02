@@ -13,6 +13,7 @@ import com.rigol.scope.utilities.ViewModelManager;
 import com.rigol.scope.views.FileLoadLoading;
 import com.rigol.scope.views.baseview.BasePopupView;
 import com.rigol.util.ToastUtils;
+
 /* loaded from: classes2.dex */
 public class StorageLoadParam extends BaseParam {
     private int bodeFileType;
@@ -161,8 +162,7 @@ public class StorageLoadParam extends BaseParam {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ void lambda$setResult$0() {
+    static /* synthetic */ void lambda$setResult$0() {
         ViewModelProvider appViewModelProvider = ContextUtil.getAppViewModelProvider();
         if (appViewModelProvider != null) {
             ViewModelManager.INSTANCE.readAll(appViewModelProvider);
@@ -280,10 +280,9 @@ public class StorageLoadParam extends BaseParam {
         ToastUtils.showLong(ActivityUtils.getTopActivity().getResources().getString(R.string.msg_storage_toast_fail));
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.rigol.scope.data.StorageLoadParam$1  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    static /* synthetic */ class AnonymousClass1 {
         static final /* synthetic */ int[] $SwitchMap$com$rigol$scope$cil$ServiceEnum$StorageFunc;
 
         static {

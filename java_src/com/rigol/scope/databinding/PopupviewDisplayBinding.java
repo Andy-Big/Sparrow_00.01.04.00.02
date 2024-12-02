@@ -15,6 +15,7 @@ import com.rigol.scope.data.DisplayParam;
 import com.rigol.scope.data.HorizontalParam;
 import com.rigol.scope.data.MappingObject;
 import com.rigol.scope.views.SwitchButton;
+
 /* loaded from: classes2.dex */
 public abstract class PopupviewDisplayBinding extends ViewDataBinding {
     public final TextView cIntensityText;
@@ -75,8 +76,7 @@ public abstract class PopupviewDisplayBinding extends ViewDataBinding {
 
     public abstract void setTypeVectorMapping(MappingObject mappingObject);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public PopupviewDisplayBinding(Object obj, View view, int i, TextView textView, TextView textView2, SeekBar seekBar, RadioButton radioButton, TextView textView3, SwitchButton switchButton, RadioButton radioButton2, TextView textView4, SeekBar seekBar2, TextView textView5, TextView textView6, RadioGroup radioGroup, RadioButton radioButton3, RadioButton radioButton4, TextView textView7, SwitchButton switchButton2, TextView textView8, TextView textView9, TextView textView10, SeekBar seekBar3, TextView textView11, TextView textView12, SwitchButton switchButton3, TextView textView13, RadioGroup radioGroup2, RadioButton radioButton5, TextView textView14, SeekBar seekBar4, TextView textView15) {
+    protected PopupviewDisplayBinding(Object obj, View view, int i, TextView textView, TextView textView2, SeekBar seekBar, RadioButton radioButton, TextView textView3, SwitchButton switchButton, RadioButton radioButton2, TextView textView4, SeekBar seekBar2, TextView textView5, TextView textView6, RadioGroup radioGroup, RadioButton radioButton3, RadioButton radioButton4, TextView textView7, SwitchButton switchButton2, TextView textView8, TextView textView9, TextView textView10, SeekBar seekBar3, TextView textView11, TextView textView12, SwitchButton switchButton3, TextView textView13, RadioGroup radioGroup2, RadioButton radioButton5, TextView textView14, SeekBar seekBar4, TextView textView15) {
         super(obj, view, i);
         this.cIntensityText = textView;
         this.cViewBgAlpha = textView2;

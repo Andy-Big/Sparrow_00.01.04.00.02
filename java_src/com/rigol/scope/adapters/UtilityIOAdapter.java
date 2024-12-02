@@ -26,6 +26,7 @@ import com.rigol.scope.views.baseview.BasePopupView;
 import com.rigol.scope.views.keyboard.KeyboardListener;
 import com.rigol.scope.views.keyboard.KeyboardPopupView;
 import com.rigol.util.ToastUtils;
+
 /* loaded from: classes.dex */
 public class UtilityIOAdapter extends RecyclerView.Adapter<LanViewHolder> {
     private AdapterUtilityLansettingItemBinding binding;
@@ -45,6 +46,7 @@ public class UtilityIOAdapter extends RecyclerView.Adapter<LanViewHolder> {
         this.popupView = basePopupView;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public LanViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         this.binding = AdapterUtilityLansettingItemBinding.inflate(LayoutInflater.from(viewGroup.getContext()), viewGroup, false);
@@ -65,6 +67,7 @@ public class UtilityIOAdapter extends RecyclerView.Adapter<LanViewHolder> {
         this.ioParam = iOParam;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(final LanViewHolder lanViewHolder, int i) {
         ViewUtil.setSwitchButton(this.binding.switchMdns);
@@ -125,8 +128,7 @@ public class UtilityIOAdapter extends RecyclerView.Adapter<LanViewHolder> {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ void lambda$onBindViewHolder$4(LanViewHolder lanViewHolder, View view) {
+    static /* synthetic */ void lambda$onBindViewHolder$4(LanViewHolder lanViewHolder, View view) {
         lanViewHolder.binding.switchMdns.setPressed(true);
         lanViewHolder.binding.switchMdns.toggle();
     }

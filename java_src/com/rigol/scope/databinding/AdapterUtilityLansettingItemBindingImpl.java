@@ -20,6 +20,7 @@ import com.rigol.scope.data.IOParam;
 import com.rigol.scope.utilities.ContextUtil;
 import com.rigol.scope.utilities.ViewUtil;
 import com.rigol.scope.views.SwitchButton;
+
 /* loaded from: classes2.dex */
 public class AdapterUtilityLansettingItemBindingImpl extends AdapterUtilityLansettingItemBinding {
     private static final ViewDataBinding.IncludedLayouts sIncludes = null;

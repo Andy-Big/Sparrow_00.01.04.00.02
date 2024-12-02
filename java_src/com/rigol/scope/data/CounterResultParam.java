@@ -6,6 +6,7 @@ import com.rigol.scope.cil.MessageID;
 import com.rigol.scope.cil.ServiceEnum;
 import com.rigol.scope.utilities.AorBManager;
 import com.rigol.scope.utilities.ContextUtil;
+
 /* loaded from: classes2.dex */
 public class CounterResultParam extends ResultParam {
     private static final boolean DEFAULT_COUNTER_SWITCH = false;

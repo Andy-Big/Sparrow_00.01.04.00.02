@@ -22,6 +22,7 @@ import com.rigol.scope.views.baseview.BasePopupView;
 import com.rigol.scope.views.busAnalyse.BusAnalysePopupView;
 import com.rigol.scope.views.busAnalyse.BusAnalyseUsbParam;
 import com.rigol.scope.views.spinner.PopupSpinner;
+
 /* loaded from: classes.dex */
 public class BusAnalyseUsbAdapter extends RecyclerView.Adapter<BusAnalyseUsbHolder> implements View.OnClickListener {
     private AdapterBusUsbAnalyseBinding binding;
@@ -38,12 +39,14 @@ public class BusAnalyseUsbAdapter extends RecyclerView.Adapter<BusAnalyseUsbHold
         this.popupView = basePopupView;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public BusAnalyseUsbHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         this.binding = AdapterBusUsbAnalyseBinding.inflate(LayoutInflater.from(viewGroup.getContext()), viewGroup, false);
         return new BusAnalyseUsbHolder(this.binding);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(BusAnalyseUsbHolder busAnalyseUsbHolder, int i) {
         this.binding.busAnalyseUsbTypeValue.setOnClickListener(this);
@@ -167,8 +170,7 @@ public class BusAnalyseUsbAdapter extends RecyclerView.Adapter<BusAnalyseUsbHold
         this.binding.setParam(this.param);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ void lambda$onClick$5(View view) {
+    static /* synthetic */ void lambda$onClick$5(View view) {
         API.getInstance().UI_PostBool(48, MessageID.MSG_USB_ANALYSE_ENABLE, false);
         PopupViewManager.getInstance().show(BusAnalysePopupView.class);
     }

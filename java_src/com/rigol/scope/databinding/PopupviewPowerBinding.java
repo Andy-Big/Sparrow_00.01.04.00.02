@@ -10,6 +10,7 @@ import androidx.constraintlayout.widget.Guideline;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import com.rigol.scope.R;
+
 /* loaded from: classes2.dex */
 public abstract class PopupviewPowerBinding extends ViewDataBinding {
     public final Button buttonRestart;
@@ -24,8 +25,7 @@ public abstract class PopupviewPowerBinding extends ViewDataBinding {
     public final ImageView iconSleep;
     public final TextView title;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public PopupviewPowerBinding(Object obj, View view, int i, Button button, Button button2, Button button3, View view2, Guideline guideline, Guideline guideline2, Guideline guideline3, ImageView imageView, ImageView imageView2, ImageView imageView3, TextView textView) {
+    protected PopupviewPowerBinding(Object obj, View view, int i, Button button, Button button2, Button button3, View view2, Guideline guideline, Guideline guideline2, Guideline guideline3, ImageView imageView, ImageView imageView2, ImageView imageView3, TextView textView) {
         super(obj, view, i);
         this.buttonRestart = button;
         this.buttonShutdowm = button2;

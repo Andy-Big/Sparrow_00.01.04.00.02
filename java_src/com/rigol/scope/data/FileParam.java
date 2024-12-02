@@ -2,6 +2,7 @@ package com.rigol.scope.data;
 
 import android.graphics.drawable.Drawable;
 import java.io.File;
+
 /* loaded from: classes2.dex */
 public class FileParam extends File {
     private String info;
@@ -69,6 +70,7 @@ public class FileParam extends File {
         this.isPic = z;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // java.lang.Comparable
     public int compareTo(File file) {

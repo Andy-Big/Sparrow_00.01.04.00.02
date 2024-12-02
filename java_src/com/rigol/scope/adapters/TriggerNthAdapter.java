@@ -33,6 +33,7 @@ import com.rigol.scope.views.spinner.PopupSpinner;
 import com.rigol.scope.views.trigger.TriggerPopupView;
 import java.util.ArrayList;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public class TriggerNthAdapter extends RecyclerView.Adapter<TriggerNthHolder> implements View.OnClickListener, CompoundButton.OnCheckedChangeListener, AorBManager.OnSetTextById, AorBManager.OnTextReset {
     private View anchorView;
@@ -84,6 +85,7 @@ public class TriggerNthAdapter extends RecyclerView.Adapter<TriggerNthHolder> im
         this.serviceId = triggerParam.getServiceId();
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public TriggerNthHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         this.binding = AdapterTriggerNthBinding.inflate(LayoutInflater.from(viewGroup.getContext()), viewGroup, false);
@@ -159,6 +161,7 @@ public class TriggerNthAdapter extends RecyclerView.Adapter<TriggerNthHolder> im
         }
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(TriggerNthHolder triggerNthHolder, int i) {
         ShowTriggerNth();

@@ -10,6 +10,7 @@ import android.view.View;
 import com.blankj.utilcode.util.LogUtils;
 import com.rigol.scope.R;
 import com.rigol.scope.views.waveview.PlotEnum;
+
 /* loaded from: classes2.dex */
 public class BasePlotView extends View {
     protected static final int LINE_MARGIN_8 = 8;

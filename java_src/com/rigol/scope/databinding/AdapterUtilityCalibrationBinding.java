@@ -12,6 +12,7 @@ import androidx.databinding.ViewDataBinding;
 import androidx.recyclerview.widget.RecyclerView;
 import com.rigol.scope.R;
 import com.rigol.scope.data.UtilityParam;
+
 /* loaded from: classes2.dex */
 public abstract class AdapterUtilityCalibrationBinding extends ViewDataBinding {
     public final Button calExport;
@@ -29,8 +30,7 @@ public abstract class AdapterUtilityCalibrationBinding extends ViewDataBinding {
 
     public abstract void setParam(UtilityParam utilityParam);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public AdapterUtilityCalibrationBinding(Object obj, View view, int i, Button button, TextView textView, RecyclerView recyclerView, Button button2, Button button3, View view2, ImageView imageView, TextView textView2, TextView textView3, Button button4) {
+    protected AdapterUtilityCalibrationBinding(Object obj, View view, int i, Button button, TextView textView, RecyclerView recyclerView, Button button2, Button button3, View view2, ImageView imageView, TextView textView2, TextView textView3, Button button4) {
         super(obj, view, i);
         this.calExport = button;
         this.calItems = textView;

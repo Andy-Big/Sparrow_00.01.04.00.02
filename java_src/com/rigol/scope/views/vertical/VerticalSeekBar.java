@@ -5,6 +5,7 @@ import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
+import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.ViewGroup;
 import android.view.ViewParent;
@@ -14,6 +15,7 @@ import androidx.core.view.ViewCompat;
 import com.rigol.scope.R;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+
 /* loaded from: classes2.dex */
 public class VerticalSeekBar extends AppCompatSeekBar {
     public static final int ROTATION_ANGLE_CW_270 = 270;
@@ -167,58 +169,32 @@ public class VerticalSeekBar extends AppCompatSeekBar {
     @Override // android.widget.AbsSeekBar, android.view.View, android.view.KeyEvent.Callback
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    public boolean onKeyDown(int r5, android.view.KeyEvent r6) {
-        /*
-            r4 = this;
-            boolean r0 = r4.isEnabled()
-            if (r0 == 0) goto L36
-            r0 = -1
-            r1 = 0
-            r2 = 1
-            switch(r5) {
-                case 19: goto L16;
-                case 20: goto Lf;
-                case 21: goto Le;
-                case 22: goto Le;
-                default: goto Lc;
+    public boolean onKeyDown(int i, KeyEvent keyEvent) {
+        if (isEnabled()) {
+            int i2 = -1;
+            boolean z = false;
+            switch (i) {
+                case 19:
+                    break;
+                case 20:
+                    break;
+                case 21:
+                case 22:
+                    return false;
+                default:
+                    i2 = 0;
+                    break;
             }
-        Lc:
-            r0 = r1
-            goto L1e
-        Le:
-            return r1
-        Lf:
-            int r1 = r4.mRotationAngle
-            r3 = 90
-            if (r1 != r3) goto L1d
-            goto L1c
-        L16:
-            int r1 = r4.mRotationAngle
-            r3 = 270(0x10e, float:3.78E-43)
-            if (r1 != r3) goto L1d
-        L1c:
-            r0 = r2
-        L1d:
-            r1 = r2
-        L1e:
-            if (r1 == 0) goto L36
-            int r5 = r4.getKeyProgressIncrement()
-            int r6 = r4.getProgress()
-            int r0 = r0 * r5
-            int r6 = r6 + r0
-            if (r6 < 0) goto L35
-            int r5 = r4.getMax()
-            if (r6 > r5) goto L35
-            r4._setProgressFromUser(r6, r2)
-        L35:
-            return r2
-        L36:
-            boolean r5 = super.onKeyDown(r5, r6)
-            return r5
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.rigol.scope.views.vertical.VerticalSeekBar.onKeyDown(int, android.view.KeyEvent):boolean");
+            if (z) {
+                int progress = getProgress() + (i2 * getKeyProgressIncrement());
+                if (progress >= 0 && progress <= getMax()) {
+                    _setProgressFromUser(progress, true);
+                }
+                return true;
+            }
+        }
+        return super.onKeyDown(i, keyEvent);
     }
 
     @Override // android.widget.ProgressBar
@@ -273,9 +249,8 @@ public class VerticalSeekBar extends AppCompatSeekBar {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // androidx.appcompat.widget.AppCompatSeekBar, android.widget.AbsSeekBar, android.widget.ProgressBar, android.view.View
-    public synchronized void onDraw(Canvas canvas) {
+    protected synchronized void onDraw(Canvas canvas) {
         if (!useViewRotation()) {
             int i = this.mRotationAngle;
             if (i == 90) {
@@ -315,8 +290,7 @@ public class VerticalSeekBar extends AppCompatSeekBar {
         onSizeChanged(super.getWidth(), super.getHeight(), 0, 0);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean useViewRotation() {
+    boolean useViewRotation() {
         return !isInEditMode();
     }
 

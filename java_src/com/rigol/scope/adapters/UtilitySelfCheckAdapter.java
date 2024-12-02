@@ -13,6 +13,7 @@ import com.rigol.scope.ActivityRigolTouchTest;
 import com.rigol.scope.R;
 import com.rigol.scope.databinding.AdapterUtilitySelfcheckBinding;
 import com.rigol.scope.views.boardTest.BoardTestPopupView;
+
 /* loaded from: classes.dex */
 public class UtilitySelfCheckAdapter extends RecyclerView.Adapter<SelfCheckHolder> implements View.OnClickListener {
     private AdapterUtilitySelfcheckBinding binding;
@@ -33,12 +34,14 @@ public class UtilitySelfCheckAdapter extends RecyclerView.Adapter<SelfCheckHolde
         this.context = context;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public SelfCheckHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         this.binding = AdapterUtilitySelfcheckBinding.inflate(LayoutInflater.from(viewGroup.getContext()), viewGroup, false);
         return new SelfCheckHolder(this.binding);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(SelfCheckHolder selfCheckHolder, int i) {
         initClick(selfCheckHolder);

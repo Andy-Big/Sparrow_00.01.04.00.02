@@ -10,6 +10,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.rigol.scope.R;
 import java.util.ArrayList;
 import java.util.List;
+
 /* loaded from: classes2.dex */
 public class SelfCheckPointCircleView extends View {
     public List<SelfCheckPointView> list;

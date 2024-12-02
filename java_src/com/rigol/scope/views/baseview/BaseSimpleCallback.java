@@ -2,6 +2,7 @@ package com.rigol.scope.views.baseview;
 
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
+
 /* loaded from: classes2.dex */
 public class BaseSimpleCallback extends ItemTouchHelper.SimpleCallback {
     @Override // androidx.recyclerview.widget.ItemTouchHelper.Callback

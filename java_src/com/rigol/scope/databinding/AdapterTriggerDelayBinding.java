@@ -18,6 +18,7 @@ import com.rigol.scope.data.TriggerParam;
 import com.rigol.scope.views.SwitchButton;
 import com.rigol.scope.views.vertical.VerticalSeekBar;
 import com.rigol.scope.views.vertical.VerticalSeekBarWrapper;
+
 /* loaded from: classes2.dex */
 public abstract class AdapterTriggerDelayBinding extends ViewDataBinding {
     public final Button buttonLevel;
@@ -96,8 +97,7 @@ public abstract class AdapterTriggerDelayBinding extends ViewDataBinding {
 
     public abstract void setSweepSingleMapping(MappingObject mappingObject);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public AdapterTriggerDelayBinding(Object obj, View view, int i, Button button, Button button2, RadioButton radioButton, RadioButton radioButton2, RadioButton radioButton3, RadioButton radioButton4, Guideline guideline, Guideline guideline2, Guideline guideline3, Guideline guideline4, Guideline guideline5, ImageView imageView, RadioButton radioButton5, RadioButton radioButton6, TextView textView, EditText editText, RadioButton radioButton7, RadioButton radioButton8, TextView textView2, TextView textView3, TextView textView4, EditText editText2, TextView textView5, TextView textView6, EditText editText3, VerticalSeekBar verticalSeekBar, TextView textView7, EditText editText4, VerticalSeekBar verticalSeekBar2, TextView textView8, SwitchButton switchButton, TextView textView9, TextView textView10, TextView textView11, TextView textView12, TextView textView13, EditText editText5, VerticalSeekBarWrapper verticalSeekBarWrapper, VerticalSeekBarWrapper verticalSeekBarWrapper2, View view2, View view3, View view4, View view5) {
+    protected AdapterTriggerDelayBinding(Object obj, View view, int i, Button button, Button button2, RadioButton radioButton, RadioButton radioButton2, RadioButton radioButton3, RadioButton radioButton4, Guideline guideline, Guideline guideline2, Guideline guideline3, Guideline guideline4, Guideline guideline5, ImageView imageView, RadioButton radioButton5, RadioButton radioButton6, TextView textView, EditText editText, RadioButton radioButton7, RadioButton radioButton8, TextView textView2, TextView textView3, TextView textView4, EditText editText2, TextView textView5, TextView textView6, EditText editText3, VerticalSeekBar verticalSeekBar, TextView textView7, EditText editText4, VerticalSeekBar verticalSeekBar2, TextView textView8, SwitchButton switchButton, TextView textView9, TextView textView10, TextView textView11, TextView textView12, TextView textView13, EditText editText5, VerticalSeekBarWrapper verticalSeekBarWrapper, VerticalSeekBarWrapper verticalSeekBarWrapper2, View view2, View view3, View view4, View view5) {
         super(obj, view, i);
         this.buttonLevel = button;
         this.buttonLevelB = button2;

@@ -12,6 +12,7 @@ import androidx.databinding.ViewDataBinding;
 import com.rigol.scope.R;
 import com.rigol.scope.data.ResultParam;
 import com.rigol.scope.views.DisableTouchEventRecyclerView;
+
 /* loaded from: classes2.dex */
 public abstract class AdapterItemResultEyeBinding extends ViewDataBinding {
     public final ImageView icon;
@@ -23,8 +24,7 @@ public abstract class AdapterItemResultEyeBinding extends ViewDataBinding {
 
     public abstract void setParam(ResultParam resultParam);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public AdapterItemResultEyeBinding(Object obj, View view, int i, ImageView imageView, DisableTouchEventRecyclerView disableTouchEventRecyclerView, TextView textView, ConstraintLayout constraintLayout) {
+    protected AdapterItemResultEyeBinding(Object obj, View view, int i, ImageView imageView, DisableTouchEventRecyclerView disableTouchEventRecyclerView, TextView textView, ConstraintLayout constraintLayout) {
         super(obj, view, i);
         this.icon = imageView;
         this.resultList = disableTouchEventRecyclerView;

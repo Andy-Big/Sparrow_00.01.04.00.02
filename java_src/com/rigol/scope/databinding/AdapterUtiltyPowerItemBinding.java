@@ -10,6 +10,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import com.rigol.scope.R;
+
 /* loaded from: classes2.dex */
 public abstract class AdapterUtiltyPowerItemBinding extends ViewDataBinding {
     public final RadioButton autoRadioButton;
@@ -18,8 +19,7 @@ public abstract class AdapterUtiltyPowerItemBinding extends ViewDataBinding {
     public final TextView pnmText;
     public final RadioGroup rollRadioGroup;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public AdapterUtiltyPowerItemBinding(Object obj, View view, int i, RadioButton radioButton, ConstraintLayout constraintLayout, RadioButton radioButton2, TextView textView, RadioGroup radioGroup) {
+    protected AdapterUtiltyPowerItemBinding(Object obj, View view, int i, RadioButton radioButton, ConstraintLayout constraintLayout, RadioButton radioButton2, TextView textView, RadioGroup radioGroup) {
         super(obj, view, i);
         this.autoRadioButton = radioButton;
         this.left = constraintLayout;

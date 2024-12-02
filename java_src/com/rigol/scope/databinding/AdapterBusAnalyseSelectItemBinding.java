@@ -7,13 +7,13 @@ import android.widget.CheckBox;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import com.rigol.scope.R;
+
 /* loaded from: classes2.dex */
 public abstract class AdapterBusAnalyseSelectItemBinding extends ViewDataBinding {
     public final CheckBox busEthernet;
     public final CheckBox busUsb;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public AdapterBusAnalyseSelectItemBinding(Object obj, View view, int i, CheckBox checkBox, CheckBox checkBox2) {
+    protected AdapterBusAnalyseSelectItemBinding(Object obj, View view, int i, CheckBox checkBox, CheckBox checkBox2) {
         super(obj, view, i);
         this.busEthernet = checkBox;
         this.busUsb = checkBox2;

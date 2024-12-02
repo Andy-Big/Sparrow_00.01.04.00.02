@@ -4,6 +4,7 @@ import android.text.TextUtils;
 import androidx.exifinterface.media.ExifInterface;
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
+
 /* loaded from: classes2.dex */
 public class ScaleNumUtil {
     private static final float[] nums1 = {1.0f, 2.0f, 5.0f, 10.0f, 20.0f, 50.0f, 100.0f};

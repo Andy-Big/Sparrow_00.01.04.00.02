@@ -13,6 +13,7 @@ import androidx.databinding.ViewDataBinding;
 import com.rigol.scope.R;
 import com.rigol.scope.views.SwitchButton;
 import com.rigol.scope.views.adc.AdcSerParam;
+
 /* loaded from: classes2.dex */
 public abstract class PopupviewAdcserBinding extends ViewDataBinding {
     public final TextView adc1;
@@ -40,8 +41,7 @@ public abstract class PopupviewAdcserBinding extends ViewDataBinding {
 
     public abstract void setParam(AdcSerParam adcSerParam);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public PopupviewAdcserBinding(Object obj, View view, int i, TextView textView, SeekBar seekBar, SwitchButton switchButton, TextView textView2, TextView textView3, SeekBar seekBar2, SwitchButton switchButton2, TextView textView4, TextView textView5, SeekBar seekBar3, SwitchButton switchButton3, TextView textView6, TextView textView7, SeekBar seekBar4, SwitchButton switchButton4, TextView textView8, Guideline guideline, Button button, TextView textView9, TextView textView10) {
+    protected PopupviewAdcserBinding(Object obj, View view, int i, TextView textView, SeekBar seekBar, SwitchButton switchButton, TextView textView2, TextView textView3, SeekBar seekBar2, SwitchButton switchButton2, TextView textView4, TextView textView5, SeekBar seekBar3, SwitchButton switchButton3, TextView textView6, TextView textView7, SeekBar seekBar4, SwitchButton switchButton4, TextView textView8, Guideline guideline, Button button, TextView textView9, TextView textView10) {
         super(obj, view, i);
         this.adc1 = textView;
         this.adc1TcmpSeekBar = seekBar;

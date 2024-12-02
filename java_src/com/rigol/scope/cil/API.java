@@ -7,6 +7,7 @@ import com.rigol.scope.data.MessageBus;
 import com.rigol.scope.utilities.ContextUtil;
 import com.rigol.util.ToastUtils;
 import timber.log.Timber;
+
 /* loaded from: classes2.dex */
 public class API {
     private static API instance;

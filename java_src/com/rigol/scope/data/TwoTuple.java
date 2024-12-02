@@ -1,4 +1,5 @@
 package com.rigol.scope.data;
+
 /* loaded from: classes2.dex */
 public class TwoTuple<A, B> {
     private final A first;

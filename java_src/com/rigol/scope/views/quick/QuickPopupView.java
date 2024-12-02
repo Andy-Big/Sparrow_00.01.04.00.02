@@ -21,6 +21,7 @@ import com.rigol.scope.views.baseview.BasePopupView;
 import java.util.List;
 import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
+
 /* compiled from: QuickPopupView.kt */
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000(\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0003\u0018\u00002\u00020\u0001:\u0002\u0011\u0012B\r\u0012\u0006\u0010\u0002\u001a\u00020\u0003¢\u0006\u0002\u0010\u0004J\b\u0010\u000f\u001a\u00020\u0010H\u0016R\u0011\u0010\u0002\u001a\u00020\u0003¢\u0006\b\n\u0000\u001a\u0004\b\u0005\u0010\u0006R\u001c\u0010\u0007\u001a\u0004\u0018\u00010\bX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\t\u0010\n\"\u0004\b\u000b\u0010\fR\u0010\u0010\r\u001a\u0004\u0018\u00010\u000eX\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006\u0013"}, d2 = {"Lcom/rigol/scope/views/quick/QuickPopupView;", "Lcom/rigol/scope/views/baseview/BasePopupView;", "dataResId", "", "(I)V", "getDataResId", "()I", "onItemClickListener", "Lcom/rigol/scope/views/quick/QuickPopupView$OnItemClickListener;", "getOnItemClickListener", "()Lcom/rigol/scope/views/quick/QuickPopupView$OnItemClickListener;", "setOnItemClickListener", "(Lcom/rigol/scope/views/quick/QuickPopupView$OnItemClickListener;)V", "quickAdapter", "Lcom/rigol/scope/views/quick/QuickPopupView$QuickAdapter;", "onLocaleChanged", "", "OnItemClickListener", "QuickAdapter", "app_release"}, k = 1, mv = {1, 4, 1})
 /* loaded from: classes2.dex */
@@ -77,6 +78,7 @@ public final class QuickPopupView extends BasePopupView {
             super(context, list, i);
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // com.rigol.scope.adapters.MultiItemTypeAdapter, androidx.recyclerview.widget.RecyclerView.Adapter
         public BaseViewHolder<? extends ViewDataBinding> onCreateViewHolder(ViewGroup parent, int i) {
             Intrinsics.checkNotNullParameter(parent, "parent");

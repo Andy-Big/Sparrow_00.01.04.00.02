@@ -18,6 +18,7 @@ import com.rigol.scope.data.TriggerParam;
 import com.rigol.scope.views.SwitchButton;
 import com.rigol.scope.views.vertical.VerticalSeekBar;
 import com.rigol.scope.views.vertical.VerticalSeekBarWrapper;
+
 /* loaded from: classes2.dex */
 public abstract class AdapterTriggerTimeoutBinding extends ViewDataBinding {
     public final Button buttonLevel;
@@ -72,8 +73,7 @@ public abstract class AdapterTriggerTimeoutBinding extends ViewDataBinding {
 
     public abstract void setSweepSingleMapping(MappingObject mappingObject);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public AdapterTriggerTimeoutBinding(Object obj, View view, int i, Button button, Guideline guideline, Guideline guideline2, Guideline guideline3, Guideline guideline4, ImageView imageView, TextView textView, EditText editText, VerticalSeekBar verticalSeekBar, TextView textView2, SwitchButton switchButton, TextView textView3, TextView textView4, RadioButton radioButton, RadioButton radioButton2, TextView textView5, RadioButton radioButton3, TextView textView6, EditText editText2, VerticalSeekBarWrapper verticalSeekBarWrapper, View view2, View view3, View view4) {
+    protected AdapterTriggerTimeoutBinding(Object obj, View view, int i, Button button, Guideline guideline, Guideline guideline2, Guideline guideline3, Guideline guideline4, ImageView imageView, TextView textView, EditText editText, VerticalSeekBar verticalSeekBar, TextView textView2, SwitchButton switchButton, TextView textView3, TextView textView4, RadioButton radioButton, RadioButton radioButton2, TextView textView5, RadioButton radioButton3, TextView textView6, EditText editText2, VerticalSeekBarWrapper verticalSeekBarWrapper, View view2, View view3, View view4) {
         super(obj, view, i);
         this.buttonLevel = button;
         this.guidelineCenter = guideline;

@@ -12,6 +12,7 @@ import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import com.rigol.scope.R;
 import com.rigol.scope.data.LaParam;
+
 /* loaded from: classes2.dex */
 public abstract class AdapterLaBasicBinding extends ViewDataBinding {
     public final AppCompatCheckBox d0;
@@ -48,8 +49,7 @@ public abstract class AdapterLaBasicBinding extends ViewDataBinding {
 
     public abstract void setParma(LaParam laParam);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public AdapterLaBasicBinding(Object obj, View view, int i, AppCompatCheckBox appCompatCheckBox, AppCompatCheckBox appCompatCheckBox2, AppCompatCheckBox appCompatCheckBox3, AppCompatCheckBox appCompatCheckBox4, AppCompatCheckBox appCompatCheckBox5, AppCompatCheckBox appCompatCheckBox6, AppCompatCheckBox appCompatCheckBox7, AppCompatCheckBox appCompatCheckBox8, AppCompatCheckBox appCompatCheckBox9, AppCompatCheckBox appCompatCheckBox10, AppCompatCheckBox appCompatCheckBox11, AppCompatCheckBox appCompatCheckBox12, AppCompatCheckBox appCompatCheckBox13, AppCompatCheckBox appCompatCheckBox14, AppCompatCheckBox appCompatCheckBox15, AppCompatCheckBox appCompatCheckBox16, AppCompatCheckBox appCompatCheckBox17, AppCompatCheckBox appCompatCheckBox18, EditText editText, EditText editText2, TextView textView, TextView textView2, TextView textView3, TextView textView4, TextView textView5) {
+    protected AdapterLaBasicBinding(Object obj, View view, int i, AppCompatCheckBox appCompatCheckBox, AppCompatCheckBox appCompatCheckBox2, AppCompatCheckBox appCompatCheckBox3, AppCompatCheckBox appCompatCheckBox4, AppCompatCheckBox appCompatCheckBox5, AppCompatCheckBox appCompatCheckBox6, AppCompatCheckBox appCompatCheckBox7, AppCompatCheckBox appCompatCheckBox8, AppCompatCheckBox appCompatCheckBox9, AppCompatCheckBox appCompatCheckBox10, AppCompatCheckBox appCompatCheckBox11, AppCompatCheckBox appCompatCheckBox12, AppCompatCheckBox appCompatCheckBox13, AppCompatCheckBox appCompatCheckBox14, AppCompatCheckBox appCompatCheckBox15, AppCompatCheckBox appCompatCheckBox16, AppCompatCheckBox appCompatCheckBox17, AppCompatCheckBox appCompatCheckBox18, EditText editText, EditText editText2, TextView textView, TextView textView2, TextView textView3, TextView textView4, TextView textView5) {
         super(obj, view, i);
         this.d0 = appCompatCheckBox;
         this.d0tod7 = appCompatCheckBox2;

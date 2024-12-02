@@ -21,6 +21,7 @@ import com.rigol.scope.data.MeasureSettingParam;
 import com.rigol.scope.data.SharedParam;
 import com.rigol.scope.data.VerticalParam;
 import com.rigol.scope.views.SwitchButton;
+
 /* loaded from: classes2.dex */
 public abstract class PopupviewResultMeasureBinding extends ViewDataBinding {
     public final TextView ampMethod;
@@ -103,8 +104,7 @@ public abstract class PopupviewResultMeasureBinding extends ViewDataBinding {
 
     public abstract void setVerticalParam(VerticalParam verticalParam);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public PopupviewResultMeasureBinding(Object obj, View view, int i, TextView textView, SwitchButton switchButton, TextView textView2, SwitchButton switchButton2, TextView textView3, EditText editText, TextView textView4, SwitchButton switchButton3, TextView textView5, EditText editText2, Button button, Button button2, View view2, Guideline guideline, Guideline guideline2, Guideline guideline3, Guideline guideline4, TextView textView6, EditText editText3, TextView textView7, SwitchButton switchButton4, TextView textView8, SwitchButton switchButton5, TextView textView9, EditText editText4, TextView textView10, TextView textView11, TextView textView12, EditText editText5, TextView textView13, RadioGroup radioGroup, RadioButton radioButton, TextView textView14, TextView textView15, CheckBox checkBox, TextView textView16, TextView textView17, EditText editText6, TextView textView18, Button button3, SwitchButton switchButton6, SwitchButton switchButton7, TextView textView19, Button button4, ImageView imageView, TextView textView20, SwitchButton switchButton8, TextView textView21, TextView textView22, TextView textView23, SwitchButton switchButton9) {
+    protected PopupviewResultMeasureBinding(Object obj, View view, int i, TextView textView, SwitchButton switchButton, TextView textView2, SwitchButton switchButton2, TextView textView3, EditText editText, TextView textView4, SwitchButton switchButton3, TextView textView5, EditText editText2, Button button, Button button2, View view2, Guideline guideline, Guideline guideline2, Guideline guideline3, Guideline guideline4, TextView textView6, EditText editText3, TextView textView7, SwitchButton switchButton4, TextView textView8, SwitchButton switchButton5, TextView textView9, EditText editText4, TextView textView10, TextView textView11, TextView textView12, EditText editText5, TextView textView13, RadioGroup radioGroup, RadioButton radioButton, TextView textView14, TextView textView15, CheckBox checkBox, TextView textView16, TextView textView17, EditText editText6, TextView textView18, Button button3, SwitchButton switchButton6, SwitchButton switchButton7, TextView textView19, Button button4, ImageView imageView, TextView textView20, SwitchButton switchButton8, TextView textView21, TextView textView22, TextView textView23, SwitchButton switchButton9) {
         super(obj, view, i);
         this.ampMethod = textView;
         this.ampMethodSwitch = switchButton;

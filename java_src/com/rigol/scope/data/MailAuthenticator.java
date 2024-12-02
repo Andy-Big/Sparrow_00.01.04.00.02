@@ -2,6 +2,7 @@ package com.rigol.scope.data;
 
 import javax.mail.Authenticator;
 import javax.mail.PasswordAuthentication;
+
 /* loaded from: classes2.dex */
 public class MailAuthenticator extends Authenticator {
     String password;

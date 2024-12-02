@@ -47,6 +47,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+
 /* loaded from: classes2.dex */
 public class ProbePopupView extends BasePopupView implements TabLayoutMediator.TabConfigurationStrategy, View.OnClickListener {
     private final PopupviewProbeBinding binding;
@@ -137,9 +138,8 @@ public class ProbePopupView extends BasePopupView implements TabLayoutMediator.T
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
-    public static class PopupViewAdapter extends BaseAdapter<List<VerticalParam>> implements View.OnClickListener, AorBManager.OnSetTextById, AorBManager.OnTextReset {
+    private static class PopupViewAdapter extends BaseAdapter<List<VerticalParam>> implements View.OnClickListener, AorBManager.OnSetTextById, AorBManager.OnTextReset {
         private boolean[] adapterInitArr;
         private View anchor;
         private AorBManager aorBManager;
@@ -225,6 +225,7 @@ public class ProbePopupView extends BasePopupView implements TabLayoutMediator.T
             this.aorBManager = getAorBManager(baseViewHolder, baseViewHolder.getLayoutPosition());
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // com.rigol.scope.adapters.MultiItemTypeAdapter, androidx.recyclerview.widget.RecyclerView.Adapter
         public BaseViewHolder<? extends ViewDataBinding> onCreateViewHolder(ViewGroup viewGroup, int i) {
             BaseViewHolder<? extends ViewDataBinding> onCreateViewHolder = super.onCreateViewHolder(viewGroup, i);

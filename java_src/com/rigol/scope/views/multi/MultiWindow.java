@@ -28,6 +28,7 @@ import java.util.ArrayList;
 import java.util.Deque;
 import java.util.LinkedList;
 import java.util.List;
+
 /* loaded from: classes2.dex */
 public class MultiWindow extends ConstraintLayout {
     private static final WindowType DEFAULT_TYPE = WindowType.HORIZONTAL;

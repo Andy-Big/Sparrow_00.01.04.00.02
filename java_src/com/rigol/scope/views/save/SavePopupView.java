@@ -31,6 +31,7 @@ import java.io.FileFilter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+
 /* loaded from: classes2.dex */
 public class SavePopupView extends BasePopupView implements View.OnClickListener {
     private final String DEFAULT_PREFIX;
@@ -46,6 +47,7 @@ public class SavePopupView extends BasePopupView implements View.OnClickListener
         StorageViewModel storageViewModel = (StorageViewModel) ContextUtil.getAppViewModel(StorageViewModel.class);
         if (storageViewModel != null) {
             storageViewModel.getSaveLiveData().observe((LifecycleOwner) ActivityUtils.getTopActivity(), new Observer<StorageSaveParam>() { // from class: com.rigol.scope.views.save.SavePopupView.1
+                /* JADX DEBUG: Method merged with bridge method */
                 @Override // androidx.lifecycle.Observer
                 public void onChanged(StorageSaveParam storageSaveParam) {
                     SavePopupView.this.param = storageSaveParam;
@@ -162,8 +164,7 @@ public class SavePopupView extends BasePopupView implements View.OnClickListener
         this.param.saveFileType(ServiceEnum.getenFileTypeFromValue1(mappingObject.getValue()).value1);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ boolean lambda$onClick$1(File file) {
+    static /* synthetic */ boolean lambda$onClick$1(File file) {
         return file != null && file.isDirectory();
     }
 
@@ -213,10 +214,9 @@ public class SavePopupView extends BasePopupView implements View.OnClickListener
         return arrayList;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.rigol.scope.views.save.SavePopupView$2  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public static /* synthetic */ class AnonymousClass2 {
+    static /* synthetic */ class AnonymousClass2 {
         static final /* synthetic */ int[] $SwitchMap$com$rigol$scope$cil$ServiceEnum$StorageFunc;
 
         static {

@@ -5,6 +5,7 @@ import android.view.View;
 import android.widget.TextView;
 import androidx.databinding.DataBindingComponent;
 import androidx.databinding.ViewDataBinding;
+
 /* loaded from: classes2.dex */
 public class AdapterItemResultTableContentBindingImpl extends AdapterItemResultTableContentBinding {
     private static final ViewDataBinding.IncludedLayouts sIncludes = null;

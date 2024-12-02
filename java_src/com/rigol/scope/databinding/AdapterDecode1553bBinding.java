@@ -11,6 +11,7 @@ import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import com.rigol.scope.R;
 import com.rigol.scope.data.DecodeParam;
+
 /* loaded from: classes2.dex */
 public abstract class AdapterDecode1553bBinding extends ViewDataBinding {
     public final ConstraintLayout decode1553bLayout;
@@ -28,8 +29,7 @@ public abstract class AdapterDecode1553bBinding extends ViewDataBinding {
 
     public abstract void setParam(DecodeParam decodeParam);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public AdapterDecode1553bBinding(Object obj, View view, int i, ConstraintLayout constraintLayout, TextView textView, TextView textView2, TextView textView3, TextView textView4, Guideline guideline, Guideline guideline2, Guideline guideline3, Guideline guideline4, Guideline guideline5) {
+    protected AdapterDecode1553bBinding(Object obj, View view, int i, ConstraintLayout constraintLayout, TextView textView, TextView textView2, TextView textView3, TextView textView4, Guideline guideline, Guideline guideline2, Guideline guideline3, Guideline guideline4, Guideline guideline5) {
         super(obj, view, i);
         this.decode1553bLayout = constraintLayout;
         this.decode1553bSrcLabel = textView;

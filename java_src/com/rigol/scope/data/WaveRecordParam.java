@@ -6,6 +6,7 @@ import com.rigol.scope.cil.MessageID;
 import com.rigol.scope.cil.ServiceEnum;
 import com.rigol.scope.utilities.UnitFormat;
 import java.util.Objects;
+
 /* loaded from: classes2.dex */
 public class WaveRecordParam extends BaseParam {
     private static final boolean DEFAULT_BEEPER = true;

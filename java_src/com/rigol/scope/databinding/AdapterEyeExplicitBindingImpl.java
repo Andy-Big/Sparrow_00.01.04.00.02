@@ -15,6 +15,7 @@ import com.rigol.scope.data.EyeParam;
 import com.rigol.scope.data.MappingObject;
 import com.rigol.scope.utilities.ColorUtil;
 import com.rigol.scope.utilities.ViewUtil;
+
 /* loaded from: classes2.dex */
 public class AdapterEyeExplicitBindingImpl extends AdapterEyeExplicitBinding {
     private static final ViewDataBinding.IncludedLayouts sIncludes = null;

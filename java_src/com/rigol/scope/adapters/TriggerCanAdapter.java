@@ -35,6 +35,7 @@ import com.rigol.scope.views.spinner.PopupSpinner;
 import com.rigol.scope.views.trigger.TriggerPopupView;
 import java.util.ArrayList;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public class TriggerCanAdapter extends RecyclerView.Adapter<TriggerCanHolder> implements View.OnClickListener, CompoundButton.OnCheckedChangeListener, View.OnLongClickListener, AorBManager.OnSetTextById, AorBManager.OnTextReset {
     private View anchorView;
@@ -89,6 +90,7 @@ public class TriggerCanAdapter extends RecyclerView.Adapter<TriggerCanHolder> im
         this.serviceId = triggerParam.getServiceId();
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public TriggerCanHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         this.binding = AdapterTriggerCanBinding.inflate(LayoutInflater.from(viewGroup.getContext()), viewGroup, false);
@@ -173,9 +175,11 @@ public class TriggerCanAdapter extends RecyclerView.Adapter<TriggerCanHolder> im
         }
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(TriggerCanHolder triggerCanHolder, int i) {
         this.triggerViewModel.getLiveData().observe((LifecycleOwner) this.context, new Observer<TriggerParam>() { // from class: com.rigol.scope.adapters.TriggerCanAdapter.2
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // androidx.lifecycle.Observer
             public void onChanged(TriggerParam triggerParam) {
                 TriggerCanAdapter.this.param = triggerParam;

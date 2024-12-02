@@ -9,14 +9,14 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import com.rigol.scope.R;
+
 /* loaded from: classes2.dex */
 public abstract class AdapterItemFlexKnobBinding extends ViewDataBinding {
     public final ImageView icon;
     public final ConstraintLayout itemView;
     public final TextView text1;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public AdapterItemFlexKnobBinding(Object obj, View view, int i, ImageView imageView, ConstraintLayout constraintLayout, TextView textView) {
+    protected AdapterItemFlexKnobBinding(Object obj, View view, int i, ImageView imageView, ConstraintLayout constraintLayout, TextView textView) {
         super(obj, view, i);
         this.icon = imageView;
         this.itemView = constraintLayout;

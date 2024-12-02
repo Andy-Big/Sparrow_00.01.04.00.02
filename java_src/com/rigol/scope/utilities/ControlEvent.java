@@ -9,6 +9,7 @@ import androidx.core.view.InputDeviceCompat;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import timber.log.Timber;
+
 /* loaded from: classes2.dex */
 public class ControlEvent {
     private long downTime;

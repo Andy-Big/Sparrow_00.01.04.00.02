@@ -15,6 +15,7 @@ import com.rigol.scope.data.SharedParam;
 import com.rigol.scope.utilities.ViewUtil;
 import com.rigol.scope.views.acquire.AcquireDepthView;
 import com.rigol.scope.views.window.Window;
+
 /* loaded from: classes2.dex */
 public class WindowWaveformBindingImpl extends WindowWaveformBinding {
     private static final ViewDataBinding.IncludedLayouts sIncludes = null;

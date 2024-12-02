@@ -2,15 +2,18 @@ package com.rigol.lib.data;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+
 /* loaded from: classes.dex */
 public class Firmware implements Parcelable {
     public static final Parcelable.Creator<Firmware> CREATOR = new Parcelable.Creator<Firmware>() { // from class: com.rigol.lib.data.Firmware.1
+        /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
         public Firmware createFromParcel(Parcel parcel) {
             return new Firmware(parcel);
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
         public Firmware[] newArray(int i) {

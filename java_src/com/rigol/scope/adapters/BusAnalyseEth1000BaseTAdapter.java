@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.rigol.scope.R;
 import com.rigol.scope.databinding.AdapterBusEthAnalyse1000basetBinding;
 import com.rigol.scope.views.busAnalyse.BusAnalyseEthParam;
+
 /* loaded from: classes.dex */
 public class BusAnalyseEth1000BaseTAdapter extends RecyclerView.Adapter<BusAnalyseEth1000BaseTViewHolder> implements CompoundButton.OnCheckedChangeListener {
     private AdapterBusEthAnalyse1000basetBinding binding;
@@ -21,12 +22,14 @@ public class BusAnalyseEth1000BaseTAdapter extends RecyclerView.Adapter<BusAnaly
         this.param = busAnalyseEthParam;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public BusAnalyseEth1000BaseTViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         this.binding = AdapterBusEthAnalyse1000basetBinding.inflate(LayoutInflater.from(viewGroup.getContext()), viewGroup, false);
         return new BusAnalyseEth1000BaseTViewHolder(this.binding);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(BusAnalyseEth1000BaseTViewHolder busAnalyseEth1000BaseTViewHolder, int i) {
         this.binding.eth1000basetSlaveJitterCheckbox.setOnCheckedChangeListener(this);
@@ -83,9 +86,8 @@ public class BusAnalyseEth1000BaseTAdapter extends RecyclerView.Adapter<BusAnaly
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static class BusAnalyseEth1000BaseTViewHolder extends RecyclerView.ViewHolder {
+    static class BusAnalyseEth1000BaseTViewHolder extends RecyclerView.ViewHolder {
         public BusAnalyseEth1000BaseTViewHolder(AdapterBusEthAnalyse1000basetBinding adapterBusEthAnalyse1000basetBinding) {
             super(adapterBusEthAnalyse1000basetBinding.getRoot());
         }

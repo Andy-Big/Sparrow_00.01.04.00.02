@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.rigol.scope.data.MappingObject;
 import com.rigol.scope.databinding.AdapterItemSimpleBinding;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public class UtilityAdapter extends RecyclerView.Adapter<UtilViewHolder> {
     private List<MappingObject> data;
@@ -22,6 +23,7 @@ public class UtilityAdapter extends RecyclerView.Adapter<UtilViewHolder> {
         this.selectPosition = i;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public UtilViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         AdapterItemSimpleBinding inflate = AdapterItemSimpleBinding.inflate(LayoutInflater.from(viewGroup.getContext()), viewGroup, false);
@@ -29,6 +31,7 @@ public class UtilityAdapter extends RecyclerView.Adapter<UtilViewHolder> {
         return new UtilViewHolder(inflate);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(final UtilViewHolder utilViewHolder, final int i) {
         if (this.selectPosition == i) {
@@ -72,9 +75,8 @@ public class UtilityAdapter extends RecyclerView.Adapter<UtilViewHolder> {
         return this.data;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static class UtilViewHolder extends RecyclerView.ViewHolder {
+    static class UtilViewHolder extends RecyclerView.ViewHolder {
         private AdapterItemSimpleBinding binding;
 
         public UtilViewHolder(AdapterItemSimpleBinding adapterItemSimpleBinding) {

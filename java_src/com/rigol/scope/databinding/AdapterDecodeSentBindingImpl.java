@@ -8,9 +8,15 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.Guideline;
 import androidx.databinding.DataBindingComponent;
 import androidx.databinding.ViewDataBinding;
+import androidx.databinding.adapters.TextViewBindingAdapter;
 import com.rigol.scope.R;
+import com.rigol.scope.cil.ServiceEnum;
 import com.rigol.scope.data.DecodeParam;
 import com.rigol.scope.data.MappingObject;
+import com.rigol.scope.utilities.ColorUtil;
+import com.rigol.scope.utilities.UnitFormat;
+import com.rigol.scope.utilities.ViewUtil;
+
 /* loaded from: classes2.dex */
 public class AdapterDecodeSentBindingImpl extends AdapterDecodeSentBinding {
     private static final ViewDataBinding.IncludedLayouts sIncludes = null;
@@ -265,13 +271,197 @@ public class AdapterDecodeSentBindingImpl extends AdapterDecodeSentBinding {
     @Override // androidx.databinding.ViewDataBinding
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
     protected void executeBindings() {
-        /*
-            Method dump skipped, instructions count: 474
-            To view this dump add '--comments-level debug' option
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.rigol.scope.databinding.AdapterDecodeSentBindingImpl.executeBindings():void");
+        long j;
+        String str;
+        String str2;
+        String str3;
+        String str4;
+        String str5;
+        String str6;
+        int i;
+        String str7;
+        String str8;
+        String str9;
+        String str10;
+        String str11;
+        long j2;
+        ServiceEnum.Unit unit;
+        synchronized (this) {
+            j = this.mDirtyFlags;
+            this.mDirtyFlags = 0L;
+        }
+        DecodeParam decodeParam = this.mParam;
+        if ((1048575 & j) != 0) {
+            if ((j & 557196) != 0) {
+                MappingObject mappingObject = ViewUtil.getMappingObject(R.array.msg_decode_sent_pause, decodeParam != null ? decodeParam.getSent_pause_plus() : 0);
+                updateRegistration(2, mappingObject);
+                if (mappingObject != null) {
+                    str2 = mappingObject.getStr();
+                    if ((j & 787496) != 0) {
+                        MappingObject mappingObject2 = ViewUtil.getMappingObject(R.array.msg_decode_sent_idle, decodeParam != null ? decodeParam.getSent_idle_state() : 0);
+                        updateRegistration(5, mappingObject2);
+                        if (mappingObject2 != null) {
+                            str3 = mappingObject2.getStr();
+                            if ((j & 524808) != 0) {
+                                if (decodeParam != null) {
+                                    long sent_thres = decodeParam.getSent_thres();
+                                    unit = decodeParam.getUnit();
+                                    j2 = sent_thres;
+                                } else {
+                                    j2 = 0;
+                                    unit = null;
+                                }
+                                str4 = UnitFormat.newBuilder(UnitFormat.SI.MICRO).convert(j2, unit);
+                            } else {
+                                str4 = null;
+                            }
+                            if ((j & 540680) != 0) {
+                                str10 = String.valueOf(decodeParam != null ? decodeParam.getSent_tick() : 0L);
+                            } else {
+                                str10 = null;
+                            }
+                            if ((j & 526344) != 0) {
+                                str8 = String.valueOf(decodeParam != null ? decodeParam.getSent_nibbnum() : 0L);
+                            } else {
+                                str8 = null;
+                            }
+                            if ((j & 528392) != 0) {
+                                str9 = String.valueOf(decodeParam != null ? decodeParam.getSent_tolerance() : 0L);
+                            } else {
+                                str9 = null;
+                            }
+                            if ((j & 589897) != 0) {
+                                MappingObject mappingObject3 = ViewUtil.getMappingObject(R.array.msg_decode_sent_crc, decodeParam != null ? decodeParam.getSent_crc_format() : 0);
+                                updateRegistration(0, mappingObject3);
+                                if (mappingObject3 != null) {
+                                    str11 = mappingObject3.getStr();
+                                    if ((j & 663576) != 0) {
+                                        MappingObject mappingObject4 = ViewUtil.getMappingObject(R.array.msg_decode_sent_signal_type, decodeParam != null ? decodeParam.getSent_signal_type() : 0);
+                                        updateRegistration(4, mappingObject4);
+                                        if (mappingObject4 != null) {
+                                            str6 = mappingObject4.getStr();
+                                            if ((j & 524554) != 0) {
+                                                int sent_source = decodeParam != null ? decodeParam.getSent_source() : 0;
+                                                i = (j & 524552) != 0 ? ColorUtil.getColor(getRoot().getContext(), sent_source) : 0;
+                                                MappingObject mappingObject5 = ViewUtil.getMappingObject(R.array.msg_decode_sent_src, sent_source);
+                                                updateRegistration(1, mappingObject5);
+                                                str = mappingObject5 != null ? mappingObject5.getStr() : null;
+                                            } else {
+                                                str = null;
+                                                i = 0;
+                                            }
+                                            String str12 = str10;
+                                            str7 = str11;
+                                            str5 = str12;
+                                        }
+                                    }
+                                    str6 = null;
+                                    if ((j & 524554) != 0) {
+                                    }
+                                    String str122 = str10;
+                                    str7 = str11;
+                                    str5 = str122;
+                                }
+                            }
+                            str11 = null;
+                            if ((j & 663576) != 0) {
+                            }
+                            str6 = null;
+                            if ((j & 524554) != 0) {
+                            }
+                            String str1222 = str10;
+                            str7 = str11;
+                            str5 = str1222;
+                        }
+                    }
+                    str3 = null;
+                    if ((j & 524808) != 0) {
+                    }
+                    if ((j & 540680) != 0) {
+                    }
+                    if ((j & 526344) != 0) {
+                    }
+                    if ((j & 528392) != 0) {
+                    }
+                    if ((j & 589897) != 0) {
+                    }
+                    str11 = null;
+                    if ((j & 663576) != 0) {
+                    }
+                    str6 = null;
+                    if ((j & 524554) != 0) {
+                    }
+                    String str12222 = str10;
+                    str7 = str11;
+                    str5 = str12222;
+                }
+            }
+            str2 = null;
+            if ((j & 787496) != 0) {
+            }
+            str3 = null;
+            if ((j & 524808) != 0) {
+            }
+            if ((j & 540680) != 0) {
+            }
+            if ((j & 526344) != 0) {
+            }
+            if ((j & 528392) != 0) {
+            }
+            if ((j & 589897) != 0) {
+            }
+            str11 = null;
+            if ((j & 663576) != 0) {
+            }
+            str6 = null;
+            if ((j & 524554) != 0) {
+            }
+            String str122222 = str10;
+            str7 = str11;
+            str5 = str122222;
+        } else {
+            str = null;
+            str2 = null;
+            str3 = null;
+            str4 = null;
+            str5 = null;
+            str6 = null;
+            i = 0;
+            str7 = null;
+            str8 = null;
+            str9 = null;
+        }
+        if ((j & 589897) != 0) {
+            TextViewBindingAdapter.setText(this.decodeSentCrcValue, str7);
+        }
+        if ((j & 787496) != 0) {
+            TextViewBindingAdapter.setText(this.decodeSentIdleValue, str3);
+        }
+        if ((j & 526344) != 0) {
+            TextViewBindingAdapter.setText(this.decodeSentNibbnumValue, str8);
+        }
+        if ((j & 557196) != 0) {
+            TextViewBindingAdapter.setText(this.decodeSentPauseValue, str2);
+        }
+        if ((663576 & j) != 0) {
+            TextViewBindingAdapter.setText(this.decodeSentSignalTypeValue, str6);
+        }
+        if ((524552 & j) != 0) {
+            this.decodeSentSrcValue.setTextColor(i);
+        }
+        if ((524554 & j) != 0) {
+            TextViewBindingAdapter.setText(this.decodeSentSrcValue, str);
+        }
+        if ((j & 524808) != 0) {
+            TextViewBindingAdapter.setText(this.decodeSentThresValue, str4);
+        }
+        if ((540680 & j) != 0) {
+            TextViewBindingAdapter.setText(this.decodeSentTickValue, str5);
+        }
+        if ((j & 528392) != 0) {
+            TextViewBindingAdapter.setText(this.decodeSentToleranceValue, str9);
+        }
     }
 }

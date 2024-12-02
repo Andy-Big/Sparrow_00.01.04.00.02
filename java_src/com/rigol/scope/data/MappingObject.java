@@ -10,6 +10,7 @@ import androidx.databinding.Bindable;
 import com.rigol.scope.utilities.ContextUtil;
 import com.rigol.scope.utilities.ViewUtil;
 import java.util.List;
+
 /* loaded from: classes2.dex */
 public class MappingObject extends BaseObservable {
     private String keyAStr;

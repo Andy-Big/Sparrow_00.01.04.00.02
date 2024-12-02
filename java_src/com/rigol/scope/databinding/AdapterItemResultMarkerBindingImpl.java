@@ -11,6 +11,7 @@ import com.rigol.scope.R;
 import com.rigol.scope.data.ResultParam;
 import com.rigol.scope.views.DisableTouchEventRecyclerView;
 import com.rigol.scope.views.resultItem.ResultItemConstraintLayout;
+
 /* loaded from: classes2.dex */
 public class AdapterItemResultMarkerBindingImpl extends AdapterItemResultMarkerBinding {
     private static final ViewDataBinding.IncludedLayouts sIncludes = null;

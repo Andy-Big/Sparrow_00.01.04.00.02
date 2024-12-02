@@ -32,6 +32,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.Arrays;
+
 /* loaded from: classes2.dex */
 public class ImageUtil {
     private static final int BMP_WIDTH_OF_TIMES = 4;
@@ -128,13 +129,16 @@ public class ImageUtil {
         return false;
     }
 
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:33:0x006e */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:46:0x0077 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:47:0x004b */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:49:0x004b */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r3v0, types: [android.graphics.Bitmap] */
     /* JADX WARN: Type inference failed for: r4v10 */
     /* JADX WARN: Type inference failed for: r4v14 */
     /* JADX WARN: Type inference failed for: r4v9 */
     private static boolean saveImg(Bitmap bitmap, String str, Bitmap.CompressFormat compressFormat) {
-        FileOutputStream fileOutputStream;
         boolean z = false;
         if (bitmap == 0 || bitmap.getWidth() == 0 || bitmap.getHeight() == 0) {
             Log.e("YYY", "bitmap is empty.");
@@ -148,47 +152,47 @@ public class ImageUtil {
                 Log.e("YYY", "create or delete file <" + file + "> failed.");
                 return false;
             }
-            FileOutputStream fileOutputStream2 = null;
+            FileOutputStream fileOutputStream = null;
             try {
                 try {
                     try {
-                        fileOutputStream = new FileOutputStream(file);
-                        fileOutputStream2 = 100;
-                    } catch (IOException e) {
-                        e.printStackTrace();
+                        FileOutputStream fileOutputStream2 = new FileOutputStream(file);
+                        fileOutputStream = 100;
+                        try {
+                            z = bitmap.compress(compressFormat, 100, fileOutputStream2);
+                            fileOutputStream2.getFD().sync();
+                            fileOutputStream2.close();
+                        } catch (IOException e) {
+                            e = e;
+                            fileOutputStream = fileOutputStream2;
+                            e.printStackTrace();
+                            if (fileOutputStream != null) {
+                                fileOutputStream.close();
+                                fileOutputStream = fileOutputStream;
+                            }
+                            return z;
+                        } catch (Throwable th) {
+                            th = th;
+                            fileOutputStream = fileOutputStream2;
+                            if (fileOutputStream != null) {
+                                try {
+                                    fileOutputStream.close();
+                                } catch (IOException e2) {
+                                    e2.printStackTrace();
+                                }
+                            }
+                            throw th;
+                        }
+                    } catch (IOException e3) {
+                        e = e3;
                     }
-                } catch (IOException e2) {
-                    e = e2;
-                }
-            } catch (Throwable th) {
-                th = th;
-            }
-            try {
-                z = bitmap.compress(compressFormat, 100, fileOutputStream);
-                fileOutputStream.getFD().sync();
-                fileOutputStream.close();
-            } catch (IOException e3) {
-                e = e3;
-                fileOutputStream2 = fileOutputStream;
-                e.printStackTrace();
-                if (fileOutputStream2 != null) {
-                    fileOutputStream2.close();
-                    fileOutputStream2 = fileOutputStream2;
+                } catch (IOException e4) {
+                    e4.printStackTrace();
                 }
                 return z;
             } catch (Throwable th2) {
                 th = th2;
-                fileOutputStream2 = fileOutputStream;
-                if (fileOutputStream2 != null) {
-                    try {
-                        fileOutputStream2.close();
-                    } catch (IOException e4) {
-                        e4.printStackTrace();
-                    }
-                }
-                throw th;
             }
-            return z;
         }
     }
 
@@ -285,8 +289,7 @@ public class ImageUtil {
         });
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ void lambda$save$0(StorageSaveParam storageSaveParam, ServiceEnum.enFileType enfiletype, String str, String str2) {
+    static /* synthetic */ void lambda$save$0(StorageSaveParam storageSaveParam, ServiceEnum.enFileType enfiletype, String str, String str2) {
         UtilityViewModel utilityViewModel;
         UtilityParam value;
         try {
@@ -338,8 +341,7 @@ public class ImageUtil {
         });
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ void lambda$masksave$1(StorageSaveParam storageSaveParam, ServiceEnum.enFileType enfiletype, String str, String str2) {
+    static /* synthetic */ void lambda$masksave$1(StorageSaveParam storageSaveParam, ServiceEnum.enFileType enfiletype, String str, String str2) {
         UtilityViewModel utilityViewModel;
         UtilityParam value;
         try {

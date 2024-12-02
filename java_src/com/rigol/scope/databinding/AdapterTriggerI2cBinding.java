@@ -15,6 +15,7 @@ import com.rigol.scope.R;
 import com.rigol.scope.data.MappingObject;
 import com.rigol.scope.data.TriggerParam;
 import com.rigol.scope.views.SwitchButton;
+
 /* loaded from: classes2.dex */
 public abstract class AdapterTriggerI2cBinding extends ViewDataBinding {
     public final Button buttonLevel;
@@ -103,8 +104,7 @@ public abstract class AdapterTriggerI2cBinding extends ViewDataBinding {
 
     public abstract void setWhenStopMapping(MappingObject mappingObject);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public AdapterTriggerI2cBinding(Object obj, View view, int i, Button button, Button button2, Guideline guideline, Guideline guideline2, Guideline guideline3, Guideline guideline4, Guideline guideline5, TextView textView, TextView textView2, RadioButton radioButton, RadioButton radioButton2, TextView textView3, EditText editText, TextView textView4, TextView textView5, RadioButton radioButton3, TextView textView6, EditText editText2, TextView textView7, TextView textView8, RadioButton radioButton4, RadioButton radioButton5, RadioButton radioButton6, RadioButton radioButton7, TextView textView9, TextView textView10, EditText editText3, TextView textView11, EditText editText4, TextView textView12, SwitchButton switchButton, TextView textView13, TextView textView14, TextView textView15, TextView textView16, View view2, View view3, View view4, View view5, View view6, View view7) {
+    protected AdapterTriggerI2cBinding(Object obj, View view, int i, Button button, Button button2, Guideline guideline, Guideline guideline2, Guideline guideline3, Guideline guideline4, Guideline guideline5, TextView textView, TextView textView2, RadioButton radioButton, RadioButton radioButton2, TextView textView3, EditText editText, TextView textView4, TextView textView5, RadioButton radioButton3, TextView textView6, EditText editText2, TextView textView7, TextView textView8, RadioButton radioButton4, RadioButton radioButton5, RadioButton radioButton6, RadioButton radioButton7, TextView textView9, TextView textView10, EditText editText3, TextView textView11, EditText editText4, TextView textView12, SwitchButton switchButton, TextView textView13, TextView textView14, TextView textView15, TextView textView16, View view2, View view3, View view4, View view5, View view6, View view7) {
         super(obj, view, i);
         this.buttonLevel = button;
         this.buttonLevelb = button2;

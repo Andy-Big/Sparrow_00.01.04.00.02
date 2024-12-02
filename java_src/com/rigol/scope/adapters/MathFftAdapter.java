@@ -35,6 +35,7 @@ import com.rigol.scope.views.save.SavePopupView;
 import com.rigol.scope.views.spinner.PopupSpinner;
 import java.util.ArrayList;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public class MathFftAdapter extends RecyclerView.Adapter<MathFftHolder> implements AorBManager.OnSetTextById, AorBManager.OnTextReset {
     private View anchorView;
@@ -83,6 +84,7 @@ public class MathFftAdapter extends RecyclerView.Adapter<MathFftHolder> implemen
         onCreateViewHolder((ViewGroup) popupviewMathBinding.viewPager, 0);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public MathFftHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         this.binding = AdapterMathFftBinding.inflate(LayoutInflater.from(viewGroup.getContext()), viewGroup, false);
@@ -165,6 +167,7 @@ public class MathFftAdapter extends RecyclerView.Adapter<MathFftHolder> implemen
         }
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(MathFftHolder mathFftHolder, int i) {
         ShowMathFft();

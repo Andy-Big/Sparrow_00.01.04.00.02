@@ -18,6 +18,7 @@ import androidx.databinding.adapters.ViewBindingAdapter;
 import com.rigol.scope.R;
 import com.rigol.scope.data.MotorParam;
 import com.rigol.scope.views.baseview.FanScaleView;
+
 /* loaded from: classes2.dex */
 public class PresentationMotorBindingImpl extends PresentationMotorBinding {
     private static final ViewDataBinding.IncludedLayouts sIncludes = null;

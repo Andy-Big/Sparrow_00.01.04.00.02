@@ -12,6 +12,7 @@ import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import com.rigol.scope.R;
 import com.rigol.scope.views.busAnalyse.BusAnalyseUsbParam;
+
 /* loaded from: classes2.dex */
 public abstract class AdapterBusUsbAnalyseBinding extends ViewDataBinding {
     public final View busAnalyseDivider1;
@@ -36,8 +37,7 @@ public abstract class AdapterBusUsbAnalyseBinding extends ViewDataBinding {
 
     public abstract void setParam(BusAnalyseUsbParam busAnalyseUsbParam);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public AdapterBusUsbAnalyseBinding(Object obj, View view, int i, View view2, Button button, TextView textView, TextView textView2, ConstraintLayout constraintLayout, TextView textView3, TextView textView4, TextView textView5, TextView textView6, TextView textView7, TextView textView8, Button button2, TextView textView9, TextView textView10, Guideline guideline, Guideline guideline2, Guideline guideline3) {
+    protected AdapterBusUsbAnalyseBinding(Object obj, View view, int i, View view2, Button button, TextView textView, TextView textView2, ConstraintLayout constraintLayout, TextView textView3, TextView textView4, TextView textView5, TextView textView6, TextView textView7, TextView textView8, Button button2, TextView textView9, TextView textView10, Guideline guideline, Guideline guideline2, Guideline guideline3) {
         super(obj, view, i);
         this.busAnalyseDivider1 = view2;
         this.busAnalyseUsbAutoSetButton = button;

@@ -10,10 +10,17 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.Guideline;
 import androidx.databinding.DataBindingComponent;
 import androidx.databinding.ViewDataBinding;
+import androidx.databinding.adapters.CompoundButtonBindingAdapter;
+import androidx.databinding.adapters.RadioGroupBindingAdapter;
+import androidx.databinding.adapters.TextViewBindingAdapter;
 import com.rigol.scope.R;
+import com.rigol.scope.cil.ServiceEnum;
 import com.rigol.scope.data.BaseProperty;
 import com.rigol.scope.data.EyeParam;
 import com.rigol.scope.data.MappingObject;
+import com.rigol.scope.utilities.ContextUtil;
+import com.rigol.scope.utilities.UnitFormat;
+
 /* loaded from: classes2.dex */
 public class AdapterEyeConstantBindingImpl extends AdapterEyeConstantBinding {
     private static final ViewDataBinding.IncludedLayouts sIncludes = null;
@@ -273,13 +280,138 @@ public class AdapterEyeConstantBindingImpl extends AdapterEyeConstantBinding {
     @Override // androidx.databinding.ViewDataBinding
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
     protected void executeBindings() {
-        /*
-            Method dump skipped, instructions count: 346
-            To view this dump add '--comments-level debug' option
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.rigol.scope.databinding.AdapterEyeConstantBindingImpl.executeBindings():void");
+        long j;
+        AdapterEyeConstantBindingImpl adapterEyeConstantBindingImpl;
+        String str;
+        float f;
+        boolean z;
+        boolean z2;
+        boolean z3;
+        boolean z4;
+        int i;
+        int i2;
+        int i3;
+        int i4;
+        String str2;
+        synchronized (this) {
+            try {
+                j = this.mDirtyFlags;
+                this.mDirtyFlags = 0L;
+            } catch (Throwable th) {
+                th = th;
+                while (true) {
+                    try {
+                        break;
+                    } catch (Throwable th2) {
+                        th = th2;
+                    }
+                }
+                throw th;
+            }
+        }
+        RadioGroup.OnCheckedChangeListener onCheckedChangeListener = this.mOnCheckedChangeListener;
+        EyeParam eyeParam = this.mParam;
+        MappingObject mappingObject = this.mManualMapping;
+        View.OnClickListener onClickListener = this.mOnClickListener;
+        MappingObject mappingObject2 = this.mAtuoMapping;
+        MappingObject mappingObject3 = this.mSemiautoMapping;
+        int i5 = ((8256 & j) > 0L ? 1 : ((8256 & j) == 0L ? 0 : -1));
+        if ((8967 & j) != 0) {
+            if ((j & 8451) != 0) {
+                BaseProperty<Long> dataRate = eyeParam != null ? eyeParam.getDataRate() : null;
+                updateRegistration(0, dataRate);
+                str2 = UnitFormat.newBuilder(" 0.000", UnitFormat.SI.NONE).convert(ViewDataBinding.safeUnbox(dataRate != null ? dataRate.getValue() : null), ServiceEnum.Unit.Unit_bps);
+            } else {
+                str2 = null;
+            }
+            if ((j & 8710) != 0) {
+                BaseProperty<Integer> type = eyeParam != null ? eyeParam.getType() : null;
+                adapterEyeConstantBindingImpl = this;
+                adapterEyeConstantBindingImpl.updateRegistration(2, type);
+                int safeUnbox = ViewDataBinding.safeUnbox(type != null ? type.getValue() : null);
+                z4 = safeUnbox == 0;
+                boolean z5 = safeUnbox == 1;
+                boolean z6 = safeUnbox != 0;
+                boolean z7 = safeUnbox == 2;
+                str = str2;
+                f = ContextUtil.getAlpha(z6);
+                z = z5;
+                z3 = z7;
+                z2 = z6;
+                i = ((j & 9224) > 0L ? 1 : ((j & 9224) == 0L ? 0 : -1));
+                String str3 = (i != 0 || mappingObject == null) ? null : mappingObject.getStr();
+                i2 = ((j & 8320) > 0L ? 1 : ((j & 8320) == 0L ? 0 : -1));
+                i3 = ((j & 10256) > 0L ? 1 : ((j & 10256) == 0L ? 0 : -1));
+                String str4 = (i3 != 0 || mappingObject2 == null) ? null : mappingObject2.getStr();
+                i4 = ((j & 12320) > 0L ? 1 : ((j & 12320) == 0L ? 0 : -1));
+                String str5 = (i4 != 0 || mappingObject3 == null) ? null : mappingObject3.getStr();
+                if ((8710 & j) != 0) {
+                    if (getBuildSdkInt() >= 11) {
+                        adapterEyeConstantBindingImpl.eyeDataRateLabel.setAlpha(f);
+                        adapterEyeConstantBindingImpl.eyeDataRateValue.setAlpha(f);
+                    }
+                    adapterEyeConstantBindingImpl.eyeDataRateValue.setEnabled(z2);
+                    CompoundButtonBindingAdapter.setChecked(adapterEyeConstantBindingImpl.eyeTypeAtuoRadioButton, z4);
+                    CompoundButtonBindingAdapter.setChecked(adapterEyeConstantBindingImpl.eyeTypeManualRadioButton, z3);
+                    CompoundButtonBindingAdapter.setChecked(adapterEyeConstantBindingImpl.eyeTypeSemiautoRadioButton, z);
+                }
+                if (i2 != 0) {
+                    adapterEyeConstantBindingImpl.eyeDataRateValue.setOnClickListener(onClickListener);
+                }
+                if ((j & 8451) != 0) {
+                    TextViewBindingAdapter.setText(adapterEyeConstantBindingImpl.eyeDataRateValue, str);
+                }
+                if (i3 != 0) {
+                    TextViewBindingAdapter.setText(adapterEyeConstantBindingImpl.eyeTypeAtuoRadioButton, str4);
+                }
+                if (i != 0) {
+                    TextViewBindingAdapter.setText(adapterEyeConstantBindingImpl.eyeTypeManualRadioButton, str3);
+                }
+                if (i5 != 0) {
+                    RadioGroupBindingAdapter.setListeners(adapterEyeConstantBindingImpl.eyeTypeRadioGroup, onCheckedChangeListener, null);
+                }
+                if (i4 == 0) {
+                    TextViewBindingAdapter.setText(adapterEyeConstantBindingImpl.eyeTypeSemiautoRadioButton, str5);
+                    return;
+                }
+                return;
+            }
+            adapterEyeConstantBindingImpl = this;
+            str = str2;
+        } else {
+            adapterEyeConstantBindingImpl = this;
+            str = null;
+        }
+        f = 0.0f;
+        z = false;
+        z2 = false;
+        z3 = false;
+        z4 = false;
+        i = ((j & 9224) > 0L ? 1 : ((j & 9224) == 0L ? 0 : -1));
+        if (i != 0) {
+        }
+        i2 = ((j & 8320) > 0L ? 1 : ((j & 8320) == 0L ? 0 : -1));
+        i3 = ((j & 10256) > 0L ? 1 : ((j & 10256) == 0L ? 0 : -1));
+        if (i3 != 0) {
+        }
+        i4 = ((j & 12320) > 0L ? 1 : ((j & 12320) == 0L ? 0 : -1));
+        if (i4 != 0) {
+        }
+        if ((8710 & j) != 0) {
+        }
+        if (i2 != 0) {
+        }
+        if ((j & 8451) != 0) {
+        }
+        if (i3 != 0) {
+        }
+        if (i != 0) {
+        }
+        if (i5 != 0) {
+        }
+        if (i4 == 0) {
+        }
     }
 }

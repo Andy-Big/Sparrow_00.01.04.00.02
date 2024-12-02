@@ -5,6 +5,7 @@ import android.view.View;
 import androidx.databinding.DataBindingComponent;
 import androidx.databinding.ViewDataBinding;
 import androidx.recyclerview.widget.RecyclerView;
+
 /* loaded from: classes2.dex */
 public class AdapterItemRecyclerviewBindingImpl extends AdapterItemRecyclerviewBinding {
     private static final ViewDataBinding.IncludedLayouts sIncludes = null;

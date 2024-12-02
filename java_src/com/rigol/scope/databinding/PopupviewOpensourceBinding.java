@@ -7,13 +7,13 @@ import android.widget.LinearLayout;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import com.rigol.scope.R;
+
 /* loaded from: classes2.dex */
 public abstract class PopupviewOpensourceBinding extends ViewDataBinding {
     public final View titleLayout;
     public final LinearLayout webview;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public PopupviewOpensourceBinding(Object obj, View view, int i, View view2, LinearLayout linearLayout) {
+    protected PopupviewOpensourceBinding(Object obj, View view, int i, View view2, LinearLayout linearLayout) {
         super(obj, view, i);
         this.titleLayout = view2;
         this.webview = linearLayout;

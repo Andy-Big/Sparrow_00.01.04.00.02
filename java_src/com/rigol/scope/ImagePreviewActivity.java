@@ -10,13 +10,13 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.Key;
 import com.rigol.scope.databinding.ActivityImagePreviewBinding;
 import java.security.MessageDigest;
+
 /* loaded from: classes.dex */
 public class ImagePreviewActivity extends BaseActivity {
     public static final String IMAGE_FILE_PATH = "image_file_path";
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.rigol.scope.BaseActivity, androidx.appcompat.app.AppCompatActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
-    public void onCreate(Bundle bundle) {
+    protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         ActivityImagePreviewBinding inflate = ActivityImagePreviewBinding.inflate(getLayoutInflater());
         setContentView(inflate.getRoot());

@@ -7,12 +7,12 @@ import android.widget.TextView;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import com.rigol.scope.R;
+
 /* loaded from: classes2.dex */
 public abstract class PopupviewScreenFlipBinding extends ViewDataBinding {
     public final TextView content;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public PopupviewScreenFlipBinding(Object obj, View view, int i, TextView textView) {
+    protected PopupviewScreenFlipBinding(Object obj, View view, int i, TextView textView) {
         super(obj, view, i);
         this.content = textView;
     }

@@ -11,12 +11,15 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.databinding.DataBindingComponent;
 import androidx.databinding.ObservableBoolean;
 import androidx.databinding.ViewDataBinding;
+import androidx.databinding.adapters.TextViewBindingAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 import com.rigol.scope.R;
 import com.rigol.scope.data.DiskManageParam;
 import com.rigol.scope.data.DiskParam;
 import com.rigol.scope.data.SharedParam;
 import com.rigol.scope.generated.callback.OnClickListener;
+import com.rigol.scope.utilities.ContextUtil;
+
 /* loaded from: classes2.dex */
 public class PopupviewDiskManageBindingImpl extends PopupviewDiskManageBinding implements OnClickListener.Listener {
     private static final ViewDataBinding.IncludedLayouts sIncludes = null;
@@ -313,14 +316,691 @@ public class PopupviewDiskManageBindingImpl extends PopupviewDiskManageBinding i
     @Override // androidx.databinding.ViewDataBinding
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
     protected void executeBindings() {
-        /*
-            Method dump skipped, instructions count: 1330
-            To view this dump add '--comments-level debug' option
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.rigol.scope.databinding.PopupviewDiskManageBindingImpl.executeBindings():void");
+        long j;
+        float f;
+        DiskManageParam.State state;
+        String str;
+        boolean z;
+        int i;
+        int i2;
+        boolean z2;
+        boolean z3;
+        int i3;
+        int i4;
+        boolean z4;
+        int i5;
+        int i6;
+        boolean z5;
+        boolean z6;
+        int i7;
+        int i8;
+        boolean z7;
+        DiskManageParam.SelectionMode selectionMode;
+        boolean z8;
+        int i9;
+        int i10;
+        int i11;
+        int i12;
+        int i13;
+        int i14;
+        int i15;
+        boolean z9;
+        float f2;
+        boolean z10;
+        int i16;
+        int i17;
+        int i18;
+        boolean z11;
+        int i19;
+        boolean z12;
+        int i20;
+        int i21;
+        long j2;
+        int i22;
+        int i23;
+        float f3;
+        int i24;
+        int i25;
+        int i26;
+        long j3;
+        long j4;
+        synchronized (this) {
+            j = this.mDirtyFlags;
+            this.mDirtyFlags = 0L;
+        }
+        DiskManageParam diskManageParam = this.mDiskParam;
+        View.OnClickListener onClickListener = this.mClickListener;
+        ObservableBoolean observableBoolean = this.mLoadingFiles;
+        SharedParam sharedParam = this.mShareParam;
+        if ((5097 & j) != 0) {
+            if ((j & 5057) != 0) {
+                state = diskManageParam != null ? diskManageParam.getState() : null;
+                if ((j & 4545) != 0) {
+                    z = state == DiskManageParam.State.SELECTING;
+                    if ((j & 4417) != 0) {
+                        j = z ? j | PlaybackStateCompat.ACTION_PREPARE : j | PlaybackStateCompat.ACTION_PLAY_FROM_URI;
+                    }
+                    if ((j & 4161) != 0) {
+                        if (z) {
+                            j3 = j | PlaybackStateCompat.ACTION_SET_REPEAT_MODE;
+                            j4 = 1073741824;
+                        } else {
+                            j3 = j | PlaybackStateCompat.ACTION_PREPARE_FROM_URI;
+                            j4 = 536870912;
+                        }
+                        j = j3 | j4;
+                    }
+                    if ((j & 4289) != 0) {
+                        j = z ? j | 70368744177664L : j | 35184372088832L;
+                    }
+                    if ((j & 4161) != 0) {
+                        i22 = z ? 0 : 8;
+                        if (z) {
+                            i23 = 8;
+                            i25 = ((j & 4929) > 0L ? 1 : ((j & 4929) == 0L ? 0 : -1));
+                            if (i25 != 0) {
+                                z2 = state == DiskManageParam.State.DEFAULT;
+                                if (i25 != 0) {
+                                    j = z2 ? j | 4194304 : j | PlaybackStateCompat.ACTION_SET_SHUFFLE_MODE;
+                                }
+                            } else {
+                                z2 = false;
+                            }
+                            i26 = ((j & 4161) > 0L ? 1 : ((j & 4161) == 0L ? 0 : -1));
+                            if (i26 != 0) {
+                                boolean z13 = state == DiskManageParam.State.PASTING;
+                                if (i26 != 0) {
+                                    j |= z13 ? 17179869184L : 8589934592L;
+                                }
+                                if (!z13) {
+                                    i = 8;
+                                }
+                            }
+                            i = 0;
+                        }
+                        i23 = 0;
+                        i25 = ((j & 4929) > 0L ? 1 : ((j & 4929) == 0L ? 0 : -1));
+                        if (i25 != 0) {
+                        }
+                        i26 = ((j & 4161) > 0L ? 1 : ((j & 4161) == 0L ? 0 : -1));
+                        if (i26 != 0) {
+                        }
+                        i = 0;
+                    }
+                } else {
+                    z = false;
+                }
+                i22 = 0;
+                i23 = 0;
+                i25 = ((j & 4929) > 0L ? 1 : ((j & 4929) == 0L ? 0 : -1));
+                if (i25 != 0) {
+                }
+                i26 = ((j & 4161) > 0L ? 1 : ((j & 4161) == 0L ? 0 : -1));
+                if (i26 != 0) {
+                }
+                i = 0;
+            } else {
+                state = null;
+                z = false;
+                i = 0;
+                z2 = false;
+                i22 = 0;
+                i23 = 0;
+            }
+            if ((j & 4225) != 0) {
+                i2 = diskManageParam != null ? diskManageParam.getSelectedCount() : 0;
+                z3 = i2 == 1;
+                f3 = ContextUtil.getAlpha(z3);
+            } else {
+                f3 = 0.0f;
+                i2 = 0;
+                z3 = false;
+            }
+            if ((j & 4105) != 0) {
+                DiskParam diskParam = diskManageParam != null ? diskManageParam.getDiskParam() : null;
+                updateRegistration(3, diskParam);
+                if (diskParam != null) {
+                    str = diskParam.getFormattedPath();
+                    i24 = ((j & 4129) > 0L ? 1 : ((j & 4129) == 0L ? 0 : -1));
+                    if (i24 == 0) {
+                        i4 = diskManageParam != null ? diskManageParam.getCount() : 0;
+                        z4 = i4 == 0;
+                        if (i24 != 0) {
+                            j = z4 ? j | 67108864 : j | 33554432;
+                        }
+                        i3 = z4 ? 8 : 0;
+                        i5 = i22;
+                        i6 = i23;
+                        f = f3;
+                    } else {
+                        i5 = i22;
+                        i6 = i23;
+                        f = f3;
+                        i3 = 0;
+                        i4 = 0;
+                        z4 = false;
+                    }
+                }
+            }
+            str = null;
+            i24 = ((j & 4129) > 0L ? 1 : ((j & 4129) == 0L ? 0 : -1));
+            if (i24 == 0) {
+            }
+        } else {
+            f = 0.0f;
+            state = null;
+            str = null;
+            z = false;
+            i = 0;
+            i2 = 0;
+            z2 = false;
+            z3 = false;
+            i3 = 0;
+            i4 = 0;
+            z4 = false;
+            i5 = 0;
+            i6 = 0;
+        }
+        int i27 = ((j & 4131) > 0L ? 1 : ((j & 4131) == 0L ? 0 : -1));
+        if (i27 != 0) {
+            z5 = observableBoolean != null ? observableBoolean.get() : false;
+            if (i27 != 0) {
+                j |= z5 ? PlaybackStateCompat.ACTION_PREPARE_FROM_SEARCH : PlaybackStateCompat.ACTION_PREPARE_FROM_MEDIA_ID;
+            }
+            if ((j & 4098) != 0) {
+                j |= z5 ? 17592186044416L : 8796093022208L;
+            }
+            z6 = !z5;
+            if ((j & 4131) != 0) {
+                j |= z6 ? 16777216L : 8388608L;
+            }
+            if ((j & 4098) != 0) {
+                i7 = z5 ? 0 : 8;
+                i8 = ((j & 7172) > 0L ? 1 : ((j & 7172) == 0L ? 0 : -1));
+                if (i8 == 0) {
+                    z7 = sharedParam != null ? sharedParam.getShowUsb() : false;
+                    if (i8 != 0) {
+                        j = z7 ? j | 1099511627776L : j | 549755813888L;
+                    }
+                } else {
+                    z7 = false;
+                }
+                if ((j & 70368761004032L) == 0) {
+                    if ((j & 70368744177664L) != 0) {
+                        if (diskManageParam != null) {
+                            i2 = diskManageParam.getSelectedCount();
+                        }
+                        boolean z14 = i2 == 1;
+                        j2 = PlaybackStateCompat.ACTION_PREPARE;
+                        z3 = z14;
+                    } else {
+                        j2 = PlaybackStateCompat.ACTION_PREPARE;
+                    }
+                    if ((j & j2) != 0) {
+                        selectionMode = diskManageParam != null ? diskManageParam.getSelectionMode() : null;
+                        if (selectionMode != DiskManageParam.SelectionMode.NONE) {
+                            z8 = true;
+                            if ((j & 16809984) != 0) {
+                                if (diskManageParam != null) {
+                                    i4 = diskManageParam.getCount();
+                                }
+                                z4 = i4 == 0;
+                                if ((j & 4129) != 0) {
+                                    j |= z4 ? 67108864L : 33554432L;
+                                }
+                            }
+                        }
+                    } else {
+                        selectionMode = null;
+                    }
+                    z8 = false;
+                    if ((j & 16809984) != 0) {
+                    }
+                } else {
+                    selectionMode = null;
+                    z8 = false;
+                }
+                boolean showSmb = ((j & 549755813888L) != 0 || sharedParam == null) ? false : sharedParam.getShowSmb();
+                i9 = ((j & 4417) > 0L ? 1 : ((j & 4417) == 0L ? 0 : -1));
+                if (i9 == 0) {
+                    if (!z) {
+                        z8 = false;
+                    }
+                    if (i9 != 0) {
+                        j |= z8 ? 4398046511104L : 2199023255552L;
+                    }
+                } else {
+                    z8 = false;
+                }
+                i10 = ((j & 4131) > 0L ? 1 : ((j & 4131) == 0L ? 0 : -1));
+                if (i10 == 0) {
+                    boolean z15 = z5 ? true : z4;
+                    if (!z6) {
+                        z4 = false;
+                    }
+                    if (i10 != 0) {
+                        j |= z15 ? PlaybackStateCompat.ACTION_SET_CAPTIONING_ENABLED : PlaybackStateCompat.ACTION_SET_SHUFFLE_MODE_ENABLED;
+                    }
+                    if ((j & 4131) != 0) {
+                        j |= z4 ? 1125899906842624L : 562949953421312L;
+                    }
+                    i11 = z15 ? 8 : 0;
+                    if (!z4) {
+                        i12 = 8;
+                        i13 = ((j & 7172) > 0L ? 1 : ((j & 7172) == 0L ? 0 : -1));
+                        if (i13 != 0) {
+                            if (z7) {
+                                showSmb = true;
+                            }
+                            if (i13 != 0) {
+                                j |= showSmb ? 281474976710656L : 140737488355328L;
+                            }
+                            if (!showSmb) {
+                                i14 = 8;
+                                i15 = ((j & 4289) > 0L ? 1 : ((j & 4289) == 0L ? 0 : -1));
+                                if (i15 == 0) {
+                                    z9 = z ? z3 : false;
+                                    if (i15 != 0) {
+                                        j |= z9 ? 4294967296L : 2147483648L;
+                                    }
+                                } else {
+                                    z9 = false;
+                                }
+                                if ((j & 2201170739200L) != 0) {
+                                    z2 = state == DiskManageParam.State.DEFAULT;
+                                    if ((j & 4929) != 0) {
+                                        j = z2 ? j | 4194304 : j | PlaybackStateCompat.ACTION_SET_SHUFFLE_MODE;
+                                    }
+                                }
+                                if ((j & 4289) == 0) {
+                                    z10 = z9 ? true : z2;
+                                    f2 = ContextUtil.getAlpha(z10);
+                                } else {
+                                    f2 = 0.0f;
+                                    z10 = false;
+                                }
+                                i16 = ((j & 4417) > 0L ? 1 : ((j & 4417) == 0L ? 0 : -1));
+                                if (i16 != 0) {
+                                    boolean z16 = z8 ? true : z2;
+                                    if (i16 != 0) {
+                                        j |= z16 ? 68719476736L : 34359738368L;
+                                    }
+                                    if (!z16) {
+                                        i17 = 8;
+                                        if ((j & 4194304) != 0) {
+                                            if (diskManageParam != null) {
+                                                selectionMode = diskManageParam.getSelectionMode();
+                                            }
+                                            i18 = i3;
+                                            if (selectionMode == DiskManageParam.SelectionMode.ALL) {
+                                                z11 = true;
+                                                i19 = ((j & 4929) > 0L ? 1 : ((j & 4929) == 0L ? 0 : -1));
+                                                if (i19 == 0) {
+                                                    if (!z2) {
+                                                        z11 = false;
+                                                    }
+                                                    if (i19 != 0) {
+                                                        j |= z11 ? 268435456L : 134217728L;
+                                                    }
+                                                } else {
+                                                    z11 = false;
+                                                }
+                                                if ((268435456 & j) != 0) {
+                                                    String path = diskManageParam != null ? diskManageParam.getPath() : null;
+                                                    if (path != null) {
+                                                        z12 = path.startsWith(DiskManageParam.DEFAULT_PATH);
+                                                        i20 = ((j & 4929) > 0L ? 1 : ((j & 4929) == 0L ? 0 : -1));
+                                                        if (i20 != 0) {
+                                                            if (!z11) {
+                                                                z12 = false;
+                                                            }
+                                                            if (i20 != 0) {
+                                                                j |= z12 ? 274877906944L : 137438953472L;
+                                                            }
+                                                            i21 = z12 ? 0 : 8;
+                                                        } else {
+                                                            i21 = 0;
+                                                        }
+                                                        if ((PlaybackStateCompat.ACTION_SKIP_TO_QUEUE_ITEM & j) != 0) {
+                                                            this.backward.setOnClickListener(this.mCallback72);
+                                                            this.cancel.setOnClickListener(this.mCallback83);
+                                                            this.cleanAll.setOnClickListener(this.mCallback87);
+                                                            this.copy.setOnClickListener(this.mCallback78);
+                                                            this.createFile.setOnClickListener(this.mCallback81);
+                                                            this.createFolder.setOnClickListener(this.mCallback82);
+                                                            this.currentPath.setOnClickListener(this.mCallback74);
+                                                            this.cut.setOnClickListener(this.mCallback79);
+                                                            this.delete.setOnClickListener(this.mCallback84);
+                                                            this.diskListArrow.setOnClickListener(this.mCallback75);
+                                                            this.forward.setOnClickListener(this.mCallback73);
+                                                            this.ok.setOnClickListener(this.mCallback86);
+                                                            this.paste.setOnClickListener(this.mCallback80);
+                                                            this.rename.setOnClickListener(this.mCallback85);
+                                                            this.selectAll.setOnClickListener(this.mCallback76);
+                                                            this.selectCancel.setOnClickListener(this.mCallback77);
+                                                        }
+                                                        if ((j & 4161) != 0) {
+                                                            this.cancel.setVisibility(i);
+                                                            int i28 = i5;
+                                                            this.copy.setVisibility(i28);
+                                                            this.createFolder.setVisibility(i6);
+                                                            this.cut.setVisibility(i28);
+                                                            this.delete.setVisibility(i28);
+                                                            this.paste.setVisibility(i);
+                                                            this.rename.setVisibility(i28);
+                                                        }
+                                                        if ((j & 4929) != 0) {
+                                                            this.cleanAll.setVisibility(i21);
+                                                        }
+                                                        if ((j & 4105) != 0) {
+                                                            TextViewBindingAdapter.setText(this.currentPath, str);
+                                                        }
+                                                        if ((j & 7172) != 0) {
+                                                            this.diskListArrow.setVisibility(i14);
+                                                        }
+                                                        if ((j & 4131) != 0) {
+                                                            this.empty.setVisibility(i12);
+                                                            this.fileList.setVisibility(i11);
+                                                        }
+                                                        if ((j & 4098) != 0) {
+                                                            this.loading.setVisibility(i7);
+                                                        }
+                                                        if ((j & 4289) != 0) {
+                                                            if (getBuildSdkInt() >= 11) {
+                                                                this.ok.setAlpha(f2);
+                                                            }
+                                                            this.ok.setEnabled(z10);
+                                                        }
+                                                        if ((j & 4417) != 0) {
+                                                            this.ok.setVisibility(i17);
+                                                        }
+                                                        if ((j & 4225) != 0) {
+                                                            if (getBuildSdkInt() >= 11) {
+                                                                this.rename.setAlpha(f);
+                                                            }
+                                                            this.rename.setEnabled(z3);
+                                                        }
+                                                        if ((j & 4129) != 0) {
+                                                            int i29 = i18;
+                                                            this.selectAll.setVisibility(i29);
+                                                            this.selectCancel.setVisibility(i29);
+                                                            return;
+                                                        }
+                                                        return;
+                                                    }
+                                                }
+                                                z12 = false;
+                                                i20 = ((j & 4929) > 0L ? 1 : ((j & 4929) == 0L ? 0 : -1));
+                                                if (i20 != 0) {
+                                                }
+                                                if ((PlaybackStateCompat.ACTION_SKIP_TO_QUEUE_ITEM & j) != 0) {
+                                                }
+                                                if ((j & 4161) != 0) {
+                                                }
+                                                if ((j & 4929) != 0) {
+                                                }
+                                                if ((j & 4105) != 0) {
+                                                }
+                                                if ((j & 7172) != 0) {
+                                                }
+                                                if ((j & 4131) != 0) {
+                                                }
+                                                if ((j & 4098) != 0) {
+                                                }
+                                                if ((j & 4289) != 0) {
+                                                }
+                                                if ((j & 4417) != 0) {
+                                                }
+                                                if ((j & 4225) != 0) {
+                                                }
+                                                if ((j & 4129) != 0) {
+                                                }
+                                            }
+                                        } else {
+                                            i18 = i3;
+                                        }
+                                        z11 = false;
+                                        i19 = ((j & 4929) > 0L ? 1 : ((j & 4929) == 0L ? 0 : -1));
+                                        if (i19 == 0) {
+                                        }
+                                        if ((268435456 & j) != 0) {
+                                        }
+                                        z12 = false;
+                                        i20 = ((j & 4929) > 0L ? 1 : ((j & 4929) == 0L ? 0 : -1));
+                                        if (i20 != 0) {
+                                        }
+                                        if ((PlaybackStateCompat.ACTION_SKIP_TO_QUEUE_ITEM & j) != 0) {
+                                        }
+                                        if ((j & 4161) != 0) {
+                                        }
+                                        if ((j & 4929) != 0) {
+                                        }
+                                        if ((j & 4105) != 0) {
+                                        }
+                                        if ((j & 7172) != 0) {
+                                        }
+                                        if ((j & 4131) != 0) {
+                                        }
+                                        if ((j & 4098) != 0) {
+                                        }
+                                        if ((j & 4289) != 0) {
+                                        }
+                                        if ((j & 4417) != 0) {
+                                        }
+                                        if ((j & 4225) != 0) {
+                                        }
+                                        if ((j & 4129) != 0) {
+                                        }
+                                    }
+                                }
+                                i17 = 0;
+                                if ((j & 4194304) != 0) {
+                                }
+                                z11 = false;
+                                i19 = ((j & 4929) > 0L ? 1 : ((j & 4929) == 0L ? 0 : -1));
+                                if (i19 == 0) {
+                                }
+                                if ((268435456 & j) != 0) {
+                                }
+                                z12 = false;
+                                i20 = ((j & 4929) > 0L ? 1 : ((j & 4929) == 0L ? 0 : -1));
+                                if (i20 != 0) {
+                                }
+                                if ((PlaybackStateCompat.ACTION_SKIP_TO_QUEUE_ITEM & j) != 0) {
+                                }
+                                if ((j & 4161) != 0) {
+                                }
+                                if ((j & 4929) != 0) {
+                                }
+                                if ((j & 4105) != 0) {
+                                }
+                                if ((j & 7172) != 0) {
+                                }
+                                if ((j & 4131) != 0) {
+                                }
+                                if ((j & 4098) != 0) {
+                                }
+                                if ((j & 4289) != 0) {
+                                }
+                                if ((j & 4417) != 0) {
+                                }
+                                if ((j & 4225) != 0) {
+                                }
+                                if ((j & 4129) != 0) {
+                                }
+                            }
+                        }
+                        i14 = 0;
+                        i15 = ((j & 4289) > 0L ? 1 : ((j & 4289) == 0L ? 0 : -1));
+                        if (i15 == 0) {
+                        }
+                        if ((j & 2201170739200L) != 0) {
+                        }
+                        if ((j & 4289) == 0) {
+                        }
+                        i16 = ((j & 4417) > 0L ? 1 : ((j & 4417) == 0L ? 0 : -1));
+                        if (i16 != 0) {
+                        }
+                        i17 = 0;
+                        if ((j & 4194304) != 0) {
+                        }
+                        z11 = false;
+                        i19 = ((j & 4929) > 0L ? 1 : ((j & 4929) == 0L ? 0 : -1));
+                        if (i19 == 0) {
+                        }
+                        if ((268435456 & j) != 0) {
+                        }
+                        z12 = false;
+                        i20 = ((j & 4929) > 0L ? 1 : ((j & 4929) == 0L ? 0 : -1));
+                        if (i20 != 0) {
+                        }
+                        if ((PlaybackStateCompat.ACTION_SKIP_TO_QUEUE_ITEM & j) != 0) {
+                        }
+                        if ((j & 4161) != 0) {
+                        }
+                        if ((j & 4929) != 0) {
+                        }
+                        if ((j & 4105) != 0) {
+                        }
+                        if ((j & 7172) != 0) {
+                        }
+                        if ((j & 4131) != 0) {
+                        }
+                        if ((j & 4098) != 0) {
+                        }
+                        if ((j & 4289) != 0) {
+                        }
+                        if ((j & 4417) != 0) {
+                        }
+                        if ((j & 4225) != 0) {
+                        }
+                        if ((j & 4129) != 0) {
+                        }
+                    }
+                } else {
+                    i11 = 0;
+                }
+                i12 = 0;
+                i13 = ((j & 7172) > 0L ? 1 : ((j & 7172) == 0L ? 0 : -1));
+                if (i13 != 0) {
+                }
+                i14 = 0;
+                i15 = ((j & 4289) > 0L ? 1 : ((j & 4289) == 0L ? 0 : -1));
+                if (i15 == 0) {
+                }
+                if ((j & 2201170739200L) != 0) {
+                }
+                if ((j & 4289) == 0) {
+                }
+                i16 = ((j & 4417) > 0L ? 1 : ((j & 4417) == 0L ? 0 : -1));
+                if (i16 != 0) {
+                }
+                i17 = 0;
+                if ((j & 4194304) != 0) {
+                }
+                z11 = false;
+                i19 = ((j & 4929) > 0L ? 1 : ((j & 4929) == 0L ? 0 : -1));
+                if (i19 == 0) {
+                }
+                if ((268435456 & j) != 0) {
+                }
+                z12 = false;
+                i20 = ((j & 4929) > 0L ? 1 : ((j & 4929) == 0L ? 0 : -1));
+                if (i20 != 0) {
+                }
+                if ((PlaybackStateCompat.ACTION_SKIP_TO_QUEUE_ITEM & j) != 0) {
+                }
+                if ((j & 4161) != 0) {
+                }
+                if ((j & 4929) != 0) {
+                }
+                if ((j & 4105) != 0) {
+                }
+                if ((j & 7172) != 0) {
+                }
+                if ((j & 4131) != 0) {
+                }
+                if ((j & 4098) != 0) {
+                }
+                if ((j & 4289) != 0) {
+                }
+                if ((j & 4417) != 0) {
+                }
+                if ((j & 4225) != 0) {
+                }
+                if ((j & 4129) != 0) {
+                }
+            }
+        } else {
+            z5 = false;
+            z6 = false;
+        }
+        i7 = 0;
+        i8 = ((j & 7172) > 0L ? 1 : ((j & 7172) == 0L ? 0 : -1));
+        if (i8 == 0) {
+        }
+        if ((j & 70368761004032L) == 0) {
+        }
+        if ((j & 549755813888L) != 0) {
+        }
+        i9 = ((j & 4417) > 0L ? 1 : ((j & 4417) == 0L ? 0 : -1));
+        if (i9 == 0) {
+        }
+        i10 = ((j & 4131) > 0L ? 1 : ((j & 4131) == 0L ? 0 : -1));
+        if (i10 == 0) {
+        }
+        i12 = 0;
+        i13 = ((j & 7172) > 0L ? 1 : ((j & 7172) == 0L ? 0 : -1));
+        if (i13 != 0) {
+        }
+        i14 = 0;
+        i15 = ((j & 4289) > 0L ? 1 : ((j & 4289) == 0L ? 0 : -1));
+        if (i15 == 0) {
+        }
+        if ((j & 2201170739200L) != 0) {
+        }
+        if ((j & 4289) == 0) {
+        }
+        i16 = ((j & 4417) > 0L ? 1 : ((j & 4417) == 0L ? 0 : -1));
+        if (i16 != 0) {
+        }
+        i17 = 0;
+        if ((j & 4194304) != 0) {
+        }
+        z11 = false;
+        i19 = ((j & 4929) > 0L ? 1 : ((j & 4929) == 0L ? 0 : -1));
+        if (i19 == 0) {
+        }
+        if ((268435456 & j) != 0) {
+        }
+        z12 = false;
+        i20 = ((j & 4929) > 0L ? 1 : ((j & 4929) == 0L ? 0 : -1));
+        if (i20 != 0) {
+        }
+        if ((PlaybackStateCompat.ACTION_SKIP_TO_QUEUE_ITEM & j) != 0) {
+        }
+        if ((j & 4161) != 0) {
+        }
+        if ((j & 4929) != 0) {
+        }
+        if ((j & 4105) != 0) {
+        }
+        if ((j & 7172) != 0) {
+        }
+        if ((j & 4131) != 0) {
+        }
+        if ((j & 4098) != 0) {
+        }
+        if ((j & 4289) != 0) {
+        }
+        if ((j & 4417) != 0) {
+        }
+        if ((j & 4225) != 0) {
+        }
+        if ((j & 4129) != 0) {
+        }
     }
 
     @Override // com.rigol.scope.generated.callback.OnClickListener.Listener

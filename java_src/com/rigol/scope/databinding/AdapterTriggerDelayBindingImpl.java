@@ -1,5 +1,6 @@
 package com.rigol.scope.databinding;
 
+import android.graphics.drawable.Drawable;
 import android.support.v4.media.session.PlaybackStateCompat;
 import android.util.SparseIntArray;
 import android.view.View;
@@ -12,12 +13,21 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.Guideline;
 import androidx.databinding.DataBindingComponent;
 import androidx.databinding.ViewDataBinding;
+import androidx.databinding.adapters.CompoundButtonBindingAdapter;
+import androidx.databinding.adapters.ImageViewBindingAdapter;
+import androidx.databinding.adapters.SeekBarBindingAdapter;
+import androidx.databinding.adapters.TextViewBindingAdapter;
 import com.rigol.scope.R;
+import com.rigol.scope.cil.ServiceEnum;
 import com.rigol.scope.data.MappingObject;
 import com.rigol.scope.data.TriggerParam;
+import com.rigol.scope.utilities.ColorUtil;
+import com.rigol.scope.utilities.UnitFormat;
+import com.rigol.scope.utilities.ViewUtil;
 import com.rigol.scope.views.SwitchButton;
 import com.rigol.scope.views.vertical.VerticalSeekBar;
 import com.rigol.scope.views.vertical.VerticalSeekBarWrapper;
+
 /* loaded from: classes2.dex */
 public class AdapterTriggerDelayBindingImpl extends AdapterTriggerDelayBinding {
     private static final ViewDataBinding.IncludedLayouts sIncludes = null;
@@ -434,13 +444,457 @@ public class AdapterTriggerDelayBindingImpl extends AdapterTriggerDelayBinding {
     @Override // androidx.databinding.ViewDataBinding
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
     protected void executeBindings() {
-        /*
-            Method dump skipped, instructions count: 1238
-            To view this dump add '--comments-level debug' option
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.rigol.scope.databinding.AdapterTriggerDelayBindingImpl.executeBindings():void");
+        long j;
+        boolean z;
+        boolean z2;
+        boolean z3;
+        boolean z4;
+        boolean z5;
+        boolean z6;
+        boolean z7;
+        boolean z8;
+        int i;
+        int i2;
+        int i3;
+        int i4;
+        boolean z9;
+        int i5;
+        int i6;
+        Drawable drawable;
+        String str;
+        String str2;
+        String str3;
+        String str4;
+        String str5;
+        String str6;
+        String str7;
+        boolean z10;
+        String str8;
+        boolean z11;
+        boolean z12;
+        boolean z13;
+        Drawable drawable2;
+        boolean z14;
+        boolean z15;
+        String str9;
+        int i7;
+        int i8;
+        int i9;
+        int i10;
+        long j2;
+        int i11;
+        String str10;
+        String str11;
+        int i12;
+        int i13;
+        String str12;
+        String str13;
+        boolean z16;
+        boolean z17;
+        boolean z18;
+        boolean z19;
+        boolean z20;
+        String str14;
+        String str15;
+        boolean z21;
+        long j3;
+        int i14;
+        String str16;
+        String str17;
+        int i15;
+        boolean z22;
+        String str18;
+        String str19;
+        long j4;
+        int i16;
+        long j5;
+        String str20;
+        long j6;
+        int i17;
+        ServiceEnum.EMoreThan eMoreThan;
+        ServiceEnum.EdgeSlope edgeSlope;
+        ServiceEnum.EdgeSlope edgeSlope2;
+        synchronized (this) {
+            j = this.mDirtyFlags;
+            this.mDirtyFlags = 0L;
+        }
+        MappingObject mappingObject = this.mEdgeFallingBMapping;
+        MappingObject mappingObject2 = this.mEdgeRisingAMapping;
+        TriggerParam triggerParam = this.mParam;
+        MappingObject mappingObject3 = this.mEdgeFallingAMapping;
+        MappingObject mappingObject4 = this.mEdgeRisingBMapping;
+        String str21 = ((j & 1073742849) == 0 || mappingObject == null) ? null : mappingObject.getStr();
+        String str22 = ((j & 1073743874) == 0 || mappingObject2 == null) ? null : mappingObject2.getStr();
+        int i18 = 0;
+        if ((j & 1946153732) != 0) {
+            if ((j & 1073807364) != 0) {
+                str8 = UnitFormat.newBuilder(UnitFormat.SI.FEMTO).convert(triggerParam != null ? triggerParam.getDelayLowerLimit() : 0L, ServiceEnum.Unit.Unit_s);
+            } else {
+                str8 = null;
+            }
+            int progressB = ((j & 1077936132) == 0 || triggerParam == null) ? 0 : triggerParam.getProgressB();
+            if ((j & 1074798596) != 0) {
+                if (triggerParam != null) {
+                    edgeSlope = triggerParam.getEdgeSlopeA();
+                    edgeSlope2 = triggerParam.getEdgeSlopeB();
+                } else {
+                    edgeSlope = null;
+                    edgeSlope2 = null;
+                }
+                if ((j & 1074790404) != 0) {
+                    z13 = edgeSlope == ServiceEnum.EdgeSlope.Trigger_Edge_Rising;
+                    z8 = edgeSlope == ServiceEnum.EdgeSlope.Trigger_Edge_Falling;
+                } else {
+                    z13 = false;
+                    z8 = false;
+                }
+                if ((j & 1073750020) != 0) {
+                    z11 = edgeSlope2 == ServiceEnum.EdgeSlope.Trigger_Edge_Rising;
+                    z12 = edgeSlope2 == ServiceEnum.EdgeSlope.Trigger_Edge_Falling;
+                } else {
+                    z11 = false;
+                    z12 = false;
+                }
+                drawable2 = ViewUtil.getTriggerDelayPic(edgeSlope, edgeSlope2);
+            } else {
+                z11 = false;
+                z12 = false;
+                z13 = false;
+                z8 = false;
+                drawable2 = null;
+            }
+            boolean isNoise = ((j & 1107296260) == 0 || triggerParam == null) ? false : triggerParam.getIsNoise();
+            int i19 = ((j & 1073758212) > 0L ? 1 : ((j & 1073758212) == 0L ? 0 : -1));
+            if (i19 != 0) {
+                if (triggerParam != null) {
+                    z15 = z12;
+                    z14 = z11;
+                    eMoreThan = triggerParam.getEMoreThan();
+                } else {
+                    z14 = z11;
+                    z15 = z12;
+                    eMoreThan = null;
+                }
+                str9 = str8;
+                boolean z23 = eMoreThan == ServiceEnum.EMoreThan.Trigger_When_Lessthan;
+                boolean z24 = eMoreThan == ServiceEnum.EMoreThan.Trigger_When_Morethan;
+                if (i19 != 0) {
+                    j |= z23 ? 4294967296L : 2147483648L;
+                }
+                if ((j & 1073758212) != 0) {
+                    j |= z24 ? 17179869184L : 8589934592L;
+                }
+                i8 = z23 ? 4 : 0;
+                i7 = z24 ? 4 : 0;
+            } else {
+                z14 = z11;
+                z15 = z12;
+                str9 = str8;
+                i7 = 0;
+                i8 = 0;
+            }
+            if ((j & 1610744324) != 0) {
+                ServiceEnum.Chan delayChanA = triggerParam != null ? triggerParam.getDelayChanA() : null;
+                i9 = i7;
+                if (delayChanA != null) {
+                    i17 = delayChanA.value1;
+                    i10 = i8;
+                } else {
+                    i10 = i8;
+                    i17 = 0;
+                }
+                MappingObject mappingObject5 = ViewUtil.getMappingObject(R.array.msg_trigger_delay_srca, i17);
+                updateRegistration(9, mappingObject5);
+                str10 = mappingObject5 != null ? mappingObject5.getStr() : null;
+                j2 = 0;
+                i11 = (j & 1073872900) != 0 ? ColorUtil.getColor(getRoot().getContext(), delayChanA) : 0;
+            } else {
+                i9 = i7;
+                i10 = i8;
+                j2 = 0;
+                i11 = 0;
+                str10 = null;
+            }
+            if ((j & 1090519044) != j2) {
+                if (triggerParam != null) {
+                    str20 = str10;
+                    i12 = i11;
+                    j6 = triggerParam.getHoldOff();
+                } else {
+                    str20 = str10;
+                    i12 = i11;
+                    j6 = 0;
+                }
+                str11 = str20;
+                i13 = progressB;
+                str12 = UnitFormat.newBuilder(UnitFormat.SI.FEMTO).convert(j6, ServiceEnum.Unit.Unit_s);
+            } else {
+                str11 = str10;
+                i12 = i11;
+                i13 = progressB;
+                str12 = null;
+            }
+            if ((j & 1082130436) != 0) {
+                ServiceEnum.EMoreThan eMoreThan2 = triggerParam != null ? triggerParam.getEMoreThan() : null;
+                z17 = eMoreThan2 == ServiceEnum.EMoreThan.Trigger_When_UnMoreLess;
+                str13 = str12;
+                z18 = eMoreThan2 == ServiceEnum.EMoreThan.Trigger_When_Morethan;
+                boolean z25 = eMoreThan2 == ServiceEnum.EMoreThan.Trigger_When_Lessthan;
+                z19 = eMoreThan2 == ServiceEnum.EMoreThan.Trigger_When_MoreLess;
+                z16 = z25;
+            } else {
+                str13 = str12;
+                z16 = false;
+                z17 = false;
+                z18 = false;
+                z19 = false;
+            }
+            if ((j & 1074003972) != 0) {
+                if (triggerParam != null) {
+                    z20 = z16;
+                    j5 = triggerParam.getDelaylevelA();
+                } else {
+                    z20 = z16;
+                    j5 = 0;
+                }
+                if (triggerParam != null) {
+                    str14 = triggerParam.getTriggerLevelStr(j5);
+                    if ((j & 1342181636) == 0) {
+                        ServiceEnum.Chan delayChanB = triggerParam != null ? triggerParam.getDelayChanB() : null;
+                        str15 = str14;
+                        if (delayChanB != null) {
+                            i16 = delayChanB.value1;
+                            z21 = z17;
+                        } else {
+                            z21 = z17;
+                            i16 = 0;
+                        }
+                        MappingObject mappingObject6 = ViewUtil.getMappingObject(R.array.msg_trigger_delay_srcb, i16);
+                        updateRegistration(8, mappingObject6);
+                        str16 = mappingObject6 != null ? mappingObject6.getStr() : null;
+                        j3 = 0;
+                        i14 = (j & 1073745924) != 0 ? ColorUtil.getColor(getRoot().getContext(), delayChanB) : 0;
+                    } else {
+                        str15 = str14;
+                        z21 = z17;
+                        j3 = 0;
+                        i14 = 0;
+                        str16 = null;
+                    }
+                    if ((j & 1073774596) == j3) {
+                        if (triggerParam != null) {
+                            str19 = str16;
+                            i15 = i14;
+                            j4 = triggerParam.getDelayUperLimit();
+                        } else {
+                            str19 = str16;
+                            i15 = i14;
+                            j4 = 0;
+                        }
+                        str17 = str19;
+                        z22 = z18;
+                        str18 = UnitFormat.newBuilder(UnitFormat.SI.FEMTO).convert(j4, ServiceEnum.Unit.Unit_s);
+                    } else {
+                        str17 = str16;
+                        i15 = i14;
+                        z22 = z18;
+                        str18 = null;
+                    }
+                    if ((j & 1075838980) != 0 && triggerParam != null) {
+                        i18 = triggerParam.getProgressA();
+                    }
+                    if ((j & 1074266116) != 0) {
+                        long delaylevelB = triggerParam != null ? triggerParam.getDelaylevelB() : 0L;
+                        if (triggerParam != null) {
+                            String triggerLevelBStr = triggerParam.getTriggerLevelBStr(delaylevelB);
+                            z9 = isNoise;
+                            z5 = z13;
+                            i3 = i18;
+                            i2 = i9;
+                            z3 = z14;
+                            z4 = z15;
+                            i = i10;
+                            i5 = i12;
+                            i4 = i13;
+                            str3 = str11;
+                            str5 = str15;
+                            i6 = i15;
+                            z7 = z22;
+                            str = str18;
+                            str4 = triggerLevelBStr;
+                            drawable = drawable2;
+                            z6 = z19;
+                            str7 = str9;
+                            str6 = str13;
+                            z2 = z20;
+                            z = z21;
+                            str2 = str17;
+                        }
+                    }
+                    z9 = isNoise;
+                    z5 = z13;
+                    i3 = i18;
+                    i2 = i9;
+                    z3 = z14;
+                    z4 = z15;
+                    i = i10;
+                    i5 = i12;
+                    i4 = i13;
+                    str3 = str11;
+                    z2 = z20;
+                    str5 = str15;
+                    i6 = i15;
+                    z7 = z22;
+                    str4 = null;
+                    str = str18;
+                    drawable = drawable2;
+                    z6 = z19;
+                    str7 = str9;
+                    str6 = str13;
+                    z = z21;
+                    str2 = str17;
+                }
+            } else {
+                z20 = z16;
+            }
+            str14 = null;
+            if ((j & 1342181636) == 0) {
+            }
+            if ((j & 1073774596) == j3) {
+            }
+            if ((j & 1075838980) != 0) {
+                i18 = triggerParam.getProgressA();
+            }
+            if ((j & 1074266116) != 0) {
+            }
+            z9 = isNoise;
+            z5 = z13;
+            i3 = i18;
+            i2 = i9;
+            z3 = z14;
+            z4 = z15;
+            i = i10;
+            i5 = i12;
+            i4 = i13;
+            str3 = str11;
+            z2 = z20;
+            str5 = str15;
+            i6 = i15;
+            z7 = z22;
+            str4 = null;
+            str = str18;
+            drawable = drawable2;
+            z6 = z19;
+            str7 = str9;
+            str6 = str13;
+            z = z21;
+            str2 = str17;
+        } else {
+            z = false;
+            z2 = false;
+            z3 = false;
+            z4 = false;
+            z5 = false;
+            z6 = false;
+            z7 = false;
+            z8 = false;
+            i = 0;
+            i2 = 0;
+            i3 = 0;
+            i4 = 0;
+            z9 = false;
+            i5 = 0;
+            i6 = 0;
+            drawable = null;
+            str = null;
+            str2 = null;
+            str3 = null;
+            str4 = null;
+            str5 = null;
+            str6 = null;
+            str7 = null;
+        }
+        int i20 = ((j & 1140850704) > 0L ? 1 : ((j & 1140850704) == 0L ? 0 : -1));
+        String str23 = (i20 == 0 || mappingObject3 == null) ? null : mappingObject3.getStr();
+        int i21 = ((j & 1207959584) > 0L ? 1 : ((j & 1207959584) == 0L ? 0 : -1));
+        String str24 = (i21 == 0 || mappingObject4 == null) ? null : mappingObject4.getStr();
+        if ((j & 1074790404) != 0) {
+            z10 = z7;
+            CompoundButtonBindingAdapter.setChecked(this.edgeAFalling, z8);
+            CompoundButtonBindingAdapter.setChecked(this.edgeARising, z5);
+        } else {
+            z10 = z7;
+        }
+        if (i20 != 0) {
+            TextViewBindingAdapter.setText(this.edgeAFalling, str23);
+        }
+        if ((j & 1073743874) != 0) {
+            TextViewBindingAdapter.setText(this.edgeARising, str22);
+        }
+        if ((j & 1073750020) != 0) {
+            CompoundButtonBindingAdapter.setChecked(this.edgeBFalling, z4);
+            CompoundButtonBindingAdapter.setChecked(this.edgeBRising, z3);
+        }
+        if ((1073742849 & j) != 0) {
+            TextViewBindingAdapter.setText(this.edgeBFalling, str21);
+        }
+        if (i21 != 0) {
+            TextViewBindingAdapter.setText(this.edgeBRising, str24);
+        }
+        if ((j & 1074798596) != 0) {
+            ImageViewBindingAdapter.setImageDrawable(this.imageView2, drawable);
+        }
+        if ((j & 1082130436) != 0) {
+            CompoundButtonBindingAdapter.setChecked(this.lessMore, z6);
+            CompoundButtonBindingAdapter.setChecked(this.lessThan, z2);
+            CompoundButtonBindingAdapter.setChecked(this.moreLess, z);
+            CompoundButtonBindingAdapter.setChecked(this.moreThan, z10);
+        }
+        if ((j & 1073758212) != 0) {
+            int i22 = i;
+            this.lowerLimit.setVisibility(i22);
+            this.lowerLimitValue.setVisibility(i22);
+            int i23 = i2;
+            this.upperLimit.setVisibility(i23);
+            this.upperLimitValue.setVisibility(i23);
+        }
+        if ((j & 1073807364) != 0) {
+            TextViewBindingAdapter.setText(this.lowerLimitValue, str7);
+        }
+        if ((j & 1090519044) != 0) {
+            TextViewBindingAdapter.setText(this.triggerHoldoff, str6);
+        }
+        if ((j & 1074003972) != 0) {
+            TextViewBindingAdapter.setText(this.triggerLevelAValue, str5);
+        }
+        if ((j & 1075838980) != 0) {
+            SeekBarBindingAdapter.setProgress(this.triggerLevelAView, i3);
+        }
+        if ((j & 1074266116) != 0) {
+            TextViewBindingAdapter.setText(this.triggerLevelBValue, str4);
+        }
+        if ((j & 1077936132) != 0) {
+            SeekBarBindingAdapter.setProgress(this.triggerLevelBView, i4);
+        }
+        if ((j & 1107296260) != 0) {
+            CompoundButtonBindingAdapter.setChecked(this.triggerNoiseSwitch, z9);
+        }
+        if ((j & 1610744324) != 0) {
+            TextViewBindingAdapter.setText(this.triggerSourceA, str3);
+        }
+        if ((j & 1073872900) != 0) {
+            this.triggerSourceA.setTextColor(i5);
+        }
+        if ((j & 1342181636) != 0) {
+            TextViewBindingAdapter.setText(this.triggerSourceB, str2);
+        }
+        if ((1073745924 & j) != 0) {
+            this.triggerSourceB.setTextColor(i6);
+        }
+        if ((j & 1073774596) != 0) {
+            TextViewBindingAdapter.setText(this.upperLimitValue, str);
+        }
     }
 }

@@ -12,6 +12,7 @@ import androidx.databinding.adapters.TextViewBindingAdapter;
 import com.rigol.scope.R;
 import com.rigol.scope.cil.ServiceEnum;
 import com.rigol.scope.data.UtilityParam;
+
 /* loaded from: classes2.dex */
 public class ActivityScreenSaverBindingImpl extends ActivityScreenSaverBinding {
     private static final ViewDataBinding.IncludedLayouts sIncludes = null;

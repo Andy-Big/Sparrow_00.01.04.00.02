@@ -1,26 +1,37 @@
 package com.rigol.scope.databinding;
 
+import android.graphics.drawable.Drawable;
 import android.support.v4.media.session.PlaybackStateCompat;
 import android.util.SparseIntArray;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import androidx.appcompat.content.res.AppCompatResources;
 import androidx.appcompat.widget.LinearLayoutCompat;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.databinding.DataBindingComponent;
 import androidx.databinding.ObservableBoolean;
 import androidx.databinding.ViewDataBinding;
+import androidx.databinding.adapters.ImageViewBindingAdapter;
+import androidx.databinding.adapters.TextViewBindingAdapter;
+import androidx.databinding.adapters.ViewBindingAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 import com.rigol.scope.R;
+import com.rigol.scope.cil.ServiceEnum;
 import com.rigol.scope.data.AfgParam;
 import com.rigol.scope.data.LaParam;
 import com.rigol.scope.data.MappingObject;
 import com.rigol.scope.data.SharedParam;
 import com.rigol.scope.data.UtilityParam;
+import com.rigol.scope.utilities.ColorUtil;
+import com.rigol.scope.utilities.ContextUtil;
 import com.rigol.scope.utilities.DrawView1;
 import com.rigol.scope.utilities.MRefreshHeader;
+import com.rigol.scope.utilities.UnitFormat;
+import com.rigol.scope.utilities.ViewUtil;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
+
 /* loaded from: classes2.dex */
 public class FragmentSettingsBarBindingImpl extends FragmentSettingsBarBinding {
     private static final ViewDataBinding.IncludedLayouts sIncludes = null;
@@ -376,13 +387,571 @@ public class FragmentSettingsBarBindingImpl extends FragmentSettingsBarBinding {
     @Override // androidx.databinding.ViewDataBinding
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
     protected void executeBindings() {
-        /*
-            Method dump skipped, instructions count: 1425
-            To view this dump add '--comments-level debug' option
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.rigol.scope.databinding.FragmentSettingsBarBindingImpl.executeBindings():void");
+        long j;
+        String str;
+        String str2;
+        Drawable drawable;
+        int i;
+        int i2;
+        int i3;
+        boolean z;
+        int i4;
+        int i5;
+        int i6;
+        int i7;
+        String str3;
+        int i8;
+        Drawable drawable2;
+        String str4;
+        Drawable drawable3;
+        long j2;
+        int i9;
+        int i10;
+        int i11;
+        boolean z2;
+        boolean z3;
+        int i12;
+        int i13;
+        String str5;
+        Drawable drawable4;
+        int i14;
+        int i15;
+        String str6;
+        int i16;
+        boolean z4;
+        int i17;
+        int i18;
+        int i19;
+        Drawable drawable5;
+        int i20;
+        long j3;
+        String str7;
+        boolean z5;
+        int i21;
+        long j4;
+        int color;
+        long j5;
+        long j6;
+        long j7;
+        int i22;
+        boolean z6;
+        long j8;
+        long j9;
+        int i23;
+        int i24;
+        int i25;
+        long j10;
+        long j11;
+        int i26;
+        int i27;
+        long j12;
+        long j13;
+        synchronized (this) {
+            j = this.mDirtyFlags;
+            this.mDirtyFlags = 0L;
+        }
+        UtilityParam utilityParam = this.mUtilityParam;
+        LaParam laParam = this.mLaParam;
+        ObservableBoolean observableBoolean = this.mHasUpdate;
+        SharedParam sharedParam = this.mSharedParam;
+        AfgParam afgParam = this.mAfgParam;
+        if ((526210 & j) != 0) {
+            str2 = ((j & 524546) == 0 || utilityParam == null) ? null : utilityParam.getTime();
+            int i28 = ((j & 524802) > 0L ? 1 : ((j & 524802) == 0L ? 0 : -1));
+            if (i28 != 0) {
+                boolean showTime = utilityParam != null ? utilityParam.getShowTime() : false;
+                if (i28 != 0) {
+                    j |= showTime ? 8589934592L : 4294967296L;
+                }
+                if (!showTime) {
+                    i2 = 8;
+                    i26 = ((j & 524418) > 0L ? 1 : ((j & 524418) == 0L ? 0 : -1));
+                    if (i26 == 0) {
+                        boolean beeper = utilityParam != null ? utilityParam.getBeeper() : false;
+                        if (i26 != 0) {
+                            j |= beeper ? 33554432L : 16777216L;
+                        }
+                        drawable = beeper ? AppCompatResources.getDrawable(this.beeper.getContext(), R.drawable.beeper_on) : AppCompatResources.getDrawable(this.beeper.getContext(), R.drawable.beeper_off);
+                    } else {
+                        drawable = null;
+                    }
+                    i27 = ((j & 524290) > 0L ? 1 : ((j & 524290) == 0L ? 0 : -1));
+                    if (i27 == 0) {
+                        boolean z7 = (utilityParam != null ? utilityParam.getSeries() : 0) == 800;
+                        if (i27 != 0) {
+                            if (z7) {
+                                j12 = j | 536870912;
+                                j13 = 137438953472L;
+                            } else {
+                                j12 = j | 268435456;
+                                j13 = 68719476736L;
+                            }
+                            j = j12 | j13;
+                        }
+                        boolean checkModelEDU = z7 ? ViewUtil.checkModelEDU() : false;
+                        boolean checkModel = z7 ? true : ViewUtil.checkModel();
+                        if ((j & 524290) != 0) {
+                            j |= checkModelEDU ? 134217728L : 67108864L;
+                        }
+                        if ((j & 524290) != 0) {
+                            j |= checkModel ? 549755813888L : 274877906944L;
+                        }
+                        i3 = checkModelEDU ? 8 : 0;
+                        i = checkModel ? 8 : 0;
+                    } else {
+                        i = 0;
+                        i3 = 0;
+                    }
+                    str = ((j & 525314) != 0 || utilityParam == null) ? null : utilityParam.getDate();
+                }
+            }
+            i2 = 0;
+            i26 = ((j & 524418) > 0L ? 1 : ((j & 524418) == 0L ? 0 : -1));
+            if (i26 == 0) {
+            }
+            i27 = ((j & 524290) > 0L ? 1 : ((j & 524290) == 0L ? 0 : -1));
+            if (i27 == 0) {
+            }
+            if ((j & 525314) != 0) {
+            }
+        } else {
+            str = null;
+            str2 = null;
+            drawable = null;
+            i = 0;
+            i2 = 0;
+            i3 = 0;
+        }
+        int i29 = ((j & 526340) > 0L ? 1 : ((j & 526340) == 0L ? 0 : -1));
+        if (i29 != 0) {
+            z = laParam != null ? laParam.getLaEnable() : false;
+            if (i29 != 0) {
+                if (z) {
+                    j10 = j | 35184372088832L;
+                    j11 = 2251799813685248L;
+                } else {
+                    j10 = j | 17592186044416L;
+                    j11 = 1125899906842624L;
+                }
+                j = j10 | j11;
+            }
+        } else {
+            z = false;
+        }
+        int i30 = ((j & 524296) > 0L ? 1 : ((j & 524296) == 0L ? 0 : -1));
+        if (i30 != 0) {
+            boolean z8 = observableBoolean != null ? observableBoolean.get() : false;
+            if (i30 != 0) {
+                j |= z8 ? 8796093022208L : 4398046511104L;
+            }
+            if (!z8) {
+                i4 = 8;
+                if ((j & 552976) == 0) {
+                    int i31 = ((j & 528400) > 0L ? 1 : ((j & 528400) == 0L ? 0 : -1));
+                    if (i31 != 0) {
+                        boolean showUsb = sharedParam != null ? sharedParam.getShowUsb() : false;
+                        if (i31 != 0) {
+                            j |= showUsb ? 36028797018963968L : 18014398509481984L;
+                        }
+                        if (!showUsb) {
+                            i6 = 8;
+                            i23 = ((j & 540688) > 0L ? 1 : ((j & 540688) == 0L ? 0 : -1));
+                            if (i23 != 0) {
+                                boolean showRMT = sharedParam != null ? sharedParam.getShowRMT() : false;
+                                if (i23 != 0) {
+                                    j |= showRMT ? 562949953421312L : 281474976710656L;
+                                }
+                                if (!showRMT) {
+                                    i24 = 8;
+                                    i25 = ((j & 532496) > 0L ? 1 : ((j & 532496) == 0L ? 0 : -1));
+                                    if (i25 != 0) {
+                                        boolean showNetwork = sharedParam != null ? sharedParam.getShowNetwork() : false;
+                                        if (i25 != 0) {
+                                            j |= showNetwork ? PlaybackStateCompat.ACTION_SET_SHUFFLE_MODE : PlaybackStateCompat.ACTION_SET_CAPTIONING_ENABLED;
+                                        }
+                                        i5 = showNetwork ? 0 : 8;
+                                        i7 = i24;
+                                    } else {
+                                        i7 = i24;
+                                        i5 = 0;
+                                    }
+                                }
+                            }
+                            i24 = 0;
+                            i25 = ((j & 532496) > 0L ? 1 : ((j & 532496) == 0L ? 0 : -1));
+                            if (i25 != 0) {
+                            }
+                        }
+                    }
+                    i6 = 0;
+                    i23 = ((j & 540688) > 0L ? 1 : ((j & 540688) == 0L ? 0 : -1));
+                    if (i23 != 0) {
+                    }
+                    i24 = 0;
+                    i25 = ((j & 532496) > 0L ? 1 : ((j & 532496) == 0L ? 0 : -1));
+                    if (i25 != 0) {
+                    }
+                } else {
+                    i5 = 0;
+                    i6 = 0;
+                    i7 = 0;
+                }
+                if ((j & 1015905) == 0) {
+                    int i32 = ((j & 786464) > 0L ? 1 : ((j & 786464) == 0L ? 0 : -1));
+                    if (i32 != 0) {
+                        j3 = afgParam != null ? afgParam.getBasic_freq() : 0L;
+                        z2 = j3 >= 1000000;
+                        if (i32 != 0) {
+                            j = z2 ? j | 8388608 : j | 4194304;
+                        }
+                    } else {
+                        j3 = 0;
+                        z2 = false;
+                    }
+                    if ((j & 655392) != 0) {
+                        i8 = i6;
+                        str3 = str2;
+                        str7 = UnitFormat.newBuilder(UnitFormat.SI.NANO).convert(afgParam != null ? afgParam.getBasic_amp() : 0L, ServiceEnum.Unit.Unit_V);
+                    } else {
+                        str3 = str2;
+                        i8 = i6;
+                        str7 = null;
+                    }
+                    if ((j & 589921) != 0) {
+                        int wave_function = afgParam != null ? afgParam.getWave_function() : 0;
+                        int i33 = ((j & 589856) > 0L ? 1 : ((j & 589856) == 0L ? 0 : -1));
+                        if (i33 != 0) {
+                            z6 = wave_function == 5;
+                            if (i33 != 0) {
+                                if (z6) {
+                                    j8 = j | 2147483648L;
+                                    j9 = 34359738368L;
+                                } else {
+                                    j8 = j | 1073741824;
+                                    j9 = 17179869184L;
+                                }
+                                j = j8 | j9;
+                            }
+                            i22 = z6 ? 4 : 0;
+                            j7 = j;
+                        } else {
+                            j7 = j;
+                            i22 = 0;
+                            z6 = false;
+                        }
+                        MappingObject mappingObject = ViewUtil.getMappingObject(R.array.msg_afg_wave_function, wave_function);
+                        updateRegistration(0, mappingObject);
+                        Drawable pic = mappingObject != null ? mappingObject.getPic() : null;
+                        Drawable.ConstantState constantState = pic != null ? pic.getConstantState() : null;
+                        Drawable newDrawable = constantState != null ? constantState.newDrawable() : null;
+                        if (newDrawable != null) {
+                            i21 = i22;
+                            drawable2 = newDrawable.mutate();
+                        } else {
+                            i21 = i22;
+                            drawable2 = null;
+                        }
+                        int i34 = wave_function;
+                        z5 = false;
+                        j = j7;
+                        z3 = z6;
+                        i10 = i34;
+                    } else {
+                        z5 = false;
+                        i10 = 0;
+                        i21 = 0;
+                        z3 = false;
+                        drawable2 = null;
+                    }
+                    int i35 = ((j & 557088) > 0L ? 1 : ((j & 557088) == 0L ? 0 : -1));
+                    if (i35 != 0) {
+                        boolean basic_output_enable = afgParam != null ? afgParam.getBasic_output_enable() : z5;
+                        if (i35 != 0) {
+                            if (basic_output_enable) {
+                                j5 = j | 2199023255552L;
+                                j6 = 140737488355328L;
+                            } else {
+                                j5 = j | 1099511627776L;
+                                j6 = 70368744177664L;
+                            }
+                            j = j5 | j6;
+                        }
+                        if (basic_output_enable) {
+                            j4 = j;
+                            color = ColorUtil.getColor(getRoot().getContext(), 63);
+                        } else {
+                            j4 = j;
+                            color = ColorUtil.getColor(getRoot().getContext(), 71);
+                        }
+                        int i36 = color;
+                        Drawable selectedBackground = basic_output_enable ? ContextUtil.getSelectedBackground(R.drawable.bg_item_vertical, ColorUtil.getColor(getRoot().getContext(), 63)) : ContextUtil.getDrawable(R.drawable.bg_item_vertical);
+                        i9 = i21;
+                        str4 = str7;
+                        j2 = j3;
+                        drawable3 = selectedBackground;
+                        i11 = i36;
+                        j = j4;
+                    } else {
+                        i9 = i21;
+                        str4 = str7;
+                        j2 = j3;
+                        i11 = 0;
+                        drawable3 = null;
+                    }
+                } else {
+                    str3 = str2;
+                    i8 = i6;
+                    drawable2 = null;
+                    str4 = null;
+                    drawable3 = null;
+                    j2 = 0;
+                    i9 = 0;
+                    i10 = 0;
+                    i11 = 0;
+                    z2 = false;
+                    z3 = false;
+                }
+                if ((j & 8388608) == 0) {
+                    i12 = i4;
+                    i13 = i9;
+                    str5 = ViewUtil.subNumber(UnitFormat.newBuilder("0.000", UnitFormat.SI.MICRO).convert(j2) + ServiceEnum.Unit.Unit_hz.value2, 7);
+                } else {
+                    i12 = i4;
+                    i13 = i9;
+                    str5 = null;
+                }
+                if ((j & 2286984185774080L) == 0) {
+                    i14 = ColorUtil.getColor(getRoot().getContext(), laParam != null ? laParam.getServiceId() : 0);
+                    drawable4 = (j & 35184372088832L) != 0 ? ContextUtil.getSelectedBackground(R.drawable.bg_item_vertical, i14) : null;
+                } else {
+                    drawable4 = null;
+                    i14 = 0;
+                }
+                if ((j & 4194304) == 0) {
+                    i15 = i14;
+                    str6 = UnitFormat.newBuilder("0", UnitFormat.SI.MICRO).convert(j2) + ServiceEnum.Unit.Unit_hz.value2;
+                } else {
+                    i15 = i14;
+                    str6 = null;
+                }
+                if ((17179869184L & j) == 0) {
+                    i16 = 4;
+                    if (i10 == 4) {
+                        z4 = true;
+                        if ((j & 786464) == 0) {
+                            str5 = null;
+                        } else if (!z2) {
+                            str5 = str6;
+                        }
+                        i17 = ((j & 589856) > 0L ? 1 : ((j & 589856) == 0L ? 0 : -1));
+                        if (i17 != 0) {
+                            boolean z9 = z3 ? true : z4;
+                            if (i17 != 0) {
+                                j |= z9 ? 9007199254740992L : 4503599627370496L;
+                            }
+                            if (z9) {
+                                i18 = i16;
+                                i19 = ((j & 526340) > 0L ? 1 : ((j & 526340) == 0L ? 0 : -1));
+                                if (i19 == 0) {
+                                    Drawable drawable6 = z ? drawable4 : ContextUtil.getDrawable(R.drawable.bg_item_vertical);
+                                    if (!z) {
+                                        i15 = ColorUtil.getColor(getRoot().getContext(), 71);
+                                    }
+                                    drawable5 = drawable6;
+                                    i20 = i15;
+                                } else {
+                                    drawable5 = null;
+                                    i20 = 0;
+                                }
+                                if ((j & 524418) != 0) {
+                                    ImageViewBindingAdapter.setImageDrawable(this.beeper, drawable);
+                                }
+                                if ((j & 525314) != 0) {
+                                    TextViewBindingAdapter.setText(this.date, str);
+                                }
+                                if ((j & 524802) != 0) {
+                                    this.date.setVisibility(i2);
+                                    this.time.setVisibility(i2);
+                                }
+                                if ((j & 532496) != 0) {
+                                    this.lxi.setVisibility(i5);
+                                }
+                                if (i19 != 0) {
+                                    ViewBindingAdapter.setBackground(this.mboundView2, drawable5);
+                                    this.mboundView3.setTextColor(i20);
+                                }
+                                if ((j & 524290) != 0) {
+                                    this.mboundView2.setVisibility(i3);
+                                    this.mboundView3.setVisibility(i3);
+                                    this.verticalGView.setVisibility(i);
+                                }
+                                if ((589921 & j) != 0) {
+                                    ViewBindingAdapter.setBackground(this.mboundView5, drawable2);
+                                }
+                                if ((557088 & j) != 0) {
+                                    this.mboundView7.setTextColor(i11);
+                                    ViewBindingAdapter.setBackground(this.verticalGView, drawable3);
+                                }
+                                if ((j & 786464) != 0) {
+                                    TextViewBindingAdapter.setText(this.mboundView8, str5);
+                                }
+                                if ((j & 589856) != 0) {
+                                    this.mboundView8.setVisibility(i18);
+                                    this.verticalGText.setVisibility(i13);
+                                }
+                                if ((j & 540688) != 0) {
+                                    this.rmt.setVisibility(i7);
+                                }
+                                if ((j & 524296) != 0) {
+                                    this.starterMessage.setVisibility(i12);
+                                }
+                                if ((j & 524546) != 0) {
+                                    TextViewBindingAdapter.setText(this.time, str3);
+                                }
+                                if ((j & 528400) != 0) {
+                                    this.usb.setVisibility(i8);
+                                }
+                                if ((j & 655392) == 0) {
+                                    TextViewBindingAdapter.setText(this.verticalGText, str4);
+                                    return;
+                                }
+                                return;
+                            }
+                        }
+                        i18 = 0;
+                        i19 = ((j & 526340) > 0L ? 1 : ((j & 526340) == 0L ? 0 : -1));
+                        if (i19 == 0) {
+                        }
+                        if ((j & 524418) != 0) {
+                        }
+                        if ((j & 525314) != 0) {
+                        }
+                        if ((j & 524802) != 0) {
+                        }
+                        if ((j & 532496) != 0) {
+                        }
+                        if (i19 != 0) {
+                        }
+                        if ((j & 524290) != 0) {
+                        }
+                        if ((589921 & j) != 0) {
+                        }
+                        if ((557088 & j) != 0) {
+                        }
+                        if ((j & 786464) != 0) {
+                        }
+                        if ((j & 589856) != 0) {
+                        }
+                        if ((j & 540688) != 0) {
+                        }
+                        if ((j & 524296) != 0) {
+                        }
+                        if ((j & 524546) != 0) {
+                        }
+                        if ((j & 528400) != 0) {
+                        }
+                        if ((j & 655392) == 0) {
+                        }
+                    }
+                } else {
+                    i16 = 4;
+                }
+                z4 = false;
+                if ((j & 786464) == 0) {
+                }
+                i17 = ((j & 589856) > 0L ? 1 : ((j & 589856) == 0L ? 0 : -1));
+                if (i17 != 0) {
+                }
+                i18 = 0;
+                i19 = ((j & 526340) > 0L ? 1 : ((j & 526340) == 0L ? 0 : -1));
+                if (i19 == 0) {
+                }
+                if ((j & 524418) != 0) {
+                }
+                if ((j & 525314) != 0) {
+                }
+                if ((j & 524802) != 0) {
+                }
+                if ((j & 532496) != 0) {
+                }
+                if (i19 != 0) {
+                }
+                if ((j & 524290) != 0) {
+                }
+                if ((589921 & j) != 0) {
+                }
+                if ((557088 & j) != 0) {
+                }
+                if ((j & 786464) != 0) {
+                }
+                if ((j & 589856) != 0) {
+                }
+                if ((j & 540688) != 0) {
+                }
+                if ((j & 524296) != 0) {
+                }
+                if ((j & 524546) != 0) {
+                }
+                if ((j & 528400) != 0) {
+                }
+                if ((j & 655392) == 0) {
+                }
+            }
+        }
+        i4 = 0;
+        if ((j & 552976) == 0) {
+        }
+        if ((j & 1015905) == 0) {
+        }
+        if ((j & 8388608) == 0) {
+        }
+        if ((j & 2286984185774080L) == 0) {
+        }
+        if ((j & 4194304) == 0) {
+        }
+        if ((17179869184L & j) == 0) {
+        }
+        z4 = false;
+        if ((j & 786464) == 0) {
+        }
+        i17 = ((j & 589856) > 0L ? 1 : ((j & 589856) == 0L ? 0 : -1));
+        if (i17 != 0) {
+        }
+        i18 = 0;
+        i19 = ((j & 526340) > 0L ? 1 : ((j & 526340) == 0L ? 0 : -1));
+        if (i19 == 0) {
+        }
+        if ((j & 524418) != 0) {
+        }
+        if ((j & 525314) != 0) {
+        }
+        if ((j & 524802) != 0) {
+        }
+        if ((j & 532496) != 0) {
+        }
+        if (i19 != 0) {
+        }
+        if ((j & 524290) != 0) {
+        }
+        if ((589921 & j) != 0) {
+        }
+        if ((557088 & j) != 0) {
+        }
+        if ((j & 786464) != 0) {
+        }
+        if ((j & 589856) != 0) {
+        }
+        if ((j & 540688) != 0) {
+        }
+        if ((j & 524296) != 0) {
+        }
+        if ((j & 524546) != 0) {
+        }
+        if ((j & 528400) != 0) {
+        }
+        if ((j & 655392) == 0) {
+        }
     }
 }

@@ -12,11 +12,18 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.Guideline;
 import androidx.databinding.DataBindingComponent;
 import androidx.databinding.ViewDataBinding;
+import androidx.databinding.adapters.CompoundButtonBindingAdapter;
+import androidx.databinding.adapters.TextViewBindingAdapter;
 import com.rigol.scope.R;
+import com.rigol.scope.cil.ServiceEnum;
 import com.rigol.scope.data.DvmResultParam;
 import com.rigol.scope.data.MappingObject;
 import com.rigol.scope.generated.callback.OnClickListener;
+import com.rigol.scope.utilities.ColorUtil;
+import com.rigol.scope.utilities.UnitFormat;
+import com.rigol.scope.utilities.ViewUtil;
 import com.rigol.scope.views.SwitchButton;
+
 /* loaded from: classes2.dex */
 public class PopupviewResultDvmBindingImpl extends PopupviewResultDvmBinding implements OnClickListener.Listener {
     private static final ViewDataBinding.IncludedLayouts sIncludes = null;
@@ -302,14 +309,190 @@ public class PopupviewResultDvmBindingImpl extends PopupviewResultDvmBinding imp
     @Override // androidx.databinding.ViewDataBinding
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
     protected void executeBindings() {
-        /*
-            Method dump skipped, instructions count: 501
-            To view this dump add '--comments-level debug' option
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.rigol.scope.databinding.PopupviewResultDvmBindingImpl.executeBindings():void");
+        long j;
+        boolean z;
+        int i;
+        boolean z2;
+        boolean z3;
+        boolean z4;
+        boolean z5;
+        String str;
+        String str2;
+        String str3;
+        int i2;
+        int i3;
+        boolean z6;
+        boolean z7;
+        boolean z8;
+        int i4;
+        String str4;
+        String str5;
+        String str6;
+        long j2;
+        synchronized (this) {
+            j = this.mDirtyFlags;
+            this.mDirtyFlags = 0L;
+        }
+        MappingObject mappingObject = this.mAcdcMappingObject;
+        MappingObject mappingObject2 = this.mAcMappingObject;
+        DvmResultParam dvmResultParam = this.mParam;
+        View.OnClickListener onClickListener = this.mOnClickListener;
+        MappingObject mappingObject3 = this.mDcMappingObject;
+        int i5 = ((65666 & j) > 0L ? 1 : ((65666 & j) == 0L ? 0 : -1));
+        String str7 = (i5 == 0 || mappingObject == null) ? null : mappingObject.getStr();
+        int i6 = ((65796 & j) > 0L ? 1 : ((65796 & j) == 0L ? 0 : -1));
+        String str8 = (i6 == 0 || mappingObject2 == null) ? null : mappingObject2.getStr();
+        if ((97865 & j) != 0) {
+            z5 = true;
+            if ((j & 66568) != 0) {
+                ServiceEnum.DvmMode dvmMode = dvmResultParam != null ? dvmResultParam.getDvmMode() : null;
+                z6 = dvmMode == ServiceEnum.DvmMode.DVM_AC_RMS;
+                z4 = dvmMode == ServiceEnum.DvmMode.DVM_DC_RMS;
+                z3 = dvmMode == ServiceEnum.DvmMode.DVM_DC;
+            } else {
+                z6 = false;
+                z3 = false;
+                z4 = false;
+            }
+            if ((j & 69640) != 0) {
+            }
+            z5 = false;
+            if ((j & 81928) != 0) {
+                z7 = z6;
+                str = UnitFormat.newBuilder(UnitFormat.SI.NANO).convert(dvmResultParam != null ? dvmResultParam.getLimitLower() : 0L, ServiceEnum.Unit.Unit_V);
+            } else {
+                z7 = z6;
+                str = null;
+            }
+            if ((j & 66121) != 0) {
+                ServiceEnum.Chan sourceA = dvmResultParam != null ? dvmResultParam.getSourceA() : null;
+                i4 = (j & 66056) != 0 ? ColorUtil.getColor(getRoot().getContext(), sourceA) : 0;
+                MappingObject mappingObject4 = ViewUtil.getMappingObject(R.array.msg_dvm_src, sourceA != null ? sourceA.value1 : 0);
+                z8 = false;
+                updateRegistration(0, mappingObject4);
+                if (mappingObject4 != null) {
+                    str4 = mappingObject4.getStr();
+                    if ((j & 67592) != 0 && dvmResultParam != null) {
+                        z8 = dvmResultParam.isBeeper();
+                    }
+                    if ((j & 73736) == 0) {
+                        if (dvmResultParam != null) {
+                            long limitUpper = dvmResultParam.getLimitUpper();
+                            str5 = str;
+                            str6 = str4;
+                            j2 = limitUpper;
+                        } else {
+                            str5 = str;
+                            str6 = str4;
+                            j2 = 0;
+                        }
+                        String str9 = str5;
+                        int i7 = i4;
+                        z2 = z8;
+                        str2 = str6;
+                        z = z7;
+                        i = i7;
+                        str3 = UnitFormat.newBuilder(UnitFormat.SI.NANO).convert(j2, ServiceEnum.Unit.Unit_V);
+                        str = str9;
+                        i2 = ((j & 98320) > 0L ? 1 : ((j & 98320) == 0L ? 0 : -1));
+                        String str10 = (i2 != 0 || mappingObject3 == null) ? null : mappingObject3.getStr();
+                        if ((j & 67592) == 0) {
+                            i3 = i;
+                            CompoundButtonBindingAdapter.setChecked(this.beeperSwitch, z2);
+                        } else {
+                            i3 = i;
+                        }
+                        if ((j & 69640) != 0) {
+                            CompoundButtonBindingAdapter.setChecked(this.limitTypeSwitch, z5);
+                        }
+                        if ((j & PlaybackStateCompat.ACTION_PREPARE_FROM_SEARCH) != 0) {
+                            this.lowerEditText.setOnClickListener(this.mCallback3);
+                            this.sourceSpinner.setOnClickListener(this.mCallback1);
+                            this.upperEditText.setOnClickListener(this.mCallback2);
+                        }
+                        if ((j & 81928) != 0) {
+                            TextViewBindingAdapter.setText(this.lowerEditText, str);
+                        }
+                        if ((j & 66568) != 0) {
+                            CompoundButtonBindingAdapter.setChecked(this.modeAcDcRadioButton, z4);
+                            CompoundButtonBindingAdapter.setChecked(this.modeAcRadioButton, z);
+                            CompoundButtonBindingAdapter.setChecked(this.modeDcRadioButton, z3);
+                        }
+                        if (i5 != 0) {
+                            TextViewBindingAdapter.setText(this.modeAcDcRadioButton, str7);
+                        }
+                        if (i6 != 0) {
+                            TextViewBindingAdapter.setText(this.modeAcRadioButton, str8);
+                        }
+                        if (i2 != 0) {
+                            TextViewBindingAdapter.setText(this.modeDcRadioButton, str10);
+                        }
+                        if ((j & 66121) != 0) {
+                            TextViewBindingAdapter.setText(this.sourceSpinner, str2);
+                        }
+                        if ((66056 & j) != 0) {
+                            this.sourceSpinner.setTextColor(i3);
+                        }
+                        if ((j & 73736) == 0) {
+                            TextViewBindingAdapter.setText(this.upperEditText, str3);
+                            return;
+                        }
+                        return;
+                    }
+                    int i8 = i4;
+                    z2 = z8;
+                    str2 = str4;
+                    z = z7;
+                    i = i8;
+                }
+            } else {
+                z8 = false;
+                i4 = 0;
+            }
+            str4 = null;
+            if ((j & 67592) != 0) {
+                z8 = dvmResultParam.isBeeper();
+            }
+            if ((j & 73736) == 0) {
+            }
+        } else {
+            z = false;
+            i = 0;
+            z2 = false;
+            z3 = false;
+            z4 = false;
+            z5 = false;
+            str = null;
+            str2 = null;
+        }
+        str3 = null;
+        i2 = ((j & 98320) > 0L ? 1 : ((j & 98320) == 0L ? 0 : -1));
+        if (i2 != 0) {
+        }
+        if ((j & 67592) == 0) {
+        }
+        if ((j & 69640) != 0) {
+        }
+        if ((j & PlaybackStateCompat.ACTION_PREPARE_FROM_SEARCH) != 0) {
+        }
+        if ((j & 81928) != 0) {
+        }
+        if ((j & 66568) != 0) {
+        }
+        if (i5 != 0) {
+        }
+        if (i6 != 0) {
+        }
+        if (i2 != 0) {
+        }
+        if ((j & 66121) != 0) {
+        }
+        if ((66056 & j) != 0) {
+        }
+        if ((j & 73736) == 0) {
+        }
     }
 
     @Override // com.rigol.scope.generated.callback.OnClickListener.Listener

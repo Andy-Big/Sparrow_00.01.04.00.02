@@ -8,14 +8,14 @@ import android.widget.TextView;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import com.rigol.scope.R;
+
 /* loaded from: classes2.dex */
 public abstract class AdapterTypeSpinnerItemBinding extends ViewDataBinding {
     public final ImageView arrow;
     public final TextView text1;
     public final TextView text2;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public AdapterTypeSpinnerItemBinding(Object obj, View view, int i, ImageView imageView, TextView textView, TextView textView2) {
+    protected AdapterTypeSpinnerItemBinding(Object obj, View view, int i, ImageView imageView, TextView textView, TextView textView2) {
         super(obj, view, i);
         this.arrow = imageView;
         this.text1 = textView;

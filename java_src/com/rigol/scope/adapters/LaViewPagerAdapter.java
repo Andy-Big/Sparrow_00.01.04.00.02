@@ -33,6 +33,7 @@ import com.rigol.scope.views.la.LapopupView;
 import com.rigol.scope.views.spinner.PopupSpinner;
 import java.util.ArrayList;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public class LaViewPagerAdapter extends MultiItemTypeAdapter<List<MappingObject>> {
     View anchor;
@@ -70,9 +71,8 @@ public class LaViewPagerAdapter extends MultiItemTypeAdapter<List<MappingObject>
         BasePopupView popupView;
         private SpinnerAdapter spinnerAdapter;
 
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.rigol.scope.adapters.AdapterDelegate
-        public /* bridge */ /* synthetic */ void onBindViewHolder(Object obj, int i, BaseViewHolder baseViewHolder) {
+        protected /* bridge */ /* synthetic */ void onBindViewHolder(Object obj, int i, BaseViewHolder baseViewHolder) {
             onBindViewHolder((List) obj, i, (BaseViewHolder<? extends ViewDataBinding>) baseViewHolder);
         }
 
@@ -91,6 +91,7 @@ public class LaViewPagerAdapter extends MultiItemTypeAdapter<List<MappingObject>
             this.aorBManager = aorBManager;
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.rigol.scope.adapters.AdapterDelegate
         public boolean isForViewType(List<MappingObject> list, int i) {
@@ -393,9 +394,8 @@ public class LaViewPagerAdapter extends MultiItemTypeAdapter<List<MappingObject>
         public void onViewIdCallback(KeyEvent keyEvent, int i, boolean z) {
         }
 
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.rigol.scope.adapters.AdapterDelegate
-        public /* bridge */ /* synthetic */ void onBindViewHolder(Object obj, int i, BaseViewHolder baseViewHolder) {
+        protected /* bridge */ /* synthetic */ void onBindViewHolder(Object obj, int i, BaseViewHolder baseViewHolder) {
             onBindViewHolder((List) obj, i, (BaseViewHolder<? extends ViewDataBinding>) baseViewHolder);
         }
 
@@ -413,6 +413,7 @@ public class LaViewPagerAdapter extends MultiItemTypeAdapter<List<MappingObject>
             this.aorBManager = aorBManager;
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.rigol.scope.adapters.AdapterDelegate
         public boolean isForViewType(List<MappingObject> list, int i) {
@@ -740,9 +741,8 @@ public class LaViewPagerAdapter extends MultiItemTypeAdapter<List<MappingObject>
         public void onViewIdCallback(KeyEvent keyEvent, int i, boolean z) {
         }
 
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.rigol.scope.adapters.AdapterDelegate
-        public /* bridge */ /* synthetic */ void onBindViewHolder(Object obj, int i, BaseViewHolder baseViewHolder) {
+        protected /* bridge */ /* synthetic */ void onBindViewHolder(Object obj, int i, BaseViewHolder baseViewHolder) {
             onBindViewHolder((List) obj, i, (BaseViewHolder<? extends ViewDataBinding>) baseViewHolder);
         }
 
@@ -837,6 +837,7 @@ public class LaViewPagerAdapter extends MultiItemTypeAdapter<List<MappingObject>
             }
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.rigol.scope.adapters.AdapterDelegate
         public boolean isForViewType(List<MappingObject> list, int i) {

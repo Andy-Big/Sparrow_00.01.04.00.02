@@ -29,6 +29,7 @@ import com.rigol.scope.views.upa.UpaPopuViewRippel;
 import com.rigol.scope.views.upa.UpaPopupview;
 import java.util.ArrayList;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public class UpaRippleAdapter extends RecyclerView.Adapter<UpaHolder> implements View.OnClickListener, AorBManager.OnSetTextById, AorBManager.OnTextReset {
     private AorBManager aorBManager;
@@ -66,6 +67,7 @@ public class UpaRippleAdapter extends RecyclerView.Adapter<UpaHolder> implements
         this.upaParam = upaParam;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public UpaHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         this.binding = AdapterItemRippleBindingImpl.inflate(LayoutInflater.from(viewGroup.getContext()));
@@ -127,6 +129,7 @@ public class UpaRippleAdapter extends RecyclerView.Adapter<UpaHolder> implements
         this.param.savePowerCurr(mappingObject.getValue());
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(UpaHolder upaHolder, int i) {
         this.binding.upaRippleSpinner.setOnClickListener(this);

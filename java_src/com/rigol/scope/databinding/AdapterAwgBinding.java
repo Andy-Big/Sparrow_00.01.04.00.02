@@ -12,6 +12,7 @@ import com.rigol.scope.R;
 import com.rigol.scope.data.AfgParam;
 import com.rigol.scope.views.SwitchButton;
 import com.rigol.scope.views.baseview.BaseEditText;
+
 /* loaded from: classes2.dex */
 public abstract class AdapterAwgBinding extends ViewDataBinding {
     public final BaseEditText basicAmpEdit;
@@ -43,8 +44,7 @@ public abstract class AdapterAwgBinding extends ViewDataBinding {
 
     public abstract void setParam(AfgParam afgParam);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public AdapterAwgBinding(Object obj, View view, int i, BaseEditText baseEditText, TextView textView, TextView textView2, BaseEditText baseEditText2, SwitchButton switchButton, Guideline guideline, Guideline guideline2, BaseEditText baseEditText3, TextView textView3, BaseEditText baseEditText4, TextView textView4, BaseEditText baseEditText5, TextView textView5, BaseEditText baseEditText6, TextView textView6, TextView textView7, TextView textView8, TextView textView9, TextView textView10, TextView textView11, TextView textView12, TextView textView13, TextView textView14, TextView textView15) {
+    protected AdapterAwgBinding(Object obj, View view, int i, BaseEditText baseEditText, TextView textView, TextView textView2, BaseEditText baseEditText2, SwitchButton switchButton, Guideline guideline, Guideline guideline2, BaseEditText baseEditText3, TextView textView3, BaseEditText baseEditText4, TextView textView4, BaseEditText baseEditText5, TextView textView5, BaseEditText baseEditText6, TextView textView6, TextView textView7, TextView textView8, TextView textView9, TextView textView10, TextView textView11, TextView textView12, TextView textView13, TextView textView14, TextView textView15) {
         super(obj, view, i);
         this.basicAmpEdit = baseEditText;
         this.basicAmpText = textView;

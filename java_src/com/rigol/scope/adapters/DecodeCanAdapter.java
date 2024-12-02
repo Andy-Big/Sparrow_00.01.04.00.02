@@ -30,6 +30,7 @@ import com.rigol.scope.views.keyboard.KeyboardPopupView;
 import com.rigol.scope.views.spinner.PopupSpinner;
 import java.util.ArrayList;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public class DecodeCanAdapter extends RecyclerView.Adapter<DecodeCanHolder> implements View.OnClickListener, View.OnLongClickListener, AorBManager.OnSetTextById, AorBManager.OnTextReset {
     private final View anchorView;
@@ -67,12 +68,14 @@ public class DecodeCanAdapter extends RecyclerView.Adapter<DecodeCanHolder> impl
         this.viewPagerHolder = viewPagerHolder;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public DecodeCanHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         this.binding = AdapterDecodeCanBinding.inflate(LayoutInflater.from(viewGroup.getContext()), viewGroup, false);
         return new DecodeCanHolder(this.binding);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(DecodeCanHolder decodeCanHolder, int i) {
         this.binding.decodeCanSrcValue.setOnClickListener(this);

@@ -10,6 +10,7 @@ import androidx.databinding.ViewDataBinding;
 import androidx.recyclerview.widget.RecyclerView;
 import com.rigol.scope.R;
 import com.rigol.scope.data.MeasureSettingParam;
+
 /* loaded from: classes2.dex */
 public class FragmentResultsBarBindingImpl extends FragmentResultsBarBinding {
     private static final ViewDataBinding.IncludedLayouts sIncludes = null;

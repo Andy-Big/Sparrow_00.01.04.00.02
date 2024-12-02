@@ -22,6 +22,7 @@ import com.rigol.scope.viewmodels.PanelKeyViewModel;
 import com.rigol.scope.viewmodels.VerticalViewModel;
 import com.rigol.scope.views.baseview.BasePopupView;
 import java.util.List;
+
 /* loaded from: classes2.dex */
 public class VerticalPopupView extends BasePopupView {
     private final PopupviewVerticalBinding binding;
@@ -45,6 +46,7 @@ public class VerticalPopupView extends BasePopupView {
         setContentView(inflate.getRoot());
         if (verticalViewModel != null) {
             verticalViewModel.getLiveData().observe((LifecycleOwner) ActivityUtils.getTopActivity(), new Observer<List<VerticalParam>>() { // from class: com.rigol.scope.views.vertical.VerticalPopupView.1
+                /* JADX DEBUG: Method merged with bridge method */
                 @Override // androidx.lifecycle.Observer
                 public void onChanged(List<VerticalParam> list) {
                     VerticalPopupView.this.params = list;

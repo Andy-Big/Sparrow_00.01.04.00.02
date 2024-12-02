@@ -13,6 +13,7 @@ import androidx.databinding.ViewDataBinding;
 import com.rigol.scope.R;
 import com.rigol.scope.data.SharedParam;
 import com.rigol.scope.data.VerticalParam;
+
 /* loaded from: classes2.dex */
 public abstract class AdapterItemPopupviewProbeBinding extends ViewDataBinding {
     public final Guideline guidelineCenter;
@@ -49,8 +50,7 @@ public abstract class AdapterItemPopupviewProbeBinding extends ViewDataBinding {
 
     public abstract void setVerticalParam(VerticalParam verticalParam);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public AdapterItemPopupviewProbeBinding(Object obj, View view, int i, Guideline guideline, Guideline guideline2, Guideline guideline3, TextView textView, EditText editText, TextView textView2, Button button, TextView textView3, TextView textView4, TextView textView5, EditText editText2, TextView textView6, Button button2, TextView textView7, TextView textView8, TextView textView9, TextView textView10, TextView textView11, TextView textView12, TextView textView13, TextView textView14) {
+    protected AdapterItemPopupviewProbeBinding(Object obj, View view, int i, Guideline guideline, Guideline guideline2, Guideline guideline3, TextView textView, EditText editText, TextView textView2, Button button, TextView textView3, TextView textView4, TextView textView5, EditText editText2, TextView textView6, Button button2, TextView textView7, TextView textView8, TextView textView9, TextView textView10, TextView textView11, TextView textView12, TextView textView13, TextView textView14) {
         super(obj, view, i);
         this.guidelineCenter = guideline;
         this.guidelineLeft = guideline2;

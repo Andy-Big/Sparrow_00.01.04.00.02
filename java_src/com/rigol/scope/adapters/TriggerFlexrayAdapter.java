@@ -32,6 +32,7 @@ import com.rigol.scope.views.spinner.PopupSpinner;
 import com.rigol.scope.views.trigger.TriggerPopupView;
 import java.util.ArrayList;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public class TriggerFlexrayAdapter extends RecyclerView.Adapter<TriggerFlexrayHolder> implements View.OnClickListener, CompoundButton.OnCheckedChangeListener, AorBManager.OnSetTextById, AorBManager.OnTextReset {
     private View anchorView;
@@ -84,6 +85,7 @@ public class TriggerFlexrayAdapter extends RecyclerView.Adapter<TriggerFlexrayHo
         this.serviceId = triggerParam.getServiceId();
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public TriggerFlexrayHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         this.binding = AdapterTriggerFlexrayBinding.inflate(LayoutInflater.from(viewGroup.getContext()), viewGroup, false);
@@ -174,6 +176,7 @@ public class TriggerFlexrayAdapter extends RecyclerView.Adapter<TriggerFlexrayHo
         }
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(TriggerFlexrayHolder triggerFlexrayHolder, int i) {
         ShowTriggerFlexray();

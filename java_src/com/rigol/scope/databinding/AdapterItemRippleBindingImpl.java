@@ -9,10 +9,15 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.Guideline;
 import androidx.databinding.DataBindingComponent;
 import androidx.databinding.ViewDataBinding;
+import androidx.databinding.adapters.TextViewBindingAdapter;
 import com.rigol.scope.R;
+import com.rigol.scope.cil.ServiceEnum;
 import com.rigol.scope.data.MappingObject;
 import com.rigol.scope.data.UpaParam;
 import com.rigol.scope.data.UpaRippleParam;
+import com.rigol.scope.utilities.ColorUtil;
+import com.rigol.scope.utilities.ViewUtil;
+
 /* loaded from: classes2.dex */
 public class AdapterItemRippleBindingImpl extends AdapterItemRippleBinding {
     private static final ViewDataBinding.IncludedLayouts sIncludes = null;
@@ -181,100 +186,57 @@ public class AdapterItemRippleBindingImpl extends AdapterItemRippleBinding {
     @Override // androidx.databinding.ViewDataBinding
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
     protected void executeBindings() {
-        /*
-            r17 = this;
-            r1 = r17
-            monitor-enter(r17)
-            long r2 = r1.mDirtyFlags     // Catch: java.lang.Throwable -> L8a
-            r4 = 0
-            r1.mDirtyFlags = r4     // Catch: java.lang.Throwable -> L8a
-            monitor-exit(r17)     // Catch: java.lang.Throwable -> L8a
-            com.rigol.scope.data.UpaRippleParam r0 = r1.mParam
-            r6 = 245(0xf5, double:1.21E-321)
-            long r6 = r6 & r2
-            int r6 = (r6 > r4 ? 1 : (r6 == r4 ? 0 : -1))
-            r7 = 145(0x91, double:7.16E-322)
-            r9 = 213(0xd5, double:1.05E-321)
-            r11 = 161(0xa1, double:7.95E-322)
-            r14 = 0
-            if (r6 == 0) goto L69
-            long r15 = r2 & r9
-            int r6 = (r15 > r4 ? 1 : (r15 == r4 ? 0 : -1))
-            if (r6 == 0) goto L52
-            if (r0 == 0) goto L27
-            int r6 = r0.getRefPowerCurr()
-            goto L28
-        L27:
-            r6 = r14
-        L28:
-            long r15 = r2 & r7
-            int r15 = (r15 > r4 ? 1 : (r15 == r4 ? 0 : -1))
-            if (r15 == 0) goto L3f
-            com.rigol.scope.cil.ServiceEnum$Chan r15 = com.rigol.scope.cil.ServiceEnum.getChanFromValue1(r6)
-            android.view.View r16 = r17.getRoot()
-            android.content.Context r13 = r16.getContext()
-            int r13 = com.rigol.scope.utilities.ColorUtil.getColor(r13, r15)
-            goto L40
-        L3f:
-            r13 = r14
-        L40:
-            r15 = 2130903614(0x7f03023e, float:1.741405E38)
-            com.rigol.scope.data.MappingObject r6 = com.rigol.scope.utilities.ViewUtil.getMappingObject(r15, r6)
-            r15 = 2
-            r1.updateRegistration(r15, r6)
-            if (r6 == 0) goto L53
-            java.lang.String r6 = r6.getStr()
-            goto L54
-        L52:
-            r13 = r14
-        L53:
-            r6 = 0
-        L54:
-            long r15 = r2 & r11
-            int r15 = (r15 > r4 ? 1 : (r15 == r4 ? 0 : -1))
-            if (r15 == 0) goto L67
-            if (r0 == 0) goto L60
-            int r14 = r0.getStatCounts()
-        L60:
-            java.lang.String r0 = java.lang.String.valueOf(r14)
-            r14 = r13
-            r13 = r0
-            goto L6b
-        L67:
-            r14 = r13
-            goto L6a
-        L69:
-            r6 = 0
-        L6a:
-            r13 = 0
-        L6b:
-            long r11 = r11 & r2
-            int r0 = (r11 > r4 ? 1 : (r11 == r4 ? 0 : -1))
-            if (r0 == 0) goto L75
-            android.widget.EditText r0 = r1.upaRippleEditText
-            androidx.databinding.adapters.TextViewBindingAdapter.setText(r0, r13)
-        L75:
-            long r9 = r9 & r2
-            int r0 = (r9 > r4 ? 1 : (r9 == r4 ? 0 : -1))
-            if (r0 == 0) goto L7f
-            android.widget.TextView r0 = r1.upaRippleSpinner
-            androidx.databinding.adapters.TextViewBindingAdapter.setText(r0, r6)
-        L7f:
-            long r2 = r2 & r7
-            int r0 = (r2 > r4 ? 1 : (r2 == r4 ? 0 : -1))
-            if (r0 == 0) goto L89
-            android.widget.TextView r0 = r1.upaRippleSpinner
-            r0.setTextColor(r14)
-        L89:
-            return
-        L8a:
-            r0 = move-exception
-            monitor-exit(r17)     // Catch: java.lang.Throwable -> L8a
-            throw r0
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.rigol.scope.databinding.AdapterItemRippleBindingImpl.executeBindings():void");
+        long j;
+        String str;
+        String str2;
+        int i;
+        synchronized (this) {
+            j = this.mDirtyFlags;
+            this.mDirtyFlags = 0L;
+        }
+        UpaRippleParam upaRippleParam = this.mParam;
+        if ((245 & j) != 0) {
+            if ((j & 213) != 0) {
+                int refPowerCurr = upaRippleParam != null ? upaRippleParam.getRefPowerCurr() : 0;
+                i = (j & 145) != 0 ? ColorUtil.getColor(getRoot().getContext(), ServiceEnum.getChanFromValue1(refPowerCurr)) : 0;
+                MappingObject mappingObject = ViewUtil.getMappingObject(R.array.msg_upa_ripple_source, refPowerCurr);
+                updateRegistration(2, mappingObject);
+                if (mappingObject != null) {
+                    str = mappingObject.getStr();
+                    if ((j & 161) == 0) {
+                        r14 = i;
+                        str2 = String.valueOf(upaRippleParam != null ? upaRippleParam.getStatCounts() : 0);
+                        if ((161 & j) != 0) {
+                            TextViewBindingAdapter.setText(this.upaRippleEditText, str2);
+                        }
+                        if ((213 & j) != 0) {
+                            TextViewBindingAdapter.setText(this.upaRippleSpinner, str);
+                        }
+                        if ((j & 145) == 0) {
+                            this.upaRippleSpinner.setTextColor(r14);
+                            return;
+                        }
+                        return;
+                    }
+                    r14 = i;
+                }
+            } else {
+                i = 0;
+            }
+            str = null;
+            if ((j & 161) == 0) {
+            }
+        } else {
+            str = null;
+        }
+        str2 = null;
+        if ((161 & j) != 0) {
+        }
+        if ((213 & j) != 0) {
+        }
+        if ((j & 145) == 0) {
+        }
     }
 }

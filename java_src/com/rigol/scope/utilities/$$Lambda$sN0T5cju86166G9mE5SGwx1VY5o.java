@@ -1,6 +1,7 @@
 package com.rigol.scope.utilities;
 
 import java.util.function.BiConsumer;
+
 /* compiled from: lambda */
 /* renamed from: com.rigol.scope.utilities.-$$Lambda$sN0T5cju86166G9mE5SGwx1VY5o  reason: invalid class name */
 /* loaded from: classes2.dex */

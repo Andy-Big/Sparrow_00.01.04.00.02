@@ -23,6 +23,7 @@ import com.rigol.scope.utilities.PopupViewManager;
 import com.rigol.scope.viewmodels.DecodeViewModel;
 import com.rigol.scope.views.baseview.BasePopupView;
 import java.util.List;
+
 /* loaded from: classes2.dex */
 public class DecodeNewPopupView extends BasePopupView {
     private final PopupviewDecodeBinding binding;
@@ -42,6 +43,7 @@ public class DecodeNewPopupView extends BasePopupView {
         DecodeViewModel decodeViewModel = (DecodeViewModel) ContextUtil.getAppViewModel(DecodeViewModel.class);
         if (decodeViewModel != null) {
             decodeViewModel.getLiveData().observe((LifecycleOwner) ActivityUtils.getTopActivity(), new Observer<List<DecodeParam>>() { // from class: com.rigol.scope.views.decode.DecodeNewPopupView.1
+                /* JADX DEBUG: Method merged with bridge method */
                 @Override // androidx.lifecycle.Observer
                 public void onChanged(List<DecodeParam> list) {
                     DecodeNewPopupView.this.params = list;
@@ -111,12 +113,14 @@ public class DecodeNewPopupView extends BasePopupView {
             this.popupviewDecodeBinding = popupviewDecodeBinding;
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
         public ViewPagerHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
             this.binding = (AdapterItemPopupviewDecodeBindingImpl) AdapterItemPopupviewDecodeBindingImpl.inflate(LayoutInflater.from(viewGroup.getContext()), viewGroup, false);
             return new ViewPagerHolder(this.binding);
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
         public void onBindViewHolder(ViewPagerHolder viewPagerHolder, int i) {
             AdapterItemPopupviewDecodeBindingImpl binding = viewPagerHolder.getBinding();

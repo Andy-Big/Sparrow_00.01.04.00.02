@@ -8,14 +8,14 @@ import android.widget.TimePicker;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import com.rigol.scope.R;
+
 /* loaded from: classes2.dex */
 public abstract class CustomTimepickerDialogAntBinding extends ViewDataBinding {
     public final Button confirmButton;
     public final View included;
     public final TimePicker timePicker;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public CustomTimepickerDialogAntBinding(Object obj, View view, int i, Button button, View view2, TimePicker timePicker) {
+    protected CustomTimepickerDialogAntBinding(Object obj, View view, int i, Button button, View view2, TimePicker timePicker) {
         super(obj, view, i);
         this.confirmButton = button;
         this.included = view2;

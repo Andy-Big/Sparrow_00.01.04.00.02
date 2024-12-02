@@ -18,6 +18,7 @@ import com.rigol.scope.data.MappingObject;
 import com.rigol.scope.data.MathParam;
 import com.rigol.scope.views.SwitchButton;
 import com.rigol.scope.views.baseview.BaseEditText;
+
 /* loaded from: classes2.dex */
 public abstract class AdapterMathFilterBinding extends ViewDataBinding {
     public final Button autoSettingBtn;
@@ -90,8 +91,7 @@ public abstract class AdapterMathFilterBinding extends ViewDataBinding {
 
     public abstract void setParam(MathParam mathParam);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public AdapterMathFilterBinding(Object obj, View view, int i, Button button, TextView textView, EditText editText, TextView textView2, EditText editText2, TextView textView3, EditText editText3, TextView textView4, EditText editText4, RadioButton radioButton, TextView textView5, RadioGroup radioGroup, RadioButton radioButton2, RadioButton radioButton3, TextView textView6, RadioGroup radioGroup2, RadioButton radioButton4, TextView textView7, EditText editText5, TextView textView8, SwitchButton switchButton, TextView textView9, BaseEditText baseEditText, SwitchButton switchButton2, TextView textView10, EditText editText6, ImageButton imageButton, ImageButton imageButton2, View view2, Guideline guideline, ImageButton imageButton3, ImageButton imageButton4, RadioButton radioButton5, TextView textView11, EditText editText7, TextView textView12, EditText editText8, TextView textView13, TextView textView14, TextView textView15, SwitchButton switchButton3) {
+    protected AdapterMathFilterBinding(Object obj, View view, int i, Button button, TextView textView, EditText editText, TextView textView2, EditText editText2, TextView textView3, EditText editText3, TextView textView4, EditText editText4, RadioButton radioButton, TextView textView5, RadioGroup radioGroup, RadioButton radioButton2, RadioButton radioButton3, TextView textView6, RadioGroup radioGroup2, RadioButton radioButton4, TextView textView7, EditText editText5, TextView textView8, SwitchButton switchButton, TextView textView9, BaseEditText baseEditText, SwitchButton switchButton2, TextView textView10, EditText editText6, ImageButton imageButton, ImageButton imageButton2, View view2, Guideline guideline, ImageButton imageButton3, ImageButton imageButton4, RadioButton radioButton5, TextView textView11, EditText editText7, TextView textView12, EditText editText8, TextView textView13, TextView textView14, TextView textView15, SwitchButton switchButton3) {
         super(obj, view, i);
         this.autoSettingBtn = button;
         this.bpWc1 = textView;

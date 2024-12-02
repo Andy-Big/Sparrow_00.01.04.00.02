@@ -15,6 +15,7 @@ import com.rigol.scope.data.HorizontalParam;
 import com.rigol.scope.data.WaveRecordParam;
 import com.rigol.scope.views.SwitchButton;
 import com.rigol.scope.views.TouchableSeekBar;
+
 /* loaded from: classes2.dex */
 public abstract class PopupviewWaveRecordBinding extends ViewDataBinding {
     public final Guideline centerGuideline;
@@ -66,8 +67,7 @@ public abstract class PopupviewWaveRecordBinding extends ViewDataBinding {
 
     public abstract void setParam(WaveRecordParam waveRecordParam);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public PopupviewWaveRecordBinding(Object obj, View view, int i, Guideline guideline, View view2, View view3, Guideline guideline2, ImageView imageView, ImageView imageView2, ImageView imageView3, ImageView imageView4, TextView textView, ImageView imageView5, TouchableSeekBar touchableSeekBar, TextView textView2, ImageView imageView6, TextView textView3, TextView textView4, TextView textView5, TextView textView6, TextView textView7, TextView textView8, TextView textView9, TextView textView10, Button button, TextView textView11, TextView textView12, SwitchButton switchButton, TextView textView13, SwitchButton switchButton2, TextView textView14, TextView textView15, TextView textView16, TextView textView17, TouchableSeekBar touchableSeekBar2, TextView textView18, ImageView imageView7, TextView textView19, TextView textView20, TextView textView21, ImageView imageView8, ImageView imageView9, Guideline guideline3) {
+    protected PopupviewWaveRecordBinding(Object obj, View view, int i, Guideline guideline, View view2, View view3, Guideline guideline2, ImageView imageView, ImageView imageView2, ImageView imageView3, ImageView imageView4, TextView textView, ImageView imageView5, TouchableSeekBar touchableSeekBar, TextView textView2, ImageView imageView6, TextView textView3, TextView textView4, TextView textView5, TextView textView6, TextView textView7, TextView textView8, TextView textView9, TextView textView10, Button button, TextView textView11, TextView textView12, SwitchButton switchButton, TextView textView13, SwitchButton switchButton2, TextView textView14, TextView textView15, TextView textView16, TextView textView17, TouchableSeekBar touchableSeekBar2, TextView textView18, ImageView imageView7, TextView textView19, TextView textView20, TextView textView21, ImageView imageView8, ImageView imageView9, Guideline guideline3) {
         super(obj, view, i);
         this.centerGuideline = guideline;
         this.dividingLine1 = view2;

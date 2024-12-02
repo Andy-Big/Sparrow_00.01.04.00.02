@@ -10,10 +10,18 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.Guideline;
 import androidx.databinding.DataBindingComponent;
 import androidx.databinding.ViewDataBinding;
+import androidx.databinding.adapters.CompoundButtonBindingAdapter;
+import androidx.databinding.adapters.TextViewBindingAdapter;
 import com.rigol.scope.R;
+import com.rigol.scope.cil.ServiceEnum;
 import com.rigol.scope.data.DecodeParam;
 import com.rigol.scope.data.MappingObject;
+import com.rigol.scope.utilities.ColorUtil;
+import com.rigol.scope.utilities.ContextUtil;
+import com.rigol.scope.utilities.UnitFormat;
+import com.rigol.scope.utilities.ViewUtil;
 import com.rigol.scope.views.SwitchButton;
+
 /* loaded from: classes2.dex */
 public class AdapterDecodeRs232BindingImpl extends AdapterDecodeRs232Binding {
     private static final ViewDataBinding.IncludedLayouts sIncludes = null;
@@ -379,13 +387,551 @@ public class AdapterDecodeRs232BindingImpl extends AdapterDecodeRs232Binding {
     @Override // androidx.databinding.ViewDataBinding
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
     protected void executeBindings() {
-        /*
-            Method dump skipped, instructions count: 1123
-            To view this dump add '--comments-level debug' option
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.rigol.scope.databinding.AdapterDecodeRs232BindingImpl.executeBindings():void");
+        long j;
+        float f;
+        float f2;
+        int i;
+        boolean z;
+        boolean z2;
+        boolean z3;
+        boolean z4;
+        int i2;
+        int i3;
+        int i4;
+        boolean z5;
+        String str;
+        String str2;
+        String str3;
+        String str4;
+        String str5;
+        String str6;
+        String str7;
+        String str8;
+        String str9;
+        String str10;
+        boolean z6;
+        float f3;
+        int i5;
+        int i6;
+        boolean z7;
+        String str11;
+        String str12;
+        int i7;
+        boolean z8;
+        int i8;
+        String str13;
+        boolean z9;
+        boolean z10;
+        int i9;
+        int i10;
+        boolean z11;
+        long j2;
+        String str14;
+        String str15;
+        String str16;
+        String str17;
+        boolean z12;
+        String str18;
+        String str19;
+        int i11;
+        String str20;
+        String str21;
+        String str22;
+        String str23;
+        ServiceEnum.Unit unit;
+        int i12;
+        synchronized (this) {
+            j = this.mDirtyFlags;
+            this.mDirtyFlags = 0L;
+        }
+        MappingObject mappingObject = this.mPositiveMapping;
+        DecodeParam decodeParam = this.mParam;
+        MappingObject mappingObject2 = this.mNegativeMapping;
+        String str24 = ((j & 268436481) == 0 || mappingObject == null) ? null : mappingObject.getStr();
+        float f4 = 0.0f;
+        if ((503315422 & j) != 0) {
+            if ((j & 268443920) != 0) {
+                int rs232_rx = decodeParam != null ? decodeParam.getRs232_rx() : 0;
+                int i13 = ((j & 268443664) > 0L ? 1 : ((j & 268443664) == 0L ? 0 : -1));
+                if (i13 != 0) {
+                    z7 = rs232_rx < 8;
+                    boolean z13 = rs232_rx == 0;
+                    i5 = ColorUtil.getColorDoedCode(getRoot().getContext(), rs232_rx);
+                    if (i13 != 0) {
+                        j |= z13 ? 1073741824L : 536870912L;
+                    }
+                    f3 = ContextUtil.getAlpha(z7);
+                    i6 = z13 ? 4 : 0;
+                } else {
+                    f3 = 0.0f;
+                    i5 = 0;
+                    i6 = 0;
+                    z7 = false;
+                }
+                MappingObject mappingObject3 = ViewUtil.getMappingObject(R.array.msg_decode_rs232_rx, rs232_rx);
+                updateRegistration(8, mappingObject3);
+                if (mappingObject3 != null) {
+                    str11 = mappingObject3.getStr();
+                    long rs232_rx_thres = ((j & 268468240) != 0 || decodeParam == null) ? 0L : decodeParam.getRs232_rx_thres();
+                    if ((j & 337641616) != 0) {
+                        MappingObject mappingObject4 = ViewUtil.getMappingObject(R.array.msg_decode_rs232_width, decodeParam != null ? decodeParam.getRs232_width() : 0);
+                        updateRegistration(7, mappingObject4);
+                        if (mappingObject4 != null) {
+                            str12 = mappingObject4.getStr();
+                            if ((j & 268451858) != 0) {
+                                int rs232_tx = decodeParam != null ? decodeParam.getRs232_tx() : 0;
+                                MappingObject mappingObject5 = ViewUtil.getMappingObject(R.array.msg_decode_rs232_tx, rs232_tx);
+                                updateRegistration(1, mappingObject5);
+                                String str25 = mappingObject5 != null ? mappingObject5.getStr() : null;
+                                int i14 = ((j & 268451856) > 0L ? 1 : ((j & 268451856) == 0L ? 0 : -1));
+                                if (i14 != 0) {
+                                    str13 = str25;
+                                    int colorDoedCode = ColorUtil.getColorDoedCode(getRoot().getContext(), rs232_tx);
+                                    boolean z14 = rs232_tx < 8;
+                                    boolean z15 = rs232_tx == 0;
+                                    if (i14 != 0) {
+                                        j |= z15 ? 4294967296L : 2147483648L;
+                                    }
+                                    float alpha = ContextUtil.getAlpha(z14);
+                                    i8 = z15 ? 4 : 0;
+                                    z8 = z14;
+                                    i7 = colorDoedCode;
+                                    f4 = alpha;
+                                } else {
+                                    str13 = str25;
+                                    i7 = 0;
+                                    z8 = false;
+                                    i8 = 0;
+                                }
+                            } else {
+                                i7 = 0;
+                                z8 = false;
+                                i8 = 0;
+                                str13 = null;
+                            }
+                            if ((j & 268697616) != 0) {
+                                z9 = decodeParam != null ? decodeParam.isRs232_pol() : false;
+                                z10 = !z9;
+                            } else {
+                                z9 = false;
+                                z10 = false;
+                            }
+                            i9 = ((j & 268501008) > 0L ? 1 : ((j & 268501008) == 0L ? 0 : -1));
+                            if (i9 != 0 || decodeParam == null) {
+                                i10 = i7;
+                                z11 = z8;
+                                j2 = 0;
+                            } else {
+                                i10 = i7;
+                                z11 = z8;
+                                j2 = decodeParam.getRs232_tx_thres();
+                            }
+                            if ((j & 411042320) != 0) {
+                                if (decodeParam != null) {
+                                    str15 = str11;
+                                    str14 = str12;
+                                    i12 = decodeParam.getRs232_parity();
+                                } else {
+                                    str14 = str12;
+                                    str15 = str11;
+                                    i12 = 0;
+                                }
+                                MappingObject mappingObject6 = ViewUtil.getMappingObject(R.array.msg_decode_rs232_parity, i12);
+                                updateRegistration(9, mappingObject6);
+                                if (mappingObject6 != null) {
+                                    str16 = mappingObject6.getStr();
+                                    boolean isRs232_package = ((j & 268959760) != 0 || decodeParam == null) ? false : decodeParam.isRs232_package();
+                                    if ((j & 268533776) == 0) {
+                                        if (decodeParam != null) {
+                                            str17 = str16;
+                                            unit = decodeParam.getUnit();
+                                        } else {
+                                            str17 = str16;
+                                            unit = null;
+                                        }
+                                        if ((j & 268468240) != 0) {
+                                            z12 = isRs232_package;
+                                            str19 = UnitFormat.newBuilder(UnitFormat.SI.NANO).convert(rs232_rx_thres, unit);
+                                        } else {
+                                            z12 = isRs232_package;
+                                            str19 = null;
+                                        }
+                                        str18 = i9 != 0 ? UnitFormat.newBuilder(UnitFormat.SI.NANO).convert(j2, unit) : null;
+                                    } else {
+                                        str17 = str16;
+                                        z12 = isRs232_package;
+                                        str18 = null;
+                                        str19 = null;
+                                    }
+                                    i11 = ((j & 272631828) > 0L ? 1 : ((j & 272631828) == 0L ? 0 : -1));
+                                    if (i11 != 0) {
+                                        int i15 = decodeParam != null ? decodeParam.getRs232_endian() : false ? 1 : 0;
+                                        if (i11 != 0) {
+                                            j |= i15 != 0 ? 17179869184L : 8589934592L;
+                                        }
+                                        MappingObject mappingObject7 = ViewUtil.getMappingObject(R.array.msg_decode_rs232_endian, i15);
+                                        updateRegistration(2, mappingObject7);
+                                        if (mappingObject7 != null) {
+                                            str20 = mappingObject7.getStr();
+                                            if ((j & 268566544) != 0) {
+                                                str21 = str18;
+                                                str22 = str20;
+                                                str = UnitFormat.newBuilder(" 0.###  ", UnitFormat.SI.NONE).convert(decodeParam != null ? decodeParam.getRs232_baud() : 0, ServiceEnum.Unit.Unit_none) + "bps";
+                                            } else {
+                                                str21 = str18;
+                                                str22 = str20;
+                                                str = null;
+                                            }
+                                            if ((j & 269488152) != 0) {
+                                                MappingObject mappingObject8 = ViewUtil.getMappingObject(R.array.msg_decode_rs232_stop, decodeParam != null ? decodeParam.getRs232_stop() : 0);
+                                                updateRegistration(3, mappingObject8);
+                                                if (mappingObject8 != null) {
+                                                    str23 = mappingObject8.getStr();
+                                                    if ((j & 285212752) != 0) {
+                                                        MappingObject mappingObject9 = ViewUtil.getMappingObject(R.array.msg_decode_rs232_packend, decodeParam != null ? decodeParam.getRs232_package_end() : 0);
+                                                        updateRegistration(6, mappingObject9);
+                                                        if (mappingObject9 != null) {
+                                                            str3 = mappingObject9.getStr();
+                                                            str7 = str19;
+                                                            i = i6;
+                                                            i4 = i8;
+                                                            z2 = z10;
+                                                            str10 = str13;
+                                                            i3 = i10;
+                                                            z5 = z11;
+                                                            str8 = str14;
+                                                            str4 = str17;
+                                                            str9 = str23;
+                                                            i2 = i5;
+                                                            z4 = z7;
+                                                            str2 = str22;
+                                                            f2 = f3;
+                                                            f = f4;
+                                                            z = z12;
+                                                            str6 = str21;
+                                                            z3 = z9;
+                                                            str5 = str15;
+                                                        }
+                                                    }
+                                                    str7 = str19;
+                                                    i = i6;
+                                                    i4 = i8;
+                                                    z2 = z10;
+                                                    str10 = str13;
+                                                    i3 = i10;
+                                                    z5 = z11;
+                                                    str8 = str14;
+                                                    str4 = str17;
+                                                    str3 = null;
+                                                    str9 = str23;
+                                                    i2 = i5;
+                                                    z4 = z7;
+                                                    str2 = str22;
+                                                    f2 = f3;
+                                                    f = f4;
+                                                    z = z12;
+                                                    str6 = str21;
+                                                    z3 = z9;
+                                                    str5 = str15;
+                                                }
+                                            }
+                                            str23 = null;
+                                            if ((j & 285212752) != 0) {
+                                            }
+                                            str7 = str19;
+                                            i = i6;
+                                            i4 = i8;
+                                            z2 = z10;
+                                            str10 = str13;
+                                            i3 = i10;
+                                            z5 = z11;
+                                            str8 = str14;
+                                            str4 = str17;
+                                            str3 = null;
+                                            str9 = str23;
+                                            i2 = i5;
+                                            z4 = z7;
+                                            str2 = str22;
+                                            f2 = f3;
+                                            f = f4;
+                                            z = z12;
+                                            str6 = str21;
+                                            z3 = z9;
+                                            str5 = str15;
+                                        }
+                                    }
+                                    str20 = null;
+                                    if ((j & 268566544) != 0) {
+                                    }
+                                    if ((j & 269488152) != 0) {
+                                    }
+                                    str23 = null;
+                                    if ((j & 285212752) != 0) {
+                                    }
+                                    str7 = str19;
+                                    i = i6;
+                                    i4 = i8;
+                                    z2 = z10;
+                                    str10 = str13;
+                                    i3 = i10;
+                                    z5 = z11;
+                                    str8 = str14;
+                                    str4 = str17;
+                                    str3 = null;
+                                    str9 = str23;
+                                    i2 = i5;
+                                    z4 = z7;
+                                    str2 = str22;
+                                    f2 = f3;
+                                    f = f4;
+                                    z = z12;
+                                    str6 = str21;
+                                    z3 = z9;
+                                    str5 = str15;
+                                }
+                            } else {
+                                str14 = str12;
+                                str15 = str11;
+                            }
+                            str16 = null;
+                            if ((j & 268959760) != 0) {
+                            }
+                            if ((j & 268533776) == 0) {
+                            }
+                            i11 = ((j & 272631828) > 0L ? 1 : ((j & 272631828) == 0L ? 0 : -1));
+                            if (i11 != 0) {
+                            }
+                            str20 = null;
+                            if ((j & 268566544) != 0) {
+                            }
+                            if ((j & 269488152) != 0) {
+                            }
+                            str23 = null;
+                            if ((j & 285212752) != 0) {
+                            }
+                            str7 = str19;
+                            i = i6;
+                            i4 = i8;
+                            z2 = z10;
+                            str10 = str13;
+                            i3 = i10;
+                            z5 = z11;
+                            str8 = str14;
+                            str4 = str17;
+                            str3 = null;
+                            str9 = str23;
+                            i2 = i5;
+                            z4 = z7;
+                            str2 = str22;
+                            f2 = f3;
+                            f = f4;
+                            z = z12;
+                            str6 = str21;
+                            z3 = z9;
+                            str5 = str15;
+                        }
+                    }
+                    str12 = null;
+                    if ((j & 268451858) != 0) {
+                    }
+                    if ((j & 268697616) != 0) {
+                    }
+                    i9 = ((j & 268501008) > 0L ? 1 : ((j & 268501008) == 0L ? 0 : -1));
+                    if (i9 != 0) {
+                    }
+                    i10 = i7;
+                    z11 = z8;
+                    j2 = 0;
+                    if ((j & 411042320) != 0) {
+                    }
+                    str16 = null;
+                    if ((j & 268959760) != 0) {
+                    }
+                    if ((j & 268533776) == 0) {
+                    }
+                    i11 = ((j & 272631828) > 0L ? 1 : ((j & 272631828) == 0L ? 0 : -1));
+                    if (i11 != 0) {
+                    }
+                    str20 = null;
+                    if ((j & 268566544) != 0) {
+                    }
+                    if ((j & 269488152) != 0) {
+                    }
+                    str23 = null;
+                    if ((j & 285212752) != 0) {
+                    }
+                    str7 = str19;
+                    i = i6;
+                    i4 = i8;
+                    z2 = z10;
+                    str10 = str13;
+                    i3 = i10;
+                    z5 = z11;
+                    str8 = str14;
+                    str4 = str17;
+                    str3 = null;
+                    str9 = str23;
+                    i2 = i5;
+                    z4 = z7;
+                    str2 = str22;
+                    f2 = f3;
+                    f = f4;
+                    z = z12;
+                    str6 = str21;
+                    z3 = z9;
+                    str5 = str15;
+                }
+            } else {
+                f3 = 0.0f;
+                i5 = 0;
+                i6 = 0;
+                z7 = false;
+            }
+            str11 = null;
+            if ((j & 268468240) != 0) {
+            }
+            if ((j & 337641616) != 0) {
+            }
+            str12 = null;
+            if ((j & 268451858) != 0) {
+            }
+            if ((j & 268697616) != 0) {
+            }
+            i9 = ((j & 268501008) > 0L ? 1 : ((j & 268501008) == 0L ? 0 : -1));
+            if (i9 != 0) {
+            }
+            i10 = i7;
+            z11 = z8;
+            j2 = 0;
+            if ((j & 411042320) != 0) {
+            }
+            str16 = null;
+            if ((j & 268959760) != 0) {
+            }
+            if ((j & 268533776) == 0) {
+            }
+            i11 = ((j & 272631828) > 0L ? 1 : ((j & 272631828) == 0L ? 0 : -1));
+            if (i11 != 0) {
+            }
+            str20 = null;
+            if ((j & 268566544) != 0) {
+            }
+            if ((j & 269488152) != 0) {
+            }
+            str23 = null;
+            if ((j & 285212752) != 0) {
+            }
+            str7 = str19;
+            i = i6;
+            i4 = i8;
+            z2 = z10;
+            str10 = str13;
+            i3 = i10;
+            z5 = z11;
+            str8 = str14;
+            str4 = str17;
+            str3 = null;
+            str9 = str23;
+            i2 = i5;
+            z4 = z7;
+            str2 = str22;
+            f2 = f3;
+            f = f4;
+            z = z12;
+            str6 = str21;
+            z3 = z9;
+            str5 = str15;
+        } else {
+            f = 0.0f;
+            f2 = 0.0f;
+            i = 0;
+            z = false;
+            z2 = false;
+            z3 = false;
+            z4 = false;
+            i2 = 0;
+            i3 = 0;
+            i4 = 0;
+            z5 = false;
+            str = null;
+            str2 = null;
+            str3 = null;
+            str4 = null;
+            str5 = null;
+            str6 = null;
+            str7 = null;
+            str8 = null;
+            str9 = null;
+            str10 = null;
+        }
+        int i16 = ((j & 301989920) > 0L ? 1 : ((j & 301989920) == 0L ? 0 : -1));
+        String str26 = (i16 == 0 || mappingObject2 == null) ? null : mappingObject2.getStr();
+        if ((j & 268566544) != 0) {
+            z6 = z4;
+            TextViewBindingAdapter.setText(this.decodeRs232BaudValue, str);
+        } else {
+            z6 = z4;
+        }
+        if ((j & 272631828) != 0) {
+            TextViewBindingAdapter.setText(this.decodeRs232EndianValue, str2);
+        }
+        if ((j & 268697616) != 0) {
+            CompoundButtonBindingAdapter.setChecked(this.decodeRs232InvertRadioButton, z3);
+            CompoundButtonBindingAdapter.setChecked(this.decodeRs232NegativeRadioButton, z2);
+        }
+        if ((268436481 & j) != 0) {
+            TextViewBindingAdapter.setText(this.decodeRs232InvertRadioButton, str24);
+        }
+        if (i16 != 0) {
+            TextViewBindingAdapter.setText(this.decodeRs232NegativeRadioButton, str26);
+        }
+        if ((j & 268959760) != 0) {
+            CompoundButtonBindingAdapter.setChecked(this.decodeRs232PackenValue, z);
+        }
+        if ((285212752 & j) != 0) {
+            TextViewBindingAdapter.setText(this.decodeRs232PackendValue, str3);
+        }
+        if ((j & 411042320) != 0) {
+            TextViewBindingAdapter.setText(this.decodeRs232ParityValue, str4);
+        }
+        if ((j & 268443920) != 0) {
+            TextViewBindingAdapter.setText(this.decodeRs232RxValue, str5);
+        }
+        if ((j & 268443664) != 0) {
+            this.decodeRs232RxValue.setTextColor(i2);
+            this.decodeRxThresLabel.setVisibility(i);
+            this.decodeRxThresValue.setEnabled(z6);
+            this.decodeRxThresValue.setVisibility(i);
+            if (getBuildSdkInt() >= 11) {
+                this.decodeRxThresValue.setAlpha(f2);
+            }
+        }
+        if ((269488152 & j) != 0) {
+            TextViewBindingAdapter.setText(this.decodeRs232StopValue, str9);
+        }
+        if ((j & 268451858) != 0) {
+            TextViewBindingAdapter.setText(this.decodeRs232TxValue, str10);
+        }
+        if ((j & 268451856) != 0) {
+            this.decodeRs232TxValue.setTextColor(i3);
+            int i17 = i4;
+            this.decodeTxThresLabel.setVisibility(i17);
+            this.decodeTxThresValue.setEnabled(z5);
+            this.decodeTxThresValue.setVisibility(i17);
+            if (getBuildSdkInt() >= 11) {
+                this.decodeTxThresValue.setAlpha(f);
+            }
+        }
+        if ((j & 337641616) != 0) {
+            TextViewBindingAdapter.setText(this.decodeRs232WidthValue, str8);
+        }
+        if ((j & 268468240) != 0) {
+            TextViewBindingAdapter.setText(this.decodeRxThresValue, str7);
+        }
+        if ((j & 268501008) != 0) {
+            TextViewBindingAdapter.setText(this.decodeTxThresValue, str6);
+        }
     }
 }

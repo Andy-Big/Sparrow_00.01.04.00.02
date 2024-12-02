@@ -78,6 +78,7 @@ import com.rigol.util.ToastUtils;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Objects;
+
 /* loaded from: classes2.dex */
 public class FunctionManager {
     private static FunctionManager instance;
@@ -341,10 +342,9 @@ public class FunctionManager {
         return this.currentFlexKnobEnum;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.rigol.scope.utilities.FunctionManager$1  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    static /* synthetic */ class AnonymousClass1 {
         static final /* synthetic */ int[] $SwitchMap$com$rigol$scope$cil$ServiceEnum$FlexKnobEnum;
 
         static {
