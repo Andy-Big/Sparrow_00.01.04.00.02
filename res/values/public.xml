@@ -16228,4 +16228,15 @@
     <public type="xml" name="standalone_badge_offset" id="0x7f130004" />
     <public type="xml" name="util_code_provider_paths" id="0x7f130005" />
     <public type="xml" name="web_files_public" id="0x7f130006" />
+
+
+
+    <public type="id" name="probe_atten" id="0x7f0a1000" />
+    <public type="id" name="nothing_view1" id="0x7f0a1001" />
+    <public type="id" name="nothing_view2" id="0x7f0a1002" />
+
+    <public type="color" name="probe_atten_color" id="0x7f061000" />
+
+    <public type="drawable" name="bg_item_vertical_act" id="0x7f081000" />
+
 </resources>

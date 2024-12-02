@@ -2757,4 +2757,12 @@
     <item type="id" name="zoom_scale_left" />
     <item type="id" name="zoom_scale_right" />
     <item type="id" name="zoom_text" />
+    
+    
+    
+    
+    
+    <item type="id" name="probe_atten" />
+    <item type="id" name="nothing_view1" />
+    <item type="id" name="nothing_view2" />
 </resources>

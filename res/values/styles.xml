@@ -761,8 +761,12 @@
     <style name="App.Text.ResultItem" parent="@style/App.Text">
         <item name="android:textSize">14.0sp</item>
         <item name="android:textColor">#ffffffff</item>
-        <item name="android:layout_width">0.0dip</item>
-        <item name="android:layout_height">wrap_content</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:layout_height">20.0dip</item>
+        <item name="android:maxLines">1</item>
+        <item name="autoSizeMaxTextSize">12.0sp</item>
+        <item name="autoSizeMinTextSize">10.0sp</item>
+        <item name="autoSizeTextType">uniform</item>
     </style>
     <style name="App.Title" parent="@style/TextAppearance.AppCompat.Title">
         <item name="android:textSize">13.0sp</item>
@@ -784,9 +788,8 @@
         <item name="drawableTint">@android:color/white</item>
     </style>
     <style name="App.Title.ResultItem" parent="@style/App.Title">
-        <item name="android:textSize">14.0sp</item>
+        <item name="android:textSize">13.0sp</item>
         <item name="android:textColor">#ffffffff</item>
-        <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">20.0dip</item>
         <item name="android:maxLines">1</item>
         <item name="android:paddingStart">1.0dip</item>
