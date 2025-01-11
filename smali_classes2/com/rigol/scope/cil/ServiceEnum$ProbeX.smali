@@ -426,7 +426,7 @@
 
     const/16 v11, 0xf
 
-    const-string v12, "10.0"
+    const-string v12, "10"
 
     const-string v13, ""
 
@@ -447,7 +447,7 @@
 
     const/16 v4, 0x10
 
-    const-string v5, "15.0"
+    const-string v5, "15"
 
     const-string v6, ""
 
@@ -468,7 +468,7 @@
 
     const/16 v11, 0x11
 
-    const-string v12, "20.0"
+    const-string v12, "20"
 
     const-string v13, ""
 
@@ -489,7 +489,7 @@
 
     const/16 v4, 0x12
 
-    const-string v5, "50.0"
+    const-string v5, "50"
 
     const-string v6, ""
 
@@ -510,7 +510,7 @@
 
     const/16 v11, 0x13
 
-    const-string v12, "100.0"
+    const-string v12, "100"
 
     const-string v13, ""
 
@@ -531,7 +531,7 @@
 
     const/16 v4, 0x14
 
-    const-string v5, "150.0"
+    const-string v5, "150"
 
     const-string v6, ""
 
@@ -552,7 +552,7 @@
 
     const/16 v11, 0x15
 
-    const-string v12, "200.0"
+    const-string v12, "200"
 
     const-string v13, ""
 
@@ -573,7 +573,7 @@
 
     const/16 v4, 0x16
 
-    const-string v5, "500.0"
+    const-string v5, "500"
 
     const-string v6, ""
 
@@ -594,7 +594,7 @@
 
     const/16 v11, 0x17
 
-    const-string v12, "1000.0"
+    const-string v12, "1000"
 
     const-string v13, ""
 
@@ -615,7 +615,7 @@
 
     const/16 v4, 0x18
 
-    const-string v5, "1500.0"
+    const-string v5, "1500"
 
     const-string v6, ""
 
@@ -636,7 +636,7 @@
 
     const/16 v11, 0x19
 
-    const-string v12, "2000.0"
+    const-string v12, "2000"
 
     const-string v13, ""
 
@@ -657,7 +657,7 @@
 
     const/16 v4, 0x1a
 
-    const-string v5, "5000.0"
+    const-string v5, "5000"
 
     const-string v6, ""
 
@@ -678,7 +678,7 @@
 
     const/16 v11, 0x1b
 
-    const-string v12, "10000.0"
+    const-string v12, "10000"
 
     const-string v13, ""
 
@@ -699,7 +699,7 @@
 
     const/16 v4, 0x1c
 
-    const-string v5, "15000.0"
+    const-string v5, "15000"
 
     const-string v6, ""
 
@@ -720,7 +720,7 @@
 
     const/16 v11, 0x1d
 
-    const-string v12, "20000.0"
+    const-string v12, "20000"
 
     const-string v13, ""
 
@@ -741,7 +741,7 @@
 
     const/16 v4, 0x1e
 
-    const-string v5, "50000.0"
+    const-string v5, "50000"
 
     const-string v6, ""
 

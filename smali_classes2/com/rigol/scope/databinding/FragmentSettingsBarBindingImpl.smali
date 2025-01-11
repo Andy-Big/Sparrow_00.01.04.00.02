@@ -713,6 +713,7 @@
     return p1
 .end method
 
+
 .method private onChangeLaParam(Lcom/rigol/scope/data/LaParam;I)Z
     .locals 4
 
@@ -2633,6 +2634,11 @@
     cmp-long v0, v21, v28
 
     if-eqz v0, :cond_5e
+
+
+# changed added
+    const/4 v12, 0x1
+# /changed
 
     .line 819
     iget-object v0, v1, Lcom/rigol/scope/databinding/FragmentSettingsBarBindingImpl;->date:Landroid/widget/TextView;

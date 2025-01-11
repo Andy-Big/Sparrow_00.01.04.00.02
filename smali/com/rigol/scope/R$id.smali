@@ -5945,6 +5945,18 @@
 .field public static final zoom_text:I = 0x7f0a0b94
 
 
+
+
+
+.field public static final probe_atten:I = 0x7f0a1000
+
+.field public static final nothing_view1:I = 0x7f0a1001
+.field public static final nothing_view2:I = 0x7f0a1002
+
+
+
+
+
 # direct methods
 .method private constructor <init>()V
     .locals 0

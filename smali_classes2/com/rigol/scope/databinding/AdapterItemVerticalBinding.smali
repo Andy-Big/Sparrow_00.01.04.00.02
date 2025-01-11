@@ -61,6 +61,7 @@
     .line 58
     iput-object p11, p0, Lcom/rigol/scope/databinding/AdapterItemVerticalBinding;->title:Landroid/widget/TextView;
 
+
 # changed added
     iput-object p12, p0, Lcom/rigol/scope/databinding/AdapterItemVerticalBinding;->probe_atten:Landroid/widget/TextView;
 
