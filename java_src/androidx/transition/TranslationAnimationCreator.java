@@ -7,10 +7,10 @@ import android.animation.PropertyValuesHolder;
 import android.animation.TimeInterpolator;
 import android.view.View;
 import androidx.transition.Transition;
+
 /* loaded from: classes.dex */
 class TranslationAnimationCreator {
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static Animator createAnimation(View view, TransitionValues transitionValues, int i, int i2, float f, float f2, float f3, float f4, TimeInterpolator timeInterpolator, Transition transition) {
+    static Animator createAnimation(View view, TransitionValues transitionValues, int i, int i2, float f, float f2, float f3, float f4, TimeInterpolator timeInterpolator, Transition transition) {
         float f5;
         float f6;
         float translationX = view.getTranslationX();

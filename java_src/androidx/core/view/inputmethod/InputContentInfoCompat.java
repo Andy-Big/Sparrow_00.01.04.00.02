@@ -4,6 +4,7 @@ import android.content.ClipDescription;
 import android.net.Uri;
 import android.os.Build;
 import android.view.inputmethod.InputContentInfo;
+
 /* loaded from: classes.dex */
 public final class InputContentInfoCompat {
     private final InputContentInfoCompatImpl mImpl;

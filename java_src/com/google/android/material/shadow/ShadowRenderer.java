@@ -11,6 +11,7 @@ import android.graphics.Region;
 import android.graphics.Shader;
 import androidx.core.graphics.ColorUtils;
 import androidx.core.view.ViewCompat;
+
 /* loaded from: classes.dex */
 public class ShadowRenderer {
     private static final int COLOR_ALPHA_END = 0;

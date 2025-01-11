@@ -5,6 +5,7 @@ import java.io.ObjectStreamClass;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
+
 /* loaded from: classes.dex */
 public abstract class UnsafeAllocator {
     public abstract <T> T newInstance(Class<T> cls) throws Exception;
@@ -39,21 +40,21 @@ public abstract class UnsafeAllocator {
                         }
                     };
                 } catch (Exception unused2) {
-                    return new UnsafeAllocator() { // from class: com.google.gson.internal.UnsafeAllocator.4
+                    final Method declaredMethod3 = ObjectInputStream.class.getDeclaredMethod("newInstance", Class.class, Class.class);
+                    declaredMethod3.setAccessible(true);
+                    return new UnsafeAllocator() { // from class: com.google.gson.internal.UnsafeAllocator.3
                         @Override // com.google.gson.internal.UnsafeAllocator
-                        public <T> T newInstance(Class<T> cls2) {
-                            throw new UnsupportedOperationException("Cannot allocate " + cls2);
+                        public <T> T newInstance(Class<T> cls2) throws Exception {
+                            assertInstantiable(cls2);
+                            return (T) declaredMethod3.invoke(null, cls2, Object.class);
                         }
                     };
                 }
             } catch (Exception unused3) {
-                final Method declaredMethod3 = ObjectInputStream.class.getDeclaredMethod("newInstance", Class.class, Class.class);
-                declaredMethod3.setAccessible(true);
-                return new UnsafeAllocator() { // from class: com.google.gson.internal.UnsafeAllocator.3
+                return new UnsafeAllocator() { // from class: com.google.gson.internal.UnsafeAllocator.4
                     @Override // com.google.gson.internal.UnsafeAllocator
-                    public <T> T newInstance(Class<T> cls2) throws Exception {
-                        assertInstantiable(cls2);
-                        return (T) declaredMethod3.invoke(null, cls2, Object.class);
+                    public <T> T newInstance(Class<T> cls2) {
+                        throw new UnsupportedOperationException("Cannot allocate " + cls2);
                     }
                 };
             }

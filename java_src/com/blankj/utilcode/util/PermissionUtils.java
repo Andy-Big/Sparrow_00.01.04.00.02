@@ -22,6 +22,7 @@ import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
+
 /* loaded from: classes.dex */
 public final class PermissionUtils {
     private static PermissionUtils sInstance;
@@ -359,9 +360,8 @@ public final class PermissionUtils {
         requestCallback();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static final class PermissionActivityImpl extends UtilsTransActivity.TransActivityDelegate {
+    static final class PermissionActivityImpl extends UtilsTransActivity.TransActivityDelegate {
         private static PermissionActivityImpl INSTANCE = new PermissionActivityImpl();
         private static final String TYPE = "TYPE";
         private static final int TYPE_DRAW_OVERLAYS = 3;
@@ -374,6 +374,7 @@ public final class PermissionUtils {
 
         public static void start(final int i) {
             UtilsTransActivity.start(new Utils.Consumer<Intent>() { // from class: com.blankj.utilcode.util.PermissionUtils.PermissionActivityImpl.1
+                /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.blankj.utilcode.util.Utils.Consumer
                 public void accept(Intent intent) {
                     intent.putExtra(PermissionActivityImpl.TYPE, i);

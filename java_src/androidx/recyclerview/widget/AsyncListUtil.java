@@ -5,6 +5,7 @@ import android.util.SparseBooleanArray;
 import android.util.SparseIntArray;
 import androidx.recyclerview.widget.ThreadUtil;
 import androidx.recyclerview.widget.TileList;
+
 /* loaded from: classes.dex */
 public class AsyncListUtil<T> {
     static final boolean DEBUG = false;

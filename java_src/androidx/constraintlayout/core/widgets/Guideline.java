@@ -5,6 +5,7 @@ import androidx.constraintlayout.core.SolverVariable;
 import androidx.constraintlayout.core.widgets.ConstraintAnchor;
 import androidx.constraintlayout.core.widgets.ConstraintWidget;
 import java.util.HashMap;
+
 /* loaded from: classes.dex */
 public class Guideline extends ConstraintWidget {
     public static final int HORIZONTAL = 0;

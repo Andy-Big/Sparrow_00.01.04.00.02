@@ -6,13 +6,12 @@ import android.view.MenuItem;
 import android.view.SubMenu;
 import android.view.View;
 import androidx.core.internal.view.SupportSubMenu;
-/* JADX INFO: Access modifiers changed from: package-private */
+
 /* loaded from: classes.dex */
-public class SubMenuWrapperICS extends MenuWrapperICS implements SubMenu {
+class SubMenuWrapperICS extends MenuWrapperICS implements SubMenu {
     private final SupportSubMenu mSubMenu;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public SubMenuWrapperICS(Context context, SupportSubMenu supportSubMenu) {
+    SubMenuWrapperICS(Context context, SupportSubMenu supportSubMenu) {
         super(context, supportSubMenu);
         this.mSubMenu = supportSubMenu;
     }

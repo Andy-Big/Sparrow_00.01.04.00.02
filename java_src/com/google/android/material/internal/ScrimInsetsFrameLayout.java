@@ -12,6 +12,7 @@ import androidx.core.view.OnApplyWindowInsetsListener;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import com.google.android.material.R;
+
 /* loaded from: classes.dex */
 public class ScrimInsetsFrameLayout extends FrameLayout {
     private boolean drawBottomInsetForeground;
@@ -96,9 +97,8 @@ public class ScrimInsetsFrameLayout extends FrameLayout {
         canvas.restoreToCount(save);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.view.ViewGroup, android.view.View
-    public void onAttachedToWindow() {
+    protected void onAttachedToWindow() {
         super.onAttachedToWindow();
         Drawable drawable = this.insetForeground;
         if (drawable != null) {
@@ -106,9 +106,8 @@ public class ScrimInsetsFrameLayout extends FrameLayout {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.view.ViewGroup, android.view.View
-    public void onDetachedFromWindow() {
+    protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
         Drawable drawable = this.insetForeground;
         if (drawable != null) {

@@ -7,6 +7,7 @@ import android.os.Build;
 import android.util.Log;
 import android.widget.CompoundButton;
 import java.lang.reflect.Field;
+
 /* loaded from: classes.dex */
 public final class CompoundButtonCompat {
     private static final String TAG = "CompoundButtonCompat";

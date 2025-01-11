@@ -8,6 +8,7 @@ import android.os.Build;
 import com.google.android.material.shape.ShapeAppearanceModel;
 import com.google.android.material.shape.ShapeAppearancePathProvider;
 import com.google.android.material.transition.platform.MaterialContainerTransform;
+
 /* loaded from: classes.dex */
 class MaskEvaluator {
     private ShapeAppearanceModel currentShapeAppearanceModel;
@@ -16,8 +17,10 @@ class MaskEvaluator {
     private final Path endPath = new Path();
     private final ShapeAppearancePathProvider pathProvider = new ShapeAppearancePathProvider();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void evaluate(float f, ShapeAppearanceModel shapeAppearanceModel, ShapeAppearanceModel shapeAppearanceModel2, RectF rectF, RectF rectF2, RectF rectF3, MaterialContainerTransform.ProgressThresholds progressThresholds) {
+    MaskEvaluator() {
+    }
+
+    void evaluate(float f, ShapeAppearanceModel shapeAppearanceModel, ShapeAppearanceModel shapeAppearanceModel2, RectF rectF, RectF rectF2, RectF rectF3, MaterialContainerTransform.ProgressThresholds progressThresholds) {
         ShapeAppearanceModel lerp = TransitionUtils.lerp(shapeAppearanceModel, shapeAppearanceModel2, rectF, rectF3, progressThresholds.getStart(), progressThresholds.getEnd(), f);
         this.currentShapeAppearanceModel = lerp;
         this.pathProvider.calculatePath(lerp, 1.0f, rectF2, this.startPath);
@@ -27,8 +30,7 @@ class MaskEvaluator {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void clip(Canvas canvas) {
+    void clip(Canvas canvas) {
         if (Build.VERSION.SDK_INT >= 23) {
             canvas.clipPath(this.path);
             return;
@@ -37,13 +39,11 @@ class MaskEvaluator {
         canvas.clipPath(this.endPath, Region.Op.UNION);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public Path getPath() {
+    Path getPath() {
         return this.path;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ShapeAppearanceModel getCurrentShapeAppearanceModel() {
+    ShapeAppearanceModel getCurrentShapeAppearanceModel() {
         return this.currentShapeAppearanceModel;
     }
 }

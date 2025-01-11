@@ -1,6 +1,7 @@
 package androidx.constraintlayout.motion.utils;
 
 import java.util.Arrays;
+
 /* loaded from: classes.dex */
 public class Oscillator {
     public static final int BOUNCE = 6;

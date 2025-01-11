@@ -4,6 +4,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.util.Property;
 import java.util.WeakHashMap;
+
 /* loaded from: classes.dex */
 public class DrawableAlphaProperty extends Property<Drawable, Integer> {
     public static final Property<Drawable, Integer> DRAWABLE_ALPHA_COMPAT = new DrawableAlphaProperty();
@@ -14,6 +15,7 @@ public class DrawableAlphaProperty extends Property<Drawable, Integer> {
         this.alphaCache = new WeakHashMap<>();
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // android.util.Property
     public Integer get(Drawable drawable) {
         if (Build.VERSION.SDK_INT >= 19) {
@@ -25,6 +27,7 @@ public class DrawableAlphaProperty extends Property<Drawable, Integer> {
         return 255;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // android.util.Property
     public void set(Drawable drawable, Integer num) {
         if (Build.VERSION.SDK_INT < 19) {

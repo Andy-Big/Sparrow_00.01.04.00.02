@@ -12,6 +12,7 @@ import androidx.core.content.res.TypedArrayUtils;
 import androidx.transition.Transition;
 import java.util.ArrayList;
 import java.util.Iterator;
+
 /* loaded from: classes.dex */
 public class TransitionSet extends Transition {
     private static final int FLAG_CHANGE_EPICENTER = 8;
@@ -105,6 +106,7 @@ public class TransitionSet extends Transition {
         return this.mTransitions.get(i);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.transition.Transition
     public TransitionSet setDuration(long j) {
         ArrayList<Transition> arrayList;
@@ -118,11 +120,13 @@ public class TransitionSet extends Transition {
         return this;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.transition.Transition
     public TransitionSet setStartDelay(long j) {
         return (TransitionSet) super.setStartDelay(j);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.transition.Transition
     public TransitionSet setInterpolator(TimeInterpolator timeInterpolator) {
         this.mChangeFlags |= 1;
@@ -136,6 +140,7 @@ public class TransitionSet extends Transition {
         return (TransitionSet) super.setInterpolator(timeInterpolator);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.transition.Transition
     public TransitionSet addTarget(View view) {
         for (int i = 0; i < this.mTransitions.size(); i++) {
@@ -144,6 +149,7 @@ public class TransitionSet extends Transition {
         return (TransitionSet) super.addTarget(view);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.transition.Transition
     public TransitionSet addTarget(int i) {
         for (int i2 = 0; i2 < this.mTransitions.size(); i2++) {
@@ -152,6 +158,7 @@ public class TransitionSet extends Transition {
         return (TransitionSet) super.addTarget(i);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.transition.Transition
     public TransitionSet addTarget(String str) {
         for (int i = 0; i < this.mTransitions.size(); i++) {
@@ -168,11 +175,13 @@ public class TransitionSet extends Transition {
         return (TransitionSet) super.addTarget(cls);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.transition.Transition
     public TransitionSet addListener(Transition.TransitionListener transitionListener) {
         return (TransitionSet) super.addListener(transitionListener);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.transition.Transition
     public TransitionSet removeTarget(int i) {
         for (int i2 = 0; i2 < this.mTransitions.size(); i2++) {
@@ -181,6 +190,7 @@ public class TransitionSet extends Transition {
         return (TransitionSet) super.removeTarget(i);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.transition.Transition
     public TransitionSet removeTarget(View view) {
         for (int i = 0; i < this.mTransitions.size(); i++) {
@@ -197,6 +207,7 @@ public class TransitionSet extends Transition {
         return (TransitionSet) super.removeTarget(cls);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.transition.Transition
     public TransitionSet removeTarget(String str) {
         for (int i = 0; i < this.mTransitions.size(); i++) {
@@ -237,6 +248,7 @@ public class TransitionSet extends Transition {
         return super.excludeTarget(cls, z);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.transition.Transition
     public TransitionSet removeListener(Transition.TransitionListener transitionListener) {
         return (TransitionSet) super.removeListener(transitionListener);
@@ -268,9 +280,8 @@ public class TransitionSet extends Transition {
         this.mCurrentListeners = this.mTransitions.size();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static class TransitionSetListener extends TransitionListenerAdapter {
+    static class TransitionSetListener extends TransitionListenerAdapter {
         TransitionSet mTransitionSet;
 
         TransitionSetListener(TransitionSet transitionSet) {
@@ -298,9 +309,8 @@ public class TransitionSet extends Transition {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // androidx.transition.Transition
-    public void createAnimators(ViewGroup viewGroup, TransitionValuesMaps transitionValuesMaps, TransitionValuesMaps transitionValuesMaps2, ArrayList<TransitionValues> arrayList, ArrayList<TransitionValues> arrayList2) {
+    protected void createAnimators(ViewGroup viewGroup, TransitionValuesMaps transitionValuesMaps, TransitionValuesMaps transitionValuesMaps2, ArrayList<TransitionValues> arrayList, ArrayList<TransitionValues> arrayList2) {
         long startDelay = getStartDelay();
         int size = this.mTransitions.size();
         for (int i = 0; i < size; i++) {
@@ -317,9 +327,8 @@ public class TransitionSet extends Transition {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // androidx.transition.Transition
-    public void runAnimators() {
+    protected void runAnimators() {
         if (this.mTransitions.isEmpty()) {
             start();
             end();
@@ -378,9 +387,8 @@ public class TransitionSet extends Transition {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     @Override // androidx.transition.Transition
-    public void capturePropagationValues(TransitionValues transitionValues) {
+    void capturePropagationValues(TransitionValues transitionValues) {
         super.capturePropagationValues(transitionValues);
         int size = this.mTransitions.size();
         for (int i = 0; i < size; i++) {
@@ -406,9 +414,8 @@ public class TransitionSet extends Transition {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // androidx.transition.Transition
-    public void cancel() {
+    protected void cancel() {
         super.cancel();
         int size = this.mTransitions.size();
         for (int i = 0; i < size; i++) {
@@ -416,9 +423,8 @@ public class TransitionSet extends Transition {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     @Override // androidx.transition.Transition
-    public void forceToEnd(ViewGroup viewGroup) {
+    void forceToEnd(ViewGroup viewGroup) {
         super.forceToEnd(viewGroup);
         int size = this.mTransitions.size();
         for (int i = 0; i < size; i++) {
@@ -426,6 +432,7 @@ public class TransitionSet extends Transition {
         }
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // androidx.transition.Transition
     public TransitionSet setSceneRoot(ViewGroup viewGroup) {
@@ -437,9 +444,8 @@ public class TransitionSet extends Transition {
         return this;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     @Override // androidx.transition.Transition
-    public void setCanRemoveViews(boolean z) {
+    void setCanRemoveViews(boolean z) {
         super.setCanRemoveViews(z);
         int size = this.mTransitions.size();
         for (int i = 0; i < size; i++) {
@@ -467,9 +473,8 @@ public class TransitionSet extends Transition {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     @Override // androidx.transition.Transition
-    public String toString(String str) {
+    String toString(String str) {
         String transition = super.toString(str);
         for (int i = 0; i < this.mTransitions.size(); i++) {
             StringBuilder sb = new StringBuilder();
@@ -481,6 +486,7 @@ public class TransitionSet extends Transition {
         return transition;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.transition.Transition
     /* renamed from: clone */
     public Transition mo7clone() {

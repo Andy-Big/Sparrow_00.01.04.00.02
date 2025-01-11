@@ -10,6 +10,7 @@ import android.support.v4.media.MediaMetadataCompat;
 import android.support.v4.media.session.MediaSessionCompat;
 import android.text.TextUtils;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public interface IMediaControllerCallback extends IInterface {
     void onCaptioningEnabledChanged(boolean z) throws RemoteException;

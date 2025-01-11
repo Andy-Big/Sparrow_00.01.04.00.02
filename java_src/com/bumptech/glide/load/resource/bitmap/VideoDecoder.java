@@ -15,6 +15,7 @@ import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.security.MessageDigest;
+
 /* loaded from: classes.dex */
 public class VideoDecoder<T> implements ResourceDecoder<T, Bitmap> {
     public static final long DEFAULT_FRAME = -1;
@@ -26,6 +27,7 @@ public class VideoDecoder<T> implements ResourceDecoder<T, Bitmap> {
     public static final Option<Long> TARGET_FRAME = Option.disk("com.bumptech.glide.load.resource.bitmap.VideoBitmapDecode.TargetFrame", -1L, new Option.CacheKeyUpdater<Long>() { // from class: com.bumptech.glide.load.resource.bitmap.VideoDecoder.1
         private final ByteBuffer buffer = ByteBuffer.allocate(8);
 
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // com.bumptech.glide.load.Option.CacheKeyUpdater
         public void update(byte[] bArr, Long l, MessageDigest messageDigest) {
             messageDigest.update(bArr);
@@ -38,6 +40,7 @@ public class VideoDecoder<T> implements ResourceDecoder<T, Bitmap> {
     public static final Option<Integer> FRAME_OPTION = Option.disk("com.bumptech.glide.load.resource.bitmap.VideoBitmapDecode.FrameOption", 2, new Option.CacheKeyUpdater<Integer>() { // from class: com.bumptech.glide.load.resource.bitmap.VideoDecoder.2
         private final ByteBuffer buffer = ByteBuffer.allocate(4);
 
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // com.bumptech.glide.load.Option.CacheKeyUpdater
         public void update(byte[] bArr, Integer num, MessageDigest messageDigest) {
             if (num == null) {
@@ -52,9 +55,8 @@ public class VideoDecoder<T> implements ResourceDecoder<T, Bitmap> {
     });
     private static final MediaMetadataRetrieverFactory DEFAULT_FACTORY = new MediaMetadataRetrieverFactory();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public interface MediaMetadataRetrieverInitializer<T> {
+    interface MediaMetadataRetrieverInitializer<T> {
         void initialize(MediaMetadataRetriever mediaMetadataRetriever, T t);
     }
 
@@ -75,8 +77,7 @@ public class VideoDecoder<T> implements ResourceDecoder<T, Bitmap> {
         return new VideoDecoder(bitmapPool, new ByteBufferInitializer());
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public VideoDecoder(BitmapPool bitmapPool, MediaMetadataRetrieverInitializer<T> mediaMetadataRetrieverInitializer) {
+    VideoDecoder(BitmapPool bitmapPool, MediaMetadataRetrieverInitializer<T> mediaMetadataRetrieverInitializer) {
         this(bitmapPool, mediaMetadataRetrieverInitializer, DEFAULT_FACTORY);
     }
 
@@ -156,33 +157,36 @@ public class VideoDecoder<T> implements ResourceDecoder<T, Bitmap> {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static final class AssetFileDescriptorInitializer implements MediaMetadataRetrieverInitializer<AssetFileDescriptor> {
+    private static final class AssetFileDescriptorInitializer implements MediaMetadataRetrieverInitializer<AssetFileDescriptor> {
         private AssetFileDescriptorInitializer() {
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // com.bumptech.glide.load.resource.bitmap.VideoDecoder.MediaMetadataRetrieverInitializer
         public void initialize(MediaMetadataRetriever mediaMetadataRetriever, AssetFileDescriptor assetFileDescriptor) {
             mediaMetadataRetriever.setDataSource(assetFileDescriptor.getFileDescriptor(), assetFileDescriptor.getStartOffset(), assetFileDescriptor.getLength());
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static final class ParcelFileDescriptorInitializer implements MediaMetadataRetrieverInitializer<ParcelFileDescriptor> {
+    static final class ParcelFileDescriptorInitializer implements MediaMetadataRetrieverInitializer<ParcelFileDescriptor> {
+        ParcelFileDescriptorInitializer() {
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // com.bumptech.glide.load.resource.bitmap.VideoDecoder.MediaMetadataRetrieverInitializer
         public void initialize(MediaMetadataRetriever mediaMetadataRetriever, ParcelFileDescriptor parcelFileDescriptor) {
             mediaMetadataRetriever.setDataSource(parcelFileDescriptor.getFileDescriptor());
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static final class ByteBufferInitializer implements MediaMetadataRetrieverInitializer<ByteBuffer> {
+    static final class ByteBufferInitializer implements MediaMetadataRetrieverInitializer<ByteBuffer> {
         ByteBufferInitializer() {
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // com.bumptech.glide.load.resource.bitmap.VideoDecoder.MediaMetadataRetrieverInitializer
         public void initialize(MediaMetadataRetriever mediaMetadataRetriever, final ByteBuffer byteBuffer) {
             mediaMetadataRetriever.setDataSource(new MediaDataSource() { // from class: com.bumptech.glide.load.resource.bitmap.VideoDecoder.ByteBufferInitializer.1

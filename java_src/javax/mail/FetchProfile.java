@@ -1,6 +1,7 @@
 package javax.mail;
 
 import java.util.Vector;
+
 /* loaded from: classes2.dex */
 public class FetchProfile {
     private Vector<Item> specials = null;
@@ -14,8 +15,7 @@ public class FetchProfile {
         public static final Item SIZE = new Item("SIZE");
         public static final Item FLAGS = new Item("FLAGS");
 
-        /* JADX INFO: Access modifiers changed from: protected */
-        public Item(String str) {
+        protected Item(String str) {
             this.name = str;
         }
 

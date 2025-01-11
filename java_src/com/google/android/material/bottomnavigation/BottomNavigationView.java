@@ -33,6 +33,7 @@ import com.google.android.material.ripple.RippleUtils;
 import com.google.android.material.shape.MaterialShapeDrawable;
 import com.google.android.material.shape.MaterialShapeUtils;
 import com.google.android.material.theme.overlay.MaterialThemeOverlay;
+
 /* loaded from: classes.dex */
 public class BottomNavigationView extends FrameLayout {
     private static final int DEF_STYLE_RES = R.style.Widget_Design_BottomNavigationView;
@@ -361,21 +362,23 @@ public class BottomNavigationView extends FrameLayout {
         this.menu.restorePresenterStates(savedState.menuPresenterState);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static class SavedState extends AbsSavedState {
+    static class SavedState extends AbsSavedState {
         public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.ClassLoaderCreator<SavedState>() { // from class: com.google.android.material.bottomnavigation.BottomNavigationView.SavedState.1
+            /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.ClassLoaderCreator
             public SavedState createFromParcel(Parcel parcel, ClassLoader classLoader) {
                 return new SavedState(parcel, classLoader);
             }
 
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // android.os.Parcelable.Creator
             public SavedState createFromParcel(Parcel parcel) {
                 return new SavedState(parcel, null);
             }
 
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // android.os.Parcelable.Creator
             public SavedState[] newArray(int i) {
                 return new SavedState[i];

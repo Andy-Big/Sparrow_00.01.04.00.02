@@ -16,6 +16,7 @@ import java.net.HttpURLConnection;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.Map;
+
 /* loaded from: classes.dex */
 public class HttpUrlFetcher implements DataFetcher<InputStream> {
     static final HttpUrlConnectionFactory DEFAULT_CONNECTION_FACTORY = new DefaultHttpUrlConnectionFactory();
@@ -29,9 +30,8 @@ public class HttpUrlFetcher implements DataFetcher<InputStream> {
     private final int timeout;
     private HttpURLConnection urlConnection;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public interface HttpUrlConnectionFactory {
+    interface HttpUrlConnectionFactory {
         HttpURLConnection build(URL url) throws IOException;
     }
 

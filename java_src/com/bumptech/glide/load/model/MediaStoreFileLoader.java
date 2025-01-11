@@ -13,6 +13,7 @@ import com.bumptech.glide.load.model.ModelLoader;
 import com.bumptech.glide.signature.ObjectKey;
 import java.io.File;
 import java.io.FileNotFoundException;
+
 /* loaded from: classes.dex */
 public final class MediaStoreFileLoader implements ModelLoader<Uri, File> {
     private final Context context;
@@ -21,19 +22,20 @@ public final class MediaStoreFileLoader implements ModelLoader<Uri, File> {
         this.context = context;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.model.ModelLoader
     public ModelLoader.LoadData<File> buildLoadData(Uri uri, int i, int i2, Options options) {
         return new ModelLoader.LoadData<>(new ObjectKey(uri), new FilePathFetcher(this.context, uri));
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.model.ModelLoader
     public boolean handles(Uri uri) {
         return MediaStoreUtil.isMediaStoreUri(uri);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static class FilePathFetcher implements DataFetcher<File> {
+    private static class FilePathFetcher implements DataFetcher<File> {
         private static final String[] PROJECTION = {"_data"};
         private final Context context;
         private final Uri uri;

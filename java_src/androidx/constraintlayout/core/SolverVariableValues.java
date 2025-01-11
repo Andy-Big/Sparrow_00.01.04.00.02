@@ -3,6 +3,7 @@ package androidx.constraintlayout.core;
 import androidx.constraintlayout.core.ArrayRow;
 import java.io.PrintStream;
 import java.util.Arrays;
+
 /* loaded from: classes.dex */
 public class SolverVariableValues implements ArrayRow.ArrayRowVariables {
     private static final boolean DEBUG = false;
@@ -27,8 +28,7 @@ public class SolverVariableValues implements ArrayRow.ArrayRowVariables {
         return 0;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public SolverVariableValues(ArrayRow arrayRow, Cache cache) {
+    SolverVariableValues(ArrayRow arrayRow, Cache cache) {
         this.mRow = arrayRow;
         this.mCache = cache;
         clear();

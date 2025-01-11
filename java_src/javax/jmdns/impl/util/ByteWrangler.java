@@ -7,6 +7,7 @@ import java.nio.charset.Charset;
 import java.util.Map;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 /* loaded from: classes2.dex */
 public class ByteWrangler {
     public static final String CHARSET_NAME = "UTF-8";

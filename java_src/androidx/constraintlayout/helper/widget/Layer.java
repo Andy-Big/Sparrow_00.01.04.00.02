@@ -9,6 +9,7 @@ import androidx.constraintlayout.core.widgets.ConstraintWidget;
 import androidx.constraintlayout.widget.ConstraintHelper;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.R;
+
 /* loaded from: classes.dex */
 public class Layer extends ConstraintHelper {
     private static final String TAG = "Layer";
@@ -88,9 +89,8 @@ public class Layer extends ConstraintHelper {
         this.mShiftY = 0.0f;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // androidx.constraintlayout.widget.ConstraintHelper
-    public void init(AttributeSet attributeSet) {
+    protected void init(AttributeSet attributeSet) {
         super.init(attributeSet);
         this.mUseViewMeasure = false;
         if (attributeSet != null) {
@@ -108,9 +108,8 @@ public class Layer extends ConstraintHelper {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // androidx.constraintlayout.widget.ConstraintHelper, android.view.View
-    public void onAttachedToWindow() {
+    protected void onAttachedToWindow() {
         super.onAttachedToWindow();
         this.mContainer = (ConstraintLayout) getParent();
         if (this.mApplyVisibilityOnAttach || this.mApplyElevationOnAttach) {

@@ -7,10 +7,12 @@ import com.bumptech.glide.load.model.ModelLoaderFactory;
 import com.bumptech.glide.load.model.MultiModelLoaderFactory;
 import java.io.InputStream;
 import java.net.URL;
+
 /* loaded from: classes.dex */
 public class UrlLoader implements ModelLoader<URL, InputStream> {
     private final ModelLoader<GlideUrl, InputStream> glideUrlLoader;
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.model.ModelLoader
     public boolean handles(URL url) {
         return true;
@@ -20,6 +22,7 @@ public class UrlLoader implements ModelLoader<URL, InputStream> {
         this.glideUrlLoader = modelLoader;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.model.ModelLoader
     public ModelLoader.LoadData<InputStream> buildLoadData(URL url, int i, int i2, Options options) {
         return this.glideUrlLoader.buildLoadData(new GlideUrl(url), i, i2, options);

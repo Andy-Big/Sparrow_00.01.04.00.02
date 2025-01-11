@@ -8,6 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Arrays;
 import java.util.Iterator;
+
 /* loaded from: classes2.dex */
 public final class CSVPrinter implements Flushable, Closeable {
     private final CSVFormat format;

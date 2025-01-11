@@ -5,6 +5,7 @@ import android.util.TypedValue;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+
 /* loaded from: classes.dex */
 public class Util {
     private static final int DEFAULT_BUFFER_SIZE = 4096;

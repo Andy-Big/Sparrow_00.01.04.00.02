@@ -5,6 +5,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.URL;
 import java.net.URLConnection;
+
 /* loaded from: classes2.dex */
 public class URLDataSource implements DataSource {
     private URL url;

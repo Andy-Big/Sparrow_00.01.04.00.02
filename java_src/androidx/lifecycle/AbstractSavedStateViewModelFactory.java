@@ -4,6 +4,7 @@ import android.os.Bundle;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.savedstate.SavedStateRegistry;
 import androidx.savedstate.SavedStateRegistryOwner;
+
 /* loaded from: classes.dex */
 public abstract class AbstractSavedStateViewModelFactory extends ViewModelProvider.KeyedFactory {
     static final String TAG_SAVED_STATE_HANDLE_CONTROLLER = "androidx.lifecycle.savedstate.vm.tag";

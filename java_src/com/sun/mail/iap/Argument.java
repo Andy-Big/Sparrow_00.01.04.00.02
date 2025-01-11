@@ -10,6 +10,7 @@ import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
 import kotlin.UByte;
+
 /* loaded from: classes2.dex */
 public class Argument {
     protected List<Object> items = new ArrayList(1);

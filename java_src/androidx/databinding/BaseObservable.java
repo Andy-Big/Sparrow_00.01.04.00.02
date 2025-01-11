@@ -1,6 +1,7 @@
 package androidx.databinding;
 
 import androidx.databinding.Observable;
+
 /* loaded from: classes.dex */
 public class BaseObservable implements Observable {
     private transient PropertyChangeRegistry mCallbacks;

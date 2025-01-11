@@ -4,6 +4,7 @@ import android.graphics.Rect;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+
 /* loaded from: classes.dex */
 class FocusStrategy {
 

@@ -1,6 +1,7 @@
 package com.sun.mail.util;
 
 import java.io.OutputStream;
+
 /* loaded from: classes2.dex */
 public class BEncoderStream extends BASE64EncoderStream {
     public BEncoderStream(OutputStream outputStream) {

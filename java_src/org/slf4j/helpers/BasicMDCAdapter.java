@@ -4,9 +4,11 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 import org.slf4j.spi.MDCAdapter;
+
 /* loaded from: classes2.dex */
 public class BasicMDCAdapter implements MDCAdapter {
     private InheritableThreadLocal<Map<String, String>> inheritableThreadLocal = new InheritableThreadLocal<Map<String, String>>() { // from class: org.slf4j.helpers.BasicMDCAdapter.1
+        /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // java.lang.InheritableThreadLocal
         public Map<String, String> childValue(Map<String, String> map) {

@@ -10,6 +10,7 @@ import kotlin.coroutines.jvm.internal.SuspendLambda;
 import kotlin.jvm.functions.Function3;
 import kotlin.jvm.functions.Function4;
 import kotlin.jvm.internal.Intrinsics;
+
 /* JADX INFO: Add missing generic type declarations: [R, T1, T2] */
 /* compiled from: Zip.kt */
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000&\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0005\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002\"\u0004\b\u0001\u0010\u0003\"\u0004\b\u0002\u0010\u0004*\b\u0012\u0004\u0012\u0002H\u00040\u00052\u0006\u0010\u0006\u001a\u0002H\u00022\u0006\u0010\u0007\u001a\u0002H\u0003H\u008a@¢\u0006\u0004\b\b\u0010\t¨\u0006\n"}, d2 = {"<anonymous>", "", "T1", "T2", "R", "Lkotlinx/coroutines/flow/FlowCollector;", ViewUtil.KEY_A, ViewUtil.KEY_B, "invoke", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "kotlinx/coroutines/flow/FlowKt__ZipKt$combine$1$1"}, k = 3, mv = {1, 1, 15})
@@ -25,9 +26,8 @@ final class FlowKt__ZipKt$combine$$inlined$unsafeFlow$1$lambda$1<R, T1, T2> exte
     private Object p$1;
     final /* synthetic */ FlowKt__ZipKt$combine$$inlined$unsafeFlow$1 this$0;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowKt__ZipKt$combine$$inlined$unsafeFlow$1$lambda$1(Continuation continuation, FlowKt__ZipKt$combine$$inlined$unsafeFlow$1 flowKt__ZipKt$combine$$inlined$unsafeFlow$1) {
+    FlowKt__ZipKt$combine$$inlined$unsafeFlow$1$lambda$1(Continuation continuation, FlowKt__ZipKt$combine$$inlined$unsafeFlow$1 flowKt__ZipKt$combine$$inlined$unsafeFlow$1) {
         super(4, continuation);
         this.this$0 = flowKt__ZipKt$combine$$inlined$unsafeFlow$1;
     }
@@ -42,6 +42,9 @@ final class FlowKt__ZipKt$combine$$inlined$unsafeFlow$1$lambda$1<R, T1, T2> exte
         return flowKt__ZipKt$combine$$inlined$unsafeFlow$1$lambda$1;
     }
 
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object] */
+    /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: java.lang.Object */
+    /* JADX DEBUG: Multi-variable search result rejected for r3v0, resolved type: java.lang.Object */
     /* JADX WARN: Multi-variable type inference failed */
     @Override // kotlin.jvm.functions.Function4
     public final Object invoke(Object obj, Object obj2, Object obj3, Continuation<? super Unit> continuation) {

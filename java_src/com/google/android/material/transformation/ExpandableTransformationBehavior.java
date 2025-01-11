@@ -6,6 +6,7 @@ import android.animation.AnimatorSet;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
+
 @Deprecated
 /* loaded from: classes.dex */
 public abstract class ExpandableTransformationBehavior extends ExpandableBehavior {
@@ -20,9 +21,8 @@ public abstract class ExpandableTransformationBehavior extends ExpandableBehavio
         super(context, attributeSet);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.google.android.material.transformation.ExpandableBehavior
-    public boolean onExpandedStateChange(View view, View view2, boolean z, boolean z2) {
+    protected boolean onExpandedStateChange(View view, View view2, boolean z, boolean z2) {
         boolean z3 = this.currentAnimation != null;
         if (z3) {
             this.currentAnimation.cancel();

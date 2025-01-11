@@ -18,6 +18,7 @@ import com.google.android.material.R;
 import com.google.android.material.internal.ManufacturerUtils;
 import com.google.android.material.internal.ThemeEnforcement;
 import com.google.android.material.theme.overlay.MaterialThemeOverlay;
+
 /* loaded from: classes.dex */
 public class TextInputEditText extends AppCompatEditText {
     private final Rect parentRect;

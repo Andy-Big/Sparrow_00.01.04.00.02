@@ -88,6 +88,36 @@ public final class IOParam extends BaseParam {
         this.manufacturer = "";
     }
 
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.data.IOParam$ipAddress$2.invoke():void] */
+    public static final /* synthetic */ String access$getIpAddress$lp(IOParam iOParam) {
+        return iOParam.ipAddress;
+    }
+
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.data.IOParam$applyMdns$$inlined$let$lambda$2.run():void] */
+    public static final /* synthetic */ NsdRegistrationListenerAdapter access$getRegisterationHttpListener$p(IOParam iOParam) {
+        return iOParam.registerationHttpListener;
+    }
+
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.data.IOParam$applyMdns$$inlined$let$lambda$3.run():void] */
+    public static final /* synthetic */ NsdRegistrationListenerAdapter access$getRegisterationLxiListener$p(IOParam iOParam) {
+        return iOParam.registerationLxiListener;
+    }
+
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.data.IOParam$applyMdns$$inlined$let$lambda$4.run():void] */
+    public static final /* synthetic */ NsdRegistrationListenerAdapter access$getRegisterationScpiListener$p(IOParam iOParam) {
+        return iOParam.registerationScpiListener;
+    }
+
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.data.IOParam$applyMdns$$inlined$let$lambda$5.run():void] */
+    public static final /* synthetic */ NsdRegistrationListenerAdapter access$getRegisterationVxiListener$p(IOParam iOParam) {
+        return iOParam.registerationVxiListener;
+    }
+
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.data.IOParam$applyMdns$$inlined$let$lambda$2.run():void, com.rigol.scope.data.IOParam$applyMdns$$inlined$let$lambda$3.run():void, com.rigol.scope.data.IOParam$applyMdns$$inlined$let$lambda$4.run():void, com.rigol.scope.data.IOParam$applyMdns$$inlined$let$lambda$5.run():void] */
+    public static final /* synthetic */ void access$setNsdServiceInfo(IOParam iOParam, NsdServiceInfo nsdServiceInfo, String str, String str2, int i) {
+        iOParam.setNsdServiceInfo(nsdServiceInfo, str, str2, i);
+    }
+
     @Bindable
     public final String getMacAddress() {
         return this.macAddress;
@@ -234,8 +264,6 @@ public final class IOParam extends BaseParam {
             /* JADX DEBUG: Possible override for method kotlin.jvm.functions.Function0.invoke()Ljava/lang/Object; */
             /* renamed from: invoke  reason: avoid collision after fix types in other method */
             public final void invoke2() {
-                String str2;
-                String str3;
                 JmDNSImpl jmDNS = IOParam.this.getJmDNS();
                 if (jmDNS != null) {
                     jmDNS.unregisterAllServices();
@@ -244,12 +272,9 @@ public final class IOParam extends BaseParam {
                 if (jmDNS2 != null) {
                     jmDNS2.close();
                 }
-                str2 = IOParam.this.ipAddress;
-                if (!Intrinsics.areEqual("0.0.0.0", str2)) {
+                if (!Intrinsics.areEqual("0.0.0.0", IOParam.access$getIpAddress$lp(IOParam.this))) {
                     try {
-                        IOParam iOParam = IOParam.this;
-                        str3 = IOParam.this.ipAddress;
-                        iOParam.setJmDNS(new JmDNSImpl(InetAddress.getByName(str3), IOParam.this.getHostName()));
+                        IOParam.this.setJmDNS(new JmDNSImpl(InetAddress.getByName(IOParam.access$getIpAddress$lp(IOParam.this)), IOParam.this.getHostName()));
                     } catch (Exception unused) {
                         JmDNSImpl jmDNS3 = IOParam.this.getJmDNS();
                         if (jmDNS3 != null) {
@@ -310,7 +335,6 @@ public final class IOParam extends BaseParam {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public final void setNsdServiceInfo(NsdServiceInfo nsdServiceInfo, String str, String str2, int i) {
         LiveData<UtilityParam> liveData;
         nsdServiceInfo.setServiceName(str);
@@ -667,49 +691,33 @@ public final class IOParam extends BaseParam {
                 ThreadUtils.runOnUiThreadDelayed(new Runnable() { // from class: com.rigol.scope.data.IOParam$applyMdns$$inlined$let$lambda$2
                     @Override // java.lang.Runnable
                     public final void run() {
-                        NsdRegistrationListenerAdapter nsdRegistrationListenerAdapter;
                         IOParam iOParam = this;
-                        iOParam.setNsdServiceInfo(nsdServiceInfo, iOParam.getServiceName(), "_http._tcp.", 80);
-                        NsdManager nsdManager2 = nsdManager;
-                        NsdServiceInfo nsdServiceInfo2 = nsdServiceInfo;
-                        nsdRegistrationListenerAdapter = this.registerationHttpListener;
-                        nsdManager2.registerService(nsdServiceInfo2, 1, nsdRegistrationListenerAdapter);
+                        IOParam.access$setNsdServiceInfo(iOParam, nsdServiceInfo, iOParam.getServiceName(), "_http._tcp.", 80);
+                        nsdManager.registerService(nsdServiceInfo, 1, IOParam.access$getRegisterationHttpListener$p(this));
                     }
                 }, 500L);
                 ThreadUtils.runOnUiThreadDelayed(new Runnable() { // from class: com.rigol.scope.data.IOParam$applyMdns$$inlined$let$lambda$3
                     @Override // java.lang.Runnable
                     public final void run() {
-                        NsdRegistrationListenerAdapter nsdRegistrationListenerAdapter;
                         IOParam iOParam = this;
-                        iOParam.setNsdServiceInfo(nsdServiceInfo, iOParam.getServiceName(), "_lxi._tcp.", 80);
-                        NsdManager nsdManager2 = nsdManager;
-                        NsdServiceInfo nsdServiceInfo2 = nsdServiceInfo;
-                        nsdRegistrationListenerAdapter = this.registerationLxiListener;
-                        nsdManager2.registerService(nsdServiceInfo2, 1, nsdRegistrationListenerAdapter);
+                        IOParam.access$setNsdServiceInfo(iOParam, nsdServiceInfo, iOParam.getServiceName(), "_lxi._tcp.", 80);
+                        nsdManager.registerService(nsdServiceInfo, 1, IOParam.access$getRegisterationLxiListener$p(this));
                     }
                 }, 500L);
                 ThreadUtils.runOnUiThreadDelayed(new Runnable() { // from class: com.rigol.scope.data.IOParam$applyMdns$$inlined$let$lambda$4
                     @Override // java.lang.Runnable
                     public final void run() {
-                        NsdRegistrationListenerAdapter nsdRegistrationListenerAdapter;
                         IOParam iOParam = this;
-                        iOParam.setNsdServiceInfo(nsdServiceInfo, iOParam.getServiceName(), "_scpi-raw._tcp.", 80);
-                        NsdManager nsdManager2 = nsdManager;
-                        NsdServiceInfo nsdServiceInfo2 = nsdServiceInfo;
-                        nsdRegistrationListenerAdapter = this.registerationScpiListener;
-                        nsdManager2.registerService(nsdServiceInfo2, 1, nsdRegistrationListenerAdapter);
+                        IOParam.access$setNsdServiceInfo(iOParam, nsdServiceInfo, iOParam.getServiceName(), "_scpi-raw._tcp.", 80);
+                        nsdManager.registerService(nsdServiceInfo, 1, IOParam.access$getRegisterationScpiListener$p(this));
                     }
                 }, 500L);
                 ThreadUtils.runOnUiThreadDelayed(new Runnable() { // from class: com.rigol.scope.data.IOParam$applyMdns$$inlined$let$lambda$5
                     @Override // java.lang.Runnable
                     public final void run() {
-                        NsdRegistrationListenerAdapter nsdRegistrationListenerAdapter;
                         IOParam iOParam = this;
-                        iOParam.setNsdServiceInfo(nsdServiceInfo, iOParam.getServiceName(), "_vxi-11._tcp.", 80);
-                        NsdManager nsdManager2 = nsdManager;
-                        NsdServiceInfo nsdServiceInfo2 = nsdServiceInfo;
-                        nsdRegistrationListenerAdapter = this.registerationVxiListener;
-                        nsdManager2.registerService(nsdServiceInfo2, 1, nsdRegistrationListenerAdapter);
+                        IOParam.access$setNsdServiceInfo(iOParam, nsdServiceInfo, iOParam.getServiceName(), "_vxi-11._tcp.", 80);
+                        nsdManager.registerService(nsdServiceInfo, 1, IOParam.access$getRegisterationVxiListener$p(this));
                     }
                 }, 500L);
                 return;

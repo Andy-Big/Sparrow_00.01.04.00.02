@@ -4,6 +4,7 @@ import android.content.ContentProvider;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.net.Uri;
+
 /* loaded from: classes.dex */
 public class ProcessLifecycleOwnerInitializer extends ContentProvider {
     @Override // android.content.ContentProvider

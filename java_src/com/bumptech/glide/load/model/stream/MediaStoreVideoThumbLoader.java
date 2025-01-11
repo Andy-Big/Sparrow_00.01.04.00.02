@@ -11,6 +11,7 @@ import com.bumptech.glide.load.model.MultiModelLoaderFactory;
 import com.bumptech.glide.load.resource.bitmap.VideoDecoder;
 import com.bumptech.glide.signature.ObjectKey;
 import java.io.InputStream;
+
 /* loaded from: classes.dex */
 public class MediaStoreVideoThumbLoader implements ModelLoader<Uri, InputStream> {
     private final Context context;
@@ -19,6 +20,7 @@ public class MediaStoreVideoThumbLoader implements ModelLoader<Uri, InputStream>
         this.context = context.getApplicationContext();
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.model.ModelLoader
     public ModelLoader.LoadData<InputStream> buildLoadData(Uri uri, int i, int i2, Options options) {
         if (MediaStoreUtil.isThumbnailSize(i, i2) && isRequestingDefaultFrame(options)) {
@@ -32,6 +34,7 @@ public class MediaStoreVideoThumbLoader implements ModelLoader<Uri, InputStream>
         return l != null && l.longValue() == -1;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.model.ModelLoader
     public boolean handles(Uri uri) {
         return MediaStoreUtil.isMediaStoreVideoUri(uri);

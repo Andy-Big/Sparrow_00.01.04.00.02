@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+
 /* loaded from: classes2.dex */
 public class BallPulseFooter extends InternalAbstract implements RefreshFooter {
     public static final int DEFAULT_SIZE = 50;

@@ -53,6 +53,7 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
 /* loaded from: classes.dex */
 public class AgentWebUtils {
     private static final String TAG = AgentWebUtils.class.getSimpleName();
@@ -68,8 +69,7 @@ public class AgentWebUtils {
         return (int) ((f * context.getResources().getDisplayMetrics().density) + 0.5f);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static final void clearWebView(WebView webView) {
+    static final void clearWebView(WebView webView) {
         if (webView != null && Looper.myLooper() == Looper.getMainLooper()) {
             webView.loadUrl("about:blank");
             webView.stopLoading();
@@ -227,8 +227,7 @@ public class AgentWebUtils {
         return lowerCase.equals("pdf") ? "application/pdf" : (lowerCase.equals("m4a") || lowerCase.equals("mp3") || lowerCase.equals("mid") || lowerCase.equals("xmf") || lowerCase.equals("ogg") || lowerCase.equals("wav")) ? "audio/*" : (lowerCase.equals("3gp") || lowerCase.equals("mp4")) ? "video/*" : (lowerCase.equals("jpg") || lowerCase.equals("gif") || lowerCase.equals("png") || lowerCase.equals("jpeg") || lowerCase.equals("bmp")) ? "image/*" : lowerCase.equals("apk") ? "application/vnd.android.package-archive" : (lowerCase.equals("pptx") || lowerCase.equals("ppt")) ? "application/vnd.ms-powerpoint" : (lowerCase.equals("docx") || lowerCase.equals("doc")) ? "application/vnd.ms-word" : (lowerCase.equals("xlsx") || lowerCase.equals("xls")) ? "application/vnd.ms-excel" : "*/*";
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static void show(View view, CharSequence charSequence, int i, int i2, int i3, CharSequence charSequence2, int i4, View.OnClickListener onClickListener) {
+    static void show(View view, CharSequence charSequence, int i, int i2, int i3, CharSequence charSequence2, int i4, View.OnClickListener onClickListener) {
         SpannableString spannableString = new SpannableString(charSequence);
         spannableString.setSpan(new ForegroundColorSpan(i2), 0, spannableString.length(), 33);
         WeakReference<Snackbar> weakReference = new WeakReference<>(Snackbar.make(view, spannableString, i));
@@ -280,8 +279,7 @@ public class AgentWebUtils {
         return z;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static Method isExistMethod(Object obj, String str, Class... clsArr) {
+    static Method isExistMethod(Object obj, String str, Class... clsArr) {
         if (obj == null) {
             return null;
         }
@@ -304,8 +302,7 @@ public class AgentWebUtils {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static void clearWebViewAllCache(Context context, WebView webView) {
+    static void clearWebViewAllCache(Context context, WebView webView) {
         try {
             AgentWebConfig.removeAllCookies(null);
             webView.getSettings().setCacheMode(2);
@@ -322,8 +319,7 @@ public class AgentWebUtils {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static void clearWebViewAllCache(Context context) {
+    static void clearWebViewAllCache(Context context) {
         try {
             clearWebViewAllCache(context, new LollipopFixedWebView(context.getApplicationContext()));
         } catch (Exception e) {
@@ -331,8 +327,7 @@ public class AgentWebUtils {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static int clearCacheFolder(File file, int i) {
+    static int clearCacheFolder(File file, int i) {
         int i2;
         File[] listFiles;
         if (file != null) {
@@ -412,8 +407,7 @@ public class AgentWebUtils {
         return str == null ? uri.getPath() : str;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static File createImageFile(Context context) {
+    static File createImageFile(Context context) {
         try {
             return createFileByName(context, String.format("aw_%s.jpg", new SimpleDateFormat("yyyyMMddHHmmss", Locale.getDefault()).format(new Date())), true);
         } catch (Throwable th) {
@@ -422,8 +416,7 @@ public class AgentWebUtils {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static File createVideoFile(Context context) {
+    static File createVideoFile(Context context) {
         try {
             return createFileByName(context, String.format("aw_%s.mp4", new SimpleDateFormat("yyyyMMddHHmmss", Locale.getDefault()).format(new Date())), true);
         } catch (Throwable th) {
@@ -547,8 +540,7 @@ public class AgentWebUtils {
         return action;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static Intent getIntentCaptureCompat(Context context, File file) {
+    static Intent getIntentCaptureCompat(Context context, File file) {
         Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
         Uri uriFromFile = getUriFromFile(context, file);
         intent.addCategory("android.intent.category.DEFAULT");
@@ -556,8 +548,7 @@ public class AgentWebUtils {
         return intent;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static Intent getIntentVideoCompat(Context context, File file) {
+    static Intent getIntentVideoCompat(Context context, File file) {
         Intent intent = new Intent("android.media.action.VIDEO_CAPTURE");
         Uri uriFromFile = getUriFromFile(context, file);
         intent.addCategory("android.intent.category.DEFAULT");
@@ -565,8 +556,7 @@ public class AgentWebUtils {
         return intent;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static boolean isJson(String str) {
+    static boolean isJson(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
@@ -586,8 +576,7 @@ public class AgentWebUtils {
         return Looper.myLooper() == Looper.getMainLooper();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static boolean isEmptyCollection(Collection collection) {
+    static boolean isEmptyCollection(Collection collection) {
         return collection == null || collection.isEmpty();
     }
 
@@ -595,8 +584,7 @@ public class AgentWebUtils {
         return map == null || map.isEmpty();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static void toastShowShort(Context context, String str) {
+    static void toastShowShort(Context context, String str) {
         Toast toast = mToast;
         if (toast == null) {
             mToast = Toast.makeText(context.getApplicationContext(), str, 0);
@@ -693,8 +681,7 @@ public class AgentWebUtils {
         mHandler.post(runnable);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static boolean showFileChooserCompat(Activity activity, WebView webView, ValueCallback<Uri[]> valueCallback, WebChromeClient.FileChooserParams fileChooserParams, PermissionInterceptor permissionInterceptor, ValueCallback valueCallback2, String str, Handler.Callback callback) {
+    static boolean showFileChooserCompat(Activity activity, WebView webView, ValueCallback<Uri[]> valueCallback, WebChromeClient.FileChooserParams fileChooserParams, PermissionInterceptor permissionInterceptor, ValueCallback valueCallback2, String str, Handler.Callback callback) {
         try {
             Object invoke = Class.forName("com.just.agentweb.filechooser.FileChooser").getDeclaredMethod("newBuilder", Activity.class, WebView.class).invoke(null, activity, webView);
             Class<?> cls = invoke.getClass();

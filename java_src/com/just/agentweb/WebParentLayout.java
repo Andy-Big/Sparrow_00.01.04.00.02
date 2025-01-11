@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.view.ViewStub;
 import android.webkit.WebView;
 import android.widget.FrameLayout;
+
 /* loaded from: classes.dex */
 public class WebParentLayout extends FrameLayout implements Provider<AbsAgentWebUIController> {
     private static final String TAG = WebParentLayout.class.getSimpleName();
@@ -19,8 +20,7 @@ public class WebParentLayout extends FrameLayout implements Provider<AbsAgentWeb
     private View mErrorView;
     private WebView mWebView;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public WebParentLayout(Context context) {
+    WebParentLayout(Context context) {
         this(context, null);
         LogUtils.i(TAG, "WebParentLayout");
     }
@@ -40,14 +40,12 @@ public class WebParentLayout extends FrameLayout implements Provider<AbsAgentWeb
         this.mErrorLayoutRes = R.layout.agentweb_error_page;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void bindController(AbsAgentWebUIController absAgentWebUIController) {
+    void bindController(AbsAgentWebUIController absAgentWebUIController) {
         this.mAgentWebUIController = absAgentWebUIController;
         absAgentWebUIController.bindWebParent(this, (Activity) getContext());
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void showPageMainFrameError() {
+    void showPageMainFrameError() {
         View findViewById;
         FrameLayout frameLayout = this.mErrorLayout;
         if (frameLayout != null) {
@@ -118,21 +116,18 @@ public class WebParentLayout extends FrameLayout implements Provider<AbsAgentWeb
         });
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void hideErrorLayout() {
+    void hideErrorLayout() {
         View findViewById = findViewById(R.id.mainframe_error_container_id);
         if (findViewById != null) {
             findViewById.setVisibility(8);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setErrorView(View view) {
+    void setErrorView(View view) {
         this.mErrorView = view;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setErrorLayoutRes(int i, int i2) {
+    void setErrorLayoutRes(int i, int i2) {
         this.mClickId = i2;
         if (i2 <= 0) {
             this.mClickId = -1;
@@ -143,21 +138,20 @@ public class WebParentLayout extends FrameLayout implements Provider<AbsAgentWeb
         }
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.just.agentweb.Provider
     public AbsAgentWebUIController provide() {
         return this.mAgentWebUIController;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void bindWebView(WebView webView) {
+    void bindWebView(WebView webView) {
         if (this.mWebView == null) {
             this.mWebView = webView;
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public WebView getWebView() {
+    WebView getWebView() {
         return this.mWebView;
     }
 }

@@ -7,6 +7,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
 import me.jessyan.autosize.utils.AutoSizeUtils;
+
 /* loaded from: classes2.dex */
 public class InitProvider extends ContentProvider {
     @Override // android.content.ContentProvider

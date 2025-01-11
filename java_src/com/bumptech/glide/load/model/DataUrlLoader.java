@@ -10,6 +10,7 @@ import com.bumptech.glide.signature.ObjectKey;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+
 /* loaded from: classes.dex */
 public final class DataUrlLoader<Model, Data> implements ModelLoader<Model, Data> {
     private static final String BASE64_TAG = ";base64";
@@ -88,6 +89,7 @@ public final class DataUrlLoader<Model, Data> implements ModelLoader<Model, Data
     /* loaded from: classes.dex */
     public static final class StreamFactory<Model> implements ModelLoaderFactory<Model, InputStream> {
         private final DataDecoder<InputStream> opener = new DataDecoder<InputStream>() { // from class: com.bumptech.glide.load.model.DataUrlLoader.StreamFactory.1
+            /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // com.bumptech.glide.load.model.DataUrlLoader.DataDecoder
             public InputStream decode(String str) {
@@ -104,6 +106,7 @@ public final class DataUrlLoader<Model, Data> implements ModelLoader<Model, Data
                 return new ByteArrayInputStream(Base64.decode(str.substring(indexOf + 1), 0));
             }
 
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // com.bumptech.glide.load.model.DataUrlLoader.DataDecoder
             public void close(InputStream inputStream) throws IOException {
                 inputStream.close();

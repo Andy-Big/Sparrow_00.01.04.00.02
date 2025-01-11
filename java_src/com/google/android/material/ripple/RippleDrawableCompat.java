@@ -10,6 +10,7 @@ import androidx.core.graphics.drawable.TintAwareDrawable;
 import com.google.android.material.shape.MaterialShapeDrawable;
 import com.google.android.material.shape.ShapeAppearanceModel;
 import com.google.android.material.shape.Shapeable;
+
 /* loaded from: classes.dex */
 public class RippleDrawableCompat extends Drawable implements Shapeable, TintAwareDrawable {
     private RippleDrawableCompatState drawableState;
@@ -84,6 +85,7 @@ public class RippleDrawableCompat extends Drawable implements Shapeable, TintAwa
         return this.drawableState;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // android.graphics.drawable.Drawable
     public RippleDrawableCompat mutate() {
         this.drawableState = new RippleDrawableCompatState(this.drawableState);
@@ -105,9 +107,8 @@ public class RippleDrawableCompat extends Drawable implements Shapeable, TintAwa
         return this.drawableState.delegate.getOpacity();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static final class RippleDrawableCompatState extends Drawable.ConstantState {
+    static final class RippleDrawableCompatState extends Drawable.ConstantState {
         MaterialShapeDrawable delegate;
         boolean shouldDrawDelegate;
 
@@ -126,6 +127,7 @@ public class RippleDrawableCompat extends Drawable implements Shapeable, TintAwa
             this.shouldDrawDelegate = rippleDrawableCompatState.shouldDrawDelegate;
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // android.graphics.drawable.Drawable.ConstantState
         public RippleDrawableCompat newDrawable() {
             return new RippleDrawableCompat(new RippleDrawableCompatState(this));

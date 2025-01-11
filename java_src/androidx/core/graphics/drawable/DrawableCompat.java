@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.lang.reflect.Method;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
+
 /* loaded from: classes.dex */
 public final class DrawableCompat {
     private static final String TAG = "DrawableCompat";
@@ -139,6 +140,7 @@ public final class DrawableCompat {
         return Build.VERSION.SDK_INT >= 23 ? drawable : Build.VERSION.SDK_INT >= 21 ? !(drawable instanceof TintAwareDrawable) ? new WrappedDrawableApi21(drawable) : drawable : !(drawable instanceof TintAwareDrawable) ? new WrappedDrawableApi14(drawable) : drawable;
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: android.graphics.drawable.Drawable */
     /* JADX WARN: Multi-variable type inference failed */
     public static <T extends Drawable> T unwrap(Drawable drawable) {
         return drawable instanceof WrappedDrawable ? (T) ((WrappedDrawable) drawable).getWrappedDrawable() : drawable;

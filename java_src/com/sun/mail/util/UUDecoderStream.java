@@ -4,6 +4,7 @@ import java.io.FilterInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import kotlin.UByte;
+
 /* loaded from: classes2.dex */
 public class UUDecoderStream extends FilterInputStream {
     private byte[] buffer;
@@ -103,110 +104,41 @@ public class UUDecoderStream extends FilterInputStream {
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    private void readPrefix() throws java.io.IOException {
-        /*
-            r8 = this;
-            boolean r0 = r8.gotPrefix
-            if (r0 == 0) goto L5
-            return
-        L5:
-            r0 = 438(0x1b6, float:6.14E-43)
-            r8.mode = r0
-            java.lang.String r0 = "encoder.buf"
-            r8.name = r0
-        Ld:
-            com.sun.mail.util.LineInputStream r0 = r8.lin
-            java.lang.String r0 = r0.readLine()
-            r7 = 1
-            if (r0 != 0) goto L28
-            boolean r0 = r8.ignoreMissingBeginEnd
-            if (r0 == 0) goto L20
-            r8.gotPrefix = r7
-            r8.gotEnd = r7
-            goto Lb6
-        L20:
-            com.sun.mail.util.DecodingException r0 = new com.sun.mail.util.DecodingException
-            java.lang.String r1 = "UUDecoder: Missing begin"
-            r0.<init>(r1)
-            throw r0
-        L28:
-            r2 = 0
-            r3 = 0
-            r5 = 0
-            r6 = 5
-            java.lang.String r4 = "begin"
-            r1 = r0
-            boolean r1 = r1.regionMatches(r2, r3, r4, r5, r6)
-            r2 = 6
-            if (r1 == 0) goto L90
-            r1 = 9
-            java.lang.String r1 = r0.substring(r2, r1)     // Catch: java.lang.NumberFormatException -> L43
-            int r1 = java.lang.Integer.parseInt(r1)     // Catch: java.lang.NumberFormatException -> L43
-            r8.mode = r1     // Catch: java.lang.NumberFormatException -> L43
-            goto L48
-        L43:
-            r1 = move-exception
-            boolean r2 = r8.ignoreErrors
-            if (r2 == 0) goto L75
-        L48:
-            int r1 = r0.length()
-            r2 = 10
-            if (r1 <= r2) goto L57
-            java.lang.String r0 = r0.substring(r2)
-            r8.name = r0
-            goto L5b
-        L57:
-            boolean r1 = r8.ignoreErrors
-            if (r1 == 0) goto L5e
-        L5b:
-            r8.gotPrefix = r7
-            goto Lb6
-        L5e:
-            com.sun.mail.util.DecodingException r1 = new com.sun.mail.util.DecodingException
-            java.lang.StringBuilder r2 = new java.lang.StringBuilder
-            r2.<init>()
-            java.lang.String r3 = "UUDecoder: Missing name: "
-            r2.append(r3)
-            r2.append(r0)
-            java.lang.String r0 = r2.toString()
-            r1.<init>(r0)
-            throw r1
-        L75:
-            com.sun.mail.util.DecodingException r0 = new com.sun.mail.util.DecodingException
-            java.lang.StringBuilder r2 = new java.lang.StringBuilder
-            r2.<init>()
-            java.lang.String r3 = "UUDecoder: Error in mode: "
-            r2.append(r3)
-            java.lang.String r1 = r1.toString()
-            r2.append(r1)
-            java.lang.String r1 = r2.toString()
-            r0.<init>(r1)
-            throw r0
-        L90:
-            boolean r1 = r8.ignoreMissingBeginEnd
-            if (r1 == 0) goto Ld
-            int r1 = r0.length()
-            if (r1 == 0) goto Ld
-            r1 = 0
-            char r1 = r0.charAt(r1)
-            int r1 = r1 + (-32)
-            r1 = r1 & 63
-            int r1 = r1 * 8
-            int r1 = r1 + 5
-            int r1 = r1 / r2
-            if (r1 == 0) goto Lb2
-            int r2 = r0.length()
-            int r1 = r1 + 1
-            if (r2 < r1) goto Ld
-        Lb2:
-            r8.readAhead = r0
-            r8.gotPrefix = r7
-        Lb6:
-            return
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.sun.mail.util.UUDecoderStream.readPrefix():void");
+    private void readPrefix() throws IOException {
+        int charAt;
+        if (this.gotPrefix) {
+            return;
+        }
+        this.mode = 438;
+        this.name = "encoder.buf";
+        while (true) {
+            String readLine = this.lin.readLine();
+            if (readLine == null) {
+                if (!this.ignoreMissingBeginEnd) {
+                    throw new DecodingException("UUDecoder: Missing begin");
+                }
+                this.gotPrefix = true;
+                this.gotEnd = true;
+                return;
+            } else if (readLine.regionMatches(false, 0, "begin", 0, 5)) {
+                try {
+                    this.mode = Integer.parseInt(readLine.substring(6, 9));
+                } catch (NumberFormatException e) {
+                    if (!this.ignoreErrors) {
+                        throw new DecodingException("UUDecoder: Error in mode: " + e.toString());
+                    }
+                }
+                if (readLine.length() > 10) {
+                    this.name = readLine.substring(10);
+                } else if (!this.ignoreErrors) {
+                    throw new DecodingException("UUDecoder: Missing name: " + readLine);
+                }
+                this.gotPrefix = true;
+                return;
+            } else if (!this.ignoreMissingBeginEnd || readLine.length() == 0 || ((charAt = ((((readLine.charAt(0) - ' ') & 63) * 8) + 5) / 6) != 0 && readLine.length() < charAt + 1)) {
+            }
+        }
     }
 
     private boolean decode() throws IOException {

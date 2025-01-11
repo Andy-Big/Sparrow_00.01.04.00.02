@@ -10,6 +10,7 @@ import android.util.Property;
 import android.view.View;
 import android.view.ViewAnimationUtils;
 import com.google.android.material.circularreveal.CircularRevealWidget;
+
 /* loaded from: classes.dex */
 public final class CircularRevealCompat {
     private CircularRevealCompat() {

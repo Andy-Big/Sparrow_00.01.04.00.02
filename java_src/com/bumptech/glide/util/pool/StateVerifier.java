@@ -1,10 +1,10 @@
 package com.bumptech.glide.util.pool;
+
 /* loaded from: classes.dex */
 public abstract class StateVerifier {
     private static final boolean DEBUG = false;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public abstract void setRecycled(boolean z);
+    abstract void setRecycled(boolean z);
 
     public abstract void throwIfRecycled();
 

@@ -1,6 +1,7 @@
 package org.slf4j.event;
 
 import org.slf4j.Marker;
+
 /* loaded from: classes2.dex */
 public interface LoggingEvent {
     Object[] getArgumentArray();

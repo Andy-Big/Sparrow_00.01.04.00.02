@@ -19,6 +19,7 @@ import com.google.android.material.shape.MaterialShapeUtils;
 import com.google.android.material.shape.ShapeAppearanceModel;
 import com.google.android.material.shape.Shapeable;
 import com.google.android.material.theme.overlay.MaterialThemeOverlay;
+
 /* loaded from: classes.dex */
 public class MaterialCardView extends CardView implements Checkable, Shapeable {
     private static final String ACCESSIBILITY_CLASS_NAME = "androidx.cardview.widget.CardView";
@@ -118,8 +119,7 @@ public class MaterialCardView extends CardView implements Checkable, Shapeable {
         return this.cardViewHelper.getCornerRadius();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public float getCardViewRadius() {
+    float getCardViewRadius() {
         return super.getRadius();
     }
 
@@ -136,8 +136,7 @@ public class MaterialCardView extends CardView implements Checkable, Shapeable {
         this.cardViewHelper.setUserContentPadding(i, i2, i3, i4);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setAncestorContentPadding(int i, int i2, int i3, int i4) {
+    void setAncestorContentPadding(int i, int i2, int i3, int i4) {
         super.setContentPadding(i, i2, i3, i4);
     }
 
@@ -241,8 +240,7 @@ public class MaterialCardView extends CardView implements Checkable, Shapeable {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setBackgroundInternal(Drawable drawable) {
+    void setBackgroundInternal(Drawable drawable) {
         super.setBackgroundDrawable(drawable);
     }
 

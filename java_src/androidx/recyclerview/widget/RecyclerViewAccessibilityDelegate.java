@@ -10,6 +10,7 @@ import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import androidx.core.view.accessibility.AccessibilityNodeProviderCompat;
 import java.util.Map;
 import java.util.WeakHashMap;
+
 /* loaded from: classes.dex */
 public class RecyclerViewAccessibilityDelegate extends AccessibilityDelegateCompat {
     private final ItemDelegate mItemDelegate;
@@ -74,8 +75,7 @@ public class RecyclerViewAccessibilityDelegate extends AccessibilityDelegateComp
             this.mRecyclerViewDelegate = recyclerViewAccessibilityDelegate;
         }
 
-        /* JADX INFO: Access modifiers changed from: package-private */
-        public void saveOriginalDelegate(View view) {
+        void saveOriginalDelegate(View view) {
             AccessibilityDelegateCompat accessibilityDelegate = ViewCompat.getAccessibilityDelegate(view);
             if (accessibilityDelegate == null || accessibilityDelegate == this) {
                 return;
@@ -83,8 +83,7 @@ public class RecyclerViewAccessibilityDelegate extends AccessibilityDelegateComp
             this.mOriginalItemDelegates.put(view, accessibilityDelegate);
         }
 
-        /* JADX INFO: Access modifiers changed from: package-private */
-        public AccessibilityDelegateCompat getAndRemoveOriginalDelegateForItem(View view) {
+        AccessibilityDelegateCompat getAndRemoveOriginalDelegateForItem(View view) {
             return this.mOriginalItemDelegates.remove(view);
         }
 

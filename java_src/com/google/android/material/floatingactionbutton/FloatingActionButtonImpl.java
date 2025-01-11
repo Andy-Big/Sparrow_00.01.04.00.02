@@ -38,9 +38,9 @@ import com.google.android.material.shape.ShapeAppearanceModel;
 import com.google.android.material.shape.Shapeable;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* JADX INFO: Access modifiers changed from: package-private */
+
 /* loaded from: classes.dex */
-public class FloatingActionButtonImpl {
+class FloatingActionButtonImpl {
     static final int ANIM_STATE_HIDING = 1;
     static final int ANIM_STATE_NONE = 0;
     static final int ANIM_STATE_SHOWING = 2;
@@ -106,8 +106,7 @@ public class FloatingActionButtonImpl {
         void onShown();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void onCompatShadowChanged() {
+    void onCompatShadowChanged() {
     }
 
     boolean requirePreDrawListener() {
@@ -118,8 +117,7 @@ public class FloatingActionButtonImpl {
         return true;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public FloatingActionButtonImpl(FloatingActionButton floatingActionButton, ShadowViewDelegate shadowViewDelegate) {
+    FloatingActionButtonImpl(FloatingActionButton floatingActionButton, ShadowViewDelegate shadowViewDelegate) {
         this.view = floatingActionButton;
         this.shadowViewDelegate = shadowViewDelegate;
         StateListAnimator stateListAnimator = new StateListAnimator();
@@ -133,8 +131,7 @@ public class FloatingActionButtonImpl {
         this.rotation = this.view.getRotation();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void initializeBackgroundDrawable(ColorStateList colorStateList, PorterDuff.Mode mode, ColorStateList colorStateList2, int i) {
+    void initializeBackgroundDrawable(ColorStateList colorStateList, PorterDuff.Mode mode, ColorStateList colorStateList2, int i) {
         MaterialShapeDrawable createShapeDrawable = createShapeDrawable();
         this.shapeDrawable = createShapeDrawable;
         createShapeDrawable.setTintList(colorStateList);
@@ -149,8 +146,7 @@ public class FloatingActionButtonImpl {
         this.contentBackground = new LayerDrawable(new Drawable[]{(Drawable) Preconditions.checkNotNull(this.shapeDrawable), rippleDrawableCompat});
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setBackgroundTintList(ColorStateList colorStateList) {
+    void setBackgroundTintList(ColorStateList colorStateList) {
         MaterialShapeDrawable materialShapeDrawable = this.shapeDrawable;
         if (materialShapeDrawable != null) {
             materialShapeDrawable.setTintList(colorStateList);
@@ -161,76 +157,65 @@ public class FloatingActionButtonImpl {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setBackgroundTintMode(PorterDuff.Mode mode) {
+    void setBackgroundTintMode(PorterDuff.Mode mode) {
         MaterialShapeDrawable materialShapeDrawable = this.shapeDrawable;
         if (materialShapeDrawable != null) {
             materialShapeDrawable.setTintMode(mode);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setMinTouchTargetSize(int i) {
+    void setMinTouchTargetSize(int i) {
         this.minTouchTargetSize = i;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setRippleColor(ColorStateList colorStateList) {
+    void setRippleColor(ColorStateList colorStateList) {
         Drawable drawable = this.rippleDrawable;
         if (drawable != null) {
             DrawableCompat.setTintList(drawable, RippleUtils.sanitizeRippleDrawableColor(colorStateList));
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public final void setElevation(float f) {
+    final void setElevation(float f) {
         if (this.elevation != f) {
             this.elevation = f;
             onElevationsChanged(f, this.hoveredFocusedTranslationZ, this.pressedTranslationZ);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public float getElevation() {
+    float getElevation() {
         return this.elevation;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public float getHoveredFocusedTranslationZ() {
+    float getHoveredFocusedTranslationZ() {
         return this.hoveredFocusedTranslationZ;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public float getPressedTranslationZ() {
+    float getPressedTranslationZ() {
         return this.pressedTranslationZ;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public final void setHoveredFocusedTranslationZ(float f) {
+    final void setHoveredFocusedTranslationZ(float f) {
         if (this.hoveredFocusedTranslationZ != f) {
             this.hoveredFocusedTranslationZ = f;
             onElevationsChanged(this.elevation, f, this.pressedTranslationZ);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public final void setPressedTranslationZ(float f) {
+    final void setPressedTranslationZ(float f) {
         if (this.pressedTranslationZ != f) {
             this.pressedTranslationZ = f;
             onElevationsChanged(this.elevation, this.hoveredFocusedTranslationZ, f);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public final void setMaxImageSize(int i) {
+    final void setMaxImageSize(int i) {
         if (this.maxImageSize != i) {
             this.maxImageSize = i;
             updateImageMatrixScale();
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public final void updateImageMatrixScale() {
+    final void updateImageMatrixScale() {
         setImageMatrixScale(this.imageMatrixScale);
     }
 
@@ -257,8 +242,7 @@ public class FloatingActionButtonImpl {
         matrix.postScale(f, f, i2 / 2.0f, i2 / 2.0f);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public final void setShapeAppearance(ShapeAppearanceModel shapeAppearanceModel) {
+    final void setShapeAppearance(ShapeAppearanceModel shapeAppearanceModel) {
         this.shapeAppearance = shapeAppearanceModel;
         MaterialShapeDrawable materialShapeDrawable = this.shapeDrawable;
         if (materialShapeDrawable != null) {
@@ -274,48 +258,39 @@ public class FloatingActionButtonImpl {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public final ShapeAppearanceModel getShapeAppearance() {
+    final ShapeAppearanceModel getShapeAppearance() {
         return this.shapeAppearance;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public final MotionSpec getShowMotionSpec() {
+    final MotionSpec getShowMotionSpec() {
         return this.showMotionSpec;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public final void setShowMotionSpec(MotionSpec motionSpec) {
+    final void setShowMotionSpec(MotionSpec motionSpec) {
         this.showMotionSpec = motionSpec;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public final MotionSpec getHideMotionSpec() {
+    final MotionSpec getHideMotionSpec() {
         return this.hideMotionSpec;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public final void setHideMotionSpec(MotionSpec motionSpec) {
+    final void setHideMotionSpec(MotionSpec motionSpec) {
         this.hideMotionSpec = motionSpec;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public final boolean shouldExpandBoundsForA11y() {
+    final boolean shouldExpandBoundsForA11y() {
         return !this.ensureMinTouchTargetSize || this.view.getSizeDimension() >= this.minTouchTargetSize;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean getEnsureMinTouchTargetSize() {
+    boolean getEnsureMinTouchTargetSize() {
         return this.ensureMinTouchTargetSize;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setEnsureMinTouchTargetSize(boolean z) {
+    void setEnsureMinTouchTargetSize(boolean z) {
         this.ensureMinTouchTargetSize = z;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setShadowPaddingEnabled(boolean z) {
+    void setShadowPaddingEnabled(boolean z) {
         this.shadowPaddingEnabled = z;
         updatePadding();
     }
@@ -325,34 +300,29 @@ public class FloatingActionButtonImpl {
         updateShapeElevation(f);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void updateShapeElevation(float f) {
+    void updateShapeElevation(float f) {
         MaterialShapeDrawable materialShapeDrawable = this.shapeDrawable;
         if (materialShapeDrawable != null) {
             materialShapeDrawable.setElevation(f);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void onDrawableStateChanged(int[] iArr) {
+    void onDrawableStateChanged(int[] iArr) {
         this.stateListAnimator.setState(iArr);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void jumpDrawableToCurrentState() {
+    void jumpDrawableToCurrentState() {
         this.stateListAnimator.jumpToCurrentState();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void addOnShowAnimationListener(Animator.AnimatorListener animatorListener) {
+    void addOnShowAnimationListener(Animator.AnimatorListener animatorListener) {
         if (this.showListeners == null) {
             this.showListeners = new ArrayList<>();
         }
         this.showListeners.add(animatorListener);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void removeOnShowAnimationListener(Animator.AnimatorListener animatorListener) {
+    void removeOnShowAnimationListener(Animator.AnimatorListener animatorListener) {
         ArrayList<Animator.AnimatorListener> arrayList = this.showListeners;
         if (arrayList == null) {
             return;
@@ -375,8 +345,7 @@ public class FloatingActionButtonImpl {
         arrayList.remove(animatorListener);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void hide(final InternalVisibilityChangedListener internalVisibilityChangedListener, final boolean z) {
+    void hide(final InternalVisibilityChangedListener internalVisibilityChangedListener, final boolean z) {
         if (isOrWillBeHidden()) {
             return;
         }
@@ -436,8 +405,7 @@ public class FloatingActionButtonImpl {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void show(final InternalVisibilityChangedListener internalVisibilityChangedListener, final boolean z) {
+    void show(final InternalVisibilityChangedListener internalVisibilityChangedListener, final boolean z) {
         if (isOrWillBeShown()) {
             return;
         }
@@ -524,6 +492,7 @@ public class FloatingActionButtonImpl {
         arrayList.add(ofFloat3);
         calculateImageMatrixFromScale(f3, this.tmpMatrix);
         ObjectAnimator ofObject = ObjectAnimator.ofObject(this.view, new ImageMatrixProperty(), new MatrixEvaluator() { // from class: com.google.android.material.floatingactionbutton.FloatingActionButtonImpl.3
+            /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // com.google.android.material.animation.MatrixEvaluator, android.animation.TypeEvaluator
             public Matrix evaluate(float f4, Matrix matrix, Matrix matrix2) {
@@ -545,6 +514,7 @@ public class FloatingActionButtonImpl {
         objectAnimator.setEvaluator(new TypeEvaluator<Float>() { // from class: com.google.android.material.floatingactionbutton.FloatingActionButtonImpl.4
             FloatEvaluator floatEvaluator = new FloatEvaluator();
 
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // android.animation.TypeEvaluator
             public Float evaluate(float f, Float f2, Float f3) {
                 float floatValue = this.floatEvaluator.evaluate(f, (Number) f2, (Number) f3).floatValue();
@@ -556,16 +526,14 @@ public class FloatingActionButtonImpl {
         });
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void addTransformationCallback(InternalTransformationCallback internalTransformationCallback) {
+    void addTransformationCallback(InternalTransformationCallback internalTransformationCallback) {
         if (this.transformationCallbacks == null) {
             this.transformationCallbacks = new ArrayList<>();
         }
         this.transformationCallbacks.add(internalTransformationCallback);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void removeTransformationCallback(InternalTransformationCallback internalTransformationCallback) {
+    void removeTransformationCallback(InternalTransformationCallback internalTransformationCallback) {
         ArrayList<InternalTransformationCallback> arrayList = this.transformationCallbacks;
         if (arrayList == null) {
             return;
@@ -573,8 +541,7 @@ public class FloatingActionButtonImpl {
         arrayList.remove(internalTransformationCallback);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void onTranslationChanged() {
+    void onTranslationChanged() {
         ArrayList<InternalTransformationCallback> arrayList = this.transformationCallbacks;
         if (arrayList != null) {
             Iterator<InternalTransformationCallback> it = arrayList.iterator();
@@ -584,8 +551,7 @@ public class FloatingActionButtonImpl {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void onScaleChanged() {
+    void onScaleChanged() {
         ArrayList<InternalTransformationCallback> arrayList = this.transformationCallbacks;
         if (arrayList != null) {
             Iterator<InternalTransformationCallback> it = arrayList.iterator();
@@ -595,21 +561,18 @@ public class FloatingActionButtonImpl {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public final Drawable getContentBackground() {
+    final Drawable getContentBackground() {
         return this.contentBackground;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public final void updatePadding() {
+    final void updatePadding() {
         Rect rect = this.tmpRect;
         getPadding(rect);
         onPaddingUpdated(rect);
         this.shadowViewDelegate.setShadowPadding(rect.left, rect.top, rect.right, rect.bottom);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void getPadding(Rect rect) {
+    void getPadding(Rect rect) {
         int sizeDimension = this.ensureMinTouchTargetSize ? (this.minTouchTargetSize - this.view.getSizeDimension()) / 2 : 0;
         float elevation = this.shadowPaddingEnabled ? getElevation() + this.pressedTranslationZ : 0.0f;
         int max = Math.max(sizeDimension, (int) Math.ceil(elevation));
@@ -626,8 +589,7 @@ public class FloatingActionButtonImpl {
         this.shadowViewDelegate.setBackgroundDrawable(this.contentBackground);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void onAttachedToWindow() {
+    void onAttachedToWindow() {
         MaterialShapeDrawable materialShapeDrawable = this.shapeDrawable;
         if (materialShapeDrawable != null) {
             MaterialShapeUtils.setParentAbsoluteElevation(this.view, materialShapeDrawable);
@@ -637,8 +599,7 @@ public class FloatingActionButtonImpl {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void onDetachedFromWindow() {
+    void onDetachedFromWindow() {
         ViewTreeObserver viewTreeObserver = this.view.getViewTreeObserver();
         ViewTreeObserver.OnPreDrawListener onPreDrawListener = this.preDrawListener;
         if (onPreDrawListener != null) {
@@ -672,13 +633,11 @@ public class FloatingActionButtonImpl {
         return new MaterialShapeDrawable((ShapeAppearanceModel) Preconditions.checkNotNull(this.shapeAppearance));
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean isOrWillBeShown() {
+    boolean isOrWillBeShown() {
         return this.view.getVisibility() != 0 ? this.animState == 2 : this.animState != 1;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean isOrWillBeHidden() {
+    boolean isOrWillBeHidden() {
         return this.view.getVisibility() == 0 ? this.animState == 1 : this.animState != 2;
     }
 

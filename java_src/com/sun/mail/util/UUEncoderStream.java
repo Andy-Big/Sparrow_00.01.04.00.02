@@ -4,6 +4,7 @@ import java.io.FilterOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintStream;
+
 /* loaded from: classes2.dex */
 public class UUEncoderStream extends FilterOutputStream {
     private byte[] buffer;

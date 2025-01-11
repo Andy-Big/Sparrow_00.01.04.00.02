@@ -14,6 +14,7 @@ import androidx.appcompat.view.ActionMode;
 import androidx.fragment.app.FragmentTransaction;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
+
 /* loaded from: classes.dex */
 public abstract class ActionBar {
     public static final int DISPLAY_HOME_AS_UP = 4;
@@ -186,8 +187,7 @@ public abstract class ActionBar {
     public void onConfigurationChanged(Configuration configuration) {
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void onDestroy() {
+    void onDestroy() {
     }
 
     public boolean onKeyShortcut(int i, KeyEvent keyEvent) {

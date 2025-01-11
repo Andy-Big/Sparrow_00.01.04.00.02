@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
+
 /* loaded from: classes.dex */
 public final class SPUtils {
     private static final Map<String, SPUtils> SP_UTILS_MAP = new HashMap();

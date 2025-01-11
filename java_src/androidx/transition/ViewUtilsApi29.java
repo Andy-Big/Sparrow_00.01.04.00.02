@@ -2,8 +2,12 @@ package androidx.transition;
 
 import android.graphics.Matrix;
 import android.view.View;
+
 /* loaded from: classes.dex */
 class ViewUtilsApi29 extends ViewUtilsApi23 {
+    ViewUtilsApi29() {
+    }
+
     @Override // androidx.transition.ViewUtilsApi19, androidx.transition.ViewUtilsBase
     public void setTransitionAlpha(View view, float f) {
         view.setTransitionAlpha(f);

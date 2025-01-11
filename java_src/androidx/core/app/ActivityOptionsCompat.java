@@ -10,6 +10,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import androidx.core.util.Pair;
+
 /* loaded from: classes.dex */
 public class ActivityOptionsCompat {
     public static final String EXTRA_USAGE_TIME_REPORT = "android.activity.usage_time";

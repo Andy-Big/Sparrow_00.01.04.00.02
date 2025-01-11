@@ -2,6 +2,7 @@ package com.blankj.utilcode.constant;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
+
 /* loaded from: classes.dex */
 public final class TimeConstants {
     public static final int DAY = 86400000;

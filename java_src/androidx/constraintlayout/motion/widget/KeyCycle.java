@@ -11,6 +11,7 @@ import androidx.constraintlayout.widget.R;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
+
 /* loaded from: classes.dex */
 public class KeyCycle extends Key {
     public static final int KEY_TYPE = 4;
@@ -793,6 +794,7 @@ public class KeyCycle extends Key {
         return this;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.constraintlayout.motion.widget.Key
     /* renamed from: clone */
     public Key mo2clone() {

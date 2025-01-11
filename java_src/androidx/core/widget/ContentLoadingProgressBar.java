@@ -3,6 +3,7 @@ package androidx.core.widget;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.ProgressBar;
+
 /* loaded from: classes.dex */
 public class ContentLoadingProgressBar extends ProgressBar {
     private static final int MIN_DELAY = 500;

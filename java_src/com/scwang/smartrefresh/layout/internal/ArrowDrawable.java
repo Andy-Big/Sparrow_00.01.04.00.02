@@ -3,6 +3,7 @@ package com.scwang.smartrefresh.layout.internal;
 import android.graphics.Canvas;
 import android.graphics.Path;
 import android.graphics.Rect;
+
 /* loaded from: classes2.dex */
 public class ArrowDrawable extends PaintDrawable {
     private int mWidth = 0;

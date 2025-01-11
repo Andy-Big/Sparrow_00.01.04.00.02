@@ -8,6 +8,7 @@ import android.provider.Settings;
 import android.util.DisplayMetrics;
 import android.view.Display;
 import android.view.WindowManager;
+
 /* loaded from: classes2.dex */
 public class ScreenUtils {
     private ScreenUtils() {

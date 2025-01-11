@@ -5,6 +5,7 @@ import android.net.Uri;
 import com.shockwave.pdfium.PdfDocument;
 import com.shockwave.pdfium.PdfiumCore;
 import java.io.IOException;
+
 /* loaded from: classes.dex */
 public class UriSource implements DocumentSource {
     private Uri uri;

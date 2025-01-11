@@ -14,6 +14,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.NoSuchElementException;
 import java.util.Properties;
+
 /* renamed from: com.google.gson.internal.$Gson$Types  reason: invalid class name */
 /* loaded from: classes.dex */
 public final class C$Gson$Types {
@@ -208,115 +209,78 @@ public final class C$Gson$Types {
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    private static java.lang.reflect.Type resolve(java.lang.reflect.Type r8, java.lang.Class<?> r9, java.lang.reflect.Type r10, java.util.Collection<java.lang.reflect.TypeVariable> r11) {
-        /*
-        L0:
-            boolean r0 = r10 instanceof java.lang.reflect.TypeVariable
-            if (r0 == 0) goto L18
-            r0 = r10
-            java.lang.reflect.TypeVariable r0 = (java.lang.reflect.TypeVariable) r0
-            boolean r1 = r11.contains(r0)
-            if (r1 == 0) goto Le
-            return r10
-        Le:
-            r11.add(r0)
-            java.lang.reflect.Type r10 = resolveTypeVariable(r8, r9, r0)
-            if (r10 != r0) goto L0
-            return r10
-        L18:
-            boolean r0 = r10 instanceof java.lang.Class
-            if (r0 == 0) goto L35
-            r0 = r10
-            java.lang.Class r0 = (java.lang.Class) r0
-            boolean r1 = r0.isArray()
-            if (r1 == 0) goto L35
-            java.lang.Class r10 = r0.getComponentType()
-            java.lang.reflect.Type r8 = resolve(r8, r9, r10, r11)
-            if (r10 != r8) goto L30
-            goto L34
-        L30:
-            java.lang.reflect.GenericArrayType r0 = arrayOf(r8)
-        L34:
-            return r0
-        L35:
-            boolean r0 = r10 instanceof java.lang.reflect.GenericArrayType
-            if (r0 == 0) goto L4b
-            java.lang.reflect.GenericArrayType r10 = (java.lang.reflect.GenericArrayType) r10
-            java.lang.reflect.Type r0 = r10.getGenericComponentType()
-            java.lang.reflect.Type r8 = resolve(r8, r9, r0, r11)
-            if (r0 != r8) goto L46
-            goto L4a
-        L46:
-            java.lang.reflect.GenericArrayType r10 = arrayOf(r8)
-        L4a:
-            return r10
-        L4b:
-            boolean r0 = r10 instanceof java.lang.reflect.ParameterizedType
-            r1 = 1
-            r2 = 0
-            if (r0 == 0) goto L8b
-            java.lang.reflect.ParameterizedType r10 = (java.lang.reflect.ParameterizedType) r10
-            java.lang.reflect.Type r0 = r10.getOwnerType()
-            java.lang.reflect.Type r3 = resolve(r8, r9, r0, r11)
-            if (r3 == r0) goto L5f
-            r0 = r1
-            goto L60
-        L5f:
-            r0 = r2
-        L60:
-            java.lang.reflect.Type[] r4 = r10.getActualTypeArguments()
-            int r5 = r4.length
-        L65:
-            if (r2 >= r5) goto L80
-            r6 = r4[r2]
-            java.lang.reflect.Type r6 = resolve(r8, r9, r6, r11)
-            r7 = r4[r2]
-            if (r6 == r7) goto L7d
-            if (r0 != 0) goto L7b
-            java.lang.Object r0 = r4.clone()
-            r4 = r0
-            java.lang.reflect.Type[] r4 = (java.lang.reflect.Type[]) r4
-            r0 = r1
-        L7b:
-            r4[r2] = r6
-        L7d:
-            int r2 = r2 + 1
-            goto L65
-        L80:
-            if (r0 == 0) goto L8a
-            java.lang.reflect.Type r8 = r10.getRawType()
-            java.lang.reflect.ParameterizedType r10 = newParameterizedTypeWithOwner(r3, r8, r4)
-        L8a:
-            return r10
-        L8b:
-            boolean r0 = r10 instanceof java.lang.reflect.WildcardType
-            if (r0 == 0) goto Lbd
-            java.lang.reflect.WildcardType r10 = (java.lang.reflect.WildcardType) r10
-            java.lang.reflect.Type[] r0 = r10.getLowerBounds()
-            java.lang.reflect.Type[] r3 = r10.getUpperBounds()
-            int r4 = r0.length
-            if (r4 != r1) goto Lab
-            r1 = r0[r2]
-            java.lang.reflect.Type r8 = resolve(r8, r9, r1, r11)
-            r9 = r0[r2]
-            if (r8 == r9) goto Lbd
-            java.lang.reflect.WildcardType r8 = supertypeOf(r8)
-            return r8
-        Lab:
-            int r0 = r3.length
-            if (r0 != r1) goto Lbd
-            r0 = r3[r2]
-            java.lang.reflect.Type r8 = resolve(r8, r9, r0, r11)
-            r9 = r3[r2]
-            if (r8 == r9) goto Lbd
-            java.lang.reflect.WildcardType r8 = subtypeOf(r8)
-            return r8
-        Lbd:
-            return r10
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.google.gson.internal.C$Gson$Types.resolve(java.lang.reflect.Type, java.lang.Class, java.lang.reflect.Type, java.util.Collection):java.lang.reflect.Type");
+    private static Type resolve(Type type, Class<?> cls, Type type2, Collection<TypeVariable> collection) {
+        Type type3;
+        while (type3 instanceof TypeVariable) {
+            TypeVariable typeVariable = (TypeVariable) type3;
+            if (collection.contains(typeVariable)) {
+                return type3;
+            }
+            collection.add(typeVariable);
+            Type resolveTypeVariable = resolveTypeVariable(type, cls, typeVariable);
+            type3 = resolveTypeVariable;
+            if (resolveTypeVariable == typeVariable) {
+                return resolveTypeVariable;
+            }
+        }
+        if (type3 instanceof Class) {
+            Class cls2 = (Class) type3;
+            if (cls2.isArray()) {
+                Class<?> componentType = cls2.getComponentType();
+                Type resolve = resolve(type, cls, componentType, collection);
+                return componentType == resolve ? cls2 : arrayOf(resolve);
+            }
+        }
+        if (type3 instanceof GenericArrayType) {
+            GenericArrayType genericArrayType = (GenericArrayType) type3;
+            Type genericComponentType = genericArrayType.getGenericComponentType();
+            Type resolve2 = resolve(type, cls, genericComponentType, collection);
+            return genericComponentType == resolve2 ? genericArrayType : arrayOf(resolve2);
+        }
+        if (type3 instanceof ParameterizedType) {
+            ParameterizedType parameterizedType = (ParameterizedType) type3;
+            Type ownerType = parameterizedType.getOwnerType();
+            Type resolve3 = resolve(type, cls, ownerType, collection);
+            boolean z = resolve3 != ownerType;
+            Type[] actualTypeArguments = parameterizedType.getActualTypeArguments();
+            int length = actualTypeArguments.length;
+            for (int i = 0; i < length; i++) {
+                Type resolve4 = resolve(type, cls, actualTypeArguments[i], collection);
+                if (resolve4 != actualTypeArguments[i]) {
+                    if (!z) {
+                        actualTypeArguments = (Type[]) actualTypeArguments.clone();
+                        z = true;
+                    }
+                    actualTypeArguments[i] = resolve4;
+                }
+            }
+            return z ? newParameterizedTypeWithOwner(resolve3, parameterizedType.getRawType(), actualTypeArguments) : parameterizedType;
+        }
+        boolean z2 = type3 instanceof WildcardType;
+        WildcardType wildcardType = type3;
+        if (z2) {
+            WildcardType wildcardType2 = (WildcardType) type3;
+            Type[] lowerBounds = wildcardType2.getLowerBounds();
+            Type[] upperBounds = wildcardType2.getUpperBounds();
+            if (lowerBounds.length == 1) {
+                Type resolve5 = resolve(type, cls, lowerBounds[0], collection);
+                wildcardType = wildcardType2;
+                if (resolve5 != lowerBounds[0]) {
+                    return supertypeOf(resolve5);
+                }
+            } else {
+                wildcardType = wildcardType2;
+                if (upperBounds.length == 1) {
+                    Type resolve6 = resolve(type, cls, upperBounds[0], collection);
+                    wildcardType = wildcardType2;
+                    if (resolve6 != upperBounds[0]) {
+                        return subtypeOf(resolve6);
+                    }
+                }
+            }
+        }
+        return wildcardType;
     }
 
     static Type resolveTypeVariable(Type type, Class<?> cls, TypeVariable<?> typeVariable) {
@@ -353,11 +317,10 @@ public final class C$Gson$Types {
         C$Gson$Preconditions.checkArgument(((type instanceof Class) && ((Class) type).isPrimitive()) ? false : true);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* compiled from: $Gson$Types.java */
     /* renamed from: com.google.gson.internal.$Gson$Types$ParameterizedTypeImpl */
     /* loaded from: classes.dex */
-    public static final class ParameterizedTypeImpl implements ParameterizedType, Serializable {
+    private static final class ParameterizedTypeImpl implements ParameterizedType, Serializable {
         private static final long serialVersionUID = 0;
         private final Type ownerType;
         private final Type rawType;
@@ -427,11 +390,10 @@ public final class C$Gson$Types {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* compiled from: $Gson$Types.java */
     /* renamed from: com.google.gson.internal.$Gson$Types$GenericArrayTypeImpl */
     /* loaded from: classes.dex */
-    public static final class GenericArrayTypeImpl implements GenericArrayType, Serializable {
+    private static final class GenericArrayTypeImpl implements GenericArrayType, Serializable {
         private static final long serialVersionUID = 0;
         private final Type componentType;
 
@@ -457,11 +419,10 @@ public final class C$Gson$Types {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* compiled from: $Gson$Types.java */
     /* renamed from: com.google.gson.internal.$Gson$Types$WildcardTypeImpl */
     /* loaded from: classes.dex */
-    public static final class WildcardTypeImpl implements WildcardType, Serializable {
+    private static final class WildcardTypeImpl implements WildcardType, Serializable {
         private static final long serialVersionUID = 0;
         private final Type lowerBound;
         private final Type upperBound;

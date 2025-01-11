@@ -1,4 +1,5 @@
 package com.sun.mail.iap;
+
 /* loaded from: classes2.dex */
 public class BadCommandException extends ProtocolException {
     private static final long serialVersionUID = 5769722539397237515L;

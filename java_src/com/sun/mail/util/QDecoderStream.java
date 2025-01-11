@@ -2,6 +2,7 @@ package com.sun.mail.util;
 
 import java.io.IOException;
 import java.io.InputStream;
+
 /* loaded from: classes2.dex */
 public class QDecoderStream extends QPDecoderStream {
     public QDecoderStream(InputStream inputStream) {

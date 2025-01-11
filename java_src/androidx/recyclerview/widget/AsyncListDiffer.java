@@ -9,6 +9,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.Executor;
+
 /* loaded from: classes.dex */
 public class AsyncListDiffer<T> {
     private static final Executor sMainThreadExecutor = new MainThreadExecutor();

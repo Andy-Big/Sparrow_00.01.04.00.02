@@ -20,6 +20,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.ArrayList;
 import java.util.List;
+
 /* loaded from: classes2.dex */
 public class MaterialProgressDrawable extends Drawable implements Animatable {
     private static final int ANIMATION_DURATION = 1332;
@@ -290,9 +291,8 @@ public class MaterialProgressDrawable extends Drawable implements Animatable {
         this.mAnimation = animation;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
-    public class Ring {
+    private class Ring {
         int mAlpha;
         Path mArrow;
         int mArrowHeight;

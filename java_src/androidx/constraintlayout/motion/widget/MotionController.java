@@ -30,6 +30,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
+
 /* loaded from: classes.dex */
 public class MotionController {
     static final int BOUNCE = 4;
@@ -104,13 +105,11 @@ public class MotionController {
         this.mTransformPivotView = null;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public MotionPaths getKeyFrame(int i) {
+    MotionPaths getKeyFrame(int i) {
         return this.mMotionPaths.get(i);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public MotionController(View view) {
+    MotionController(View view) {
         setView(view);
     }
 
@@ -172,8 +171,7 @@ public class MotionController {
         this.mStartMotionPath.getCenter(d, this.mInterpolateVariables, dArr, fArr, dArr2, fArr2);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void buildPath(float[] fArr, int i) {
+    void buildPath(float[] fArr, int i) {
         float f;
         float f2 = 1.0f;
         float f3 = 1.0f / (i - 1);
@@ -249,8 +247,7 @@ public class MotionController {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public double[] getPos(double d) {
+    double[] getPos(double d) {
         this.mSpline[0].getPos(d, this.mInterpolateData);
         CurveFit curveFit = this.mArcSpline;
         if (curveFit != null) {
@@ -370,8 +367,7 @@ public class MotionController {
         return f3;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public KeyPositionBase getPositionKeyframe(int i, int i2, float f, float f2) {
+    KeyPositionBase getPositionKeyframe(int i, int i2, float f, float f2) {
         RectF rectF = new RectF();
         rectF.left = this.mStartMotionPath.x;
         rectF.top = this.mStartMotionPath.y;
@@ -395,8 +391,7 @@ public class MotionController {
         return null;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public int buildKeyFrames(float[] fArr, int[] iArr) {
+    int buildKeyFrames(float[] fArr, int[] iArr) {
         if (fArr != null) {
             double[] timePoints = this.mSpline[0].getTimePoints();
             if (iArr != null) {
@@ -440,8 +435,7 @@ public class MotionController {
         return 0;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public int getAttributeValues(String str, float[] fArr, int i) {
+    int getAttributeValues(String str, float[] fArr, int i) {
         SplineSet splineSet = this.mAttributesMap.get(str);
         if (splineSet == null) {
             return -1;
@@ -452,14 +446,12 @@ public class MotionController {
         return fArr.length;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void buildRect(float f, float[] fArr, int i) {
+    void buildRect(float f, float[] fArr, int i) {
         this.mSpline[0].getPos(getAdjustedPosition(f, null), this.mInterpolateData);
         this.mStartMotionPath.getRect(this.mInterpolateVariables, this.mInterpolateData, fArr, i);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void buildRectangles(float[] fArr, int i) {
+    void buildRectangles(float[] fArr, int i) {
         float f = 1.0f / (i - 1);
         for (int i2 = 0; i2 < i; i2++) {
             this.mSpline[0].getPos(getAdjustedPosition(i2 * f, null), this.mInterpolateData);
@@ -467,8 +459,7 @@ public class MotionController {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public float getKeyFrameParameter(int i, float f, float f2) {
+    float getKeyFrameParameter(int i, float f, float f2) {
         float f3 = this.mEndMotionPath.x - this.mStartMotionPath.x;
         float f4 = this.mEndMotionPath.y - this.mStartMotionPath.y;
         float f5 = this.mStartMotionPath.x + (this.mStartMotionPath.width / 2.0f);
@@ -512,8 +503,7 @@ public class MotionController {
         this.mMotionPaths.add((-binarySearch) - 1, motionPaths);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void addKeys(ArrayList<Key> arrayList) {
+    void addKeys(ArrayList<Key> arrayList) {
         this.mKeyList.addAll(arrayList);
     }
 
@@ -843,16 +833,14 @@ public class MotionController {
         return this.mView;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setStartCurrentState(View view) {
+    void setStartCurrentState(View view) {
         this.mStartMotionPath.time = 0.0f;
         this.mStartMotionPath.position = 0.0f;
         this.mStartMotionPath.setBounds(view.getX(), view.getY(), view.getWidth(), view.getHeight());
         this.mStartPoint.setState(view);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setStartState(ConstraintWidget constraintWidget, ConstraintSet constraintSet) {
+    void setStartState(ConstraintWidget constraintWidget, ConstraintSet constraintSet) {
         this.mStartMotionPath.time = 0.0f;
         this.mStartMotionPath.position = 0.0f;
         readView(this.mStartMotionPath);
@@ -898,8 +886,7 @@ public class MotionController {
         return AnimationUtils.loadInterpolator(context, i2);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setEndState(ConstraintWidget constraintWidget, ConstraintSet constraintSet) {
+    void setEndState(ConstraintWidget constraintWidget, ConstraintSet constraintSet) {
         this.mEndMotionPath.time = 1.0f;
         this.mEndMotionPath.position = 1.0f;
         readView(this.mEndMotionPath);
@@ -908,8 +895,7 @@ public class MotionController {
         this.mEndPoint.setState(constraintWidget, constraintSet, this.mId);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setBothStates(View view) {
+    void setBothStates(View view) {
         this.mStartMotionPath.time = 0.0f;
         this.mStartMotionPath.position = 0.0f;
         this.mNoMovement = true;
@@ -957,8 +943,7 @@ public class MotionController {
         return f;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean interpolate(View view, float f, long j, KeyCache keyCache) {
+    boolean interpolate(View view, float f, long j, KeyCache keyCache) {
         TimeCycleSplineSet.PathRotate pathRotate;
         boolean z;
         int i;
@@ -1114,8 +1099,7 @@ public class MotionController {
         return z;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void getDpDt(float f, float f2, float f3, float[] fArr) {
+    void getDpDt(float f, float f2, float f3, float[] fArr) {
         double[] dArr;
         float adjustedPosition = getAdjustedPosition(f, this.mVelocity);
         CurveFit[] curveFitArr = this.mSpline;
@@ -1154,8 +1138,7 @@ public class MotionController {
         fArr[1] = (f6 * (1.0f - f3)) + (f7 * f3);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void getPostLayoutDvDp(float f, int i, int i2, float f2, float f3, float[] fArr) {
+    void getPostLayoutDvDp(float f, int i, int i2, float f2, float f3, float[] fArr) {
         float adjustedPosition = getAdjustedPosition(f, this.mVelocity);
         HashMap<String, SplineSet> hashMap = this.mAttributesMap;
         SplineSet splineSet = hashMap == null ? null : hashMap.get(Key.TRANSLATION_X);
@@ -1249,8 +1232,7 @@ public class MotionController {
         return this.mView.getContext().getResources().getResourceEntryName(this.mView.getId());
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void positionKeyframe(View view, KeyPositionBase keyPositionBase, float f, float f2, String[] strArr, float[] fArr) {
+    void positionKeyframe(View view, KeyPositionBase keyPositionBase, float f, float f2, String[] strArr, float[] fArr) {
         RectF rectF = new RectF();
         rectF.left = this.mStartMotionPath.x;
         rectF.top = this.mStartMotionPath.y;

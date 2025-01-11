@@ -1,6 +1,7 @@
 package com.sun.mail.imap;
 
 import com.sun.mail.imap.protocol.UIDSet;
+
 /* loaded from: classes2.dex */
 public class ResyncData {
     public static final ResyncData CONDSTORE = new ResyncData(-1, -1);
@@ -43,8 +44,7 @@ public class ResyncData {
         return this.modseq;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public UIDSet[] getUIDSet() {
+    UIDSet[] getUIDSet() {
         return this.uids;
     }
 }

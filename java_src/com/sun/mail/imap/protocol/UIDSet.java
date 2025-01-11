@@ -2,6 +2,7 @@ package com.sun.mail.imap.protocol;
 
 import java.util.ArrayList;
 import java.util.StringTokenizer;
+
 /* loaded from: classes2.dex */
 public class UIDSet {
     public long end;

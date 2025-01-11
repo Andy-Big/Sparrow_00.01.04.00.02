@@ -6,6 +6,7 @@ import android.webkit.MimeTypeMap;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+
 /* loaded from: classes.dex */
 class RawDocumentFile extends DocumentFile {
     private File mFile;
@@ -15,8 +16,7 @@ class RawDocumentFile extends DocumentFile {
         return false;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public RawDocumentFile(DocumentFile documentFile, File file) {
+    RawDocumentFile(DocumentFile documentFile, File file) {
         super(documentFile);
         this.mFile = file;
     }

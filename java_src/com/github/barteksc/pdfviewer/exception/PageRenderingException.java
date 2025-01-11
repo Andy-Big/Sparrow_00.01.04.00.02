@@ -1,4 +1,5 @@
 package com.github.barteksc.pdfviewer.exception;
+
 /* loaded from: classes.dex */
 public class PageRenderingException extends Exception {
     private final int page;

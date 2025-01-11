@@ -20,6 +20,7 @@ import android.view.ViewGroup;
 import androidx.core.content.res.TypedArrayUtils;
 import androidx.core.view.ViewCompat;
 import java.util.Map;
+
 /* loaded from: classes.dex */
 public class ChangeBounds extends Transition {
     private boolean mReparent;
@@ -34,6 +35,7 @@ public class ChangeBounds extends Transition {
     private static final Property<Drawable, PointF> DRAWABLE_ORIGIN_PROPERTY = new Property<Drawable, PointF>(PointF.class, "boundsOrigin") { // from class: androidx.transition.ChangeBounds.1
         private Rect mBounds = new Rect();
 
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // android.util.Property
         public void set(Drawable drawable, PointF pointF) {
             drawable.copyBounds(this.mBounds);
@@ -41,6 +43,7 @@ public class ChangeBounds extends Transition {
             drawable.setBounds(this.mBounds);
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // android.util.Property
         public PointF get(Drawable drawable) {
             drawable.copyBounds(this.mBounds);
@@ -48,55 +51,65 @@ public class ChangeBounds extends Transition {
         }
     };
     private static final Property<ViewBounds, PointF> TOP_LEFT_PROPERTY = new Property<ViewBounds, PointF>(PointF.class, "topLeft") { // from class: androidx.transition.ChangeBounds.2
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // android.util.Property
         public PointF get(ViewBounds viewBounds) {
             return null;
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // android.util.Property
         public void set(ViewBounds viewBounds, PointF pointF) {
             viewBounds.setTopLeft(pointF);
         }
     };
     private static final Property<ViewBounds, PointF> BOTTOM_RIGHT_PROPERTY = new Property<ViewBounds, PointF>(PointF.class, "bottomRight") { // from class: androidx.transition.ChangeBounds.3
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // android.util.Property
         public PointF get(ViewBounds viewBounds) {
             return null;
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // android.util.Property
         public void set(ViewBounds viewBounds, PointF pointF) {
             viewBounds.setBottomRight(pointF);
         }
     };
     private static final Property<View, PointF> BOTTOM_RIGHT_ONLY_PROPERTY = new Property<View, PointF>(PointF.class, "bottomRight") { // from class: androidx.transition.ChangeBounds.4
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // android.util.Property
         public PointF get(View view) {
             return null;
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // android.util.Property
         public void set(View view, PointF pointF) {
             ViewUtils.setLeftTopRightBottom(view, view.getLeft(), view.getTop(), Math.round(pointF.x), Math.round(pointF.y));
         }
     };
     private static final Property<View, PointF> TOP_LEFT_ONLY_PROPERTY = new Property<View, PointF>(PointF.class, "topLeft") { // from class: androidx.transition.ChangeBounds.5
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // android.util.Property
         public PointF get(View view) {
             return null;
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // android.util.Property
         public void set(View view, PointF pointF) {
             ViewUtils.setLeftTopRightBottom(view, Math.round(pointF.x), Math.round(pointF.y), view.getRight(), view.getBottom());
         }
     };
     private static final Property<View, PointF> POSITION_PROPERTY = new Property<View, PointF>(PointF.class, "position") { // from class: androidx.transition.ChangeBounds.6
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // android.util.Property
         public PointF get(View view) {
             return null;
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // android.util.Property
         public void set(View view, PointF pointF) {
             int round = Math.round(pointF.x);
@@ -356,9 +369,8 @@ public class ChangeBounds extends Transition {
         return ofPropertyValuesHolder;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static class ViewBounds {
+    private static class ViewBounds {
         private int mBottom;
         private int mBottomRightCalls;
         private int mLeft;

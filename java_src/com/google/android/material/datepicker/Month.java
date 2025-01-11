@@ -5,16 +5,18 @@ import android.os.Parcelable;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
-/* JADX INFO: Access modifiers changed from: package-private */
+
 /* loaded from: classes.dex */
-public final class Month implements Comparable<Month>, Parcelable {
+final class Month implements Comparable<Month>, Parcelable {
     public static final Parcelable.Creator<Month> CREATOR = new Parcelable.Creator<Month>() { // from class: com.google.android.material.datepicker.Month.1
+        /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
         public Month createFromParcel(Parcel parcel) {
             return Month.create(parcel.readInt(), parcel.readInt());
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
         public Month[] newArray(int i) {
@@ -46,28 +48,24 @@ public final class Month implements Comparable<Month>, Parcelable {
         this.timeInMillis = this.firstOfMonth.getTimeInMillis();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static Month create(long j) {
+    static Month create(long j) {
         Calendar utcCalendar = UtcDates.getUtcCalendar();
         utcCalendar.setTimeInMillis(j);
         return new Month(utcCalendar);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static Month create(int i, int i2) {
+    static Month create(int i, int i2) {
         Calendar utcCalendar = UtcDates.getUtcCalendar();
         utcCalendar.set(1, i);
         utcCalendar.set(2, i2);
         return new Month(utcCalendar);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static Month current() {
+    static Month current() {
         return new Month(UtcDates.getTodayCalendar());
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public int daysFromStartOfWeekToFirstOfMonth() {
+    int daysFromStartOfWeekToFirstOfMonth() {
         int firstDayOfWeek = this.firstOfMonth.get(7) - this.firstOfMonth.getFirstDayOfWeek();
         return firstDayOfWeek < 0 ? firstDayOfWeek + this.daysInWeek : firstDayOfWeek;
     }
@@ -87,40 +85,36 @@ public final class Month implements Comparable<Month>, Parcelable {
         return Arrays.hashCode(new Object[]{Integer.valueOf(this.month), Integer.valueOf(this.year)});
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // java.lang.Comparable
     public int compareTo(Month month) {
         return this.firstOfMonth.compareTo(month.firstOfMonth);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public int monthsUntil(Month month) {
+    int monthsUntil(Month month) {
         if (this.firstOfMonth instanceof GregorianCalendar) {
             return ((month.year - this.year) * 12) + (month.month - this.month);
         }
         throw new IllegalArgumentException("Only Gregorian calendars are supported.");
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public long getStableId() {
+    long getStableId() {
         return this.firstOfMonth.getTimeInMillis();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public long getDay(int i) {
+    long getDay(int i) {
         Calendar dayCopy = UtcDates.getDayCopy(this.firstOfMonth);
         dayCopy.set(5, i);
         return dayCopy.getTimeInMillis();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public Month monthsLater(int i) {
+    Month monthsLater(int i) {
         Calendar dayCopy = UtcDates.getDayCopy(this.firstOfMonth);
         dayCopy.add(2, i);
         return new Month(dayCopy);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public String getLongName() {
+    String getLongName() {
         return this.longName;
     }
 

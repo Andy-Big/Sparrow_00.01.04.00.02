@@ -6,6 +6,7 @@ import android.animation.ValueAnimator;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
+
 /* loaded from: classes.dex */
 public class MotionTiming {
     private long delay;
@@ -67,8 +68,7 @@ public class MotionTiming {
         return this.repeatMode;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static MotionTiming createFromAnimator(ValueAnimator valueAnimator) {
+    static MotionTiming createFromAnimator(ValueAnimator valueAnimator) {
         MotionTiming motionTiming = new MotionTiming(valueAnimator.getStartDelay(), valueAnimator.getDuration(), getInterpolatorCompat(valueAnimator));
         motionTiming.repeatCount = valueAnimator.getRepeatCount();
         motionTiming.repeatMode = valueAnimator.getRepeatMode();

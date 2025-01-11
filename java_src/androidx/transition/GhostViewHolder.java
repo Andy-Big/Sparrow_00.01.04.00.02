@@ -6,13 +6,13 @@ import android.view.ViewGroup;
 import android.view.ViewParent;
 import android.widget.FrameLayout;
 import java.util.ArrayList;
+
 /* loaded from: classes.dex */
 class GhostViewHolder extends FrameLayout {
     private boolean mAttached;
     private ViewGroup mParent;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public GhostViewHolder(ViewGroup viewGroup) {
+    GhostViewHolder(ViewGroup viewGroup) {
         super(viewGroup.getContext());
         setClipChildren(false);
         this.mParent = viewGroup;
@@ -39,13 +39,11 @@ class GhostViewHolder extends FrameLayout {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static GhostViewHolder getHolder(ViewGroup viewGroup) {
+    static GhostViewHolder getHolder(ViewGroup viewGroup) {
         return (GhostViewHolder) viewGroup.getTag(R.id.ghost_view_holder);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void popToOverlayTop() {
+    void popToOverlayTop() {
         if (!this.mAttached) {
             throw new IllegalStateException("This GhostViewHolder is detached!");
         }
@@ -53,8 +51,7 @@ class GhostViewHolder extends FrameLayout {
         ViewGroupUtils.getOverlay(this.mParent).add(this);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void addGhostView(GhostViewPort ghostViewPort) {
+    void addGhostView(GhostViewPort ghostViewPort) {
         ArrayList<View> arrayList = new ArrayList<>();
         getParents(ghostViewPort.mView, arrayList);
         int insertIndex = getInsertIndex(arrayList);

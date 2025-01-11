@@ -7,6 +7,7 @@ import android.provider.ContactsContract;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+
 /* loaded from: classes.dex */
 public class StreamLocalUriFetcher extends LocalUriFetcher<InputStream> {
     private static final int ID_CONTACTS_CONTACT = 3;
@@ -31,6 +32,7 @@ public class StreamLocalUriFetcher extends LocalUriFetcher<InputStream> {
         super(contentResolver, uri);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.bumptech.glide.load.data.LocalUriFetcher
@@ -63,6 +65,7 @@ public class StreamLocalUriFetcher extends LocalUriFetcher<InputStream> {
         return ContactsContract.Contacts.openContactPhotoInputStream(contentResolver, uri, true);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.bumptech.glide.load.data.LocalUriFetcher
     public void close(InputStream inputStream) throws IOException {

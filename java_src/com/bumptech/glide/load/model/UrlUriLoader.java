@@ -8,6 +8,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
+
 /* loaded from: classes.dex */
 public class UrlUriLoader<Data> implements ModelLoader<Uri, Data> {
     private static final Set<String> SCHEMES = Collections.unmodifiableSet(new HashSet(Arrays.asList("http", "https")));
@@ -17,11 +18,13 @@ public class UrlUriLoader<Data> implements ModelLoader<Uri, Data> {
         this.urlLoader = modelLoader;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.model.ModelLoader
     public ModelLoader.LoadData<Data> buildLoadData(Uri uri, int i, int i2, Options options) {
         return this.urlLoader.buildLoadData(new GlideUrl(uri.toString()), i, i2, options);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.model.ModelLoader
     public boolean handles(Uri uri) {
         return SCHEMES.contains(uri.getScheme());

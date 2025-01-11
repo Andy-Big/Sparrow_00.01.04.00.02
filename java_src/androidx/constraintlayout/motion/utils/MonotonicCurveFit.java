@@ -2,6 +2,7 @@ package androidx.constraintlayout.motion.utils;
 
 import java.lang.reflect.Array;
 import java.util.Arrays;
+
 /* loaded from: classes.dex */
 public class MonotonicCurveFit extends CurveFit {
     private static final String TAG = "MonotonicCurveFit";

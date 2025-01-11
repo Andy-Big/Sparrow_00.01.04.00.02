@@ -5,6 +5,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Enumeration;
 import javax.activation.DataHandler;
+
 /* loaded from: classes2.dex */
 public interface Part {
     public static final String ATTACHMENT = "attachment";

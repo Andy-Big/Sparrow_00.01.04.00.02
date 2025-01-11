@@ -3,6 +3,7 @@ package com.sun.mail.imap.protocol;
 import com.sun.mail.iap.ProtocolException;
 import com.sun.mail.iap.Response;
 import java.util.ArrayList;
+
 /* loaded from: classes2.dex */
 public class Namespaces {
     public Namespace[] otherUsers;

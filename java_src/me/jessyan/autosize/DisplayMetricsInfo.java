@@ -2,14 +2,17 @@ package me.jessyan.autosize;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+
 /* loaded from: classes2.dex */
 public class DisplayMetricsInfo implements Parcelable {
     public static final Parcelable.Creator<DisplayMetricsInfo> CREATOR = new Parcelable.Creator<DisplayMetricsInfo>() { // from class: me.jessyan.autosize.DisplayMetricsInfo.1
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         public DisplayMetricsInfo createFromParcel(Parcel parcel) {
             return new DisplayMetricsInfo(parcel);
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         public DisplayMetricsInfo[] newArray(int i) {
             return new DisplayMetricsInfo[i];

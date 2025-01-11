@@ -1,6 +1,7 @@
 package androidx.core.internal.view;
 
 import android.view.Menu;
+
 /* loaded from: classes.dex */
 public interface SupportMenu extends Menu {
     public static final int CATEGORY_MASK = -65536;

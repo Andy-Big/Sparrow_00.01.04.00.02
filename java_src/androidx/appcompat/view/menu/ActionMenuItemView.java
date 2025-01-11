@@ -17,6 +17,7 @@ import androidx.appcompat.widget.ActionMenuView;
 import androidx.appcompat.widget.AppCompatTextView;
 import androidx.appcompat.widget.ForwardingListener;
 import androidx.appcompat.widget.TooltipCompat;
+
 /* loaded from: classes.dex */
 public class ActionMenuItemView extends AppCompatTextView implements MenuView.ItemView, View.OnClickListener, ActionMenuView.ActionMenuChildView {
     private static final int MAX_ICON_SIZE = 32;
@@ -217,9 +218,8 @@ public class ActionMenuItemView extends AppCompatTextView implements MenuView.It
         return hasText();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // androidx.appcompat.widget.AppCompatTextView, android.widget.TextView, android.view.View
-    public void onMeasure(int i, int i2) {
+    protected void onMeasure(int i, int i2) {
         int i3;
         int i4;
         boolean hasText = hasText();

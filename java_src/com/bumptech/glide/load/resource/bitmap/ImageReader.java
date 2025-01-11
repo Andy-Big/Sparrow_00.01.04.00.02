@@ -12,6 +12,7 @@ import com.bumptech.glide.util.Preconditions;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
+
 /* loaded from: classes.dex */
 interface ImageReader {
     Bitmap decodeBitmap(BitmapFactory.Options options) throws IOException;
@@ -28,8 +29,7 @@ interface ImageReader {
         private final InputStreamRewinder dataRewinder;
         private final List<ImageHeaderParser> parsers;
 
-        /* JADX INFO: Access modifiers changed from: package-private */
-        public InputStreamImageReader(InputStream inputStream, List<ImageHeaderParser> list, ArrayPool arrayPool) {
+        InputStreamImageReader(InputStream inputStream, List<ImageHeaderParser> list, ArrayPool arrayPool) {
             this.byteArrayPool = (ArrayPool) Preconditions.checkNotNull(arrayPool);
             this.parsers = (List) Preconditions.checkNotNull(list);
             this.dataRewinder = new InputStreamRewinder(inputStream, arrayPool);
@@ -66,8 +66,7 @@ interface ImageReader {
         public void stopGrowingBuffers() {
         }
 
-        /* JADX INFO: Access modifiers changed from: package-private */
-        public ParcelFileDescriptorImageReader(ParcelFileDescriptor parcelFileDescriptor, List<ImageHeaderParser> list, ArrayPool arrayPool) {
+        ParcelFileDescriptorImageReader(ParcelFileDescriptor parcelFileDescriptor, List<ImageHeaderParser> list, ArrayPool arrayPool) {
             this.byteArrayPool = (ArrayPool) Preconditions.checkNotNull(arrayPool);
             this.parsers = (List) Preconditions.checkNotNull(list);
             this.dataRewinder = new ParcelFileDescriptorRewinder(parcelFileDescriptor);

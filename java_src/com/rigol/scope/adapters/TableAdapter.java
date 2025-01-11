@@ -43,6 +43,11 @@ public class TableAdapter extends RecyclerView.Adapter<TableHolder> {
     private boolean isTouch = true;
     private ArrayList<ArrayList<String>> data = new ArrayList<>();
 
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.adapters.TableAdapter$onBindViewHolder$1.onClick(android.view.View):void] */
+    public static final /* synthetic */ void access$setIPosition$p(TableAdapter tableAdapter, int i) {
+        tableAdapter.iPosition = i;
+    }
+
     public final float[] getCellPercents() {
         return this.cellPercents;
     }
@@ -73,6 +78,10 @@ public class TableAdapter extends RecyclerView.Adapter<TableHolder> {
                 throw new NullPointerException("null cannot be cast to non-null type androidx.lifecycle.LifecycleOwner");
             }
             mutableLiveData2.observe((LifecycleOwner) topActivity, new Observer<Object>() { // from class: com.rigol.scope.adapters.TableAdapter.1
+                {
+                    TableAdapter.this = this;
+                }
+
                 @Override // androidx.lifecycle.Observer
                 public void onChanged(Object obj) {
                     if (obj != null) {
@@ -105,6 +114,10 @@ public class TableAdapter extends RecyclerView.Adapter<TableHolder> {
             throw new NullPointerException("null cannot be cast to non-null type androidx.lifecycle.LifecycleOwner");
         }
         mutableLiveData.observe((LifecycleOwner) topActivity2, new Observer<Object>() { // from class: com.rigol.scope.adapters.TableAdapter.2
+            {
+                TableAdapter.this = this;
+            }
+
             /* JADX WARN: Type inference failed for: r2v8, types: [T, com.rigol.scope.data.NavigateParam] */
             @Override // androidx.lifecycle.Observer
             public void onChanged(Object obj) {
@@ -157,8 +170,7 @@ public class TableAdapter extends RecyclerView.Adapter<TableHolder> {
         return this.itemViewType;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Removed duplicated region for block: B:24:0x0107  */
+    /* JADX WARN: Removed duplicated region for block: B:88:0x0107  */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -268,7 +280,6 @@ public class TableAdapter extends RecyclerView.Adapter<TableHolder> {
         return new TableHolder(constraintLayout);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(TableHolder holder, final int i) {
         ArrayList<String> arrayList;
@@ -326,7 +337,7 @@ public class TableAdapter extends RecyclerView.Adapter<TableHolder> {
                             TableAdapter.this.notifyDataSetChanged();
                         }
                         TableAdapter.this.setTouch(false);
-                        TableAdapter.this.iPosition = i;
+                        TableAdapter.access$setIPosition$p(TableAdapter.this, i);
                         MessageBus.getInstance().onSyncData(MessageBus.getKey(25, MessageID.MSG_SEARCH_NAVIGATION_EVENT), Integer.valueOf(i));
                     }
                 }

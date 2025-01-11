@@ -18,6 +18,7 @@ import android.widget.FrameLayout;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import com.google.android.material.R;
 import com.google.android.material.snackbar.BaseTransientBottomBar;
+
 /* loaded from: classes.dex */
 public class Snackbar extends BaseTransientBottomBar<Snackbar> {
     private static final int[] SNACKBAR_BUTTON_STYLE_ATTR = {R.attr.snackbarButtonStyle};
@@ -34,10 +35,12 @@ public class Snackbar extends BaseTransientBottomBar<Snackbar> {
         public static final int DISMISS_EVENT_SWIPE = 0;
         public static final int DISMISS_EVENT_TIMEOUT = 2;
 
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.android.material.snackbar.BaseTransientBottomBar.BaseCallback
         public void onDismissed(Snackbar snackbar, int i) {
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.android.material.snackbar.BaseTransientBottomBar.BaseCallback
         public void onShown(Snackbar snackbar) {
         }

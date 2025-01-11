@@ -6,6 +6,7 @@ import java.lang.Thread;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Map;
+
 /* loaded from: classes.dex */
 public final class CrashUtils {
     private static final String FILE_SEP = System.getProperty("file.separator");

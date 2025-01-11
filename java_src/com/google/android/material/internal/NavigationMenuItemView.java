@@ -24,6 +24,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import androidx.core.widget.TextViewCompat;
 import com.google.android.material.R;
+
 /* loaded from: classes.dex */
 public class NavigationMenuItemView extends ForegroundLinearLayout implements MenuView.ItemView {
     private static final int[] CHECKED_STATE_SET = {16842912};
@@ -219,8 +220,7 @@ public class NavigationMenuItemView extends ForegroundLinearLayout implements Me
         return onCreateDrawableState;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setIconTintList(ColorStateList colorStateList) {
+    void setIconTintList(ColorStateList colorStateList) {
         this.iconTintList = colorStateList;
         this.hasIconTintList = colorStateList != null;
         MenuItemImpl menuItemImpl = this.itemData;

@@ -3,6 +3,7 @@ package com.scwang.smartrefresh.header.storehouse;
 import android.util.SparseArray;
 import java.util.ArrayList;
 import java.util.List;
+
 /* loaded from: classes2.dex */
 public class StoreHousePath {
     private static final SparseArray<float[]> sPointList = new SparseArray<>();

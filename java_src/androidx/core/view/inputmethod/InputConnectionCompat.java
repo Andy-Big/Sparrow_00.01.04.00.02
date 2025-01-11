@@ -10,6 +10,7 @@ import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
 import android.view.inputmethod.InputConnectionWrapper;
 import android.view.inputmethod.InputContentInfo;
+
 /* loaded from: classes.dex */
 public final class InputConnectionCompat {
     private static final String COMMIT_CONTENT_ACTION = "androidx.core.view.inputmethod.InputConnectionCompat.COMMIT_CONTENT";
@@ -33,6 +34,10 @@ public final class InputConnectionCompat {
         boolean onCommitContent(InputContentInfoCompat inputContentInfoCompat, int i, Bundle bundle);
     }
 
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:42:0x0077 */
+    /* JADX DEBUG: Multi-variable search result rejected for r2v2, resolved type: android.os.ResultReceiver */
+    /* JADX DEBUG: Multi-variable search result rejected for r2v3, resolved type: android.os.ResultReceiver */
+    /* JADX DEBUG: Multi-variable search result rejected for r2v5, resolved type: android.os.ResultReceiver */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r0v0 */
     /* JADX WARN: Type inference failed for: r0v3, types: [boolean, int] */
@@ -55,29 +60,29 @@ public final class InputConnectionCompat {
         }
         try {
             resultReceiver = (ResultReceiver) bundle.getParcelable(z ? COMMIT_CONTENT_RESULT_INTEROP_RECEIVER_KEY : COMMIT_CONTENT_RESULT_RECEIVER_KEY);
-            try {
-                Uri uri = (Uri) bundle.getParcelable(z ? COMMIT_CONTENT_CONTENT_URI_INTEROP_KEY : COMMIT_CONTENT_CONTENT_URI_KEY);
-                ClipDescription clipDescription = (ClipDescription) bundle.getParcelable(z ? COMMIT_CONTENT_DESCRIPTION_INTEROP_KEY : COMMIT_CONTENT_DESCRIPTION_KEY);
-                Uri uri2 = (Uri) bundle.getParcelable(z ? COMMIT_CONTENT_LINK_URI_INTEROP_KEY : COMMIT_CONTENT_LINK_URI_KEY);
-                int i = bundle.getInt(z ? COMMIT_CONTENT_FLAGS_INTEROP_KEY : COMMIT_CONTENT_FLAGS_KEY);
-                Bundle bundle2 = (Bundle) bundle.getParcelable(z ? COMMIT_CONTENT_OPTS_INTEROP_KEY : COMMIT_CONTENT_OPTS_KEY);
-                if (uri != null && clipDescription != null) {
-                    r0 = onCommitContentListener.onCommitContent(new InputContentInfoCompat(uri, clipDescription, uri2), i, bundle2);
-                }
-                if (resultReceiver != 0) {
-                    resultReceiver.send(r0, null);
-                }
-                return r0;
-            } catch (Throwable th) {
-                th = th;
-                if (resultReceiver != 0) {
-                    resultReceiver.send(0, null);
-                }
-                throw th;
+        } catch (Throwable th) {
+            th = th;
+            resultReceiver = 0;
+        }
+        try {
+            Uri uri = (Uri) bundle.getParcelable(z ? COMMIT_CONTENT_CONTENT_URI_INTEROP_KEY : COMMIT_CONTENT_CONTENT_URI_KEY);
+            ClipDescription clipDescription = (ClipDescription) bundle.getParcelable(z ? COMMIT_CONTENT_DESCRIPTION_INTEROP_KEY : COMMIT_CONTENT_DESCRIPTION_KEY);
+            Uri uri2 = (Uri) bundle.getParcelable(z ? COMMIT_CONTENT_LINK_URI_INTEROP_KEY : COMMIT_CONTENT_LINK_URI_KEY);
+            int i = bundle.getInt(z ? COMMIT_CONTENT_FLAGS_INTEROP_KEY : COMMIT_CONTENT_FLAGS_KEY);
+            Bundle bundle2 = (Bundle) bundle.getParcelable(z ? COMMIT_CONTENT_OPTS_INTEROP_KEY : COMMIT_CONTENT_OPTS_KEY);
+            if (uri != null && clipDescription != null) {
+                r0 = onCommitContentListener.onCommitContent(new InputContentInfoCompat(uri, clipDescription, uri2), i, bundle2);
             }
+            if (resultReceiver != 0) {
+                resultReceiver.send(r0, null);
+            }
+            return r0;
         } catch (Throwable th2) {
             th = th2;
-            resultReceiver = 0;
+            if (resultReceiver != 0) {
+                resultReceiver.send(0, null);
+            }
+            throw th;
         }
     }
 

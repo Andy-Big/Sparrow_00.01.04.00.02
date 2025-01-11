@@ -5,6 +5,7 @@ import android.graphics.BitmapFactory;
 import android.os.Build;
 import android.util.Log;
 import java.io.File;
+
 /* loaded from: classes.dex */
 public final class HardwareConfigState {
     private static final File FD_SIZE_LIST = new File("/proc/self/fd");
@@ -46,8 +47,7 @@ public final class HardwareConfigState {
         return z && this.isHardwareConfigAllowedByDeviceModel && Build.VERSION.SDK_INT >= 26 && !z2 && i >= (i3 = this.minHardwareDimension) && i2 >= i3 && isFdSizeBelowHardwareLimit();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean setHardwareConfigIfAllowed(int i, int i2, BitmapFactory.Options options, boolean z, boolean z2) {
+    boolean setHardwareConfigIfAllowed(int i, int i2, BitmapFactory.Options options, boolean z, boolean z2) {
         boolean isHardwareConfigAllowed = isHardwareConfigAllowed(i, i2, z, z2);
         if (isHardwareConfigAllowed) {
             options.inPreferredConfig = Bitmap.Config.HARDWARE;

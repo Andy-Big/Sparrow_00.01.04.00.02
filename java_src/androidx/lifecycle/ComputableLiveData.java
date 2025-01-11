@@ -3,6 +3,7 @@ package androidx.lifecycle;
 import androidx.arch.core.executor.ArchTaskExecutor;
 import java.util.concurrent.Executor;
 import java.util.concurrent.atomic.AtomicBoolean;
+
 /* loaded from: classes.dex */
 public abstract class ComputableLiveData<T> {
     final AtomicBoolean mComputing;
@@ -22,6 +23,7 @@ public abstract class ComputableLiveData<T> {
         this.mInvalid = new AtomicBoolean(true);
         this.mComputing = new AtomicBoolean(false);
         this.mRefreshRunnable = new Runnable() { // from class: androidx.lifecycle.ComputableLiveData.2
+            /* JADX DEBUG: Multi-variable search result rejected for r2v4, resolved type: androidx.lifecycle.LiveData<T> */
             /* JADX WARN: Multi-variable type inference failed */
             @Override // java.lang.Runnable
             public void run() {

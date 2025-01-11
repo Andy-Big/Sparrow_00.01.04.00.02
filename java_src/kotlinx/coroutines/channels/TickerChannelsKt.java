@@ -1,12 +1,22 @@
 package kotlinx.coroutines.channels;
 
 import kotlin.Metadata;
+import kotlin.ResultKt;
 import kotlin.Unit;
+import kotlin.coroutines.Continuation;
 import kotlin.coroutines.CoroutineContext;
 import kotlin.coroutines.EmptyCoroutineContext;
+import kotlin.coroutines.intrinsics.IntrinsicsKt;
+import kotlin.coroutines.jvm.internal.Boxing;
 import kotlin.jvm.internal.Intrinsics;
+import kotlin.ranges.RangesKt;
+import kotlinx.coroutines.DelayKt;
 import kotlinx.coroutines.Dispatchers;
+import kotlinx.coroutines.EventLoop_commonKt;
 import kotlinx.coroutines.GlobalScope;
+import kotlinx.coroutines.TimeSource;
+import kotlinx.coroutines.TimeSourceKt;
+
 /* compiled from: TickerChannels.kt */
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000*\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0010\t\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\u001a/\u0010\u0000\u001a\u00020\u00012\u0006\u0010\u0002\u001a\u00020\u00032\u0006\u0010\u0004\u001a\u00020\u00032\f\u0010\u0005\u001a\b\u0012\u0004\u0012\u00020\u00010\u0006H\u0082@ø\u0001\u0000¢\u0006\u0002\u0010\u0007\u001a/\u0010\b\u001a\u00020\u00012\u0006\u0010\u0002\u001a\u00020\u00032\u0006\u0010\u0004\u001a\u00020\u00032\f\u0010\u0005\u001a\b\u0012\u0004\u0012\u00020\u00010\u0006H\u0082@ø\u0001\u0000¢\u0006\u0002\u0010\u0007\u001a4\u0010\t\u001a\b\u0012\u0004\u0012\u00020\u00010\n2\u0006\u0010\u0002\u001a\u00020\u00032\b\b\u0002\u0010\u0004\u001a\u00020\u00032\b\b\u0002\u0010\u000b\u001a\u00020\f2\b\b\u0002\u0010\r\u001a\u00020\u000eH\u0007\u0082\u0002\u0004\n\u0002\b\u0019¨\u0006\u000f"}, d2 = {"fixedDelayTicker", "", "delayMillis", "", "initialDelayMillis", "channel", "Lkotlinx/coroutines/channels/SendChannel;", "(JJLkotlinx/coroutines/channels/SendChannel;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "fixedPeriodTicker", "ticker", "Lkotlinx/coroutines/channels/ReceiveChannel;", "context", "Lkotlin/coroutines/CoroutineContext;", "mode", "Lkotlinx/coroutines/channels/TickerMode;", "kotlinx-coroutines-core"}, k = 2, mv = {1, 1, 15})
 /* loaded from: classes2.dex */
@@ -50,7 +60,6 @@ public final class TickerChannelsKt {
         return ProduceKt.produce(GlobalScope.INSTANCE, Dispatchers.getUnconfined().plus(context), 0, new TickerChannelsKt$ticker$3(mode, j, j2, null));
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: Removed duplicated region for block: B:10:0x002b  */
     /* JADX WARN: Removed duplicated region for block: B:20:0x008e  */
     /* JADX WARN: Removed duplicated region for block: B:33:0x00df A[RETURN] */
@@ -61,17 +70,261 @@ public final class TickerChannelsKt {
     /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:54:0x0175 -> B:50:0x0148). Please submit an issue!!! */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    public static final /* synthetic */ java.lang.Object fixedPeriodTicker(long r21, long r23, kotlinx.coroutines.channels.SendChannel<? super kotlin.Unit> r25, kotlin.coroutines.Continuation<? super kotlin.Unit> r26) {
-        /*
-            Method dump skipped, instructions count: 384
-            To view this dump add '--comments-level debug' option
-        */
-        throw new UnsupportedOperationException("Method not decompiled: kotlinx.coroutines.channels.TickerChannelsKt.fixedPeriodTicker(long, long, kotlinx.coroutines.channels.SendChannel, kotlin.coroutines.Continuation):java.lang.Object");
+    static final /* synthetic */ Object fixedPeriodTicker(long j, long j2, SendChannel<? super Unit> sendChannel, Continuation<? super Unit> continuation) {
+        TickerChannelsKt$fixedPeriodTicker$1 tickerChannelsKt$fixedPeriodTicker$1;
+        Object coroutine_suspended;
+        int i;
+        SendChannel<? super Unit> sendChannel2;
+        long j3;
+        long j4;
+        Long boxLong;
+        long delayToNanos;
+        long j5;
+        long j6;
+        SendChannel<? super Unit> sendChannel3;
+        long j7;
+        char c;
+        long j8;
+        long nanoTime;
+        TickerChannelsKt$fixedPeriodTicker$1 tickerChannelsKt$fixedPeriodTicker$12;
+        long j9;
+        long coerceAtLeast;
+        long delayNanosToMillis;
+        Long boxLong2;
+        SendChannel<? super Unit> sendChannel4;
+        Unit unit;
+        long j10 = j2;
+        if (continuation instanceof TickerChannelsKt$fixedPeriodTicker$1) {
+            tickerChannelsKt$fixedPeriodTicker$1 = (TickerChannelsKt$fixedPeriodTicker$1) continuation;
+            if ((tickerChannelsKt$fixedPeriodTicker$1.label & Integer.MIN_VALUE) != 0) {
+                tickerChannelsKt$fixedPeriodTicker$1.label -= Integer.MIN_VALUE;
+                Object obj = tickerChannelsKt$fixedPeriodTicker$1.result;
+                coroutine_suspended = IntrinsicsKt.getCOROUTINE_SUSPENDED();
+                i = tickerChannelsKt$fixedPeriodTicker$1.label;
+                int i2 = 2;
+                if (i != 0) {
+                    ResultKt.throwOnFailure(obj);
+                    TimeSource timeSource = TimeSourceKt.getTimeSource();
+                    long nanoTime2 = ((timeSource == null || (boxLong = Boxing.boxLong(timeSource.nanoTime())) == null) ? System.nanoTime() : boxLong.longValue()) + EventLoop_commonKt.delayToNanos(j2);
+                    tickerChannelsKt$fixedPeriodTicker$1.J$0 = j;
+                    tickerChannelsKt$fixedPeriodTicker$1.J$1 = j10;
+                    sendChannel2 = sendChannel;
+                    tickerChannelsKt$fixedPeriodTicker$1.L$0 = sendChannel2;
+                    tickerChannelsKt$fixedPeriodTicker$1.J$2 = nanoTime2;
+                    tickerChannelsKt$fixedPeriodTicker$1.label = 1;
+                    if (DelayKt.delay(j10, tickerChannelsKt$fixedPeriodTicker$1) == coroutine_suspended) {
+                        return coroutine_suspended;
+                    }
+                    j3 = nanoTime2;
+                    j4 = j;
+                } else if (i == 1) {
+                    long j11 = tickerChannelsKt$fixedPeriodTicker$1.J$2;
+                    long j12 = tickerChannelsKt$fixedPeriodTicker$1.J$1;
+                    j4 = tickerChannelsKt$fixedPeriodTicker$1.J$0;
+                    ResultKt.throwOnFailure(obj);
+                    sendChannel2 = (SendChannel) tickerChannelsKt$fixedPeriodTicker$1.L$0;
+                    j10 = j12;
+                    j3 = j11;
+                } else if (i == 2) {
+                    j7 = tickerChannelsKt$fixedPeriodTicker$1.J$3;
+                    j8 = tickerChannelsKt$fixedPeriodTicker$1.J$2;
+                    sendChannel3 = (SendChannel) tickerChannelsKt$fixedPeriodTicker$1.L$0;
+                    j6 = tickerChannelsKt$fixedPeriodTicker$1.J$1;
+                    j5 = tickerChannelsKt$fixedPeriodTicker$1.J$0;
+                    ResultKt.throwOnFailure(obj);
+                    TimeSource timeSource2 = TimeSourceKt.getTimeSource();
+                    nanoTime = (timeSource2 != null || (boxLong2 = Boxing.boxLong(timeSource2.nanoTime())) == null) ? System.nanoTime() : boxLong2.longValue();
+                    tickerChannelsKt$fixedPeriodTicker$12 = tickerChannelsKt$fixedPeriodTicker$1;
+                    j9 = j8;
+                    coerceAtLeast = RangesKt.coerceAtLeast(j8 - nanoTime, 0L);
+                    if (coerceAtLeast != 0) {
+                    }
+                    delayNanosToMillis = EventLoop_commonKt.delayNanosToMillis(coerceAtLeast);
+                    tickerChannelsKt$fixedPeriodTicker$12.J$0 = j5;
+                    tickerChannelsKt$fixedPeriodTicker$12.J$1 = j6;
+                    tickerChannelsKt$fixedPeriodTicker$12.L$0 = sendChannel3;
+                    long j13 = j6;
+                    tickerChannelsKt$fixedPeriodTicker$12.J$2 = j9;
+                    tickerChannelsKt$fixedPeriodTicker$12.J$3 = j7;
+                    tickerChannelsKt$fixedPeriodTicker$12.J$4 = nanoTime;
+                    tickerChannelsKt$fixedPeriodTicker$12.J$5 = coerceAtLeast;
+                    c = 4;
+                    tickerChannelsKt$fixedPeriodTicker$12.label = 4;
+                    if (DelayKt.delay(delayNanosToMillis, tickerChannelsKt$fixedPeriodTicker$12) != coroutine_suspended) {
+                    }
+                } else if (i == 3) {
+                    long j14 = tickerChannelsKt$fixedPeriodTicker$1.J$6;
+                    long j15 = tickerChannelsKt$fixedPeriodTicker$1.J$5;
+                    long j16 = tickerChannelsKt$fixedPeriodTicker$1.J$4;
+                    j7 = tickerChannelsKt$fixedPeriodTicker$1.J$3;
+                    j3 = tickerChannelsKt$fixedPeriodTicker$1.J$2;
+                    sendChannel3 = (SendChannel) tickerChannelsKt$fixedPeriodTicker$1.L$0;
+                    j6 = tickerChannelsKt$fixedPeriodTicker$1.J$1;
+                    j5 = tickerChannelsKt$fixedPeriodTicker$1.J$0;
+                    ResultKt.throwOnFailure(obj);
+                    c = 4;
+                    long j17 = j6;
+                    j4 = j5;
+                    delayToNanos = j7;
+                    j10 = j17;
+                    sendChannel4 = sendChannel3;
+                    i2 = 2;
+                    j8 = j3 + delayToNanos;
+                    unit = Unit.INSTANCE;
+                    tickerChannelsKt$fixedPeriodTicker$1.J$0 = j4;
+                    tickerChannelsKt$fixedPeriodTicker$1.J$1 = j10;
+                    tickerChannelsKt$fixedPeriodTicker$1.L$0 = sendChannel4;
+                    tickerChannelsKt$fixedPeriodTicker$1.J$2 = j8;
+                    tickerChannelsKt$fixedPeriodTicker$1.J$3 = delayToNanos;
+                    tickerChannelsKt$fixedPeriodTicker$1.label = i2;
+                    if (sendChannel4.send(unit, tickerChannelsKt$fixedPeriodTicker$1) != coroutine_suspended) {
+                    }
+                } else if (i != 4) {
+                    throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
+                } else {
+                    long j18 = tickerChannelsKt$fixedPeriodTicker$1.J$5;
+                    long j19 = tickerChannelsKt$fixedPeriodTicker$1.J$4;
+                    j7 = tickerChannelsKt$fixedPeriodTicker$1.J$3;
+                    j3 = tickerChannelsKt$fixedPeriodTicker$1.J$2;
+                    sendChannel3 = (SendChannel) tickerChannelsKt$fixedPeriodTicker$1.L$0;
+                    j6 = tickerChannelsKt$fixedPeriodTicker$1.J$1;
+                    j5 = tickerChannelsKt$fixedPeriodTicker$1.J$0;
+                    ResultKt.throwOnFailure(obj);
+                    c = 4;
+                    long j172 = j6;
+                    j4 = j5;
+                    delayToNanos = j7;
+                    j10 = j172;
+                    sendChannel4 = sendChannel3;
+                    i2 = 2;
+                    j8 = j3 + delayToNanos;
+                    unit = Unit.INSTANCE;
+                    tickerChannelsKt$fixedPeriodTicker$1.J$0 = j4;
+                    tickerChannelsKt$fixedPeriodTicker$1.J$1 = j10;
+                    tickerChannelsKt$fixedPeriodTicker$1.L$0 = sendChannel4;
+                    tickerChannelsKt$fixedPeriodTicker$1.J$2 = j8;
+                    tickerChannelsKt$fixedPeriodTicker$1.J$3 = delayToNanos;
+                    tickerChannelsKt$fixedPeriodTicker$1.label = i2;
+                    if (sendChannel4.send(unit, tickerChannelsKt$fixedPeriodTicker$1) != coroutine_suspended) {
+                        return coroutine_suspended;
+                    }
+                    sendChannel3 = sendChannel4;
+                    long j20 = j10;
+                    j7 = delayToNanos;
+                    j5 = j4;
+                    j6 = j20;
+                    TimeSource timeSource22 = TimeSourceKt.getTimeSource();
+                    nanoTime = (timeSource22 != null || (boxLong2 = Boxing.boxLong(timeSource22.nanoTime())) == null) ? System.nanoTime() : boxLong2.longValue();
+                    tickerChannelsKt$fixedPeriodTicker$12 = tickerChannelsKt$fixedPeriodTicker$1;
+                    j9 = j8;
+                    coerceAtLeast = RangesKt.coerceAtLeast(j8 - nanoTime, 0L);
+                    if (coerceAtLeast != 0 && j7 != 0) {
+                        long j21 = j7 - ((nanoTime - j9) % j7);
+                        long j22 = nanoTime + j21;
+                        long delayNanosToMillis2 = EventLoop_commonKt.delayNanosToMillis(j21);
+                        tickerChannelsKt$fixedPeriodTicker$12.J$0 = j5;
+                        tickerChannelsKt$fixedPeriodTicker$12.J$1 = j6;
+                        tickerChannelsKt$fixedPeriodTicker$12.L$0 = sendChannel3;
+                        tickerChannelsKt$fixedPeriodTicker$12.J$2 = j22;
+                        tickerChannelsKt$fixedPeriodTicker$12.J$3 = j7;
+                        tickerChannelsKt$fixedPeriodTicker$12.J$4 = nanoTime;
+                        tickerChannelsKt$fixedPeriodTicker$12.J$5 = coerceAtLeast;
+                        tickerChannelsKt$fixedPeriodTicker$12.J$6 = j21;
+                        tickerChannelsKt$fixedPeriodTicker$12.label = 3;
+                        if (DelayKt.delay(delayNanosToMillis2, tickerChannelsKt$fixedPeriodTicker$12) == coroutine_suspended) {
+                            return coroutine_suspended;
+                        }
+                        tickerChannelsKt$fixedPeriodTicker$1 = tickerChannelsKt$fixedPeriodTicker$12;
+                        j3 = j22;
+                        c = 4;
+                        long j1722 = j6;
+                        j4 = j5;
+                        delayToNanos = j7;
+                        j10 = j1722;
+                        sendChannel4 = sendChannel3;
+                        i2 = 2;
+                        j8 = j3 + delayToNanos;
+                        unit = Unit.INSTANCE;
+                        tickerChannelsKt$fixedPeriodTicker$1.J$0 = j4;
+                        tickerChannelsKt$fixedPeriodTicker$1.J$1 = j10;
+                        tickerChannelsKt$fixedPeriodTicker$1.L$0 = sendChannel4;
+                        tickerChannelsKt$fixedPeriodTicker$1.J$2 = j8;
+                        tickerChannelsKt$fixedPeriodTicker$1.J$3 = delayToNanos;
+                        tickerChannelsKt$fixedPeriodTicker$1.label = i2;
+                        if (sendChannel4.send(unit, tickerChannelsKt$fixedPeriodTicker$1) != coroutine_suspended) {
+                        }
+                    } else {
+                        delayNanosToMillis = EventLoop_commonKt.delayNanosToMillis(coerceAtLeast);
+                        tickerChannelsKt$fixedPeriodTicker$12.J$0 = j5;
+                        tickerChannelsKt$fixedPeriodTicker$12.J$1 = j6;
+                        tickerChannelsKt$fixedPeriodTicker$12.L$0 = sendChannel3;
+                        long j132 = j6;
+                        tickerChannelsKt$fixedPeriodTicker$12.J$2 = j9;
+                        tickerChannelsKt$fixedPeriodTicker$12.J$3 = j7;
+                        tickerChannelsKt$fixedPeriodTicker$12.J$4 = nanoTime;
+                        tickerChannelsKt$fixedPeriodTicker$12.J$5 = coerceAtLeast;
+                        c = 4;
+                        tickerChannelsKt$fixedPeriodTicker$12.label = 4;
+                        if (DelayKt.delay(delayNanosToMillis, tickerChannelsKt$fixedPeriodTicker$12) != coroutine_suspended) {
+                            return coroutine_suspended;
+                        }
+                        tickerChannelsKt$fixedPeriodTicker$1 = tickerChannelsKt$fixedPeriodTicker$12;
+                        j3 = j9;
+                        j6 = j132;
+                        long j17222 = j6;
+                        j4 = j5;
+                        delayToNanos = j7;
+                        j10 = j17222;
+                        sendChannel4 = sendChannel3;
+                        i2 = 2;
+                        j8 = j3 + delayToNanos;
+                        unit = Unit.INSTANCE;
+                        tickerChannelsKt$fixedPeriodTicker$1.J$0 = j4;
+                        tickerChannelsKt$fixedPeriodTicker$1.J$1 = j10;
+                        tickerChannelsKt$fixedPeriodTicker$1.L$0 = sendChannel4;
+                        tickerChannelsKt$fixedPeriodTicker$1.J$2 = j8;
+                        tickerChannelsKt$fixedPeriodTicker$1.J$3 = delayToNanos;
+                        tickerChannelsKt$fixedPeriodTicker$1.label = i2;
+                        if (sendChannel4.send(unit, tickerChannelsKt$fixedPeriodTicker$1) != coroutine_suspended) {
+                        }
+                    }
+                }
+                delayToNanos = EventLoop_commonKt.delayToNanos(j4);
+                sendChannel4 = sendChannel2;
+                j8 = j3 + delayToNanos;
+                unit = Unit.INSTANCE;
+                tickerChannelsKt$fixedPeriodTicker$1.J$0 = j4;
+                tickerChannelsKt$fixedPeriodTicker$1.J$1 = j10;
+                tickerChannelsKt$fixedPeriodTicker$1.L$0 = sendChannel4;
+                tickerChannelsKt$fixedPeriodTicker$1.J$2 = j8;
+                tickerChannelsKt$fixedPeriodTicker$1.J$3 = delayToNanos;
+                tickerChannelsKt$fixedPeriodTicker$1.label = i2;
+                if (sendChannel4.send(unit, tickerChannelsKt$fixedPeriodTicker$1) != coroutine_suspended) {
+                }
+            }
+        }
+        tickerChannelsKt$fixedPeriodTicker$1 = new TickerChannelsKt$fixedPeriodTicker$1(continuation);
+        Object obj2 = tickerChannelsKt$fixedPeriodTicker$1.result;
+        coroutine_suspended = IntrinsicsKt.getCOROUTINE_SUSPENDED();
+        i = tickerChannelsKt$fixedPeriodTicker$1.label;
+        int i22 = 2;
+        if (i != 0) {
+        }
+        delayToNanos = EventLoop_commonKt.delayToNanos(j4);
+        sendChannel4 = sendChannel2;
+        j8 = j3 + delayToNanos;
+        unit = Unit.INSTANCE;
+        tickerChannelsKt$fixedPeriodTicker$1.J$0 = j4;
+        tickerChannelsKt$fixedPeriodTicker$1.J$1 = j10;
+        tickerChannelsKt$fixedPeriodTicker$1.L$0 = sendChannel4;
+        tickerChannelsKt$fixedPeriodTicker$1.J$2 = j8;
+        tickerChannelsKt$fixedPeriodTicker$1.J$3 = delayToNanos;
+        tickerChannelsKt$fixedPeriodTicker$1.label = i22;
+        if (sendChannel4.send(unit, tickerChannelsKt$fixedPeriodTicker$1) != coroutine_suspended) {
+        }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: Removed duplicated region for block: B:10:0x0026  */
     /* JADX WARN: Removed duplicated region for block: B:19:0x005d  */
     /* JADX WARN: Removed duplicated region for block: B:24:0x007f A[RETURN] */
@@ -80,99 +333,104 @@ public final class TickerChannelsKt {
     /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:27:0x0090 -> B:14:0x0037). Please submit an issue!!! */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    public static final /* synthetic */ java.lang.Object fixedDelayTicker(long r8, long r10, kotlinx.coroutines.channels.SendChannel<? super kotlin.Unit> r12, kotlin.coroutines.Continuation<? super kotlin.Unit> r13) {
-        /*
-            boolean r0 = r13 instanceof kotlinx.coroutines.channels.TickerChannelsKt$fixedDelayTicker$1
-            if (r0 == 0) goto L14
-            r0 = r13
-            kotlinx.coroutines.channels.TickerChannelsKt$fixedDelayTicker$1 r0 = (kotlinx.coroutines.channels.TickerChannelsKt$fixedDelayTicker$1) r0
-            int r1 = r0.label
-            r2 = -2147483648(0xffffffff80000000, float:-0.0)
-            r1 = r1 & r2
-            if (r1 == 0) goto L14
-            int r13 = r0.label
-            int r13 = r13 - r2
-            r0.label = r13
-            goto L19
-        L14:
-            kotlinx.coroutines.channels.TickerChannelsKt$fixedDelayTicker$1 r0 = new kotlinx.coroutines.channels.TickerChannelsKt$fixedDelayTicker$1
-            r0.<init>(r13)
-        L19:
-            java.lang.Object r13 = r0.result
-            java.lang.Object r1 = kotlin.coroutines.intrinsics.IntrinsicsKt.getCOROUTINE_SUSPENDED()
-            int r2 = r0.label
-            r3 = 3
-            r4 = 2
-            r5 = 1
-            if (r2 == 0) goto L5d
-            if (r2 == r5) goto L50
-            if (r2 == r4) goto L44
-            if (r2 != r3) goto L3c
-            java.lang.Object r8 = r0.L$0
-            kotlinx.coroutines.channels.SendChannel r8 = (kotlinx.coroutines.channels.SendChannel) r8
-            long r9 = r0.J$1
-            long r11 = r0.J$0
-            kotlin.ResultKt.throwOnFailure(r13)
-        L37:
-            r6 = r11
-            r12 = r8
-            r10 = r9
-            r8 = r6
-            goto L6f
-        L3c:
-            java.lang.IllegalStateException r8 = new java.lang.IllegalStateException
-            java.lang.String r9 = "call to 'resume' before 'invoke' with coroutine"
-            r8.<init>(r9)
-            throw r8
-        L44:
-            java.lang.Object r8 = r0.L$0
-            kotlinx.coroutines.channels.SendChannel r8 = (kotlinx.coroutines.channels.SendChannel) r8
-            long r9 = r0.J$1
-            long r11 = r0.J$0
-            kotlin.ResultKt.throwOnFailure(r13)
-            goto L84
-        L50:
-            java.lang.Object r8 = r0.L$0
-            r12 = r8
-            kotlinx.coroutines.channels.SendChannel r12 = (kotlinx.coroutines.channels.SendChannel) r12
-            long r10 = r0.J$1
-            long r8 = r0.J$0
-            kotlin.ResultKt.throwOnFailure(r13)
-            goto L6f
-        L5d:
-            kotlin.ResultKt.throwOnFailure(r13)
-            r0.J$0 = r8
-            r0.J$1 = r10
-            r0.L$0 = r12
-            r0.label = r5
-            java.lang.Object r13 = kotlinx.coroutines.DelayKt.delay(r10, r0)
-            if (r13 != r1) goto L6f
-            return r1
-        L6f:
-            kotlin.Unit r13 = kotlin.Unit.INSTANCE
-            r0.J$0 = r8
-            r0.J$1 = r10
-            r0.L$0 = r12
-            r0.label = r4
-            java.lang.Object r13 = r12.send(r13, r0)
-            if (r13 != r1) goto L80
-            return r1
-        L80:
-            r6 = r8
-            r8 = r12
-            r9 = r10
-            r11 = r6
-        L84:
-            r0.J$0 = r11
-            r0.J$1 = r9
-            r0.L$0 = r8
-            r0.label = r3
-            java.lang.Object r13 = kotlinx.coroutines.DelayKt.delay(r11, r0)
-            if (r13 != r1) goto L37
-            return r1
-        */
-        throw new UnsupportedOperationException("Method not decompiled: kotlinx.coroutines.channels.TickerChannelsKt.fixedDelayTicker(long, long, kotlinx.coroutines.channels.SendChannel, kotlin.coroutines.Continuation):java.lang.Object");
+    static final /* synthetic */ Object fixedDelayTicker(long j, long j2, SendChannel<? super Unit> sendChannel, Continuation<? super Unit> continuation) {
+        TickerChannelsKt$fixedDelayTicker$1 tickerChannelsKt$fixedDelayTicker$1;
+        Object coroutine_suspended;
+        int i;
+        long j3;
+        long j4;
+        SendChannel<? super Unit> sendChannel2;
+        Unit unit;
+        if (continuation instanceof TickerChannelsKt$fixedDelayTicker$1) {
+            tickerChannelsKt$fixedDelayTicker$1 = (TickerChannelsKt$fixedDelayTicker$1) continuation;
+            if ((tickerChannelsKt$fixedDelayTicker$1.label & Integer.MIN_VALUE) != 0) {
+                tickerChannelsKt$fixedDelayTicker$1.label -= Integer.MIN_VALUE;
+                Object obj = tickerChannelsKt$fixedDelayTicker$1.result;
+                coroutine_suspended = IntrinsicsKt.getCOROUTINE_SUSPENDED();
+                i = tickerChannelsKt$fixedDelayTicker$1.label;
+                if (i != 0) {
+                    ResultKt.throwOnFailure(obj);
+                    tickerChannelsKt$fixedDelayTicker$1.J$0 = j;
+                    tickerChannelsKt$fixedDelayTicker$1.J$1 = j2;
+                    tickerChannelsKt$fixedDelayTicker$1.L$0 = sendChannel;
+                    tickerChannelsKt$fixedDelayTicker$1.label = 1;
+                    if (DelayKt.delay(j2, tickerChannelsKt$fixedDelayTicker$1) == coroutine_suspended) {
+                        return coroutine_suspended;
+                    }
+                } else if (i == 1) {
+                    sendChannel = (SendChannel) tickerChannelsKt$fixedDelayTicker$1.L$0;
+                    j2 = tickerChannelsKt$fixedDelayTicker$1.J$1;
+                    j = tickerChannelsKt$fixedDelayTicker$1.J$0;
+                    ResultKt.throwOnFailure(obj);
+                } else if (i == 2) {
+                    sendChannel2 = (SendChannel) tickerChannelsKt$fixedDelayTicker$1.L$0;
+                    j4 = tickerChannelsKt$fixedDelayTicker$1.J$1;
+                    j3 = tickerChannelsKt$fixedDelayTicker$1.J$0;
+                    ResultKt.throwOnFailure(obj);
+                    tickerChannelsKt$fixedDelayTicker$1.J$0 = j3;
+                    tickerChannelsKt$fixedDelayTicker$1.J$1 = j4;
+                    tickerChannelsKt$fixedDelayTicker$1.L$0 = sendChannel2;
+                    tickerChannelsKt$fixedDelayTicker$1.label = 3;
+                    if (DelayKt.delay(j3, tickerChannelsKt$fixedDelayTicker$1) == coroutine_suspended) {
+                        return coroutine_suspended;
+                    }
+                    sendChannel = sendChannel2;
+                    j2 = j4;
+                    j = j3;
+                } else if (i != 3) {
+                    throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
+                } else {
+                    sendChannel2 = (SendChannel) tickerChannelsKt$fixedDelayTicker$1.L$0;
+                    j4 = tickerChannelsKt$fixedDelayTicker$1.J$1;
+                    j3 = tickerChannelsKt$fixedDelayTicker$1.J$0;
+                    ResultKt.throwOnFailure(obj);
+                    sendChannel = sendChannel2;
+                    j2 = j4;
+                    j = j3;
+                }
+                unit = Unit.INSTANCE;
+                tickerChannelsKt$fixedDelayTicker$1.J$0 = j;
+                tickerChannelsKt$fixedDelayTicker$1.J$1 = j2;
+                tickerChannelsKt$fixedDelayTicker$1.L$0 = sendChannel;
+                tickerChannelsKt$fixedDelayTicker$1.label = 2;
+                if (sendChannel.send(unit, tickerChannelsKt$fixedDelayTicker$1) == coroutine_suspended) {
+                    return coroutine_suspended;
+                }
+                long j5 = j;
+                sendChannel2 = sendChannel;
+                j4 = j2;
+                j3 = j5;
+                tickerChannelsKt$fixedDelayTicker$1.J$0 = j3;
+                tickerChannelsKt$fixedDelayTicker$1.J$1 = j4;
+                tickerChannelsKt$fixedDelayTicker$1.L$0 = sendChannel2;
+                tickerChannelsKt$fixedDelayTicker$1.label = 3;
+                if (DelayKt.delay(j3, tickerChannelsKt$fixedDelayTicker$1) == coroutine_suspended) {
+                }
+                sendChannel = sendChannel2;
+                j2 = j4;
+                j = j3;
+                unit = Unit.INSTANCE;
+                tickerChannelsKt$fixedDelayTicker$1.J$0 = j;
+                tickerChannelsKt$fixedDelayTicker$1.J$1 = j2;
+                tickerChannelsKt$fixedDelayTicker$1.L$0 = sendChannel;
+                tickerChannelsKt$fixedDelayTicker$1.label = 2;
+                if (sendChannel.send(unit, tickerChannelsKt$fixedDelayTicker$1) == coroutine_suspended) {
+                }
+            }
+        }
+        tickerChannelsKt$fixedDelayTicker$1 = new TickerChannelsKt$fixedDelayTicker$1(continuation);
+        Object obj2 = tickerChannelsKt$fixedDelayTicker$1.result;
+        coroutine_suspended = IntrinsicsKt.getCOROUTINE_SUSPENDED();
+        i = tickerChannelsKt$fixedDelayTicker$1.label;
+        if (i != 0) {
+        }
+        unit = Unit.INSTANCE;
+        tickerChannelsKt$fixedDelayTicker$1.J$0 = j;
+        tickerChannelsKt$fixedDelayTicker$1.J$1 = j2;
+        tickerChannelsKt$fixedDelayTicker$1.L$0 = sendChannel;
+        tickerChannelsKt$fixedDelayTicker$1.label = 2;
+        if (sendChannel.send(unit, tickerChannelsKt$fixedDelayTicker$1) == coroutine_suspended) {
+        }
     }
 }

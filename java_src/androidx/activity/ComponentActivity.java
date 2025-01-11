@@ -17,6 +17,7 @@ import androidx.lifecycle.ViewModelStoreOwner;
 import androidx.savedstate.SavedStateRegistry;
 import androidx.savedstate.SavedStateRegistryController;
 import androidx.savedstate.SavedStateRegistryOwner;
+
 /* loaded from: classes.dex */
 public class ComponentActivity extends androidx.core.app.ComponentActivity implements LifecycleOwner, ViewModelStoreOwner, HasDefaultViewModelProviderFactory, SavedStateRegistryOwner, OnBackPressedDispatcherOwner {
     private int mContentLayoutId;
@@ -31,9 +32,8 @@ public class ComponentActivity extends androidx.core.app.ComponentActivity imple
         return null;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static final class NonConfigurationInstances {
+    static final class NonConfigurationInstances {
         Object custom;
         ViewModelStore viewModelStore;
 
@@ -87,9 +87,8 @@ public class ComponentActivity extends androidx.core.app.ComponentActivity imple
         this.mContentLayoutId = i;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // androidx.core.app.ComponentActivity, android.app.Activity
-    public void onCreate(Bundle bundle) {
+    protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         this.mSavedStateRegistryController.performRestore(bundle);
         ReportFragment.injectIfNeededIn(this);
@@ -99,9 +98,8 @@ public class ComponentActivity extends androidx.core.app.ComponentActivity imple
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // androidx.core.app.ComponentActivity, android.app.Activity
-    public void onSaveInstanceState(Bundle bundle) {
+    protected void onSaveInstanceState(Bundle bundle) {
         Lifecycle lifecycle = getLifecycle();
         if (lifecycle instanceof LifecycleRegistry) {
             ((LifecycleRegistry) lifecycle).setCurrentState(Lifecycle.State.CREATED);

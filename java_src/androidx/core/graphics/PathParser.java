@@ -3,6 +3,7 @@ package androidx.core.graphics;
 import android.graphics.Path;
 import android.util.Log;
 import java.util.ArrayList;
+
 /* loaded from: classes.dex */
 public class PathParser {
     private static final String LOGTAG = "PathParser";
@@ -105,9 +106,8 @@ public class PathParser {
         arrayList.add(new PathDataNode(c, fArr));
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static class ExtractFloatResult {
+    private static class ExtractFloatResult {
         int mEndPosition;
         boolean mEndWithNegOrDot;
 
@@ -145,68 +145,52 @@ public class PathParser {
     /* JADX WARN: Removed duplicated region for block: B:28:0x003d A[SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    private static void extract(java.lang.String r8, int r9, androidx.core.graphics.PathParser.ExtractFloatResult r10) {
-        /*
-            r0 = 0
-            r10.mEndWithNegOrDot = r0
-            r1 = r9
-            r2 = r0
-            r3 = r2
-            r4 = r3
-        L7:
-            int r5 = r8.length()
-            if (r1 >= r5) goto L3d
-            char r5 = r8.charAt(r1)
-            r6 = 32
-            r7 = 1
-            if (r5 == r6) goto L35
-            r6 = 69
-            if (r5 == r6) goto L33
-            r6 = 101(0x65, float:1.42E-43)
-            if (r5 == r6) goto L33
-            switch(r5) {
-                case 44: goto L35;
-                case 45: goto L2a;
-                case 46: goto L22;
-                default: goto L21;
+    private static void extract(String str, int i, ExtractFloatResult extractFloatResult) {
+        extractFloatResult.mEndWithNegOrDot = false;
+        boolean z = false;
+        boolean z2 = false;
+        boolean z3 = false;
+        for (int i2 = i; i2 < str.length(); i2++) {
+            char charAt = str.charAt(i2);
+            if (charAt != ' ') {
+                if (charAt != 'E' && charAt != 'e') {
+                    switch (charAt) {
+                        case ',':
+                            break;
+                        case '-':
+                            if (i2 != i && !z) {
+                                extractFloatResult.mEndWithNegOrDot = true;
+                                break;
+                            }
+                            z = false;
+                            break;
+                        case '.':
+                            if (z2) {
+                                extractFloatResult.mEndWithNegOrDot = true;
+                                break;
+                            } else {
+                                z = false;
+                                z2 = true;
+                                break;
+                            }
+                        default:
+                            z = false;
+                            break;
+                    }
+                } else {
+                    z = true;
+                }
+                if (!z3) {
+                    extractFloatResult.mEndPosition = i2;
+                }
             }
-        L21:
-            goto L31
-        L22:
-            if (r3 != 0) goto L27
-            r2 = r0
-            r3 = r7
-            goto L37
-        L27:
-            r10.mEndWithNegOrDot = r7
-            goto L35
-        L2a:
-            if (r1 == r9) goto L31
-            if (r2 != 0) goto L31
-            r10.mEndWithNegOrDot = r7
-            goto L35
-        L31:
-            r2 = r0
-            goto L37
-        L33:
-            r2 = r7
-            goto L37
-        L35:
-            r2 = r0
-            r4 = r7
-        L37:
-            if (r4 == 0) goto L3a
-            goto L3d
-        L3a:
-            int r1 = r1 + 1
-            goto L7
-        L3d:
-            r10.mEndPosition = r1
-            return
-        */
-        throw new UnsupportedOperationException("Method not decompiled: androidx.core.graphics.PathParser.extract(java.lang.String, int, androidx.core.graphics.PathParser$ExtractFloatResult):void");
+            z = false;
+            z3 = true;
+            if (!z3) {
+            }
+        }
+        extractFloatResult.mEndPosition = i2;
     }
 
     public static boolean interpolatePathDataNodes(PathDataNode[] pathDataNodeArr, PathDataNode[] pathDataNodeArr2, PathDataNode[] pathDataNodeArr3, float f) {

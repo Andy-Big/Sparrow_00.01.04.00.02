@@ -9,6 +9,7 @@ import android.text.TextPaint;
 import android.text.TextUtils;
 import androidx.core.util.Preconditions;
 import java.lang.reflect.Constructor;
+
 /* loaded from: classes.dex */
 final class StaticLayoutBuilderCompat {
     private static final String TEXT_DIRS_CLASS = "android.text.TextDirectionHeuristics";
@@ -135,9 +136,8 @@ final class StaticLayoutBuilderCompat {
         return this;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static class StaticLayoutBuilderCompatException extends Exception {
+    static class StaticLayoutBuilderCompatException extends Exception {
         StaticLayoutBuilderCompatException(Throwable th) {
             super("Error thrown initializing StaticLayout " + th.getMessage(), th);
         }

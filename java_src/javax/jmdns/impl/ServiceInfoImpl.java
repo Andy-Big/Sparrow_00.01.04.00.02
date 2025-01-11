@@ -28,6 +28,7 @@ import javax.jmdns.impl.util.ByteWrangler;
 import kotlin.UByte;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 /* loaded from: classes2.dex */
 public class ServiceInfoImpl extends ServiceInfo implements DNSListener, DNSStatefulObject {
     private static Logger logger = LoggerFactory.getLogger(ServiceInfoImpl.class.getName());
@@ -55,9 +56,8 @@ public class ServiceInfoImpl extends ServiceInfo implements DNSListener, DNSStat
         void textValueUpdated(ServiceInfo serviceInfo, byte[] bArr);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
-    public static final class ServiceInfoState extends DNSStatefulObject.DefaultImplementation {
+    private static final class ServiceInfoState extends DNSStatefulObject.DefaultImplementation {
         private static final long serialVersionUID = 1104131034952196820L;
         private final ServiceInfoImpl _info;
 
@@ -114,8 +114,7 @@ public class ServiceInfoImpl extends ServiceInfo implements DNSListener, DNSStat
         this(map, i, i2, i3, z, ByteWrangler.textFromProperties(map2));
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ServiceInfoImpl(Map<ServiceInfo.Fields, String> map, int i, int i2, int i3, boolean z, String str) {
+    ServiceInfoImpl(Map<ServiceInfo.Fields, String> map, int i, int i2, int i3, boolean z, String str) {
         this(map, i, i2, i3, z, (byte[]) null);
         try {
             this._text = ByteWrangler.encodeText(str);
@@ -125,8 +124,7 @@ public class ServiceInfoImpl extends ServiceInfo implements DNSListener, DNSStat
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ServiceInfoImpl(Map<ServiceInfo.Fields, String> map, int i, int i2, int i3, boolean z, byte[] bArr) {
+    ServiceInfoImpl(Map<ServiceInfo.Fields, String> map, int i, int i2, int i3, boolean z, byte[] bArr) {
         Map<ServiceInfo.Fields, String> checkQualifiedNameMap = checkQualifiedNameMap(map);
         this._domain = checkQualifiedNameMap.get(ServiceInfo.Fields.Domain);
         this._protocol = checkQualifiedNameMap.get(ServiceInfo.Fields.Protocol);
@@ -144,8 +142,7 @@ public class ServiceInfoImpl extends ServiceInfo implements DNSListener, DNSStat
         this._ipv6Addresses = Collections.synchronizedSet(new LinkedHashSet());
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ServiceInfoImpl(ServiceInfo serviceInfo) {
+    ServiceInfoImpl(ServiceInfo serviceInfo) {
         this._ipv4Addresses = Collections.synchronizedSet(new LinkedHashSet());
         this._ipv6Addresses = Collections.synchronizedSet(new LinkedHashSet());
         if (serviceInfo != null) {
@@ -169,8 +166,7 @@ public class ServiceInfoImpl extends ServiceInfo implements DNSListener, DNSStat
         this._state = new ServiceInfoState(this);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static Map<ServiceInfo.Fields, String> createQualifiedMap(String str, String str2, String str3, String str4, String str5) {
+    static Map<ServiceInfo.Fields, String> createQualifiedMap(String str, String str2, String str3, String str4, String str5) {
         HashMap hashMap = new HashMap(5);
         hashMap.put(ServiceInfo.Fields.Instance, str);
         hashMap.put(ServiceInfo.Fields.Application, str2);
@@ -180,8 +176,7 @@ public class ServiceInfoImpl extends ServiceInfo implements DNSListener, DNSStat
         return hashMap;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public static Map<ServiceInfo.Fields, String> checkQualifiedNameMap(Map<ServiceInfo.Fields, String> map) {
+    protected static Map<ServiceInfo.Fields, String> checkQualifiedNameMap(Map<ServiceInfo.Fields, String> map) {
         HashMap hashMap = new HashMap(5);
         String str = "local";
         String str2 = map.containsKey(ServiceInfo.Fields.Domain) ? map.get(ServiceInfo.Fields.Domain) : "local";
@@ -208,8 +203,7 @@ public class ServiceInfoImpl extends ServiceInfo implements DNSListener, DNSStat
         return hashMap;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static String removeSeparators(String str) {
+    static String removeSeparators(String str) {
         if (str == null) {
             return "";
         }
@@ -275,8 +269,7 @@ public class ServiceInfoImpl extends ServiceInfo implements DNSListener, DNSStat
         return this._key;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setName(String str) {
+    void setName(String str) {
         this._name = str;
         this._key = null;
     }
@@ -323,8 +316,7 @@ public class ServiceInfoImpl extends ServiceInfo implements DNSListener, DNSStat
         return this._server != null;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setServer(String str) {
+    void setServer(String str) {
         this._server = str;
     }
 
@@ -349,13 +341,11 @@ public class ServiceInfoImpl extends ServiceInfo implements DNSListener, DNSStat
         return strArr;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void addAddress(Inet4Address inet4Address) {
+    void addAddress(Inet4Address inet4Address) {
         this._ipv4Addresses.add(inet4Address);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void addAddress(Inet6Address inet6Address) {
+    void addAddress(Inet6Address inet6Address) {
         this._ipv6Addresses.add(inet6Address);
     }
 
@@ -601,10 +591,9 @@ public class ServiceInfoImpl extends ServiceInfo implements DNSListener, DNSStat
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: javax.jmdns.impl.ServiceInfoImpl$1  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    static /* synthetic */ class AnonymousClass1 {
         static final /* synthetic */ int[] $SwitchMap$javax$jmdns$impl$constants$DNSRecordType;
 
         static {
@@ -855,6 +844,7 @@ public class ServiceInfoImpl extends ServiceInfo implements DNSListener, DNSStat
         return sb.toString();
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // javax.jmdns.ServiceInfo
     /* renamed from: clone */
     public ServiceInfoImpl mo20clone() {
@@ -947,8 +937,7 @@ public class ServiceInfoImpl extends ServiceInfo implements DNSListener, DNSStat
         setText(ByteWrangler.textFromProperties(map));
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void _setText(byte[] bArr) {
+    void _setText(byte[] bArr) {
         this._text = bArr;
         this._props = null;
     }
@@ -982,8 +971,7 @@ public class ServiceInfoImpl extends ServiceInfo implements DNSListener, DNSStat
         return this._delegate;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setDelegate(Delegate delegate) {
+    void setDelegate(Delegate delegate) {
         this._delegate = delegate;
     }
 

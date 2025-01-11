@@ -5,6 +5,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import kotlin.UByte;
+
 /* loaded from: classes2.dex */
 public class ASCIIUtility {
     private ASCIIUtility() {

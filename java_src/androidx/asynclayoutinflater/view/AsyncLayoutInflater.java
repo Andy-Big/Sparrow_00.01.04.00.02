@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.core.util.Pools;
 import java.util.concurrent.ArrayBlockingQueue;
+
 /* loaded from: classes.dex */
 public final class AsyncLayoutInflater {
     private static final String TAG = "AsyncLayoutInflater";
@@ -50,9 +51,8 @@ public final class AsyncLayoutInflater {
         this.mInflateThread.enqueue(obtainRequest);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static class InflateRequest {
+    private static class InflateRequest {
         OnInflateFinishedListener callback;
         AsyncLayoutInflater inflater;
         ViewGroup parent;

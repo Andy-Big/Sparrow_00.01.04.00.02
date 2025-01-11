@@ -2,6 +2,7 @@ package androidx.media;
 
 import android.media.AudioAttributes;
 import androidx.versionedparcelable.VersionedParcel;
+
 /* loaded from: classes.dex */
 public final class AudioAttributesImplApi21Parcelizer {
     public static AudioAttributesImplApi21 read(VersionedParcel versionedParcel) {

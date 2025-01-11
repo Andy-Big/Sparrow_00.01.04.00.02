@@ -2,6 +2,7 @@ package javax.mail.internet;
 
 import java.util.concurrent.atomic.AtomicInteger;
 import javax.mail.Session;
+
 /* loaded from: classes2.dex */
 class UniqueValue {
     private static AtomicInteger id = new AtomicInteger();

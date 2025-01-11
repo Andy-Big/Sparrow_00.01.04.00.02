@@ -17,6 +17,7 @@ import java.net.NetworkInterface;
 import java.net.SocketException;
 import java.util.Enumeration;
 import java.util.UUID;
+
 /* loaded from: classes.dex */
 public final class DeviceUtils {
     private static final String KEY_UDID = "KEY_UDID";

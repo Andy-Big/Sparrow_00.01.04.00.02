@@ -1,4 +1,5 @@
 package androidx.recyclerview.widget;
+
 /* loaded from: classes.dex */
 public interface ListUpdateCallback {
     void onChanged(int i, int i2, Object obj);

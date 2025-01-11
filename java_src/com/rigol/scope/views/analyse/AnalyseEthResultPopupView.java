@@ -42,6 +42,11 @@ public class AnalyseEthResultPopupView extends BasePopupView implements View.OnC
     private final PopupviewAnalyseEthResultBinding binding;
     private BusAnalyseParam param;
 
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.views.analyse.-$$Lambda$AnalyseEthResultPopupView$vgYWc4CtiDqs6W752UkvVlb9Q2I.run():void] */
+    public static /* synthetic */ void lambda$vgYWc4CtiDqs6W752UkvVlb9Q2I(AnalyseEthResultPopupView analyseEthResultPopupView) {
+        analyseEthResultPopupView.updateContent();
+    }
+
     public AnalyseEthResultPopupView() {
         super((int) R.style.App_PopupWindow_Analyse_eth_result);
         PopupviewAnalyseEthResultBinding inflate = PopupviewAnalyseEthResultBinding.inflate(LayoutInflater.from(this.context));
@@ -74,13 +79,12 @@ public class AnalyseEthResultPopupView extends BasePopupView implements View.OnC
             popupviewAnalyseEthResultBinding.getRoot().post(new Runnable() { // from class: com.rigol.scope.views.analyse.-$$Lambda$AnalyseEthResultPopupView$vgYWc4CtiDqs6W752UkvVlb9Q2I
                 @Override // java.lang.Runnable
                 public final void run() {
-                    AnalyseEthResultPopupView.this.updateContent();
+                    AnalyseEthResultPopupView.lambda$vgYWc4CtiDqs6W752UkvVlb9Q2I(AnalyseEthResultPopupView.this);
                 }
             });
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public void updateContent() {
         if (this.titleView != null) {
             this.titleView.setText(getTitle());
@@ -103,6 +107,10 @@ public class AnalyseEthResultPopupView extends BasePopupView implements View.OnC
 
     private void showTable() {
         BaseAdapter<List<String>> baseAdapter = new BaseAdapter<List<String>>(this.context, R.layout.adapter_item_result_table_header) { // from class: com.rigol.scope.views.analyse.AnalyseEthResultPopupView.1
+            {
+                AnalyseEthResultPopupView.this = this;
+            }
+
             @Override // com.rigol.scope.adapters.BaseAdapter
             protected void convert(BaseViewHolder<? extends ViewDataBinding> baseViewHolder, List<String> list, int i) {
                 AdapterItemResultTableHeaderBinding adapterItemResultTableHeaderBinding = (AdapterItemResultTableHeaderBinding) baseViewHolder.getBinding();
@@ -114,12 +122,15 @@ public class AnalyseEthResultPopupView extends BasePopupView implements View.OnC
         };
         this.binding.header.setAdapter(baseAdapter);
         BaseAdapter<List<String>> baseAdapter2 = new BaseAdapter<List<String>>(this.context, R.layout.adapter_item_result_table_content) { // from class: com.rigol.scope.views.analyse.AnalyseEthResultPopupView.2
+            {
+                AnalyseEthResultPopupView.this = this;
+            }
+
             @Override // com.rigol.scope.adapters.BaseAdapter
             protected void convert(BaseViewHolder<? extends ViewDataBinding> baseViewHolder, List<String> list, int i) {
                 ((AdapterItemResultTableContentBinding) baseViewHolder.getBinding()).content.setText(list.get(i));
             }
 
-            /* JADX DEBUG: Method merged with bridge method */
             @Override // com.rigol.scope.adapters.MultiItemTypeAdapter, androidx.recyclerview.widget.RecyclerView.Adapter
             public BaseViewHolder<? extends ViewDataBinding> onCreateViewHolder(ViewGroup viewGroup, int i) {
                 BaseViewHolder<? extends ViewDataBinding> onCreateViewHolder = super.onCreateViewHolder(viewGroup, i);
@@ -142,7 +153,7 @@ public class AnalyseEthResultPopupView extends BasePopupView implements View.OnC
         this.binding.result.post(new Runnable() { // from class: com.rigol.scope.views.analyse.-$$Lambda$AnalyseEthResultPopupView$Sao_44irn9aN05MoZtALLZ9HiJ0
             @Override // java.lang.Runnable
             public final void run() {
-                BackgroundItemDecoration.this.setItemHeight(30);
+                AnalyseEthResultPopupView.lambda$showTable$1(BackgroundItemDecoration.this);
             }
         });
         ArrayList arrayList = new ArrayList();
@@ -194,6 +205,11 @@ public class AnalyseEthResultPopupView extends BasePopupView implements View.OnC
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.views.analyse.-$$Lambda$AnalyseEthResultPopupView$Sao_44irn9aN05MoZtALLZ9HiJ0.run():void] */
+    static /* synthetic */ void lambda$showTable$1(BackgroundItemDecoration backgroundItemDecoration) {
+        backgroundItemDecoration.setItemHeight(30);
     }
 
     @Override // com.rigol.scope.views.baseview.BasePopupView

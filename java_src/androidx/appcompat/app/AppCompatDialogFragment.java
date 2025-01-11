@@ -3,6 +3,7 @@ package androidx.appcompat.app;
 import android.app.Dialog;
 import android.os.Bundle;
 import androidx.fragment.app.DialogFragment;
+
 /* loaded from: classes.dex */
 public class AppCompatDialogFragment extends DialogFragment {
     @Override // androidx.fragment.app.DialogFragment

@@ -1,7 +1,9 @@
 package androidx.transition;
 
 import android.graphics.Rect;
+import android.view.View;
 import android.view.ViewGroup;
+
 /* loaded from: classes.dex */
 public class SidePropagation extends VisibilityPropagation {
     private float mPropagationSpeed = 3.0f;
@@ -71,77 +73,26 @@ public class SidePropagation extends VisibilityPropagation {
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    private int distance(android.view.View r7, int r8, int r9, int r10, int r11, int r12, int r13, int r14, int r15) {
-        /*
-            r6 = this;
-            int r0 = r6.mSide
-            r1 = 5
-            r2 = 3
-            r3 = 0
-            r4 = 1
-            r5 = 8388611(0x800003, float:1.1754948E-38)
-            if (r0 != r5) goto L19
-            int r7 = androidx.core.view.ViewCompat.getLayoutDirection(r7)
-            if (r7 != r4) goto L12
-            goto L13
-        L12:
-            r4 = r3
-        L13:
-            if (r4 == 0) goto L17
-        L15:
-            r0 = r1
-            goto L29
-        L17:
-            r0 = r2
-            goto L29
-        L19:
-            r5 = 8388613(0x800005, float:1.175495E-38)
-            if (r0 != r5) goto L29
-            int r7 = androidx.core.view.ViewCompat.getLayoutDirection(r7)
-            if (r7 != r4) goto L25
-            goto L26
-        L25:
-            r4 = r3
-        L26:
-            if (r4 == 0) goto L15
-            goto L17
-        L29:
-            if (r0 == r2) goto L51
-            if (r0 == r1) goto L48
-            r7 = 48
-            if (r0 == r7) goto L3f
-            r7 = 80
-            if (r0 == r7) goto L36
-            goto L59
-        L36:
-            int r9 = r9 - r13
-            int r10 = r10 - r8
-            int r7 = java.lang.Math.abs(r10)
-            int r3 = r9 + r7
-            goto L59
-        L3f:
-            int r15 = r15 - r9
-            int r10 = r10 - r8
-            int r7 = java.lang.Math.abs(r10)
-            int r3 = r15 + r7
-            goto L59
-        L48:
-            int r8 = r8 - r12
-            int r11 = r11 - r9
-            int r7 = java.lang.Math.abs(r11)
-            int r3 = r8 + r7
-            goto L59
-        L51:
-            int r14 = r14 - r8
-            int r11 = r11 - r9
-            int r7 = java.lang.Math.abs(r11)
-            int r3 = r14 + r7
-        L59:
-            return r3
-        */
-        throw new UnsupportedOperationException("Method not decompiled: androidx.transition.SidePropagation.distance(android.view.View, int, int, int, int, int, int, int, int):int");
+    private int distance(View view, int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8) {
+        int i9 = this.mSide;
+        if (i9 != 8388611) {
+            if (i9 == 8388613) {
+            }
+        }
+        if (i9 != 3) {
+            if (i9 != 5) {
+                if (i9 != 48) {
+                    if (i9 != 80) {
+                        return 0;
+                    }
+                    return (i2 - i6) + Math.abs(i3 - i);
+                }
+                return (i8 - i2) + Math.abs(i3 - i);
+            }
+            return (i - i5) + Math.abs(i4 - i2);
+        }
+        return (i7 - i) + Math.abs(i4 - i2);
     }
 
     private int getMaxDistance(ViewGroup viewGroup) {

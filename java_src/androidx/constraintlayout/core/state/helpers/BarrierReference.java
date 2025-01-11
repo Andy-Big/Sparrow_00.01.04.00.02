@@ -4,6 +4,7 @@ import androidx.constraintlayout.core.state.HelperReference;
 import androidx.constraintlayout.core.state.State;
 import androidx.constraintlayout.core.widgets.Barrier;
 import androidx.constraintlayout.core.widgets.HelperWidget;
+
 /* loaded from: classes.dex */
 public class BarrierReference extends HelperReference {
     private Barrier mBarrierWidget;

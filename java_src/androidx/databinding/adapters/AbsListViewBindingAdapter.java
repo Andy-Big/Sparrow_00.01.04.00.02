@@ -1,6 +1,7 @@
 package androidx.databinding.adapters;
 
 import android.widget.AbsListView;
+
 /* loaded from: classes.dex */
 public class AbsListViewBindingAdapter {
 

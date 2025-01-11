@@ -1,4 +1,5 @@
 package com.scwang.smartrefresh.layout.util;
+
 /* loaded from: classes2.dex */
 public class DelayedRunnable implements Runnable {
     public long delayMillis;

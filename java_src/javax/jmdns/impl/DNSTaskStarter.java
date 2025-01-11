@@ -16,6 +16,7 @@ import javax.jmdns.impl.tasks.state.Announcer;
 import javax.jmdns.impl.tasks.state.Canceler;
 import javax.jmdns.impl.tasks.state.Prober;
 import javax.jmdns.impl.tasks.state.Renewer;
+
 /* loaded from: classes2.dex */
 public interface DNSTaskStarter {
     void cancelStateTimer();

@@ -3,6 +3,7 @@ package androidx.core.view.accessibility;
 import android.os.Bundle;
 import android.text.style.ClickableSpan;
 import android.view.View;
+
 /* loaded from: classes.dex */
 public final class AccessibilityClickableSpanCompat extends ClickableSpan {
     public static final String SPAN_ID = "ACCESSIBILITY_CLICKABLE_SPAN_ID";

@@ -7,6 +7,7 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Map;
+
 /* loaded from: classes.dex */
 public class LifecycleRegistry extends Lifecycle {
     private final WeakReference<LifecycleOwner> mLifecycleOwner;
@@ -129,10 +130,9 @@ public class LifecycleRegistry extends Lifecycle {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: androidx.lifecycle.LifecycleRegistry$1  reason: invalid class name */
     /* loaded from: classes.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    static /* synthetic */ class AnonymousClass1 {
         static final /* synthetic */ int[] $SwitchMap$androidx$lifecycle$Lifecycle$Event;
         static final /* synthetic */ int[] $SwitchMap$androidx$lifecycle$Lifecycle$State;
 
@@ -231,6 +231,7 @@ public class LifecycleRegistry extends Lifecycle {
         return Lifecycle.Event.ON_CREATE;
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r3v3, resolved type: androidx.arch.core.internal.FastSafeIterableMap<androidx.lifecycle.LifecycleObserver, androidx.lifecycle.LifecycleRegistry$ObserverWithState> */
     /* JADX WARN: Multi-variable type inference failed */
     private void forwardPass(LifecycleOwner lifecycleOwner) {
         SafeIterableMap<LifecycleObserver, ObserverWithState>.IteratorWithAdditions iteratorWithAdditions = this.mObserverMap.iteratorWithAdditions();
@@ -281,9 +282,8 @@ public class LifecycleRegistry extends Lifecycle {
         return (state2 == null || state2.compareTo(state) >= 0) ? state : state2;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static class ObserverWithState {
+    static class ObserverWithState {
         LifecycleEventObserver mLifecycleObserver;
         Lifecycle.State mState;
 

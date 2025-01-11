@@ -22,6 +22,7 @@ import com.google.android.material.R;
 import com.google.android.material.button.MaterialButton;
 import java.util.Calendar;
 import java.util.Iterator;
+
 /* loaded from: classes.dex */
 public final class MaterialCalendar<S> extends PickerFragment<S> {
     private static final String CALENDAR_CONSTRAINTS_KEY = "CALENDAR_CONSTRAINTS_KEY";
@@ -44,21 +45,18 @@ public final class MaterialCalendar<S> extends PickerFragment<S> {
     static final Object NAVIGATION_NEXT_TAG = "NAVIGATION_NEXT_TAG";
     static final Object SELECTOR_TOGGLE_TAG = "SELECTOR_TOGGLE_TAG";
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public enum CalendarSelector {
+    enum CalendarSelector {
         DAY,
         YEAR
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public interface OnDayClickListener {
+    interface OnDayClickListener {
         void onDayClick(long j);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static <T> MaterialCalendar<T> newInstance(DateSelector<T> dateSelector, int i, CalendarConstraints calendarConstraints) {
+    static <T> MaterialCalendar<T> newInstance(DateSelector<T> dateSelector, int i, CalendarConstraints calendarConstraints) {
         MaterialCalendar<T> materialCalendar = new MaterialCalendar<>();
         Bundle bundle = new Bundle();
         bundle.putInt(THEME_RES_ID_KEY, i);
@@ -119,9 +117,8 @@ public final class MaterialCalendar<S> extends PickerFragment<S> {
         gridView.setEnabled(false);
         this.recyclerView = (RecyclerView) inflate.findViewById(R.id.mtrl_calendar_months);
         this.recyclerView.setLayoutManager(new SmoothCalendarLayoutManager(getContext(), i2, false) { // from class: com.google.android.material.datepicker.MaterialCalendar.2
-            /* JADX INFO: Access modifiers changed from: protected */
             @Override // androidx.recyclerview.widget.LinearLayoutManager
-            public void calculateExtraLayoutSpace(RecyclerView.State state, int[] iArr) {
+            protected void calculateExtraLayoutSpace(RecyclerView.State state, int[] iArr) {
                 if (i2 == 0) {
                     iArr[0] = MaterialCalendar.this.recyclerView.getWidth();
                     iArr[1] = MaterialCalendar.this.recyclerView.getWidth();
@@ -212,18 +209,15 @@ public final class MaterialCalendar<S> extends PickerFragment<S> {
         };
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public Month getCurrentMonth() {
+    Month getCurrentMonth() {
         return this.current;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public CalendarConstraints getCalendarConstraints() {
+    CalendarConstraints getCalendarConstraints() {
         return this.calendarConstraints;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setCurrentMonth(Month month) {
+    void setCurrentMonth(Month month) {
         MonthsPagerAdapter monthsPagerAdapter = (MonthsPagerAdapter) this.recyclerView.getAdapter();
         int position = monthsPagerAdapter.getPosition(month);
         int position2 = position - monthsPagerAdapter.getPosition(this.current);
@@ -246,18 +240,15 @@ public final class MaterialCalendar<S> extends PickerFragment<S> {
         return this.dateSelector;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public CalendarStyle getCalendarStyle() {
+    CalendarStyle getCalendarStyle() {
         return this.calendarStyle;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static int getDayHeight(Context context) {
+    static int getDayHeight(Context context) {
         return context.getResources().getDimensionPixelSize(R.dimen.mtrl_calendar_day_height);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setSelector(CalendarSelector calendarSelector) {
+    void setSelector(CalendarSelector calendarSelector) {
         this.calendarSelector = calendarSelector;
         if (calendarSelector == CalendarSelector.YEAR) {
             this.yearSelector.getLayoutManager().scrollToPosition(((YearGridAdapter) this.yearSelector.getAdapter()).getPositionForYear(this.current.year));

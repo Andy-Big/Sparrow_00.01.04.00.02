@@ -5,6 +5,7 @@ import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 /* loaded from: classes.dex */
 public class Scene {
     private Context mContext;
@@ -75,8 +76,7 @@ public class Scene {
         setCurrentScene(this.mSceneRoot, this);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static void setCurrentScene(ViewGroup viewGroup, Scene scene) {
+    static void setCurrentScene(ViewGroup viewGroup, Scene scene) {
         viewGroup.setTag(R.id.transition_current_scene, scene);
     }
 
@@ -92,8 +92,7 @@ public class Scene {
         this.mExitAction = runnable;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean isCreatedFromLayoutResource() {
+    boolean isCreatedFromLayoutResource() {
         return this.mLayoutId > 0;
     }
 }

@@ -3,6 +3,7 @@ package androidx.constraintlayout.core;
 import androidx.exifinterface.media.ExifInterface;
 import java.util.Arrays;
 import java.util.HashSet;
+
 /* loaded from: classes.dex */
 public class SolverVariable {
     private static final boolean INTERNAL_DEBUG = false;
@@ -49,8 +50,7 @@ public class SolverVariable {
         UNKNOWN
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static void increaseErrorId() {
+    static void increaseErrorId() {
         uniqueErrorId++;
     }
 

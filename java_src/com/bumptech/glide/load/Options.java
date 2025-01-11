@@ -4,6 +4,7 @@ import androidx.collection.ArrayMap;
 import androidx.collection.SimpleArrayMap;
 import com.bumptech.glide.util.CachedHashCodeArrayMap;
 import java.security.MessageDigest;
+
 /* loaded from: classes.dex */
 public final class Options implements Key {
     private final ArrayMap<Option<?>, Object> values = new CachedHashCodeArrayMap();
@@ -45,6 +46,7 @@ public final class Options implements Key {
         return "Options{values=" + this.values + '}';
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
     /* JADX WARN: Multi-variable type inference failed */
     private static <T> void updateDiskCacheKey(Option<T> option, Object obj, MessageDigest messageDigest) {
         option.update(obj, messageDigest);

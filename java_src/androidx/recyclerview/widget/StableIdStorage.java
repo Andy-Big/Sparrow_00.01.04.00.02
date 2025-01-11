@@ -1,6 +1,7 @@
 package androidx.recyclerview.widget;
 
 import androidx.collection.LongSparseArray;
+
 /* loaded from: classes.dex */
 interface StableIdStorage {
 

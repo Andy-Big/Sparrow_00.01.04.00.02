@@ -22,6 +22,7 @@ import java.util.logging.LogManager;
 import java.util.logging.LogRecord;
 import java.util.logging.Logger;
 import java.util.logging.LoggingPermission;
+
 /* loaded from: classes2.dex */
 final class LogManagerProperties extends Properties {
     static final /* synthetic */ boolean $assertionsDisabled = false;
@@ -43,11 +44,119 @@ final class LogManagerProperties extends Properties {
         if (r0 != null) goto L20;
      */
     static {
-        /*
-            Method dump skipped, instructions count: 204
-            To view this dump add '--comments-level debug' option
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.sun.mail.util.logging.LogManagerProperties.<clinit>():void");
+        Object obj;
+        Method method;
+        Method method2;
+        Method method3;
+        Method method4 = null;
+        try {
+            method2 = LogRecord.class.getMethod("getInstant", new Class[0]);
+            try {
+                method3 = findClass("java.time.ZoneId").getMethod("systemDefault", new Class[0]);
+                try {
+                } catch (RuntimeException unused) {
+                    method = null;
+                } catch (Exception unused2) {
+                    method = null;
+                } catch (LinkageError unused3) {
+                    method = null;
+                } catch (Throwable th) {
+                    throw th;
+                }
+            } catch (RuntimeException unused4) {
+                method = null;
+                method3 = null;
+            } catch (Exception unused5) {
+                method = null;
+                method3 = null;
+            } catch (LinkageError unused6) {
+                method = null;
+                method3 = null;
+            } catch (Throwable th2) {
+                th = th2;
+                obj = null;
+                throw th;
+            }
+        } catch (LinkageError unused7) {
+            method = null;
+            method2 = null;
+            method3 = null;
+        } catch (RuntimeException unused8) {
+            method = null;
+            method2 = null;
+            method3 = null;
+        } catch (Exception unused9) {
+            method = null;
+            method2 = null;
+            method3 = null;
+        } catch (Throwable th3) {
+            th = th3;
+            obj = null;
+        }
+        if (!Modifier.isStatic(method3.getModifiers())) {
+            throw new NoSuchMethodException(method3.toString());
+        }
+        method = findClass("java.time.ZonedDateTime").getMethod("ofInstant", findClass("java.time.Instant"), findClass("java.time.ZoneId"));
+        try {
+        } catch (LinkageError unused10) {
+            if (method2 != null) {
+                if (method3 != null) {
+                }
+            }
+            method = null;
+            method3 = null;
+            LR_GET_INSTANT = method4;
+            ZI_SYSTEM_DEFAULT = method3;
+            ZDT_OF_INSTANT = method;
+            LOG_MANAGER = loadLogManager();
+        } catch (RuntimeException unused11) {
+            if (method2 != null) {
+                if (method3 != null) {
+                }
+            }
+            method = null;
+            method3 = null;
+            LR_GET_INSTANT = method4;
+            ZI_SYSTEM_DEFAULT = method3;
+            ZDT_OF_INSTANT = method;
+            LOG_MANAGER = loadLogManager();
+        } catch (Exception unused12) {
+            if (method2 != null) {
+                if (method3 != null) {
+                }
+            }
+            method = null;
+            method3 = null;
+            LR_GET_INSTANT = method4;
+            ZI_SYSTEM_DEFAULT = method3;
+            ZDT_OF_INSTANT = method;
+            LOG_MANAGER = loadLogManager();
+        } catch (Throwable th4) {
+            throw th4;
+        }
+        if (!Modifier.isStatic(method.getModifiers())) {
+            throw new NoSuchMethodException(method.toString());
+        }
+        if (!Comparable.class.isAssignableFrom(method.getReturnType())) {
+            throw new NoSuchMethodException(method.toString());
+        }
+        if (method2 != null) {
+            if (method3 != null) {
+                if (method == null) {
+                }
+                method4 = method2;
+                LR_GET_INSTANT = method4;
+                ZI_SYSTEM_DEFAULT = method3;
+                ZDT_OF_INSTANT = method;
+                LOG_MANAGER = loadLogManager();
+            }
+        }
+        method = null;
+        method3 = null;
+        LR_GET_INSTANT = method4;
+        ZI_SYSTEM_DEFAULT = method3;
+        ZDT_OF_INSTANT = method;
+        LOG_MANAGER = loadLogManager();
     }
 
     private static Object loadLogManager() {
@@ -74,8 +183,7 @@ final class LogManagerProperties extends Properties {
         return properties;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static String fromLogManager(String str) {
+    static String fromLogManager(String str) {
         if (str == null) {
             throw null;
         }
@@ -97,8 +205,7 @@ final class LogManagerProperties extends Properties {
         return null;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static void checkLogManagerAccess() {
+    static void checkLogManagerAccess() {
         Object obj = LOG_MANAGER;
         boolean z = false;
         if (obj != null) {
@@ -137,14 +244,12 @@ final class LogManagerProperties extends Properties {
         securityManager.checkPermission(new LoggingPermission("control", null));
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static boolean hasLogManager() {
+    static boolean hasLogManager() {
         Object obj = LOG_MANAGER;
         return (obj == null || (obj instanceof Properties)) ? false : true;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static Comparable<?> getZonedDateTime(LogRecord logRecord) {
+    static Comparable<?> getZonedDateTime(LogRecord logRecord) {
         if (logRecord == null) {
             throw null;
         }
@@ -167,8 +272,7 @@ final class LogManagerProperties extends Properties {
         return null;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static String getLocalHost(Object obj) throws Exception {
+    static String getLocalHost(Object obj) throws Exception {
         try {
             Method method = obj.getClass().getMethod("getLocalHost", new Class[0]);
             if (!Modifier.isStatic(method.getModifiers()) && method.getReturnType() == String.class) {
@@ -182,8 +286,7 @@ final class LogManagerProperties extends Properties {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static long parseDurationToMillis(CharSequence charSequence) throws Exception {
+    static long parseDurationToMillis(CharSequence charSequence) throws Exception {
         try {
             Class<?> findClass = findClass("java.time.Duration");
             Method method = findClass.getMethod("parse", CharSequence.class);
@@ -202,8 +305,7 @@ final class LogManagerProperties extends Properties {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static String toLanguageTag(Locale locale) {
+    static String toLanguageTag(Locale locale) {
         String language = locale.getLanguage();
         String country = locale.getCountry();
         String variant = locale.getVariant();
@@ -225,23 +327,19 @@ final class LogManagerProperties extends Properties {
         return String.valueOf(cArr, 0, length);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static Filter newFilter(String str) throws Exception {
+    static Filter newFilter(String str) throws Exception {
         return (Filter) newObjectFrom(str, Filter.class);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static Formatter newFormatter(String str) throws Exception {
+    static Formatter newFormatter(String str) throws Exception {
         return (Formatter) newObjectFrom(str, Formatter.class);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static Comparator<? super LogRecord> newComparator(String str) throws Exception {
+    static Comparator<? super LogRecord> newComparator(String str) throws Exception {
         return (Comparator) newObjectFrom(str, Comparator.class);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static <T> Comparator<T> reverseOrder(Comparator<T> comparator) {
+    static <T> Comparator<T> reverseOrder(Comparator<T> comparator) {
         Comparator<T> comparator2 = null;
         if (comparator == null) {
             throw null;
@@ -256,21 +354,19 @@ final class LogManagerProperties extends Properties {
                         throw wrapOrThrow(e);
                     }
                 }
-            } catch (InvocationTargetException e2) {
-                paramOrError(e2);
+            } catch (IllegalAccessException | NoSuchMethodException | RuntimeException unused) {
             }
-        } catch (IllegalAccessException | NoSuchMethodException | RuntimeException unused) {
+        } catch (InvocationTargetException e2) {
+            paramOrError(e2);
         }
         return comparator2 == null ? Collections.reverseOrder(comparator) : comparator2;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static ErrorManager newErrorManager(String str) throws Exception {
+    static ErrorManager newErrorManager(String str) throws Exception {
         return (ErrorManager) newObjectFrom(str, ErrorManager.class);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static boolean isStaticUtilityClass(String str) throws Exception {
+    static boolean isStaticUtilityClass(String str) throws Exception {
         Class<?> findClass = findClass(str);
         if (findClass != Object.class) {
             Method[] methods = findClass.getMethods();
@@ -287,8 +383,7 @@ final class LogManagerProperties extends Properties {
         return false;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static boolean isReflectionClass(String str) throws Exception {
+    static boolean isReflectionClass(String str) throws Exception {
         String[] strArr = REFLECT_NAMES;
         if (strArr == null) {
             strArr = reflectionClassNames();
@@ -328,8 +423,7 @@ final class LogManagerProperties extends Properties {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static <T> T newObjectFrom(String str, Class<T> cls) throws Exception {
+    static <T> T newObjectFrom(String str, Class<T> cls) throws Exception {
         try {
             Class<?> findClass = findClass(str);
             if (cls.isAssignableFrom(findClass)) {
@@ -383,6 +477,7 @@ final class LogManagerProperties extends Properties {
 
     private static ClassLoader[] getClassLoaders() {
         return (ClassLoader[]) AccessController.doPrivileged(new PrivilegedAction<ClassLoader[]>() { // from class: com.sun.mail.util.logging.LogManagerProperties.1
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // java.security.PrivilegedAction
             public ClassLoader[] run() {
                 ClassLoader[] classLoaderArr = new ClassLoader[2];
@@ -401,8 +496,7 @@ final class LogManagerProperties extends Properties {
         });
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public LogManagerProperties(Properties properties, String str) {
+    LogManagerProperties(Properties properties, String str) {
         super(properties);
         if (properties == null || str == null) {
             throw null;

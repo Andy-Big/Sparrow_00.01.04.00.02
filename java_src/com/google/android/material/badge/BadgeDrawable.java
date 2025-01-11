@@ -25,6 +25,7 @@ import com.google.android.material.shape.MaterialShapeDrawable;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.ref.WeakReference;
+
 /* loaded from: classes.dex */
 public class BadgeDrawable extends Drawable implements TextDrawableHelper.TextDrawableDelegate {
     private static final int BADGE_NUMBER_NONE = -1;
@@ -76,12 +77,14 @@ public class BadgeDrawable extends Drawable implements TextDrawableHelper.TextDr
     /* loaded from: classes.dex */
     public static final class SavedState implements Parcelable {
         public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.Creator<SavedState>() { // from class: com.google.android.material.badge.BadgeDrawable.SavedState.1
+            /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public SavedState createFromParcel(Parcel parcel) {
                 return new SavedState(parcel);
             }
 
+            /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public SavedState[] newArray(int i) {
@@ -148,8 +151,7 @@ public class BadgeDrawable extends Drawable implements TextDrawableHelper.TextDr
         return this.savedState;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static BadgeDrawable createFromSavedState(Context context, SavedState savedState) {
+    static BadgeDrawable createFromSavedState(Context context, SavedState savedState) {
         BadgeDrawable badgeDrawable = new BadgeDrawable(context);
         badgeDrawable.restoreFromSavedState(savedState);
         return badgeDrawable;

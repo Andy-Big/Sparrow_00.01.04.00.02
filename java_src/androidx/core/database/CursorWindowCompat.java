@@ -2,6 +2,7 @@ package androidx.core.database;
 
 import android.database.CursorWindow;
 import android.os.Build;
+
 /* loaded from: classes.dex */
 public final class CursorWindowCompat {
     private CursorWindowCompat() {

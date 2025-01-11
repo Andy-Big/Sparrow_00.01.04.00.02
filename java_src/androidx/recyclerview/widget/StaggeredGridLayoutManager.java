@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.BitSet;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public class StaggeredGridLayoutManager extends RecyclerView.LayoutManager implements RecyclerView.SmoothScroller.ScrollVectorProvider {
     static final boolean DEBUG = false;
@@ -154,122 +155,57 @@ public class StaggeredGridLayoutManager extends RecyclerView.LayoutManager imple
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    android.view.View hasGapsToFix() {
-        /*
-            r12 = this;
-            int r0 = r12.getChildCount()
-            r1 = 1
-            int r0 = r0 - r1
-            java.util.BitSet r2 = new java.util.BitSet
-            int r3 = r12.mSpanCount
-            r2.<init>(r3)
-            int r3 = r12.mSpanCount
-            r4 = 0
-            r2.set(r4, r3, r1)
-            int r3 = r12.mOrientation
-            r5 = -1
-            if (r3 != r1) goto L20
-            boolean r3 = r12.isLayoutRTL()
-            if (r3 == 0) goto L20
-            r3 = r1
-            goto L21
-        L20:
-            r3 = r5
-        L21:
-            boolean r6 = r12.mShouldReverseLayout
-            if (r6 == 0) goto L27
-            r6 = r5
-            goto L2b
-        L27:
-            int r0 = r0 + 1
-            r6 = r0
-            r0 = r4
-        L2b:
-            if (r0 >= r6) goto L2e
-            r5 = r1
-        L2e:
-            if (r0 == r6) goto Lab
-            android.view.View r7 = r12.getChildAt(r0)
-            android.view.ViewGroup$LayoutParams r8 = r7.getLayoutParams()
-            androidx.recyclerview.widget.StaggeredGridLayoutManager$LayoutParams r8 = (androidx.recyclerview.widget.StaggeredGridLayoutManager.LayoutParams) r8
-            androidx.recyclerview.widget.StaggeredGridLayoutManager$Span r9 = r8.mSpan
-            int r9 = r9.mIndex
-            boolean r9 = r2.get(r9)
-            if (r9 == 0) goto L54
-            androidx.recyclerview.widget.StaggeredGridLayoutManager$Span r9 = r8.mSpan
-            boolean r9 = r12.checkSpanForGap(r9)
-            if (r9 == 0) goto L4d
-            return r7
-        L4d:
-            androidx.recyclerview.widget.StaggeredGridLayoutManager$Span r9 = r8.mSpan
-            int r9 = r9.mIndex
-            r2.clear(r9)
-        L54:
-            boolean r9 = r8.mFullSpan
-            if (r9 == 0) goto L59
-            goto La9
-        L59:
-            int r9 = r0 + r5
-            if (r9 == r6) goto La9
-            android.view.View r9 = r12.getChildAt(r9)
-            boolean r10 = r12.mShouldReverseLayout
-            if (r10 == 0) goto L77
-            androidx.recyclerview.widget.OrientationHelper r10 = r12.mPrimaryOrientation
-            int r10 = r10.getDecoratedEnd(r7)
-            androidx.recyclerview.widget.OrientationHelper r11 = r12.mPrimaryOrientation
-            int r11 = r11.getDecoratedEnd(r9)
-            if (r10 >= r11) goto L74
-            return r7
-        L74:
-            if (r10 != r11) goto L8a
-            goto L88
-        L77:
-            androidx.recyclerview.widget.OrientationHelper r10 = r12.mPrimaryOrientation
-            int r10 = r10.getDecoratedStart(r7)
-            androidx.recyclerview.widget.OrientationHelper r11 = r12.mPrimaryOrientation
-            int r11 = r11.getDecoratedStart(r9)
-            if (r10 <= r11) goto L86
-            return r7
-        L86:
-            if (r10 != r11) goto L8a
-        L88:
-            r10 = r1
-            goto L8b
-        L8a:
-            r10 = r4
-        L8b:
-            if (r10 == 0) goto La9
-            android.view.ViewGroup$LayoutParams r9 = r9.getLayoutParams()
-            androidx.recyclerview.widget.StaggeredGridLayoutManager$LayoutParams r9 = (androidx.recyclerview.widget.StaggeredGridLayoutManager.LayoutParams) r9
-            androidx.recyclerview.widget.StaggeredGridLayoutManager$Span r8 = r8.mSpan
-            int r8 = r8.mIndex
-            androidx.recyclerview.widget.StaggeredGridLayoutManager$Span r9 = r9.mSpan
-            int r9 = r9.mIndex
-            int r8 = r8 - r9
-            if (r8 >= 0) goto La0
-            r8 = r1
-            goto La1
-        La0:
-            r8 = r4
-        La1:
-            if (r3 >= 0) goto La5
-            r9 = r1
-            goto La6
-        La5:
-            r9 = r4
-        La6:
-            if (r8 == r9) goto La9
-            return r7
-        La9:
-            int r0 = r0 + r5
-            goto L2e
-        Lab:
-            r0 = 0
-            return r0
-        */
-        throw new UnsupportedOperationException("Method not decompiled: androidx.recyclerview.widget.StaggeredGridLayoutManager.hasGapsToFix():android.view.View");
+    View hasGapsToFix() {
+        int i;
+        int i2;
+        boolean z;
+        int childCount = getChildCount() - 1;
+        BitSet bitSet = new BitSet(this.mSpanCount);
+        bitSet.set(0, this.mSpanCount, true);
+        char c = (this.mOrientation == 1 && isLayoutRTL()) ? (char) 1 : (char) 65535;
+        if (this.mShouldReverseLayout) {
+            i = -1;
+        } else {
+            i = childCount + 1;
+            childCount = 0;
+        }
+        int i3 = childCount < i ? 1 : -1;
+        while (childCount != i) {
+            View childAt = getChildAt(childCount);
+            LayoutParams layoutParams = (LayoutParams) childAt.getLayoutParams();
+            if (bitSet.get(layoutParams.mSpan.mIndex)) {
+                if (checkSpanForGap(layoutParams.mSpan)) {
+                    return childAt;
+                }
+                bitSet.clear(layoutParams.mSpan.mIndex);
+            }
+            if (!layoutParams.mFullSpan && (i2 = childCount + i3) != i) {
+                View childAt2 = getChildAt(i2);
+                if (this.mShouldReverseLayout) {
+                    int decoratedEnd = this.mPrimaryOrientation.getDecoratedEnd(childAt);
+                    int decoratedEnd2 = this.mPrimaryOrientation.getDecoratedEnd(childAt2);
+                    if (decoratedEnd < decoratedEnd2) {
+                        return childAt;
+                    }
+                } else {
+                    int decoratedStart = this.mPrimaryOrientation.getDecoratedStart(childAt);
+                    int decoratedStart2 = this.mPrimaryOrientation.getDecoratedStart(childAt2);
+                    if (decoratedStart > decoratedStart2) {
+                        return childAt;
+                    }
+                }
+                if (z) {
+                    if ((layoutParams.mSpan.mIndex - ((LayoutParams) childAt2.getLayoutParams()).mSpan.mIndex < 0) != (c < 0)) {
+                        return childAt;
+                    }
+                } else {
+                    continue;
+                }
+            }
+            childCount += i3;
+        }
+        return null;
     }
 
     private boolean checkSpanForGap(Span span) {
@@ -404,14 +340,96 @@ public class StaggeredGridLayoutManager extends RecyclerView.LayoutManager imple
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    private void onLayoutChildren(androidx.recyclerview.widget.RecyclerView.Recycler r9, androidx.recyclerview.widget.RecyclerView.State r10, boolean r11) {
-        /*
-            Method dump skipped, instructions count: 389
-            To view this dump add '--comments-level debug' option
-        */
-        throw new UnsupportedOperationException("Method not decompiled: androidx.recyclerview.widget.StaggeredGridLayoutManager.onLayoutChildren(androidx.recyclerview.widget.RecyclerView$Recycler, androidx.recyclerview.widget.RecyclerView$State, boolean):void");
+    private void onLayoutChildren(RecyclerView.Recycler recycler, RecyclerView.State state, boolean z) {
+        SavedState savedState;
+        AnchorInfo anchorInfo = this.mAnchorInfo;
+        if ((this.mPendingSavedState != null || this.mPendingScrollPosition != -1) && state.getItemCount() == 0) {
+            removeAndRecycleAllViews(recycler);
+            anchorInfo.reset();
+            return;
+        }
+        boolean z2 = true;
+        boolean z3 = (anchorInfo.mValid && this.mPendingScrollPosition == -1 && this.mPendingSavedState == null) ? false : true;
+        if (z3) {
+            anchorInfo.reset();
+            if (this.mPendingSavedState != null) {
+                applyPendingSavedState(anchorInfo);
+            } else {
+                resolveShouldLayoutReverse();
+                anchorInfo.mLayoutFromEnd = this.mShouldReverseLayout;
+            }
+            updateAnchorInfoForLayout(state, anchorInfo);
+            anchorInfo.mValid = true;
+        }
+        if (this.mPendingSavedState == null && this.mPendingScrollPosition == -1 && (anchorInfo.mLayoutFromEnd != this.mLastLayoutFromEnd || isLayoutRTL() != this.mLastLayoutRTL)) {
+            this.mLazySpanLookup.clear();
+            anchorInfo.mInvalidateOffsets = true;
+        }
+        if (getChildCount() > 0 && ((savedState = this.mPendingSavedState) == null || savedState.mSpanOffsetsSize < 1)) {
+            if (anchorInfo.mInvalidateOffsets) {
+                for (int i = 0; i < this.mSpanCount; i++) {
+                    this.mSpans[i].clear();
+                    if (anchorInfo.mOffset != Integer.MIN_VALUE) {
+                        this.mSpans[i].setLine(anchorInfo.mOffset);
+                    }
+                }
+            } else if (z3 || this.mAnchorInfo.mSpanReferenceLines == null) {
+                for (int i2 = 0; i2 < this.mSpanCount; i2++) {
+                    this.mSpans[i2].cacheReferenceLineAndClear(this.mShouldReverseLayout, anchorInfo.mOffset);
+                }
+                this.mAnchorInfo.saveSpanReferenceLines(this.mSpans);
+            } else {
+                for (int i3 = 0; i3 < this.mSpanCount; i3++) {
+                    Span span = this.mSpans[i3];
+                    span.clear();
+                    span.setLine(this.mAnchorInfo.mSpanReferenceLines[i3]);
+                }
+            }
+        }
+        detachAndScrapAttachedViews(recycler);
+        this.mLayoutState.mRecycle = false;
+        this.mLaidOutInvalidFullSpan = false;
+        updateMeasureSpecs(this.mSecondaryOrientation.getTotalSpace());
+        updateLayoutState(anchorInfo.mPosition, state);
+        if (anchorInfo.mLayoutFromEnd) {
+            setLayoutStateDirection(-1);
+            fill(recycler, this.mLayoutState, state);
+            setLayoutStateDirection(1);
+            this.mLayoutState.mCurrentPosition = anchorInfo.mPosition + this.mLayoutState.mItemDirection;
+            fill(recycler, this.mLayoutState, state);
+        } else {
+            setLayoutStateDirection(1);
+            fill(recycler, this.mLayoutState, state);
+            setLayoutStateDirection(-1);
+            this.mLayoutState.mCurrentPosition = anchorInfo.mPosition + this.mLayoutState.mItemDirection;
+            fill(recycler, this.mLayoutState, state);
+        }
+        repositionToWrapContentIfNecessary();
+        if (getChildCount() > 0) {
+            if (this.mShouldReverseLayout) {
+                fixEndGap(recycler, state, true);
+                fixStartGap(recycler, state, false);
+            } else {
+                fixStartGap(recycler, state, true);
+                fixEndGap(recycler, state, false);
+            }
+        }
+        if (z && !state.isPreLayout()) {
+            if (this.mGapStrategy != 0 && getChildCount() > 0 && (this.mLaidOutInvalidFullSpan || hasGapsToFix() != null)) {
+                removeCallbacks(this.mCheckForGapsRunnable);
+            }
+        }
+        z2 = false;
+        if (state.isPreLayout()) {
+            this.mAnchorInfo.reset();
+        }
+        this.mLastLayoutFromEnd = anchorInfo.mLayoutFromEnd;
+        this.mLastLayoutRTL = isLayoutRTL();
+        if (z2) {
+            this.mAnchorInfo.reset();
+            onLayoutChildren(recycler, state, false);
+        }
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.LayoutManager
@@ -981,72 +999,45 @@ public class StaggeredGridLayoutManager extends RecyclerView.LayoutManager imple
     /* JADX WARN: Removed duplicated region for block: B:24:0x0044  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    private void handleUpdate(int r7, int r8, int r9) {
-        /*
-            r6 = this;
-            boolean r0 = r6.mShouldReverseLayout
-            if (r0 == 0) goto L9
-            int r0 = r6.getLastChildPosition()
-            goto Ld
-        L9:
-            int r0 = r6.getFirstChildPosition()
-        Ld:
-            r1 = 8
-            if (r9 != r1) goto L1a
-            if (r7 >= r8) goto L16
-            int r2 = r8 + 1
-            goto L1c
-        L16:
-            int r2 = r7 + 1
-            r3 = r8
-            goto L1d
-        L1a:
-            int r2 = r7 + r8
-        L1c:
-            r3 = r7
-        L1d:
-            androidx.recyclerview.widget.StaggeredGridLayoutManager$LazySpanLookup r4 = r6.mLazySpanLookup
-            r4.invalidateAfter(r3)
-            r4 = 1
-            if (r9 == r4) goto L3c
-            r5 = 2
-            if (r9 == r5) goto L36
-            if (r9 == r1) goto L2b
-            goto L41
-        L2b:
-            androidx.recyclerview.widget.StaggeredGridLayoutManager$LazySpanLookup r9 = r6.mLazySpanLookup
-            r9.offsetForRemoval(r7, r4)
-            androidx.recyclerview.widget.StaggeredGridLayoutManager$LazySpanLookup r7 = r6.mLazySpanLookup
-            r7.offsetForAddition(r8, r4)
-            goto L41
-        L36:
-            androidx.recyclerview.widget.StaggeredGridLayoutManager$LazySpanLookup r9 = r6.mLazySpanLookup
-            r9.offsetForRemoval(r7, r8)
-            goto L41
-        L3c:
-            androidx.recyclerview.widget.StaggeredGridLayoutManager$LazySpanLookup r9 = r6.mLazySpanLookup
-            r9.offsetForAddition(r7, r8)
-        L41:
-            if (r2 > r0) goto L44
-            return
-        L44:
-            boolean r7 = r6.mShouldReverseLayout
-            if (r7 == 0) goto L4d
-            int r7 = r6.getFirstChildPosition()
-            goto L51
-        L4d:
-            int r7 = r6.getLastChildPosition()
-        L51:
-            if (r3 > r7) goto L56
-            r6.requestLayout()
-        L56:
-            return
-        */
-        throw new UnsupportedOperationException("Method not decompiled: androidx.recyclerview.widget.StaggeredGridLayoutManager.handleUpdate(int, int, int):void");
+    private void handleUpdate(int i, int i2, int i3) {
+        int i4;
+        int i5;
+        int lastChildPosition = this.mShouldReverseLayout ? getLastChildPosition() : getFirstChildPosition();
+        if (i3 != 8) {
+            i4 = i + i2;
+        } else if (i >= i2) {
+            i4 = i + 1;
+            i5 = i2;
+            this.mLazySpanLookup.invalidateAfter(i5);
+            if (i3 != 1) {
+                this.mLazySpanLookup.offsetForAddition(i, i2);
+            } else if (i3 == 2) {
+                this.mLazySpanLookup.offsetForRemoval(i, i2);
+            } else if (i3 == 8) {
+                this.mLazySpanLookup.offsetForRemoval(i, 1);
+                this.mLazySpanLookup.offsetForAddition(i2, 1);
+            }
+            if (i4 > lastChildPosition) {
+                return;
+            }
+            if (i5 <= (this.mShouldReverseLayout ? getFirstChildPosition() : getLastChildPosition())) {
+                requestLayout();
+                return;
+            }
+            return;
+        } else {
+            i4 = i2 + 1;
+        }
+        i5 = i;
+        this.mLazySpanLookup.invalidateAfter(i5);
+        if (i3 != 1) {
+        }
+        if (i4 > lastChildPosition) {
+        }
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r16v0, resolved type: androidx.recyclerview.widget.StaggeredGridLayoutManager */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r9v0 */
     /* JADX WARN: Type inference failed for: r9v1, types: [boolean, int] */
@@ -1792,9 +1783,8 @@ public class StaggeredGridLayoutManager extends RecyclerView.LayoutManager imple
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public class Span {
+    class Span {
         static final int INVALID_LINE = Integer.MIN_VALUE;
         final int mIndex;
         ArrayList<View> mViews = new ArrayList<>();
@@ -2088,9 +2078,8 @@ public class StaggeredGridLayoutManager extends RecyclerView.LayoutManager imple
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static class LazySpanLookup {
+    static class LazySpanLookup {
         private static final int MIN_SIZE = 10;
         int[] mData;
         List<FullSpanItem> mFullSpanItems;
@@ -2305,16 +2294,17 @@ public class StaggeredGridLayoutManager extends RecyclerView.LayoutManager imple
             return null;
         }
 
-        /* JADX INFO: Access modifiers changed from: package-private */
         /* loaded from: classes.dex */
-        public static class FullSpanItem implements Parcelable {
+        static class FullSpanItem implements Parcelable {
             public static final Parcelable.Creator<FullSpanItem> CREATOR = new Parcelable.Creator<FullSpanItem>() { // from class: androidx.recyclerview.widget.StaggeredGridLayoutManager.LazySpanLookup.FullSpanItem.1
+                /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
                 @Override // android.os.Parcelable.Creator
                 public FullSpanItem createFromParcel(Parcel parcel) {
                     return new FullSpanItem(parcel);
                 }
 
+                /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
                 @Override // android.os.Parcelable.Creator
                 public FullSpanItem[] newArray(int i) {
@@ -2377,12 +2367,14 @@ public class StaggeredGridLayoutManager extends RecyclerView.LayoutManager imple
     /* loaded from: classes.dex */
     public static class SavedState implements Parcelable {
         public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.Creator<SavedState>() { // from class: androidx.recyclerview.widget.StaggeredGridLayoutManager.SavedState.1
+            /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public SavedState createFromParcel(Parcel parcel) {
                 return new SavedState(parcel);
             }
 
+            /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public SavedState[] newArray(int i) {
@@ -2478,9 +2470,8 @@ public class StaggeredGridLayoutManager extends RecyclerView.LayoutManager imple
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public class AnchorInfo {
+    class AnchorInfo {
         boolean mInvalidateOffsets;
         boolean mLayoutFromEnd;
         int mOffset;

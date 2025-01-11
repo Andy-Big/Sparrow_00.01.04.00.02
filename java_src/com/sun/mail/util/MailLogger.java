@@ -5,6 +5,7 @@ import java.text.MessageFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.mail.Session;
+
 /* loaded from: classes2.dex */
 public final class MailLogger {
     private final boolean debug;

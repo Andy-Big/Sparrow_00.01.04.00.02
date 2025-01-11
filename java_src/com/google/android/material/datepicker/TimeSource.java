@@ -2,6 +2,7 @@ package com.google.android.material.datepicker;
 
 import java.util.Calendar;
 import java.util.TimeZone;
+
 /* loaded from: classes.dex */
 class TimeSource {
     private static final TimeSource SYSTEM_TIME_SOURCE = new TimeSource(null, null);
@@ -13,8 +14,7 @@ class TimeSource {
         this.fixedTimeZone = timeZone;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static TimeSource system() {
+    static TimeSource system() {
         return SYSTEM_TIME_SOURCE;
     }
 
@@ -26,8 +26,7 @@ class TimeSource {
         return new TimeSource(Long.valueOf(j), null);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public Calendar now() {
+    Calendar now() {
         return now(this.fixedTimeZone);
     }
 

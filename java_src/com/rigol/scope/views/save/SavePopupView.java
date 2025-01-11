@@ -47,7 +47,10 @@ public class SavePopupView extends BasePopupView implements View.OnClickListener
         StorageViewModel storageViewModel = (StorageViewModel) ContextUtil.getAppViewModel(StorageViewModel.class);
         if (storageViewModel != null) {
             storageViewModel.getSaveLiveData().observe((LifecycleOwner) ActivityUtils.getTopActivity(), new Observer<StorageSaveParam>() { // from class: com.rigol.scope.views.save.SavePopupView.1
-                /* JADX DEBUG: Method merged with bridge method */
+                {
+                    SavePopupView.this = this;
+                }
+
                 @Override // androidx.lifecycle.Observer
                 public void onChanged(StorageSaveParam storageSaveParam) {
                     SavePopupView.this.param = storageSaveParam;
@@ -214,7 +217,7 @@ public class SavePopupView extends BasePopupView implements View.OnClickListener
         return arrayList;
     }
 
-    /* renamed from: com.rigol.scope.views.save.SavePopupView$2  reason: invalid class name */
+    /* renamed from: com.rigol.scope.views.save.SavePopupView$2 */
     /* loaded from: classes2.dex */
     static /* synthetic */ class AnonymousClass2 {
         static final /* synthetic */ int[] $SwitchMap$com$rigol$scope$cil$ServiceEnum$StorageFunc;

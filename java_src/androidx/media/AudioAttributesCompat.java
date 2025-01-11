@@ -8,6 +8,7 @@ import android.util.SparseIntArray;
 import androidx.versionedparcelable.VersionedParcelable;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
+
 /* loaded from: classes.dex */
 public class AudioAttributesCompat implements VersionedParcelable {
     static final String AUDIO_ATTRIBUTES_CONTENT_TYPE = "androidx.media.audio_attrs.CONTENT_TYPE";
@@ -107,8 +108,7 @@ public class AudioAttributesCompat implements VersionedParcelable {
         SDK_USAGES = new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 16};
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public AudioAttributesCompat() {
+    AudioAttributesCompat() {
     }
 
     AudioAttributesCompat(AudioAttributesImpl audioAttributesImpl) {
@@ -318,8 +318,7 @@ public class AudioAttributesCompat implements VersionedParcelable {
         return this.mImpl.toString();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static String usageToString(int i) {
+    static String usageToString(int i) {
         switch (i) {
             case 0:
                 return "USAGE_UNKNOWN";
@@ -382,8 +381,7 @@ public class AudioAttributesCompat implements VersionedParcelable {
         return this.mImpl.getRawLegacyStreamType();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static int toVolumeStreamType(boolean z, int i, int i2) {
+    static int toVolumeStreamType(boolean z, int i, int i2) {
         if ((i & 1) == 1) {
             return z ? 1 : 7;
         } else if ((i & 4) == 4) {

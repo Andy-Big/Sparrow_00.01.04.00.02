@@ -1,4 +1,5 @@
 package javax.mail.event;
+
 /* loaded from: classes2.dex */
 public abstract class ConnectionAdapter implements ConnectionListener {
     @Override // javax.mail.event.ConnectionListener

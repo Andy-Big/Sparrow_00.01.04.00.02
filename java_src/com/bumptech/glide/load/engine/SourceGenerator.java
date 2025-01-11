@@ -10,9 +10,9 @@ import com.bumptech.glide.load.model.ModelLoader;
 import com.bumptech.glide.util.LogTime;
 import java.util.Collections;
 import java.util.List;
-/* JADX INFO: Access modifiers changed from: package-private */
+
 /* loaded from: classes.dex */
-public class SourceGenerator implements DataFetcherGenerator, DataFetcherGenerator.FetcherReadyCallback {
+class SourceGenerator implements DataFetcherGenerator, DataFetcherGenerator.FetcherReadyCallback {
     private static final String TAG = "SourceGenerator";
     private final DataFetcherGenerator.FetcherReadyCallback cb;
     private Object dataToCache;
@@ -22,8 +22,7 @@ public class SourceGenerator implements DataFetcherGenerator, DataFetcherGenerat
     private DataCacheKey originalKey;
     private DataCacheGenerator sourceCacheGenerator;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public SourceGenerator(DecodeHelper<?> decodeHelper, DataFetcherGenerator.FetcherReadyCallback fetcherReadyCallback) {
+    SourceGenerator(DecodeHelper<?> decodeHelper, DataFetcherGenerator.FetcherReadyCallback fetcherReadyCallback) {
         this.helper = decodeHelper;
         this.cb = fetcherReadyCallback;
     }

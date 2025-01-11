@@ -5,6 +5,7 @@ import java.util.Enumeration;
 import java.util.Hashtable;
 import java.util.Locale;
 import java.util.Vector;
+
 /* loaded from: classes2.dex */
 public class Flags implements Cloneable, Serializable {
     private static final int ANSWERED_BIT = 1;

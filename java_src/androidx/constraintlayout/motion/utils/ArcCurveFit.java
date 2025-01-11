@@ -1,9 +1,9 @@
 package androidx.constraintlayout.motion.utils;
 
 import java.util.Arrays;
-/* JADX INFO: Access modifiers changed from: package-private */
+
 /* loaded from: classes.dex */
-public class ArcCurveFit extends CurveFit {
+class ArcCurveFit extends CurveFit {
     public static final int ARC_START_FLIP = 3;
     public static final int ARC_START_HORIZONTAL = 2;
     public static final int ARC_START_LINEAR = 0;
@@ -295,79 +295,36 @@ public class ArcCurveFit extends CurveFit {
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    public ArcCurveFit(int[] r27, double[] r28, double[][] r29) {
-        /*
-            r26 = this;
-            r0 = r26
-            r1 = r28
-            r26.<init>()
-            r2 = 1
-            r0.mExtrapolate = r2
-            r0.mTime = r1
-            int r3 = r1.length
-            int r3 = r3 - r2
-            androidx.constraintlayout.motion.utils.ArcCurveFit$Arc[] r3 = new androidx.constraintlayout.motion.utils.ArcCurveFit.Arc[r3]
-            r0.mArcs = r3
-            r3 = 0
-            r5 = r2
-            r6 = r5
-            r4 = r3
-        L16:
-            androidx.constraintlayout.motion.utils.ArcCurveFit$Arc[] r7 = r0.mArcs
-            int r7 = r7.length
-            if (r4 >= r7) goto L63
-            r7 = r27[r4]
-            r8 = 3
-            r9 = 2
-            if (r7 == 0) goto L32
-            if (r7 == r2) goto L2e
-            if (r7 == r9) goto L2c
-            if (r7 == r8) goto L2a
-            r20 = r6
-            goto L34
-        L2a:
-            if (r5 != r2) goto L2e
-        L2c:
-            r5 = r9
-            goto L2f
-        L2e:
-            r5 = r2
-        L2f:
-            r20 = r5
-            goto L34
-        L32:
-            r20 = r8
-        L34:
-            androidx.constraintlayout.motion.utils.ArcCurveFit$Arc[] r14 = r0.mArcs
-            androidx.constraintlayout.motion.utils.ArcCurveFit$Arc r21 = new androidx.constraintlayout.motion.utils.ArcCurveFit$Arc
-            r8 = r1[r4]
-            int r22 = r4 + 1
-            r10 = r1[r22]
-            r6 = r29[r4]
-            r12 = r6[r3]
-            r6 = r29[r4]
-            r15 = r6[r2]
-            r6 = r29[r22]
-            r17 = r6[r3]
-            r6 = r29[r22]
-            r23 = r6[r2]
-            r6 = r21
-            r7 = r20
-            r25 = r14
-            r14 = r15
-            r16 = r17
-            r18 = r23
-            r6.<init>(r7, r8, r10, r12, r14, r16, r18)
-            r25[r4] = r21
-            r6 = r20
-            r4 = r22
-            goto L16
-        L63:
-            return
-        */
-        throw new UnsupportedOperationException("Method not decompiled: androidx.constraintlayout.motion.utils.ArcCurveFit.<init>(int[], double[], double[][]):void");
+    public ArcCurveFit(int[] iArr, double[] dArr, double[][] dArr2) {
+        int i;
+        this.mTime = dArr;
+        this.mArcs = new Arc[dArr.length - 1];
+        int i2 = 1;
+        int i3 = 1;
+        int i4 = 0;
+        while (i4 < this.mArcs.length) {
+            int i5 = iArr[i4];
+            if (i5 != 0) {
+                if (i5 != 1) {
+                    if (i5 != 2) {
+                        if (i5 != 3) {
+                            i = i3;
+                        }
+                    }
+                    i2 = 2;
+                    i = i2;
+                }
+                i2 = 1;
+                i = i2;
+            } else {
+                i = 3;
+            }
+            int i6 = i4 + 1;
+            this.mArcs[i4] = new Arc(i, dArr[i4], dArr[i6], dArr2[i4][0], dArr2[i4][1], dArr2[i6][0], dArr2[i6][1]);
+            i3 = i;
+            i4 = i6;
+        }
     }
 
     /* loaded from: classes.dex */

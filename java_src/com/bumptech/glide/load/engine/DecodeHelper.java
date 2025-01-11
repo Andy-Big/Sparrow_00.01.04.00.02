@@ -18,9 +18,9 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* JADX INFO: Access modifiers changed from: package-private */
+
 /* loaded from: classes.dex */
-public final class DecodeHelper<Transcode> {
+final class DecodeHelper<Transcode> {
     private DecodeJob.DiskCacheProvider diskCacheProvider;
     private DiskCacheStrategy diskCacheStrategy;
     private GlideContext glideContext;
@@ -40,9 +40,12 @@ public final class DecodeHelper<Transcode> {
     private final List<ModelLoader.LoadData<?>> loadData = new ArrayList();
     private final List<Key> cacheKeys = new ArrayList();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    DecodeHelper() {
+    }
+
+    /* JADX DEBUG: Multi-variable search result rejected for r8v0, resolved type: java.lang.Class<R> */
     /* JADX WARN: Multi-variable type inference failed */
-    public <R> void init(GlideContext glideContext, Object obj, Key key, int i, int i2, DiskCacheStrategy diskCacheStrategy, Class<?> cls, Class<R> cls2, Priority priority, Options options, Map<Class<?>, Transformation<?>> map, boolean z, boolean z2, DecodeJob.DiskCacheProvider diskCacheProvider) {
+    <R> void init(GlideContext glideContext, Object obj, Key key, int i, int i2, DiskCacheStrategy diskCacheStrategy, Class<?> cls, Class<R> cls2, Priority priority, Options options, Map<Class<?>, Transformation<?>> map, boolean z, boolean z2, DecodeJob.DiskCacheProvider diskCacheProvider) {
         this.glideContext = glideContext;
         this.model = obj;
         this.signature = key;
@@ -59,8 +62,7 @@ public final class DecodeHelper<Transcode> {
         this.isScaleOnlyOrNoTransform = z2;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void clear() {
+    void clear() {
         this.glideContext = null;
         this.model = null;
         this.signature = null;
@@ -76,79 +78,66 @@ public final class DecodeHelper<Transcode> {
         this.isCacheKeysSet = false;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public DiskCache getDiskCache() {
+    DiskCache getDiskCache() {
         return this.diskCacheProvider.getDiskCache();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public DiskCacheStrategy getDiskCacheStrategy() {
+    DiskCacheStrategy getDiskCacheStrategy() {
         return this.diskCacheStrategy;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public Priority getPriority() {
+    Priority getPriority() {
         return this.priority;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public Options getOptions() {
+    Options getOptions() {
         return this.options;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public Key getSignature() {
+    Key getSignature() {
         return this.signature;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public int getWidth() {
+    int getWidth() {
         return this.width;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public int getHeight() {
+    int getHeight() {
         return this.height;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ArrayPool getArrayPool() {
+    ArrayPool getArrayPool() {
         return this.glideContext.getArrayPool();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public Class<?> getTranscodeClass() {
+    /* JADX DEBUG: Type inference failed for r0v0. Raw type applied. Possible types: java.lang.Class<Transcode>, java.lang.Class<?> */
+    Class<?> getTranscodeClass() {
         return (Class<Transcode>) this.transcodeClass;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public Class<?> getModelClass() {
+    Class<?> getModelClass() {
         return this.model.getClass();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public List<Class<?>> getRegisteredResourceClasses() {
+    List<Class<?>> getRegisteredResourceClasses() {
         return this.glideContext.getRegistry().getRegisteredResourceClasses(this.model.getClass(), this.resourceClass, this.transcodeClass);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Class<?> */
     /* JADX WARN: Multi-variable type inference failed */
-    public boolean hasLoadPath(Class<?> cls) {
+    boolean hasLoadPath(Class<?> cls) {
         return getLoadPath(cls) != null;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public <Data> LoadPath<Data, ?, Transcode> getLoadPath(Class<Data> cls) {
+    <Data> LoadPath<Data, ?, Transcode> getLoadPath(Class<Data> cls) {
         return this.glideContext.getRegistry().getLoadPath(cls, this.resourceClass, this.transcodeClass);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean isScaleOnlyOrNoTransform() {
+    boolean isScaleOnlyOrNoTransform() {
         return this.isScaleOnlyOrNoTransform;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public <Z> Transformation<Z> getTransformation(Class<Z> cls) {
+    <Z> Transformation<Z> getTransformation(Class<Z> cls) {
         Transformation<Z> transformation = (Transformation<Z>) this.transformations.get(cls);
         if (transformation == null) {
             Iterator<Map.Entry<Class<?>, Transformation<?>>> it = this.transformations.entrySet().iterator();
@@ -172,23 +161,19 @@ public final class DecodeHelper<Transcode> {
         return transformation;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean isResourceEncoderAvailable(Resource<?> resource) {
+    boolean isResourceEncoderAvailable(Resource<?> resource) {
         return this.glideContext.getRegistry().isResourceEncoderAvailable(resource);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public <Z> ResourceEncoder<Z> getResultEncoder(Resource<Z> resource) {
+    <Z> ResourceEncoder<Z> getResultEncoder(Resource<Z> resource) {
         return this.glideContext.getRegistry().getResultEncoder(resource);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public List<ModelLoader<File, ?>> getModelLoaders(File file) throws Registry.NoModelLoaderAvailableException {
+    List<ModelLoader<File, ?>> getModelLoaders(File file) throws Registry.NoModelLoaderAvailableException {
         return this.glideContext.getRegistry().getModelLoaders(file);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean isSourceKey(Key key) {
+    boolean isSourceKey(Key key) {
         List<ModelLoader.LoadData<?>> loadData = getLoadData();
         int size = loadData.size();
         for (int i = 0; i < size; i++) {
@@ -199,8 +184,7 @@ public final class DecodeHelper<Transcode> {
         return false;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public List<ModelLoader.LoadData<?>> getLoadData() {
+    List<ModelLoader.LoadData<?>> getLoadData() {
         if (!this.isLoadDataSet) {
             this.isLoadDataSet = true;
             this.loadData.clear();
@@ -216,8 +200,7 @@ public final class DecodeHelper<Transcode> {
         return this.loadData;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public List<Key> getCacheKeys() {
+    List<Key> getCacheKeys() {
         if (!this.isCacheKeysSet) {
             this.isCacheKeysSet = true;
             this.cacheKeys.clear();
@@ -238,8 +221,7 @@ public final class DecodeHelper<Transcode> {
         return this.cacheKeys;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public <X> Encoder<X> getSourceEncoder(X x) throws Registry.NoSourceEncoderAvailableException {
+    <X> Encoder<X> getSourceEncoder(X x) throws Registry.NoSourceEncoderAvailableException {
         return this.glideContext.getRegistry().getSourceEncoder(x);
     }
 }

@@ -1,6 +1,7 @@
 package org.slf4j.helpers;
 
 import java.io.PrintStream;
+
 /* loaded from: classes2.dex */
 public final class Util {
     private static ClassContextSecurityManager SECURITY_MANAGER = null;
@@ -28,9 +29,8 @@ public final class Util {
         return safeGetSystemProperty.equalsIgnoreCase("true");
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
-    public static final class ClassContextSecurityManager extends SecurityManager {
+    private static final class ClassContextSecurityManager extends SecurityManager {
         private ClassContextSecurityManager() {
         }
 

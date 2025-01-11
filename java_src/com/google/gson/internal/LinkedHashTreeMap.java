@@ -12,10 +12,12 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.NoSuchElementException;
 import java.util.Set;
+
 /* loaded from: classes.dex */
 public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements Serializable {
     static final /* synthetic */ boolean $assertionsDisabled = false;
     private static final Comparator<Comparable> NATURAL_ORDER = new Comparator<Comparable>() { // from class: com.google.gson.internal.LinkedHashTreeMap.1
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
         public int compare(Comparable comparable, Comparable comparable2) {
             return comparable.compareTo(comparable2);
@@ -105,6 +107,7 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
         return null;
     }
 
+    /* JADX DEBUG: Type inference failed for r7v3. Raw type applied. Possible types: K, ? super K */
     Node<K, V> find(K k, boolean z) {
         int i;
         Node<K, V> node;
@@ -163,6 +166,7 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
         return null;
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r3v0, resolved type: java.lang.Object */
     /* JADX WARN: Multi-variable type inference failed */
     Node<K, V> findByObject(Object obj) {
         if (obj != 0) {
@@ -366,9 +370,8 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
         return keySet2;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static final class Node<K, V> implements Map.Entry<K, V> {
+    static final class Node<K, V> implements Map.Entry<K, V> {
         final int hash;
         int height;
         final K key;
@@ -516,9 +519,8 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
         return nodeArr2;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static class AvlIterator<K, V> {
+    static class AvlIterator<K, V> {
         private Node<K, V> stackTop;
 
         AvlIterator() {
@@ -556,9 +558,8 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static final class AvlBuilder<K, V> {
+    static final class AvlBuilder<K, V> {
         private int leavesSkipped;
         private int leavesToSkip;
         private int size;
@@ -640,9 +641,8 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public abstract class LinkedTreeMapIterator<T> implements Iterator<T> {
+    private abstract class LinkedTreeMapIterator<T> implements Iterator<T> {
         int expectedModCount;
         Node<K, V> lastReturned = null;
         Node<K, V> next;
@@ -699,6 +699,7 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
                     LinkedHashTreeMap linkedHashTreeMap = LinkedHashTreeMap.this;
                 }
 
+                /* JADX DEBUG: Method merged with bridge method */
                 @Override // java.util.Iterator
                 public Map.Entry<K, V> next() {
                     return nextNode();

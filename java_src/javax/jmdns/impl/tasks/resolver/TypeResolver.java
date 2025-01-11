@@ -8,6 +8,7 @@ import javax.jmdns.impl.JmDNSImpl;
 import javax.jmdns.impl.constants.DNSConstants;
 import javax.jmdns.impl.constants.DNSRecordClass;
 import javax.jmdns.impl.constants.DNSRecordType;
+
 /* loaded from: classes2.dex */
 public class TypeResolver extends DNSResolverTask {
     @Override // javax.jmdns.impl.tasks.resolver.DNSResolverTask

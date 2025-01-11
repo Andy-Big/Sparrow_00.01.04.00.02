@@ -1,4 +1,5 @@
 package javax.mail;
+
 /* loaded from: classes2.dex */
 public class FolderNotFoundException extends MessagingException {
     private static final long serialVersionUID = 472612108891249403L;

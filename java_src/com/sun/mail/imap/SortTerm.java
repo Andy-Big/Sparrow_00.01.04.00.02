@@ -1,4 +1,5 @@
 package com.sun.mail.imap;
+
 /* loaded from: classes2.dex */
 public final class SortTerm {
     public static final SortTerm ARRIVAL = new SortTerm("ARRIVAL");

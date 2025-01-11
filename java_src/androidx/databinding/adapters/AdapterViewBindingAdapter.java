@@ -4,6 +4,7 @@ import android.view.View;
 import android.widget.Adapter;
 import android.widget.AdapterView;
 import androidx.databinding.InverseBindingListener;
+
 /* loaded from: classes.dex */
 public class AdapterViewBindingAdapter {
 

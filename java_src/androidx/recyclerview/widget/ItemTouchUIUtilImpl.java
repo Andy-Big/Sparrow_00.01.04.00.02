@@ -5,9 +5,9 @@ import android.os.Build;
 import android.view.View;
 import androidx.core.view.ViewCompat;
 import androidx.recyclerview.R;
-/* JADX INFO: Access modifiers changed from: package-private */
+
 /* loaded from: classes.dex */
-public class ItemTouchUIUtilImpl implements ItemTouchUIUtil {
+class ItemTouchUIUtilImpl implements ItemTouchUIUtil {
     static final ItemTouchUIUtil INSTANCE = new ItemTouchUIUtilImpl();
 
     @Override // androidx.recyclerview.widget.ItemTouchUIUtil

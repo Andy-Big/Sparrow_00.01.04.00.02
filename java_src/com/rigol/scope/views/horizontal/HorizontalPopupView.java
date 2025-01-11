@@ -109,7 +109,10 @@ public final class HorizontalPopupView extends BasePopupView implements Compound
             Activity topActivity = ActivityUtils.getTopActivity();
             if (topActivity != null) {
                 liveData.observe((LifecycleOwner) topActivity, new Observer<MeasureSettingParam>() { // from class: com.rigol.scope.views.horizontal.HorizontalPopupView.1
-                    /* JADX DEBUG: Method merged with bridge method */
+                    {
+                        HorizontalPopupView.this = this;
+                    }
+
                     @Override // androidx.lifecycle.Observer
                     public final void onChanged(MeasureSettingParam measureSettingParam) {
                         HorizontalPopupView.this.measureSettingParam = measureSettingParam;
@@ -137,6 +140,10 @@ public final class HorizontalPopupView extends BasePopupView implements Compound
                 throw new NullPointerException("null cannot be cast to non-null type androidx.lifecycle.LifecycleOwner");
             }
             mutableLiveData.observe((LifecycleOwner) context, new Observer<Object>() { // from class: com.rigol.scope.views.horizontal.HorizontalPopupView.3
+                {
+                    HorizontalPopupView.this = this;
+                }
+
                 @Override // androidx.lifecycle.Observer
                 public final void onChanged(Object obj) {
                     HorizontalPopupView.this.refreshUltraAndXYStatus();
@@ -156,6 +163,10 @@ public final class HorizontalPopupView extends BasePopupView implements Compound
         this.list_aorbParam.add(new AorBParam(this.binding.highBitSpinner, 0, false, "", 2));
         this.list_aorbParam.add(new AorBParam(this.binding.displaySpinner, 0, false, "", 2));
         AorBManager aorBManager = new AorBManager(this.context, this.list_aorbParam, this, this) { // from class: com.rigol.scope.views.horizontal.HorizontalPopupView.4
+            {
+                HorizontalPopupView.this = this;
+            }
+
             @Override // com.rigol.scope.utilities.AorBManager
             protected void setSwitch_num(int i) {
                 AorBManager aorBManager2 = HorizontalPopupView.this.getAorBManager();
@@ -200,18 +211,29 @@ public final class HorizontalPopupView extends BasePopupView implements Compound
                 throw new NullPointerException("null cannot be cast to non-null type androidx.lifecycle.LifecycleOwner");
             }
             onKeyUpData.observe((LifecycleOwner) context2, new Observer<KeyEvent>() { // from class: com.rigol.scope.views.horizontal.HorizontalPopupView.5
-                /* JADX DEBUG: Method merged with bridge method */
+                {
+                    HorizontalPopupView.this = this;
+                }
+
                 @Override // androidx.lifecycle.Observer
                 public final void onChanged(KeyEvent keyEvent) {
                     if (PopupViewManager.getInstance().isShowing(HorizontalPopupView.class)) {
                         PanelKeyViewModel panelKeyViewModel2 = HorizontalPopupView.this.getPanelKeyViewModel();
                         Intrinsics.checkNotNull(panelKeyViewModel2);
                         panelKeyViewModel2.abSwitch(keyEvent, HorizontalPopupView.this.getClickedView(), HorizontalPopupView.this.getPopupSpinner(), HorizontalPopupView.this.getMappingObjects(), HorizontalPopupView.this.getSpinnerAdapter(), HorizontalPopupView.this.getAorBManager(), HorizontalPopupView.this.getKeyboardPopupView(), new AorBManager.OnKeyboardItemChangeListener() { // from class: com.rigol.scope.views.horizontal.HorizontalPopupView.5.1
+                            {
+                                AnonymousClass5.this = this;
+                            }
+
                             @Override // com.rigol.scope.utilities.AorBManager.OnKeyboardItemChangeListener
                             public final void onCall(KeyboardPopupView keyboardPopupView) {
                                 HorizontalPopupView.this.setKeyboardPopupView(keyboardPopupView);
                             }
                         }, new AorBManager.OnSpinnerItemChangeListener() { // from class: com.rigol.scope.views.horizontal.HorizontalPopupView.5.2
+                            {
+                                AnonymousClass5.this = this;
+                            }
+
                             @Override // com.rigol.scope.utilities.AorBManager.OnSpinnerItemChangeListener
                             public final void onCall(int i, MappingObject mappingObject) {
                                 View clickedView = HorizontalPopupView.this.getClickedView();
@@ -267,6 +289,31 @@ public final class HorizontalPopupView extends BasePopupView implements Compound
             throw new NullPointerException("null cannot be cast to non-null type com.rigol.scope.MainActivity");
         }
         this.waveformFragment = ((MainActivity) context3).getWaveformFragment();
+    }
+
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.views.horizontal.HorizontalPopupView$onClick$10.resultMinUnitValueListener(T):void, com.rigol.scope.views.horizontal.HorizontalPopupView$onClick$11.resultMinUnitValueListener(T):void, com.rigol.scope.views.horizontal.HorizontalPopupView$onClick$12.resultMinUnitValueListener(T):void, com.rigol.scope.views.horizontal.HorizontalPopupView$onClick$6.resultMinUnitValueListener(T):void, com.rigol.scope.views.horizontal.HorizontalPopupView$onClick$7.resultMinUnitValueListener(T):void, com.rigol.scope.views.horizontal.HorizontalPopupView$onClick$8.resultMinUnitValueListener(T):void, com.rigol.scope.views.horizontal.HorizontalPopupView$onClick$9.resultMinUnitValueListener(T):void] */
+    public static final /* synthetic */ HorizontalParam access$getParam$p(HorizontalPopupView horizontalPopupView) {
+        return horizontalPopupView.param;
+    }
+
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.views.horizontal.HorizontalPopupView$onClick$3.onSpinnerClick(com.rigol.scope.data.MappingObject):void] */
+    public static final /* synthetic */ void access$selectBandWidth(HorizontalPopupView horizontalPopupView, MappingObject mappingObject) {
+        horizontalPopupView.selectBandWidth(mappingObject);
+    }
+
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.views.horizontal.HorizontalPopupView$onClick$4.onSpinnerClick(com.rigol.scope.data.MappingObject):void] */
+    public static final /* synthetic */ void access$selectDisplay(HorizontalPopupView horizontalPopupView, MappingObject mappingObject) {
+        horizontalPopupView.selectDisplay(mappingObject);
+    }
+
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.views.horizontal.HorizontalPopupView$onClick$2.onSpinnerClick(com.rigol.scope.data.MappingObject):void] */
+    public static final /* synthetic */ void access$selectExpand(HorizontalPopupView horizontalPopupView, MappingObject mappingObject) {
+        horizontalPopupView.selectExpand(mappingObject);
+    }
+
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.views.horizontal.HorizontalPopupView$onClick$1.onSpinnerClick(com.rigol.scope.data.MappingObject):void] */
+    public static final /* synthetic */ void access$selectMemDepth(HorizontalPopupView horizontalPopupView, MappingObject mappingObject) {
+        horizontalPopupView.selectMemDepth(mappingObject);
     }
 
     public final PanelKeyViewModel getPanelKeyViewModel() {
@@ -519,7 +566,6 @@ public final class HorizontalPopupView extends BasePopupView implements Compound
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public final void selectMemDepth(MappingObject mappingObject) {
         ServiceEnum.AcquireDepth depth = ServiceEnum.getAcquireDepthFromValue1(mappingObject.getValue());
         HorizontalParam horizontalParam = this.param;
@@ -539,7 +585,6 @@ public final class HorizontalPopupView extends BasePopupView implements Compound
         horizontalParam4.saveMaxFrame(horizontalParam4.getMaxFrame());
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public final void selectExpand(MappingObject mappingObject) {
         ServiceEnum.HorizontalExpand expandMode = ServiceEnum.getHorizontalExpandFromValue1(mappingObject.getValue());
         HorizontalParam horizontalParam = this.param;
@@ -553,7 +598,6 @@ public final class HorizontalPopupView extends BasePopupView implements Compound
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public final void selectBandWidth(MappingObject mappingObject) {
         ServiceEnum.HighResBit highResBit = ServiceEnum.getHighResBitFromValue1(mappingObject.getValue());
         HorizontalParam horizontalParam = this.param;
@@ -563,7 +607,6 @@ public final class HorizontalPopupView extends BasePopupView implements Compound
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public final void selectDisplay(MappingObject mappingObject) {
         HorizontalParam horizontalParam = this.param;
         if (horizontalParam != null) {
@@ -589,7 +632,7 @@ public final class HorizontalPopupView extends BasePopupView implements Compound
                 public final void onSpinnerClick(MappingObject it) {
                     HorizontalPopupView horizontalPopupView = HorizontalPopupView.this;
                     Intrinsics.checkNotNullExpressionValue(it, "it");
-                    horizontalPopupView.selectMemDepth(it);
+                    HorizontalPopupView.access$selectMemDepth(horizontalPopupView, it);
                 }
             });
         } else if (id == R.id.expand_spinner) {
@@ -601,7 +644,7 @@ public final class HorizontalPopupView extends BasePopupView implements Compound
                 public final void onSpinnerClick(MappingObject it) {
                     HorizontalPopupView horizontalPopupView = HorizontalPopupView.this;
                     Intrinsics.checkNotNullExpressionValue(it, "it");
-                    horizontalPopupView.selectExpand(it);
+                    HorizontalPopupView.access$selectExpand(horizontalPopupView, it);
                 }
             });
         } else if (id == R.id.high_bit_spinner) {
@@ -616,7 +659,7 @@ public final class HorizontalPopupView extends BasePopupView implements Compound
                 public final void onSpinnerClick(MappingObject it) {
                     HorizontalPopupView horizontalPopupView = HorizontalPopupView.this;
                     Intrinsics.checkNotNullExpressionValue(it, "it");
-                    horizontalPopupView.selectBandWidth(it);
+                    HorizontalPopupView.access$selectBandWidth(horizontalPopupView, it);
                 }
             });
         } else if (id == R.id.displaySpinner) {
@@ -628,7 +671,7 @@ public final class HorizontalPopupView extends BasePopupView implements Compound
                 public final void onSpinnerClick(MappingObject it) {
                     HorizontalPopupView horizontalPopupView = HorizontalPopupView.this;
                     Intrinsics.checkNotNullExpressionValue(it, "it");
-                    horizontalPopupView.selectDisplay(it);
+                    HorizontalPopupView.access$selectDisplay(horizontalPopupView, it);
                 }
             });
         } else {
@@ -672,12 +715,11 @@ public final class HorizontalPopupView extends BasePopupView implements Compound
                     ViewUtil.showKeyboard(this.anchor, v, ServiceEnum.Unit.Unit_s, this.param.getMainScaleAttr().getMaxLongValue(), this.param.getMainScaleAttr().getMinLongValue(), this.param.getMainScaleAttr().getDefLongValue(), this.param.getMainScale(), new KeyboardListener() { // from class: com.rigol.scope.views.horizontal.HorizontalPopupView$onClick$6
                         @Override // com.rigol.scope.views.keyboard.KeyboardListener
                         public <T> void resultMinUnitValueListener(T t) {
-                            HorizontalParam horizontalParam;
-                            horizontalParam = HorizontalPopupView.this.param;
+                            HorizontalParam access$getParam$p = HorizontalPopupView.access$getParam$p(HorizontalPopupView.this);
                             if (t == null) {
                                 throw new NullPointerException("null cannot be cast to non-null type kotlin.Long");
                             }
-                            horizontalParam.saveMainScale(((Long) t).longValue());
+                            access$getParam$p.saveMainScale(((Long) t).longValue());
                         }
 
                         @Override // com.rigol.scope.views.keyboard.KeyboardListener
@@ -694,12 +736,11 @@ public final class HorizontalPopupView extends BasePopupView implements Compound
                     ViewUtil.showKeyboard(this.anchor, v, ServiceEnum.Unit.Unit_s, this.param.getMainOffsetAttr().getMaxLongValue(), this.param.getMainOffsetAttr().getMinLongValue(), this.param.getMainOffsetAttr().getDefLongValue(), this.param.getMainOffset(), "0.00####", 11, new KeyboardListener() { // from class: com.rigol.scope.views.horizontal.HorizontalPopupView$onClick$7
                         @Override // com.rigol.scope.views.keyboard.KeyboardListener
                         public <T> void resultMinUnitValueListener(T t) {
-                            HorizontalParam horizontalParam;
-                            horizontalParam = HorizontalPopupView.this.param;
+                            HorizontalParam access$getParam$p = HorizontalPopupView.access$getParam$p(HorizontalPopupView.this);
                             if (t == null) {
                                 throw new NullPointerException("null cannot be cast to non-null type kotlin.Long");
                             }
-                            horizontalParam.saveMainOffset(((Long) t).longValue());
+                            access$getParam$p.saveMainOffset(((Long) t).longValue());
                         }
 
                         @Override // com.rigol.scope.views.keyboard.KeyboardListener
@@ -716,12 +757,11 @@ public final class HorizontalPopupView extends BasePopupView implements Compound
                     ViewUtil.showKeyboard(this.anchor, v, ServiceEnum.Unit.Unit_s, this.param.getZoomScaleAttr().getMaxLongValue(), this.param.getZoomScaleAttr().getMinLongValue(), this.param.getZoomScaleAttr().getDefLongValue(), this.param.getZoomScale(), new KeyboardListener() { // from class: com.rigol.scope.views.horizontal.HorizontalPopupView$onClick$8
                         @Override // com.rigol.scope.views.keyboard.KeyboardListener
                         public <T> void resultMinUnitValueListener(T t) {
-                            HorizontalParam horizontalParam;
-                            horizontalParam = HorizontalPopupView.this.param;
+                            HorizontalParam access$getParam$p = HorizontalPopupView.access$getParam$p(HorizontalPopupView.this);
                             if (t == null) {
                                 throw new NullPointerException("null cannot be cast to non-null type kotlin.Long");
                             }
-                            horizontalParam.saveZoomScale(((Long) t).longValue());
+                            access$getParam$p.saveZoomScale(((Long) t).longValue());
                         }
 
                         @Override // com.rigol.scope.views.keyboard.KeyboardListener
@@ -738,12 +778,11 @@ public final class HorizontalPopupView extends BasePopupView implements Compound
                     ViewUtil.showKeyboard(this.anchor, v, ServiceEnum.Unit.Unit_s, this.param.getZoomOffsetAttr().getMaxLongValue(), this.param.getZoomOffsetAttr().getMinLongValue(), this.param.getZoomOffsetAttr().getDefLongValue(), this.param.getZoomOffset(), "0.00####", 8, new KeyboardListener() { // from class: com.rigol.scope.views.horizontal.HorizontalPopupView$onClick$9
                         @Override // com.rigol.scope.views.keyboard.KeyboardListener
                         public <T> void resultMinUnitValueListener(T t) {
-                            HorizontalParam horizontalParam;
-                            horizontalParam = HorizontalPopupView.this.param;
+                            HorizontalParam access$getParam$p = HorizontalPopupView.access$getParam$p(HorizontalPopupView.this);
                             if (t == null) {
                                 throw new NullPointerException("null cannot be cast to non-null type kotlin.Long");
                             }
-                            horizontalParam.saveZoomOffset(((Long) t).longValue());
+                            access$getParam$p.saveZoomOffset(((Long) t).longValue());
                         }
 
                         @Override // com.rigol.scope.views.keyboard.KeyboardListener
@@ -763,12 +802,11 @@ public final class HorizontalPopupView extends BasePopupView implements Compound
                     ViewUtil.showKeyboard(this.anchor, v, ServiceEnum.Unit.Unit_number, this.param.getExpandUserAttr().getMaxIntValue(), this.param.getExpandUserAttr().getMinIntValue(), this.param.getExpandUserAttr().getDefIntValue(), this.param.getExpandUser(), new KeyboardListener() { // from class: com.rigol.scope.views.horizontal.HorizontalPopupView$onClick$10
                         @Override // com.rigol.scope.views.keyboard.KeyboardListener
                         public <T> void resultMinUnitValueListener(T t) {
-                            HorizontalParam horizontalParam;
-                            horizontalParam = HorizontalPopupView.this.param;
+                            HorizontalParam access$getParam$p = HorizontalPopupView.access$getParam$p(HorizontalPopupView.this);
                             if (t == null) {
                                 throw new NullPointerException("null cannot be cast to non-null type kotlin.Long");
                             }
-                            horizontalParam.saveExpandUser(Math.toIntExact(((Long) t).longValue()));
+                            access$getParam$p.saveExpandUser(Math.toIntExact(((Long) t).longValue()));
                         }
 
                         @Override // com.rigol.scope.views.keyboard.KeyboardListener
@@ -785,12 +823,11 @@ public final class HorizontalPopupView extends BasePopupView implements Compound
                     ViewUtil.showKeyboard(this.anchor, v, ServiceEnum.Unit.Unit_number, this.param.getMaxFrameAttr().getMaxLongValue(), this.param.getMaxFrameAttr().getMinLongValue(), this.param.getMaxFrameAttr().getDefLongValue(), this.param.readMaxFrame(), new KeyboardListener() { // from class: com.rigol.scope.views.horizontal.HorizontalPopupView$onClick$11
                         @Override // com.rigol.scope.views.keyboard.KeyboardListener
                         public <T> void resultMinUnitValueListener(T t) {
-                            HorizontalParam horizontalParam;
-                            horizontalParam = HorizontalPopupView.this.param;
+                            HorizontalParam access$getParam$p = HorizontalPopupView.access$getParam$p(HorizontalPopupView.this);
                             if (t == null) {
                                 throw new NullPointerException("null cannot be cast to non-null type kotlin.Long");
                             }
-                            horizontalParam.saveMaxFrame(((Long) t).longValue());
+                            access$getParam$p.saveMaxFrame(((Long) t).longValue());
                         }
 
                         @Override // com.rigol.scope.views.keyboard.KeyboardListener
@@ -807,12 +844,11 @@ public final class HorizontalPopupView extends BasePopupView implements Compound
                     ViewUtil.showKeyboard(this.anchor, v, ServiceEnum.Unit.Unit_s, this.param.getTimeOutAttr().getMaxLongValue(), this.param.getTimeOutAttr().getMinLongValue(), this.param.getTimeOutAttr().getDefLongValue(), this.param.readTimeOut(), new KeyboardListener() { // from class: com.rigol.scope.views.horizontal.HorizontalPopupView$onClick$12
                         @Override // com.rigol.scope.views.keyboard.KeyboardListener
                         public <T> void resultMinUnitValueListener(T t) {
-                            HorizontalParam horizontalParam;
-                            horizontalParam = HorizontalPopupView.this.param;
+                            HorizontalParam access$getParam$p = HorizontalPopupView.access$getParam$p(HorizontalPopupView.this);
                             if (t == null) {
                                 throw new NullPointerException("null cannot be cast to non-null type kotlin.Long");
                             }
-                            horizontalParam.saveTimeOut(((Long) t).longValue());
+                            access$getParam$p.saveTimeOut(((Long) t).longValue());
                         }
 
                         @Override // com.rigol.scope.views.keyboard.KeyboardListener
@@ -849,7 +885,6 @@ public final class HorizontalPopupView extends BasePopupView implements Compound
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public final void refreshUltraAndXYStatus() {
         HorizontalParam horizontalParam = this.param;
         if (horizontalParam != null) {

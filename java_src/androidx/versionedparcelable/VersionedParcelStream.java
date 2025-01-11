@@ -16,6 +16,7 @@ import java.io.OutputStream;
 import java.lang.reflect.Method;
 import java.nio.charset.Charset;
 import java.util.Set;
+
 /* loaded from: classes.dex */
 class VersionedParcelStream extends VersionedParcel {
     private static final int TYPE_BOOLEAN = 5;
@@ -497,9 +498,8 @@ class VersionedParcelStream extends VersionedParcel {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static class FieldBuffer {
+    private static class FieldBuffer {
         private final int mFieldId;
         private final DataOutputStream mTarget;
         final ByteArrayOutputStream mOutput = new ByteArrayOutputStream();

@@ -1,4 +1,5 @@
 package androidx.core.math;
+
 /* loaded from: classes.dex */
 public class MathUtils {
     public static double clamp(double d, double d2, double d3) {

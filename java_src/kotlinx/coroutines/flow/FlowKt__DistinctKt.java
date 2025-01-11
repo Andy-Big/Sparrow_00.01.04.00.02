@@ -3,7 +3,11 @@ package kotlinx.coroutines.flow;
 import androidx.exifinterface.media.ExifInterface;
 import com.sun.mail.imap.IMAPStore;
 import kotlin.Metadata;
+import kotlin.ResultKt;
+import kotlin.Unit;
 import kotlin.coroutines.Continuation;
+import kotlin.coroutines.intrinsics.IntrinsicsKt;
+import kotlin.coroutines.jvm.internal.Boxing;
 import kotlin.coroutines.jvm.internal.ContinuationImpl;
 import kotlin.coroutines.jvm.internal.DebugMetadata;
 import kotlin.jvm.functions.Function1;
@@ -11,11 +15,11 @@ import kotlin.jvm.functions.Function2;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.Ref;
 import kotlinx.coroutines.flow.internal.NullSurrogateKt;
-/* JADX INFO: Access modifiers changed from: package-private */
+
 /* compiled from: Distinct.kt */
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000&\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u000b\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0002\u001a\u001e\u0010\u0000\u001a\b\u0012\u0004\u0012\u0002H\u00020\u0001\"\u0004\b\u0000\u0010\u0002*\b\u0012\u0004\u0012\u0002H\u00020\u0001H\u0007\u001aV\u0010\u0000\u001a\b\u0012\u0004\u0012\u0002H\u00020\u0001\"\u0004\b\u0000\u0010\u0002*\b\u0012\u0004\u0012\u0002H\u00020\u000126\u0010\u0003\u001a2\u0012\u0013\u0012\u0011H\u0002¢\u0006\f\b\u0005\u0012\b\b\u0006\u0012\u0004\b\b(\u0007\u0012\u0013\u0012\u0011H\u0002¢\u0006\f\b\u0005\u0012\b\b\u0006\u0012\u0004\b\b(\b\u0012\u0004\u0012\u00020\t0\u0004H\u0007\u001a8\u0010\n\u001a\b\u0012\u0004\u0012\u0002H\u00020\u0001\"\u0004\b\u0000\u0010\u0002\"\u0004\b\u0001\u0010\u000b*\b\u0012\u0004\u0012\u0002H\u00020\u00012\u0012\u0010\f\u001a\u000e\u0012\u0004\u0012\u0002H\u0002\u0012\u0004\u0012\u0002H\u000b0\rH\u0007\u001az\u0010\n\u001a\b\u0012\u0004\u0012\u0002H\u00020\u0001\"\u0004\b\u0000\u0010\u0002\"\u0004\b\u0001\u0010\u000b*\b\u0012\u0004\u0012\u0002H\u00020\u00012\u0014\b\u0004\u0010\f\u001a\u000e\u0012\u0004\u0012\u0002H\u0002\u0012\u0004\u0012\u0002H\u000b0\r28\b\u0004\u0010\u0003\u001a2\u0012\u0013\u0012\u0011H\u000b¢\u0006\f\b\u0005\u0012\b\b\u0006\u0012\u0004\b\b(\u0007\u0012\u0013\u0012\u0011H\u000b¢\u0006\f\b\u0005\u0012\b\b\u0006\u0012\u0004\b\b(\b\u0012\u0004\u0012\u00020\t0\u0004H\u0082\b¢\u0006\u0002\b\u000e¨\u0006\u000f"}, d2 = {"distinctUntilChanged", "Lkotlinx/coroutines/flow/Flow;", ExifInterface.GPS_DIRECTION_TRUE, "areEquivalent", "Lkotlin/Function2;", "Lkotlin/ParameterName;", IMAPStore.ID_NAME, "old", "new", "", "distinctUntilChangedBy", "K", "keySelector", "Lkotlin/Function1;", "distinctUntilChangedBy$FlowKt__DistinctKt", "kotlinx-coroutines-core"}, k = 5, mv = {1, 1, 15}, xs = "kotlinx/coroutines/flow/FlowKt")
 /* loaded from: classes2.dex */
-public final /* synthetic */ class FlowKt__DistinctKt {
+final /* synthetic */ class FlowKt__DistinctKt {
     public static final <T> Flow<T> distinctUntilChanged(Flow<? extends T> distinctUntilChanged) {
         Intrinsics.checkParameterIsNotNull(distinctUntilChanged, "$this$distinctUntilChanged");
         return FlowKt.distinctUntilChangedBy(distinctUntilChanged, new Function1<T, T>() { // from class: kotlinx.coroutines.flow.FlowKt__DistinctKt$distinctUntilChanged$1
@@ -65,87 +69,63 @@ public final /* synthetic */ class FlowKt__DistinctKt {
                     }
                 }
 
+                /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: java.lang.Object */
                 /* JADX WARN: Multi-variable type inference failed */
                 /* JADX WARN: Removed duplicated region for block: B:10:0x0024  */
                 /* JADX WARN: Removed duplicated region for block: B:14:0x0040  */
                 @Override // kotlinx.coroutines.flow.FlowCollector
                 /*
                     Code decompiled incorrectly, please refer to instructions dump.
-                    To view partially-correct add '--show-bad-code' argument
                 */
-                public java.lang.Object emit(java.lang.Object r5, kotlin.coroutines.Continuation r6) {
-                    /*
-                        r4 = this;
-                        boolean r0 = r6 instanceof kotlinx.coroutines.flow.FlowKt__DistinctKt$distinctUntilChanged$$inlined$distinctUntilChangedBy$FlowKt__DistinctKt$1.AnonymousClass2.AnonymousClass1
-                        if (r0 == 0) goto L14
-                        r0 = r6
-                        kotlinx.coroutines.flow.FlowKt__DistinctKt$distinctUntilChanged$$inlined$distinctUntilChangedBy$FlowKt__DistinctKt$1$2$1 r0 = (kotlinx.coroutines.flow.FlowKt__DistinctKt$distinctUntilChanged$$inlined$distinctUntilChangedBy$FlowKt__DistinctKt$1.AnonymousClass2.AnonymousClass1) r0
-                        int r1 = r0.label
-                        r2 = -2147483648(0xffffffff80000000, float:-0.0)
-                        r1 = r1 & r2
-                        if (r1 == 0) goto L14
-                        int r6 = r0.label
-                        int r6 = r6 - r2
-                        r0.label = r6
-                        goto L19
-                    L14:
-                        kotlinx.coroutines.flow.FlowKt__DistinctKt$distinctUntilChanged$$inlined$distinctUntilChangedBy$FlowKt__DistinctKt$1$2$1 r0 = new kotlinx.coroutines.flow.FlowKt__DistinctKt$distinctUntilChanged$$inlined$distinctUntilChangedBy$FlowKt__DistinctKt$1$2$1
-                        r0.<init>(r6)
-                    L19:
-                        java.lang.Object r6 = r0.result
-                        java.lang.Object r1 = kotlin.coroutines.intrinsics.IntrinsicsKt.getCOROUTINE_SUSPENDED()
-                        int r2 = r0.label
-                        r3 = 1
-                        if (r2 == 0) goto L40
-                        if (r2 != r3) goto L38
-                        java.lang.Object r5 = r0.L$4
-                        java.lang.Object r5 = r0.L$3
-                        java.lang.Object r5 = r0.L$2
-                        kotlinx.coroutines.flow.FlowKt__DistinctKt$distinctUntilChanged$$inlined$distinctUntilChangedBy$FlowKt__DistinctKt$1$2$1 r5 = (kotlinx.coroutines.flow.FlowKt__DistinctKt$distinctUntilChanged$$inlined$distinctUntilChangedBy$FlowKt__DistinctKt$1.AnonymousClass2.AnonymousClass1) r5
-                        java.lang.Object r5 = r0.L$1
-                        java.lang.Object r5 = r0.L$0
-                        kotlinx.coroutines.flow.FlowKt__DistinctKt$distinctUntilChanged$$inlined$distinctUntilChangedBy$FlowKt__DistinctKt$1$2 r5 = (kotlinx.coroutines.flow.FlowKt__DistinctKt$distinctUntilChanged$$inlined$distinctUntilChangedBy$FlowKt__DistinctKt$1.AnonymousClass2) r5
-                        kotlin.ResultKt.throwOnFailure(r6)
-                        goto L78
-                    L38:
-                        java.lang.IllegalStateException r5 = new java.lang.IllegalStateException
-                        java.lang.String r6 = "call to 'resume' before 'invoke' with coroutine"
-                        r5.<init>(r6)
-                        throw r5
-                    L40:
-                        kotlin.ResultKt.throwOnFailure(r6)
-                        kotlin.jvm.internal.Ref$ObjectRef r6 = r4.$previousKey$inlined
-                        T r6 = r6.element
-                        kotlinx.coroutines.internal.Symbol r2 = kotlinx.coroutines.flow.internal.NullSurrogateKt.NULL
-                        if (r6 == r2) goto L5f
-                        kotlinx.coroutines.flow.FlowKt__DistinctKt$distinctUntilChanged$$inlined$distinctUntilChangedBy$FlowKt__DistinctKt$1 r6 = r4.this$0
-                        kotlin.jvm.functions.Function2 r6 = r2
-                        kotlin.jvm.internal.Ref$ObjectRef r2 = r4.$previousKey$inlined
-                        T r2 = r2.element
-                        java.lang.Object r6 = r6.invoke(r2, r5)
-                        java.lang.Boolean r6 = (java.lang.Boolean) r6
-                        boolean r6 = r6.booleanValue()
-                        if (r6 != 0) goto L7a
-                    L5f:
-                        kotlin.jvm.internal.Ref$ObjectRef r6 = r4.$previousKey$inlined
-                        r6.element = r5
-                        kotlinx.coroutines.flow.FlowCollector r6 = r4.$this_unsafeFlow$inlined
-                        r0.L$0 = r4
-                        r0.L$1 = r5
-                        r0.L$2 = r0
-                        r0.L$3 = r5
-                        r0.L$4 = r5
-                        r0.label = r3
-                        java.lang.Object r6 = r6.emit(r5, r0)
-                        if (r6 != r1) goto L78
-                        return r1
-                    L78:
-                        kotlin.Unit r6 = (kotlin.Unit) r6
-                    L7a:
-                        kotlin.Unit r5 = kotlin.Unit.INSTANCE
-                        return r5
-                    */
-                    throw new UnsupportedOperationException("Method not decompiled: kotlinx.coroutines.flow.FlowKt__DistinctKt$distinctUntilChanged$$inlined$distinctUntilChangedBy$FlowKt__DistinctKt$1.AnonymousClass2.emit(java.lang.Object, kotlin.coroutines.Continuation):java.lang.Object");
+                public Object emit(Object obj, Continuation continuation) {
+                    AnonymousClass1 anonymousClass1;
+                    int i;
+                    if (continuation instanceof AnonymousClass1) {
+                        anonymousClass1 = (AnonymousClass1) continuation;
+                        if ((anonymousClass1.label & Integer.MIN_VALUE) != 0) {
+                            anonymousClass1.label -= Integer.MIN_VALUE;
+                            Object obj2 = anonymousClass1.result;
+                            Object coroutine_suspended = IntrinsicsKt.getCOROUTINE_SUSPENDED();
+                            i = anonymousClass1.label;
+                            if (i != 0) {
+                                ResultKt.throwOnFailure(obj2);
+                                if (this.$previousKey$inlined.element == NullSurrogateKt.NULL || !((Boolean) areEquivalent.invoke(this.$previousKey$inlined.element, obj)).booleanValue()) {
+                                    this.$previousKey$inlined.element = obj;
+                                    FlowCollector flowCollector = this.$this_unsafeFlow$inlined;
+                                    anonymousClass1.L$0 = this;
+                                    anonymousClass1.L$1 = obj;
+                                    anonymousClass1.L$2 = anonymousClass1;
+                                    anonymousClass1.L$3 = obj;
+                                    anonymousClass1.L$4 = obj;
+                                    anonymousClass1.label = 1;
+                                    obj2 = flowCollector.emit(obj, anonymousClass1);
+                                    if (obj2 == coroutine_suspended) {
+                                        return coroutine_suspended;
+                                    }
+                                }
+                                return Unit.INSTANCE;
+                            } else if (i != 1) {
+                                throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
+                            } else {
+                                Object obj3 = anonymousClass1.L$4;
+                                Object obj4 = anonymousClass1.L$3;
+                                AnonymousClass1 anonymousClass12 = (AnonymousClass1) anonymousClass1.L$2;
+                                Object obj5 = anonymousClass1.L$1;
+                                AnonymousClass2 anonymousClass2 = (AnonymousClass2) anonymousClass1.L$0;
+                                ResultKt.throwOnFailure(obj2);
+                            }
+                            Unit unit = (Unit) obj2;
+                            return Unit.INSTANCE;
+                        }
+                    }
+                    anonymousClass1 = new AnonymousClass1(continuation);
+                    Object obj22 = anonymousClass1.result;
+                    Object coroutine_suspended2 = IntrinsicsKt.getCOROUTINE_SUSPENDED();
+                    i = anonymousClass1.label;
+                    if (i != 0) {
+                    }
+                    Unit unit2 = (Unit) obj22;
+                    return Unit.INSTANCE;
                 }
 
                 public AnonymousClass2(FlowCollector flowCollector, Ref.ObjectRef objectRef, FlowKt__DistinctKt$distinctUntilChanged$$inlined$distinctUntilChangedBy$FlowKt__DistinctKt$1 flowKt__DistinctKt$distinctUntilChanged$$inlined$distinctUntilChangedBy$FlowKt__DistinctKt$1) {
@@ -208,82 +188,57 @@ public final /* synthetic */ class FlowKt__DistinctKt {
                 @Override // kotlinx.coroutines.flow.FlowCollector
                 /*
                     Code decompiled incorrectly, please refer to instructions dump.
-                    To view partially-correct add '--show-bad-code' argument
                 */
-                public java.lang.Object emit(java.lang.Object r6, kotlin.coroutines.Continuation r7) {
-                    /*
-                        r5 = this;
-                        boolean r0 = r7 instanceof kotlinx.coroutines.flow.FlowKt__DistinctKt$distinctUntilChangedBy$$inlined$distinctUntilChangedBy$FlowKt__DistinctKt$1.AnonymousClass2.AnonymousClass1
-                        if (r0 == 0) goto L14
-                        r0 = r7
-                        kotlinx.coroutines.flow.FlowKt__DistinctKt$distinctUntilChangedBy$$inlined$distinctUntilChangedBy$FlowKt__DistinctKt$1$2$1 r0 = (kotlinx.coroutines.flow.FlowKt__DistinctKt$distinctUntilChangedBy$$inlined$distinctUntilChangedBy$FlowKt__DistinctKt$1.AnonymousClass2.AnonymousClass1) r0
-                        int r1 = r0.label
-                        r2 = -2147483648(0xffffffff80000000, float:-0.0)
-                        r1 = r1 & r2
-                        if (r1 == 0) goto L14
-                        int r7 = r0.label
-                        int r7 = r7 - r2
-                        r0.label = r7
-                        goto L19
-                    L14:
-                        kotlinx.coroutines.flow.FlowKt__DistinctKt$distinctUntilChangedBy$$inlined$distinctUntilChangedBy$FlowKt__DistinctKt$1$2$1 r0 = new kotlinx.coroutines.flow.FlowKt__DistinctKt$distinctUntilChangedBy$$inlined$distinctUntilChangedBy$FlowKt__DistinctKt$1$2$1
-                        r0.<init>(r7)
-                    L19:
-                        java.lang.Object r7 = r0.result
-                        java.lang.Object r1 = kotlin.coroutines.intrinsics.IntrinsicsKt.getCOROUTINE_SUSPENDED()
-                        int r2 = r0.label
-                        r3 = 1
-                        if (r2 == 0) goto L40
-                        if (r2 != r3) goto L38
-                        java.lang.Object r6 = r0.L$4
-                        java.lang.Object r6 = r0.L$3
-                        java.lang.Object r6 = r0.L$2
-                        kotlinx.coroutines.flow.FlowKt__DistinctKt$distinctUntilChangedBy$$inlined$distinctUntilChangedBy$FlowKt__DistinctKt$1$2$1 r6 = (kotlinx.coroutines.flow.FlowKt__DistinctKt$distinctUntilChangedBy$$inlined$distinctUntilChangedBy$FlowKt__DistinctKt$1.AnonymousClass2.AnonymousClass1) r6
-                        java.lang.Object r6 = r0.L$1
-                        java.lang.Object r6 = r0.L$0
-                        kotlinx.coroutines.flow.FlowKt__DistinctKt$distinctUntilChangedBy$$inlined$distinctUntilChangedBy$FlowKt__DistinctKt$1$2 r6 = (kotlinx.coroutines.flow.FlowKt__DistinctKt$distinctUntilChangedBy$$inlined$distinctUntilChangedBy$FlowKt__DistinctKt$1.AnonymousClass2) r6
-                        kotlin.ResultKt.throwOnFailure(r7)
-                        goto L7e
-                    L38:
-                        java.lang.IllegalStateException r6 = new java.lang.IllegalStateException
-                        java.lang.String r7 = "call to 'resume' before 'invoke' with coroutine"
-                        r6.<init>(r7)
-                        throw r6
-                    L40:
-                        kotlin.ResultKt.throwOnFailure(r7)
-                        kotlinx.coroutines.flow.FlowKt__DistinctKt$distinctUntilChangedBy$$inlined$distinctUntilChangedBy$FlowKt__DistinctKt$1 r7 = r5.this$0
-                        kotlin.jvm.functions.Function1 r7 = r2
-                        java.lang.Object r7 = r7.invoke(r6)
-                        kotlin.jvm.internal.Ref$ObjectRef r2 = r5.$previousKey$inlined
-                        T r2 = r2.element
-                        kotlinx.coroutines.internal.Symbol r4 = kotlinx.coroutines.flow.internal.NullSurrogateKt.NULL
-                        if (r2 == r4) goto L65
-                        kotlin.jvm.internal.Ref$ObjectRef r2 = r5.$previousKey$inlined
-                        T r2 = r2.element
-                        boolean r2 = kotlin.jvm.internal.Intrinsics.areEqual(r2, r7)
-                        java.lang.Boolean r2 = kotlin.coroutines.jvm.internal.Boxing.boxBoolean(r2)
-                        boolean r2 = r2.booleanValue()
-                        if (r2 != 0) goto L80
-                    L65:
-                        kotlin.jvm.internal.Ref$ObjectRef r2 = r5.$previousKey$inlined
-                        r2.element = r7
-                        kotlinx.coroutines.flow.FlowCollector r2 = r5.$this_unsafeFlow$inlined
-                        r0.L$0 = r5
-                        r0.L$1 = r6
-                        r0.L$2 = r0
-                        r0.L$3 = r6
-                        r0.L$4 = r7
-                        r0.label = r3
-                        java.lang.Object r7 = r2.emit(r6, r0)
-                        if (r7 != r1) goto L7e
-                        return r1
-                    L7e:
-                        kotlin.Unit r7 = (kotlin.Unit) r7
-                    L80:
-                        kotlin.Unit r6 = kotlin.Unit.INSTANCE
-                        return r6
-                    */
-                    throw new UnsupportedOperationException("Method not decompiled: kotlinx.coroutines.flow.FlowKt__DistinctKt$distinctUntilChangedBy$$inlined$distinctUntilChangedBy$FlowKt__DistinctKt$1.AnonymousClass2.emit(java.lang.Object, kotlin.coroutines.Continuation):java.lang.Object");
+                public Object emit(Object obj, Continuation continuation) {
+                    AnonymousClass1 anonymousClass1;
+                    int i;
+                    if (continuation instanceof AnonymousClass1) {
+                        anonymousClass1 = (AnonymousClass1) continuation;
+                        if ((anonymousClass1.label & Integer.MIN_VALUE) != 0) {
+                            anonymousClass1.label -= Integer.MIN_VALUE;
+                            Object obj2 = anonymousClass1.result;
+                            Object coroutine_suspended = IntrinsicsKt.getCOROUTINE_SUSPENDED();
+                            i = anonymousClass1.label;
+                            if (i != 0) {
+                                ResultKt.throwOnFailure(obj2);
+                                T t = (T) keySelector.invoke(obj);
+                                if (this.$previousKey$inlined.element == NullSurrogateKt.NULL || !Boxing.boxBoolean(Intrinsics.areEqual(this.$previousKey$inlined.element, t)).booleanValue()) {
+                                    this.$previousKey$inlined.element = t;
+                                    FlowCollector flowCollector = this.$this_unsafeFlow$inlined;
+                                    anonymousClass1.L$0 = this;
+                                    anonymousClass1.L$1 = obj;
+                                    anonymousClass1.L$2 = anonymousClass1;
+                                    anonymousClass1.L$3 = obj;
+                                    anonymousClass1.L$4 = t;
+                                    anonymousClass1.label = 1;
+                                    obj2 = flowCollector.emit(obj, anonymousClass1);
+                                    if (obj2 == coroutine_suspended) {
+                                        return coroutine_suspended;
+                                    }
+                                }
+                                return Unit.INSTANCE;
+                            } else if (i != 1) {
+                                throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
+                            } else {
+                                Object obj3 = anonymousClass1.L$4;
+                                Object obj4 = anonymousClass1.L$3;
+                                AnonymousClass1 anonymousClass12 = (AnonymousClass1) anonymousClass1.L$2;
+                                Object obj5 = anonymousClass1.L$1;
+                                AnonymousClass2 anonymousClass2 = (AnonymousClass2) anonymousClass1.L$0;
+                                ResultKt.throwOnFailure(obj2);
+                            }
+                            Unit unit = (Unit) obj2;
+                            return Unit.INSTANCE;
+                        }
+                    }
+                    anonymousClass1 = new AnonymousClass1(continuation);
+                    Object obj22 = anonymousClass1.result;
+                    Object coroutine_suspended2 = IntrinsicsKt.getCOROUTINE_SUSPENDED();
+                    i = anonymousClass1.label;
+                    if (i != 0) {
+                    }
+                    Unit unit2 = (Unit) obj22;
+                    return Unit.INSTANCE;
                 }
 
                 public AnonymousClass2(FlowCollector flowCollector, Ref.ObjectRef objectRef, FlowKt__DistinctKt$distinctUntilChangedBy$$inlined$distinctUntilChangedBy$FlowKt__DistinctKt$1 flowKt__DistinctKt$distinctUntilChangedBy$$inlined$distinctUntilChangedBy$FlowKt__DistinctKt$1) {

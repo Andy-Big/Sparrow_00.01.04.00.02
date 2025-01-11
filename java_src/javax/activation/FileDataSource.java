@@ -6,6 +6,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+
 /* loaded from: classes2.dex */
 public class FileDataSource implements DataSource {
     private File _file;

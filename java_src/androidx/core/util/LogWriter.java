@@ -2,6 +2,7 @@ package androidx.core.util;
 
 import android.util.Log;
 import java.io.Writer;
+
 @Deprecated
 /* loaded from: classes.dex */
 public class LogWriter extends Writer {

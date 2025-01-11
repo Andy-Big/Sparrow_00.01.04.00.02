@@ -18,6 +18,7 @@ import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.DESKeySpec;
 import javax.crypto.spec.SecretKeySpec;
 import kotlin.UByte;
+
 /* loaded from: classes2.dex */
 public class Ntlm {
     static final /* synthetic */ boolean $assertionsDisabled = false;
@@ -138,7 +139,6 @@ public class Ntlm {
         }
     }
 
-    /* JADX WARN: Multi-variable type inference failed */
     private byte[] makeDesKey(byte[] bArr, int i) {
         int length = bArr.length;
         int[] iArr = new int[length];
@@ -259,97 +259,97 @@ public class Ntlm {
         try {
             try {
                 bArr = BASE64DecoderStream.decode(str.getBytes("us-ascii"));
-            } catch (UnsupportedEncodingException unused) {
-                bArr = null;
+            } catch (GeneralSecurityException e) {
+                this.logger.log(Level.FINE, "GeneralSecurityException", (Throwable) e);
+                return "";
             }
-            if (this.logger.isLoggable(Level.FINE)) {
-                this.logger.fine("type 2 message: " + toHex(bArr));
+        } catch (UnsupportedEncodingException unused) {
+            bArr = null;
+        }
+        if (this.logger.isLoggable(Level.FINE)) {
+            this.logger.fine("type 2 message: " + toHex(bArr));
+        }
+        byte[] bArr3 = new byte[8];
+        int i2 = 0;
+        System.arraycopy(bArr, 24, bArr3, 0, 8);
+        int length = this.username.length() * 2;
+        writeShort(this.type3, 36, length);
+        writeShort(this.type3, 38, length);
+        int length2 = this.ntdomain.length() * 2;
+        writeShort(this.type3, 28, length2);
+        writeShort(this.type3, 30, length2);
+        int length3 = this.hostname.length() * 2;
+        writeShort(this.type3, 44, length3);
+        writeShort(this.type3, 46, length3);
+        copybytes(this.type3, 64, this.ntdomain, "UnicodeLittleUnmarked");
+        writeInt(this.type3, 32, 64);
+        int i3 = length2 + 64;
+        copybytes(this.type3, i3, this.username, "UnicodeLittleUnmarked");
+        writeInt(this.type3, 40, i3);
+        int i4 = i3 + length;
+        copybytes(this.type3, i4, this.hostname, "UnicodeLittleUnmarked");
+        writeInt(this.type3, 48, i4);
+        int i5 = i4 + length3;
+        int readInt = readInt(bArr, 20);
+        if ((524288 & readInt) != 0) {
+            this.logger.fine("Using NTLMv2");
+            byte[] bArr4 = new byte[8];
+            new Random().nextBytes(bArr4);
+            byte[] calcNTHash = calcNTHash();
+            byte[] calcV2Response = calcV2Response(calcNTHash, bArr4, bArr3);
+            byte[] bArr5 = new byte[0];
+            if ((readInt & 8388608) != 0) {
+                int readShort = readShort(bArr, 40);
+                bArr5 = new byte[readShort];
+                System.arraycopy(bArr, readInt(bArr, 44), bArr5, 0, readShort);
             }
-            byte[] bArr3 = new byte[8];
-            int i2 = 0;
-            System.arraycopy(bArr, 24, bArr3, 0, 8);
-            int length = this.username.length() * 2;
-            writeShort(this.type3, 36, length);
-            writeShort(this.type3, 38, length);
-            int length2 = this.ntdomain.length() * 2;
-            writeShort(this.type3, 28, length2);
-            writeShort(this.type3, 30, length2);
-            int length3 = this.hostname.length() * 2;
-            writeShort(this.type3, 44, length3);
-            writeShort(this.type3, 46, length3);
-            copybytes(this.type3, 64, this.ntdomain, "UnicodeLittleUnmarked");
-            writeInt(this.type3, 32, 64);
-            int i3 = length2 + 64;
-            copybytes(this.type3, i3, this.username, "UnicodeLittleUnmarked");
-            writeInt(this.type3, 40, i3);
-            int i4 = i3 + length;
-            copybytes(this.type3, i4, this.hostname, "UnicodeLittleUnmarked");
-            writeInt(this.type3, 48, i4);
-            int i5 = i4 + length3;
-            int readInt = readInt(bArr, 20);
-            if ((524288 & readInt) != 0) {
-                this.logger.fine("Using NTLMv2");
-                byte[] bArr4 = new byte[8];
-                new Random().nextBytes(bArr4);
-                byte[] calcNTHash = calcNTHash();
-                byte[] calcV2Response = calcV2Response(calcNTHash, bArr4, bArr3);
-                byte[] bArr5 = new byte[0];
-                if ((readInt & 8388608) != 0) {
-                    int readShort = readShort(bArr, 40);
-                    bArr5 = new byte[readShort];
-                    System.arraycopy(bArr, readInt(bArr, 44), bArr5, 0, readShort);
-                }
-                byte[] bArr6 = new byte[bArr5.length + 32];
-                bArr6[0] = 1;
-                bArr6[1] = 1;
-                System.arraycopy(Z6, 0, bArr6, 2, 6);
-                long currentTimeMillis = (System.currentTimeMillis() + 11644473600000L) * 10000;
-                int i6 = 0;
-                while (i6 < 8) {
-                    bArr6[i6 + 8] = (byte) (currentTimeMillis & 255);
-                    currentTimeMillis >>= 8;
-                    i6++;
-                    i2 = 0;
-                }
-                int i7 = i2;
-                System.arraycopy(bArr4, i7, bArr6, 16, 8);
-                System.arraycopy(Z4, i7, bArr6, 24, 4);
-                System.arraycopy(bArr5, i7, bArr6, 28, bArr5.length);
-                System.arraycopy(Z4, i7, bArr6, bArr5.length + 28, 4);
-                calcResponse = calcV2Response(calcNTHash, bArr6, bArr3);
-                bArr2 = calcV2Response;
-                i = 557569;
-            } else {
-                byte[] calcResponse2 = calcResponse(calcLMHash(), bArr3);
-                calcResponse = calcResponse(calcNTHash(), bArr3);
-                bArr2 = calcResponse2;
-                i = 33281;
+            byte[] bArr6 = new byte[bArr5.length + 32];
+            bArr6[0] = 1;
+            bArr6[1] = 1;
+            System.arraycopy(Z6, 0, bArr6, 2, 6);
+            long currentTimeMillis = (System.currentTimeMillis() + 11644473600000L) * 10000;
+            int i6 = 0;
+            while (i6 < 8) {
+                bArr6[i6 + 8] = (byte) (currentTimeMillis & 255);
+                currentTimeMillis >>= 8;
+                i6++;
+                i2 = 0;
             }
-            System.arraycopy(bArr2, 0, this.type3, i5, bArr2.length);
-            writeShort(this.type3, 12, bArr2.length);
-            writeShort(this.type3, 14, bArr2.length);
-            writeInt(this.type3, 16, i5);
-            int i8 = i5 + 24;
-            System.arraycopy(calcResponse, 0, this.type3, i8, calcResponse.length);
-            writeShort(this.type3, 20, calcResponse.length);
-            writeShort(this.type3, 22, calcResponse.length);
-            writeInt(this.type3, 24, i8);
-            int length4 = i8 + calcResponse.length;
-            writeShort(this.type3, 56, length4);
-            byte[] bArr7 = new byte[length4];
-            System.arraycopy(this.type3, 0, bArr7, 0, length4);
-            writeInt(this.type3, 60, i);
-            if (this.logger.isLoggable(Level.FINE)) {
-                this.logger.fine("type 3 message: " + toHex(bArr7));
-            }
-            try {
-                return new String(BASE64EncoderStream.encode(bArr7), "iso-8859-1");
-            } catch (UnsupportedEncodingException unused2) {
-                return null;
-            }
-        } catch (GeneralSecurityException e) {
-            this.logger.log(Level.FINE, "GeneralSecurityException", (Throwable) e);
-            return "";
+            int i7 = i2;
+            System.arraycopy(bArr4, i7, bArr6, 16, 8);
+            System.arraycopy(Z4, i7, bArr6, 24, 4);
+            System.arraycopy(bArr5, i7, bArr6, 28, bArr5.length);
+            System.arraycopy(Z4, i7, bArr6, bArr5.length + 28, 4);
+            calcResponse = calcV2Response(calcNTHash, bArr6, bArr3);
+            bArr2 = calcV2Response;
+            i = 557569;
+        } else {
+            byte[] calcResponse2 = calcResponse(calcLMHash(), bArr3);
+            calcResponse = calcResponse(calcNTHash(), bArr3);
+            bArr2 = calcResponse2;
+            i = 33281;
+        }
+        System.arraycopy(bArr2, 0, this.type3, i5, bArr2.length);
+        writeShort(this.type3, 12, bArr2.length);
+        writeShort(this.type3, 14, bArr2.length);
+        writeInt(this.type3, 16, i5);
+        int i8 = i5 + 24;
+        System.arraycopy(calcResponse, 0, this.type3, i8, calcResponse.length);
+        writeShort(this.type3, 20, calcResponse.length);
+        writeShort(this.type3, 22, calcResponse.length);
+        writeInt(this.type3, 24, i8);
+        int length4 = i8 + calcResponse.length;
+        writeShort(this.type3, 56, length4);
+        byte[] bArr7 = new byte[length4];
+        System.arraycopy(this.type3, 0, bArr7, 0, length4);
+        writeInt(this.type3, 60, i);
+        if (this.logger.isLoggable(Level.FINE)) {
+            this.logger.fine("type 3 message: " + toHex(bArr7));
+        }
+        try {
+            return new String(BASE64EncoderStream.encode(bArr7), "iso-8859-1");
+        } catch (UnsupportedEncodingException unused2) {
+            return null;
         }
     }
 

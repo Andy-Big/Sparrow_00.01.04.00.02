@@ -1,4 +1,7 @@
 package javax.mail.internet;
+
+import kotlin.text.Typography;
+
 /* loaded from: classes2.dex */
 public class HeaderTokenizer {
     private static final Token EOFToken = new Token(-4, null);
@@ -96,14 +99,80 @@ public class HeaderTokenizer {
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    private javax.mail.internet.HeaderTokenizer.Token getNext(char r10, boolean r11) throws javax.mail.internet.ParseException {
-        /*
-            Method dump skipped, instructions count: 272
-            To view this dump add '--comments-level debug' option
-        */
-        throw new UnsupportedOperationException("Method not decompiled: javax.mail.internet.HeaderTokenizer.getNext(char, boolean):javax.mail.internet.HeaderTokenizer$Token");
+    private Token getNext(char c, boolean z) throws ParseException {
+        String substring;
+        if (this.currentPos >= this.maxPos) {
+            return EOFToken;
+        }
+        if (skipWhiteSpace() == -4) {
+            return EOFToken;
+        }
+        char charAt = this.string.charAt(this.currentPos);
+        boolean z2 = false;
+        while (charAt == '(') {
+            int i = this.currentPos + 1;
+            this.currentPos = i;
+            int i2 = 1;
+            while (i2 > 0) {
+                int i3 = this.currentPos;
+                if (i3 >= this.maxPos) {
+                    break;
+                }
+                char charAt2 = this.string.charAt(i3);
+                if (charAt2 == '\\') {
+                    this.currentPos++;
+                } else if (charAt2 != '\r') {
+                    if (charAt2 == '(') {
+                        i2++;
+                    } else if (charAt2 == ')') {
+                        i2--;
+                    }
+                    this.currentPos++;
+                }
+                z2 = true;
+                this.currentPos++;
+            }
+            if (i2 != 0) {
+                throw new ParseException("Unbalanced comments");
+            }
+            if (!this.skipComments) {
+                if (z2) {
+                    substring = filterToken(this.string, i, this.currentPos - 1, z);
+                } else {
+                    substring = this.string.substring(i, this.currentPos - 1);
+                }
+                return new Token(-3, substring);
+            } else if (skipWhiteSpace() == -4) {
+                return EOFToken;
+            } else {
+                charAt = this.string.charAt(this.currentPos);
+            }
+        }
+        if (charAt == '\"') {
+            this.currentPos++;
+            return collectString(Typography.quote, z);
+        } else if (charAt < ' ' || charAt >= 127 || this.delimiters.indexOf(charAt) >= 0) {
+            if (c > 0 && charAt != c) {
+                return collectString(c, z);
+            }
+            this.currentPos++;
+            return new Token(charAt, new String(new char[]{charAt}));
+        } else {
+            int i4 = this.currentPos;
+            while (true) {
+                int i5 = this.currentPos;
+                if (i5 >= this.maxPos) {
+                    break;
+                }
+                char charAt3 = this.string.charAt(i5);
+                if (charAt3 < ' ' || charAt3 >= 127 || charAt3 == '(' || charAt3 == ' ' || charAt3 == '\"' || this.delimiters.indexOf(charAt3) >= 0) {
+                    break;
+                }
+                this.currentPos++;
+            }
+            return new Token(-1, this.string.substring(i4, this.currentPos));
+        }
     }
 
     private Token collectString(char c, boolean z) throws ParseException {

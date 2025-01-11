@@ -27,6 +27,7 @@ import com.google.android.material.R;
 import com.google.android.material.badge.BadgeDrawable;
 import com.google.android.material.internal.TextScale;
 import java.util.HashSet;
+
 /* loaded from: classes.dex */
 public class BottomNavigationMenuView extends ViewGroup implements MenuView {
     private static final long ACTIVE_ANIMATION_DURATION_MS = 115;
@@ -446,8 +447,7 @@ public class BottomNavigationMenuView extends ViewGroup implements MenuView {
         return this.selectedItemId;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void tryRestoreSelectedItemId(int i) {
+    void tryRestoreSelectedItemId(int i) {
         int size = this.menu.size();
         for (int i2 = 0; i2 < size; i2++) {
             MenuItem item = this.menu.getItem(i2);
@@ -460,13 +460,11 @@ public class BottomNavigationMenuView extends ViewGroup implements MenuView {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public SparseArray<BadgeDrawable> getBadgeDrawables() {
+    SparseArray<BadgeDrawable> getBadgeDrawables() {
         return this.badgeDrawables;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setBadgeDrawables(SparseArray<BadgeDrawable> sparseArray) {
+    void setBadgeDrawables(SparseArray<BadgeDrawable> sparseArray) {
         this.badgeDrawables = sparseArray;
         BottomNavigationItemView[] bottomNavigationItemViewArr = this.buttons;
         if (bottomNavigationItemViewArr != null) {
@@ -476,13 +474,11 @@ public class BottomNavigationMenuView extends ViewGroup implements MenuView {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public BadgeDrawable getBadge(int i) {
+    BadgeDrawable getBadge(int i) {
         return this.badgeDrawables.get(i);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public BadgeDrawable getOrCreateBadge(int i) {
+    BadgeDrawable getOrCreateBadge(int i) {
         validateMenuItemId(i);
         BadgeDrawable badgeDrawable = this.badgeDrawables.get(i);
         if (badgeDrawable == null) {
@@ -496,8 +492,7 @@ public class BottomNavigationMenuView extends ViewGroup implements MenuView {
         return badgeDrawable;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void removeBadge(int i) {
+    void removeBadge(int i) {
         validateMenuItemId(i);
         BadgeDrawable badgeDrawable = this.badgeDrawables.get(i);
         BottomNavigationItemView findItemView = findItemView(i);

@@ -4,6 +4,7 @@ import androidx.collection.ArrayMap;
 import androidx.databinding.ObservableMap;
 import java.util.Collection;
 import java.util.Iterator;
+
 /* loaded from: classes.dex */
 public class ObservableArrayMap<K, V> extends ArrayMap<K, V> implements ObservableMap<K, V> {
     private transient MapChangeRegistry mListeners;

@@ -1,4 +1,5 @@
 package javax.mail.search;
+
 /* loaded from: classes2.dex */
 public abstract class ComparisonTerm extends SearchTerm {
     public static final int EQ = 3;

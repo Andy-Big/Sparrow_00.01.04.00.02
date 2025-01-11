@@ -19,6 +19,7 @@ import com.google.android.material.R;
 import com.google.android.material.internal.ManufacturerUtils;
 import com.google.android.material.internal.ThemeEnforcement;
 import com.google.android.material.theme.overlay.MaterialThemeOverlay;
+
 /* loaded from: classes.dex */
 public class MaterialAutoCompleteTextView extends AppCompatAutoCompleteTextView {
     private static final int MAX_ITEMS_MEASURED = 15;
@@ -152,6 +153,7 @@ public class MaterialAutoCompleteTextView extends AppCompatAutoCompleteTextView 
         return null;
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: com.google.android.material.textfield.MaterialAutoCompleteTextView */
     /* JADX INFO: Access modifiers changed from: private */
     /* JADX WARN: Multi-variable type inference failed */
     public <T extends ListAdapter & Filterable> void updateText(Object obj) {

@@ -9,6 +9,7 @@ import android.webkit.CookieSyncManager;
 import android.webkit.ValueCallback;
 import android.webkit.WebView;
 import java.io.File;
+
 /* loaded from: classes.dex */
 public class AgentWebConfig {
     static String AGENTWEB_FILE_PATH = null;
@@ -124,8 +125,7 @@ public class AgentWebConfig {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static synchronized void initCookiesManager(Context context) {
+    static synchronized void initCookiesManager(Context context) {
         synchronized (AgentWebConfig.class) {
             if (!IS_INITIALIZED) {
                 createCookiesSyncInstance(context);
@@ -159,6 +159,7 @@ public class AgentWebConfig {
 
     private static ValueCallback<Boolean> getDefaultIgnoreCallback() {
         return new ValueCallback<Boolean>() { // from class: com.just.agentweb.AgentWebConfig.2
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // android.webkit.ValueCallback
             public void onReceiveValue(Boolean bool) {
                 String str = AgentWebConfig.TAG;

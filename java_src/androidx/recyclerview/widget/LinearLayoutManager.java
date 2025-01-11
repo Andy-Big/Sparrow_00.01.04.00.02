@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 import com.rigol.scope.cil.MessageID;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public class LinearLayoutManager extends RecyclerView.LayoutManager implements ItemTouchHelper.ViewDropHandler, RecyclerView.SmoothScroller.ScrollVectorProvider {
     static final boolean DEBUG = false;
@@ -43,8 +44,7 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements I
         return true;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void onAnchorReady(RecyclerView.Recycler recycler, RecyclerView.State state, AnchorInfo anchorInfo, int i) {
+    void onAnchorReady(RecyclerView.Recycler recycler, RecyclerView.State state, AnchorInfo anchorInfo, int i) {
     }
 
     public LinearLayoutManager(Context context) {
@@ -241,8 +241,7 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements I
         return 0;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void calculateExtraLayoutSpace(RecyclerView.State state, int[] iArr) {
+    protected void calculateExtraLayoutSpace(RecyclerView.State state, int[] iArr) {
         int i;
         int extraLayoutSpace = getExtraLayoutSpace(state);
         if (this.mLayoutState.mLayoutDirection == -1) {
@@ -616,13 +615,11 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements I
         this.mLayoutState.mScrollingOffset = Integer.MIN_VALUE;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public boolean isLayoutRTL() {
+    protected boolean isLayoutRTL() {
         return getLayoutDirection() == 1;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void ensureLayoutState() {
+    void ensureLayoutState() {
         if (this.mLayoutState == null) {
             this.mLayoutState = createLayoutState();
         }
@@ -1048,8 +1045,7 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements I
         return (getHeightMode() == 1073741824 || getWidthMode() == 1073741824 || !hasFlexibleChildInBothOrientations()) ? false : true;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public int convertFocusDirectionToLayoutDirection(int i) {
+    int convertFocusDirectionToLayoutDirection(int i) {
         return i != 1 ? i != 2 ? i != 17 ? i != 33 ? i != 66 ? (i == 130 && this.mOrientation == 1) ? 1 : Integer.MIN_VALUE : this.mOrientation == 0 ? 1 : Integer.MIN_VALUE : this.mOrientation == 1 ? -1 : Integer.MIN_VALUE : this.mOrientation == 0 ? -1 : Integer.MIN_VALUE : (this.mOrientation != 1 && isLayoutRTL()) ? -1 : 1 : (this.mOrientation != 1 && isLayoutRTL()) ? 1 : -1;
     }
 
@@ -1061,16 +1057,14 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements I
         return getChildAt(this.mShouldReverseLayout ? 0 : getChildCount() - 1);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public View findFirstVisibleChildClosestToStart(boolean z, boolean z2) {
+    View findFirstVisibleChildClosestToStart(boolean z, boolean z2) {
         if (this.mShouldReverseLayout) {
             return findOneVisibleChild(getChildCount() - 1, -1, z, z2);
         }
         return findOneVisibleChild(0, getChildCount(), z, z2);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public View findFirstVisibleChildClosestToEnd(boolean z, boolean z2) {
+    View findFirstVisibleChildClosestToEnd(boolean z, boolean z2) {
         if (this.mShouldReverseLayout) {
             return findOneVisibleChild(0, getChildCount(), z, z2);
         }
@@ -1311,9 +1305,8 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements I
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static class LayoutState {
+    static class LayoutState {
         static final int INVALID_LAYOUT = Integer.MIN_VALUE;
         static final int ITEM_DIRECTION_HEAD = -1;
         static final int ITEM_DIRECTION_TAIL = 1;
@@ -1338,14 +1331,12 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements I
         LayoutState() {
         }
 
-        /* JADX INFO: Access modifiers changed from: package-private */
-        public boolean hasMore(RecyclerView.State state) {
+        boolean hasMore(RecyclerView.State state) {
             int i = this.mCurrentPosition;
             return i >= 0 && i < state.getItemCount();
         }
 
-        /* JADX INFO: Access modifiers changed from: package-private */
-        public View next(RecyclerView.Recycler recycler) {
+        View next(RecyclerView.Recycler recycler) {
             if (this.mScrapList != null) {
                 return nextViewFromScrapList();
             }
@@ -1407,12 +1398,14 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements I
     /* loaded from: classes.dex */
     public static class SavedState implements Parcelable {
         public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.Creator<SavedState>() { // from class: androidx.recyclerview.widget.LinearLayoutManager.SavedState.1
+            /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public SavedState createFromParcel(Parcel parcel) {
                 return new SavedState(parcel);
             }
 
+            /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public SavedState[] newArray(int i) {
@@ -1459,9 +1452,8 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements I
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static class AnchorInfo {
+    static class AnchorInfo {
         int mCoordinate;
         boolean mLayoutFromEnd;
         OrientationHelper mOrientationHelper;
@@ -1541,9 +1533,8 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements I
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     /* loaded from: classes.dex */
-    public static class LayoutChunkResult {
+    protected static class LayoutChunkResult {
         public int mConsumed;
         public boolean mFinished;
         public boolean mFocusable;

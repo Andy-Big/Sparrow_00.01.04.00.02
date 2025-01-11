@@ -1,4 +1,5 @@
 package androidx.appcompat.widget;
+
 /* loaded from: classes.dex */
 class RtlSpacingHelper {
     public static final int UNDEFINED = Integer.MIN_VALUE;
@@ -10,6 +11,9 @@ class RtlSpacingHelper {
     private int mExplicitRight = 0;
     private boolean mIsRtl = false;
     private boolean mIsRelative = false;
+
+    RtlSpacingHelper() {
+    }
 
     public int getLeft() {
         return this.mLeft;

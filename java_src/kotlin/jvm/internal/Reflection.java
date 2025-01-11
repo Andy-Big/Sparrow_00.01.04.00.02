@@ -17,6 +17,7 @@ import kotlin.reflect.KType;
 import kotlin.reflect.KTypeParameter;
 import kotlin.reflect.KTypeProjection;
 import kotlin.reflect.KVariance;
+
 /* loaded from: classes2.dex */
 public class Reflection {
     private static final KClass[] EMPTY_K_CLASS_ARRAY;

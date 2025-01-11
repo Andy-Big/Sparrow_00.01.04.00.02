@@ -2,6 +2,7 @@ package android.support.v4.media;
 
 import android.media.browse.MediaBrowser;
 import android.os.Parcel;
+
 /* loaded from: classes.dex */
 class MediaBrowserCompatApi23 {
 

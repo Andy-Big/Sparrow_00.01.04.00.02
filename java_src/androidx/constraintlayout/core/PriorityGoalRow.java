@@ -3,6 +3,7 @@ package androidx.constraintlayout.core;
 import androidx.constraintlayout.core.ArrayRow;
 import java.util.Arrays;
 import java.util.Comparator;
+
 /* loaded from: classes.dex */
 public class PriorityGoalRow extends ArrayRow {
     private static final boolean DEBUG = false;
@@ -207,6 +208,7 @@ public class PriorityGoalRow extends ArrayRow {
                 i5++;
             }
             Arrays.sort(this.sortArray, 0, i, new Comparator<SolverVariable>() { // from class: androidx.constraintlayout.core.PriorityGoalRow.1
+                /* JADX DEBUG: Method merged with bridge method */
                 @Override // java.util.Comparator
                 public int compare(SolverVariable solverVariable2, SolverVariable solverVariable3) {
                     return solverVariable2.id - solverVariable3.id;

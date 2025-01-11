@@ -22,6 +22,26 @@ public final class MDNSManager {
     private MDNSManager() {
     }
 
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.utilities.MDNSManager$addService$1.invoke():void] */
+    public static final /* synthetic */ void access$addServiceInternal(MDNSManager mDNSManager, ServiceInfo serviceInfo) {
+        mDNSManager.addServiceInternal(serviceInfo);
+    }
+
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.utilities.MDNSManager$init$1.invoke():void] */
+    public static final /* synthetic */ void access$initInternal(MDNSManager mDNSManager, String str, String str2) {
+        mDNSManager.initInternal(str, str2);
+    }
+
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.utilities.MDNSManager$removeAllServices$1.invoke():void] */
+    public static final /* synthetic */ void access$removeAllServicesInternal(MDNSManager mDNSManager) {
+        mDNSManager.removeAllServicesInternal();
+    }
+
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.utilities.MDNSManager$update$1.invoke():void] */
+    public static final /* synthetic */ void access$updateInternal(MDNSManager mDNSManager, String str, String str2) {
+        mDNSManager.updateInternal(str, str2);
+    }
+
     public final void init(final String ip, final String hostName) {
         Intrinsics.checkNotNullParameter(ip, "ip");
         Intrinsics.checkNotNullParameter(hostName, "hostName");
@@ -42,7 +62,7 @@ public final class MDNSManager {
                 /* JADX DEBUG: Possible override for method kotlin.jvm.functions.Function0.invoke()Ljava/lang/Object; */
                 /* renamed from: invoke  reason: avoid collision after fix types in other method */
                 public final void invoke2() {
-                    MDNSManager.INSTANCE.initInternal(ip, hostName);
+                    MDNSManager.access$initInternal(MDNSManager.INSTANCE, ip, hostName);
                 }
             }, 31, null);
         } else {
@@ -50,7 +70,6 @@ public final class MDNSManager {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public final void initInternal(String str, String str2) {
         InetAddress inetAddress;
         HostInfo localHost;
@@ -101,7 +120,7 @@ public final class MDNSManager {
                 /* JADX DEBUG: Possible override for method kotlin.jvm.functions.Function0.invoke()Ljava/lang/Object; */
                 /* renamed from: invoke  reason: avoid collision after fix types in other method */
                 public final void invoke2() {
-                    MDNSManager.INSTANCE.updateInternal(ip, hostName);
+                    MDNSManager.access$updateInternal(MDNSManager.INSTANCE, ip, hostName);
                 }
             }, 31, null);
         } else {
@@ -109,7 +128,6 @@ public final class MDNSManager {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public final void updateInternal(String str, String str2) {
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return;
@@ -136,7 +154,7 @@ public final class MDNSManager {
                 /* JADX DEBUG: Possible override for method kotlin.jvm.functions.Function0.invoke()Ljava/lang/Object; */
                 /* renamed from: invoke  reason: avoid collision after fix types in other method */
                 public final void invoke2() {
-                    MDNSManager.INSTANCE.addServiceInternal(ServiceInfo.this);
+                    MDNSManager.access$addServiceInternal(MDNSManager.INSTANCE, ServiceInfo.this);
                 }
             }, 31, null);
         } else {
@@ -144,7 +162,6 @@ public final class MDNSManager {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public final void addServiceInternal(ServiceInfo serviceInfo) {
         JmDNSImpl jmDNSImpl = jmDNS;
         if (jmDNSImpl != null) {
@@ -165,7 +182,7 @@ public final class MDNSManager {
                 /* JADX DEBUG: Possible override for method kotlin.jvm.functions.Function0.invoke()Ljava/lang/Object; */
                 /* renamed from: invoke  reason: avoid collision after fix types in other method */
                 public final void invoke2() {
-                    MDNSManager.INSTANCE.removeAllServicesInternal();
+                    MDNSManager.access$removeAllServicesInternal(MDNSManager.INSTANCE);
                 }
             }, 31, null);
         } else {
@@ -173,7 +190,6 @@ public final class MDNSManager {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public final void removeAllServicesInternal() {
         JmDNSImpl jmDNSImpl = jmDNS;
         if (jmDNSImpl != null) {

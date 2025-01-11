@@ -17,6 +17,7 @@ import android.widget.ImageView;
 import androidx.appcompat.widget.AppCompatImageButton;
 import androidx.constraintlayout.utils.widget.ImageFilterView;
 import androidx.constraintlayout.widget.R;
+
 /* loaded from: classes.dex */
 public class ImageFilterButton extends AppCompatImageButton {
     private float mCrossfade;

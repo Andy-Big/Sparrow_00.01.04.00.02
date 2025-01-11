@@ -7,12 +7,16 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import androidx.cardview.widget.RoundRectDrawableWithShadow;
+
 /* loaded from: classes.dex */
 class CardViewBaseImpl implements CardViewImpl {
     final RectF mCornerRect = new RectF();
 
     @Override // androidx.cardview.widget.CardViewImpl
     public void onCompatPaddingChanged(CardViewDelegate cardViewDelegate) {
+    }
+
+    CardViewBaseImpl() {
     }
 
     @Override // androidx.cardview.widget.CardViewImpl

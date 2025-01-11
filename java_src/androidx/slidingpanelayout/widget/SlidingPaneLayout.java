@@ -27,6 +27,7 @@ import androidx.customview.widget.ViewDragHelper;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
+
 /* loaded from: classes.dex */
 public class SlidingPaneLayout extends ViewGroup {
     private static final int DEFAULT_FADE_COLOR = -858993460;
@@ -799,72 +800,38 @@ public class SlidingPaneLayout extends ViewGroup {
     /* JADX WARN: Removed duplicated region for block: B:12:0x0023  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    private void parallaxOtherViews(float r10) {
-        /*
-            r9 = this;
-            boolean r0 = r9.isLayoutRtlSupport()
-            android.view.View r1 = r9.mSlideableView
-            android.view.ViewGroup$LayoutParams r1 = r1.getLayoutParams()
-            androidx.slidingpanelayout.widget.SlidingPaneLayout$LayoutParams r1 = (androidx.slidingpanelayout.widget.SlidingPaneLayout.LayoutParams) r1
-            boolean r2 = r1.dimWhenOffset
-            r3 = 0
-            if (r2 == 0) goto L1c
-            if (r0 == 0) goto L16
-            int r1 = r1.rightMargin
-            goto L18
-        L16:
-            int r1 = r1.leftMargin
-        L18:
-            if (r1 > 0) goto L1c
-            r1 = 1
-            goto L1d
-        L1c:
-            r1 = r3
-        L1d:
-            int r2 = r9.getChildCount()
-        L21:
-            if (r3 >= r2) goto L57
-            android.view.View r4 = r9.getChildAt(r3)
-            android.view.View r5 = r9.mSlideableView
-            if (r4 != r5) goto L2c
-            goto L54
-        L2c:
-            float r5 = r9.mParallaxOffset
-            r6 = 1065353216(0x3f800000, float:1.0)
-            float r5 = r6 - r5
-            int r7 = r9.mParallaxBy
-            float r8 = (float) r7
-            float r5 = r5 * r8
-            int r5 = (int) r5
-            r9.mParallaxOffset = r10
-            float r8 = r6 - r10
-            float r7 = (float) r7
-            float r8 = r8 * r7
-            int r7 = (int) r8
-            int r5 = r5 - r7
-            if (r0 == 0) goto L42
-            int r5 = -r5
-        L42:
-            r4.offsetLeftAndRight(r5)
-            if (r1 == 0) goto L54
-            float r5 = r9.mParallaxOffset
-            if (r0 == 0) goto L4d
-            float r5 = r5 - r6
-            goto L4f
-        L4d:
-            float r5 = r6 - r5
-        L4f:
-            int r6 = r9.mCoveredFadeColor
-            r9.dimChildView(r4, r5, r6)
-        L54:
-            int r3 = r3 + 1
-            goto L21
-        L57:
-            return
-        */
-        throw new UnsupportedOperationException("Method not decompiled: androidx.slidingpanelayout.widget.SlidingPaneLayout.parallaxOtherViews(float):void");
+    private void parallaxOtherViews(float f) {
+        boolean z;
+        int childCount;
+        boolean isLayoutRtlSupport = isLayoutRtlSupport();
+        LayoutParams layoutParams = (LayoutParams) this.mSlideableView.getLayoutParams();
+        if (layoutParams.dimWhenOffset) {
+            if ((isLayoutRtlSupport ? layoutParams.rightMargin : layoutParams.leftMargin) <= 0) {
+                z = true;
+                childCount = getChildCount();
+                for (int i = 0; i < childCount; i++) {
+                    View childAt = getChildAt(i);
+                    if (childAt != this.mSlideableView) {
+                        int i2 = this.mParallaxBy;
+                        this.mParallaxOffset = f;
+                        int i3 = ((int) ((1.0f - this.mParallaxOffset) * i2)) - ((int) ((1.0f - f) * i2));
+                        if (isLayoutRtlSupport) {
+                            i3 = -i3;
+                        }
+                        childAt.offsetLeftAndRight(i3);
+                        if (z) {
+                            float f2 = this.mParallaxOffset;
+                            dimChildView(childAt, isLayoutRtlSupport ? f2 - 1.0f : 1.0f - f2, this.mCoveredFadeColor);
+                        }
+                    }
+                }
+            }
+        }
+        z = false;
+        childCount = getChildCount();
+        while (i < childCount) {
+        }
     }
 
     protected boolean canScroll(View view, boolean z, int i, int i2, int i3) {
@@ -1071,21 +1038,23 @@ public class SlidingPaneLayout extends ViewGroup {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static class SavedState extends AbsSavedState {
+    static class SavedState extends AbsSavedState {
         public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.ClassLoaderCreator<SavedState>() { // from class: androidx.slidingpanelayout.widget.SlidingPaneLayout.SavedState.1
+            /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.ClassLoaderCreator
             public SavedState createFromParcel(Parcel parcel, ClassLoader classLoader) {
                 return new SavedState(parcel, null);
             }
 
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // android.os.Parcelable.Creator
             public SavedState createFromParcel(Parcel parcel) {
                 return new SavedState(parcel, null);
             }
 
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // android.os.Parcelable.Creator
             public SavedState[] newArray(int i) {
                 return new SavedState[i];
@@ -1178,9 +1147,8 @@ public class SlidingPaneLayout extends ViewGroup {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public class DisableLayerRunnable implements Runnable {
+    private class DisableLayerRunnable implements Runnable {
         final View mChildView;
 
         DisableLayerRunnable(View view) {

@@ -2,6 +2,7 @@ package androidx.databinding.adapters;
 
 import android.os.Build;
 import android.widget.SearchView;
+
 /* loaded from: classes.dex */
 public class SearchViewBindingAdapter {
 

@@ -5,6 +5,7 @@ import javax.mail.event.FolderEvent;
 import javax.mail.event.FolderListener;
 import javax.mail.event.StoreEvent;
 import javax.mail.event.StoreListener;
+
 /* loaded from: classes2.dex */
 public abstract class Store extends Service {
     private volatile Vector<FolderListener> folderListeners;
@@ -24,8 +25,7 @@ public abstract class Store extends Service {
         return new Folder[0];
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public Store(Session session, URLName uRLName) {
+    protected Store(Session session, URLName uRLName) {
         super(session, uRLName);
         this.storeListeners = null;
         this.folderListeners = null;
@@ -48,8 +48,7 @@ public abstract class Store extends Service {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void notifyStoreListeners(int i, String str) {
+    protected void notifyStoreListeners(int i, String str) {
         if (this.storeListeners == null) {
             return;
         }
@@ -69,16 +68,14 @@ public abstract class Store extends Service {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void notifyFolderListeners(int i, Folder folder) {
+    protected void notifyFolderListeners(int i, Folder folder) {
         if (this.folderListeners == null) {
             return;
         }
         queueEvent(new FolderEvent(this, folder, i), this.folderListeners);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void notifyFolderRenamedListeners(Folder folder, Folder folder2) {
+    protected void notifyFolderRenamedListeners(Folder folder, Folder folder2) {
         if (this.folderListeners == null) {
             return;
         }

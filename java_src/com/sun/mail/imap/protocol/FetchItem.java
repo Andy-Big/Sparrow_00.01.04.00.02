@@ -2,6 +2,7 @@ package com.sun.mail.imap.protocol;
 
 import com.sun.mail.iap.ParsingException;
 import javax.mail.FetchProfile;
+
 /* loaded from: classes2.dex */
 public abstract class FetchItem {
     private FetchProfile.Item fetchProfileItem;

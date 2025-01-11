@@ -9,6 +9,7 @@ import com.bumptech.glide.RequestManager;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
+
 /* loaded from: classes.dex */
 public class SupportRequestManagerFragment extends Fragment {
     private static final String TAG = "SupportRMFragment";
@@ -33,8 +34,7 @@ public class SupportRequestManagerFragment extends Fragment {
         this.requestManager = requestManager;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ActivityFragmentLifecycle getGlideLifecycle() {
+    ActivityFragmentLifecycle getGlideLifecycle() {
         return this.lifecycle;
     }
 
@@ -71,8 +71,7 @@ public class SupportRequestManagerFragment extends Fragment {
         return Collections.unmodifiableSet(hashSet);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setParentFragmentHint(Fragment fragment) {
+    void setParentFragmentHint(Fragment fragment) {
         FragmentManager rootFragmentManager;
         this.parentFragmentHint = fragment;
         if (fragment == null || fragment.getContext() == null || (rootFragmentManager = getRootFragmentManager(fragment)) == null) {

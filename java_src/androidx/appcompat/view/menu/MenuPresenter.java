@@ -3,6 +3,7 @@ package androidx.appcompat.view.menu;
 import android.content.Context;
 import android.os.Parcelable;
 import android.view.ViewGroup;
+
 /* loaded from: classes.dex */
 public interface MenuPresenter {
 

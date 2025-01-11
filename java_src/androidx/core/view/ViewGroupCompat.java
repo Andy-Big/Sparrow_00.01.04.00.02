@@ -5,6 +5,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.accessibility.AccessibilityEvent;
 import androidx.core.R;
+
 /* loaded from: classes.dex */
 public final class ViewGroupCompat {
     public static final int LAYOUT_MODE_CLIP_BOUNDS = 0;

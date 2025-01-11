@@ -14,6 +14,7 @@ import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.constant.RefreshState;
 import com.scwang.smartrefresh.layout.internal.InternalAbstract;
 import com.scwang.smartrefresh.layout.util.DensityUtil;
+
 /* loaded from: classes2.dex */
 public class FalsifyHeader extends InternalAbstract implements RefreshHeader {
     protected RefreshKernel mRefreshKernel;

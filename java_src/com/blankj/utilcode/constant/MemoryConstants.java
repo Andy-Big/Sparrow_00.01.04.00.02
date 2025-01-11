@@ -2,6 +2,7 @@ package com.blankj.utilcode.constant;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
+
 /* loaded from: classes.dex */
 public final class MemoryConstants {
     public static final int BYTE = 1;

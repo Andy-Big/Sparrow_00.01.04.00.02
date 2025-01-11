@@ -16,6 +16,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.Executor;
 import java.util.concurrent.atomic.AtomicInteger;
+
 /* loaded from: classes.dex */
 class EngineJob<R> implements DecodeJob.Callback<R>, FactoryPools.Poolable {
     private static final EngineResourceFactory DEFAULT_FACTORY = new EngineResourceFactory();
@@ -44,8 +45,7 @@ class EngineJob<R> implements DecodeJob.Callback<R>, FactoryPools.Poolable {
     private boolean useAnimationPool;
     private boolean useUnlimitedSourceGeneratorPool;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public EngineJob(GlideExecutor glideExecutor, GlideExecutor glideExecutor2, GlideExecutor glideExecutor3, GlideExecutor glideExecutor4, EngineJobListener engineJobListener, EngineResource.ResourceListener resourceListener, Pools.Pool<EngineJob<?>> pool) {
+    EngineJob(GlideExecutor glideExecutor, GlideExecutor glideExecutor2, GlideExecutor glideExecutor3, GlideExecutor glideExecutor4, EngineJobListener engineJobListener, EngineResource.ResourceListener resourceListener, Pools.Pool<EngineJob<?>> pool) {
         this(glideExecutor, glideExecutor2, glideExecutor3, glideExecutor4, engineJobListener, resourceListener, pool, DEFAULT_FACTORY);
     }
 
@@ -63,8 +63,7 @@ class EngineJob<R> implements DecodeJob.Callback<R>, FactoryPools.Poolable {
         this.engineResourceFactory = engineResourceFactory;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public synchronized EngineJob<R> init(Key key, boolean z, boolean z2, boolean z3, boolean z4) {
+    synchronized EngineJob<R> init(Key key, boolean z, boolean z2, boolean z3, boolean z4) {
         this.key = key;
         this.isCacheable = z;
         this.useUnlimitedSourceGeneratorPool = z2;
@@ -78,8 +77,7 @@ class EngineJob<R> implements DecodeJob.Callback<R>, FactoryPools.Poolable {
         (decodeJob.willDecodeFromCache() ? this.diskCacheExecutor : getActiveSourceExecutor()).execute(decodeJob);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public synchronized void addCallback(ResourceCallback resourceCallback, Executor executor) {
+    synchronized void addCallback(ResourceCallback resourceCallback, Executor executor) {
         this.stateVerifier.throwIfRecycled();
         this.cbs.add(resourceCallback, executor);
         boolean z = true;
@@ -113,8 +111,7 @@ class EngineJob<R> implements DecodeJob.Callback<R>, FactoryPools.Poolable {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public synchronized void removeCallback(ResourceCallback resourceCallback) {
+    synchronized void removeCallback(ResourceCallback resourceCallback) {
         boolean z;
         this.stateVerifier.throwIfRecycled();
         this.cbs.remove(resourceCallback);
@@ -133,8 +130,7 @@ class EngineJob<R> implements DecodeJob.Callback<R>, FactoryPools.Poolable {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean onlyRetrieveFromCache() {
+    boolean onlyRetrieveFromCache() {
         return this.onlyRetrieveFromCache;
     }
 
@@ -233,6 +229,7 @@ class EngineJob<R> implements DecodeJob.Callback<R>, FactoryPools.Poolable {
         this.pool.release(this);
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: com.bumptech.glide.load.engine.Resource<R> */
     /* JADX WARN: Multi-variable type inference failed */
     @Override // com.bumptech.glide.load.engine.DecodeJob.Callback
     public void onResourceReady(Resource<R> resource, DataSource dataSource) {
@@ -287,9 +284,8 @@ class EngineJob<R> implements DecodeJob.Callback<R>, FactoryPools.Poolable {
         return this.stateVerifier;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public class CallLoadFailed implements Runnable {
+    private class CallLoadFailed implements Runnable {
         private final ResourceCallback cb;
 
         CallLoadFailed(ResourceCallback resourceCallback) {
@@ -309,9 +305,8 @@ class EngineJob<R> implements DecodeJob.Callback<R>, FactoryPools.Poolable {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public class CallResourceReady implements Runnable {
+    private class CallResourceReady implements Runnable {
         private final ResourceCallback cb;
 
         CallResourceReady(ResourceCallback resourceCallback) {
@@ -333,9 +328,8 @@ class EngineJob<R> implements DecodeJob.Callback<R>, FactoryPools.Poolable {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static final class ResourceCallbacksAndExecutors implements Iterable<ResourceCallbackAndExecutor> {
+    static final class ResourceCallbacksAndExecutors implements Iterable<ResourceCallbackAndExecutor> {
         private final List<ResourceCallbackAndExecutor> callbacksAndExecutors;
 
         ResourceCallbacksAndExecutors() {
@@ -384,9 +378,8 @@ class EngineJob<R> implements DecodeJob.Callback<R>, FactoryPools.Poolable {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static final class ResourceCallbackAndExecutor {
+    static final class ResourceCallbackAndExecutor {
         final ResourceCallback cb;
         final Executor executor;
 
@@ -407,9 +400,8 @@ class EngineJob<R> implements DecodeJob.Callback<R>, FactoryPools.Poolable {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static class EngineResourceFactory {
+    static class EngineResourceFactory {
         EngineResourceFactory() {
         }
 

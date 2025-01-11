@@ -6,6 +6,7 @@ import android.util.Log;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Locale;
+
 /* loaded from: classes.dex */
 public final class ICUCompat {
     private static final String TAG = "ICUCompat";

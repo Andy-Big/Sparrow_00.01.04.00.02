@@ -1,6 +1,7 @@
 package javax.mail.event;
 
 import javax.mail.Folder;
+
 /* loaded from: classes2.dex */
 public class FolderEvent extends MailEvent {
     public static final int CREATED = 1;

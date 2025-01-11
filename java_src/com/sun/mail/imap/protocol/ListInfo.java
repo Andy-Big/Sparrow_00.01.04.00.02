@@ -2,6 +2,7 @@ package com.sun.mail.imap.protocol;
 
 import com.sun.mail.iap.ParsingException;
 import java.util.ArrayList;
+
 /* loaded from: classes2.dex */
 public class ListInfo {
     public static final int CHANGED = 1;

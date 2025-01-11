@@ -12,6 +12,7 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadFactory;
+
 /* loaded from: classes.dex */
 final class ActiveResources {
     final Map<Key, ResourceWeakReference> activeEngineResources;
@@ -22,14 +23,12 @@ final class ActiveResources {
     private final Executor monitorClearedResourcesExecutor;
     private final ReferenceQueue<EngineResource<?>> resourceReferenceQueue;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public interface DequeuedResourceCallback {
+    interface DequeuedResourceCallback {
         void onResourceDequeued();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ActiveResources(boolean z) {
+    ActiveResources(boolean z) {
         this(z, Executors.newSingleThreadExecutor(new ThreadFactory() { // from class: com.bumptech.glide.load.engine.ActiveResources.1
             @Override // java.util.concurrent.ThreadFactory
             public Thread newThread(final Runnable runnable) {
@@ -57,8 +56,7 @@ final class ActiveResources {
         });
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setListener(EngineResource.ResourceListener resourceListener) {
+    void setListener(EngineResource.ResourceListener resourceListener) {
         synchronized (resourceListener) {
             synchronized (this) {
                 this.listener = resourceListener;
@@ -66,24 +64,21 @@ final class ActiveResources {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public synchronized void activate(Key key, EngineResource<?> engineResource) {
+    synchronized void activate(Key key, EngineResource<?> engineResource) {
         ResourceWeakReference put = this.activeEngineResources.put(key, new ResourceWeakReference(key, engineResource, this.resourceReferenceQueue, this.isActiveResourceRetentionAllowed));
         if (put != null) {
             put.reset();
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public synchronized void deactivate(Key key) {
+    synchronized void deactivate(Key key) {
         ResourceWeakReference remove = this.activeEngineResources.remove(key);
         if (remove != null) {
             remove.reset();
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public synchronized EngineResource<?> get(Key key) {
+    synchronized EngineResource<?> get(Key key) {
         ResourceWeakReference resourceWeakReference = this.activeEngineResources.get(key);
         if (resourceWeakReference == null) {
             return null;
@@ -122,8 +117,7 @@ final class ActiveResources {
         this.cb = dequeuedResourceCallback;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void shutdown() {
+    void shutdown() {
         this.isShutdown = true;
         Executor executor = this.monitorClearedResourcesExecutor;
         if (executor instanceof ExecutorService) {
@@ -131,9 +125,8 @@ final class ActiveResources {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static final class ResourceWeakReference extends WeakReference<EngineResource<?>> {
+    static final class ResourceWeakReference extends WeakReference<EngineResource<?>> {
         final boolean isCacheable;
         final Key key;
         Resource<?> resource;

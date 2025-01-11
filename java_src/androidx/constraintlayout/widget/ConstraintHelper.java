@@ -20,6 +20,7 @@ import androidx.constraintlayout.widget.ConstraintSet;
 import androidx.constraintlayout.widget.R;
 import java.util.Arrays;
 import java.util.HashMap;
+
 /* loaded from: classes.dex */
 public abstract class ConstraintHelper extends View {
     protected int mCount;
@@ -81,8 +82,7 @@ public abstract class ConstraintHelper extends View {
         init(attributeSet);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void init(AttributeSet attributeSet) {
+    protected void init(AttributeSet attributeSet) {
         if (attributeSet != null) {
             TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, R.styleable.ConstraintLayout_Layout);
             int indexCount = obtainStyledAttributes.getIndexCount();
@@ -102,9 +102,8 @@ public abstract class ConstraintHelper extends View {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.view.View
-    public void onAttachedToWindow() {
+    protected void onAttachedToWindow() {
         super.onAttachedToWindow();
         String str = this.mReferenceIds;
         if (str != null) {
@@ -344,8 +343,7 @@ public abstract class ConstraintHelper extends View {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void applyLayoutFeatures() {
+    protected void applyLayoutFeatures() {
         ViewParent parent = getParent();
         if (parent == null || !(parent instanceof ConstraintLayout)) {
             return;
@@ -386,8 +384,7 @@ public abstract class ConstraintHelper extends View {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public View[] getViews(ConstraintLayout constraintLayout) {
+    protected View[] getViews(ConstraintLayout constraintLayout) {
         View[] viewArr = this.mViews;
         if (viewArr == null || viewArr.length != this.mCount) {
             this.mViews = new View[this.mCount];

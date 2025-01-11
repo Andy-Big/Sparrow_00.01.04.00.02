@@ -4,6 +4,7 @@ import android.graphics.Path;
 import android.graphics.PathMeasure;
 import android.graphics.PointF;
 import android.util.Property;
+
 /* loaded from: classes.dex */
 class PathProperty<T> extends Property<T, Float> {
     private float mCurrentFraction;
@@ -13,20 +14,23 @@ class PathProperty<T> extends Property<T, Float> {
     private final float[] mPosition;
     private final Property<T, PointF> mProperty;
 
+    /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     /* JADX WARN: Multi-variable type inference failed */
     @Override // android.util.Property
     public /* bridge */ /* synthetic */ Float get(Object obj) {
         return get((PathProperty<T>) obj);
     }
 
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
+    /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
     /* JADX WARN: Multi-variable type inference failed */
     @Override // android.util.Property
     public /* bridge */ /* synthetic */ void set(Object obj, Float f) {
         set2((PathProperty<T>) obj, f);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public PathProperty(Property<T, PointF> property, Path path) {
+    PathProperty(Property<T, PointF> property, Path path) {
         super(Float.class, property.getName());
         this.mPosition = new float[2];
         this.mPointF = new PointF();

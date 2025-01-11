@@ -25,7 +25,6 @@ public final class ScreenFlipPopupView extends BasePopupView {
     private boolean obstacleFlag;
     private boolean opening;
 
-    /* JADX INFO: Access modifiers changed from: private */
     public final WeakRefHandler getHandler() {
         return (WeakRefHandler) this.handler$delegate.getValue();
     }
@@ -50,22 +49,13 @@ public final class ScreenFlipPopupView extends BasePopupView {
                 return new WeakRefHandler(new Handler.Callback() { // from class: com.rigol.scope.views.ScreenFlipPopupView$handler$2.1
                     @Override // android.os.Handler.Callback
                     public final boolean handleMessage(Message message) {
-                        PopupviewScreenFlipBinding popupviewScreenFlipBinding;
-                        boolean z;
-                        boolean z2;
-                        WeakRefHandler handler;
                         int i = message.what;
                         if (i == 0) {
-                            popupviewScreenFlipBinding = ScreenFlipPopupView.this.binding;
-                            TextView textView = popupviewScreenFlipBinding.content;
+                            TextView textView = ScreenFlipPopupView.access$getBinding$p(ScreenFlipPopupView.this).content;
                             Intrinsics.checkNotNullExpressionValue(textView, "binding.content");
-                            z = ScreenFlipPopupView.this.flag;
-                            textView.setVisibility(z ? 0 : 4);
-                            ScreenFlipPopupView screenFlipPopupView = ScreenFlipPopupView.this;
-                            z2 = ScreenFlipPopupView.this.flag;
-                            screenFlipPopupView.flag = !z2;
-                            handler = ScreenFlipPopupView.this.getHandler();
-                            handler.sendEmptyMessageDelayed(0, 300L);
+                            textView.setVisibility(ScreenFlipPopupView.access$getFlag$p(ScreenFlipPopupView.this) ? 0 : 4);
+                            ScreenFlipPopupView.access$setFlag$p(ScreenFlipPopupView.this, !ScreenFlipPopupView.access$getFlag$p(ScreenFlipPopupView.this));
+                            ScreenFlipPopupView.access$getHandler$p(ScreenFlipPopupView.this).sendEmptyMessageDelayed(0, 300L);
                         } else if (i == 1) {
                             ScreenFlipPopupView.this.dismiss();
                         }
@@ -74,6 +64,26 @@ public final class ScreenFlipPopupView extends BasePopupView {
                 });
             }
         });
+    }
+
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.views.ScreenFlipPopupView$handler$2.1.handleMessage(android.os.Message):boolean] */
+    public static final /* synthetic */ PopupviewScreenFlipBinding access$getBinding$p(ScreenFlipPopupView screenFlipPopupView) {
+        return screenFlipPopupView.binding;
+    }
+
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.views.ScreenFlipPopupView$handler$2.1.handleMessage(android.os.Message):boolean] */
+    public static final /* synthetic */ boolean access$getFlag$p(ScreenFlipPopupView screenFlipPopupView) {
+        return screenFlipPopupView.flag;
+    }
+
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.views.ScreenFlipPopupView$handler$2.1.handleMessage(android.os.Message):boolean] */
+    public static final /* synthetic */ WeakRefHandler access$getHandler$p(ScreenFlipPopupView screenFlipPopupView) {
+        return screenFlipPopupView.getHandler();
+    }
+
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.views.ScreenFlipPopupView$handler$2.1.handleMessage(android.os.Message):boolean] */
+    public static final /* synthetic */ void access$setFlag$p(ScreenFlipPopupView screenFlipPopupView, boolean z) {
+        screenFlipPopupView.flag = z;
     }
 
     public final boolean getOpening() {

@@ -11,6 +11,7 @@ import androidx.core.graphics.drawable.IconCompat;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+
 /* loaded from: classes.dex */
 class NotificationCompatBuilder implements NotificationBuilderWithBuilderAccessor {
     private RemoteViews mBigContentView;
@@ -22,8 +23,7 @@ class NotificationCompatBuilder implements NotificationBuilderWithBuilderAccesso
     private final List<Bundle> mActionExtrasList = new ArrayList();
     private final Bundle mExtras = new Bundle();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public NotificationCompatBuilder(NotificationCompat.Builder builder) {
+    NotificationCompatBuilder(NotificationCompat.Builder builder) {
         this.mBuilderCompat = builder;
         if (Build.VERSION.SDK_INT >= 26) {
             this.mBuilder = new Notification.Builder(builder.mContext, builder.mChannelId);

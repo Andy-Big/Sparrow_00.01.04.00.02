@@ -6,6 +6,7 @@ import android.os.Build;
 import android.util.Log;
 import androidx.media.MediaSessionManagerImplApi28;
 import androidx.media.MediaSessionManagerImplBase;
+
 /* loaded from: classes.dex */
 public final class MediaSessionManager {
     private static volatile MediaSessionManager sSessionManager;
@@ -21,9 +22,8 @@ public final class MediaSessionManager {
         boolean isTrustedForMediaControl(RemoteUserInfoImpl remoteUserInfoImpl);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public interface RemoteUserInfoImpl {
+    interface RemoteUserInfoImpl {
         String getPackageName();
 
         int getPid();

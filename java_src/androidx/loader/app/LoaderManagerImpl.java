@@ -16,9 +16,9 @@ import androidx.loader.content.Loader;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
 import java.lang.reflect.Modifier;
-/* JADX INFO: Access modifiers changed from: package-private */
+
 /* loaded from: classes.dex */
-public class LoaderManagerImpl extends LoaderManager {
+class LoaderManagerImpl extends LoaderManager {
     static boolean DEBUG = false;
     static final String TAG = "LoaderManager";
     private final LifecycleOwner mLifecycleOwner;
@@ -88,6 +88,7 @@ public class LoaderManagerImpl extends LoaderManager {
             return (!hasActiveObservers() || (loaderObserver = this.mObserver) == null || loaderObserver.hasDeliveredData()) ? false : true;
         }
 
+        /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: androidx.lifecycle.Observer<? super D> */
         /* JADX WARN: Multi-variable type inference failed */
         @Override // androidx.lifecycle.LiveData
         public void removeObserver(Observer<? super D> observer) {
@@ -181,9 +182,8 @@ public class LoaderManagerImpl extends LoaderManager {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static class LoaderObserver<D> implements Observer<D> {
+    static class LoaderObserver<D> implements Observer<D> {
         private final LoaderManager.LoaderCallbacks<D> mCallback;
         private boolean mDeliveredData = false;
         private final Loader<D> mLoader;
@@ -226,9 +226,8 @@ public class LoaderManagerImpl extends LoaderManager {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static class LoaderViewModel extends ViewModel {
+    static class LoaderViewModel extends ViewModel {
         private static final ViewModelProvider.Factory FACTORY = new ViewModelProvider.Factory() { // from class: androidx.loader.app.LoaderManagerImpl.LoaderViewModel.1
             @Override // androidx.lifecycle.ViewModelProvider.Factory
             public <T extends ViewModel> T create(Class<T> cls) {
@@ -286,9 +285,8 @@ public class LoaderManagerImpl extends LoaderManager {
             }
         }
 
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // androidx.lifecycle.ViewModel
-        public void onCleared() {
+        protected void onCleared() {
             super.onCleared();
             int size = this.mLoaders.size();
             for (int i = 0; i < size; i++) {
@@ -315,8 +313,7 @@ public class LoaderManagerImpl extends LoaderManager {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public LoaderManagerImpl(LifecycleOwner lifecycleOwner, ViewModelStore viewModelStore) {
+    LoaderManagerImpl(LifecycleOwner lifecycleOwner, ViewModelStore viewModelStore) {
         this.mLifecycleOwner = lifecycleOwner;
         this.mLoaderViewModel = LoaderViewModel.getInstance(viewModelStore);
     }

@@ -8,6 +8,7 @@ import java.util.Collection;
 import java.util.Map;
 import java.util.Properties;
 import javax.jmdns.impl.JmDNSImpl;
+
 /* loaded from: classes2.dex */
 public abstract class JmDNS implements Closeable {
     public static String VERSION;

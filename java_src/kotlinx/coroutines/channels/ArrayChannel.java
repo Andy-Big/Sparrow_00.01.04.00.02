@@ -6,9 +6,11 @@ import kotlin.Metadata;
 import kotlin.Unit;
 import kotlin.jvm.internal.Intrinsics;
 import kotlinx.coroutines.DebugKt;
+import kotlinx.coroutines.channels.AbstractChannel;
 import kotlinx.coroutines.channels.AbstractSendChannel;
 import kotlinx.coroutines.selects.SelectInstance;
 import kotlinx.coroutines.selects.SelectKt;
+
 /* compiled from: ArrayChannel.kt */
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000L\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0010\u0011\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0006\n\u0002\u0010\u000b\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u0004\b\u0010\u0018\u0000*\u0004\b\u0000\u0010\u00012\b\u0012\u0004\u0012\u0002H\u00010\u0002B\r\u0012\u0006\u0010\u0003\u001a\u00020\u0004¢\u0006\u0002\u0010\u0005J\b\u0010\u001b\u001a\u00020\u001cH\u0014J\u0010\u0010\u001d\u001a\u00020\u001c2\u0006\u0010\u001e\u001a\u00020\u0004H\u0002J\u0015\u0010\u001f\u001a\u00020\b2\u0006\u0010 \u001a\u00028\u0000H\u0014¢\u0006\u0002\u0010!J!\u0010\"\u001a\u00020\b2\u0006\u0010 \u001a\u00028\u00002\n\u0010#\u001a\u0006\u0012\u0002\b\u00030$H\u0014¢\u0006\u0002\u0010%J\n\u0010&\u001a\u0004\u0018\u00010\bH\u0014J\u0016\u0010'\u001a\u0004\u0018\u00010\b2\n\u0010#\u001a\u0006\u0012\u0002\b\u00030$H\u0014R\u0018\u0010\u0006\u001a\n\u0012\u0006\u0012\u0004\u0018\u00010\b0\u0007X\u0082\u000e¢\u0006\u0004\n\u0002\u0010\tR\u0014\u0010\n\u001a\u00020\u000b8TX\u0094\u0004¢\u0006\u0006\u001a\u0004\b\f\u0010\rR\u0011\u0010\u0003\u001a\u00020\u0004¢\u0006\b\n\u0000\u001a\u0004\b\u000e\u0010\u000fR\u000e\u0010\u0010\u001a\u00020\u0004X\u0082\u000e¢\u0006\u0002\n\u0000R\u0014\u0010\u0011\u001a\u00020\u00128DX\u0084\u0004¢\u0006\u0006\u001a\u0004\b\u0011\u0010\u0013R\u0014\u0010\u0014\u001a\u00020\u00128DX\u0084\u0004¢\u0006\u0006\u001a\u0004\b\u0014\u0010\u0013R\u0014\u0010\u0015\u001a\u00020\u00128DX\u0084\u0004¢\u0006\u0006\u001a\u0004\b\u0015\u0010\u0013R\u0014\u0010\u0016\u001a\u00020\u00128DX\u0084\u0004¢\u0006\u0006\u001a\u0004\b\u0016\u0010\u0013R\u0012\u0010\u0017\u001a\u00060\u0018j\u0002`\u0019X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u001a\u001a\u00020\u0004X\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006("}, d2 = {"Lkotlinx/coroutines/channels/ArrayChannel;", ExifInterface.LONGITUDE_EAST, "Lkotlinx/coroutines/channels/AbstractChannel;", "capacity", "", "(I)V", "buffer", "", "", "[Ljava/lang/Object;", "bufferDebugString", "", "getBufferDebugString", "()Ljava/lang/String;", "getCapacity", "()I", "head", "isBufferAlwaysEmpty", "", "()Z", "isBufferAlwaysFull", "isBufferEmpty", "isBufferFull", "lock", "Ljava/util/concurrent/locks/ReentrantLock;", "Lkotlinx/coroutines/internal/ReentrantLock;", "size", "cleanupSendQueueOnCancel", "", "ensureCapacity", "currentSize", "offerInternal", "element", "(Ljava/lang/Object;)Ljava/lang/Object;", "offerSelectInternal", "select", "Lkotlinx/coroutines/selects/SelectInstance;", "(Ljava/lang/Object;Lkotlinx/coroutines/selects/SelectInstance;)Ljava/lang/Object;", "pollInternal", "pollSelectInternal", "kotlinx-coroutines-core"}, k = 1, mv = {1, 1, 15})
 /* loaded from: classes2.dex */
@@ -42,21 +44,18 @@ public class ArrayChannel<E> extends AbstractChannel<E> {
         this.buffer = new Object[Math.min(this.capacity, 8)];
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // kotlinx.coroutines.channels.AbstractChannel
-    public final boolean isBufferEmpty() {
+    protected final boolean isBufferEmpty() {
         return this.size == 0;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // kotlinx.coroutines.channels.AbstractSendChannel
-    public final boolean isBufferFull() {
+    protected final boolean isBufferFull() {
         return this.size == this.capacity;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // kotlinx.coroutines.channels.AbstractSendChannel
-    public Object offerInternal(E e) {
+    protected Object offerInternal(E e) {
         ReceiveOrClosed<E> takeFirstReceiveOrPeekClosed;
         Object tryResumeReceive;
         ReentrantLock reentrantLock = this.lock;
@@ -107,9 +106,8 @@ public class ArrayChannel<E> extends AbstractChannel<E> {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // kotlinx.coroutines.channels.AbstractSendChannel
-    public Object offerSelectInternal(E e, SelectInstance<?> select) {
+    protected Object offerSelectInternal(E e, SelectInstance<?> select) {
         Intrinsics.checkParameterIsNotNull(select, "select");
         ReentrantLock reentrantLock = this.lock;
         reentrantLock.lock();
@@ -246,19 +244,90 @@ public class ArrayChannel<E> extends AbstractChannel<E> {
     @Override // kotlinx.coroutines.channels.AbstractChannel
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    protected java.lang.Object pollSelectInternal(kotlinx.coroutines.selects.SelectInstance<?> r11) {
-        /*
-            Method dump skipped, instructions count: 256
-            To view this dump add '--comments-level debug' option
-        */
-        throw new UnsupportedOperationException("Method not decompiled: kotlinx.coroutines.channels.ArrayChannel.pollSelectInternal(kotlinx.coroutines.selects.SelectInstance):java.lang.Object");
+    protected Object pollSelectInternal(SelectInstance<?> select) {
+        Object obj;
+        Intrinsics.checkParameterIsNotNull(select, "select");
+        Send send = null;
+        ReentrantLock reentrantLock = this.lock;
+        reentrantLock.lock();
+        try {
+            int i = this.size;
+            if (i == 0) {
+                Object closedForSend = getClosedForSend();
+                if (closedForSend == null) {
+                    closedForSend = AbstractChannelKt.POLL_FAILED;
+                }
+                return closedForSend;
+            }
+            Object obj2 = this.buffer[this.head];
+            this.buffer[this.head] = null;
+            this.size = i - 1;
+            Object obj3 = AbstractChannelKt.POLL_FAILED;
+            if (i == this.capacity) {
+                AbstractChannel.TryPollDesc<E> describeTryPoll = describeTryPoll();
+                Object performAtomicTrySelect = select.performAtomicTrySelect(describeTryPoll);
+                if (performAtomicTrySelect == null) {
+                    send = describeTryPoll.getResult();
+                    Object obj4 = describeTryPoll.resumeToken;
+                    if (DebugKt.getASSERTIONS_ENABLED()) {
+                        if (!(obj4 != null)) {
+                            throw new AssertionError();
+                        }
+                    }
+                    if (send == null) {
+                        Intrinsics.throwNpe();
+                    }
+                    obj = obj4;
+                    obj3 = send.getPollResult();
+                } else if (performAtomicTrySelect != AbstractChannelKt.POLL_FAILED) {
+                    if (performAtomicTrySelect == SelectKt.getALREADY_SELECTED()) {
+                        this.size = i;
+                        this.buffer[this.head] = obj2;
+                        return performAtomicTrySelect;
+                    } else if (performAtomicTrySelect instanceof Closed) {
+                        send = (Send) performAtomicTrySelect;
+                        obj = ((Closed) performAtomicTrySelect).tryResumeSend(null);
+                        obj3 = performAtomicTrySelect;
+                    } else {
+                        throw new IllegalStateException(("performAtomicTrySelect(describeTryOffer) returned " + performAtomicTrySelect).toString());
+                    }
+                }
+                if (obj3 == AbstractChannelKt.POLL_FAILED && !(obj3 instanceof Closed)) {
+                    this.size = i;
+                    this.buffer[(this.head + i) % this.buffer.length] = obj3;
+                } else if (!select.trySelect(null)) {
+                    this.size = i;
+                    this.buffer[this.head] = obj2;
+                    return SelectKt.getALREADY_SELECTED();
+                }
+                this.head = (this.head + 1) % this.buffer.length;
+                Unit unit = Unit.INSTANCE;
+                if (obj != null) {
+                    if (send == null) {
+                        Intrinsics.throwNpe();
+                    }
+                    send.completeResumeSend(obj);
+                }
+                return obj2;
+            }
+            obj = null;
+            if (obj3 == AbstractChannelKt.POLL_FAILED) {
+            }
+            if (!select.trySelect(null)) {
+            }
+            this.head = (this.head + 1) % this.buffer.length;
+            Unit unit2 = Unit.INSTANCE;
+            if (obj != null) {
+            }
+            return obj2;
+        } finally {
+            reentrantLock.unlock();
+        }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // kotlinx.coroutines.channels.AbstractChannel
-    public void cleanupSendQueueOnCancel() {
+    protected void cleanupSendQueueOnCancel() {
         ReentrantLock reentrantLock = this.lock;
         reentrantLock.lock();
         try {

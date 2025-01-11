@@ -35,6 +35,7 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+
 /* loaded from: classes.dex */
 public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behavior<V> {
     private static final int CORNER_ANIMATION_DURATION = 500;
@@ -1151,9 +1152,8 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
         this.interpolatorAnimator = null;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public class SettleRunnable implements Runnable {
+    private class SettleRunnable implements Runnable {
         private boolean isPosted;
         int targetState;
         private final View view;
@@ -1174,21 +1174,23 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     /* loaded from: classes.dex */
-    public static class SavedState extends AbsSavedState {
+    protected static class SavedState extends AbsSavedState {
         public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.ClassLoaderCreator<SavedState>() { // from class: com.google.android.material.bottomsheet.BottomSheetBehavior.SavedState.1
+            /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.ClassLoaderCreator
             public SavedState createFromParcel(Parcel parcel, ClassLoader classLoader) {
                 return new SavedState(parcel, classLoader);
             }
 
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // android.os.Parcelable.Creator
             public SavedState createFromParcel(Parcel parcel) {
                 return new SavedState(parcel, (ClassLoader) null);
             }
 
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // android.os.Parcelable.Creator
             public SavedState[] newArray(int i) {
                 return new SavedState[i];

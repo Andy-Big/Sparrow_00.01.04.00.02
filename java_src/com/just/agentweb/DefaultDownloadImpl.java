@@ -20,6 +20,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
+
 /* loaded from: classes.dex */
 public class DefaultDownloadImpl implements DownloadListener {
     private static final String TAG = DefaultDownloadImpl.class.getSimpleName();

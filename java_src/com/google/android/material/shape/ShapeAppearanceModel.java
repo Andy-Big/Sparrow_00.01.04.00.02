@@ -7,6 +7,7 @@ import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.ContextThemeWrapper;
 import com.google.android.material.R;
+
 /* loaded from: classes.dex */
 public class ShapeAppearanceModel {
     public static final CornerSize PILL = new RelativeCornerSize(0.5f);

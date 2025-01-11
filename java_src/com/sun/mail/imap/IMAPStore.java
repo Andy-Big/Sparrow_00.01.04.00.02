@@ -38,6 +38,7 @@ import javax.mail.Store;
 import javax.mail.StoreClosedException;
 import javax.mail.URLName;
 import kotlin.jvm.internal.CharCompanionObject;
+
 /* loaded from: classes2.dex */
 public class IMAPStore extends Store implements QuotaAwareStore, ResponseHandler {
     static final /* synthetic */ boolean $assertionsDisabled = false;
@@ -98,9 +99,8 @@ public class IMAPStore extends Store implements QuotaAwareStore, ResponseHandler
     protected void preLogin(IMAPProtocol iMAPProtocol) throws ProtocolException {
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
-    public static class ConnectionPool {
+    static class ConnectionPool {
         private static final int ABORTING = 2;
         private static final int IDLE = 1;
         private static final int RUNNING = 0;
@@ -172,8 +172,7 @@ public class IMAPStore extends Store implements QuotaAwareStore, ResponseHandler
         this(session, uRLName, "imap", false);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public IMAPStore(Session session, URLName uRLName, String str, boolean z) {
+    protected IMAPStore(Session session, URLName uRLName, String str, boolean z) {
         super(session, uRLName);
         Class<?> cls;
         this.port = -1;
@@ -417,27 +416,27 @@ public class IMAPStore extends Store implements QuotaAwareStore, ResponseHandler
                     }
                 }
                 return true;
-            } catch (IMAPReferralException e) {
+            } catch (CommandFailedException e) {
                 if (0 != 0) {
                     protocol.disconnect();
                 }
-                throw new ReferralException(e.getUrl(), e.getMessage());
-            } catch (IOException e2) {
+                Response response = e.getResponse();
+                throw new AuthenticationFailedException(response != null ? response.getRest() : e.getMessage());
+            } catch (ProtocolException e2) {
+                if (0 != 0) {
+                    protocol.disconnect();
+                }
                 throw new MessagingException(e2.getMessage(), e2);
+            } catch (SocketConnectException e3) {
+                throw new MailConnectException(e3);
             }
-        } catch (CommandFailedException e3) {
+        } catch (IMAPReferralException e4) {
             if (0 != 0) {
                 protocol.disconnect();
             }
-            Response response = e3.getResponse();
-            throw new AuthenticationFailedException(response != null ? response.getRest() : e3.getMessage());
-        } catch (ProtocolException e4) {
-            if (0 != 0) {
-                protocol.disconnect();
-            }
-            throw new MessagingException(e4.getMessage(), e4);
-        } catch (SocketConnectException e5) {
-            throw new MailConnectException(e5);
+            throw new ReferralException(e4.getUrl(), e4.getMessage());
+        } catch (IOException e5) {
+            throw new MessagingException(e5.getMessage(), e5);
         }
     }
 
@@ -554,7 +553,6 @@ public class IMAPStore extends Store implements QuotaAwareStore, ResponseHandler
         this.password = str;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: Can't wrap try/catch for region: R(11:6|7|(10:16|(1:18)|19|20|(2:47|48)|22|(2:28|29)|38|39|(3:41|(1:43)|44))|56|57|58|(1:60)|61|(1:63)|39|(0)) */
     /* JADX WARN: Code restructure failed: missing block: B:45:0x010d, code lost:
         if (r1 != null) goto L71;
@@ -571,14 +569,76 @@ public class IMAPStore extends Store implements QuotaAwareStore, ResponseHandler
     /* JADX WARN: Removed duplicated region for block: B:51:0x011a A[Catch: all -> 0x0140, TryCatch #1 {, blocks: (B:7:0x0007, B:9:0x0013, B:11:0x0020, B:13:0x0028, B:16:0x0032, B:18:0x003c, B:19:0x005c, B:22:0x0084, B:27:0x00a3, B:29:0x00a7, B:31:0x00b3, B:33:0x00bb, B:35:0x00d6, B:36:0x00de, B:38:0x00e1, B:49:0x0115, B:51:0x011a, B:53:0x0122, B:54:0x012c, B:55:0x0135, B:24:0x0098, B:25:0x00a0, B:39:0x00e5, B:40:0x00ec, B:42:0x00f0, B:43:0x00f3, B:57:0x0138, B:58:0x013f, B:46:0x010f), top: B:68:0x0007 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    public com.sun.mail.imap.protocol.IMAPProtocol getProtocol(com.sun.mail.imap.IMAPFolder r8) throws javax.mail.MessagingException {
-        /*
-            Method dump skipped, instructions count: 324
-            To view this dump add '--comments-level debug' option
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.sun.mail.imap.IMAPStore.getProtocol(com.sun.mail.imap.IMAPFolder):com.sun.mail.imap.protocol.IMAPProtocol");
+    IMAPProtocol getProtocol(IMAPFolder iMAPFolder) throws MessagingException {
+        loop0: while (true) {
+            IMAPProtocol iMAPProtocol = null;
+            while (iMAPProtocol == null) {
+                synchronized (this.pool) {
+                    if (!this.pool.authenticatedConnections.isEmpty() && (this.pool.authenticatedConnections.size() != 1 || (!this.pool.separateStoreConnection && !this.pool.storeConnectionInUse))) {
+                        if (this.logger.isLoggable(Level.FINE)) {
+                            this.logger.fine("connection available -- size: " + this.pool.authenticatedConnections.size());
+                        }
+                        iMAPProtocol = (IMAPProtocol) this.pool.authenticatedConnections.lastElement();
+                        this.pool.authenticatedConnections.removeElement(iMAPProtocol);
+                        if (System.currentTimeMillis() - iMAPProtocol.getTimestamp() > this.pool.serverTimeoutInterval) {
+                            try {
+                                try {
+                                    iMAPProtocol.removeResponseHandler(this);
+                                    iMAPProtocol.addResponseHandler(this.nonStoreResponseHandler);
+                                    iMAPProtocol.noop();
+                                    iMAPProtocol.removeResponseHandler(this.nonStoreResponseHandler);
+                                    iMAPProtocol.addResponseHandler(this);
+                                } catch (RuntimeException unused) {
+                                }
+                            } catch (ProtocolException unused2) {
+                                iMAPProtocol.removeResponseHandler(this.nonStoreResponseHandler);
+                                iMAPProtocol.disconnect();
+                            }
+                        }
+                        if (this.proxyAuthUser != null && !this.proxyAuthUser.equals(iMAPProtocol.getProxyAuthUser()) && iMAPProtocol.hasCapability("X-UNAUTHENTICATE")) {
+                            try {
+                                try {
+                                    iMAPProtocol.removeResponseHandler(this);
+                                    iMAPProtocol.addResponseHandler(this.nonStoreResponseHandler);
+                                    iMAPProtocol.unauthenticate();
+                                    login(iMAPProtocol, this.user, this.password);
+                                    iMAPProtocol.removeResponseHandler(this.nonStoreResponseHandler);
+                                    iMAPProtocol.addResponseHandler(this);
+                                } catch (ProtocolException unused3) {
+                                    iMAPProtocol.removeResponseHandler(this.nonStoreResponseHandler);
+                                    iMAPProtocol.disconnect();
+                                }
+                            } catch (RuntimeException unused4) {
+                            }
+                        }
+                        iMAPProtocol.removeResponseHandler(this);
+                        timeoutConnections();
+                        if (iMAPFolder != null) {
+                            if (this.pool.folders == null) {
+                                this.pool.folders = new Vector();
+                            }
+                            this.pool.folders.addElement(iMAPFolder);
+                        }
+                    }
+                    this.logger.fine("no connections in the pool, creating a new one");
+                    if (this.forcePasswordRefresh) {
+                        refreshPassword();
+                    }
+                    iMAPProtocol = newIMAPProtocol(this.host, this.port);
+                    iMAPProtocol.addResponseHandler(this.nonStoreResponseHandler);
+                    login(iMAPProtocol, this.user, this.password);
+                    iMAPProtocol.removeResponseHandler(this.nonStoreResponseHandler);
+                    if (iMAPProtocol == null) {
+                        break loop0;
+                    }
+                    timeoutConnections();
+                    if (iMAPFolder != null) {
+                    }
+                }
+            }
+            return iMAPProtocol;
+        }
     }
 
     private IMAPProtocol getStoreProtocol() throws ProtocolException {
@@ -636,8 +696,7 @@ public class IMAPStore extends Store implements QuotaAwareStore, ResponseHandler
         return iMAPProtocol;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public IMAPProtocol getFolderStoreProtocol() throws ProtocolException {
+    IMAPProtocol getFolderStoreProtocol() throws ProtocolException {
         IMAPProtocol storeProtocol = getStoreProtocol();
         storeProtocol.removeResponseHandler(this);
         storeProtocol.addResponseHandler(this.nonStoreResponseHandler);
@@ -662,29 +721,24 @@ public class IMAPStore extends Store implements QuotaAwareStore, ResponseHandler
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean allowReadOnlySelect() {
+    boolean allowReadOnlySelect() {
         Properties properties = this.session.getProperties();
         return PropUtil.getBooleanProperty(properties, "mail." + this.name + ".allowreadonlyselect", false);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean hasSeparateStoreConnection() {
+    boolean hasSeparateStoreConnection() {
         return this.pool.separateStoreConnection;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public MailLogger getConnectionPoolLogger() {
+    MailLogger getConnectionPoolLogger() {
         return this.pool.logger;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean getMessageCacheDebug() {
+    boolean getMessageCacheDebug() {
         return this.messageCacheDebug;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean isConnectionPoolFull() {
+    boolean isConnectionPoolFull() {
         boolean z;
         synchronized (this.pool) {
             if (this.pool.logger.isLoggable(Level.FINE)) {
@@ -696,8 +750,7 @@ public class IMAPStore extends Store implements QuotaAwareStore, ResponseHandler
         return z;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void releaseProtocol(IMAPFolder iMAPFolder, IMAPProtocol iMAPProtocol) {
+    void releaseProtocol(IMAPFolder iMAPFolder, IMAPProtocol iMAPProtocol) {
         synchronized (this.pool) {
             if (iMAPProtocol != null) {
                 if (!isConnectionPoolFull()) {
@@ -743,8 +796,7 @@ public class IMAPStore extends Store implements QuotaAwareStore, ResponseHandler
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void releaseFolderStoreProtocol(IMAPProtocol iMAPProtocol) {
+    void releaseFolderStoreProtocol(IMAPProtocol iMAPProtocol) {
         if (iMAPProtocol == null) {
             return;
         }
@@ -804,43 +856,35 @@ public class IMAPStore extends Store implements QuotaAwareStore, ResponseHandler
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public int getFetchBlockSize() {
+    int getFetchBlockSize() {
         return this.blksize;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean ignoreBodyStructureSize() {
+    boolean ignoreBodyStructureSize() {
         return this.ignoreSize;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public Session getSession() {
+    Session getSession() {
         return this.session;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public int getStatusCacheTimeout() {
+    int getStatusCacheTimeout() {
         return this.statusCacheTimeout;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public int getAppendBufferSize() {
+    int getAppendBufferSize() {
         return this.appendBufferSize;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public int getMinIdleTime() {
+    int getMinIdleTime() {
         return this.minIdleTime;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean throwSearchException() {
+    boolean throwSearchException() {
         return this.throwSearchException;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean getPeek() {
+    boolean getPeek() {
         return this.peek;
     }
 
@@ -983,89 +1027,44 @@ public class IMAPStore extends Store implements QuotaAwareStore, ResponseHandler
     /* JADX WARN: Removed duplicated region for block: B:15:? A[RETURN, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    protected com.sun.mail.imap.IMAPFolder newIMAPFolder(java.lang.String r5, char r6, java.lang.Boolean r7) {
-        /*
-            r4 = this;
-            java.lang.reflect.Constructor<?> r0 = r4.folderConstructor
-            if (r0 == 0) goto L2a
-            r0 = 4
-            java.lang.Object[] r0 = new java.lang.Object[r0]     // Catch: java.lang.Exception -> L20
-            r1 = 0
-            r0[r1] = r5     // Catch: java.lang.Exception -> L20
-            r1 = 1
-            java.lang.Character r2 = java.lang.Character.valueOf(r6)     // Catch: java.lang.Exception -> L20
-            r0[r1] = r2     // Catch: java.lang.Exception -> L20
-            r1 = 2
-            r0[r1] = r4     // Catch: java.lang.Exception -> L20
-            r1 = 3
-            r0[r1] = r7     // Catch: java.lang.Exception -> L20
-            java.lang.reflect.Constructor<?> r1 = r4.folderConstructor     // Catch: java.lang.Exception -> L20
-            java.lang.Object r0 = r1.newInstance(r0)     // Catch: java.lang.Exception -> L20
-            com.sun.mail.imap.IMAPFolder r0 = (com.sun.mail.imap.IMAPFolder) r0     // Catch: java.lang.Exception -> L20
-            goto L2b
-        L20:
-            r0 = move-exception
-            com.sun.mail.util.MailLogger r1 = r4.logger
-            java.util.logging.Level r2 = java.util.logging.Level.FINE
-            java.lang.String r3 = "exception creating IMAPFolder class"
-            r1.log(r2, r3, r0)
-        L2a:
-            r0 = 0
-        L2b:
-            if (r0 != 0) goto L32
-            com.sun.mail.imap.IMAPFolder r0 = new com.sun.mail.imap.IMAPFolder
-            r0.<init>(r5, r6, r4, r7)
-        L32:
-            return r0
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.sun.mail.imap.IMAPStore.newIMAPFolder(java.lang.String, char, java.lang.Boolean):com.sun.mail.imap.IMAPFolder");
+    protected IMAPFolder newIMAPFolder(String str, char c, Boolean bool) {
+        IMAPFolder iMAPFolder;
+        if (this.folderConstructor != null) {
+            try {
+                iMAPFolder = (IMAPFolder) this.folderConstructor.newInstance(str, Character.valueOf(c), this, bool);
+            } catch (Exception e) {
+                this.logger.log(Level.FINE, "exception creating IMAPFolder class", (Throwable) e);
+            }
+            return iMAPFolder != null ? new IMAPFolder(str, c, this, bool) : iMAPFolder;
+        }
+        iMAPFolder = null;
+        if (iMAPFolder != null) {
+        }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public IMAPFolder newIMAPFolder(String str, char c) {
+    protected IMAPFolder newIMAPFolder(String str, char c) {
         return newIMAPFolder(str, c, null);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     /* JADX WARN: Removed duplicated region for block: B:11:0x0023  */
     /* JADX WARN: Removed duplicated region for block: B:15:? A[RETURN, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    public com.sun.mail.imap.IMAPFolder newIMAPFolder(com.sun.mail.imap.protocol.ListInfo r5) {
-        /*
-            r4 = this;
-            java.lang.reflect.Constructor<?> r0 = r4.folderConstructorLI
-            if (r0 == 0) goto L20
-            r0 = 2
-            java.lang.Object[] r0 = new java.lang.Object[r0]     // Catch: java.lang.Exception -> L16
-            r1 = 0
-            r0[r1] = r5     // Catch: java.lang.Exception -> L16
-            r1 = 1
-            r0[r1] = r4     // Catch: java.lang.Exception -> L16
-            java.lang.reflect.Constructor<?> r1 = r4.folderConstructorLI     // Catch: java.lang.Exception -> L16
-            java.lang.Object r0 = r1.newInstance(r0)     // Catch: java.lang.Exception -> L16
-            com.sun.mail.imap.IMAPFolder r0 = (com.sun.mail.imap.IMAPFolder) r0     // Catch: java.lang.Exception -> L16
-            goto L21
-        L16:
-            r0 = move-exception
-            com.sun.mail.util.MailLogger r1 = r4.logger
-            java.util.logging.Level r2 = java.util.logging.Level.FINE
-            java.lang.String r3 = "exception creating IMAPFolder class LI"
-            r1.log(r2, r3, r0)
-        L20:
-            r0 = 0
-        L21:
-            if (r0 != 0) goto L28
-            com.sun.mail.imap.IMAPFolder r0 = new com.sun.mail.imap.IMAPFolder
-            r0.<init>(r5, r4)
-        L28:
-            return r0
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.sun.mail.imap.IMAPStore.newIMAPFolder(com.sun.mail.imap.protocol.ListInfo):com.sun.mail.imap.IMAPFolder");
+    protected IMAPFolder newIMAPFolder(ListInfo listInfo) {
+        IMAPFolder iMAPFolder;
+        if (this.folderConstructorLI != null) {
+            try {
+                iMAPFolder = (IMAPFolder) this.folderConstructorLI.newInstance(listInfo, this);
+            } catch (Exception e) {
+                this.logger.log(Level.FINE, "exception creating IMAPFolder class LI", (Throwable) e);
+            }
+            return iMAPFolder != null ? new IMAPFolder(listInfo, this) : iMAPFolder;
+        }
+        iMAPFolder = null;
+        if (iMAPFolder != null) {
+        }
     }
 
     @Override // javax.mail.Store
@@ -1144,14 +1143,14 @@ public class IMAPStore extends Store implements QuotaAwareStore, ResponseHandler
                     IMAPProtocol storeProtocol = getStoreProtocol();
                     quotaRoot = storeProtocol.getQuotaRoot(str);
                     releaseStoreProtocol(storeProtocol);
-                } catch (BadCommandException e) {
-                    throw new MessagingException("QUOTA not supported", e);
+                } catch (ProtocolException e) {
+                    throw new MessagingException(e.getMessage(), e);
                 }
             } catch (ConnectionException e2) {
                 throw new StoreClosedException(this, e2.getMessage());
             }
-        } catch (ProtocolException e3) {
-            throw new MessagingException(e3.getMessage(), e3);
+        } catch (BadCommandException e3) {
+            throw new MessagingException("QUOTA not supported", e3);
         }
         return quotaRoot;
     }
@@ -1165,14 +1164,14 @@ public class IMAPStore extends Store implements QuotaAwareStore, ResponseHandler
                     IMAPProtocol storeProtocol = getStoreProtocol();
                     storeProtocol.setQuota(quota);
                     releaseStoreProtocol(storeProtocol);
-                } catch (BadCommandException e) {
-                    throw new MessagingException("QUOTA not supported", e);
+                } catch (ProtocolException e) {
+                    throw new MessagingException(e.getMessage(), e);
                 }
             } catch (ConnectionException e2) {
                 throw new StoreClosedException(this, e2.getMessage());
             }
-        } catch (ProtocolException e3) {
-            throw new MessagingException(e3.getMessage(), e3);
+        } catch (BadCommandException e3) {
+            throw new MessagingException("QUOTA not supported", e3);
         }
     }
 
@@ -1211,14 +1210,161 @@ public class IMAPStore extends Store implements QuotaAwareStore, ResponseHandler
     /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:54:0x0097 -> B:55:0x0098). Please submit an issue!!! */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    public void idle() throws javax.mail.MessagingException {
-        /*
-            Method dump skipped, instructions count: 267
-            To view this dump add '--comments-level debug' option
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.sun.mail.imap.IMAPStore.idle():void");
+    public void idle() throws MessagingException {
+        IMAPProtocol iMAPProtocol;
+        IMAPProtocol iMAPProtocol2;
+        boolean z;
+        synchronized (this) {
+            checkConnected();
+        }
+        boolean z2 = true;
+        try {
+            try {
+                synchronized (this.pool) {
+                    try {
+                        iMAPProtocol = getStoreProtocol();
+                    } catch (Throwable th) {
+                        th = th;
+                        iMAPProtocol2 = null;
+                    }
+                    try {
+                        if (this.pool.idleState != 0) {
+                            try {
+                                this.pool.wait();
+                                releaseStoreProtocol(iMAPProtocol);
+                                return;
+                            } catch (InterruptedException e) {
+                                Thread.currentThread().interrupt();
+                                throw new MessagingException("idle interrupted", e);
+                            }
+                        }
+                        iMAPProtocol.idleStart();
+                        try {
+                            this.pool.idleState = 1;
+                            this.pool.idleProtocol = iMAPProtocol;
+                            while (true) {
+                                try {
+                                    Response readIdleResponse = iMAPProtocol.readIdleResponse();
+                                    synchronized (this.pool) {
+                                        if (readIdleResponse == null) {
+                                            break;
+                                        }
+                                        try {
+                                            if (!iMAPProtocol.processIdleResponse(readIdleResponse)) {
+                                                break;
+                                            }
+                                        } catch (Throwable th2) {
+                                            th = th2;
+                                        }
+                                    }
+                                    throw th;
+                                } catch (BadCommandException e2) {
+                                    e = e2;
+                                    throw new MessagingException("IDLE not supported", e);
+                                } catch (ConnectionException e3) {
+                                    e = e3;
+                                    throw new StoreClosedException(this, e.getMessage());
+                                } catch (ProtocolException e4) {
+                                    e = e4;
+                                    throw new MessagingException(e.getMessage(), e);
+                                }
+                            }
+                            this.pool.idleState = 0;
+                            this.pool.idleProtocol = null;
+                            this.pool.notifyAll();
+                            try {
+                                try {
+                                    int minIdleTime = getMinIdleTime();
+                                    if (minIdleTime > 0) {
+                                        try {
+                                            Thread.sleep(minIdleTime);
+                                        } catch (InterruptedException unused) {
+                                            Thread.currentThread().interrupt();
+                                        }
+                                    }
+                                    releaseStoreProtocol(iMAPProtocol);
+                                } catch (BadCommandException e5) {
+                                    e = e5;
+                                    throw new MessagingException("IDLE not supported", e);
+                                } catch (ConnectionException e6) {
+                                    e = e6;
+                                    throw new StoreClosedException(this, e.getMessage());
+                                } catch (ProtocolException e7) {
+                                    e = e7;
+                                    throw new MessagingException(e.getMessage(), e);
+                                } catch (Throwable th3) {
+                                    th = th3;
+                                    z2 = false;
+                                    if (z2) {
+                                    }
+                                    releaseStoreProtocol(iMAPProtocol);
+                                    throw th;
+                                }
+                            } catch (Throwable th4) {
+                                th = th4;
+                            }
+                        } catch (Throwable th5) {
+                            z = true;
+                            th = th5;
+                            iMAPProtocol2 = iMAPProtocol;
+                            while (true) {
+                                try {
+                                    try {
+                                        break;
+                                    } catch (BadCommandException e8) {
+                                        e = e8;
+                                        throw new MessagingException("IDLE not supported", e);
+                                    } catch (ConnectionException e9) {
+                                        e = e9;
+                                        throw new StoreClosedException(this, e.getMessage());
+                                    } catch (ProtocolException e10) {
+                                        e = e10;
+                                        throw new MessagingException(e.getMessage(), e);
+                                    } catch (Throwable th6) {
+                                        th = th6;
+                                        z2 = z;
+                                        iMAPProtocol = iMAPProtocol2;
+                                        if (z2) {
+                                            synchronized (this.pool) {
+                                                this.pool.idleState = 0;
+                                                this.pool.idleProtocol = null;
+                                                this.pool.notifyAll();
+                                            }
+                                        }
+                                        releaseStoreProtocol(iMAPProtocol);
+                                        throw th;
+                                    }
+                                } catch (Throwable th7) {
+                                    th = th7;
+                                }
+                            }
+                            throw th;
+                        }
+                    } catch (Throwable th8) {
+                        th = th8;
+                        iMAPProtocol2 = iMAPProtocol;
+                        z = false;
+                        while (true) {
+                            break;
+                            break;
+                        }
+                        throw th;
+                    }
+                }
+            } catch (BadCommandException e11) {
+                e = e11;
+            } catch (ConnectionException e12) {
+                e = e12;
+            } catch (ProtocolException e13) {
+                e = e13;
+            } catch (Throwable th9) {
+                th = th9;
+                iMAPProtocol = null;
+            }
+        } catch (Throwable th10) {
+            th = th10;
+        }
     }
 
     private void waitIfIdle() throws ProtocolException {
@@ -1244,20 +1390,19 @@ public class IMAPStore extends Store implements QuotaAwareStore, ResponseHandler
                     IMAPProtocol storeProtocol = getStoreProtocol();
                     id = storeProtocol.id(map);
                     releaseStoreProtocol(storeProtocol);
-                } catch (BadCommandException e) {
-                    throw new MessagingException("ID not supported", e);
+                } catch (ProtocolException e) {
+                    throw new MessagingException(e.getMessage(), e);
                 }
             } catch (ConnectionException e2) {
                 throw new StoreClosedException(this, e2.getMessage());
             }
-        } catch (ProtocolException e3) {
-            throw new MessagingException(e3.getMessage(), e3);
+        } catch (BadCommandException e3) {
+            throw new MessagingException("ID not supported", e3);
         }
         return id;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void handleResponseCode(Response response) {
+    void handleResponseCode(Response response) {
         if (this.enableResponseEvents) {
             notifyStoreListeners(1000, response.toString());
         }

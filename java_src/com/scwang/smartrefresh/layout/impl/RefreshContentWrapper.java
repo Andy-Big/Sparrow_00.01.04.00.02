@@ -20,6 +20,7 @@ import com.scwang.smartrefresh.layout.util.ScrollBoundaryUtil;
 import com.scwang.smartrefresh.layout.util.SmartUtil;
 import java.util.Collections;
 import java.util.LinkedList;
+
 /* loaded from: classes2.dex */
 public class RefreshContentWrapper implements RefreshContent, CoordinatorLayoutListener, ValueAnimator.AnimatorUpdateListener {
     protected View mContentView;
@@ -124,72 +125,67 @@ public class RefreshContentWrapper implements RefreshContent, CoordinatorLayoutL
     @Override // com.scwang.smartrefresh.layout.api.RefreshContent
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    public void moveSpinner(int r6, int r7, int r8) {
-        /*
-            r5 = this;
-            r0 = 1
-            r1 = -1
-            r2 = 0
-            r3 = 0
-            if (r7 == r1) goto L21
-            android.view.View r4 = r5.mOriginalContentView
-            android.view.View r7 = r4.findViewById(r7)
-            if (r7 == 0) goto L21
-            if (r6 <= 0) goto L16
-            float r4 = (float) r6
-            r7.setTranslationY(r4)
-            r7 = r0
-            goto L22
-        L16:
-            float r4 = r7.getTranslationY()
-            int r4 = (r4 > r3 ? 1 : (r4 == r3 ? 0 : -1))
-            if (r4 <= 0) goto L21
-            r7.setTranslationY(r3)
-        L21:
-            r7 = r2
-        L22:
-            if (r8 == r1) goto L3e
-            android.view.View r1 = r5.mOriginalContentView
-            android.view.View r8 = r1.findViewById(r8)
-            if (r8 == 0) goto L3e
-            if (r6 >= 0) goto L33
-            float r7 = (float) r6
-            r8.setTranslationY(r7)
-            goto L3f
-        L33:
-            float r0 = r8.getTranslationY()
-            int r0 = (r0 > r3 ? 1 : (r0 == r3 ? 0 : -1))
-            if (r0 >= 0) goto L3e
-            r8.setTranslationY(r3)
-        L3e:
-            r0 = r7
-        L3f:
-            if (r0 != 0) goto L48
-            android.view.View r7 = r5.mOriginalContentView
-            float r8 = (float) r6
-            r7.setTranslationY(r8)
-            goto L4d
-        L48:
-            android.view.View r7 = r5.mOriginalContentView
-            r7.setTranslationY(r3)
-        L4d:
-            android.view.View r7 = r5.mFixedHeader
-            if (r7 == 0) goto L59
-            int r8 = java.lang.Math.max(r2, r6)
-            float r8 = (float) r8
-            r7.setTranslationY(r8)
-        L59:
-            android.view.View r7 = r5.mFixedFooter
-            if (r7 == 0) goto L65
-            int r6 = java.lang.Math.min(r2, r6)
-            float r6 = (float) r6
-            r7.setTranslationY(r6)
-        L65:
-            return
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.scwang.smartrefresh.layout.impl.RefreshContentWrapper.moveSpinner(int, int, int):void");
+    public void moveSpinner(int i, int i2, int i3) {
+        boolean z;
+        View view;
+        View view2;
+        View findViewById;
+        View findViewById2;
+        boolean z2 = true;
+        if (i2 != -1 && (findViewById2 = this.mOriginalContentView.findViewById(i2)) != null) {
+            if (i > 0) {
+                findViewById2.setTranslationY(i);
+                z = true;
+                if (i3 != -1 && (findViewById = this.mOriginalContentView.findViewById(i3)) != null) {
+                    if (i >= 0) {
+                        findViewById.setTranslationY(i);
+                        if (!z2) {
+                            this.mOriginalContentView.setTranslationY(i);
+                        } else {
+                            this.mOriginalContentView.setTranslationY(0.0f);
+                        }
+                        view = this.mFixedHeader;
+                        if (view != null) {
+                            view.setTranslationY(Math.max(0, i));
+                        }
+                        view2 = this.mFixedFooter;
+                        if (view2 != null) {
+                            view2.setTranslationY(Math.min(0, i));
+                            return;
+                        }
+                        return;
+                    } else if (findViewById.getTranslationY() < 0.0f) {
+                        findViewById.setTranslationY(0.0f);
+                    }
+                }
+                z2 = z;
+                if (!z2) {
+                }
+                view = this.mFixedHeader;
+                if (view != null) {
+                }
+                view2 = this.mFixedFooter;
+                if (view2 != null) {
+                }
+            } else if (findViewById2.getTranslationY() > 0.0f) {
+                findViewById2.setTranslationY(0.0f);
+            }
+        }
+        z = false;
+        if (i3 != -1) {
+            if (i >= 0) {
+            }
+        }
+        z2 = z;
+        if (!z2) {
+        }
+        view = this.mFixedHeader;
+        if (view != null) {
+        }
+        view2 = this.mFixedFooter;
+        if (view2 != null) {
+        }
     }
 
     @Override // com.scwang.smartrefresh.layout.api.RefreshContent

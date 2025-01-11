@@ -7,6 +7,7 @@ import android.content.BroadcastReceiver;
 import android.content.ContentProvider;
 import android.content.Intent;
 import java.lang.reflect.InvocationTargetException;
+
 /* loaded from: classes.dex */
 public class AppComponentFactory extends android.app.AppComponentFactory {
     @Override // android.app.AppComponentFactory

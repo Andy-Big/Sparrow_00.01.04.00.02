@@ -4,6 +4,7 @@ import kotlin.Metadata;
 import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.FunctionReferenceImpl;
 import kotlin.jvm.internal.Intrinsics;
+
 /* compiled from: TypesJVM.kt */
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\n\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\u0010\u0000\u001a\u0012\u0012\u0002\b\u0003 \u0002*\b\u0012\u0002\b\u0003\u0018\u00010\u00010\u00012\n\u0010\u0003\u001a\u0006\u0012\u0002\b\u00030\u0001¢\u0006\u0002\b\u0004"}, d2 = {"<anonymous>", "Ljava/lang/Class;", "kotlin.jvm.PlatformType", "p1", "invoke"}, k = 3, mv = {1, 4, 0})
 /* loaded from: classes2.dex */
@@ -14,6 +15,8 @@ final /* synthetic */ class TypesJVMKt$typeToString$unwrap$1 extends FunctionRef
         super(1, Class.class, "getComponentType", "getComponentType()Ljava/lang/Class;", 0);
     }
 
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     @Override // kotlin.jvm.functions.Function1
     public /* bridge */ /* synthetic */ Class<?> invoke(Class<? extends Object> cls) {
         return invoke2((Class<?>) cls);

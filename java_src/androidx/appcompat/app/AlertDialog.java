@@ -16,6 +16,7 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import androidx.appcompat.R;
 import androidx.appcompat.app.AlertController;
+
 /* loaded from: classes.dex */
 public class AlertDialog extends AppCompatDialog implements DialogInterface {
     static final int LAYOUT_HINT_NONE = 0;
@@ -106,9 +107,8 @@ public class AlertDialog extends AppCompatDialog implements DialogInterface {
         this.mAlert.setIcon(typedValue.resourceId);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // androidx.appcompat.app.AppCompatDialog, android.app.Dialog
-    public void onCreate(Bundle bundle) {
+    protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         this.mAlert.installContent();
     }

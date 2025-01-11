@@ -1,6 +1,7 @@
 package com.sun.mail.util;
 
 import java.io.IOException;
+
 /* loaded from: classes2.dex */
 public class SocketConnectException extends IOException {
     static final /* synthetic */ boolean $assertionsDisabled = false;

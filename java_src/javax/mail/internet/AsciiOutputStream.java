@@ -3,10 +3,10 @@ package javax.mail.internet;
 import java.io.EOFException;
 import java.io.IOException;
 import java.io.OutputStream;
-/* JADX INFO: Access modifiers changed from: package-private */
+
 /* compiled from: MimeUtility.java */
 /* loaded from: classes2.dex */
-public class AsciiOutputStream extends OutputStream {
+class AsciiOutputStream extends OutputStream {
     private boolean breakOnNonAscii;
     private boolean checkEOL;
     private int ascii = 0;

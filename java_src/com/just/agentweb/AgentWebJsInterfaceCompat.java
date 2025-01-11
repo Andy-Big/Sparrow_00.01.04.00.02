@@ -5,14 +5,14 @@ import android.os.Handler;
 import android.os.Message;
 import android.webkit.JavascriptInterface;
 import java.lang.ref.WeakReference;
+
 /* loaded from: classes.dex */
 public class AgentWebJsInterfaceCompat {
     private String TAG = getClass().getSimpleName();
     private WeakReference<Activity> mActivityWeakReference;
     private WeakReference<AgentWeb> mReference;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public AgentWebJsInterfaceCompat(AgentWeb agentWeb, Activity activity) {
+    AgentWebJsInterfaceCompat(AgentWeb agentWeb, Activity activity) {
         this.mReference = null;
         this.mActivityWeakReference = null;
         this.mReference = new WeakReference<>(agentWeb);

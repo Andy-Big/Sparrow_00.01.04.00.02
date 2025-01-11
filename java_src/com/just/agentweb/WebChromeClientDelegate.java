@@ -13,6 +13,7 @@ import android.webkit.ValueCallback;
 import android.webkit.WebChromeClient;
 import android.webkit.WebStorage;
 import android.webkit.WebView;
+
 /* loaded from: classes.dex */
 public class WebChromeClientDelegate extends android.webkit.WebChromeClient {
     private android.webkit.WebChromeClient mDelegate;
@@ -25,8 +26,7 @@ public class WebChromeClientDelegate extends android.webkit.WebChromeClient {
         this.mDelegate = webChromeClient;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setDelegate(android.webkit.WebChromeClient webChromeClient) {
+    void setDelegate(android.webkit.WebChromeClient webChromeClient) {
         this.mDelegate = webChromeClient;
     }
 

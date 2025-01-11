@@ -4,6 +4,7 @@ import java.net.InetAddress;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
+
 /* loaded from: classes2.dex */
 public interface NameRegister {
 

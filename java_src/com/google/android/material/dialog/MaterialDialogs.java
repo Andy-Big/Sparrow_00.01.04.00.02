@@ -8,6 +8,7 @@ import android.graphics.drawable.InsetDrawable;
 import android.os.Build;
 import com.google.android.material.R;
 import com.google.android.material.internal.ThemeEnforcement;
+
 /* loaded from: classes.dex */
 public class MaterialDialogs {
     private MaterialDialogs() {

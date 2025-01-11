@@ -33,6 +33,7 @@ import androidx.vectordrawable.graphics.drawable.VectorDrawableCompat;
 import java.io.IOException;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
+
 /* loaded from: classes.dex */
 public class AnimatedStateListDrawableCompat extends StateListDrawable implements TintAwareDrawable {
     private static final String ELEMENT_ITEM = "item";
@@ -359,9 +360,8 @@ public class AnimatedStateListDrawableCompat extends StateListDrawable implement
         return true;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static abstract class Transition {
+    private static abstract class Transition {
         public boolean canReverse() {
             return false;
         }
@@ -377,9 +377,8 @@ public class AnimatedStateListDrawableCompat extends StateListDrawable implement
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static class AnimatableTransition extends Transition {
+    private static class AnimatableTransition extends Transition {
         private final Animatable mA;
 
         AnimatableTransition(Animatable animatable) {
@@ -398,9 +397,8 @@ public class AnimatedStateListDrawableCompat extends StateListDrawable implement
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static class AnimationDrawableTransition extends Transition {
+    private static class AnimationDrawableTransition extends Transition {
         private final ObjectAnimator mAnim;
         private final boolean mHasReversibleFlag;
 
@@ -441,9 +439,8 @@ public class AnimatedStateListDrawableCompat extends StateListDrawable implement
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static class AnimatedVectorDrawableTransition extends Transition {
+    private static class AnimatedVectorDrawableTransition extends Transition {
         private final AnimatedVectorDrawableCompat mAvd;
 
         AnimatedVectorDrawableTransition(AnimatedVectorDrawableCompat animatedVectorDrawableCompat) {
@@ -568,6 +565,7 @@ public class AnimatedStateListDrawableCompat extends StateListDrawable implement
         return this;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // androidx.appcompat.graphics.drawable.StateListDrawable, androidx.appcompat.graphics.drawable.DrawableContainer
     public AnimatedStateListState cloneConstantState() {
@@ -580,9 +578,8 @@ public class AnimatedStateListDrawableCompat extends StateListDrawable implement
         this.mMutated = false;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static class AnimatedStateListState extends StateListDrawable.StateListState {
+    static class AnimatedStateListState extends StateListDrawable.StateListState {
         private static final long REVERSED_BIT = 4294967296L;
         private static final long REVERSIBLE_FLAG_BIT = 8589934592L;
         SparseArrayCompat<Integer> mStateIds;

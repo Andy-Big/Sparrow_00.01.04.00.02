@@ -17,6 +17,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import org.json.JSONArray;
 import org.json.JSONObject;
+
 /* loaded from: classes.dex */
 public final class CacheDiskUtils implements CacheConstants {
     private static final Map<String, CacheDiskUtils> CACHE_MAP = new HashMap();
@@ -433,9 +434,8 @@ public final class CacheDiskUtils implements CacheConstants {
         return diskCacheManager.clear();
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static final class DiskCacheManager {
+    private static final class DiskCacheManager {
         private final AtomicInteger cacheCount;
         private final File cacheDir;
         private final AtomicLong cacheSize;
@@ -612,9 +612,8 @@ public final class CacheDiskUtils implements CacheConstants {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static final class DiskCacheHelper {
+    private static final class DiskCacheHelper {
         static final int TIME_INFO_LEN = 14;
 
         private DiskCacheHelper() {

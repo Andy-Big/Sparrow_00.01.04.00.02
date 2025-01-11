@@ -6,6 +6,7 @@ import java.io.OutputStream;
 import java.io.PipedInputStream;
 import java.io.PipedOutputStream;
 import java.net.URL;
+
 /* loaded from: classes2.dex */
 public class DataHandler {
     private static final ActivationDataFlavor[] emptyFlavors = new ActivationDataFlavor[0];

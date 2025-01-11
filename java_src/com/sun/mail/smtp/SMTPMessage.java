@@ -4,6 +4,7 @@ import java.io.InputStream;
 import javax.mail.MessagingException;
 import javax.mail.Session;
 import javax.mail.internet.MimeMessage;
+
 /* loaded from: classes2.dex */
 public class SMTPMessage extends MimeMessage {
     public static final int NOTIFY_DELAY = 4;
@@ -70,8 +71,7 @@ public class SMTPMessage extends MimeMessage {
         return this.notifyOptions;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public String getDSNNotify() {
+    String getDSNNotify() {
         int i = this.notifyOptions;
         if (i == 0) {
             return null;
@@ -109,8 +109,7 @@ public class SMTPMessage extends MimeMessage {
         return this.returnOption;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public String getDSNRet() {
+    String getDSNRet() {
         return returnOptionString[this.returnOption];
     }
 

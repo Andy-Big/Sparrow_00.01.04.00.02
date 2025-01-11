@@ -14,6 +14,7 @@ import com.google.android.material.R;
 import com.google.android.material.resources.MaterialResources;
 import com.google.android.material.shape.MaterialShapeDrawable;
 import com.google.android.material.shape.ShapeAppearanceModel;
+
 /* loaded from: classes.dex */
 final class CalendarItemStyle {
     private final ColorStateList backgroundColor;
@@ -36,8 +37,7 @@ final class CalendarItemStyle {
         this.itemShape = shapeAppearanceModel;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static CalendarItemStyle create(Context context, int i) {
+    static CalendarItemStyle create(Context context, int i) {
         Preconditions.checkArgument(i != 0, "Cannot create a CalendarItemStyle with a styleResId of 0");
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(i, R.styleable.MaterialCalendarItem);
         Rect rect = new Rect(obtainStyledAttributes.getDimensionPixelOffset(R.styleable.MaterialCalendarItem_android_insetLeft, 0), obtainStyledAttributes.getDimensionPixelOffset(R.styleable.MaterialCalendarItem_android_insetTop, 0), obtainStyledAttributes.getDimensionPixelOffset(R.styleable.MaterialCalendarItem_android_insetRight, 0), obtainStyledAttributes.getDimensionPixelOffset(R.styleable.MaterialCalendarItem_android_insetBottom, 0));
@@ -50,8 +50,7 @@ final class CalendarItemStyle {
         return new CalendarItemStyle(colorStateList, colorStateList2, colorStateList3, dimensionPixelSize, build, rect);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void styleItem(TextView textView) {
+    void styleItem(TextView textView) {
         MaterialShapeDrawable materialShapeDrawable = new MaterialShapeDrawable();
         MaterialShapeDrawable materialShapeDrawable2 = new MaterialShapeDrawable();
         materialShapeDrawable.setShapeAppearanceModel(this.itemShape);
@@ -70,13 +69,11 @@ final class CalendarItemStyle {
         return this.insets.right;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public int getTopInset() {
+    int getTopInset() {
         return this.insets.top;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public int getBottomInset() {
+    int getBottomInset() {
         return this.insets.bottom;
     }
 }

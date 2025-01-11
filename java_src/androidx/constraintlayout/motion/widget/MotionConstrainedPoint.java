@@ -11,9 +11,9 @@ import androidx.constraintlayout.widget.ConstraintSet;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
-/* JADX INFO: Access modifiers changed from: package-private */
+
 /* loaded from: classes.dex */
-public class MotionConstrainedPoint implements Comparable<MotionConstrainedPoint> {
+class MotionConstrainedPoint implements Comparable<MotionConstrainedPoint> {
     static final int CARTESIAN = 2;
     public static final boolean DEBUG = false;
     static final int PERPENDICULAR = 1;
@@ -53,8 +53,7 @@ public class MotionConstrainedPoint implements Comparable<MotionConstrainedPoint
         return (Float.isNaN(f) || Float.isNaN(f2)) ? Float.isNaN(f) != Float.isNaN(f2) : Math.abs(f - f2) > 1.0E-6f;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void different(MotionConstrainedPoint motionConstrainedPoint, HashSet<String> hashSet) {
+    void different(MotionConstrainedPoint motionConstrainedPoint, HashSet<String> hashSet) {
         if (diff(this.alpha, motionConstrainedPoint.alpha)) {
             hashSet.add(Key.ALPHA);
         }
@@ -156,6 +155,7 @@ public class MotionConstrainedPoint implements Comparable<MotionConstrainedPoint
         this.height = f4;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // java.lang.Comparable
     public int compareTo(MotionConstrainedPoint motionConstrainedPoint) {
         return Float.compare(this.position, motionConstrainedPoint.position);

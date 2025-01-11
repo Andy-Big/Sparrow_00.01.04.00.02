@@ -2123,7 +2123,7 @@ public class ViewUtil {
                                 ViewUtil.doScreenShot();
                                 sleep(300L);
                                 ViewUtil.doSaveWave();
-                                StorageSaveParam.this.setGroup(4);
+                                value2.setGroup(4);
                             } catch (InterruptedException e) {
                                 e.printStackTrace();
                             }
@@ -2417,8 +2417,8 @@ public class ViewUtil {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [4448=4, 4438=4, 4440=4, 4446=4] */
-    /* JADX WARN: Removed duplicated region for block: B:81:0x00ae A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:94:0x00b8 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:188:0x00ae A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:201:0x00b8 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -2578,7 +2578,7 @@ public class ViewUtil {
         return paint.getTextSize() > f2 ? f2 : paint.getTextSize() < f ? f : paint.getTextSize();
     }
 
-    /* renamed from: com.rigol.scope.utilities.ViewUtil$4  reason: invalid class name */
+    /* renamed from: com.rigol.scope.utilities.ViewUtil$4 */
     /* loaded from: classes2.dex */
     static /* synthetic */ class AnonymousClass4 {
         static final /* synthetic */ int[] $SwitchMap$com$rigol$scope$cil$ServiceEnum$Chan;
@@ -2903,12 +2903,12 @@ public class ViewUtil {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [4746=4] */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:20:0x00b1 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:22:0x00b3 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:44:0x00d7 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:60:0x0099 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:115:0x00d7 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:131:0x0099 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:91:0x00b1 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:93:0x00b3 */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:64:0x00da A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:135:0x00da A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Type inference failed for: r6v0, types: [java.lang.String] */
     /* JADX WARN: Type inference failed for: r6v1 */
     /* JADX WARN: Type inference failed for: r6v10 */

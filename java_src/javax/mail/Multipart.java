@@ -3,6 +3,7 @@ package javax.mail;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.Vector;
+
 /* loaded from: classes2.dex */
 public abstract class Multipart {
     protected Part parent;
@@ -11,8 +12,10 @@ public abstract class Multipart {
 
     public abstract void writeTo(OutputStream outputStream) throws IOException, MessagingException;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public synchronized void setMultipartDataSource(MultipartDataSource multipartDataSource) throws MessagingException {
+    protected Multipart() {
+    }
+
+    protected synchronized void setMultipartDataSource(MultipartDataSource multipartDataSource) throws MessagingException {
         this.contentType = multipartDataSource.getContentType();
         int count = multipartDataSource.getCount();
         for (int i = 0; i < count; i++) {

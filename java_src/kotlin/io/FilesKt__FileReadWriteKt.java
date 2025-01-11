@@ -25,11 +25,11 @@ import kotlin.jvm.internal.Intrinsics;
 import kotlin.ranges.RangesKt;
 import kotlin.sequences.Sequence;
 import kotlin.text.Charsets;
-/* JADX INFO: Access modifiers changed from: package-private */
+
 /* compiled from: FileReadWrite.kt */
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000z\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0012\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010 \n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\u001a\u0012\u0010\u0000\u001a\u00020\u0001*\u00020\u00022\u0006\u0010\u0003\u001a\u00020\u0004\u001a\u001c\u0010\u0005\u001a\u00020\u0001*\u00020\u00022\u0006\u0010\u0006\u001a\u00020\u00072\b\b\u0002\u0010\b\u001a\u00020\t\u001a!\u0010\n\u001a\u00020\u000b*\u00020\u00022\b\b\u0002\u0010\b\u001a\u00020\t2\b\b\u0002\u0010\f\u001a\u00020\rH\u0087\b\u001a!\u0010\u000e\u001a\u00020\u000f*\u00020\u00022\b\b\u0002\u0010\b\u001a\u00020\t2\b\b\u0002\u0010\f\u001a\u00020\rH\u0087\b\u001aB\u0010\u0010\u001a\u00020\u0001*\u00020\u000226\u0010\u0011\u001a2\u0012\u0013\u0012\u00110\u0004¢\u0006\f\b\u0013\u0012\b\b\u0014\u0012\u0004\b\b(\u0015\u0012\u0013\u0012\u00110\r¢\u0006\f\b\u0013\u0012\b\b\u0014\u0012\u0004\b\b(\u0016\u0012\u0004\u0012\u00020\u00010\u0012\u001aJ\u0010\u0010\u001a\u00020\u0001*\u00020\u00022\u0006\u0010\u0017\u001a\u00020\r26\u0010\u0011\u001a2\u0012\u0013\u0012\u00110\u0004¢\u0006\f\b\u0013\u0012\b\b\u0014\u0012\u0004\b\b(\u0015\u0012\u0013\u0012\u00110\r¢\u0006\f\b\u0013\u0012\b\b\u0014\u0012\u0004\b\b(\u0016\u0012\u0004\u0012\u00020\u00010\u0012\u001a7\u0010\u0018\u001a\u00020\u0001*\u00020\u00022\b\b\u0002\u0010\b\u001a\u00020\t2!\u0010\u0011\u001a\u001d\u0012\u0013\u0012\u00110\u0007¢\u0006\f\b\u0013\u0012\b\b\u0014\u0012\u0004\b\b(\u001a\u0012\u0004\u0012\u00020\u00010\u0019\u001a\r\u0010\u001b\u001a\u00020\u001c*\u00020\u0002H\u0087\b\u001a\r\u0010\u001d\u001a\u00020\u001e*\u00020\u0002H\u0087\b\u001a\u0017\u0010\u001f\u001a\u00020 *\u00020\u00022\b\b\u0002\u0010\b\u001a\u00020\tH\u0087\b\u001a\n\u0010!\u001a\u00020\u0004*\u00020\u0002\u001a\u001a\u0010\"\u001a\b\u0012\u0004\u0012\u00020\u00070#*\u00020\u00022\b\b\u0002\u0010\b\u001a\u00020\t\u001a\u0014\u0010$\u001a\u00020\u0007*\u00020\u00022\b\b\u0002\u0010\b\u001a\u00020\t\u001a\u0017\u0010%\u001a\u00020&*\u00020\u00022\b\b\u0002\u0010\b\u001a\u00020\tH\u0087\b\u001aB\u0010'\u001a\u0002H(\"\u0004\b\u0000\u0010(*\u00020\u00022\b\b\u0002\u0010\b\u001a\u00020\t2\u0018\u0010)\u001a\u0014\u0012\n\u0012\b\u0012\u0004\u0012\u00020\u00070*\u0012\u0004\u0012\u0002H(0\u0019H\u0086\bø\u0001\u0000ø\u0001\u0001¢\u0006\u0002\u0010,\u001a\u0012\u0010-\u001a\u00020\u0001*\u00020\u00022\u0006\u0010\u0003\u001a\u00020\u0004\u001a\u001c\u0010.\u001a\u00020\u0001*\u00020\u00022\u0006\u0010\u0006\u001a\u00020\u00072\b\b\u0002\u0010\b\u001a\u00020\t\u001a\u0017\u0010/\u001a\u000200*\u00020\u00022\b\b\u0002\u0010\b\u001a\u00020\tH\u0087\b\u0082\u0002\u000f\n\u0006\b\u0011(+0\u0001\n\u0005\b\u009920\u0001¨\u00061"}, d2 = {"appendBytes", "", "Ljava/io/File;", "array", "", "appendText", "text", "", "charset", "Ljava/nio/charset/Charset;", "bufferedReader", "Ljava/io/BufferedReader;", "bufferSize", "", "bufferedWriter", "Ljava/io/BufferedWriter;", "forEachBlock", "action", "Lkotlin/Function2;", "Lkotlin/ParameterName;", IMAPStore.ID_NAME, "buffer", "bytesRead", "blockSize", "forEachLine", "Lkotlin/Function1;", "line", "inputStream", "Ljava/io/FileInputStream;", "outputStream", "Ljava/io/FileOutputStream;", "printWriter", "Ljava/io/PrintWriter;", "readBytes", "readLines", "", "readText", "reader", "Ljava/io/InputStreamReader;", "useLines", ExifInterface.GPS_DIRECTION_TRUE, "block", "Lkotlin/sequences/Sequence;", "Requires newer compiler version to be inlined correctly.", "(Ljava/io/File;Ljava/nio/charset/Charset;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;", "writeBytes", "writeText", "writer", "Ljava/io/OutputStreamWriter;", "kotlin-stdlib"}, k = 5, mv = {1, 4, 0}, xi = 1, xs = "kotlin/io/FilesKt")
 /* loaded from: classes2.dex */
-public class FilesKt__FileReadWriteKt extends FilesKt__FilePathComponentsKt {
+class FilesKt__FileReadWriteKt extends FilesKt__FilePathComponentsKt {
     static /* synthetic */ InputStreamReader reader$default(File file, Charset charset, int i, Object obj) {
         if ((i & 1) != 0) {
             charset = Charsets.UTF_8;
@@ -97,6 +97,7 @@ public class FilesKt__FileReadWriteKt extends FilesKt__FilePathComponentsKt {
         return new PrintWriter(outputStreamWriter instanceof BufferedWriter ? (BufferedWriter) outputStreamWriter : new BufferedWriter(outputStreamWriter, 8192));
     }
 
+    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
     public static final byte[] readBytes(File readBytes) {
         Intrinsics.checkNotNullParameter(readBytes, "$this$readBytes");
         FileInputStream fileInputStream = new FileInputStream(readBytes);
@@ -150,6 +151,7 @@ public class FilesKt__FileReadWriteKt extends FilesKt__FilePathComponentsKt {
         }
     }
 
+    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
     public static final void writeBytes(File writeBytes, byte[] array) {
         Intrinsics.checkNotNullParameter(writeBytes, "$this$writeBytes");
         Intrinsics.checkNotNullParameter(array, "array");
@@ -163,6 +165,7 @@ public class FilesKt__FileReadWriteKt extends FilesKt__FilePathComponentsKt {
         }
     }
 
+    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
     public static final void appendBytes(File appendBytes, byte[] array) {
         Intrinsics.checkNotNullParameter(appendBytes, "$this$appendBytes");
         Intrinsics.checkNotNullParameter(array, "array");
@@ -176,6 +179,7 @@ public class FilesKt__FileReadWriteKt extends FilesKt__FilePathComponentsKt {
         }
     }
 
+    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
     public static final String readText(File readText, Charset charset) {
         Intrinsics.checkNotNullParameter(readText, "$this$readText");
         Intrinsics.checkNotNullParameter(charset, "charset");
@@ -234,6 +238,8 @@ public class FilesKt__FileReadWriteKt extends FilesKt__FilePathComponentsKt {
         FilesKt.forEachBlock(forEachBlock, 4096, action);
     }
 
+    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
+    /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: java.io.FileInputStream */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r4v2, types: [byte[], java.lang.Object] */
     public static final void forEachBlock(File forEachBlock, int i, Function2<? super byte[], ? super Integer, Unit> action) {
@@ -292,12 +298,13 @@ public class FilesKt__FileReadWriteKt extends FilesKt__FilePathComponentsKt {
         Intrinsics.checkNotNullParameter(charset, "charset");
         final ArrayList arrayList = new ArrayList();
         FilesKt.forEachLine(readLines, charset, new Function1<String, Unit>() { // from class: kotlin.io.FilesKt__FileReadWriteKt$readLines$1
-            /* JADX INFO: Access modifiers changed from: package-private */
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
                 super(1);
             }
 
+            /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+            /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
             @Override // kotlin.jvm.functions.Function1
             public /* bridge */ /* synthetic */ Unit invoke(String str) {
                 invoke2(str);
@@ -313,6 +320,7 @@ public class FilesKt__FileReadWriteKt extends FilesKt__FilePathComponentsKt {
         return arrayList;
     }
 
+    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
     public static /* synthetic */ Object useLines$default(File useLines, Charset charset, Function1 block, int i, Object obj) {
         if ((i & 1) != 0) {
             charset = Charsets.UTF_8;
@@ -337,6 +345,7 @@ public class FilesKt__FileReadWriteKt extends FilesKt__FilePathComponentsKt {
         }
     }
 
+    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
     public static final <T> T useLines(File useLines, Charset charset, Function1<? super Sequence<String>, ? extends T> block) {
         Intrinsics.checkNotNullParameter(useLines, "$this$useLines");
         Intrinsics.checkNotNullParameter(charset, "charset");

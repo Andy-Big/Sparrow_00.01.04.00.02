@@ -46,6 +46,11 @@ public final class HistogramWindowHolder extends WindowHolder {
     private MeasureSettingParam measureSettingParam;
     private final BaseSurfaceView surfaceView;
 
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.views.window.HistogramWindowHolder$$special$$inlined$apply$lambda$1.onClick(android.view.View):void, com.rigol.scope.views.window.HistogramWindowHolder$$special$$inlined$apply$lambda$2.onClick(android.view.View):void] */
+    public static final /* synthetic */ MeasureSettingParam access$getMeasureSettingParam$p(HistogramWindowHolder histogramWindowHolder) {
+        return histogramWindowHolder.measureSettingParam;
+    }
+
     public final Context getContext() {
         return this.context;
     }
@@ -79,22 +84,20 @@ public final class HistogramWindowHolder extends WindowHolder {
         inflate.windowClose.setOnClickListener(new View.OnClickListener() { // from class: com.rigol.scope.views.window.HistogramWindowHolder$$special$$inlined$apply$lambda$1
             @Override // android.view.View.OnClickListener
             public final void onClick(View view) {
-                MeasureSettingParam measureSettingParam;
                 WindowHolderManager.getInstance().remove(HistogramWindowHolder.this);
-                measureSettingParam = HistogramWindowHolder.this.measureSettingParam;
-                if (measureSettingParam != null) {
-                    measureSettingParam.saveHistoEnable(false);
+                MeasureSettingParam access$getMeasureSettingParam$p = HistogramWindowHolder.access$getMeasureSettingParam$p(HistogramWindowHolder.this);
+                if (access$getMeasureSettingParam$p != null) {
+                    access$getMeasureSettingParam$p.saveHistoEnable(false);
                 }
             }
         });
         inflate.windowSetting.setOnClickListener(new View.OnClickListener() { // from class: com.rigol.scope.views.window.HistogramWindowHolder$$special$$inlined$apply$lambda$2
             @Override // android.view.View.OnClickListener
             public final void onClick(View view) {
-                MeasureSettingParam measureSettingParam;
                 PopupViewManager.getInstance().toggle(MeasureSettingPopupView.class);
-                measureSettingParam = HistogramWindowHolder.this.measureSettingParam;
-                if (measureSettingParam != null) {
-                    measureSettingParam.saveHistoEnable(false);
+                MeasureSettingParam access$getMeasureSettingParam$p = HistogramWindowHolder.access$getMeasureSettingParam$p(HistogramWindowHolder.this);
+                if (access$getMeasureSettingParam$p != null) {
+                    access$getMeasureSettingParam$p.saveHistoEnable(false);
                 }
             }
         });
@@ -110,7 +113,10 @@ public final class HistogramWindowHolder extends WindowHolder {
             Activity topActivity = ActivityUtils.getTopActivity();
             if (topActivity != null) {
                 liveData2.observe((LifecycleOwner) topActivity, new Observer<HistogramResultParam>() { // from class: com.rigol.scope.views.window.HistogramWindowHolder.1
-                    /* JADX DEBUG: Method merged with bridge method */
+                    {
+                        HistogramWindowHolder.this = this;
+                    }
+
                     @Override // androidx.lifecycle.Observer
                     public final void onChanged(HistogramResultParam histogramResultParam) {
                         HistogramWindowHolder.this.histogramResultParam = histogramResultParam;
@@ -126,7 +132,10 @@ public final class HistogramWindowHolder extends WindowHolder {
             Activity topActivity2 = ActivityUtils.getTopActivity();
             if (topActivity2 != null) {
                 liveData.observe((LifecycleOwner) topActivity2, new Observer<MeasureSettingParam>() { // from class: com.rigol.scope.views.window.HistogramWindowHolder.2
-                    /* JADX DEBUG: Method merged with bridge method */
+                    {
+                        HistogramWindowHolder.this = this;
+                    }
+
                     @Override // androidx.lifecycle.Observer
                     public final void onChanged(MeasureSettingParam measureSettingParam) {
                         HistogramWindowHolder.this.measureSettingParam = measureSettingParam;
@@ -144,6 +153,10 @@ public final class HistogramWindowHolder extends WindowHolder {
                 throw new NullPointerException("null cannot be cast to non-null type androidx.lifecycle.LifecycleOwner");
             }
             mutableLiveData.observe((LifecycleOwner) topActivity3, new Observer<Object>() { // from class: com.rigol.scope.views.window.HistogramWindowHolder.3
+                {
+                    HistogramWindowHolder.this = this;
+                }
+
                 @Override // androidx.lifecycle.Observer
                 public final void onChanged(Object obj) {
                     HistogramWindowHolder.this.updateTitle();
@@ -156,10 +169,17 @@ public final class HistogramWindowHolder extends WindowHolder {
             throw new NullPointerException("null cannot be cast to non-null type androidx.lifecycle.LifecycleOwner");
         }
         liveData3.observe((LifecycleOwner) topActivity4, new Observer<SharedParam>() { // from class: com.rigol.scope.views.window.HistogramWindowHolder.4
-            /* JADX DEBUG: Method merged with bridge method */
+            {
+                HistogramWindowHolder.this = this;
+            }
+
             @Override // androidx.lifecycle.Observer
             public final void onChanged(final SharedParam sharedParam) {
                 sharedParam.addOnPropertyChangedCallback(new Observable.OnPropertyChangedCallback() { // from class: com.rigol.scope.views.window.HistogramWindowHolder.4.1
+                    {
+                        AnonymousClass4.this = this;
+                    }
+
                     @Override // androidx.databinding.Observable.OnPropertyChangedCallback
                     public void onPropertyChanged(Observable observable, int i) {
                         if (sharedParam.getShowResultBar()) {

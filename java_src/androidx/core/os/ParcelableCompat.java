@@ -2,6 +2,7 @@ package androidx.core.os;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+
 @Deprecated
 /* loaded from: classes.dex */
 public final class ParcelableCompat {

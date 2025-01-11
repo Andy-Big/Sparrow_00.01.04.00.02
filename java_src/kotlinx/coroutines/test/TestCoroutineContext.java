@@ -29,6 +29,7 @@ import kotlinx.coroutines.DisposableHandle;
 import kotlinx.coroutines.EventLoop;
 import kotlinx.coroutines.internal.ThreadSafeHeap;
 import kotlinx.coroutines.test.TestCoroutineContext;
+
 /* compiled from: TestCoroutineContext.kt */
 @Deprecated(level = DeprecationLevel.WARNING, message = "This API has been deprecated to integrate with Structured Concurrency.", replaceWith = @ReplaceWith(expression = "TestCoroutineScope", imports = {"kotlin.coroutines.test"}))
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000~\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0010\t\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010 \n\u0002\u0010\u0003\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010!\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\u0010\u000b\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\t\b\u0007\u0018\u00002\u00020\u0001:\u0001<B\u0011\u0012\n\b\u0002\u0010\u0002\u001a\u0004\u0018\u00010\u0003¢\u0006\u0002\u0010\u0004J\u0018\u0010\u0016\u001a\u00020\u00062\u0006\u0010\u0017\u001a\u00020\u00062\b\b\u0002\u0010\u0018\u001a\u00020\u0019J\u0018\u0010\u001a\u001a\u00020\u001b2\u0006\u0010\u001c\u001a\u00020\u00062\b\b\u0002\u0010\u0018\u001a\u00020\u0019J$\u0010\u001d\u001a\u00020\u001b2\b\b\u0002\u0010\u001e\u001a\u00020\u00032\u0012\u0010\u001f\u001a\u000e\u0012\u0004\u0012\u00020\r\u0012\u0004\u0012\u00020!0 J$\u0010\"\u001a\u00020\u001b2\b\b\u0002\u0010\u001e\u001a\u00020\u00032\u0012\u0010\u001f\u001a\u000e\u0012\u0004\u0012\u00020\r\u0012\u0004\u0012\u00020!0 J*\u0010#\u001a\u00020\u001b2\b\b\u0002\u0010\u001e\u001a\u00020\u00032\u0018\u0010\u001f\u001a\u0014\u0012\n\u0012\b\u0012\u0004\u0012\u00020\r0\f\u0012\u0004\u0012\u00020!0 J$\u0010$\u001a\u00020\u001b2\b\b\u0002\u0010\u001e\u001a\u00020\u00032\u0012\u0010\u001f\u001a\u000e\u0012\u0004\u0012\u00020\r\u0012\u0004\u0012\u00020!0 J\u0006\u0010%\u001a\u00020\u001bJ\u0014\u0010&\u001a\u00020\u001b2\n\u0010'\u001a\u00060(j\u0002`)H\u0002J5\u0010*\u001a\u0002H+\"\u0004\b\u0000\u0010+2\u0006\u0010,\u001a\u0002H+2\u0018\u0010-\u001a\u0014\u0012\u0004\u0012\u0002H+\u0012\u0004\u0012\u00020/\u0012\u0004\u0012\u0002H+0.H\u0016¢\u0006\u0002\u00100J(\u00101\u001a\u0004\u0018\u0001H2\"\b\b\u0000\u00102*\u00020/2\f\u00103\u001a\b\u0012\u0004\u0012\u0002H204H\u0096\u0002¢\u0006\u0002\u00105J\u0014\u00106\u001a\u00020\u00012\n\u00103\u001a\u0006\u0012\u0002\b\u000304H\u0016J\u0010\u00107\u001a\u00020\u00062\b\b\u0002\u0010\u0018\u001a\u00020\u0019J\u001c\u00108\u001a\u00020\u00122\n\u0010'\u001a\u00060(j\u0002`)2\u0006\u0010\u0017\u001a\u00020\u0006H\u0002J\b\u00109\u001a\u00020\u0006H\u0002J\b\u0010:\u001a\u00020\u0003H\u0016J\u0006\u0010;\u001a\u00020\u001bJ\u0010\u0010;\u001a\u00020\u001b2\u0006\u0010\u001c\u001a\u00020\u0006H\u0002R\u000e\u0010\u0005\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u0012\u0010\u0007\u001a\u00060\bR\u00020\u0000X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\t\u001a\u00020\nX\u0082\u0004¢\u0006\u0002\n\u0000R\u0017\u0010\u000b\u001a\b\u0012\u0004\u0012\u00020\r0\f8F¢\u0006\u0006\u001a\u0004\b\u000e\u0010\u000fR\u0010\u0010\u0002\u001a\u0004\u0018\u00010\u0003X\u0082\u0004¢\u0006\u0002\n\u0000R\u0014\u0010\u0010\u001a\b\u0012\u0004\u0012\u00020\u00120\u0011X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0013\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u0014\u0010\u0014\u001a\b\u0012\u0004\u0012\u00020\r0\u0015X\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006="}, d2 = {"Lkotlinx/coroutines/test/TestCoroutineContext;", "Lkotlin/coroutines/CoroutineContext;", IMAPStore.ID_NAME, "", "(Ljava/lang/String;)V", "counter", "", "ctxDispatcher", "Lkotlinx/coroutines/test/TestCoroutineContext$Dispatcher;", "ctxHandler", "Lkotlinx/coroutines/CoroutineExceptionHandler;", "exceptions", "", "", "getExceptions", "()Ljava/util/List;", "queue", "Lkotlinx/coroutines/internal/ThreadSafeHeap;", "Lkotlinx/coroutines/test/TimedRunnableObsolete;", "time", "uncaughtExceptions", "", "advanceTimeBy", "delayTime", "unit", "Ljava/util/concurrent/TimeUnit;", "advanceTimeTo", "", "targetTime", "assertAllUnhandledExceptions", "message", "predicate", "Lkotlin/Function1;", "", "assertAnyUnhandledException", "assertExceptions", "assertUnhandledException", "cancelAllActions", "enqueue", "block", "Ljava/lang/Runnable;", "Lkotlinx/coroutines/Runnable;", "fold", "R", "initial", "operation", "Lkotlin/Function2;", "Lkotlin/coroutines/CoroutineContext$Element;", "(Ljava/lang/Object;Lkotlin/jvm/functions/Function2;)Ljava/lang/Object;", "get", ExifInterface.LONGITUDE_EAST, "key", "Lkotlin/coroutines/CoroutineContext$Key;", "(Lkotlin/coroutines/CoroutineContext$Key;)Lkotlin/coroutines/CoroutineContext$Element;", "minusKey", "now", "postDelayed", "processNextEvent", "toString", "triggerActions", "Dispatcher", "kotlinx-coroutines-core"}, k = 1, mv = {1, 1, 15})
@@ -58,6 +59,11 @@ public final class TestCoroutineContext implements CoroutineContext {
         this((i & 1) != 0 ? null : str);
     }
 
+    /* JADX DEBUG: Method not inlined, still used in: [kotlinx.coroutines.test.TestCoroutineContext$Dispatcher$invokeOnTimeout$1.dispose():void] */
+    public static final /* synthetic */ ThreadSafeHeap access$getQueue$p(TestCoroutineContext testCoroutineContext) {
+        return testCoroutineContext.queue;
+    }
+
     @Override // kotlin.coroutines.CoroutineContext
     public CoroutineContext plus(CoroutineContext context) {
         Intrinsics.checkParameterIsNotNull(context, "context");
@@ -68,6 +74,7 @@ public final class TestCoroutineContext implements CoroutineContext {
         return this.uncaughtExceptions;
     }
 
+    /* JADX DEBUG: Type inference failed for r2v1. Raw type applied. Possible types: R, ? super R */
     @Override // kotlin.coroutines.CoroutineContext
     public <R> R fold(R r, Function2<? super R, ? super CoroutineContext.Element, ? extends R> operation) {
         Intrinsics.checkParameterIsNotNull(operation, "operation");
@@ -176,6 +183,7 @@ public final class TestCoroutineContext implements CoroutineContext {
         testCoroutineContext.assertAllUnhandledExceptions(str, function1);
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r1v2, resolved type: ? super java.lang.Throwable */
     /* JADX WARN: Multi-variable type inference failed */
     public final void assertAllUnhandledExceptions(String message, Function1<? super Throwable, Boolean> predicate) {
         Intrinsics.checkParameterIsNotNull(message, "message");
@@ -206,6 +214,7 @@ public final class TestCoroutineContext implements CoroutineContext {
         testCoroutineContext.assertAnyUnhandledException(str, function1);
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r1v2, resolved type: ? super java.lang.Throwable */
     /* JADX WARN: Multi-variable type inference failed */
     public final void assertAnyUnhandledException(String message, Function1<? super Throwable, Boolean> predicate) {
         Intrinsics.checkParameterIsNotNull(message, "message");
@@ -245,7 +254,6 @@ public final class TestCoroutineContext implements CoroutineContext {
         this.uncaughtExceptions.clear();
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public final void enqueue(Runnable runnable) {
         ThreadSafeHeap<TimedRunnableObsolete> threadSafeHeap = this.queue;
         long j = this.counter;
@@ -253,7 +261,6 @@ public final class TestCoroutineContext implements CoroutineContext {
         threadSafeHeap.addLast(new TimedRunnableObsolete(runnable, j, 0L, 4, null));
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public final TimedRunnableObsolete postDelayed(Runnable runnable, long j) {
         long j2 = this.counter;
         this.counter = 1 + j2;
@@ -262,7 +269,6 @@ public final class TestCoroutineContext implements CoroutineContext {
         return timedRunnableObsolete;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public final long processNextEvent() {
         TimedRunnableObsolete peek = this.queue.peek();
         if (peek != null) {
@@ -313,6 +319,7 @@ public final class TestCoroutineContext implements CoroutineContext {
         }
 
         public Dispatcher() {
+            TestCoroutineContext.this = r3;
             EventLoop.incrementUseCount$default(this, false, 1, null);
         }
 
@@ -348,9 +355,7 @@ public final class TestCoroutineContext implements CoroutineContext {
             return new DisposableHandle() { // from class: kotlinx.coroutines.test.TestCoroutineContext$Dispatcher$invokeOnTimeout$1
                 @Override // kotlinx.coroutines.DisposableHandle
                 public void dispose() {
-                    ThreadSafeHeap threadSafeHeap;
-                    threadSafeHeap = TestCoroutineContext.this.queue;
-                    threadSafeHeap.remove(postDelayed);
+                    TestCoroutineContext.access$getQueue$p(TestCoroutineContext.this).remove(postDelayed);
                 }
             };
         }

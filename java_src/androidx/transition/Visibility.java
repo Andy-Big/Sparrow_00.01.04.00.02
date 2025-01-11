@@ -13,6 +13,7 @@ import androidx.transition.AnimatorUtils;
 import androidx.transition.Transition;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
+
 /* loaded from: classes.dex */
 public abstract class Visibility extends Transition {
     public static final int MODE_IN = 1;
@@ -36,9 +37,8 @@ public abstract class Visibility extends Transition {
         return null;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static class VisibilityInfo {
+    private static class VisibilityInfo {
         ViewGroup mEndParent;
         int mEndVisibility;
         boolean mFadeIn;
@@ -187,14 +187,140 @@ public abstract class Visibility extends Transition {
     /* JADX WARN: Removed duplicated region for block: B:27:0x0040  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    public android.animation.Animator onDisappear(final android.view.ViewGroup r11, androidx.transition.TransitionValues r12, int r13, androidx.transition.TransitionValues r14, int r15) {
-        /*
-            Method dump skipped, instructions count: 256
-            To view this dump add '--comments-level debug' option
-        */
-        throw new UnsupportedOperationException("Method not decompiled: androidx.transition.Visibility.onDisappear(android.view.ViewGroup, androidx.transition.TransitionValues, int, androidx.transition.TransitionValues, int):android.animation.Animator");
+    public Animator onDisappear(final ViewGroup viewGroup, TransitionValues transitionValues, int i, TransitionValues transitionValues2, int i2) {
+        View view;
+        boolean z;
+        boolean z2;
+        View view2;
+        if ((this.mMode & 2) == 2 && transitionValues != null) {
+            final View view3 = transitionValues.view;
+            View view4 = transitionValues2 != null ? transitionValues2.view : null;
+            final View view5 = (View) view3.getTag(R.id.save_overlay_view);
+            if (view5 != null) {
+                view2 = null;
+                z2 = true;
+            } else if (view4 == null || view4.getParent() == null) {
+                if (view4 != null) {
+                    view = null;
+                    z = false;
+                    if (z) {
+                        if (view3.getParent() != null) {
+                            if (view3.getParent() instanceof View) {
+                                View view6 = (View) view3.getParent();
+                                if (!getVisibilityChangeInfo(getTransitionValues(view6, true), getMatchedTransitionValues(view6, true)).mVisibilityChange) {
+                                    view4 = TransitionUtils.copyViewImage(viewGroup, view3, view6);
+                                } else {
+                                    int id = view6.getId();
+                                    if (view6.getParent() == null) {
+                                        if (id != -1) {
+                                            if (viewGroup.findViewById(id) != null) {
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        view2 = view;
+                        z2 = false;
+                        view5 = view3;
+                    }
+                    z2 = false;
+                    View view7 = view;
+                    view5 = view4;
+                    view2 = view7;
+                }
+                view4 = null;
+                view = null;
+                z = true;
+                if (z) {
+                }
+                z2 = false;
+                View view72 = view;
+                view5 = view4;
+                view2 = view72;
+            } else {
+                if (i2 == 4 || view3 == view4) {
+                    view = view4;
+                    z = false;
+                    view4 = null;
+                    if (z) {
+                    }
+                    z2 = false;
+                    View view722 = view;
+                    view5 = view4;
+                    view2 = view722;
+                }
+                view4 = null;
+                view = null;
+                z = true;
+                if (z) {
+                }
+                z2 = false;
+                View view7222 = view;
+                view5 = view4;
+                view2 = view7222;
+            }
+            if (view5 == null) {
+                if (view2 != null) {
+                    int visibility = view2.getVisibility();
+                    ViewUtils.setTransitionVisibility(view2, 0);
+                    Animator onDisappear = onDisappear(viewGroup, view2, transitionValues, transitionValues2);
+                    if (onDisappear != null) {
+                        DisappearListener disappearListener = new DisappearListener(view2, i2, true);
+                        onDisappear.addListener(disappearListener);
+                        AnimatorUtils.addPauseListener(onDisappear, disappearListener);
+                        addListener(disappearListener);
+                    } else {
+                        ViewUtils.setTransitionVisibility(view2, visibility);
+                    }
+                    return onDisappear;
+                }
+                return null;
+            }
+            if (!z2) {
+                int[] iArr = (int[]) transitionValues.values.get(PROPNAME_SCREEN_LOCATION);
+                int i3 = iArr[0];
+                int i4 = iArr[1];
+                int[] iArr2 = new int[2];
+                viewGroup.getLocationOnScreen(iArr2);
+                view5.offsetLeftAndRight((i3 - iArr2[0]) - view5.getLeft());
+                view5.offsetTopAndBottom((i4 - iArr2[1]) - view5.getTop());
+                ViewGroupUtils.getOverlay(viewGroup).add(view5);
+            }
+            Animator onDisappear2 = onDisappear(viewGroup, view5, transitionValues, transitionValues2);
+            if (!z2) {
+                if (onDisappear2 == null) {
+                    ViewGroupUtils.getOverlay(viewGroup).remove(view5);
+                } else {
+                    view3.setTag(R.id.save_overlay_view, view5);
+                    addListener(new TransitionListenerAdapter() { // from class: androidx.transition.Visibility.1
+                        @Override // androidx.transition.TransitionListenerAdapter, androidx.transition.Transition.TransitionListener
+                        public void onTransitionPause(Transition transition) {
+                            ViewGroupUtils.getOverlay(viewGroup).remove(view5);
+                        }
+
+                        @Override // androidx.transition.TransitionListenerAdapter, androidx.transition.Transition.TransitionListener
+                        public void onTransitionResume(Transition transition) {
+                            if (view5.getParent() == null) {
+                                ViewGroupUtils.getOverlay(viewGroup).add(view5);
+                            } else {
+                                Visibility.this.cancel();
+                            }
+                        }
+
+                        @Override // androidx.transition.TransitionListenerAdapter, androidx.transition.Transition.TransitionListener
+                        public void onTransitionEnd(Transition transition) {
+                            view3.setTag(R.id.save_overlay_view, null);
+                            ViewGroupUtils.getOverlay(viewGroup).remove(view5);
+                            transition.removeListener(this);
+                        }
+                    });
+                }
+            }
+            return onDisappear2;
+        }
+        return null;
     }
 
     @Override // androidx.transition.Transition
@@ -212,9 +338,8 @@ public abstract class Visibility extends Transition {
         return false;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static class DisappearListener extends AnimatorListenerAdapter implements Transition.TransitionListener, AnimatorUtils.AnimatorPauseListenerCompat {
+    private static class DisappearListener extends AnimatorListenerAdapter implements Transition.TransitionListener, AnimatorUtils.AnimatorPauseListenerCompat {
         boolean mCanceled = false;
         private final int mFinalVisibility;
         private boolean mLayoutSuppressed;

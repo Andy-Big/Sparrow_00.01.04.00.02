@@ -4,6 +4,7 @@ import android.graphics.Canvas;
 import android.graphics.ColorFilter;
 import android.graphics.Outline;
 import android.graphics.drawable.Drawable;
+
 /* loaded from: classes.dex */
 class ActionBarBackgroundDrawable extends Drawable {
     final ActionBarContainer mContainer;

@@ -10,6 +10,7 @@ import javax.mail.FolderClosedException;
 import javax.mail.MessageAware;
 import javax.mail.MessageContext;
 import javax.mail.MessagingException;
+
 /* loaded from: classes2.dex */
 public class MimePartDataSource implements DataSource, MessageAware {
     private MessageContext context;

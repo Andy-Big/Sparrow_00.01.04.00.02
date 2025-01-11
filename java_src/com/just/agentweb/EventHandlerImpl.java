@@ -2,6 +2,7 @@ package com.just.agentweb;
 
 import android.view.KeyEvent;
 import android.webkit.WebView;
+
 /* loaded from: classes.dex */
 public class EventHandlerImpl implements IEventHandler {
     private EventInterceptor mEventInterceptor;

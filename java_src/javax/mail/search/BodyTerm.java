@@ -3,6 +3,7 @@ package javax.mail.search;
 import javax.mail.Message;
 import javax.mail.Multipart;
 import javax.mail.Part;
+
 /* loaded from: classes2.dex */
 public final class BodyTerm extends StringTerm {
     private static final long serialVersionUID = -4888862527916911385L;

@@ -6,6 +6,7 @@ import kotlin.coroutines.Continuation;
 import kotlin.coroutines.jvm.internal.ContinuationImpl;
 import kotlin.jvm.functions.Function2;
 import kotlin.jvm.internal.InlineMarker;
+
 /* JADX INFO: Add missing generic type declarations: [R] */
 /* compiled from: SafeCollector.kt */
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000%\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\b\u0002\n\u0002\b\u0002\n\u0002\b\u0003*\u0001\u0000\b\n\u0018\u00002\b\u0012\u0004\u0012\u00028\u00000\u0001J\u001f\u0010\u0002\u001a\u00020\u00032\f\u0010\u0004\u001a\b\u0012\u0004\u0012\u00028\u00000\u0005H\u0096@ø\u0001\u0000¢\u0006\u0002\u0010\u0006\u0082\u0002\u0004\n\u0002\b\u0019¨\u0006\u0007¸\u0006\b"}, d2 = {"kotlinx/coroutines/flow/internal/SafeCollectorKt$unsafeFlow$1", "Lkotlinx/coroutines/flow/Flow;", "collect", "", "collector", "Lkotlinx/coroutines/flow/FlowCollector;", "(Lkotlinx/coroutines/flow/FlowCollector;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "kotlinx-coroutines-core", "kotlinx/coroutines/flow/FlowKt__TransformKt$unsafeTransform$$inlined$unsafeFlow$6"}, k = 1, mv = {1, 1, 15})
@@ -28,6 +29,7 @@ public final class FlowKt__TransformKt$mapNotNull$$inlined$unsafeTransform$1<R> 
             this.this$0 = flowKt__TransformKt$mapNotNull$$inlined$unsafeTransform$1;
         }
 
+        /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: kotlinx.coroutines.flow.FlowCollector */
         /* JADX WARN: Multi-variable type inference failed */
         @Override // kotlinx.coroutines.flow.FlowCollector
         public Object emit(Object obj, Continuation continuation) {
@@ -39,6 +41,7 @@ public final class FlowKt__TransformKt$mapNotNull$$inlined$unsafeTransform$1<R> 
             return flowCollector.emit(invoke, continuation);
         }
 
+        /* JADX DEBUG: Multi-variable search result rejected for r0v3, resolved type: kotlinx.coroutines.flow.FlowCollector */
         /* JADX WARN: Multi-variable type inference failed */
         public Object emit$$forInline(Object obj, Continuation continuation) {
             InlineMarker.mark(4);

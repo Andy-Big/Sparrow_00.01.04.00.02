@@ -4,6 +4,7 @@ import android.view.View;
 import com.rigol.scope.cil.MessageID;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
+
 /* loaded from: classes.dex */
 class ViewBoundsCheck {
     static final int CVE_PVE_POS = 12;
@@ -47,8 +48,7 @@ class ViewBoundsCheck {
     public @interface ViewBounds {
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ViewBoundsCheck(Callback callback) {
+    ViewBoundsCheck(Callback callback) {
         this.mCallback = callback;
     }
 
@@ -103,8 +103,7 @@ class ViewBoundsCheck {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public View findOneViewWithinBoundFlags(int i, int i2, int i3, int i4) {
+    View findOneViewWithinBoundFlags(int i, int i2, int i3, int i4) {
         int parentStart = this.mCallback.getParentStart();
         int parentEnd = this.mCallback.getParentEnd();
         int i5 = i2 > i ? 1 : -1;
@@ -131,8 +130,7 @@ class ViewBoundsCheck {
         return view;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean isViewWithinBoundFlags(View view, int i) {
+    boolean isViewWithinBoundFlags(View view, int i) {
         this.mBoundFlags.setBounds(this.mCallback.getParentStart(), this.mCallback.getParentEnd(), this.mCallback.getChildStart(view), this.mCallback.getChildEnd(view));
         if (i != 0) {
             this.mBoundFlags.resetFlags();

@@ -5,9 +5,9 @@ import android.animation.AnimatorSet;
 import com.google.android.material.animation.MotionSpec;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import java.util.List;
-/* JADX INFO: Access modifiers changed from: package-private */
+
 /* loaded from: classes.dex */
-public interface MotionStrategy {
+interface MotionStrategy {
     void addAnimationListener(Animator.AnimatorListener animatorListener);
 
     AnimatorSet createAnimator();

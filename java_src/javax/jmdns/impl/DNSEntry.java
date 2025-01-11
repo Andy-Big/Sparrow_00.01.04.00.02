@@ -9,6 +9,7 @@ import java.util.Map;
 import javax.jmdns.ServiceInfo;
 import javax.jmdns.impl.constants.DNSRecordClass;
 import javax.jmdns.impl.constants.DNSRecordType;
+
 /* loaded from: classes2.dex */
 public abstract class DNSEntry {
     private final DNSRecordClass _dnsClass;
@@ -23,12 +24,10 @@ public abstract class DNSEntry {
 
     public abstract boolean isStale(long j);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void toString(StringBuilder sb) {
+    protected void toString(StringBuilder sb) {
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public DNSEntry(String str, DNSRecordType dNSRecordType, DNSRecordClass dNSRecordClass, boolean z) {
+    DNSEntry(String str, DNSRecordType dNSRecordType, DNSRecordClass dNSRecordClass, boolean z) {
         String str2;
         String str3;
         this._name = str;
@@ -161,8 +160,7 @@ public abstract class DNSEntry {
         return dNSEntry != null && dNSEntry.getRecordType() == getRecordType();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void toByteArray(DataOutputStream dataOutputStream) throws IOException {
+    protected void toByteArray(DataOutputStream dataOutputStream) throws IOException {
         dataOutputStream.write(getName().getBytes("UTF8"));
         dataOutputStream.writeShort(getRecordType().indexValue());
         dataOutputStream.writeShort(getRecordClass().indexValue());

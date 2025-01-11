@@ -4,6 +4,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.view.View;
 import androidx.databinding.library.baseAdapters.R;
+
 /* loaded from: classes.dex */
 public class ViewBindingAdapter {
     public static final int FADING_EDGE_HORIZONTAL = 1;

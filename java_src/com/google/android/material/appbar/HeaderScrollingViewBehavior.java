@@ -11,9 +11,9 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import com.google.android.material.badge.BadgeDrawable;
 import java.util.List;
-/* JADX INFO: Access modifiers changed from: package-private */
+
 /* loaded from: classes.dex */
-public abstract class HeaderScrollingViewBehavior extends ViewOffsetBehavior<View> {
+abstract class HeaderScrollingViewBehavior extends ViewOffsetBehavior<View> {
     private int overlayTop;
     final Rect tempRect1;
     final Rect tempRect2;
@@ -73,9 +73,8 @@ public abstract class HeaderScrollingViewBehavior extends ViewOffsetBehavior<Vie
         return false;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.google.android.material.appbar.ViewOffsetBehavior
-    public void layoutChild(CoordinatorLayout coordinatorLayout, View view, int i) {
+    protected void layoutChild(CoordinatorLayout coordinatorLayout, View view, int i) {
         View findFirstDependency = findFirstDependency(coordinatorLayout.getDependencies(view));
         if (findFirstDependency != null) {
             CoordinatorLayout.LayoutParams layoutParams = (CoordinatorLayout.LayoutParams) view.getLayoutParams();
@@ -97,8 +96,7 @@ public abstract class HeaderScrollingViewBehavior extends ViewOffsetBehavior<Vie
         this.verticalLayoutGap = 0;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public final int getOverlapPixelsForOffset(View view) {
+    final int getOverlapPixelsForOffset(View view) {
         if (this.overlayTop == 0) {
             return 0;
         }
@@ -107,13 +105,11 @@ public abstract class HeaderScrollingViewBehavior extends ViewOffsetBehavior<Vie
         return MathUtils.clamp((int) (overlapRatioForOffset * i), 0, i);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public int getScrollRange(View view) {
+    int getScrollRange(View view) {
         return view.getMeasuredHeight();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public final int getVerticalLayoutGap() {
+    final int getVerticalLayoutGap() {
         return this.verticalLayoutGap;
     }
 

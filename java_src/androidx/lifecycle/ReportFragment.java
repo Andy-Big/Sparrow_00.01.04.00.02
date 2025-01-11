@@ -7,14 +7,14 @@ import android.app.FragmentManager;
 import android.os.Build;
 import android.os.Bundle;
 import androidx.lifecycle.Lifecycle;
+
 /* loaded from: classes.dex */
 public class ReportFragment extends Fragment {
     private static final String REPORT_FRAGMENT_TAG = "androidx.lifecycle.LifecycleDispatcher.report_fragment_tag";
     private ActivityInitializationListener mProcessListener;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public interface ActivityInitializationListener {
+    interface ActivityInitializationListener {
         void onCreate();
 
         void onResume();
@@ -44,8 +44,7 @@ public class ReportFragment extends Fragment {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static ReportFragment get(Activity activity) {
+    static ReportFragment get(Activity activity) {
         return (ReportFragment) activity.getFragmentManager().findFragmentByTag(REPORT_FRAGMENT_TAG);
     }
 
@@ -113,8 +112,7 @@ public class ReportFragment extends Fragment {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setProcessListener(ActivityInitializationListener activityInitializationListener) {
+    void setProcessListener(ActivityInitializationListener activityInitializationListener) {
         this.mProcessListener = activityInitializationListener;
     }
 

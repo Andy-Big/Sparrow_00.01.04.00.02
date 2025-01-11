@@ -3,11 +3,14 @@ package androidx.cardview.widget;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+
 /* loaded from: classes.dex */
-public class CardViewApi21Impl implements CardViewImpl {
+class CardViewApi21Impl implements CardViewImpl {
     @Override // androidx.cardview.widget.CardViewImpl
     public void initStatic() {
+    }
+
+    CardViewApi21Impl() {
     }
 
     @Override // androidx.cardview.widget.CardViewImpl

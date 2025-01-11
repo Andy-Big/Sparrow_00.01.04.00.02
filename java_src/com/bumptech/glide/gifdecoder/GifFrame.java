@@ -1,4 +1,5 @@
 package com.bumptech.glide.gifdecoder;
+
 /* loaded from: classes.dex */
 class GifFrame {
     static final int DISPOSAL_BACKGROUND = 2;
@@ -16,4 +17,7 @@ class GifFrame {
     int[] lct;
     int transIndex;
     boolean transparency;
+
+    GifFrame() {
+    }
 }

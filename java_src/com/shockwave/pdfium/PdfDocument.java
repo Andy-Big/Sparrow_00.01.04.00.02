@@ -6,6 +6,7 @@ import androidx.collection.ArrayMap;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+
 /* loaded from: classes2.dex */
 public class PdfDocument {
     long mNativeDocPtr;
@@ -103,6 +104,9 @@ public class PdfDocument {
         public RectF getBounds() {
             return this.bounds;
         }
+    }
+
+    PdfDocument() {
     }
 
     public boolean hasPage(int i) {

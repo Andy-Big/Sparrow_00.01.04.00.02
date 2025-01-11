@@ -7,9 +7,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Comparator;
-/* JADX INFO: Access modifiers changed from: package-private */
+
 /* loaded from: classes.dex */
-public final class AnimateLayoutChangeDetector {
+final class AnimateLayoutChangeDetector {
     private static final ViewGroup.MarginLayoutParams ZERO_MARGIN_LAYOUT_PARAMS;
     private LinearLayoutManager mLayoutManager;
 
@@ -19,13 +19,11 @@ public final class AnimateLayoutChangeDetector {
         marginLayoutParams.setMargins(0, 0, 0, 0);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public AnimateLayoutChangeDetector(LinearLayoutManager linearLayoutManager) {
+    AnimateLayoutChangeDetector(LinearLayoutManager linearLayoutManager) {
         this.mLayoutManager = linearLayoutManager;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean mayHaveInterferingAnimations() {
+    boolean mayHaveInterferingAnimations() {
         return (!arePagesLaidOutContiguously() || this.mLayoutManager.getChildCount() <= 1) && hasRunningChangingLayoutTransition();
     }
 
@@ -72,6 +70,7 @@ public final class AnimateLayoutChangeDetector {
             iArr3[1] = bottom + i2;
         }
         Arrays.sort(iArr, new Comparator<int[]>() { // from class: androidx.viewpager2.widget.AnimateLayoutChangeDetector.1
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.Comparator
             public int compare(int[] iArr4, int[] iArr5) {
                 return iArr4[0] - iArr5[0];

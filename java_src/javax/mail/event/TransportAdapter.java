@@ -1,4 +1,5 @@
 package javax.mail.event;
+
 /* loaded from: classes2.dex */
 public abstract class TransportAdapter implements TransportListener {
     @Override // javax.mail.event.TransportListener

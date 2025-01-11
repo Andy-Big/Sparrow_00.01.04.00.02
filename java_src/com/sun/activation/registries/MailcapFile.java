@@ -5,6 +5,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.Reader;
 import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -14,6 +15,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import org.slf4j.Marker;
+
 /* loaded from: classes2.dex */
 public class MailcapFile {
     private static boolean addReverse = false;
@@ -29,31 +31,32 @@ public class MailcapFile {
     }
 
     public MailcapFile(String str) throws IOException {
+        FileReader fileReader;
         if (LogSupport.isLoggable()) {
             LogSupport.log("new MailcapFile: file " + str);
         }
-        FileReader fileReader = null;
+        FileReader fileReader2 = null;
         try {
-            FileReader fileReader2 = new FileReader(str);
+            fileReader = new FileReader(str);
+        } catch (Throwable th) {
+            th = th;
+        }
+        try {
+            parse(new BufferedReader(fileReader));
             try {
-                parse(new BufferedReader(fileReader2));
-                try {
-                    fileReader2.close();
-                } catch (IOException unused) {
-                }
-            } catch (Throwable th) {
-                th = th;
-                fileReader = fileReader2;
-                if (fileReader != null) {
-                    try {
-                        fileReader.close();
-                    } catch (IOException unused2) {
-                    }
-                }
-                throw th;
+                fileReader.close();
+            } catch (IOException unused) {
             }
         } catch (Throwable th2) {
             th = th2;
+            fileReader2 = fileReader;
+            if (fileReader2 != null) {
+                try {
+                    fileReader2.close();
+                } catch (IOException unused2) {
+                }
+            }
+            throw th;
         }
     }
 
@@ -135,62 +138,35 @@ public class MailcapFile {
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    private void parse(java.io.Reader r7) throws java.io.IOException {
-        /*
-            r6 = this;
-            java.io.BufferedReader r0 = new java.io.BufferedReader
-            r0.<init>(r7)
-            r7 = 0
-        L6:
-            r1 = r7
-        L7:
-            java.lang.String r2 = r0.readLine()
-            if (r2 == 0) goto L69
-            java.lang.String r2 = r2.trim()
-            r3 = 0
-            char r4 = r2.charAt(r3)     // Catch: java.lang.Throwable -> L7
-            r5 = 35
-            if (r4 != r5) goto L1b
-            goto L7
-        L1b:
-            int r4 = r2.length()     // Catch: java.lang.Throwable -> L7
-            int r4 = r4 + (-1)
-            char r4 = r2.charAt(r4)     // Catch: java.lang.Throwable -> L7
-            r5 = 92
-            if (r4 != r5) goto L50
-            if (r1 == 0) goto L45
-            java.lang.StringBuilder r4 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L7
-            r4.<init>()     // Catch: java.lang.Throwable -> L7
-            r4.append(r1)     // Catch: java.lang.Throwable -> L7
-            int r5 = r2.length()     // Catch: java.lang.Throwable -> L7
-            int r5 = r5 + (-1)
-            java.lang.String r2 = r2.substring(r3, r5)     // Catch: java.lang.Throwable -> L7
-            r4.append(r2)     // Catch: java.lang.Throwable -> L7
-            java.lang.String r1 = r4.toString()     // Catch: java.lang.Throwable -> L7
-            goto L7
-        L45:
-            int r4 = r2.length()     // Catch: java.lang.Throwable -> L7
-            int r4 = r4 + (-1)
-            java.lang.String r1 = r2.substring(r3, r4)     // Catch: java.lang.Throwable -> L7
-            goto L7
-        L50:
-            if (r1 == 0) goto L65
-            java.lang.StringBuilder r3 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L7
-            r3.<init>()     // Catch: java.lang.Throwable -> L7
-            r3.append(r1)     // Catch: java.lang.Throwable -> L7
-            r3.append(r2)     // Catch: java.lang.Throwable -> L7
-            java.lang.String r1 = r3.toString()     // Catch: java.lang.Throwable -> L7
-            r6.parseLine(r1)     // Catch: com.sun.activation.registries.MailcapParseException -> L6 java.lang.Throwable -> L7
-            goto L6
-        L65:
-            r6.parseLine(r2)     // Catch: java.lang.Throwable -> L7
-            goto L7
-        L69:
-            return
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.sun.activation.registries.MailcapFile.parse(java.io.Reader):void");
+    private void parse(Reader reader) throws IOException {
+        BufferedReader bufferedReader = new BufferedReader(reader);
+        while (true) {
+            String str = null;
+            while (true) {
+                String readLine = bufferedReader.readLine();
+                if (readLine == null) {
+                    return;
+                }
+                String trim = readLine.trim();
+                try {
+                    if (trim.charAt(0) != '#') {
+                        if (trim.charAt(trim.length() - 1) == '\\') {
+                            if (str != null) {
+                                str = str + trim.substring(0, trim.length() - 1);
+                            } else {
+                                str = trim.substring(0, trim.length() - 1);
+                            }
+                        } else if (str != null) {
+                            break;
+                        } else {
+                            parseLine(trim);
+                        }
+                    }
+                } catch (MailcapParseException | StringIndexOutOfBoundsException unused) {
+                }
+            }
+        }
     }
 
     protected void parseLine(String str) throws MailcapParseException, IOException {

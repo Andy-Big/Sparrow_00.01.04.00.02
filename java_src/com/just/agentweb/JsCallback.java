@@ -6,6 +6,7 @@ import java.lang.ref.WeakReference;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
 /* loaded from: classes.dex */
 public class JsCallback {
     private static final String CALLBACK_JS_FORMAT = "javascript:%s.callback(%d, %d %s);";
@@ -58,12 +59,12 @@ public class JsCallback {
             try {
                 new JSONObject(obj2);
             } catch (JSONException unused) {
-                new JSONArray(obj2);
+                return false;
             }
-            return true;
         } catch (JSONException unused2) {
-            return false;
+            new JSONArray(obj2);
         }
+        return true;
     }
 
     public void setPermanent(boolean z) {

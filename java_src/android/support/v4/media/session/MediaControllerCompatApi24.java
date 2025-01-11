@@ -3,6 +3,7 @@ package android.support.v4.media.session;
 import android.media.session.MediaController;
 import android.net.Uri;
 import android.os.Bundle;
+
 /* loaded from: classes.dex */
 class MediaControllerCompatApi24 {
 

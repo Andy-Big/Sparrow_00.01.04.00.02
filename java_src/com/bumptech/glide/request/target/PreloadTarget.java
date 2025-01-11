@@ -6,6 +6,7 @@ import android.os.Looper;
 import android.os.Message;
 import com.bumptech.glide.RequestManager;
 import com.bumptech.glide.request.transition.Transition;
+
 /* loaded from: classes.dex */
 public final class PreloadTarget<Z> extends CustomTarget<Z> {
     private static final Handler HANDLER = new Handler(Looper.getMainLooper(), new Handler.Callback() { // from class: com.bumptech.glide.request.target.PreloadTarget.1

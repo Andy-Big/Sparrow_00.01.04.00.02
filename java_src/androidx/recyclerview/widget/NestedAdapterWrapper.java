@@ -5,9 +5,9 @@ import androidx.core.util.Preconditions;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StableIdStorage;
 import androidx.recyclerview.widget.ViewTypeStorage;
-/* JADX INFO: Access modifiers changed from: package-private */
+
 /* loaded from: classes.dex */
-public class NestedAdapterWrapper {
+class NestedAdapterWrapper {
     public final RecyclerView.Adapter<RecyclerView.ViewHolder> adapter;
     private RecyclerView.AdapterDataObserver mAdapterObserver = new RecyclerView.AdapterDataObserver() { // from class: androidx.recyclerview.widget.NestedAdapterWrapper.1
         @Override // androidx.recyclerview.widget.RecyclerView.AdapterDataObserver
@@ -80,8 +80,7 @@ public class NestedAdapterWrapper {
         void onStateRestorationPolicyChanged(NestedAdapterWrapper nestedAdapterWrapper);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public NestedAdapterWrapper(RecyclerView.Adapter<RecyclerView.ViewHolder> adapter, Callback callback, ViewTypeStorage viewTypeStorage, StableIdStorage.StableIdLookup stableIdLookup) {
+    NestedAdapterWrapper(RecyclerView.Adapter<RecyclerView.ViewHolder> adapter, Callback callback, ViewTypeStorage viewTypeStorage, StableIdStorage.StableIdLookup stableIdLookup) {
         this.adapter = adapter;
         this.mCallback = callback;
         this.mViewTypeLookup = viewTypeStorage.createViewTypeWrapper(this);
@@ -90,29 +89,24 @@ public class NestedAdapterWrapper {
         this.adapter.registerAdapterDataObserver(this.mAdapterObserver);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void dispose() {
+    void dispose() {
         this.adapter.unregisterAdapterDataObserver(this.mAdapterObserver);
         this.mViewTypeLookup.dispose();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public int getCachedItemCount() {
+    int getCachedItemCount() {
         return this.mCachedItemCount;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public int getItemViewType(int i) {
+    int getItemViewType(int i) {
         return this.mViewTypeLookup.localToGlobal(this.adapter.getItemViewType(i));
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+    RecyclerView.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         return this.adapter.onCreateViewHolder(viewGroup, this.mViewTypeLookup.globalToLocal(i));
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int i) {
+    void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int i) {
         this.adapter.bindViewHolder(viewHolder, i);
     }
 

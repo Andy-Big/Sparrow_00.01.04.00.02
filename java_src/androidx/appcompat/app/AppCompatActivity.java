@@ -21,13 +21,13 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.app.NavUtils;
 import androidx.core.app.TaskStackBuilder;
 import androidx.fragment.app.FragmentActivity;
+
 /* loaded from: classes.dex */
 public class AppCompatActivity extends FragmentActivity implements AppCompatCallback, TaskStackBuilder.SupportParentable, ActionBarDrawerToggle.DelegateProvider {
     private AppCompatDelegate mDelegate;
     private Resources mResources;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void onNightModeChanged(int i) {
+    protected void onNightModeChanged(int i) {
     }
 
     public void onPrepareSupportNavigateUpTaskStack(TaskStackBuilder taskStackBuilder) {
@@ -78,9 +78,8 @@ public class AppCompatActivity extends FragmentActivity implements AppCompatCall
         super.attachBaseContext(getDelegate().attachBaseContext2(context));
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
-    public void onCreate(Bundle bundle) {
+    protected void onCreate(Bundle bundle) {
         AppCompatDelegate delegate = getDelegate();
         delegate.installViewFactory();
         delegate.onCreate(bundle);
@@ -147,16 +146,14 @@ public class AppCompatActivity extends FragmentActivity implements AppCompatCall
         getDelegate().onPostResume();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onStart() {
+    protected void onStart() {
         super.onStart();
         getDelegate().onStart();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onStop() {
+    protected void onStop() {
         super.onStop();
         getDelegate().onStop();
     }
@@ -178,9 +175,8 @@ public class AppCompatActivity extends FragmentActivity implements AppCompatCall
         return onSupportNavigateUp();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onDestroy() {
+    protected void onDestroy() {
         super.onDestroy();
         getDelegate().onDestroy();
     }
@@ -268,9 +264,8 @@ public class AppCompatActivity extends FragmentActivity implements AppCompatCall
         super.onPanelClosed(i, menu);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
-    public void onSaveInstanceState(Bundle bundle) {
+    protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
         getDelegate().onSaveInstanceState(bundle);
     }

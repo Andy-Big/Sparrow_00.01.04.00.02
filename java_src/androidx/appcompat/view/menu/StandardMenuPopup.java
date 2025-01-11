@@ -18,6 +18,7 @@ import androidx.appcompat.R;
 import androidx.appcompat.view.menu.MenuPresenter;
 import androidx.appcompat.widget.MenuPopupWindow;
 import androidx.core.view.ViewCompat;
+
 /* loaded from: classes.dex */
 final class StandardMenuPopup extends MenuPopup implements PopupWindow.OnDismissListener, AdapterView.OnItemClickListener, MenuPresenter, View.OnKeyListener {
     private static final int ITEM_LAYOUT = R.layout.abc_popup_menu_item_layout;

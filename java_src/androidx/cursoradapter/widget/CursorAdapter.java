@@ -12,6 +12,7 @@ import android.widget.Filter;
 import android.widget.FilterQueryProvider;
 import android.widget.Filterable;
 import androidx.cursoradapter.widget.CursorFilter;
+
 /* loaded from: classes.dex */
 public abstract class CursorAdapter extends BaseAdapter implements Filterable, CursorFilter.CursorFilterClient {
     @Deprecated
@@ -229,9 +230,8 @@ public abstract class CursorAdapter extends BaseAdapter implements Filterable, C
         this.mDataValid = this.mCursor.requery();
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public class ChangeObserver extends ContentObserver {
+    private class ChangeObserver extends ContentObserver {
         @Override // android.database.ContentObserver
         public boolean deliverSelfNotifications() {
             return true;
@@ -247,9 +247,8 @@ public abstract class CursorAdapter extends BaseAdapter implements Filterable, C
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public class MyDataSetObserver extends DataSetObserver {
+    private class MyDataSetObserver extends DataSetObserver {
         MyDataSetObserver() {
         }
 

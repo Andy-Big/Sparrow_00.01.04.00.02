@@ -4,25 +4,23 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.jmdns.ServiceInfo;
-/* JADX INFO: Access modifiers changed from: package-private */
+
 /* loaded from: classes2.dex */
-public class ServiceTypeDecoder {
+class ServiceTypeDecoder {
     private static final Pattern SUBTYPE_PATTERN = Pattern.compile("^((.*)\\._)?_?(.*)\\._sub\\._([^.]*)\\._([^.]*)\\.(.*)\\.?$");
     private static final Pattern PATTERN = Pattern.compile("^((.*)?\\._)?([^.]*)\\._([^.]*)\\.(.*)\\.?$");
 
     private ServiceTypeDecoder() {
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static Map<ServiceInfo.Fields, String> decodeQualifiedNameMap(String str, String str2, String str3) {
+    static Map<ServiceInfo.Fields, String> decodeQualifiedNameMap(String str, String str2, String str3) {
         Map<ServiceInfo.Fields, String> decodeQualifiedNameMapForType = decodeQualifiedNameMapForType(str);
         decodeQualifiedNameMapForType.put(ServiceInfo.Fields.Instance, str2);
         decodeQualifiedNameMapForType.put(ServiceInfo.Fields.Subtype, str3);
         return ServiceInfoImpl.checkQualifiedNameMap(decodeQualifiedNameMapForType);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static Map<ServiceInfo.Fields, String> decodeQualifiedNameMapForType(String str) {
+    static Map<ServiceInfo.Fields, String> decodeQualifiedNameMapForType(String str) {
         String removeSeparators;
         String substring;
         String str2;

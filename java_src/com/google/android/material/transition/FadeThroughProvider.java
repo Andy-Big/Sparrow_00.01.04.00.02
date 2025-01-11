@@ -4,6 +4,7 @@ import android.animation.Animator;
 import android.animation.ValueAnimator;
 import android.view.View;
 import android.view.ViewGroup;
+
 /* loaded from: classes.dex */
 public final class FadeThroughProvider implements VisibilityAnimatorProvider {
     static final float PROGRESS_THRESHOLD = 0.35f;

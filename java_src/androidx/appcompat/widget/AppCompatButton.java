@@ -14,6 +14,7 @@ import androidx.core.view.TintableBackgroundView;
 import androidx.core.widget.AutoSizeableTextView;
 import androidx.core.widget.TextViewCompat;
 import androidx.core.widget.TintableCompoundDrawablesView;
+
 /* loaded from: classes.dex */
 public class AppCompatButton extends Button implements TintableBackgroundView, AutoSizeableTextView, TintableCompoundDrawablesView {
     private final AppCompatBackgroundHelper mBackgroundTintHelper;
@@ -125,9 +126,8 @@ public class AppCompatButton extends Button implements TintableBackgroundView, A
         accessibilityNodeInfo.setClassName(Button.class.getName());
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.widget.TextView, android.view.View
-    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
+    protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
         AppCompatTextHelper appCompatTextHelper = this.mTextHelper;
         if (appCompatTextHelper != null) {
@@ -147,9 +147,8 @@ public class AppCompatButton extends Button implements TintableBackgroundView, A
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.widget.TextView
-    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    protected void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
         super.onTextChanged(charSequence, i, i2, i3);
         if (this.mTextHelper == null || PLATFORM_SUPPORTS_AUTOSIZE || !this.mTextHelper.isAutoSizeEnabled()) {
             return;

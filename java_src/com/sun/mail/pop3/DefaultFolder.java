@@ -5,6 +5,7 @@ import javax.mail.Folder;
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.MethodNotSupportedException;
+
 /* loaded from: classes2.dex */
 public class DefaultFolder extends Folder {
     @Override // javax.mail.Folder
@@ -57,8 +58,7 @@ public class DefaultFolder extends Folder {
         return false;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public DefaultFolder(POP3Store pOP3Store) {
+    DefaultFolder(POP3Store pOP3Store) {
         super(pOP3Store);
     }
 

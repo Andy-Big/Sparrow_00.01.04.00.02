@@ -38,6 +38,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicLongArray;
+
 /* loaded from: classes.dex */
 public final class Gson {
     static final boolean DEFAULT_COMPLEX_MAP_KEYS = false;
@@ -75,8 +76,7 @@ public final class Gson {
         this(Excluder.DEFAULT, FieldNamingPolicy.IDENTITY, Collections.emptyMap(), false, false, false, true, false, false, false, LongSerializationPolicy.DEFAULT, null, 2, 2, Collections.emptyList(), Collections.emptyList(), Collections.emptyList());
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public Gson(Excluder excluder, FieldNamingStrategy fieldNamingStrategy, Map<Type, InstanceCreator<?>> map, boolean z, boolean z2, boolean z3, boolean z4, boolean z5, boolean z6, boolean z7, LongSerializationPolicy longSerializationPolicy, String str, int i, int i2, List<TypeAdapterFactory> list, List<TypeAdapterFactory> list2, List<TypeAdapterFactory> list3) {
+    Gson(Excluder excluder, FieldNamingStrategy fieldNamingStrategy, Map<Type, InstanceCreator<?>> map, boolean z, boolean z2, boolean z3, boolean z4, boolean z5, boolean z6, boolean z7, LongSerializationPolicy longSerializationPolicy, String str, int i, int i2, List<TypeAdapterFactory> list, List<TypeAdapterFactory> list2, List<TypeAdapterFactory> list3) {
         this.calls = new ThreadLocal<>();
         this.typeTokenCache = new ConcurrentHashMap();
         this.excluder = excluder;
@@ -170,6 +170,8 @@ public final class Gson {
             return TypeAdapters.DOUBLE;
         }
         return new TypeAdapter<Number>() { // from class: com.google.gson.Gson.1
+            /* JADX DEBUG: Method merged with bridge method */
+            /* JADX DEBUG: Return type fixed from 'java.lang.Double' to match base method */
             @Override // com.google.gson.TypeAdapter
             /* renamed from: read */
             public Number read2(JsonReader jsonReader) throws IOException {
@@ -180,6 +182,7 @@ public final class Gson {
                 return Double.valueOf(jsonReader.nextDouble());
             }
 
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.gson.TypeAdapter
             public void write(JsonWriter jsonWriter, Number number) throws IOException {
                 if (number == null) {
@@ -197,6 +200,8 @@ public final class Gson {
             return TypeAdapters.FLOAT;
         }
         return new TypeAdapter<Number>() { // from class: com.google.gson.Gson.2
+            /* JADX DEBUG: Method merged with bridge method */
+            /* JADX DEBUG: Return type fixed from 'java.lang.Float' to match base method */
             @Override // com.google.gson.TypeAdapter
             /* renamed from: read */
             public Number read2(JsonReader jsonReader) throws IOException {
@@ -207,6 +212,7 @@ public final class Gson {
                 return Float.valueOf((float) jsonReader.nextDouble());
             }
 
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.gson.TypeAdapter
             public void write(JsonWriter jsonWriter, Number number) throws IOException {
                 if (number == null) {
@@ -230,6 +236,7 @@ public final class Gson {
             return TypeAdapters.LONG;
         }
         return new TypeAdapter<Number>() { // from class: com.google.gson.Gson.3
+            /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // com.google.gson.TypeAdapter
             public Number read(JsonReader jsonReader) throws IOException {
@@ -240,6 +247,7 @@ public final class Gson {
                 return Long.valueOf(jsonReader.nextLong());
             }
 
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.gson.TypeAdapter
             public void write(JsonWriter jsonWriter, Number number) throws IOException {
                 if (number == null) {
@@ -253,11 +261,13 @@ public final class Gson {
 
     private static TypeAdapter<AtomicLong> atomicLongAdapter(final TypeAdapter<Number> typeAdapter) {
         return new TypeAdapter<AtomicLong>() { // from class: com.google.gson.Gson.4
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.gson.TypeAdapter
             public void write(JsonWriter jsonWriter, AtomicLong atomicLong) throws IOException {
                 TypeAdapter.this.write(jsonWriter, Long.valueOf(atomicLong.get()));
             }
 
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.gson.TypeAdapter
             public AtomicLong read(JsonReader jsonReader) throws IOException {
                 return new AtomicLong(((Number) TypeAdapter.this.read(jsonReader)).longValue());
@@ -267,6 +277,7 @@ public final class Gson {
 
     private static TypeAdapter<AtomicLongArray> atomicLongArrayAdapter(final TypeAdapter<Number> typeAdapter) {
         return new TypeAdapter<AtomicLongArray>() { // from class: com.google.gson.Gson.5
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.gson.TypeAdapter
             public void write(JsonWriter jsonWriter, AtomicLongArray atomicLongArray) throws IOException {
                 jsonWriter.beginArray();
@@ -277,6 +288,7 @@ public final class Gson {
                 jsonWriter.endArray();
             }
 
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.gson.TypeAdapter
             public AtomicLongArray read(JsonReader jsonReader) throws IOException {
                 ArrayList arrayList = new ArrayList();
@@ -295,6 +307,8 @@ public final class Gson {
         }.nullSafe();
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r2v5, resolved type: java.util.Map<com.google.gson.reflect.TypeToken<?>, com.google.gson.TypeAdapter<?>> */
+    /* JADX DEBUG: Type inference failed for r4v4. Raw type applied. Possible types: com.google.gson.TypeAdapter<T>, com.google.gson.TypeAdapter<?> */
     /* JADX WARN: Multi-variable type inference failed */
     public <T> TypeAdapter<T> getAdapter(TypeToken<T> typeToken) {
         TypeAdapter<T> typeAdapter = (TypeAdapter<T>) this.typeTokenCache.get(typeToken == null ? NULL_KEY_SURROGATE : typeToken);
@@ -525,19 +539,19 @@ public final class Gson {
                     T read = getAdapter(TypeToken.get(type)).read(jsonReader);
                     jsonReader.setLenient(isLenient);
                     return read;
-                } catch (IOException e) {
-                    throw new JsonSyntaxException(e);
-                } catch (IllegalStateException e2) {
-                    throw new JsonSyntaxException(e2);
+                } catch (EOFException e) {
+                    if (!z) {
+                        throw new JsonSyntaxException(e);
+                    }
+                    jsonReader.setLenient(isLenient);
+                    return null;
+                } catch (AssertionError e2) {
+                    throw new AssertionError("AssertionError (GSON 2.8.5): " + e2.getMessage(), e2);
                 }
-            } catch (EOFException e3) {
-                if (!z) {
-                    throw new JsonSyntaxException(e3);
-                }
-                jsonReader.setLenient(isLenient);
-                return null;
-            } catch (AssertionError e4) {
-                throw new AssertionError("AssertionError (GSON 2.8.5): " + e4.getMessage(), e4);
+            } catch (IOException e3) {
+                throw new JsonSyntaxException(e3);
+            } catch (IllegalStateException e4) {
+                throw new JsonSyntaxException(e4);
             }
         } catch (Throwable th) {
             jsonReader.setLenient(isLenient);
@@ -556,9 +570,8 @@ public final class Gson {
         return (T) fromJson(new JsonTreeReader(jsonElement), type);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static class FutureTypeAdapter<T> extends TypeAdapter<T> {
+    static class FutureTypeAdapter<T> extends TypeAdapter<T> {
         private TypeAdapter<T> delegate;
 
         FutureTypeAdapter() {

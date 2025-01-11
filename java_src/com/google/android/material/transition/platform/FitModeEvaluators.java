@@ -1,6 +1,7 @@
 package com.google.android.material.transition.platform;
 
 import android.graphics.RectF;
+
 /* loaded from: classes.dex */
 class FitModeEvaluators {
     private static final FitModeEvaluator WIDTH = new FitModeEvaluator() { // from class: com.google.android.material.transition.platform.FitModeEvaluators.1
@@ -44,8 +45,7 @@ class FitModeEvaluators {
         }
     };
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static FitModeEvaluator get(int i, boolean z, RectF rectF, RectF rectF2) {
+    static FitModeEvaluator get(int i, boolean z, RectF rectF, RectF rectF2) {
         if (i == 0) {
             return shouldAutoFitToWidth(z, rectF, rectF2) ? WIDTH : HEIGHT;
         } else if (i != 1) {

@@ -46,6 +46,7 @@ import com.google.android.material.theme.overlay.MaterialThemeOverlay;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public class FloatingActionButton extends VisibilityAwareImageButton implements TintableBackgroundView, TintableImageSourceView, ExpandableTransformationWidget, Shapeable, CoordinatorLayout.AttachedBehavior {
     private static final int AUTO_MINI_LARGEST_SCREEN_WIDTH = 470;
@@ -448,8 +449,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
         setCustomSize(0);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public int getSizeDimension() {
+    int getSizeDimension() {
         return getSizeDimension(this.size);
     }
 
@@ -644,6 +644,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
             }
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
         public boolean onDependentViewChanged(CoordinatorLayout coordinatorLayout, FloatingActionButton floatingActionButton, View view) {
             if (view instanceof AppBarLayout) {
@@ -702,6 +703,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
             return false;
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
         public boolean onLayoutChild(CoordinatorLayout coordinatorLayout, FloatingActionButton floatingActionButton, int i) {
             List<View> dependencies = coordinatorLayout.getDependencies(floatingActionButton);
@@ -723,6 +725,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
             return true;
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
         public boolean getInsetDodgeRect(CoordinatorLayout coordinatorLayout, FloatingActionButton floatingActionButton, Rect rect) {
             Rect rect2 = floatingActionButton.shadowPadding;
@@ -839,12 +842,14 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
             this.listener = transformationCallback;
         }
 
+        /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.google.android.material.animation.TransformationCallback<T extends com.google.android.material.floatingactionbutton.FloatingActionButton> */
         /* JADX WARN: Multi-variable type inference failed */
         @Override // com.google.android.material.floatingactionbutton.FloatingActionButtonImpl.InternalTransformationCallback
         public void onTranslationChanged() {
             this.listener.onTranslationChanged(FloatingActionButton.this);
         }
 
+        /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.google.android.material.animation.TransformationCallback<T extends com.google.android.material.floatingactionbutton.FloatingActionButton> */
         /* JADX WARN: Multi-variable type inference failed */
         @Override // com.google.android.material.floatingactionbutton.FloatingActionButtonImpl.InternalTransformationCallback
         public void onScaleChanged() {
@@ -908,9 +913,8 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
         return new FloatingActionButtonImpl(this, new ShadowDelegateImpl());
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public class ShadowDelegateImpl implements ShadowViewDelegate {
+    private class ShadowDelegateImpl implements ShadowViewDelegate {
         ShadowDelegateImpl() {
         }
 

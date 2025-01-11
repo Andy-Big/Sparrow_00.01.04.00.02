@@ -4,6 +4,7 @@ import android.media.browse.MediaBrowser;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
+
 /* loaded from: classes.dex */
 class ParceledListSliceAdapterApi21 {
     private static Constructor sConstructor;

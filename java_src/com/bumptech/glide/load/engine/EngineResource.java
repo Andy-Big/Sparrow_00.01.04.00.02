@@ -2,6 +2,7 @@ package com.bumptech.glide.load.engine;
 
 import com.bumptech.glide.load.Key;
 import com.bumptech.glide.util.Preconditions;
+
 /* loaded from: classes.dex */
 class EngineResource<Z> implements Resource<Z> {
     private int acquired;
@@ -17,8 +18,7 @@ class EngineResource<Z> implements Resource<Z> {
         void onResourceReleased(Key key, EngineResource<?> engineResource);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public EngineResource(Resource<Z> resource, boolean z, boolean z2, Key key, ResourceListener resourceListener) {
+    EngineResource(Resource<Z> resource, boolean z, boolean z2, Key key, ResourceListener resourceListener) {
         this.resource = (Resource) Preconditions.checkNotNull(resource);
         this.isMemoryCacheable = z;
         this.isRecyclable = z2;
@@ -26,13 +26,11 @@ class EngineResource<Z> implements Resource<Z> {
         this.listener = (ResourceListener) Preconditions.checkNotNull(resourceListener);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public Resource<Z> getResource() {
+    Resource<Z> getResource() {
         return this.resource;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean isMemoryCacheable() {
+    boolean isMemoryCacheable() {
         return this.isMemoryCacheable;
     }
 
@@ -65,16 +63,14 @@ class EngineResource<Z> implements Resource<Z> {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public synchronized void acquire() {
+    synchronized void acquire() {
         if (this.isRecycled) {
             throw new IllegalStateException("Cannot acquire a recycled resource");
         }
         this.acquired++;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void release() {
+    void release() {
         boolean z;
         synchronized (this) {
             if (this.acquired <= 0) {

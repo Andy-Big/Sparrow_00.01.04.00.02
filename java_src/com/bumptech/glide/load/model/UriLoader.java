@@ -16,6 +16,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
+
 /* loaded from: classes.dex */
 public class UriLoader<Data> implements ModelLoader<Uri, Data> {
     private static final Set<String> SCHEMES = Collections.unmodifiableSet(new HashSet(Arrays.asList("file", "android.resource", "content")));
@@ -30,11 +31,13 @@ public class UriLoader<Data> implements ModelLoader<Uri, Data> {
         this.factory = localUriFetcherFactory;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.model.ModelLoader
     public ModelLoader.LoadData<Data> buildLoadData(Uri uri, int i, int i2, Options options) {
         return new ModelLoader.LoadData<>(new ObjectKey(uri), this.factory.build(uri));
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.model.ModelLoader
     public boolean handles(Uri uri) {
         return SCHEMES.contains(uri.getScheme());

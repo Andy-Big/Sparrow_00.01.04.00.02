@@ -2,14 +2,14 @@ package com.bumptech.glide.load.resource.drawable;
 
 import android.graphics.drawable.Drawable;
 import com.bumptech.glide.load.engine.Resource;
+
 /* loaded from: classes.dex */
 final class NonOwnedDrawableResource extends DrawableResource<Drawable> {
     @Override // com.bumptech.glide.load.engine.Resource
     public void recycle() {
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static Resource<Drawable> newInstance(Drawable drawable) {
+    static Resource<Drawable> newInstance(Drawable drawable) {
         if (drawable != null) {
             return new NonOwnedDrawableResource(drawable);
         }
@@ -20,6 +20,7 @@ final class NonOwnedDrawableResource extends DrawableResource<Drawable> {
         super(drawable);
     }
 
+    /* JADX DEBUG: Type inference failed for r0v1. Raw type applied. Possible types: java.lang.Class<?>, java.lang.Class<android.graphics.drawable.Drawable> */
     @Override // com.bumptech.glide.load.engine.Resource
     public Class<Drawable> getResourceClass() {
         return this.drawable.getClass();

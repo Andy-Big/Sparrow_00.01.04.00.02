@@ -1,6 +1,7 @@
 package com.sun.mail.iap;
 
 import java.io.ByteArrayInputStream;
+
 /* loaded from: classes2.dex */
 public class ByteArray {
     private byte[] bytes;

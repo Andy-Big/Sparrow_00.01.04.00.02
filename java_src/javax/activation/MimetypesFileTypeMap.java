@@ -5,9 +5,11 @@ import com.sun.activation.registries.MimeTypeFile;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URL;
 import java.security.AccessController;
 import java.security.PrivilegedAction;
 import java.util.Vector;
+
 /* loaded from: classes2.dex */
 public class MimetypesFileTypeMap extends FileTypeMap {
     private static final int PROG = 0;
@@ -81,112 +83,179 @@ public class MimetypesFileTypeMap extends FileTypeMap {
     /* JADX WARN: Removed duplicated region for block: B:46:0x0097 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    private com.sun.activation.registries.MimeTypeFile loadResource(java.lang.String r7) {
-        /*
-            r6 = this;
-            java.lang.String r0 = "MimetypesFileTypeMap: can't load "
-            r1 = 0
-            java.lang.Class r2 = r6.getClass()     // Catch: java.lang.Throwable -> L56 java.lang.SecurityException -> L58 java.io.IOException -> L75
-            java.io.InputStream r2 = javax.activation.SecuritySupport.getResourceAsStream(r2, r7)     // Catch: java.lang.Throwable -> L56 java.lang.SecurityException -> L58 java.io.IOException -> L75
-            if (r2 == 0) goto L32
-            com.sun.activation.registries.MimeTypeFile r3 = new com.sun.activation.registries.MimeTypeFile     // Catch: java.lang.SecurityException -> L52 java.io.IOException -> L54 java.lang.Throwable -> L93
-            r3.<init>(r2)     // Catch: java.lang.SecurityException -> L52 java.io.IOException -> L54 java.lang.Throwable -> L93
-            boolean r4 = com.sun.activation.registries.LogSupport.isLoggable()     // Catch: java.lang.SecurityException -> L52 java.io.IOException -> L54 java.lang.Throwable -> L93
-            if (r4 == 0) goto L2c
-            java.lang.StringBuilder r4 = new java.lang.StringBuilder     // Catch: java.lang.SecurityException -> L52 java.io.IOException -> L54 java.lang.Throwable -> L93
-            r4.<init>()     // Catch: java.lang.SecurityException -> L52 java.io.IOException -> L54 java.lang.Throwable -> L93
-            java.lang.String r5 = "MimetypesFileTypeMap: successfully loaded mime types file: "
-            r4.append(r5)     // Catch: java.lang.SecurityException -> L52 java.io.IOException -> L54 java.lang.Throwable -> L93
-            r4.append(r7)     // Catch: java.lang.SecurityException -> L52 java.io.IOException -> L54 java.lang.Throwable -> L93
-            java.lang.String r4 = r4.toString()     // Catch: java.lang.SecurityException -> L52 java.io.IOException -> L54 java.lang.Throwable -> L93
-            com.sun.activation.registries.LogSupport.log(r4)     // Catch: java.lang.SecurityException -> L52 java.io.IOException -> L54 java.lang.Throwable -> L93
-        L2c:
-            if (r2 == 0) goto L31
-            r2.close()     // Catch: java.io.IOException -> L31
-        L31:
-            return r3
-        L32:
-            boolean r3 = com.sun.activation.registries.LogSupport.isLoggable()     // Catch: java.lang.SecurityException -> L52 java.io.IOException -> L54 java.lang.Throwable -> L93
-            if (r3 == 0) goto L4c
-            java.lang.StringBuilder r3 = new java.lang.StringBuilder     // Catch: java.lang.SecurityException -> L52 java.io.IOException -> L54 java.lang.Throwable -> L93
-            r3.<init>()     // Catch: java.lang.SecurityException -> L52 java.io.IOException -> L54 java.lang.Throwable -> L93
-            java.lang.String r4 = "MimetypesFileTypeMap: not loading mime types file: "
-            r3.append(r4)     // Catch: java.lang.SecurityException -> L52 java.io.IOException -> L54 java.lang.Throwable -> L93
-            r3.append(r7)     // Catch: java.lang.SecurityException -> L52 java.io.IOException -> L54 java.lang.Throwable -> L93
-            java.lang.String r3 = r3.toString()     // Catch: java.lang.SecurityException -> L52 java.io.IOException -> L54 java.lang.Throwable -> L93
-            com.sun.activation.registries.LogSupport.log(r3)     // Catch: java.lang.SecurityException -> L52 java.io.IOException -> L54 java.lang.Throwable -> L93
-        L4c:
-            if (r2 == 0) goto L92
-        L4e:
-            r2.close()     // Catch: java.io.IOException -> L92
-            goto L92
-        L52:
-            r3 = move-exception
-            goto L5a
-        L54:
-            r3 = move-exception
-            goto L77
-        L56:
-            r7 = move-exception
-            goto L95
-        L58:
-            r3 = move-exception
-            r2 = r1
-        L5a:
-            boolean r4 = com.sun.activation.registries.LogSupport.isLoggable()     // Catch: java.lang.Throwable -> L93
-            if (r4 == 0) goto L72
-            java.lang.StringBuilder r4 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L93
-            r4.<init>()     // Catch: java.lang.Throwable -> L93
-            r4.append(r0)     // Catch: java.lang.Throwable -> L93
-            r4.append(r7)     // Catch: java.lang.Throwable -> L93
-            java.lang.String r7 = r4.toString()     // Catch: java.lang.Throwable -> L93
-            com.sun.activation.registries.LogSupport.log(r7, r3)     // Catch: java.lang.Throwable -> L93
-        L72:
-            if (r2 == 0) goto L92
-            goto L4e
-        L75:
-            r3 = move-exception
-            r2 = r1
-        L77:
-            boolean r4 = com.sun.activation.registries.LogSupport.isLoggable()     // Catch: java.lang.Throwable -> L93
-            if (r4 == 0) goto L8f
-            java.lang.StringBuilder r4 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L93
-            r4.<init>()     // Catch: java.lang.Throwable -> L93
-            r4.append(r0)     // Catch: java.lang.Throwable -> L93
-            r4.append(r7)     // Catch: java.lang.Throwable -> L93
-            java.lang.String r7 = r4.toString()     // Catch: java.lang.Throwable -> L93
-            com.sun.activation.registries.LogSupport.log(r7, r3)     // Catch: java.lang.Throwable -> L93
-        L8f:
-            if (r2 == 0) goto L92
-            goto L4e
-        L92:
-            return r1
-        L93:
-            r7 = move-exception
-            r1 = r2
-        L95:
-            if (r1 == 0) goto L9a
-            r1.close()     // Catch: java.io.IOException -> L9a
-        L9a:
-            throw r7
-        */
-        throw new UnsupportedOperationException("Method not decompiled: javax.activation.MimetypesFileTypeMap.loadResource(java.lang.String):com.sun.activation.registries.MimeTypeFile");
+    private MimeTypeFile loadResource(String str) {
+        InputStream inputStream;
+        InputStream inputStream2;
+        InputStream inputStream3 = null;
+        try {
+            try {
+                inputStream = SecuritySupport.getResourceAsStream(getClass(), str);
+            } catch (IOException e) {
+                e = e;
+                inputStream = null;
+            } catch (SecurityException e2) {
+                e = e2;
+                inputStream = null;
+            } catch (Throwable th) {
+                th = th;
+                if (inputStream3 != null) {
+                }
+                throw th;
+            }
+            try {
+                if (inputStream != null) {
+                    MimeTypeFile mimeTypeFile = new MimeTypeFile(inputStream);
+                    if (LogSupport.isLoggable()) {
+                        LogSupport.log("MimetypesFileTypeMap: successfully loaded mime types file: " + str);
+                    }
+                    if (inputStream != null) {
+                        try {
+                            inputStream.close();
+                        } catch (IOException unused) {
+                        }
+                    }
+                    return mimeTypeFile;
+                } else if (LogSupport.isLoggable()) {
+                    LogSupport.log("MimetypesFileTypeMap: not loading mime types file: " + str);
+                }
+            } catch (IOException e3) {
+                e = e3;
+                if (LogSupport.isLoggable()) {
+                    LogSupport.log("MimetypesFileTypeMap: can't load " + str, e);
+                }
+            } catch (SecurityException e4) {
+                e = e4;
+                if (LogSupport.isLoggable()) {
+                    LogSupport.log("MimetypesFileTypeMap: can't load " + str, e);
+                }
+                if (inputStream != null) {
+                    try {
+                        inputStream.close();
+                    } catch (IOException unused2) {
+                        return null;
+                    }
+                }
+                return null;
+            }
+        } catch (Throwable th2) {
+            th = th2;
+            inputStream3 = inputStream2;
+            if (inputStream3 != null) {
+                try {
+                    inputStream3.close();
+                } catch (IOException unused3) {
+                }
+            }
+            throw th;
+        }
     }
 
     /* JADX WARN: Removed duplicated region for block: B:65:0x0107  */
     /* JADX WARN: Removed duplicated region for block: B:86:? A[RETURN, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    private void loadAllResources(java.util.Vector r10, java.lang.String r11) {
-        /*
-            Method dump skipped, instructions count: 295
-            To view this dump add '--comments-level debug' option
-        */
-        throw new UnsupportedOperationException("Method not decompiled: javax.activation.MimetypesFileTypeMap.loadAllResources(java.util.Vector, java.lang.String):void");
+    private void loadAllResources(Vector vector, String str) {
+        URL[] systemResources;
+        try {
+            ClassLoader contextClassLoader = SecuritySupport.getContextClassLoader();
+            if (contextClassLoader == null) {
+                contextClassLoader = getClass().getClassLoader();
+            }
+            if (contextClassLoader != null) {
+                systemResources = SecuritySupport.getResources(contextClassLoader, str);
+            } else {
+                systemResources = SecuritySupport.getSystemResources(str);
+            }
+            if (systemResources != null) {
+                if (LogSupport.isLoggable()) {
+                    LogSupport.log("MimetypesFileTypeMap: getResources");
+                }
+                int i = 0;
+                while (r1 < systemResources.length) {
+                    try {
+                        URL url = systemResources[r1];
+                        InputStream inputStream = null;
+                        if (LogSupport.isLoggable()) {
+                            LogSupport.log("MimetypesFileTypeMap: URL " + url);
+                        }
+                        try {
+                            try {
+                                inputStream = SecuritySupport.openStream(url);
+                                if (inputStream != null) {
+                                    vector.addElement(new MimeTypeFile(inputStream));
+                                    try {
+                                        if (LogSupport.isLoggable()) {
+                                            LogSupport.log("MimetypesFileTypeMap: successfully loaded mime types from URL: " + url);
+                                        }
+                                        i = 1;
+                                    } catch (IOException e) {
+                                        e = e;
+                                        i = 1;
+                                        if (LogSupport.isLoggable()) {
+                                            LogSupport.log("MimetypesFileTypeMap: can't load " + url, e);
+                                        }
+                                        r1 = inputStream == null ? r1 + 1 : 0;
+                                        inputStream.close();
+                                    } catch (SecurityException e2) {
+                                        e = e2;
+                                        i = 1;
+                                        if (LogSupport.isLoggable()) {
+                                            LogSupport.log("MimetypesFileTypeMap: can't load " + url, e);
+                                        }
+                                        if (inputStream != null) {
+                                            inputStream.close();
+                                        }
+                                    } catch (Throwable th) {
+                                        th = th;
+                                        if (inputStream != null) {
+                                            try {
+                                                inputStream.close();
+                                            } catch (IOException unused) {
+                                            }
+                                        }
+                                        throw th;
+                                    }
+                                } else if (LogSupport.isLoggable()) {
+                                    LogSupport.log("MimetypesFileTypeMap: not loading mime types from URL: " + url);
+                                }
+                            } catch (IOException e3) {
+                                e = e3;
+                            } catch (SecurityException e4) {
+                                e = e4;
+                            }
+                            if (inputStream == null) {
+                            }
+                            try {
+                                inputStream.close();
+                            } catch (IOException unused2) {
+                            }
+                        } catch (Throwable th2) {
+                            th = th2;
+                        }
+                    } catch (Exception e5) {
+                        e = e5;
+                        r1 = i;
+                        if (LogSupport.isLoggable()) {
+                            LogSupport.log("MimetypesFileTypeMap: can't load " + str, e);
+                        }
+                        if (r1 != 0) {
+                        }
+                    }
+                }
+                r1 = i;
+            }
+        } catch (Exception e6) {
+            e = e6;
+        }
+        if (r1 != 0) {
+            LogSupport.log("MimetypesFileTypeMap: !anyLoaded");
+            MimeTypeFile loadResource = loadResource("/" + str);
+            if (loadResource != null) {
+                vector.addElement(loadResource);
+            }
+        }
     }
 
     private MimeTypeFile loadFile(String str) {

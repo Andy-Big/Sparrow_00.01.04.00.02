@@ -6,6 +6,7 @@ import org.slf4j.helpers.NOPMDCAdapter;
 import org.slf4j.helpers.Util;
 import org.slf4j.impl.StaticMDCBinder;
 import org.slf4j.spi.MDCAdapter;
+
 /* loaded from: classes2.dex */
 public class MDC {
     static final String NO_STATIC_MDC_BINDER_URL = "http://www.slf4j.org/codes.html#no_static_mdc_binder";

@@ -12,6 +12,7 @@ import com.google.gson.stream.MalformedJsonException;
 import java.io.EOFException;
 import java.io.IOException;
 import java.io.Writer;
+
 /* loaded from: classes.dex */
 public final class Streams {
     private Streams() {
@@ -24,25 +25,25 @@ public final class Streams {
             try {
                 jsonReader.peek();
                 z = false;
-            } catch (EOFException e) {
-                e = e;
-                z = true;
-            }
-            try {
-                return TypeAdapters.JSON_ELEMENT.read(jsonReader);
-            } catch (EOFException e2) {
-                e = e2;
-                if (z) {
-                    return JsonNull.INSTANCE;
+                try {
+                    return TypeAdapters.JSON_ELEMENT.read(jsonReader);
+                } catch (EOFException e) {
+                    e = e;
+                    if (z) {
+                        return JsonNull.INSTANCE;
+                    }
+                    throw new JsonSyntaxException(e);
                 }
-                throw new JsonSyntaxException(e);
+            } catch (MalformedJsonException e2) {
+                throw new JsonSyntaxException(e2);
+            } catch (IOException e3) {
+                throw new JsonIOException(e3);
+            } catch (NumberFormatException e4) {
+                throw new JsonSyntaxException(e4);
             }
-        } catch (MalformedJsonException e3) {
-            throw new JsonSyntaxException(e3);
-        } catch (IOException e4) {
-            throw new JsonIOException(e4);
-        } catch (NumberFormatException e5) {
-            throw new JsonSyntaxException(e5);
+        } catch (EOFException e5) {
+            e = e5;
+            z = true;
         }
     }
 
@@ -54,9 +55,8 @@ public final class Streams {
         return appendable instanceof Writer ? (Writer) appendable : new AppendableWriter(appendable);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static final class AppendableWriter extends Writer {
+    private static final class AppendableWriter extends Writer {
         private final Appendable appendable;
         private final CurrentWrite currentWrite = new CurrentWrite();
 

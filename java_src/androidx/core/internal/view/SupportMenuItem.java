@@ -5,6 +5,7 @@ import android.graphics.PorterDuff;
 import android.view.MenuItem;
 import android.view.View;
 import androidx.core.view.ActionProvider;
+
 /* loaded from: classes.dex */
 public interface SupportMenuItem extends MenuItem {
     public static final int SHOW_AS_ACTION_ALWAYS = 2;

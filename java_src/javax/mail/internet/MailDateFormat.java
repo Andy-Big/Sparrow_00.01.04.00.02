@@ -15,6 +15,7 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.TimeZone;
 import java.util.logging.Level;
+
 /* loaded from: classes2.dex */
 public class MailDateFormat extends SimpleDateFormat {
     private static final int LEAP_SECOND = 60;
@@ -40,6 +41,7 @@ public class MailDateFormat extends SimpleDateFormat {
         super.applyPattern(PATTERN);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // java.text.SimpleDateFormat, java.text.DateFormat, java.text.Format
     public MailDateFormat clone() {
         return (MailDateFormat) super.clone();
@@ -124,9 +126,8 @@ public class MailDateFormat extends SimpleDateFormat {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
-    public static abstract class AbstractDateParser {
+    private static abstract class AbstractDateParser {
         static final int INVALID_CHAR = -1;
         static final int MAX_YEAR_DIGITS = 8;
         final ParsePosition pos;
@@ -220,14 +221,141 @@ public class MailDateFormat extends SimpleDateFormat {
          */
         /*
             Code decompiled incorrectly, please refer to instructions dump.
-            To view partially-correct add '--show-bad-code' argument
         */
-        final int parseMonthName(boolean r17) throws java.text.ParseException {
-            /*
-                Method dump skipped, instructions count: 454
-                To view this dump add '--comments-level debug' option
-            */
-            throw new UnsupportedOperationException("Method not decompiled: javax.mail.internet.MailDateFormat.AbstractDateParser.parseMonthName(boolean):int");
+        final int parseMonthName(boolean z) throws java.text.ParseException {
+            switch (getChar()) {
+                case -1:
+                    throw new java.text.ParseException("Invalid month", this.pos.getIndex());
+                case 65:
+                    if (skipPair('u', 'g')) {
+                        return 7;
+                    }
+                    if (z || !skipAlternativePair('u', 'U', 'g', 'G')) {
+                        if (skipPair('p', 'r')) {
+                            return 3;
+                        }
+                        if (!z && skipAlternativePair('p', 'P', 'r', 'R')) {
+                            return 3;
+                        }
+                        ParsePosition parsePosition = this.pos;
+                        parsePosition.setIndex(parsePosition.getIndex() - 1);
+                        throw new java.text.ParseException("Invalid month", this.pos.getIndex());
+                    }
+                    return 7;
+                case 68:
+                    if (skipPair('e', 'c')) {
+                        return 11;
+                    }
+                    if (!z && skipAlternativePair('e', 'E', 'c', 'C')) {
+                        return 11;
+                    }
+                    ParsePosition parsePosition2 = this.pos;
+                    parsePosition2.setIndex(parsePosition2.getIndex() - 1);
+                    throw new java.text.ParseException("Invalid month", this.pos.getIndex());
+                case 70:
+                    if (skipPair('e', 'b') || (!z && skipAlternativePair('e', 'E', 'b', 'B'))) {
+                        return 1;
+                    }
+                    ParsePosition parsePosition22 = this.pos;
+                    parsePosition22.setIndex(parsePosition22.getIndex() - 1);
+                    throw new java.text.ParseException("Invalid month", this.pos.getIndex());
+                case 74:
+                    if (skipChar('u') || (!z && skipChar('U'))) {
+                        if (skipChar('l')) {
+                            return 6;
+                        }
+                        if (!z && skipChar('L')) {
+                            return 6;
+                        }
+                        if (skipChar('n')) {
+                            return 5;
+                        }
+                        if (!z && skipChar('N')) {
+                            return 5;
+                        }
+                        ParsePosition parsePosition3 = this.pos;
+                        parsePosition3.setIndex(parsePosition3.getIndex() - 1);
+                    } else if (skipPair('a', 'n')) {
+                        return 0;
+                    } else {
+                        if (!z && skipAlternativePair('a', 'A', 'n', 'N')) {
+                            return 0;
+                        }
+                    }
+                    ParsePosition parsePosition222 = this.pos;
+                    parsePosition222.setIndex(parsePosition222.getIndex() - 1);
+                    throw new java.text.ParseException("Invalid month", this.pos.getIndex());
+                case 77:
+                    if (skipChar('a') || (!z && skipChar('A'))) {
+                        if (skipChar('r')) {
+                            return 2;
+                        }
+                        if (!z && skipChar('R')) {
+                            return 2;
+                        }
+                        if (skipChar('y')) {
+                            return 4;
+                        }
+                        if (!z && skipChar('Y')) {
+                            return 4;
+                        }
+                        ParsePosition parsePosition4 = this.pos;
+                        parsePosition4.setIndex(parsePosition4.getIndex() - 1);
+                    }
+                    ParsePosition parsePosition2222 = this.pos;
+                    parsePosition2222.setIndex(parsePosition2222.getIndex() - 1);
+                    throw new java.text.ParseException("Invalid month", this.pos.getIndex());
+                case 78:
+                    if (skipPair('o', 'v')) {
+                        return 10;
+                    }
+                    if (!z && skipAlternativePair('o', 'O', 'v', 'V')) {
+                        return 10;
+                    }
+                    ParsePosition parsePosition22222 = this.pos;
+                    parsePosition22222.setIndex(parsePosition22222.getIndex() - 1);
+                    throw new java.text.ParseException("Invalid month", this.pos.getIndex());
+                case 79:
+                    if (skipPair('c', 't')) {
+                        return 9;
+                    }
+                    if (!z && skipAlternativePair('c', 'C', 't', 'T')) {
+                        return 9;
+                    }
+                    ParsePosition parsePosition222222 = this.pos;
+                    parsePosition222222.setIndex(parsePosition222222.getIndex() - 1);
+                    throw new java.text.ParseException("Invalid month", this.pos.getIndex());
+                case 83:
+                    if (skipPair('e', 'p')) {
+                        return 8;
+                    }
+                    if (!z && skipAlternativePair('e', 'E', 'p', 'P')) {
+                        return 8;
+                    }
+                    ParsePosition parsePosition2222222 = this.pos;
+                    parsePosition2222222.setIndex(parsePosition2222222.getIndex() - 1);
+                    throw new java.text.ParseException("Invalid month", this.pos.getIndex());
+                case 97:
+                    break;
+                case 100:
+                    break;
+                case 102:
+                    break;
+                case 106:
+                    break;
+                case 109:
+                    break;
+                case 110:
+                    break;
+                case 111:
+                    break;
+                case 115:
+                    break;
+                default:
+                    ParsePosition parsePosition22222222 = this.pos;
+                    parsePosition22222222.setIndex(parsePosition22222222.getIndex() - 1);
+                    throw new java.text.ParseException("Invalid month", this.pos.getIndex());
+            }
         }
 
         final int parseZoneOffset() throws java.text.ParseException {

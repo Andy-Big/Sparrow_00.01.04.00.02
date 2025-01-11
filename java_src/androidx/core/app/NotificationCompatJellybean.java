@@ -15,9 +15,9 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
-/* JADX INFO: Access modifiers changed from: package-private */
+
 /* loaded from: classes.dex */
-public class NotificationCompatJellybean {
+class NotificationCompatJellybean {
     static final String EXTRA_ALLOW_GENERATED_REPLIES = "android.support.allowGeneratedReplies";
     static final String EXTRA_DATA_ONLY_REMOTE_INPUTS = "android.support.dataRemoteInputs";
     private static final String KEY_ACTION_INTENT = "actionIntent";
@@ -193,14 +193,12 @@ public class NotificationCompatJellybean {
         return !sActionsAccessFailed;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static NotificationCompat.Action getActionFromBundle(Bundle bundle) {
+    static NotificationCompat.Action getActionFromBundle(Bundle bundle) {
         Bundle bundle2 = bundle.getBundle(KEY_EXTRAS);
         return new NotificationCompat.Action(bundle.getInt(KEY_ICON), bundle.getCharSequence(KEY_TITLE), (PendingIntent) bundle.getParcelable(KEY_ACTION_INTENT), bundle.getBundle(KEY_EXTRAS), fromBundleArray(getBundleArrayFromBundle(bundle, KEY_REMOTE_INPUTS)), fromBundleArray(getBundleArrayFromBundle(bundle, KEY_DATA_ONLY_REMOTE_INPUTS)), bundle2 != null ? bundle2.getBoolean(EXTRA_ALLOW_GENERATED_REPLIES, false) : false, bundle.getInt(KEY_SEMANTIC_ACTION), bundle.getBoolean(KEY_SHOWS_USER_INTERFACE), false);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static Bundle getBundleForAction(NotificationCompat.Action action) {
+    static Bundle getBundleForAction(NotificationCompat.Action action) {
         Bundle bundle;
         Bundle bundle2 = new Bundle();
         IconCompat iconCompat = action.getIconCompat();

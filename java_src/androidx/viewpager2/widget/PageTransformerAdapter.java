@@ -4,6 +4,7 @@ import android.view.View;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.viewpager2.widget.ViewPager2;
 import java.util.Locale;
+
 /* loaded from: classes.dex */
 final class PageTransformerAdapter extends ViewPager2.OnPageChangeCallback {
     private final LinearLayoutManager mLayoutManager;
@@ -17,18 +18,15 @@ final class PageTransformerAdapter extends ViewPager2.OnPageChangeCallback {
     public void onPageSelected(int i) {
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public PageTransformerAdapter(LinearLayoutManager linearLayoutManager) {
+    PageTransformerAdapter(LinearLayoutManager linearLayoutManager) {
         this.mLayoutManager = linearLayoutManager;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ViewPager2.PageTransformer getPageTransformer() {
+    ViewPager2.PageTransformer getPageTransformer() {
         return this.mPageTransformer;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setPageTransformer(ViewPager2.PageTransformer pageTransformer) {
+    void setPageTransformer(ViewPager2.PageTransformer pageTransformer) {
         this.mPageTransformer = pageTransformer;
     }
 

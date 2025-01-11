@@ -4,6 +4,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.webkit.WebView;
 import java.util.Map;
+
 /* loaded from: classes.dex */
 public class UrlLoaderImpl implements IUrlLoader {
     public static final String TAG = UrlLoaderImpl.class.getSimpleName();
@@ -11,8 +12,7 @@ public class UrlLoaderImpl implements IUrlLoader {
     private HttpHeaders mHttpHeaders;
     private WebView mWebView;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public UrlLoaderImpl(WebView webView, HttpHeaders httpHeaders) {
+    UrlLoaderImpl(WebView webView, HttpHeaders httpHeaders) {
         this.mHandler = null;
         this.mWebView = webView;
         if (webView == null) {

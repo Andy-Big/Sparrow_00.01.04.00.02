@@ -39,6 +39,7 @@ import com.google.android.material.ripple.RippleUtils;
 import com.google.android.material.shape.MaterialShapeDrawable;
 import java.lang.ref.WeakReference;
 import java.util.Arrays;
+
 /* loaded from: classes.dex */
 public class ChipDrawable extends MaterialShapeDrawable implements TintAwareDrawable, Drawable.Callback, TextDrawableHelper.TextDrawableDelegate {
     private static final boolean DEBUG = false;
@@ -281,16 +282,14 @@ public class ChipDrawable extends MaterialShapeDrawable implements TintAwareDraw
         return this.checkedIconVisible && this.checkedIcon != null && this.checkable;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public float calculateChipIconWidth() {
+    float calculateChipIconWidth() {
         if (showsChipIcon() || showsCheckedIcon()) {
             return this.iconStartPadding + this.chipIconSize + this.iconEndPadding;
         }
         return 0.0f;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public float calculateCloseIconWidth() {
+    float calculateCloseIconWidth() {
         if (showsCloseIcon()) {
             return this.closeIconStartPadding + this.closeIconSize + this.closeIconEndPadding;
         }
@@ -1546,13 +1545,11 @@ public class ChipDrawable extends MaterialShapeDrawable implements TintAwareDraw
         this.maxWidth = i;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean shouldDrawText() {
+    boolean shouldDrawText() {
         return this.shouldDrawText;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setShouldDrawText(boolean z) {
+    void setShouldDrawText(boolean z) {
         this.shouldDrawText = z;
     }
 }

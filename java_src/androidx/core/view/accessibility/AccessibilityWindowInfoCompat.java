@@ -3,6 +3,7 @@ package androidx.core.view.accessibility;
 import android.graphics.Rect;
 import android.os.Build;
 import android.view.accessibility.AccessibilityWindowInfo;
+
 /* loaded from: classes.dex */
 public class AccessibilityWindowInfoCompat {
     public static final int TYPE_ACCESSIBILITY_OVERLAY = 4;
@@ -17,8 +18,7 @@ public class AccessibilityWindowInfoCompat {
         return i != 1 ? i != 2 ? i != 3 ? i != 4 ? "<UNKNOWN>" : "TYPE_ACCESSIBILITY_OVERLAY" : "TYPE_SYSTEM" : "TYPE_INPUT_METHOD" : "TYPE_APPLICATION";
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static AccessibilityWindowInfoCompat wrapNonNullInstance(Object obj) {
+    static AccessibilityWindowInfoCompat wrapNonNullInstance(Object obj) {
         if (obj != null) {
             return new AccessibilityWindowInfoCompat(obj);
         }

@@ -68,16 +68,30 @@ public final class VerticalParam extends BaseParam {
 
     public VerticalParam(String str, int i) {
         super(i);
+        ServiceEnum.enChanStatus enchanstatus;
+        ServiceEnum.Coupling coupling;
+        ServiceEnum.Bandwidth bandwidth;
+        ServiceEnum.ProbeX probeX;
+        ServiceEnum.Unit unit;
+        ServiceEnum.Impedance impedance;
+        ServiceEnum.Unit unit2;
+        long j;
+        long j2;
         this.title = str;
         ServiceEnum.Chan chanFromServiceId = ViewUtil.getChanFromServiceId(i);
         Intrinsics.checkNotNullExpressionValue(chanFromServiceId, "ViewUtil.getChanFromServiceId(serviceId)");
         this.chan = chanFromServiceId;
         this.unitHz = "Hz";
-        this.status = VerticalParamKt.access$getDEFAULT_STATUS$p();
-        this.coupling = VerticalParamKt.access$getDEFAULT_COUPING$p();
-        this.bandLimit = VerticalParamKt.access$getDEFAULT_BANDWIDTH$p();
-        this.probeRatio = VerticalParamKt.access$getDEFAULT_PROBE_RATIO$p();
-        this.probeRatioUnit = VerticalParamKt.access$getDEFAULT_PROBE_RATIO_UNIT$p();
+        enchanstatus = VerticalParamKt.DEFAULT_STATUS;
+        this.status = enchanstatus;
+        coupling = VerticalParamKt.DEFAULT_COUPING;
+        this.coupling = coupling;
+        bandwidth = VerticalParamKt.DEFAULT_BANDWIDTH;
+        this.bandLimit = bandwidth;
+        probeX = VerticalParamKt.DEFAULT_PROBE_RATIO;
+        this.probeRatio = probeX;
+        unit = VerticalParamKt.DEFAULT_PROBE_RATIO_UNIT;
+        this.probeRatioUnit = unit;
         this.probeDetail = "";
         this.probeMFR = "";
         this.probeModel = "";
@@ -86,10 +100,14 @@ public final class VerticalParam extends BaseParam {
         this.probeType = ServiceEnum.ProbeType.Probe_BNC;
         this.probeRatioEnable = true;
         this.impedanceEnable = true;
-        this.impedance = VerticalParamKt.access$getDEFAULT_IMPEDANCE$p();
-        this.unit = VerticalParamKt.access$getDEFAULT_UNIT$p();
-        this.scale = VerticalParamKt.access$getDEFAULT_SCALE$p();
-        this.RealScale = VerticalParamKt.access$getDEFAULT_SCALE$p();
+        impedance = VerticalParamKt.DEFAULT_IMPEDANCE;
+        this.impedance = impedance;
+        unit2 = VerticalParamKt.DEFAULT_UNIT;
+        this.unit = unit2;
+        j = VerticalParamKt.DEFAULT_SCALE;
+        this.scale = j;
+        j2 = VerticalParamKt.DEFAULT_SCALE;
+        this.RealScale = j2;
         this.scaleAttr = new MessageAttr();
         this.offsetAttr = new MessageAttr();
         this.positionAttr = new MessageAttr();
@@ -882,21 +900,37 @@ public final class VerticalParam extends BaseParam {
 
     @Override // com.rigol.scope.data.BaseParam
     public void reset() {
+        long j;
+        ServiceEnum.Impedance impedance;
+        ServiceEnum.Coupling coupling;
+        ServiceEnum.Bandwidth bandwidth;
+        ServiceEnum.Unit unit;
+        ServiceEnum.ProbeX probeX;
+        ServiceEnum.Unit unit2;
+        long j2;
         super.reset();
-        setScale(VerticalParamKt.access$getDEFAULT_SCALE$p());
+        j = VerticalParamKt.DEFAULT_SCALE;
+        setScale(j);
         setOffset(0L);
         setPosition(0L);
-        setImpedance(VerticalParamKt.access$getDEFAULT_IMPEDANCE$p());
-        setCoupling(VerticalParamKt.access$getDEFAULT_COUPING$p());
+        impedance = VerticalParamKt.DEFAULT_IMPEDANCE;
+        setImpedance(impedance);
+        coupling = VerticalParamKt.DEFAULT_COUPING;
+        setCoupling(coupling);
         setInvert(false);
-        setBandLimit(VerticalParamKt.access$getDEFAULT_BANDWIDTH$p());
-        setUnit(VerticalParamKt.access$getDEFAULT_UNIT$p());
+        bandwidth = VerticalParamKt.DEFAULT_BANDWIDTH;
+        setBandLimit(bandwidth);
+        unit = VerticalParamKt.DEFAULT_UNIT;
+        setUnit(unit);
         setLabel("CH" + ((getServiceId() - 1) + 1));
         setShowLabel(false);
         setFine(false);
-        setProbeRatio(VerticalParamKt.access$getDEFAULT_PROBE_RATIO$p());
-        setProbeRatioUnit(VerticalParamKt.access$getDEFAULT_PROBE_RATIO_UNIT$p());
-        setRealScale(VerticalParamKt.access$getDEFAULT_SCALE$p());
+        probeX = VerticalParamKt.DEFAULT_PROBE_RATIO;
+        setProbeRatio(probeX);
+        unit2 = VerticalParamKt.DEFAULT_PROBE_RATIO_UNIT;
+        setProbeRatioUnit(unit2);
+        j2 = VerticalParamKt.DEFAULT_SCALE;
+        setRealScale(j2);
     }
 
     public final long getScaleValue() {

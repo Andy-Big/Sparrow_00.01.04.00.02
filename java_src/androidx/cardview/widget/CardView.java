@@ -11,6 +11,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.FrameLayout;
 import androidx.cardview.R;
+
 /* loaded from: classes.dex */
 public class CardView extends FrameLayout {
     private static final int[] COLOR_BACKGROUND_ATTR = {16842801};
@@ -152,9 +153,8 @@ public class CardView extends FrameLayout {
         IMPL.updatePadding(this.mCardViewDelegate);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.widget.FrameLayout, android.view.View
-    public void onMeasure(int i, int i2) {
+    protected void onMeasure(int i, int i2) {
         if (!(IMPL instanceof CardViewApi21Impl)) {
             int mode = View.MeasureSpec.getMode(i);
             if (mode == Integer.MIN_VALUE || mode == 1073741824) {

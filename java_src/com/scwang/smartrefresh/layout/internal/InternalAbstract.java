@@ -15,14 +15,14 @@ import com.scwang.smartrefresh.layout.constant.RefreshState;
 import com.scwang.smartrefresh.layout.constant.SpinnerStyle;
 import com.scwang.smartrefresh.layout.impl.RefreshFooterWrapper;
 import com.scwang.smartrefresh.layout.impl.RefreshHeaderWrapper;
+
 /* loaded from: classes2.dex */
 public abstract class InternalAbstract extends RelativeLayout implements RefreshInternal {
     protected SpinnerStyle mSpinnerStyle;
     protected RefreshInternal mWrappedInternal;
     protected View mWrappedView;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public InternalAbstract(View view) {
+    protected InternalAbstract(View view) {
         this(view, view instanceof RefreshInternal ? (RefreshInternal) view : null);
     }
 
@@ -40,8 +40,7 @@ public abstract class InternalAbstract extends RelativeLayout implements Refresh
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public InternalAbstract(Context context, AttributeSet attributeSet, int i) {
+    protected InternalAbstract(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
     }
 

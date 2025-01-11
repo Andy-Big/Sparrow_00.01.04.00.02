@@ -6,6 +6,7 @@ import java.io.ObjectInput;
 import java.io.ObjectOutput;
 import java.util.Locale;
 import org.slf4j.Marker;
+
 /* loaded from: classes2.dex */
 public class MimeType implements Externalizable {
     private static final String TSPECIALS = "()<>@,;:/[]?=\\\"";

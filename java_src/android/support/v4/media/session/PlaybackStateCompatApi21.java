@@ -4,6 +4,7 @@ import android.media.session.PlaybackState;
 import android.os.Bundle;
 import java.util.Iterator;
 import java.util.List;
+
 /* loaded from: classes.dex */
 class PlaybackStateCompatApi21 {
     public static int getState(Object obj) {

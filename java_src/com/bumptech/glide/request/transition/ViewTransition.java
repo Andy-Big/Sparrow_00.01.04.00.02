@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.View;
 import android.view.animation.Animation;
 import com.bumptech.glide.request.transition.Transition;
+
 /* loaded from: classes.dex */
 public class ViewTransition<R> implements Transition<R> {
     private final ViewTransitionAnimationFactory viewTransitionAnimationFactory;
@@ -13,8 +14,7 @@ public class ViewTransition<R> implements Transition<R> {
         Animation build(Context context);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ViewTransition(ViewTransitionAnimationFactory viewTransitionAnimationFactory) {
+    ViewTransition(ViewTransitionAnimationFactory viewTransitionAnimationFactory) {
         this.viewTransitionAnimationFactory = viewTransitionAnimationFactory;
     }
 

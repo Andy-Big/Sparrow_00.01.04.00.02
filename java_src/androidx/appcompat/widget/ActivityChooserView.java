@@ -28,6 +28,7 @@ import androidx.appcompat.widget.ActivityChooserModel;
 import androidx.core.view.ActionProvider;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
+
 /* loaded from: classes.dex */
 public class ActivityChooserView extends ViewGroup implements ActivityChooserModel.ActivityChooserModelClient {
     private final View mActivityChooserContent;
@@ -177,6 +178,7 @@ public class ActivityChooserView extends ViewGroup implements ActivityChooserMod
         return true;
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r3v6, resolved type: androidx.appcompat.widget.ActivityChooserView$ActivityChooserViewAdapter */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r0v15 */
     /* JADX WARN: Type inference failed for: r0v6 */
@@ -332,9 +334,8 @@ public class ActivityChooserView extends ViewGroup implements ActivityChooserMod
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public class Callbacks implements AdapterView.OnItemClickListener, View.OnClickListener, View.OnLongClickListener, PopupWindow.OnDismissListener {
+    private class Callbacks implements AdapterView.OnItemClickListener, View.OnClickListener, View.OnLongClickListener, PopupWindow.OnDismissListener {
         Callbacks() {
         }
 
@@ -412,9 +413,8 @@ public class ActivityChooserView extends ViewGroup implements ActivityChooserMod
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public class ActivityChooserViewAdapter extends BaseAdapter {
+    private class ActivityChooserViewAdapter extends BaseAdapter {
         private static final int ITEM_VIEW_TYPE_ACTIVITY = 0;
         private static final int ITEM_VIEW_TYPE_COUNT = 3;
         private static final int ITEM_VIEW_TYPE_FOOTER = 1;

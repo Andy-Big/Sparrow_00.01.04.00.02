@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.Reader;
 import java.io.StringWriter;
 import java.nio.charset.Charset;
+
 /* loaded from: classes.dex */
 final class Util {
     static final Charset US_ASCII = Charset.forName("US-ASCII");
@@ -14,8 +15,7 @@ final class Util {
     private Util() {
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static String readFully(Reader reader) throws IOException {
+    static String readFully(Reader reader) throws IOException {
         try {
             StringWriter stringWriter = new StringWriter();
             char[] cArr = new char[1024];
@@ -32,8 +32,7 @@ final class Util {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static void deleteContents(File file) throws IOException {
+    static void deleteContents(File file) throws IOException {
         File[] listFiles = file.listFiles();
         if (listFiles == null) {
             throw new IOException("not a readable directory: " + file);
@@ -48,8 +47,7 @@ final class Util {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static void closeQuietly(Closeable closeable) {
+    static void closeQuietly(Closeable closeable) {
         if (closeable != null) {
             try {
                 closeable.close();

@@ -2,6 +2,7 @@ package org.slf4j.event;
 
 import org.slf4j.Marker;
 import org.slf4j.helpers.SubstituteLogger;
+
 /* loaded from: classes2.dex */
 public class SubstituteLoggingEvent implements LoggingEvent {
     Object[] argArray;

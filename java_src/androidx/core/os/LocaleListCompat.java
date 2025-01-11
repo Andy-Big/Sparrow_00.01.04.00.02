@@ -3,6 +3,7 @@ package androidx.core.os;
 import android.os.Build;
 import android.os.LocaleList;
 import java.util.Locale;
+
 /* loaded from: classes.dex */
 public final class LocaleListCompat {
     private static final LocaleListCompat sEmptyLocaleList = create(new Locale[0]);
@@ -79,8 +80,7 @@ public final class LocaleListCompat {
         return create(localeArr);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static Locale forLanguageTagCompat(String str) {
+    static Locale forLanguageTagCompat(String str) {
         if (str.contains("-")) {
             String[] split = str.split("-", -1);
             if (split.length > 2) {

@@ -27,6 +27,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.StringTokenizer;
 import kotlin.jvm.internal.LongCompanionObject;
+
 /* loaded from: classes.dex */
 public abstract class Transition implements Cloneable {
     static final boolean DBG = false;
@@ -337,8 +338,7 @@ public abstract class Transition implements Cloneable {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void createAnimators(ViewGroup viewGroup, TransitionValuesMaps transitionValuesMaps, TransitionValuesMaps transitionValuesMaps2, ArrayList<TransitionValues> arrayList, ArrayList<TransitionValues> arrayList2) {
+    protected void createAnimators(ViewGroup viewGroup, TransitionValuesMaps transitionValuesMaps, TransitionValuesMaps transitionValuesMaps2, ArrayList<TransitionValues> arrayList, ArrayList<TransitionValues> arrayList2) {
         Animator createAnimator;
         int i;
         int i2;
@@ -437,8 +437,7 @@ public abstract class Transition implements Cloneable {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean isValidTarget(View view) {
+    boolean isValidTarget(View view) {
         ArrayList<Class<?>> arrayList;
         ArrayList<String> arrayList2;
         int id = view.getId();
@@ -489,8 +488,7 @@ public abstract class Transition implements Cloneable {
         return arrayMap;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void runAnimators() {
+    protected void runAnimators() {
         start();
         ArrayMap<Animator, AnimationInfo> runningAnimators = getRunningAnimators();
         Iterator<Animator> it = this.mAnimators.iterator();
@@ -670,8 +668,7 @@ public abstract class Transition implements Cloneable {
         return this.mTargetTypes;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void captureValues(ViewGroup viewGroup, boolean z) {
+    void captureValues(ViewGroup viewGroup, boolean z) {
         ArrayList<String> arrayList;
         ArrayList<Class<?>> arrayList2;
         ArrayMap<String, String> arrayMap;
@@ -767,8 +764,7 @@ public abstract class Transition implements Cloneable {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void clearValues(boolean z) {
+    void clearValues(boolean z) {
         if (z) {
             this.mStartValues.mViewValues.clear();
             this.mStartValues.mIdValues.clear();
@@ -846,8 +842,7 @@ public abstract class Transition implements Cloneable {
         return (z ? this.mStartValues : this.mEndValues).mViewValues.get(view);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public TransitionValues getMatchedTransitionValues(View view, boolean z) {
+    TransitionValues getMatchedTransitionValues(View view, boolean z) {
         TransitionSet transitionSet = this.mParent;
         if (transitionSet != null) {
             return transitionSet.getMatchedTransitionValues(view, z);
@@ -928,8 +923,7 @@ public abstract class Transition implements Cloneable {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void playTransition(ViewGroup viewGroup) {
+    void playTransition(ViewGroup viewGroup) {
         AnimationInfo animationInfo;
         this.mStartValuesList = new ArrayList<>();
         this.mEndValuesList = new ArrayList<>();
@@ -1016,8 +1010,7 @@ public abstract class Transition implements Cloneable {
         animator.start();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void start() {
+    protected void start() {
         if (this.mNumInstances == 0) {
             ArrayList<TransitionListener> arrayList = this.mListeners;
             if (arrayList != null && arrayList.size() > 0) {
@@ -1032,8 +1025,7 @@ public abstract class Transition implements Cloneable {
         this.mNumInstances++;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void end() {
+    protected void end() {
         int i = this.mNumInstances - 1;
         this.mNumInstances = i;
         if (i == 0) {
@@ -1061,8 +1053,7 @@ public abstract class Transition implements Cloneable {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void forceToEnd(ViewGroup viewGroup) {
+    void forceToEnd(ViewGroup viewGroup) {
         ArrayMap<Animator, AnimationInfo> runningAnimators = getRunningAnimators();
         int size = runningAnimators.size();
         if (viewGroup == null || size == 0) {
@@ -1079,8 +1070,7 @@ public abstract class Transition implements Cloneable {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void cancel() {
+    protected void cancel() {
         for (int size = this.mCurrentAnimators.size() - 1; size >= 0; size--) {
             this.mCurrentAnimators.get(size).cancel();
         }
@@ -1151,8 +1141,7 @@ public abstract class Transition implements Cloneable {
         return this.mPropagation;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void capturePropagationValues(TransitionValues transitionValues) {
+    void capturePropagationValues(TransitionValues transitionValues) {
         String[] propagationProperties;
         if (this.mPropagation == null || transitionValues.values.isEmpty() || (propagationProperties = this.mPropagation.getPropagationProperties()) == null) {
             return;
@@ -1175,14 +1164,12 @@ public abstract class Transition implements Cloneable {
         this.mPropagation.captureValues(transitionValues);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public Transition setSceneRoot(ViewGroup viewGroup) {
+    Transition setSceneRoot(ViewGroup viewGroup) {
         this.mSceneRoot = viewGroup;
         return this;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setCanRemoveViews(boolean z) {
+    void setCanRemoveViews(boolean z) {
         this.mCanRemoveViews = z;
     }
 
@@ -1190,6 +1177,7 @@ public abstract class Transition implements Cloneable {
         return toString("");
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // 
     /* renamed from: clone */
     public Transition mo7clone() {
@@ -1210,8 +1198,7 @@ public abstract class Transition implements Cloneable {
         return this.mName;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public String toString(String str) {
+    String toString(String str) {
         String str2 = str + getClass().getSimpleName() + "@" + Integer.toHexString(hashCode()) + ": ";
         if (this.mDuration != -1) {
             str2 = str2 + "dur(" + this.mDuration + ") ";
@@ -1245,9 +1232,8 @@ public abstract class Transition implements Cloneable {
         return str2;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static class AnimationInfo {
+    private static class AnimationInfo {
         String mName;
         Transition mTransition;
         TransitionValues mValues;
@@ -1263,9 +1249,8 @@ public abstract class Transition implements Cloneable {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static class ArrayListManager {
+    private static class ArrayListManager {
         private ArrayListManager() {
         }
 

@@ -18,6 +18,7 @@ import kotlin.jvm.JvmClassMappingKt;
 import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.Intrinsics;
 import kotlinx.coroutines.CopyableThrowable;
+
 /* compiled from: ExceptionsConstuctor.kt */
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000.\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0003\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\f\u001a*\u0010\n\u001a\u0018\u0012\u0004\u0012\u00020\u0005\u0012\u0006\u0012\u0004\u0018\u00010\u0005\u0018\u00010\u0006j\u0004\u0018\u0001`\u00072\n\u0010\u000b\u001a\u0006\u0012\u0002\b\u00030\fH\u0002\u001a1\u0010\r\u001a\u0014\u0012\u0004\u0012\u00020\u0005\u0012\u0006\u0012\u0004\u0018\u00010\u00050\u0006j\u0002`\u00072\u0014\b\u0004\u0010\u000e\u001a\u000e\u0012\u0004\u0012\u00020\u0005\u0012\u0004\u0012\u00020\u00050\u0006H\u0082\b\u001a!\u0010\u000f\u001a\u0004\u0018\u0001H\u0010\"\b\b\u0000\u0010\u0010*\u00020\u00052\u0006\u0010\u0011\u001a\u0002H\u0010H\u0000¢\u0006\u0002\u0010\u0012\u001a\u001b\u0010\u0013\u001a\u00020\t*\u0006\u0012\u0002\b\u00030\u00042\b\b\u0002\u0010\u0014\u001a\u00020\tH\u0082\u0010\u001a\u0018\u0010\u0015\u001a\u00020\t*\u0006\u0012\u0002\b\u00030\u00042\u0006\u0010\u0016\u001a\u00020\tH\u0002\"\u000e\u0010\u0000\u001a\u00020\u0001X\u0082\u0004¢\u0006\u0002\n\u0000\"4\u0010\u0002\u001a(\u0012\f\u0012\n\u0012\u0006\b\u0001\u0012\u00020\u00050\u0004\u0012\u0016\u0012\u0014\u0012\u0004\u0012\u00020\u0005\u0012\u0006\u0012\u0004\u0018\u00010\u00050\u0006j\u0002`\u00070\u0003X\u0082\u0004¢\u0006\u0002\n\u0000\"\u000e\u0010\b\u001a\u00020\tX\u0082\u0004¢\u0006\u0002\n\u0000*(\b\u0002\u0010\u0017\"\u0010\u0012\u0004\u0012\u00020\u0005\u0012\u0006\u0012\u0004\u0018\u00010\u00050\u00062\u0010\u0012\u0004\u0012\u00020\u0005\u0012\u0006\u0012\u0004\u0018\u00010\u00050\u0006¨\u0006\u0018"}, d2 = {"cacheLock", "Ljava/util/concurrent/locks/ReentrantReadWriteLock;", "exceptionCtors", "Ljava/util/WeakHashMap;", "Ljava/lang/Class;", "", "Lkotlin/Function1;", "Lkotlinx/coroutines/internal/Ctor;", "throwableFields", "", "createConstructor", "constructor", "Ljava/lang/reflect/Constructor;", "safeCtor", "block", "tryCopyException", ExifInterface.LONGITUDE_EAST, "exception", "(Ljava/lang/Throwable;)Ljava/lang/Throwable;", "fieldsCount", "accumulator", "fieldsCountOrDefault", "defaultValue", "Ctor", "kotlinx-coroutines-core"}, k = 2, mv = {1, 1, 15})
 /* loaded from: classes2.dex */
@@ -26,6 +27,7 @@ public final class ExceptionsConstuctorKt {
     private static final ReentrantReadWriteLock cacheLock = new ReentrantReadWriteLock();
     private static final WeakHashMap<Class<? extends Throwable>, Function1<Throwable, Throwable>> exceptionCtors = new WeakHashMap<>();
 
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, ARITH, INVOKE] complete} */
     public static final <E extends Throwable> E tryCopyException(E exception) {
         Object m28constructorimpl;
         ReentrantReadWriteLock.ReadLock readLock;
@@ -61,6 +63,7 @@ public final class ExceptionsConstuctorKt {
                 writeLock.lock();
                 try {
                     exceptionCtors.put(exception.getClass(), new Function1() { // from class: kotlinx.coroutines.internal.ExceptionsConstuctorKt$tryCopyException$4$1
+                        /* JADX DEBUG: Method merged with bridge method */
                         @Override // kotlin.jvm.functions.Function1
                         public final Void invoke(Throwable it) {
                             Intrinsics.checkParameterIsNotNull(it, "it");
@@ -106,6 +109,7 @@ public final class ExceptionsConstuctorKt {
             writeLock.lock();
             try {
                 exceptionCtors.put(exception.getClass(), function12 != null ? function12 : new Function1() { // from class: kotlinx.coroutines.internal.ExceptionsConstuctorKt$tryCopyException$5$1
+                    /* JADX DEBUG: Method merged with bridge method */
                     @Override // kotlin.jvm.functions.Function1
                     public final Void invoke(Throwable it) {
                         Intrinsics.checkParameterIsNotNull(it, "it");
@@ -146,6 +150,7 @@ public final class ExceptionsConstuctorKt {
                             super(1);
                         }
 
+                        /* JADX DEBUG: Method merged with bridge method */
                         @Override // kotlin.jvm.functions.Function1
                         public final Throwable invoke(Throwable e) {
                             Object m28constructorimpl;
@@ -180,6 +185,7 @@ public final class ExceptionsConstuctorKt {
                             super(1);
                         }
 
+                        /* JADX DEBUG: Method merged with bridge method */
                         @Override // kotlin.jvm.functions.Function1
                         public final Throwable invoke(Throwable e) {
                             Object m28constructorimpl;
@@ -213,6 +219,7 @@ public final class ExceptionsConstuctorKt {
                     super(1);
                 }
 
+                /* JADX DEBUG: Method merged with bridge method */
                 @Override // kotlin.jvm.functions.Function1
                 public final Throwable invoke(Throwable e) {
                     Object m28constructorimpl;
@@ -242,6 +249,7 @@ public final class ExceptionsConstuctorKt {
                 super(1);
             }
 
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // kotlin.jvm.functions.Function1
             public final Throwable invoke(Throwable e) {
                 Object m28constructorimpl;
@@ -274,6 +282,7 @@ public final class ExceptionsConstuctorKt {
                 super(1);
             }
 
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // kotlin.jvm.functions.Function1
             public final Throwable invoke(Throwable e) {
                 Object m28constructorimpl;

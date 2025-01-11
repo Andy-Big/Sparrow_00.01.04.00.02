@@ -280,7 +280,7 @@ public class StorageLoadParam extends BaseParam {
         ToastUtils.showLong(ActivityUtils.getTopActivity().getResources().getString(R.string.msg_storage_toast_fail));
     }
 
-    /* renamed from: com.rigol.scope.data.StorageLoadParam$1  reason: invalid class name */
+    /* renamed from: com.rigol.scope.data.StorageLoadParam$1 */
     /* loaded from: classes2.dex */
     static /* synthetic */ class AnonymousClass1 {
         static final /* synthetic */ int[] $SwitchMap$com$rigol$scope$cil$ServiceEnum$StorageFunc;

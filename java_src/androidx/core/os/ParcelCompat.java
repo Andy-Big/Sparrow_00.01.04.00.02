@@ -1,6 +1,7 @@
 package androidx.core.os;
 
 import android.os.Parcel;
+
 /* loaded from: classes.dex */
 public final class ParcelCompat {
     public static boolean readBoolean(Parcel parcel) {

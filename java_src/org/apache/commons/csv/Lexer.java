@@ -3,9 +3,9 @@ package org.apache.commons.csv;
 import java.io.Closeable;
 import java.io.IOException;
 import org.apache.commons.csv.Token;
-/* JADX INFO: Access modifiers changed from: package-private */
+
 /* loaded from: classes2.dex */
-public final class Lexer implements Closeable {
+final class Lexer implements Closeable {
     private static final char DISABLED = 65534;
     private final char commentStart;
     private final char delimiter;
@@ -26,13 +26,11 @@ public final class Lexer implements Closeable {
         return i == 10 || i == 13 || i == -2;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public String getFirstEol() {
+    String getFirstEol() {
         return this.firstEol;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public Lexer(CSVFormat cSVFormat, ExtendedBufferedReader extendedBufferedReader) {
+    Lexer(CSVFormat cSVFormat, ExtendedBufferedReader extendedBufferedReader) {
         this.reader = extendedBufferedReader;
         this.delimiter = cSVFormat.getDelimiter();
         this.escape = mapNullToDisabled(cSVFormat.getEscapeCharacter());
@@ -42,8 +40,7 @@ public final class Lexer implements Closeable {
         this.ignoreEmptyLines = cSVFormat.getIgnoreEmptyLines();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public Token nextToken(Token token) throws IOException {
+    Token nextToken(Token token) throws IOException {
         int lastChar = this.reader.getLastChar();
         int read = this.reader.read();
         boolean readEndOfLine = readEndOfLine(read);
@@ -176,13 +173,11 @@ public final class Lexer implements Closeable {
         return ch2 == null ? DISABLED : ch2.charValue();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public long getCurrentLineNumber() {
+    long getCurrentLineNumber() {
         return this.reader.getCurrentLineNumber();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public long getCharacterPosition() {
+    long getCharacterPosition() {
         return this.reader.getPosition();
     }
 
@@ -253,8 +248,7 @@ public final class Lexer implements Closeable {
         return i == 10 || i == 13;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean isClosed() {
+    boolean isClosed() {
         return this.reader.isClosed();
     }
 

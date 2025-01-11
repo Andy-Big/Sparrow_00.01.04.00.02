@@ -3,9 +3,9 @@ package android.support.v4.media.session;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.media.session.MediaSessionCompatApi21;
-/* JADX INFO: Access modifiers changed from: package-private */
+
 /* loaded from: classes.dex */
-public class MediaSessionCompatApi23 {
+class MediaSessionCompatApi23 {
 
     /* loaded from: classes.dex */
     public interface Callback extends MediaSessionCompatApi21.Callback {
@@ -16,9 +16,8 @@ public class MediaSessionCompatApi23 {
         return new CallbackProxy(callback);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static class CallbackProxy<T extends Callback> extends MediaSessionCompatApi21.CallbackProxy<T> {
+    static class CallbackProxy<T extends Callback> extends MediaSessionCompatApi21.CallbackProxy<T> {
         public CallbackProxy(T t) {
             super(t);
         }

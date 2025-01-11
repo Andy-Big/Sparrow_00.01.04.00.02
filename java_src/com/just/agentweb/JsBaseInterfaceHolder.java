@@ -5,13 +5,13 @@ import android.webkit.JavascriptInterface;
 import com.just.agentweb.AgentWeb;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
+
 /* loaded from: classes.dex */
 public abstract class JsBaseInterfaceHolder implements JsInterfaceHolder {
     private AgentWeb.SecurityType mSecurityType;
     private WebCreator mWebCreator;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public JsBaseInterfaceHolder(WebCreator webCreator, AgentWeb.SecurityType securityType) {
+    protected JsBaseInterfaceHolder(WebCreator webCreator, AgentWeb.SecurityType securityType) {
         this.mSecurityType = securityType;
         this.mWebCreator = webCreator;
     }
@@ -43,8 +43,7 @@ public abstract class JsBaseInterfaceHolder implements JsInterfaceHolder {
         return true;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public boolean checkSecurity() {
+    protected boolean checkSecurity() {
         return this.mSecurityType != AgentWeb.SecurityType.STRICT_CHECK || this.mWebCreator.getWebViewType() == 2 || Build.VERSION.SDK_INT > 17;
     }
 }

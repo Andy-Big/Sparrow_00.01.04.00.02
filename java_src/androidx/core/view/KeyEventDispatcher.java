@@ -11,6 +11,7 @@ import android.view.Window;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+
 /* loaded from: classes.dex */
 public class KeyEventDispatcher {
     private static boolean sActionBarFieldsFetched = false;

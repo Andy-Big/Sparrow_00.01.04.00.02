@@ -46,6 +46,7 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 /* loaded from: classes.dex */
 public class CoordinatorLayout extends ViewGroup implements NestedScrollingParent2, NestedScrollingParent3 {
     static final Class<?>[] CONSTRUCTOR_PARAMS;
@@ -413,64 +414,46 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
     @Override // android.view.View
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    public boolean onTouchEvent(android.view.MotionEvent r18) {
-        /*
-            r17 = this;
-            r0 = r17
-            r1 = r18
-            int r2 = r18.getActionMasked()
-            android.view.View r3 = r0.mBehaviorTouchView
-            r4 = 1
-            r5 = 0
-            if (r3 != 0) goto L15
-            boolean r3 = r0.performIntercept(r1, r4)
-            if (r3 == 0) goto L2b
-            goto L16
-        L15:
-            r3 = r5
-        L16:
-            android.view.View r6 = r0.mBehaviorTouchView
-            android.view.ViewGroup$LayoutParams r6 = r6.getLayoutParams()
-            androidx.coordinatorlayout.widget.CoordinatorLayout$LayoutParams r6 = (androidx.coordinatorlayout.widget.CoordinatorLayout.LayoutParams) r6
-            androidx.coordinatorlayout.widget.CoordinatorLayout$Behavior r6 = r6.getBehavior()
-            if (r6 == 0) goto L2b
-            android.view.View r7 = r0.mBehaviorTouchView
-            boolean r6 = r6.onTouchEvent(r0, r7, r1)
-            goto L2c
-        L2b:
-            r6 = r5
-        L2c:
-            android.view.View r7 = r0.mBehaviorTouchView
-            r8 = 0
-            if (r7 != 0) goto L37
-            boolean r1 = super.onTouchEvent(r18)
-            r6 = r6 | r1
-            goto L4a
-        L37:
-            if (r3 == 0) goto L4a
-            long r11 = android.os.SystemClock.uptimeMillis()
-            r13 = 3
-            r14 = 0
-            r15 = 0
-            r16 = 0
-            r9 = r11
-            android.view.MotionEvent r8 = android.view.MotionEvent.obtain(r9, r11, r13, r14, r15, r16)
-            super.onTouchEvent(r8)
-        L4a:
-            if (r8 == 0) goto L4f
-            r8.recycle()
-        L4f:
-            if (r2 == r4) goto L54
-            r1 = 3
-            if (r2 != r1) goto L57
-        L54:
-            r0.resetTouchBehaviors(r5)
-        L57:
-            return r6
-        */
-        throw new UnsupportedOperationException("Method not decompiled: androidx.coordinatorlayout.widget.CoordinatorLayout.onTouchEvent(android.view.MotionEvent):boolean");
+    public boolean onTouchEvent(MotionEvent motionEvent) {
+        boolean z;
+        boolean onTouchEvent;
+        MotionEvent motionEvent2;
+        int actionMasked = motionEvent.getActionMasked();
+        if (this.mBehaviorTouchView == null) {
+            z = performIntercept(motionEvent, 1);
+        } else {
+            z = false;
+        }
+        Behavior behavior = ((LayoutParams) this.mBehaviorTouchView.getLayoutParams()).getBehavior();
+        if (behavior != null) {
+            onTouchEvent = behavior.onTouchEvent(this, this.mBehaviorTouchView, motionEvent);
+            motionEvent2 = null;
+            if (this.mBehaviorTouchView != null) {
+                onTouchEvent |= super.onTouchEvent(motionEvent);
+            } else if (z) {
+                long uptimeMillis = SystemClock.uptimeMillis();
+                motionEvent2 = MotionEvent.obtain(uptimeMillis, uptimeMillis, 3, 0.0f, 0.0f, 0);
+                super.onTouchEvent(motionEvent2);
+            }
+            if (motionEvent2 != null) {
+                motionEvent2.recycle();
+            }
+            if (actionMasked != 1 || actionMasked == 3) {
+                resetTouchBehaviors(false);
+            }
+            return onTouchEvent;
+        }
+        onTouchEvent = false;
+        motionEvent2 = null;
+        if (this.mBehaviorTouchView != null) {
+        }
+        if (motionEvent2 != null) {
+        }
+        if (actionMasked != 1) {
+        }
+        resetTouchBehaviors(false);
+        return onTouchEvent;
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent
@@ -496,6 +479,7 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
         }
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r1v9, resolved type: java.lang.Class<?> */
     /* JADX WARN: Multi-variable type inference failed */
     static Behavior parseBehavior(Context context, AttributeSet attributeSet, String str) {
         if (TextUtils.isEmpty(str)) {
@@ -606,14 +590,116 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
     @Override // android.view.View
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    protected void onMeasure(int r31, int r32) {
-        /*
-            Method dump skipped, instructions count: 393
-            To view this dump add '--comments-level debug' option
-        */
-        throw new UnsupportedOperationException("Method not decompiled: androidx.coordinatorlayout.widget.CoordinatorLayout.onMeasure(int, int):void");
+    protected void onMeasure(int i, int i2) {
+        int i3;
+        int i4;
+        int i5;
+        int i6;
+        Behavior behavior;
+        LayoutParams layoutParams;
+        int i7;
+        int i8;
+        int i9;
+        int i10;
+        int i11;
+        int i12;
+        prepareChildren();
+        ensurePreDrawListener();
+        int paddingLeft = getPaddingLeft();
+        int paddingTop = getPaddingTop();
+        int paddingRight = getPaddingRight();
+        int paddingBottom = getPaddingBottom();
+        int layoutDirection = ViewCompat.getLayoutDirection(this);
+        boolean z = layoutDirection == 1;
+        int mode = View.MeasureSpec.getMode(i);
+        int size = View.MeasureSpec.getSize(i);
+        int mode2 = View.MeasureSpec.getMode(i2);
+        int size2 = View.MeasureSpec.getSize(i2);
+        int i13 = paddingLeft + paddingRight;
+        int i14 = paddingTop + paddingBottom;
+        int suggestedMinimumWidth = getSuggestedMinimumWidth();
+        int suggestedMinimumHeight = getSuggestedMinimumHeight();
+        boolean z2 = this.mLastInsets != null && ViewCompat.getFitsSystemWindows(this);
+        int size3 = this.mDependencySortedChildren.size();
+        int i15 = suggestedMinimumWidth;
+        int i16 = suggestedMinimumHeight;
+        int i17 = 0;
+        int i18 = 0;
+        while (i18 < size3) {
+            View view = this.mDependencySortedChildren.get(i18);
+            if (view.getVisibility() == 8) {
+                i11 = i18;
+                i8 = size3;
+                i9 = paddingLeft;
+            } else {
+                LayoutParams layoutParams2 = (LayoutParams) view.getLayoutParams();
+                if (layoutParams2.keyline < 0 || mode == 0) {
+                    i3 = i17;
+                } else {
+                    int keyline = getKeyline(layoutParams2.keyline);
+                    int absoluteGravity = GravityCompat.getAbsoluteGravity(resolveKeylineGravity(layoutParams2.gravity), layoutDirection) & 7;
+                    i3 = i17;
+                    if ((absoluteGravity == 3 && !z) || (absoluteGravity == 5 && z)) {
+                        i4 = Math.max(0, (size - paddingRight) - keyline);
+                    } else if ((absoluteGravity == 5 && !z) || (absoluteGravity == 3 && z)) {
+                        i4 = Math.max(0, keyline - paddingLeft);
+                    }
+                    if (z2 || ViewCompat.getFitsSystemWindows(view)) {
+                        i5 = i;
+                        i6 = i2;
+                    } else {
+                        i5 = View.MeasureSpec.makeMeasureSpec(size - (this.mLastInsets.getSystemWindowInsetLeft() + this.mLastInsets.getSystemWindowInsetRight()), mode);
+                        i6 = View.MeasureSpec.makeMeasureSpec(size2 - (this.mLastInsets.getSystemWindowInsetTop() + this.mLastInsets.getSystemWindowInsetBottom()), mode2);
+                    }
+                    behavior = layoutParams2.getBehavior();
+                    if (behavior == null) {
+                        layoutParams = layoutParams2;
+                        i10 = i3;
+                        i11 = i18;
+                        i7 = i16;
+                        i9 = paddingLeft;
+                        i12 = i15;
+                        i8 = size3;
+                    } else {
+                        layoutParams = layoutParams2;
+                        i7 = i16;
+                        i8 = size3;
+                        i9 = paddingLeft;
+                        i10 = i3;
+                        i11 = i18;
+                        i12 = i15;
+                    }
+                    onMeasureChild(view, i5, i4, i6, 0);
+                    LayoutParams layoutParams3 = layoutParams;
+                    int max = Math.max(i12, i13 + view.getMeasuredWidth() + layoutParams3.leftMargin + layoutParams3.rightMargin);
+                    int max2 = Math.max(i7, i14 + view.getMeasuredHeight() + layoutParams3.topMargin + layoutParams3.bottomMargin);
+                    i17 = View.combineMeasuredStates(i10, view.getMeasuredState());
+                    i15 = max;
+                    i16 = max2;
+                }
+                i4 = 0;
+                if (z2) {
+                }
+                i5 = i;
+                i6 = i2;
+                behavior = layoutParams2.getBehavior();
+                if (behavior == null) {
+                }
+                onMeasureChild(view, i5, i4, i6, 0);
+                LayoutParams layoutParams32 = layoutParams;
+                int max3 = Math.max(i12, i13 + view.getMeasuredWidth() + layoutParams32.leftMargin + layoutParams32.rightMargin);
+                int max22 = Math.max(i7, i14 + view.getMeasuredHeight() + layoutParams32.topMargin + layoutParams32.bottomMargin);
+                i17 = View.combineMeasuredStates(i10, view.getMeasuredState());
+                i15 = max3;
+                i16 = max22;
+            }
+            i18 = i11 + 1;
+            paddingLeft = i9;
+            size3 = i8;
+        }
+        int i19 = i17;
+        setMeasuredDimension(View.resolveSizeAndState(i15, i, (-16777216) & i19), View.resolveSizeAndState(i16, i2, i19 << 16));
     }
 
     private WindowInsetsCompat dispatchApplyWindowInsetsToBehaviors(WindowInsetsCompat windowInsetsCompat) {
@@ -1119,11 +1205,13 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
         return false;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // android.view.ViewGroup
     public LayoutParams generateLayoutParams(AttributeSet attributeSet) {
         return new LayoutParams(getContext(), attributeSet);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.view.ViewGroup
     public LayoutParams generateLayoutParams(ViewGroup.LayoutParams layoutParams) {
@@ -1136,6 +1224,7 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
         return new LayoutParams(layoutParams);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.view.ViewGroup
     public LayoutParams generateDefaultLayoutParams() {
@@ -1344,9 +1433,8 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
         return this.mNestedScrollingParentHelper.getNestedScrollAxes();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public class OnPreDrawListener implements ViewTreeObserver.OnPreDrawListener {
+    class OnPreDrawListener implements ViewTreeObserver.OnPreDrawListener {
         OnPreDrawListener() {
         }
 
@@ -1362,6 +1450,7 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
         ViewElevationComparator() {
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
         public int compare(View view, View view2) {
             float z = ViewCompat.getZ(view);
@@ -1887,21 +1976,23 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
         ViewCompat.setOnApplyWindowInsetsListener(this, null);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     /* loaded from: classes.dex */
-    public static class SavedState extends AbsSavedState {
+    protected static class SavedState extends AbsSavedState {
         public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.ClassLoaderCreator<SavedState>() { // from class: androidx.coordinatorlayout.widget.CoordinatorLayout.SavedState.1
+            /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.ClassLoaderCreator
             public SavedState createFromParcel(Parcel parcel, ClassLoader classLoader) {
                 return new SavedState(parcel, classLoader);
             }
 
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // android.os.Parcelable.Creator
             public SavedState createFromParcel(Parcel parcel) {
                 return new SavedState(parcel, null);
             }
 
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // android.os.Parcelable.Creator
             public SavedState[] newArray(int i) {
                 return new SavedState[i];

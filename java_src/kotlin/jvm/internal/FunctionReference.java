@@ -2,6 +2,7 @@ package kotlin.jvm.internal;
 
 import kotlin.reflect.KCallable;
 import kotlin.reflect.KFunction;
+
 /* loaded from: classes2.dex */
 public class FunctionReference extends CallableReference implements FunctionBase, KFunction {
     private final int arity;
@@ -26,6 +27,7 @@ public class FunctionReference extends CallableReference implements FunctionBase
         return this.arity;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // kotlin.jvm.internal.CallableReference
     public KFunction getReflected() {

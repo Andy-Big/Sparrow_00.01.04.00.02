@@ -16,6 +16,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.os.SystemClock;
 import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import android.text.style.TextAppearanceSpan;
@@ -28,11 +29,13 @@ import androidx.core.text.BidiFormatter;
 import androidx.core.view.ViewCompat;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public class NotificationCompat {
     public static final int BADGE_ICON_LARGE = 2;
@@ -676,14 +679,128 @@ public class NotificationCompat {
         /* JADX WARN: Removed duplicated region for block: B:95:0x0243  */
         /*
             Code decompiled incorrectly, please refer to instructions dump.
-            To view partially-correct add '--show-bad-code' argument
         */
-        public android.widget.RemoteViews applyStandardTemplate(boolean r13, int r14, boolean r15) {
-            /*
-                Method dump skipped, instructions count: 584
-                To view this dump add '--comments-level debug' option
-            */
-            throw new UnsupportedOperationException("Method not decompiled: androidx.core.app.NotificationCompat.Style.applyStandardTemplate(boolean, int, boolean):android.widget.RemoteViews");
+        public RemoteViews applyStandardTemplate(boolean z, int i, boolean z2) {
+            boolean z3;
+            boolean z4;
+            Resources resources = this.mBuilder.mContext.getResources();
+            RemoteViews remoteViews = new RemoteViews(this.mBuilder.mContext.getPackageName(), i);
+            boolean z5 = true;
+            boolean z6 = this.mBuilder.getPriority() < -1;
+            if (Build.VERSION.SDK_INT >= 16 && Build.VERSION.SDK_INT < 21) {
+                if (z6) {
+                    remoteViews.setInt(R.id.notification_background, "setBackgroundResource", R.drawable.notification_bg_low);
+                    remoteViews.setInt(R.id.icon, "setBackgroundResource", R.drawable.notification_template_icon_low_bg);
+                } else {
+                    remoteViews.setInt(R.id.notification_background, "setBackgroundResource", R.drawable.notification_bg);
+                    remoteViews.setInt(R.id.icon, "setBackgroundResource", R.drawable.notification_template_icon_bg);
+                }
+            }
+            if (this.mBuilder.mLargeIcon != null) {
+                if (Build.VERSION.SDK_INT >= 16) {
+                    remoteViews.setViewVisibility(R.id.icon, 0);
+                    remoteViews.setImageViewBitmap(R.id.icon, this.mBuilder.mLargeIcon);
+                } else {
+                    remoteViews.setViewVisibility(R.id.icon, 8);
+                }
+                if (z && this.mBuilder.mNotification.icon != 0) {
+                    int dimensionPixelSize = resources.getDimensionPixelSize(R.dimen.notification_right_icon_size);
+                    int dimensionPixelSize2 = dimensionPixelSize - (resources.getDimensionPixelSize(R.dimen.notification_small_icon_background_padding) * 2);
+                    if (Build.VERSION.SDK_INT >= 21) {
+                        remoteViews.setImageViewBitmap(R.id.right_icon, createIconWithBackground(this.mBuilder.mNotification.icon, dimensionPixelSize, dimensionPixelSize2, this.mBuilder.getColor()));
+                    } else {
+                        remoteViews.setImageViewBitmap(R.id.right_icon, createColoredBitmap(this.mBuilder.mNotification.icon, -1));
+                    }
+                    remoteViews.setViewVisibility(R.id.right_icon, 0);
+                }
+            } else if (z && this.mBuilder.mNotification.icon != 0) {
+                remoteViews.setViewVisibility(R.id.icon, 0);
+                if (Build.VERSION.SDK_INT >= 21) {
+                    remoteViews.setImageViewBitmap(R.id.icon, createIconWithBackground(this.mBuilder.mNotification.icon, resources.getDimensionPixelSize(R.dimen.notification_large_icon_width) - resources.getDimensionPixelSize(R.dimen.notification_big_circle_margin), resources.getDimensionPixelSize(R.dimen.notification_small_icon_size_as_large), this.mBuilder.getColor()));
+                } else {
+                    remoteViews.setImageViewBitmap(R.id.icon, createColoredBitmap(this.mBuilder.mNotification.icon, -1));
+                }
+            }
+            if (this.mBuilder.mContentTitle != null) {
+                remoteViews.setTextViewText(R.id.title, this.mBuilder.mContentTitle);
+            }
+            if (this.mBuilder.mContentText != null) {
+                remoteViews.setTextViewText(R.id.text, this.mBuilder.mContentText);
+                z3 = true;
+            } else {
+                z3 = false;
+            }
+            boolean z7 = Build.VERSION.SDK_INT < 21 && this.mBuilder.mLargeIcon != null;
+            if (this.mBuilder.mContentInfo != null) {
+                remoteViews.setTextViewText(R.id.info, this.mBuilder.mContentInfo);
+                remoteViews.setViewVisibility(R.id.info, 0);
+            } else if (this.mBuilder.mNumber > 0) {
+                if (this.mBuilder.mNumber > resources.getInteger(R.integer.status_bar_notification_info_maxnum)) {
+                    remoteViews.setTextViewText(R.id.info, resources.getString(R.string.status_bar_notification_info_overflow));
+                } else {
+                    remoteViews.setTextViewText(R.id.info, NumberFormat.getIntegerInstance().format(this.mBuilder.mNumber));
+                }
+                remoteViews.setViewVisibility(R.id.info, 0);
+            } else {
+                remoteViews.setViewVisibility(R.id.info, 8);
+                if (this.mBuilder.mSubText != null && Build.VERSION.SDK_INT >= 16) {
+                    remoteViews.setTextViewText(R.id.text, this.mBuilder.mSubText);
+                    if (this.mBuilder.mContentText == null) {
+                        remoteViews.setTextViewText(R.id.text2, this.mBuilder.mContentText);
+                        remoteViews.setViewVisibility(R.id.text2, 0);
+                        z4 = true;
+                        if (z4 && Build.VERSION.SDK_INT >= 16) {
+                            if (z2) {
+                                remoteViews.setTextViewTextSize(R.id.text, 0, resources.getDimensionPixelSize(R.dimen.notification_subtext_size));
+                            }
+                            remoteViews.setViewPadding(R.id.line1, 0, 0, 0, 0);
+                        }
+                        if (this.mBuilder.getWhenIfShowing() == 0) {
+                            z5 = z7;
+                        } else if (this.mBuilder.mUseChronometer && Build.VERSION.SDK_INT >= 16) {
+                            remoteViews.setViewVisibility(R.id.chronometer, 0);
+                            remoteViews.setLong(R.id.chronometer, "setBase", this.mBuilder.getWhenIfShowing() + (SystemClock.elapsedRealtime() - System.currentTimeMillis()));
+                            remoteViews.setBoolean(R.id.chronometer, "setStarted", true);
+                            if (this.mBuilder.mChronometerCountDown && Build.VERSION.SDK_INT >= 24) {
+                                remoteViews.setChronometerCountDown(R.id.chronometer, this.mBuilder.mChronometerCountDown);
+                            }
+                        } else {
+                            remoteViews.setViewVisibility(R.id.time, 0);
+                            remoteViews.setLong(R.id.time, "setTime", this.mBuilder.getWhenIfShowing());
+                        }
+                        remoteViews.setViewVisibility(R.id.right_side, z5 ? 0 : 8);
+                        remoteViews.setViewVisibility(R.id.line3, z3 ? 0 : 8);
+                        return remoteViews;
+                    }
+                    remoteViews.setViewVisibility(R.id.text2, 8);
+                }
+                z4 = false;
+                if (z4) {
+                    if (z2) {
+                    }
+                    remoteViews.setViewPadding(R.id.line1, 0, 0, 0, 0);
+                }
+                if (this.mBuilder.getWhenIfShowing() == 0) {
+                }
+                remoteViews.setViewVisibility(R.id.right_side, z5 ? 0 : 8);
+                remoteViews.setViewVisibility(R.id.line3, z3 ? 0 : 8);
+                return remoteViews;
+            }
+            z3 = true;
+            z7 = true;
+            if (this.mBuilder.mSubText != null) {
+                remoteViews.setTextViewText(R.id.text, this.mBuilder.mSubText);
+                if (this.mBuilder.mContentText == null) {
+                }
+            }
+            z4 = false;
+            if (z4) {
+            }
+            if (this.mBuilder.getWhenIfShowing() == 0) {
+            }
+            remoteViews.setViewVisibility(R.id.right_side, z5 ? 0 : 8);
+            remoteViews.setViewVisibility(R.id.line3, z3 ? 0 : 8);
+            return remoteViews;
         }
 
         public Bitmap createColoredBitmap(int i, int i2) {
@@ -1428,8 +1545,7 @@ public class NotificationCompat {
             this(iconCompat, charSequence, pendingIntent, new Bundle(), (RemoteInput[]) null, (RemoteInput[]) null, true, 0, true, false);
         }
 
-        /* JADX INFO: Access modifiers changed from: package-private */
-        public Action(int i, CharSequence charSequence, PendingIntent pendingIntent, Bundle bundle, RemoteInput[] remoteInputArr, RemoteInput[] remoteInputArr2, boolean z, int i2, boolean z2, boolean z3) {
+        Action(int i, CharSequence charSequence, PendingIntent pendingIntent, Bundle bundle, RemoteInput[] remoteInputArr, RemoteInput[] remoteInputArr2, boolean z, int i2, boolean z2, boolean z3) {
             this(i != 0 ? IconCompat.createWithResource(null, "", i) : null, charSequence, pendingIntent, bundle, remoteInputArr, remoteInputArr2, z, i2, z2, z3);
         }
 
@@ -1662,6 +1778,7 @@ public class NotificationCompat {
                 return builder;
             }
 
+            /* JADX DEBUG: Method merged with bridge method */
             /* renamed from: clone */
             public WearableExtender m4clone() {
                 WearableExtender wearableExtender = new WearableExtender();
@@ -1959,6 +2076,7 @@ public class NotificationCompat {
             return builder.build();
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         /* renamed from: clone */
         public WearableExtender m5clone() {
             WearableExtender wearableExtender = new WearableExtender();

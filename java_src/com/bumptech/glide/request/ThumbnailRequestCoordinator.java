@@ -1,6 +1,7 @@
 package com.bumptech.glide.request;
 
 import com.bumptech.glide.request.RequestCoordinator;
+
 /* loaded from: classes.dex */
 public class ThumbnailRequestCoordinator implements RequestCoordinator, Request {
     private volatile Request full;

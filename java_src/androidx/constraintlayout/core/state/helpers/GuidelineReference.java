@@ -4,6 +4,7 @@ import androidx.constraintlayout.core.state.Reference;
 import androidx.constraintlayout.core.state.State;
 import androidx.constraintlayout.core.widgets.ConstraintWidget;
 import androidx.constraintlayout.core.widgets.Guideline;
+
 /* loaded from: classes.dex */
 public class GuidelineReference implements Reference {
     private Object key;

@@ -8,6 +8,7 @@ import com.bumptech.glide.util.Preconditions;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public class LoadPath<Data, ResourceType, Transcode> {
     private final Class<Data> dataClass;

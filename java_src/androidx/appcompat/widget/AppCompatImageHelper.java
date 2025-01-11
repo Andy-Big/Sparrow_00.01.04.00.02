@@ -11,6 +11,7 @@ import androidx.appcompat.R;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.core.view.ViewCompat;
 import androidx.core.widget.ImageViewCompat;
+
 /* loaded from: classes.dex */
 public class AppCompatImageHelper {
     private TintInfo mImageTint;
@@ -59,13 +60,11 @@ public class AppCompatImageHelper {
         applySupportImageTint();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean hasOverlappingRendering() {
+    boolean hasOverlappingRendering() {
         return Build.VERSION.SDK_INT < 21 || !(this.mView.getBackground() instanceof RippleDrawable);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setSupportImageTintList(ColorStateList colorStateList) {
+    void setSupportImageTintList(ColorStateList colorStateList) {
         if (this.mImageTint == null) {
             this.mImageTint = new TintInfo();
         }
@@ -74,8 +73,7 @@ public class AppCompatImageHelper {
         applySupportImageTint();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ColorStateList getSupportImageTintList() {
+    ColorStateList getSupportImageTintList() {
         TintInfo tintInfo = this.mImageTint;
         if (tintInfo != null) {
             return tintInfo.mTintList;
@@ -83,8 +81,7 @@ public class AppCompatImageHelper {
         return null;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setSupportImageTintMode(PorterDuff.Mode mode) {
+    void setSupportImageTintMode(PorterDuff.Mode mode) {
         if (this.mImageTint == null) {
             this.mImageTint = new TintInfo();
         }
@@ -93,8 +90,7 @@ public class AppCompatImageHelper {
         applySupportImageTint();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public PorterDuff.Mode getSupportImageTintMode() {
+    PorterDuff.Mode getSupportImageTintMode() {
         TintInfo tintInfo = this.mImageTint;
         if (tintInfo != null) {
             return tintInfo.mTintMode;
@@ -102,8 +98,7 @@ public class AppCompatImageHelper {
         return null;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void applySupportImageTint() {
+    void applySupportImageTint() {
         Drawable drawable = this.mView.getDrawable();
         if (drawable != null) {
             DrawableUtils.fixDrawable(drawable);

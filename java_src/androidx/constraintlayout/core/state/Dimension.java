@@ -1,6 +1,7 @@
 package androidx.constraintlayout.core.state;
 
 import androidx.constraintlayout.core.widgets.ConstraintWidget;
+
 /* loaded from: classes.dex */
 public class Dimension {
     private final int WRAP_CONTENT;
@@ -161,8 +162,7 @@ public class Dimension {
         this.mValue = i;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public int getValue() {
+    int getValue() {
         return this.mValue;
     }
 

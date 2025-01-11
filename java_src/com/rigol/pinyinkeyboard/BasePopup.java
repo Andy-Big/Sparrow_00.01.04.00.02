@@ -162,6 +162,10 @@ public abstract class BasePopup<T extends BasePopup> implements PopupWindow.OnDi
             this.mPopupWindow.getContentView().setFocusable(true);
             this.mPopupWindow.getContentView().setFocusableInTouchMode(true);
             this.mPopupWindow.getContentView().setOnKeyListener(new View.OnKeyListener() { // from class: com.rigol.pinyinkeyboard.BasePopup.1
+                {
+                    BasePopup.this = this;
+                }
+
                 @Override // android.view.View.OnKeyListener
                 public boolean onKey(View view, int i, KeyEvent keyEvent) {
                     if (i == 4) {
@@ -172,6 +176,10 @@ public abstract class BasePopup<T extends BasePopup> implements PopupWindow.OnDi
                 }
             });
             this.mPopupWindow.setTouchInterceptor(new View.OnTouchListener() { // from class: com.rigol.pinyinkeyboard.BasePopup.2
+                {
+                    BasePopup.this = this;
+                }
+
                 @Override // android.view.View.OnTouchListener
                 public boolean onTouch(View view, MotionEvent motionEvent) {
                     int x = (int) motionEvent.getX();
@@ -237,6 +245,10 @@ public abstract class BasePopup<T extends BasePopup> implements PopupWindow.OnDi
 
     private void registerOnGlobalLayoutListener() {
         getContentView().getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.rigol.pinyinkeyboard.BasePopup.3
+            {
+                BasePopup.this = this;
+            }
+
             @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
             public void onGlobalLayout() {
                 BasePopup.this.getContentView().getViewTreeObserver().removeOnGlobalLayoutListener(this);
@@ -259,7 +271,6 @@ public abstract class BasePopup<T extends BasePopup> implements PopupWindow.OnDi
         });
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public void updateLocation(int i, int i2, View view, int i3, int i4, int i5, int i6) {
         if (this.mPopupWindow == null) {
             return;
@@ -279,6 +290,10 @@ public abstract class BasePopup<T extends BasePopup> implements PopupWindow.OnDi
             private float offsetYTotal;
             private int orgX;
             private int orgY;
+
+            {
+                BasePopup.this = this;
+            }
 
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
@@ -767,7 +782,6 @@ public abstract class BasePopup<T extends BasePopup> implements PopupWindow.OnDi
         return this.isRealWHAlready;
     }
 
-    /* JADX WARN: Incorrect return type in method signature: <T:Landroid/view/View;>(I)TT; */
     public View findViewById(int i) {
         if (getContentView() != null) {
             return getContentView().findViewById(i);

@@ -2,6 +2,7 @@ package kotlin.jvm.internal;
 
 import kotlin.reflect.KClass;
 import kotlin.reflect.KDeclarationContainer;
+
 /* loaded from: classes2.dex */
 public class PropertyReference0Impl extends PropertyReference0 {
     public PropertyReference0Impl(KDeclarationContainer kDeclarationContainer, String str, String str2) {

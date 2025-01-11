@@ -20,6 +20,7 @@ import javax.jmdns.impl.constants.DNSState;
 import javax.jmdns.impl.tasks.DNSTask;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 /* loaded from: classes2.dex */
 public class HostInfo implements DNSStatefulObject {
     private static Logger logger = LoggerFactory.getLogger(HostInfo.class.getName());
@@ -28,9 +29,8 @@ public class HostInfo implements DNSStatefulObject {
     protected String _name;
     private final HostInfoState _state;
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
-    public static final class HostInfoState extends DNSStatefulObject.DefaultImplementation {
+    private static final class HostInfoState extends DNSStatefulObject.DefaultImplementation {
         private static final long serialVersionUID = -8191476803620402088L;
 
         public HostInfoState(JmDNSImpl jmDNSImpl) {
@@ -115,16 +115,14 @@ public class HostInfo implements DNSStatefulObject {
         return this._address;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public Inet4Address getInet4Address() {
+    Inet4Address getInet4Address() {
         if (getInetAddress() instanceof Inet4Address) {
             return (Inet4Address) this._address;
         }
         return null;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public Inet6Address getInet6Address() {
+    Inet6Address getInet6Address() {
         if (getInetAddress() instanceof Inet6Address) {
             return (Inet6Address) this._address;
         }
@@ -140,16 +138,14 @@ public class HostInfo implements DNSStatefulObject {
         return dNSAddressRecord != null && dNSAddressRecord.sameType(address) && dNSAddressRecord.sameName(address) && !dNSAddressRecord.sameValue(address);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public synchronized String incrementHostName() {
+    synchronized String incrementHostName() {
         String incrementName;
         incrementName = NameRegister.Factory.getRegistry().incrementName(getInetAddress(), this._name, NameRegister.NameType.HOST);
         this._name = incrementName;
         return incrementName;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean shouldIgnorePacket(DatagramPacket datagramPacket) {
+    boolean shouldIgnorePacket(DatagramPacket datagramPacket) {
         InetAddress address;
         boolean z = false;
         if (getInetAddress() != null && (address = datagramPacket.getAddress()) != null) {
@@ -163,10 +159,9 @@ public class HostInfo implements DNSStatefulObject {
         return z;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: javax.jmdns.impl.HostInfo$1  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    static /* synthetic */ class AnonymousClass1 {
         static final /* synthetic */ int[] $SwitchMap$javax$jmdns$impl$constants$DNSRecordType;
 
         static {
@@ -187,8 +182,7 @@ public class HostInfo implements DNSStatefulObject {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public DNSRecord.Address getDNSAddressRecord(DNSRecordType dNSRecordType, boolean z, int i) {
+    DNSRecord.Address getDNSAddressRecord(DNSRecordType dNSRecordType, boolean z, int i) {
         int i2 = AnonymousClass1.$SwitchMap$javax$jmdns$impl$constants$DNSRecordType[dNSRecordType.ordinal()];
         if (i2 != 1) {
             if (i2 == 2 || i2 == 3) {
@@ -213,8 +207,7 @@ public class HostInfo implements DNSStatefulObject {
         return null;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public DNSRecord.Pointer getDNSReverseAddressRecord(DNSRecordType dNSRecordType, boolean z, int i) {
+    DNSRecord.Pointer getDNSReverseAddressRecord(DNSRecordType dNSRecordType, boolean z, int i) {
         int i2 = AnonymousClass1.$SwitchMap$javax$jmdns$impl$constants$DNSRecordType[dNSRecordType.ordinal()];
         if (i2 != 1) {
             if (i2 == 2 || i2 == 3) {

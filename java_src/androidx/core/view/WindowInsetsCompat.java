@@ -10,6 +10,7 @@ import androidx.core.util.Preconditions;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.util.Objects;
+
 /* loaded from: classes.dex */
 public class WindowInsetsCompat {
     public static final WindowInsetsCompat CONSUMED = new Builder().build().consumeDisplayCutout().consumeStableInsets().consumeSystemWindowInsets();
@@ -189,9 +190,8 @@ public class WindowInsetsCompat {
         return null;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static class Impl {
+    private static class Impl {
         final WindowInsetsCompat mHost;
 
         DisplayCutoutCompat getDisplayCutout() {
@@ -262,9 +262,8 @@ public class WindowInsetsCompat {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static class Impl20 extends Impl {
+    private static class Impl20 extends Impl {
         final WindowInsets mPlatformInsets;
         private Insets mSystemWindowInsets;
 
@@ -492,9 +491,8 @@ public class WindowInsetsCompat {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static class BuilderImpl {
+    private static class BuilderImpl {
         private final WindowInsetsCompat mInsets;
 
         void setDisplayCutout(DisplayCutoutCompat displayCutoutCompat) {

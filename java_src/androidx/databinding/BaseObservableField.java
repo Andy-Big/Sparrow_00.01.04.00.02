@@ -1,6 +1,7 @@
 package androidx.databinding;
 
 import androidx.databinding.Observable;
+
 /* loaded from: classes.dex */
 abstract class BaseObservableField extends BaseObservable {
     public BaseObservableField() {

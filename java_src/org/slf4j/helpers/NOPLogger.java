@@ -1,4 +1,5 @@
 package org.slf4j.helpers;
+
 /* loaded from: classes2.dex */
 public class NOPLogger extends MarkerIgnoringBase {
     public static final NOPLogger NOP_LOGGER = new NOPLogger();

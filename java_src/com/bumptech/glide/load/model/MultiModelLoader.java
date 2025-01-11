@@ -12,13 +12,13 @@ import com.bumptech.glide.util.Preconditions;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
 /* loaded from: classes.dex */
 class MultiModelLoader<Model, Data> implements ModelLoader<Model, Data> {
     private final Pools.Pool<List<Throwable>> exceptionListPool;
     private final List<ModelLoader<Model, Data>> modelLoaders;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public MultiModelLoader(List<ModelLoader<Model, Data>> list, Pools.Pool<List<Throwable>> pool) {
+    MultiModelLoader(List<ModelLoader<Model, Data>> list, Pools.Pool<List<Throwable>> pool) {
         this.modelLoaders = list;
         this.exceptionListPool = pool;
     }

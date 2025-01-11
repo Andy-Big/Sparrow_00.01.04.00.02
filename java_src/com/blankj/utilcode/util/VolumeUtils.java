@@ -2,6 +2,7 @@ package com.blankj.utilcode.util;
 
 import android.media.AudioManager;
 import android.os.Build;
+
 /* loaded from: classes.dex */
 public class VolumeUtils {
     public static int getVolume(int i) {

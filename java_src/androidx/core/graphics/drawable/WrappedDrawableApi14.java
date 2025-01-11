@@ -8,9 +8,9 @@ import android.graphics.PorterDuff;
 import android.graphics.Rect;
 import android.graphics.Region;
 import android.graphics.drawable.Drawable;
-/* JADX INFO: Access modifiers changed from: package-private */
+
 /* loaded from: classes.dex */
-public class WrappedDrawableApi14 extends Drawable implements Drawable.Callback, WrappedDrawable, TintAwareDrawable {
+class WrappedDrawableApi14 extends Drawable implements Drawable.Callback, WrappedDrawable, TintAwareDrawable {
     static final PorterDuff.Mode DEFAULT_TINT_MODE = PorterDuff.Mode.SRC_IN;
     private boolean mColorFilterSet;
     private int mCurrentColor;
@@ -23,14 +23,12 @@ public class WrappedDrawableApi14 extends Drawable implements Drawable.Callback,
         return true;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public WrappedDrawableApi14(WrappedDrawableState wrappedDrawableState, Resources resources) {
+    WrappedDrawableApi14(WrappedDrawableState wrappedDrawableState, Resources resources) {
         this.mState = wrappedDrawableState;
         updateLocalState(resources);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public WrappedDrawableApi14(Drawable drawable) {
+    WrappedDrawableApi14(Drawable drawable) {
         this.mState = mutateConstantState();
         setWrappedDrawable(drawable);
     }

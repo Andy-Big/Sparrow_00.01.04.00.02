@@ -5,6 +5,7 @@ import com.sun.mail.iap.Response;
 import java.util.ArrayList;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
+
 /* compiled from: ENVELOPE.java */
 /* loaded from: classes2.dex */
 class IMAPAddress extends InternetAddress {
@@ -13,8 +14,7 @@ class IMAPAddress extends InternetAddress {
     private InternetAddress[] grouplist;
     private String groupname;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public IMAPAddress(Response response) throws ParsingException {
+    IMAPAddress(Response response) throws ParsingException {
         this.group = false;
         response.skipSpaces();
         if (response.readByte() != 40) {
@@ -61,8 +61,7 @@ class IMAPAddress extends InternetAddress {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean isEndOfGroup() {
+    boolean isEndOfGroup() {
         return this.group && this.groupname == null;
     }
 

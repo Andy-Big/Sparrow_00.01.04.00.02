@@ -3,6 +3,7 @@ package com.scwang.smartrefresh.layout.api;
 import android.animation.ValueAnimator;
 import android.view.MotionEvent;
 import android.view.View;
+
 /* loaded from: classes2.dex */
 public interface RefreshContent {
     boolean canLoadMore();

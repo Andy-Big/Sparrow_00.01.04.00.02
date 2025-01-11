@@ -8,6 +8,7 @@ import java.lang.annotation.Target;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+
 /* loaded from: classes.dex */
 public final class ApiUtils {
     private static final String TAG = "ApiUtils";
@@ -87,9 +88,8 @@ public final class ApiUtils {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static class LazyHolder {
+    private static class LazyHolder {
         private static final ApiUtils INSTANCE = new ApiUtils();
 
         private LazyHolder() {

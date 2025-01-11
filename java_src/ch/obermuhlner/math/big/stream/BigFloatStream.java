@@ -8,6 +8,7 @@ import java.util.Spliterators;
 import java.util.function.Consumer;
 import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
+
 /* loaded from: classes.dex */
 public class BigFloatStream {
     public static Stream<BigFloat> range(BigFloat bigFloat, BigFloat bigFloat2, BigFloat bigFloat3) {
@@ -46,9 +47,8 @@ public class BigFloatStream {
         return rangeClosed(context.valueOf(d), context.valueOf(d2), context.valueOf(d3));
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static class BigFloatSpliterator extends Spliterators.AbstractSpliterator<BigFloat> {
+    private static class BigFloatSpliterator extends Spliterators.AbstractSpliterator<BigFloat> {
         private long count;
         private BigFloat step;
         private BigFloat value;

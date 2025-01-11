@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public class DefaultItemAnimator extends SimpleItemAnimator {
     private static final boolean DEBUG = false;
@@ -27,9 +28,8 @@ public class DefaultItemAnimator extends SimpleItemAnimator {
     ArrayList<RecyclerView.ViewHolder> mRemoveAnimations = new ArrayList<>();
     ArrayList<RecyclerView.ViewHolder> mChangeAnimations = new ArrayList<>();
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static class MoveInfo {
+    private static class MoveInfo {
         public int fromX;
         public int fromY;
         public RecyclerView.ViewHolder holder;
@@ -45,9 +45,8 @@ public class DefaultItemAnimator extends SimpleItemAnimator {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static class ChangeInfo {
+    private static class ChangeInfo {
         public int fromX;
         public int fromY;
         public RecyclerView.ViewHolder newHolder;

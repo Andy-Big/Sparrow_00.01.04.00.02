@@ -1,4 +1,5 @@
 package com.bumptech.glide.load.engine.bitmap_recycle;
+
 /* loaded from: classes.dex */
 public final class IntegerArrayAdapter implements ArrayAdapterInterface<int[]> {
     private static final String TAG = "IntegerArrayPool";
@@ -13,11 +14,13 @@ public final class IntegerArrayAdapter implements ArrayAdapterInterface<int[]> {
         return TAG;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.engine.bitmap_recycle.ArrayAdapterInterface
     public int getArrayLength(int[] iArr) {
         return iArr.length;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.engine.bitmap_recycle.ArrayAdapterInterface
     public int[] newArray(int i) {
         return new int[i];

@@ -1,4 +1,5 @@
 package com.google.android.material.shape;
+
 /* loaded from: classes.dex */
 public class TriangleEdgeTreatment extends EdgeTreatment {
     private final boolean inside;

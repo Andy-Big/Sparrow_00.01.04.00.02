@@ -5,6 +5,7 @@ import android.os.Build;
 import android.os.LocaleList;
 import android.telephony.mbms.ServiceInfo;
 import java.util.Locale;
+
 /* loaded from: classes.dex */
 public final class MbmsHelper {
     private MbmsHelper() {

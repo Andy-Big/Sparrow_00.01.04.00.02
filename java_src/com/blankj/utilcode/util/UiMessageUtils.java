@@ -7,6 +7,7 @@ import android.util.Log;
 import android.util.SparseArray;
 import java.util.ArrayList;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public final class UiMessageUtils implements Handler.Callback {
     private static final boolean DEBUG = UtilsBridge.isAppDebug();

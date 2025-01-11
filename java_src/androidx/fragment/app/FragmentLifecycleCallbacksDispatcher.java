@@ -6,15 +6,14 @@ import android.view.View;
 import androidx.fragment.app.FragmentManager;
 import java.util.Iterator;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* JADX INFO: Access modifiers changed from: package-private */
+
 /* loaded from: classes.dex */
-public class FragmentLifecycleCallbacksDispatcher {
+class FragmentLifecycleCallbacksDispatcher {
     private final FragmentManager mFragmentManager;
     private final CopyOnWriteArrayList<FragmentLifecycleCallbacksHolder> mLifecycleCallbacks = new CopyOnWriteArrayList<>();
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static final class FragmentLifecycleCallbacksHolder {
+    private static final class FragmentLifecycleCallbacksHolder {
         final FragmentManager.FragmentLifecycleCallbacks mCallback;
         final boolean mRecursive;
 
@@ -24,8 +23,7 @@ public class FragmentLifecycleCallbacksDispatcher {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public FragmentLifecycleCallbacksDispatcher(FragmentManager fragmentManager) {
+    FragmentLifecycleCallbacksDispatcher(FragmentManager fragmentManager) {
         this.mFragmentManager = fragmentManager;
     }
 
@@ -50,8 +48,7 @@ public class FragmentLifecycleCallbacksDispatcher {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void dispatchOnFragmentPreAttached(Fragment fragment, Context context, boolean z) {
+    void dispatchOnFragmentPreAttached(Fragment fragment, Context context, boolean z) {
         Fragment parent = this.mFragmentManager.getParent();
         if (parent != null) {
             parent.getParentFragmentManager().getLifecycleCallbacksDispatcher().dispatchOnFragmentPreAttached(fragment, context, true);
@@ -65,8 +62,7 @@ public class FragmentLifecycleCallbacksDispatcher {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void dispatchOnFragmentAttached(Fragment fragment, Context context, boolean z) {
+    void dispatchOnFragmentAttached(Fragment fragment, Context context, boolean z) {
         Fragment parent = this.mFragmentManager.getParent();
         if (parent != null) {
             parent.getParentFragmentManager().getLifecycleCallbacksDispatcher().dispatchOnFragmentAttached(fragment, context, true);
@@ -80,8 +76,7 @@ public class FragmentLifecycleCallbacksDispatcher {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void dispatchOnFragmentPreCreated(Fragment fragment, Bundle bundle, boolean z) {
+    void dispatchOnFragmentPreCreated(Fragment fragment, Bundle bundle, boolean z) {
         Fragment parent = this.mFragmentManager.getParent();
         if (parent != null) {
             parent.getParentFragmentManager().getLifecycleCallbacksDispatcher().dispatchOnFragmentPreCreated(fragment, bundle, true);
@@ -95,8 +90,7 @@ public class FragmentLifecycleCallbacksDispatcher {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void dispatchOnFragmentCreated(Fragment fragment, Bundle bundle, boolean z) {
+    void dispatchOnFragmentCreated(Fragment fragment, Bundle bundle, boolean z) {
         Fragment parent = this.mFragmentManager.getParent();
         if (parent != null) {
             parent.getParentFragmentManager().getLifecycleCallbacksDispatcher().dispatchOnFragmentCreated(fragment, bundle, true);
@@ -110,8 +104,7 @@ public class FragmentLifecycleCallbacksDispatcher {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void dispatchOnFragmentActivityCreated(Fragment fragment, Bundle bundle, boolean z) {
+    void dispatchOnFragmentActivityCreated(Fragment fragment, Bundle bundle, boolean z) {
         Fragment parent = this.mFragmentManager.getParent();
         if (parent != null) {
             parent.getParentFragmentManager().getLifecycleCallbacksDispatcher().dispatchOnFragmentActivityCreated(fragment, bundle, true);
@@ -125,8 +118,7 @@ public class FragmentLifecycleCallbacksDispatcher {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void dispatchOnFragmentViewCreated(Fragment fragment, View view, Bundle bundle, boolean z) {
+    void dispatchOnFragmentViewCreated(Fragment fragment, View view, Bundle bundle, boolean z) {
         Fragment parent = this.mFragmentManager.getParent();
         if (parent != null) {
             parent.getParentFragmentManager().getLifecycleCallbacksDispatcher().dispatchOnFragmentViewCreated(fragment, view, bundle, true);
@@ -140,8 +132,7 @@ public class FragmentLifecycleCallbacksDispatcher {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void dispatchOnFragmentStarted(Fragment fragment, boolean z) {
+    void dispatchOnFragmentStarted(Fragment fragment, boolean z) {
         Fragment parent = this.mFragmentManager.getParent();
         if (parent != null) {
             parent.getParentFragmentManager().getLifecycleCallbacksDispatcher().dispatchOnFragmentStarted(fragment, true);
@@ -155,8 +146,7 @@ public class FragmentLifecycleCallbacksDispatcher {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void dispatchOnFragmentResumed(Fragment fragment, boolean z) {
+    void dispatchOnFragmentResumed(Fragment fragment, boolean z) {
         Fragment parent = this.mFragmentManager.getParent();
         if (parent != null) {
             parent.getParentFragmentManager().getLifecycleCallbacksDispatcher().dispatchOnFragmentResumed(fragment, true);
@@ -170,8 +160,7 @@ public class FragmentLifecycleCallbacksDispatcher {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void dispatchOnFragmentPaused(Fragment fragment, boolean z) {
+    void dispatchOnFragmentPaused(Fragment fragment, boolean z) {
         Fragment parent = this.mFragmentManager.getParent();
         if (parent != null) {
             parent.getParentFragmentManager().getLifecycleCallbacksDispatcher().dispatchOnFragmentPaused(fragment, true);
@@ -185,8 +174,7 @@ public class FragmentLifecycleCallbacksDispatcher {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void dispatchOnFragmentStopped(Fragment fragment, boolean z) {
+    void dispatchOnFragmentStopped(Fragment fragment, boolean z) {
         Fragment parent = this.mFragmentManager.getParent();
         if (parent != null) {
             parent.getParentFragmentManager().getLifecycleCallbacksDispatcher().dispatchOnFragmentStopped(fragment, true);
@@ -200,8 +188,7 @@ public class FragmentLifecycleCallbacksDispatcher {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void dispatchOnFragmentSaveInstanceState(Fragment fragment, Bundle bundle, boolean z) {
+    void dispatchOnFragmentSaveInstanceState(Fragment fragment, Bundle bundle, boolean z) {
         Fragment parent = this.mFragmentManager.getParent();
         if (parent != null) {
             parent.getParentFragmentManager().getLifecycleCallbacksDispatcher().dispatchOnFragmentSaveInstanceState(fragment, bundle, true);
@@ -215,8 +202,7 @@ public class FragmentLifecycleCallbacksDispatcher {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void dispatchOnFragmentViewDestroyed(Fragment fragment, boolean z) {
+    void dispatchOnFragmentViewDestroyed(Fragment fragment, boolean z) {
         Fragment parent = this.mFragmentManager.getParent();
         if (parent != null) {
             parent.getParentFragmentManager().getLifecycleCallbacksDispatcher().dispatchOnFragmentViewDestroyed(fragment, true);
@@ -230,8 +216,7 @@ public class FragmentLifecycleCallbacksDispatcher {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void dispatchOnFragmentDestroyed(Fragment fragment, boolean z) {
+    void dispatchOnFragmentDestroyed(Fragment fragment, boolean z) {
         Fragment parent = this.mFragmentManager.getParent();
         if (parent != null) {
             parent.getParentFragmentManager().getLifecycleCallbacksDispatcher().dispatchOnFragmentDestroyed(fragment, true);
@@ -245,8 +230,7 @@ public class FragmentLifecycleCallbacksDispatcher {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void dispatchOnFragmentDetached(Fragment fragment, boolean z) {
+    void dispatchOnFragmentDetached(Fragment fragment, boolean z) {
         Fragment parent = this.mFragmentManager.getParent();
         if (parent != null) {
             parent.getParentFragmentManager().getLifecycleCallbacksDispatcher().dispatchOnFragmentDetached(fragment, true);

@@ -13,6 +13,7 @@ import java.util.Iterator;
 import java.util.Set;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
+
 /* loaded from: classes.dex */
 public class KeyFrames {
     private static final String CUSTOM_ATTRIBUTE = "CustomAttribute";
@@ -58,19 +59,19 @@ public class KeyFrames {
                     if (sKeyMakers.containsKey(name)) {
                         try {
                             key = sKeyMakers.get(name).newInstance(new Object[0]);
-                            try {
-                                key.load(context, Xml.asAttributeSet(xmlPullParser));
-                                addKey(key);
-                            } catch (Exception e2) {
-                                e = e2;
-                                Log.e(TAG, "unable to create ", e);
-                                key2 = key;
-                                continue;
-                                eventType = xmlPullParser.next();
-                            }
-                        } catch (Exception e3) {
+                        } catch (Exception e2) {
                             key = key2;
+                            e = e2;
+                        }
+                        try {
+                            key.load(context, Xml.asAttributeSet(xmlPullParser));
+                            addKey(key);
+                        } catch (Exception e3) {
                             e = e3;
+                            Log.e(TAG, "unable to create ", e);
+                            key2 = key;
+                            continue;
+                            eventType = xmlPullParser.next();
                         }
                         key2 = key;
                         continue;

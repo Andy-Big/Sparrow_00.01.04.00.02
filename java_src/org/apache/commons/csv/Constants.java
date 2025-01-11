@@ -1,6 +1,7 @@
 package org.apache.commons.csv;
 
 import kotlin.text.Typography;
+
 /* loaded from: classes2.dex */
 final class Constants {
     static final char BACKSLASH = '\\';

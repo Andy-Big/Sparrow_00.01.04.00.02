@@ -6,6 +6,7 @@ import android.graphics.PorterDuffXfermode;
 import android.graphics.Rect;
 import android.os.Build;
 import androidx.core.util.Pair;
+
 /* loaded from: classes.dex */
 public final class PaintCompat {
     private static final String EM_STRING = "m";

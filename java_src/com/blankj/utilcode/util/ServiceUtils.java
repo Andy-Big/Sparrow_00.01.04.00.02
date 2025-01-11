@@ -7,6 +7,7 @@ import android.os.Build;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+
 /* loaded from: classes.dex */
 public final class ServiceUtils {
     private ServiceUtils() {

@@ -5,6 +5,7 @@ import android.view.View;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.Scroller;
 import androidx.recyclerview.widget.RecyclerView;
+
 /* loaded from: classes.dex */
 public abstract class SnapHelper extends RecyclerView.OnFlingListener {
     static final float MILLISECONDS_PER_INCH = 100.0f;

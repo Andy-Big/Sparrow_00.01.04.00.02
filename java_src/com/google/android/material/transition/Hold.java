@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.transition.TransitionValues;
 import androidx.transition.Visibility;
+
 /* loaded from: classes.dex */
 public final class Hold extends Visibility {
     @Override // androidx.transition.Visibility

@@ -2,6 +2,7 @@ package com.google.gson.internal;
 
 import java.io.ObjectStreamException;
 import java.math.BigDecimal;
+
 /* loaded from: classes.dex */
 public final class LazilyParsedNumber extends Number {
     private final String value;
@@ -16,10 +17,10 @@ public final class LazilyParsedNumber extends Number {
             try {
                 return Integer.parseInt(this.value);
             } catch (NumberFormatException unused) {
-                return (int) Long.parseLong(this.value);
+                return new BigDecimal(this.value).intValue();
             }
         } catch (NumberFormatException unused2) {
-            return new BigDecimal(this.value).intValue();
+            return (int) Long.parseLong(this.value);
         }
     }
 

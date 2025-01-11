@@ -4,6 +4,7 @@ import android.graphics.Rect;
 import android.os.Build;
 import android.view.DisplayCutout;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public final class DisplayCutoutCompat {
     private final Object mDisplayCutout;
@@ -78,16 +79,14 @@ public final class DisplayCutoutCompat {
         return "DisplayCutoutCompat{" + this.mDisplayCutout + "}";
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static DisplayCutoutCompat wrap(Object obj) {
+    static DisplayCutoutCompat wrap(Object obj) {
         if (obj == null) {
             return null;
         }
         return new DisplayCutoutCompat(obj);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public DisplayCutout unwrap() {
+    DisplayCutout unwrap() {
         return (DisplayCutout) this.mDisplayCutout;
     }
 }

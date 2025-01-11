@@ -93,7 +93,7 @@ public class WindowHolderManager {
         return arrayList;
     }
 
-    /* renamed from: com.rigol.scope.utilities.WindowHolderManager$1  reason: invalid class name */
+    /* renamed from: com.rigol.scope.utilities.WindowHolderManager$1 */
     /* loaded from: classes2.dex */
     static /* synthetic */ class AnonymousClass1 {
         static final /* synthetic */ int[] $SwitchMap$com$rigol$scope$cil$ServiceEnum$WindowType;
@@ -243,9 +243,14 @@ public class WindowHolderManager {
         ThreadUtils.runOnUiThreadDelayed(new Runnable() { // from class: com.rigol.scope.utilities.-$$Lambda$WindowHolderManager$ekkoI8RNtTkzMdrP1oBORpcpvu4
             @Override // java.lang.Runnable
             public final void run() {
-                MessageBus.getInstance().onSyncData(MessageBus.getKey(60, MessageID.MSG_LA_ENABLE), true);
+                WindowHolderManager.lambda$remove$0();
             }
         }, 200L);
+    }
+
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.utilities.-$$Lambda$WindowHolderManager$ekkoI8RNtTkzMdrP1oBORpcpvu4.run():void] */
+    static /* synthetic */ void lambda$remove$0() {
+        MessageBus.getInstance().onSyncData(MessageBus.getKey(60, MessageID.MSG_LA_ENABLE), true);
     }
 
     public int size(ServiceEnum.WindowType windowType) {

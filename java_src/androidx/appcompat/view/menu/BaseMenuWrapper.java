@@ -6,20 +6,18 @@ import android.view.SubMenu;
 import androidx.collection.SimpleArrayMap;
 import androidx.core.internal.view.SupportMenuItem;
 import androidx.core.internal.view.SupportSubMenu;
-/* JADX INFO: Access modifiers changed from: package-private */
+
 /* loaded from: classes.dex */
-public abstract class BaseMenuWrapper {
+abstract class BaseMenuWrapper {
     final Context mContext;
     private SimpleArrayMap<SupportMenuItem, MenuItem> mMenuItems;
     private SimpleArrayMap<SupportSubMenu, SubMenu> mSubMenus;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public BaseMenuWrapper(Context context) {
+    BaseMenuWrapper(Context context) {
         this.mContext = context;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public final MenuItem getMenuItemWrapper(MenuItem menuItem) {
+    final MenuItem getMenuItemWrapper(MenuItem menuItem) {
         if (menuItem instanceof SupportMenuItem) {
             SupportMenuItem supportMenuItem = (SupportMenuItem) menuItem;
             if (this.mMenuItems == null) {
@@ -36,8 +34,7 @@ public abstract class BaseMenuWrapper {
         return menuItem;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public final SubMenu getSubMenuWrapper(SubMenu subMenu) {
+    final SubMenu getSubMenuWrapper(SubMenu subMenu) {
         if (subMenu instanceof SupportSubMenu) {
             SupportSubMenu supportSubMenu = (SupportSubMenu) subMenu;
             if (this.mSubMenus == null) {
@@ -54,8 +51,7 @@ public abstract class BaseMenuWrapper {
         return subMenu;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public final void internalClear() {
+    final void internalClear() {
         SimpleArrayMap<SupportMenuItem, MenuItem> simpleArrayMap = this.mMenuItems;
         if (simpleArrayMap != null) {
             simpleArrayMap.clear();
@@ -66,8 +62,7 @@ public abstract class BaseMenuWrapper {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public final void internalRemoveGroup(int i) {
+    final void internalRemoveGroup(int i) {
         if (this.mMenuItems == null) {
             return;
         }
@@ -81,8 +76,7 @@ public abstract class BaseMenuWrapper {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public final void internalRemoveItem(int i) {
+    final void internalRemoveItem(int i) {
         if (this.mMenuItems == null) {
             return;
         }

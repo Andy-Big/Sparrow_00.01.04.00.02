@@ -13,6 +13,7 @@ import kotlin.ranges.RangesKt;
 import kotlinx.coroutines.CancellableContinuation;
 import kotlinx.coroutines.Delay;
 import kotlinx.coroutines.DisposableHandle;
+
 /* compiled from: HandlerDispatcher.kt */
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000^\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0002\b\u0006\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\b\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\t\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0002\b\u0000\u0018\u00002\u00020\u00012\u00020\u0002B\u001b\b\u0016\u0012\u0006\u0010\u0003\u001a\u00020\u0004\u0012\n\b\u0002\u0010\u0005\u001a\u0004\u0018\u00010\u0006¢\u0006\u0002\u0010\u0007B!\b\u0002\u0012\u0006\u0010\u0003\u001a\u00020\u0004\u0012\b\u0010\u0005\u001a\u0004\u0018\u00010\u0006\u0012\u0006\u0010\b\u001a\u00020\t¢\u0006\u0002\u0010\nJ\u001c\u0010\u000f\u001a\u00020\u00102\u0006\u0010\u0011\u001a\u00020\u00122\n\u0010\u0013\u001a\u00060\u0014j\u0002`\u0015H\u0016J\u0013\u0010\u0016\u001a\u00020\t2\b\u0010\u0017\u001a\u0004\u0018\u00010\u0018H\u0096\u0002J\b\u0010\u0019\u001a\u00020\u001aH\u0016J\u001c\u0010\u001b\u001a\u00020\u001c2\u0006\u0010\u001d\u001a\u00020\u001e2\n\u0010\u0013\u001a\u00060\u0014j\u0002`\u0015H\u0016J\u0010\u0010\u001f\u001a\u00020\t2\u0006\u0010\u0011\u001a\u00020\u0012H\u0016J\u001e\u0010 \u001a\u00020\u00102\u0006\u0010\u001d\u001a\u00020\u001e2\f\u0010!\u001a\b\u0012\u0004\u0012\u00020\u00100\"H\u0016J\b\u0010#\u001a\u00020\u0006H\u0016R\u0010\u0010\u000b\u001a\u0004\u0018\u00010\u0000X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0003\u001a\u00020\u0004X\u0082\u0004¢\u0006\u0002\n\u0000R\u0014\u0010\f\u001a\u00020\u0000X\u0096\u0004¢\u0006\b\n\u0000\u001a\u0004\b\r\u0010\u000eR\u000e\u0010\b\u001a\u00020\tX\u0082\u0004¢\u0006\u0002\n\u0000R\u0010\u0010\u0005\u001a\u0004\u0018\u00010\u0006X\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006$"}, d2 = {"Lkotlinx/coroutines/android/HandlerContext;", "Lkotlinx/coroutines/android/HandlerDispatcher;", "Lkotlinx/coroutines/Delay;", "handler", "Landroid/os/Handler;", IMAPStore.ID_NAME, "", "(Landroid/os/Handler;Ljava/lang/String;)V", "invokeImmediately", "", "(Landroid/os/Handler;Ljava/lang/String;Z)V", "_immediate", "immediate", "getImmediate", "()Lkotlinx/coroutines/android/HandlerContext;", "dispatch", "", "context", "Lkotlin/coroutines/CoroutineContext;", "block", "Ljava/lang/Runnable;", "Lkotlinx/coroutines/Runnable;", "equals", "other", "", "hashCode", "", "invokeOnTimeout", "Lkotlinx/coroutines/DisposableHandle;", "timeMillis", "", "isDispatchNeeded", "scheduleResumeAfterDelay", "continuation", "Lkotlinx/coroutines/CancellableContinuation;", "toString", "kotlinx-coroutines-android"}, k = 1, mv = {1, 1, 15})
 /* loaded from: classes2.dex */
@@ -22,6 +23,11 @@ public final class HandlerContext extends HandlerDispatcher implements Delay {
     private final HandlerContext immediate;
     private final boolean invokeImmediately;
     private final String name;
+
+    /* JADX DEBUG: Method not inlined, still used in: [kotlinx.coroutines.android.HandlerContext$invokeOnTimeout$1.dispose():void, kotlinx.coroutines.android.HandlerContext$scheduleResumeAfterDelay$1.invoke(java.lang.Throwable):void] */
+    public static final /* synthetic */ Handler access$getHandler$p(HandlerContext handlerContext) {
+        return handlerContext.handler;
+    }
 
     private HandlerContext(Handler handler, String str, boolean z) {
         super(null);
@@ -73,9 +79,7 @@ public final class HandlerContext extends HandlerDispatcher implements Delay {
         return new DisposableHandle() { // from class: kotlinx.coroutines.android.HandlerContext$invokeOnTimeout$1
             @Override // kotlinx.coroutines.DisposableHandle
             public void dispose() {
-                Handler handler;
-                handler = HandlerContext.this.handler;
-                handler.removeCallbacks(block);
+                HandlerContext.access$getHandler$p(HandlerContext.this).removeCallbacks(block);
             }
         };
     }
@@ -114,12 +118,13 @@ public final class HandlerContext extends HandlerDispatcher implements Delay {
         };
         this.handler.postDelayed(runnable, RangesKt.coerceAtMost(j, 4611686018427387903L));
         continuation.invokeOnCancellation(new Function1<Throwable, Unit>() { // from class: kotlinx.coroutines.android.HandlerContext$scheduleResumeAfterDelay$1
-            /* JADX INFO: Access modifiers changed from: package-private */
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
                 super(1);
             }
 
+            /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+            /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
             @Override // kotlin.jvm.functions.Function1
             public /* bridge */ /* synthetic */ Unit invoke(Throwable th) {
                 invoke2(th);
@@ -128,9 +133,7 @@ public final class HandlerContext extends HandlerDispatcher implements Delay {
 
             /* renamed from: invoke  reason: avoid collision after fix types in other method */
             public final void invoke2(Throwable th) {
-                Handler handler;
-                handler = HandlerContext.this.handler;
-                handler.removeCallbacks(runnable);
+                HandlerContext.access$getHandler$p(HandlerContext.this).removeCallbacks(runnable);
             }
         });
     }

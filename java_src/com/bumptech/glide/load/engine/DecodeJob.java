@@ -25,6 +25,7 @@ import com.bumptech.glide.util.pool.StateVerifier;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+
 /* loaded from: classes.dex */
 class DecodeJob<R> implements DataFetcherGenerator.FetcherReadyCallback, Runnable, Comparable<DecodeJob<?>>, FactoryPools.Poolable {
     private static final String TAG = "DecodeJob";
@@ -60,9 +61,8 @@ class DecodeJob<R> implements DataFetcherGenerator.FetcherReadyCallback, Runnabl
     private final DeferredEncodeManager<?> deferredEncodeManager = new DeferredEncodeManager<>();
     private final ReleaseManager releaseManager = new ReleaseManager();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public interface Callback<R> {
+    interface Callback<R> {
         void onLoadFailed(GlideException glideException);
 
         void onResourceReady(Resource<R> resource, DataSource dataSource);
@@ -70,23 +70,20 @@ class DecodeJob<R> implements DataFetcherGenerator.FetcherReadyCallback, Runnabl
         void reschedule(DecodeJob<?> decodeJob);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public interface DiskCacheProvider {
+    interface DiskCacheProvider {
         DiskCache getDiskCache();
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public enum RunReason {
+    private enum RunReason {
         INITIALIZE,
         SWITCH_TO_SOURCE_SERVICE,
         DECODE_DATA
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public enum Stage {
+    private enum Stage {
         INITIALIZE,
         RESOURCE_CACHE,
         DATA_CACHE,
@@ -95,14 +92,12 @@ class DecodeJob<R> implements DataFetcherGenerator.FetcherReadyCallback, Runnabl
         FINISHED
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public DecodeJob(DiskCacheProvider diskCacheProvider, Pools.Pool<DecodeJob<?>> pool) {
+    DecodeJob(DiskCacheProvider diskCacheProvider, Pools.Pool<DecodeJob<?>> pool) {
         this.diskCacheProvider = diskCacheProvider;
         this.pool = pool;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public DecodeJob<R> init(GlideContext glideContext, Object obj, EngineKey engineKey, Key key, int i, int i2, Class<?> cls, Class<R> cls2, Priority priority, DiskCacheStrategy diskCacheStrategy, Map<Class<?>, Transformation<?>> map, boolean z, boolean z2, boolean z3, Options options, Callback<R> callback, int i3) {
+    DecodeJob<R> init(GlideContext glideContext, Object obj, EngineKey engineKey, Key key, int i, int i2, Class<?> cls, Class<R> cls2, Priority priority, DiskCacheStrategy diskCacheStrategy, Map<Class<?>, Transformation<?>> map, boolean z, boolean z2, boolean z3, Options options, Callback<R> callback, int i3) {
         this.decodeHelper.init(glideContext, obj, key, i, i2, diskCacheStrategy, cls, cls2, priority, options, map, z, z2, this.diskCacheProvider);
         this.glideContext = glideContext;
         this.signature = key;
@@ -120,14 +115,12 @@ class DecodeJob<R> implements DataFetcherGenerator.FetcherReadyCallback, Runnabl
         return this;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean willDecodeFromCache() {
+    boolean willDecodeFromCache() {
         Stage nextStage = getNextStage(Stage.INITIALIZE);
         return nextStage == Stage.RESOURCE_CACHE || nextStage == Stage.DATA_CACHE;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void release(boolean z) {
+    void release(boolean z) {
         if (this.releaseManager.release(z)) {
             releaseInternal();
         }
@@ -170,6 +163,7 @@ class DecodeJob<R> implements DataFetcherGenerator.FetcherReadyCallback, Runnabl
         this.pool.release(this);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // java.lang.Comparable
     public int compareTo(DecodeJob<?> decodeJob) {
         int priority = getPriority() - decodeJob.getPriority();
@@ -369,6 +363,9 @@ class DecodeJob<R> implements DataFetcherGenerator.FetcherReadyCallback, Runnabl
         }
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r0v1, resolved type: com.bumptech.glide.load.engine.LockedResource */
+    /* JADX DEBUG: Multi-variable search result rejected for r0v2, resolved type: com.bumptech.glide.load.engine.LockedResource */
+    /* JADX DEBUG: Multi-variable search result rejected for r0v3, resolved type: com.bumptech.glide.load.engine.LockedResource */
     /* JADX WARN: Multi-variable type inference failed */
     private void notifyEncodeAndRelease(Resource<R> resource, DataSource dataSource) {
         if (resource instanceof Initializable) {
@@ -409,6 +406,7 @@ class DecodeJob<R> implements DataFetcherGenerator.FetcherReadyCallback, Runnabl
         return null;
     }
 
+    /* JADX DEBUG: Type inference failed for r0v1. Raw type applied. Possible types: com.bumptech.glide.load.engine.LoadPath<Data, ?, R>, com.bumptech.glide.load.engine.LoadPath<Data, ResourceType, R> */
     private <Data> Resource<R> decodeFromFetcher(Data data, DataSource dataSource) throws GlideException {
         return runLoadPath(data, dataSource, (LoadPath<Data, ?, R>) this.decodeHelper.getLoadPath(data.getClass()));
     }
@@ -511,10 +509,9 @@ class DecodeJob<R> implements DataFetcherGenerator.FetcherReadyCallback, Runnabl
         return resource2;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.bumptech.glide.load.engine.DecodeJob$1  reason: invalid class name */
     /* loaded from: classes.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    static /* synthetic */ class AnonymousClass1 {
         static final /* synthetic */ int[] $SwitchMap$com$bumptech$glide$load$EncodeStrategy;
         static final /* synthetic */ int[] $SwitchMap$com$bumptech$glide$load$engine$DecodeJob$RunReason;
         static final /* synthetic */ int[] $SwitchMap$com$bumptech$glide$load$engine$DecodeJob$Stage;
@@ -569,9 +566,8 @@ class DecodeJob<R> implements DataFetcherGenerator.FetcherReadyCallback, Runnabl
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public final class DecodeCallback<Z> implements DecodePath.DecodeCallback<Z> {
+    private final class DecodeCallback<Z> implements DecodePath.DecodeCallback<Z> {
         private final DataSource dataSource;
 
         DecodeCallback(DataSource dataSource) {
@@ -584,9 +580,8 @@ class DecodeJob<R> implements DataFetcherGenerator.FetcherReadyCallback, Runnabl
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static class ReleaseManager {
+    private static class ReleaseManager {
         private boolean isEncodeComplete;
         private boolean isFailed;
         private boolean isReleased;
@@ -620,9 +615,8 @@ class DecodeJob<R> implements DataFetcherGenerator.FetcherReadyCallback, Runnabl
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static class DeferredEncodeManager<Z> {
+    private static class DeferredEncodeManager<Z> {
         private ResourceEncoder<Z> encoder;
         private Key key;
         private LockedResource<Z> toEncode;
@@ -630,6 +624,8 @@ class DecodeJob<R> implements DataFetcherGenerator.FetcherReadyCallback, Runnabl
         DeferredEncodeManager() {
         }
 
+        /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: com.bumptech.glide.load.ResourceEncoder<X> */
+        /* JADX DEBUG: Multi-variable search result rejected for r3v0, resolved type: com.bumptech.glide.load.engine.LockedResource<X> */
         /* JADX WARN: Multi-variable type inference failed */
         <X> void init(Key key, ResourceEncoder<X> resourceEncoder, LockedResource<X> lockedResource) {
             this.key = key;

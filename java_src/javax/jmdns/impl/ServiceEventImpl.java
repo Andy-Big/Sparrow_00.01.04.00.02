@@ -3,6 +3,7 @@ package javax.jmdns.impl;
 import javax.jmdns.JmDNS;
 import javax.jmdns.ServiceEvent;
 import javax.jmdns.ServiceInfo;
+
 /* loaded from: classes2.dex */
 public class ServiceEventImpl extends ServiceEvent {
     private static final long serialVersionUID = 7107973622016897488L;
@@ -42,6 +43,7 @@ public class ServiceEventImpl extends ServiceEvent {
         return this._info;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // javax.jmdns.ServiceEvent
     /* renamed from: clone */
     public ServiceEventImpl mo19clone() {

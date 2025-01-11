@@ -10,6 +10,7 @@ import android.os.Build;
 import android.view.View;
 import com.google.android.material.shape.MaterialShapeDrawable;
 import com.google.android.material.shape.ShapeAppearanceModel;
+
 /* loaded from: classes.dex */
 class CutoutDrawable extends MaterialShapeDrawable {
     private final RectF cutoutBounds;
@@ -20,8 +21,7 @@ class CutoutDrawable extends MaterialShapeDrawable {
         this(null);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public CutoutDrawable(ShapeAppearanceModel shapeAppearanceModel) {
+    CutoutDrawable(ShapeAppearanceModel shapeAppearanceModel) {
         super(shapeAppearanceModel == null ? new ShapeAppearanceModel() : shapeAppearanceModel);
         this.cutoutPaint = new Paint(1);
         setPaintStyles();
@@ -34,8 +34,7 @@ class CutoutDrawable extends MaterialShapeDrawable {
         this.cutoutPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean hasCutout() {
+    boolean hasCutout() {
         return !this.cutoutBounds.isEmpty();
     }
 
@@ -47,13 +46,11 @@ class CutoutDrawable extends MaterialShapeDrawable {
         invalidateSelf();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setCutout(RectF rectF) {
+    void setCutout(RectF rectF) {
         setCutout(rectF.left, rectF.top, rectF.right, rectF.bottom);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void removeCutout() {
+    void removeCutout() {
         setCutout(0.0f, 0.0f, 0.0f, 0.0f);
     }
 

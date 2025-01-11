@@ -12,9 +12,9 @@ import android.view.animation.Animation;
 import android.widget.ImageView;
 import androidx.core.content.ContextCompat;
 import androidx.core.view.ViewCompat;
-/* JADX INFO: Access modifiers changed from: package-private */
+
 /* loaded from: classes.dex */
-public class CircleImageView extends ImageView {
+class CircleImageView extends ImageView {
     private static final int FILL_SHADOW_COLOR = 1023410176;
     private static final int KEY_SHADOW_COLOR = 503316480;
     private static final int SHADOW_ELEVATION = 4;
@@ -24,8 +24,7 @@ public class CircleImageView extends ImageView {
     private Animation.AnimationListener mListener;
     int mShadowRadius;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public CircleImageView(Context context, int i) {
+    CircleImageView(Context context, int i) {
         super(context);
         ShapeDrawable shapeDrawable;
         float f = getContext().getResources().getDisplayMetrics().density;

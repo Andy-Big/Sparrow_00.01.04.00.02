@@ -3,7 +3,9 @@ package androidx.constraintlayout.core.widgets;
 import androidx.constraintlayout.core.LinearSystem;
 import androidx.constraintlayout.core.widgets.ConstraintWidget;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
+
 /* loaded from: classes.dex */
 public class Flow extends VirtualLayout {
     public static final int HORIZONTAL_ALIGN_CENTER = 2;
@@ -295,9 +297,8 @@ public class Flow extends VirtualLayout {
         needsCallbackFromSolver(z);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public class WidgetsList {
+    private class WidgetsList {
         private ConstraintAnchor mBottom;
         private ConstraintAnchor mLeft;
         private int mMax;
@@ -873,14 +874,139 @@ public class Flow extends VirtualLayout {
     /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:109:0x0125 -> B:42:0x0063). Please submit an issue!!! */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    private void measureAligned(androidx.constraintlayout.core.widgets.ConstraintWidget[] r17, int r18, int r19, int r20, int[] r21) {
-        /*
-            Method dump skipped, instructions count: 306
-            To view this dump add '--comments-level debug' option
-        */
-        throw new UnsupportedOperationException("Method not decompiled: androidx.constraintlayout.core.widgets.Flow.measureAligned(androidx.constraintlayout.core.widgets.ConstraintWidget[], int, int, int, int[]):void");
+    private void measureAligned(ConstraintWidget[] constraintWidgetArr, int i, int i2, int i3, int[] iArr) {
+        int i4;
+        int i5;
+        boolean z;
+        ConstraintWidget constraintWidget;
+        if (i2 == 0) {
+            int i6 = this.mMaxElementsWrap;
+            if (i6 <= 0) {
+                i6 = 0;
+                int i7 = 0;
+                for (int i8 = 0; i8 < i; i8++) {
+                    if (i8 > 0) {
+                        i7 += this.mHorizontalGap;
+                    }
+                    ConstraintWidget constraintWidget2 = constraintWidgetArr[i8];
+                    if (constraintWidget2 != null) {
+                        i7 += getWidgetWidth(constraintWidget2, i3);
+                        if (i7 > i3) {
+                            break;
+                        }
+                        i6++;
+                    }
+                }
+            }
+            i5 = i6;
+            i4 = 0;
+        } else {
+            i4 = this.mMaxElementsWrap;
+            if (i4 <= 0) {
+                i4 = 0;
+                int i9 = 0;
+                for (int i10 = 0; i10 < i; i10++) {
+                    if (i10 > 0) {
+                        i9 += this.mVerticalGap;
+                    }
+                    ConstraintWidget constraintWidget3 = constraintWidgetArr[i10];
+                    if (constraintWidget3 != null) {
+                        i9 += getWidgetHeight(constraintWidget3, i3);
+                        if (i9 > i3) {
+                            break;
+                        }
+                        i4++;
+                    }
+                }
+            }
+            i5 = 0;
+        }
+        if (this.mAlignedDimensions == null) {
+            this.mAlignedDimensions = new int[2];
+        }
+        if ((i4 != 0 || i2 != 1) && (i5 != 0 || i2 != 0)) {
+            z = false;
+            while (!z) {
+                if (i2 == 0) {
+                    i4 = (int) Math.ceil(i / i5);
+                } else {
+                    i5 = (int) Math.ceil(i / i4);
+                }
+                ConstraintWidget[] constraintWidgetArr2 = this.mAlignedBiggestElementsInCols;
+                if (constraintWidgetArr2 == null || constraintWidgetArr2.length < i5) {
+                    this.mAlignedBiggestElementsInCols = new ConstraintWidget[i5];
+                } else {
+                    Arrays.fill(constraintWidgetArr2, (Object) null);
+                }
+                ConstraintWidget[] constraintWidgetArr3 = this.mAlignedBiggestElementsInRows;
+                if (constraintWidgetArr3 == null || constraintWidgetArr3.length < i4) {
+                    this.mAlignedBiggestElementsInRows = new ConstraintWidget[i4];
+                } else {
+                    Arrays.fill(constraintWidgetArr3, (Object) null);
+                }
+                for (int i11 = 0; i11 < i5; i11++) {
+                    for (int i12 = 0; i12 < i4; i12++) {
+                        int i13 = (i12 * i5) + i11;
+                        if (i2 == 1) {
+                            i13 = (i11 * i4) + i12;
+                        }
+                        if (i13 < constraintWidgetArr.length && (constraintWidget = constraintWidgetArr[i13]) != null) {
+                            int widgetWidth = getWidgetWidth(constraintWidget, i3);
+                            ConstraintWidget[] constraintWidgetArr4 = this.mAlignedBiggestElementsInCols;
+                            if (constraintWidgetArr4[i11] == null || constraintWidgetArr4[i11].getWidth() < widgetWidth) {
+                                this.mAlignedBiggestElementsInCols[i11] = constraintWidget;
+                            }
+                            int widgetHeight = getWidgetHeight(constraintWidget, i3);
+                            ConstraintWidget[] constraintWidgetArr5 = this.mAlignedBiggestElementsInRows;
+                            if (constraintWidgetArr5[i12] == null || constraintWidgetArr5[i12].getHeight() < widgetHeight) {
+                                this.mAlignedBiggestElementsInRows[i12] = constraintWidget;
+                            }
+                        }
+                    }
+                }
+                int i14 = 0;
+                for (int i15 = 0; i15 < i5; i15++) {
+                    ConstraintWidget constraintWidget4 = this.mAlignedBiggestElementsInCols[i15];
+                    if (constraintWidget4 != null) {
+                        if (i15 > 0) {
+                            i14 += this.mHorizontalGap;
+                        }
+                        i14 += getWidgetWidth(constraintWidget4, i3);
+                    }
+                }
+                int i16 = 0;
+                for (int i17 = 0; i17 < i4; i17++) {
+                    ConstraintWidget constraintWidget5 = this.mAlignedBiggestElementsInRows[i17];
+                    if (constraintWidget5 != null) {
+                        if (i17 > 0) {
+                            i16 += this.mVerticalGap;
+                        }
+                        i16 += getWidgetHeight(constraintWidget5, i3);
+                    }
+                }
+                iArr[0] = i14;
+                iArr[1] = i16;
+                if (i2 != 0) {
+                    if (i16 > i3 && i4 > 1) {
+                        i4--;
+                    }
+                } else if (i14 > i3 && i5 > 1) {
+                    i5--;
+                }
+                while (!z) {
+                }
+            }
+            int[] iArr2 = this.mAlignedDimensions;
+            iArr2[0] = i5;
+            iArr2[1] = i4;
+        }
+        z = true;
+        while (!z) {
+        }
+        int[] iArr22 = this.mAlignedDimensions;
+        iArr22[0] = i5;
+        iArr22[1] = i4;
     }
 
     private void createAlignedConstraints(boolean z) {

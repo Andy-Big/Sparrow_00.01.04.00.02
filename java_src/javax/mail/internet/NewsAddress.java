@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Locale;
 import java.util.StringTokenizer;
 import javax.mail.Address;
+
 /* loaded from: classes2.dex */
 public class NewsAddress extends Address {
     private static final long serialVersionUID = -4203797299824684143L;

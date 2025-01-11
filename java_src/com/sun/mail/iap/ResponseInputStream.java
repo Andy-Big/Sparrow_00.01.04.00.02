@@ -4,6 +4,7 @@ import com.sun.mail.util.ASCIIUtility;
 import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+
 /* loaded from: classes2.dex */
 public class ResponseInputStream {
     private static final int incrementSlop = 16;

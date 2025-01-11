@@ -22,6 +22,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
+
 /* loaded from: classes.dex */
 public final class TransformationUtils {
     private static final Lock BITMAP_DRAWABLE_LOCK;
@@ -33,9 +34,8 @@ public final class TransformationUtils {
     private static final Paint DEFAULT_PAINT = new Paint(6);
     private static final Paint CIRCLE_CROP_SHAPE_PAINT = new Paint(7);
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public interface DrawRoundedCornerFn {
+    private interface DrawRoundedCornerFn {
         void drawRoundedCorners(Canvas canvas, Paint paint, RectF rectF);
     }
 

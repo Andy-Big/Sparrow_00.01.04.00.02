@@ -1,4 +1,5 @@
 package org.slf4j.helpers;
+
 /* loaded from: classes2.dex */
 public class FormattingTuple {
     public static FormattingTuple NULL = new FormattingTuple(null);

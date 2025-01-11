@@ -8,6 +8,7 @@ import androidx.core.os.CancellationSignal;
 import java.security.Signature;
 import javax.crypto.Cipher;
 import javax.crypto.Mac;
+
 @Deprecated
 /* loaded from: classes.dex */
 public class FingerprintManagerCompat {

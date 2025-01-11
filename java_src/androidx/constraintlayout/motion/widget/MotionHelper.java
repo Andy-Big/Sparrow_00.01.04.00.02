@@ -10,6 +10,7 @@ import androidx.constraintlayout.widget.ConstraintHelper;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.R;
 import java.util.HashMap;
+
 /* loaded from: classes.dex */
 public class MotionHelper extends ConstraintHelper implements MotionHelperInterface {
     private float mProgress;
@@ -73,9 +74,8 @@ public class MotionHelper extends ConstraintHelper implements MotionHelperInterf
         init(attributeSet);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // androidx.constraintlayout.widget.ConstraintHelper
-    public void init(AttributeSet attributeSet) {
+    protected void init(AttributeSet attributeSet) {
         super.init(attributeSet);
         if (attributeSet != null) {
             TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, R.styleable.MotionHelper);

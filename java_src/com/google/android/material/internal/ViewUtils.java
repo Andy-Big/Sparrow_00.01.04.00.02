@@ -13,6 +13,7 @@ import android.view.inputmethod.InputMethodManager;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import com.google.android.material.R;
+
 /* loaded from: classes.dex */
 public class ViewUtils {
 

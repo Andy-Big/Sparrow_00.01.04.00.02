@@ -3,6 +3,7 @@ package com.sun.mail.imap;
 import javax.mail.Folder;
 import javax.mail.Message;
 import javax.mail.event.MessageCountEvent;
+
 /* loaded from: classes2.dex */
 public class MessageVanishedEvent extends MessageCountEvent {
     private static final Message[] noMessages = new Message[0];

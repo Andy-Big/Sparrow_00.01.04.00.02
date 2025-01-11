@@ -20,6 +20,7 @@ import com.bumptech.glide.util.Preconditions;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public class GifDrawable extends Drawable implements GifFrameLoader.FrameCallback, Animatable, Animatable2Compat {
     private static final int GRAVITY = 119;
@@ -296,9 +297,8 @@ public class GifDrawable extends Drawable implements GifFrameLoader.FrameCallbac
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static final class GifState extends Drawable.ConstantState {
+    static final class GifState extends Drawable.ConstantState {
         final GifFrameLoader frameLoader;
 
         @Override // android.graphics.drawable.Drawable.ConstantState

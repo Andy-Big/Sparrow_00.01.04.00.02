@@ -10,6 +10,7 @@ import android.util.Log;
 import androidx.core.content.res.ResourcesCompat;
 import androidx.core.view.ViewCompat;
 import com.google.android.material.R;
+
 /* loaded from: classes.dex */
 public class TextAppearance {
     private static final String TAG = "TextAppearance";

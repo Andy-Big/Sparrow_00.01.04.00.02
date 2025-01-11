@@ -21,6 +21,7 @@ import com.bumptech.glide.util.Preconditions;
 import com.bumptech.glide.util.pool.FactoryPools;
 import java.util.Map;
 import java.util.concurrent.Executor;
+
 /* loaded from: classes.dex */
 public class Engine implements EngineJobListener, MemoryCache.ResourceRemovedListener, EngineResource.ResourceListener {
     private static final int JOB_POOL_SIZE = 150;
@@ -204,9 +205,8 @@ public class Engine implements EngineJobListener, MemoryCache.ResourceRemovedLis
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static class LazyDiskCacheProvider implements DecodeJob.DiskCacheProvider {
+    private static class LazyDiskCacheProvider implements DecodeJob.DiskCacheProvider {
         private volatile DiskCache diskCache;
         private final DiskCache.Factory factory;
 
@@ -237,12 +237,12 @@ public class Engine implements EngineJobListener, MemoryCache.ResourceRemovedLis
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static class DecodeJobFactory {
+    static class DecodeJobFactory {
         private int creationOrder;
         final DecodeJob.DiskCacheProvider diskCacheProvider;
         final Pools.Pool<DecodeJob<?>> pool = FactoryPools.threadSafe(150, new FactoryPools.Factory<DecodeJob<?>>() { // from class: com.bumptech.glide.load.engine.Engine.DecodeJobFactory.1
+            /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // com.bumptech.glide.util.pool.FactoryPools.Factory
             public DecodeJob<?> create() {
@@ -262,13 +262,13 @@ public class Engine implements EngineJobListener, MemoryCache.ResourceRemovedLis
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static class EngineJobFactory {
+    static class EngineJobFactory {
         final GlideExecutor animationExecutor;
         final GlideExecutor diskCacheExecutor;
         final EngineJobListener engineJobListener;
         final Pools.Pool<EngineJob<?>> pool = FactoryPools.threadSafe(150, new FactoryPools.Factory<EngineJob<?>>() { // from class: com.bumptech.glide.load.engine.Engine.EngineJobFactory.1
+            /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // com.bumptech.glide.util.pool.FactoryPools.Factory
             public EngineJob<?> create() {

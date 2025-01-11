@@ -7,6 +7,7 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.util.Arrays;
 import kotlin.UByte;
+
 /* loaded from: classes.dex */
 public class GifHeaderParser {
     static final int DEFAULT_FRAME_DELAY = 10;

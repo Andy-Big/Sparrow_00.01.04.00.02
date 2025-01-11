@@ -3,9 +3,12 @@ package androidx.appcompat.widget;
 import android.content.Context;
 import android.graphics.Rect;
 import android.util.AttributeSet;
+import android.util.DisplayMetrics;
 import android.util.TypedValue;
+import android.view.View;
 import android.widget.FrameLayout;
 import androidx.core.view.ViewCompat;
+
 /* loaded from: classes.dex */
 public class ContentFrameLayout extends FrameLayout {
     private OnAttachListener mAttachListener;
@@ -66,14 +69,115 @@ public class ContentFrameLayout extends FrameLayout {
     @Override // android.widget.FrameLayout, android.view.View
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    protected void onMeasure(int r14, int r15) {
-        /*
-            Method dump skipped, instructions count: 250
-            To view this dump add '--comments-level debug' option
-        */
-        throw new UnsupportedOperationException("Method not decompiled: androidx.appcompat.widget.ContentFrameLayout.onMeasure(int, int):void");
+    protected void onMeasure(int i, int i2) {
+        boolean z;
+        int measuredWidth;
+        TypedValue typedValue;
+        int i3;
+        float fraction;
+        int i4;
+        float fraction2;
+        int i5;
+        float fraction3;
+        DisplayMetrics displayMetrics = getContext().getResources().getDisplayMetrics();
+        boolean z2 = true;
+        boolean z3 = displayMetrics.widthPixels < displayMetrics.heightPixels;
+        int mode = View.MeasureSpec.getMode(i);
+        int mode2 = View.MeasureSpec.getMode(i2);
+        if (mode == Integer.MIN_VALUE) {
+            TypedValue typedValue2 = z3 ? this.mFixedWidthMinor : this.mFixedWidthMajor;
+            if (typedValue2 != null && typedValue2.type != 0) {
+                if (typedValue2.type == 5) {
+                    fraction3 = typedValue2.getDimension(displayMetrics);
+                } else if (typedValue2.type == 6) {
+                    fraction3 = typedValue2.getFraction(displayMetrics.widthPixels, displayMetrics.widthPixels);
+                } else {
+                    i5 = 0;
+                    if (i5 > 0) {
+                        i = View.MeasureSpec.makeMeasureSpec(Math.min(i5 - (this.mDecorPadding.left + this.mDecorPadding.right), View.MeasureSpec.getSize(i)), 1073741824);
+                        z = true;
+                        if (mode2 == Integer.MIN_VALUE) {
+                            TypedValue typedValue3 = z3 ? this.mFixedHeightMajor : this.mFixedHeightMinor;
+                            if (typedValue3 != null && typedValue3.type != 0) {
+                                if (typedValue3.type == 5) {
+                                    fraction2 = typedValue3.getDimension(displayMetrics);
+                                } else if (typedValue3.type == 6) {
+                                    fraction2 = typedValue3.getFraction(displayMetrics.heightPixels, displayMetrics.heightPixels);
+                                } else {
+                                    i4 = 0;
+                                    if (i4 > 0) {
+                                        i2 = View.MeasureSpec.makeMeasureSpec(Math.min(i4 - (this.mDecorPadding.top + this.mDecorPadding.bottom), View.MeasureSpec.getSize(i2)), 1073741824);
+                                    }
+                                }
+                                i4 = (int) fraction2;
+                                if (i4 > 0) {
+                                }
+                            }
+                        }
+                        super.onMeasure(i, i2);
+                        measuredWidth = getMeasuredWidth();
+                        int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(measuredWidth, 1073741824);
+                        if (!z && mode == Integer.MIN_VALUE) {
+                            typedValue = !z3 ? this.mMinWidthMinor : this.mMinWidthMajor;
+                            if (typedValue != null && typedValue.type != 0) {
+                                if (typedValue.type != 5) {
+                                    fraction = typedValue.getDimension(displayMetrics);
+                                } else if (typedValue.type == 6) {
+                                    fraction = typedValue.getFraction(displayMetrics.widthPixels, displayMetrics.widthPixels);
+                                } else {
+                                    i3 = 0;
+                                    if (i3 > 0) {
+                                        i3 -= this.mDecorPadding.left + this.mDecorPadding.right;
+                                    }
+                                    if (measuredWidth < i3) {
+                                        makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(i3, 1073741824);
+                                        if (z2) {
+                                            super.onMeasure(makeMeasureSpec, i2);
+                                            return;
+                                        }
+                                        return;
+                                    }
+                                }
+                                i3 = (int) fraction;
+                                if (i3 > 0) {
+                                }
+                                if (measuredWidth < i3) {
+                                }
+                            }
+                        }
+                        z2 = false;
+                        if (z2) {
+                        }
+                    }
+                }
+                i5 = (int) fraction3;
+                if (i5 > 0) {
+                }
+            }
+        }
+        z = false;
+        if (mode2 == Integer.MIN_VALUE) {
+        }
+        super.onMeasure(i, i2);
+        measuredWidth = getMeasuredWidth();
+        int makeMeasureSpec2 = View.MeasureSpec.makeMeasureSpec(measuredWidth, 1073741824);
+        if (!z) {
+            if (!z3) {
+            }
+            if (typedValue != null) {
+                if (typedValue.type != 5) {
+                }
+                i3 = (int) fraction;
+                if (i3 > 0) {
+                }
+                if (measuredWidth < i3) {
+                }
+            }
+        }
+        z2 = false;
+        if (z2) {
+        }
     }
 
     public TypedValue getMinWidthMajor() {

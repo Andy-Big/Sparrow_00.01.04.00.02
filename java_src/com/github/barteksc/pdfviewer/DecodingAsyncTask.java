@@ -5,6 +5,7 @@ import com.github.barteksc.pdfviewer.source.DocumentSource;
 import com.shockwave.pdfium.PdfiumCore;
 import com.shockwave.pdfium.util.Size;
 import java.lang.ref.WeakReference;
+
 /* loaded from: classes.dex */
 class DecodingAsyncTask extends AsyncTask<Void, Void, Throwable> {
     private boolean cancelled = false;
@@ -15,8 +16,7 @@ class DecodingAsyncTask extends AsyncTask<Void, Void, Throwable> {
     private PdfiumCore pdfiumCore;
     private int[] userPages;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public DecodingAsyncTask(DocumentSource documentSource, String str, int[] iArr, PDFView pDFView, PdfiumCore pdfiumCore) {
+    DecodingAsyncTask(DocumentSource documentSource, String str, int[] iArr, PDFView pDFView, PdfiumCore pdfiumCore) {
         this.docSource = documentSource;
         this.userPages = iArr;
         this.pdfViewReference = new WeakReference<>(pDFView);
@@ -24,6 +24,7 @@ class DecodingAsyncTask extends AsyncTask<Void, Void, Throwable> {
         this.pdfiumCore = pdfiumCore;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.os.AsyncTask
     public Throwable doInBackground(Void... voidArr) {
@@ -43,6 +44,7 @@ class DecodingAsyncTask extends AsyncTask<Void, Void, Throwable> {
         return new Size(pDFView.getWidth(), pDFView.getHeight());
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.os.AsyncTask
     public void onPostExecute(Throwable th) {

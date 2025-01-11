@@ -10,6 +10,7 @@ import java.util.Spliterators;
 import java.util.function.Consumer;
 import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
+
 /* loaded from: classes.dex */
 public class BigDecimalStream {
     public static Stream<BigDecimal> range(BigDecimal bigDecimal, BigDecimal bigDecimal2, BigDecimal bigDecimal3, MathContext mathContext) {
@@ -48,9 +49,8 @@ public class BigDecimalStream {
         return rangeClosed(BigDecimal.valueOf(d), BigDecimal.valueOf(d2), BigDecimal.valueOf(d3), mathContext);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static class BigDecimalSpliterator extends Spliterators.AbstractSpliterator<BigDecimal> {
+    private static class BigDecimalSpliterator extends Spliterators.AbstractSpliterator<BigDecimal> {
         private long count;
         private MathContext mathContext;
         private BigDecimal step;

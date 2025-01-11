@@ -6,10 +6,10 @@ import android.graphics.Path;
 import android.graphics.PointF;
 import android.os.Build;
 import android.util.Property;
+
 /* loaded from: classes.dex */
 class ObjectAnimatorUtils {
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static <T> ObjectAnimator ofPointF(T t, Property<T, PointF> property, Path path) {
+    static <T> ObjectAnimator ofPointF(T t, Property<T, PointF> property, Path path) {
         if (Build.VERSION.SDK_INT >= 21) {
             return ObjectAnimator.ofObject(t, property, (TypeConverter) null, path);
         }

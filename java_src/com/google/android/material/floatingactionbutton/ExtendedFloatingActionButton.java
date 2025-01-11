@@ -24,6 +24,7 @@ import com.google.android.material.internal.ThemeEnforcement;
 import com.google.android.material.shape.ShapeAppearanceModel;
 import com.google.android.material.theme.overlay.MaterialThemeOverlay;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public class ExtendedFloatingActionButton extends MaterialButton implements CoordinatorLayout.AttachedBehavior {
     private static final int ANIM_STATE_HIDING = 1;
@@ -39,24 +40,28 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
     private final MotionStrategy shrinkStrategy;
     private static final int DEF_STYLE_RES = R.style.Widget_MaterialComponents_ExtendedFloatingActionButton_Icon;
     static final Property<View, Float> WIDTH = new Property<View, Float>(Float.class, "width") { // from class: com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton.4
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // android.util.Property
         public void set(View view, Float f) {
             view.getLayoutParams().width = f.intValue();
             view.requestLayout();
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // android.util.Property
         public Float get(View view) {
             return Float.valueOf(view.getLayoutParams().width);
         }
     };
     static final Property<View, Float> HEIGHT = new Property<View, Float>(Float.class, "height") { // from class: com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton.5
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // android.util.Property
         public void set(View view, Float f) {
             view.getLayoutParams().height = f.intValue();
             view.requestLayout();
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // android.util.Property
         public Float get(View view) {
             return Float.valueOf(view.getLayoutParams().height);
@@ -150,9 +155,8 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
         setShapeAppearanceModel(ShapeAppearanceModel.builder(context2, attributeSet, i, DEF_STYLE_RES, ShapeAppearanceModel.PILL).build());
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.google.android.material.button.MaterialButton, android.widget.TextView, android.view.View
-    public void onAttachedToWindow() {
+    protected void onAttachedToWindow() {
         super.onAttachedToWindow();
         if (this.isExtended && TextUtils.isEmpty(getText()) && getIcon() != null) {
             this.isExtended = false;
@@ -391,6 +395,7 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
             return this.autoShrinkEnabled;
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
         public boolean getInsetDodgeRect(CoordinatorLayout coordinatorLayout, ExtendedFloatingActionButton extendedFloatingActionButton, Rect rect) {
             return super.getInsetDodgeRect(coordinatorLayout, (CoordinatorLayout) extendedFloatingActionButton, rect);
@@ -403,6 +408,7 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
             }
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
         public boolean onDependentViewChanged(CoordinatorLayout coordinatorLayout, ExtendedFloatingActionButton extendedFloatingActionButton, View view) {
             if (view instanceof AppBarLayout) {
@@ -473,6 +479,7 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
             extendedFloatingActionButton.performMotion(this.autoShrinkEnabled ? extendedFloatingActionButton.extendStrategy : extendedFloatingActionButton.showStrategy, this.autoShrinkEnabled ? this.internalAutoShrinkCallback : this.internalAutoHideCallback);
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
         public boolean onLayoutChild(CoordinatorLayout coordinatorLayout, ExtendedFloatingActionButton extendedFloatingActionButton, int i) {
             List<View> dependencies = coordinatorLayout.getDependencies(extendedFloatingActionButton);

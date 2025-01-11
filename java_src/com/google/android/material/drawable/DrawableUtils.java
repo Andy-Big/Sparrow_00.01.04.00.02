@@ -15,6 +15,7 @@ import android.util.Xml;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import org.xmlpull.v1.XmlPullParserException;
+
 /* loaded from: classes.dex */
 public final class DrawableUtils {
     private DrawableUtils() {

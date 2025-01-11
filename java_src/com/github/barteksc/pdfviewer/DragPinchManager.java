@@ -11,9 +11,9 @@ import com.github.barteksc.pdfviewer.scroll.ScrollHandle;
 import com.github.barteksc.pdfviewer.util.Constants;
 import com.shockwave.pdfium.PdfDocument;
 import com.shockwave.pdfium.util.SizeF;
-/* JADX INFO: Access modifiers changed from: package-private */
+
 /* loaded from: classes.dex */
-public class DragPinchManager implements GestureDetector.OnGestureListener, GestureDetector.OnDoubleTapListener, ScaleGestureDetector.OnScaleGestureListener, View.OnTouchListener {
+class DragPinchManager implements GestureDetector.OnGestureListener, GestureDetector.OnDoubleTapListener, ScaleGestureDetector.OnScaleGestureListener, View.OnTouchListener {
     private AnimationManager animationManager;
     private GestureDetector gestureDetector;
     private PDFView pdfView;
@@ -36,8 +36,7 @@ public class DragPinchManager implements GestureDetector.OnGestureListener, Gest
         return false;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public DragPinchManager(PDFView pDFView, AnimationManager animationManager) {
+    DragPinchManager(PDFView pDFView, AnimationManager animationManager) {
         this.pdfView = pDFView;
         this.animationManager = animationManager;
         this.gestureDetector = new GestureDetector(pDFView.getContext(), this);
@@ -45,18 +44,15 @@ public class DragPinchManager implements GestureDetector.OnGestureListener, Gest
         pDFView.setOnTouchListener(this);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void enable() {
+    void enable() {
         this.enabled = true;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void disable() {
+    void disable() {
         this.enabled = false;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void disableLongpress() {
+    void disableLongpress() {
         this.gestureDetector.setIsLongpressEnabled(false);
     }
 

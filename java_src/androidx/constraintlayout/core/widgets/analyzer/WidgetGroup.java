@@ -7,6 +7,7 @@ import androidx.constraintlayout.core.widgets.ConstraintWidgetContainer;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Iterator;
+
 /* loaded from: classes.dex */
 public class WidgetGroup {
     private static final boolean DEBUG = false;
@@ -181,9 +182,8 @@ public class WidgetGroup {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public class MeasureResult {
+    class MeasureResult {
         int baseline;
         int bottom;
         int left;

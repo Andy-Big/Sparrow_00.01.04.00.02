@@ -7,9 +7,9 @@ import android.graphics.Paint;
 import com.google.android.material.R;
 import com.google.android.material.resources.MaterialAttributes;
 import com.google.android.material.resources.MaterialResources;
-/* JADX INFO: Access modifiers changed from: package-private */
+
 /* loaded from: classes.dex */
-public final class CalendarStyle {
+final class CalendarStyle {
     final CalendarItemStyle day;
     final CalendarItemStyle invalidDay;
     final Paint rangeFill;
@@ -19,8 +19,7 @@ public final class CalendarStyle {
     final CalendarItemStyle todayYear;
     final CalendarItemStyle year;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public CalendarStyle(Context context) {
+    CalendarStyle(Context context) {
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(MaterialAttributes.resolveOrThrow(context, R.attr.materialCalendarStyle, MaterialCalendar.class.getCanonicalName()), R.styleable.MaterialCalendar);
         this.day = CalendarItemStyle.create(context, obtainStyledAttributes.getResourceId(R.styleable.MaterialCalendar_dayStyle, 0));
         this.invalidDay = CalendarItemStyle.create(context, obtainStyledAttributes.getResourceId(R.styleable.MaterialCalendar_dayInvalidStyle, 0));

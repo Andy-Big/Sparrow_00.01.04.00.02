@@ -8,6 +8,7 @@ import com.bumptech.glide.load.engine.Resource;
 import com.bumptech.glide.util.ByteBufferUtil;
 import java.io.File;
 import java.io.IOException;
+
 /* loaded from: classes.dex */
 public class GifDrawableEncoder implements ResourceEncoder<GifDrawable> {
     private static final String TAG = "GifEncoder";
@@ -17,6 +18,7 @@ public class GifDrawableEncoder implements ResourceEncoder<GifDrawable> {
         return EncodeStrategy.SOURCE;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.Encoder
     public boolean encode(Resource<GifDrawable> resource, File file, Options options) {
         try {

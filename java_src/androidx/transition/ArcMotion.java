@@ -6,6 +6,7 @@ import android.graphics.Path;
 import android.util.AttributeSet;
 import androidx.core.content.res.TypedArrayUtils;
 import org.xmlpull.v1.XmlPullParser;
+
 /* loaded from: classes.dex */
 public class ArcMotion extends PathMotion {
     private static final float DEFAULT_MAX_ANGLE_DEGREES = 70.0f;

@@ -45,6 +45,7 @@ import androidx.cursoradapter.widget.CursorAdapter;
 import androidx.customview.view.AbsSavedState;
 import java.lang.reflect.Method;
 import java.util.WeakHashMap;
+
 /* loaded from: classes.dex */
 public class SearchView extends LinearLayoutCompat implements CollapsibleActionView {
     static final boolean DBG = false;
@@ -305,13 +306,11 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
         updateQueryHint();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public int getSuggestionRowLayout() {
+    int getSuggestionRowLayout() {
         return this.mSuggestionRowLayout;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public int getSuggestionCommitIconResId() {
+    int getSuggestionCommitIconResId() {
         return this.mSuggestionCommitIconResId;
     }
 
@@ -491,9 +490,8 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
         return this.mMaxWidth;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // androidx.appcompat.widget.LinearLayoutCompat, android.view.View
-    public void onMeasure(int i, int i2) {
+    protected void onMeasure(int i, int i2) {
         int i3;
         if (isIconified()) {
             super.onMeasure(i, i2);
@@ -522,9 +520,8 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
         super.onMeasure(View.MeasureSpec.makeMeasureSpec(size, 1073741824), View.MeasureSpec.makeMeasureSpec(size2, 1073741824));
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // androidx.appcompat.widget.LinearLayoutCompat, android.view.ViewGroup, android.view.View
-    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
+    protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
         if (z) {
             getChildBoundsWithinSearchView(this.mSearchSrcTextView, this.mSearchSrcTextViewBounds);
@@ -639,8 +636,7 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
         super.onDetachedFromWindow();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void onQueryRefine(CharSequence charSequence) {
+    void onQueryRefine(CharSequence charSequence) {
         setQuery(charSequence);
     }
 
@@ -828,21 +824,23 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
         setIconified(false);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static class SavedState extends AbsSavedState {
+    static class SavedState extends AbsSavedState {
         public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.ClassLoaderCreator<SavedState>() { // from class: androidx.appcompat.widget.SearchView.SavedState.1
+            /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.ClassLoaderCreator
             public SavedState createFromParcel(Parcel parcel, ClassLoader classLoader) {
                 return new SavedState(parcel, classLoader);
             }
 
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // android.os.Parcelable.Creator
             public SavedState createFromParcel(Parcel parcel) {
                 return new SavedState(parcel, null);
             }
 
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // android.os.Parcelable.Creator
             public SavedState[] newArray(int i) {
                 return new SavedState[i];
@@ -1309,9 +1307,8 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static class PreQAutoCompleteTextViewReflector {
+    private static class PreQAutoCompleteTextViewReflector {
         private Method mDoAfterTextChanged;
         private Method mDoBeforeTextChanged;
         private Method mEnsureImeVisible;

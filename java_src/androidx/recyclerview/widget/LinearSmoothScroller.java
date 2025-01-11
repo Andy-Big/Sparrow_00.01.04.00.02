@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.LinearInterpolator;
 import androidx.recyclerview.widget.RecyclerView;
+
 /* loaded from: classes.dex */
 public class LinearSmoothScroller extends RecyclerView.SmoothScroller {
     private static final boolean DEBUG = false;
@@ -84,13 +85,11 @@ public class LinearSmoothScroller extends RecyclerView.SmoothScroller {
         return this.mMillisPerPixel;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public int calculateTimeForDeceleration(int i) {
+    protected int calculateTimeForDeceleration(int i) {
         return (int) Math.ceil(calculateTimeForScrolling(i) / 0.3356d);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public int calculateTimeForScrolling(int i) {
+    protected int calculateTimeForScrolling(int i) {
         return (int) Math.ceil(Math.abs(i) * getSpeedPerPixel());
     }
 

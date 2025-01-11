@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Locale;
+
 /* loaded from: classes.dex */
 final class LocaleListCompatWrapper implements LocaleListInterface {
     private final Locale[] mList;
@@ -116,8 +117,7 @@ final class LocaleListCompatWrapper implements LocaleListInterface {
         return this.mStringRepresentation;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public LocaleListCompatWrapper(Locale... localeArr) {
+    LocaleListCompatWrapper(Locale... localeArr) {
         if (localeArr.length == 0) {
             this.mList = sEmptyList;
             this.mStringRepresentation = "";
@@ -204,56 +204,36 @@ final class LocaleListCompatWrapper implements LocaleListInterface {
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    private int computeFirstMatchIndex(java.util.Collection<java.lang.String> r5, boolean r6) {
-        /*
-            r4 = this;
-            java.util.Locale[] r0 = r4.mList
-            int r1 = r0.length
-            r2 = 0
-            r3 = 1
-            if (r1 != r3) goto L8
-            return r2
-        L8:
-            int r0 = r0.length
-            if (r0 != 0) goto Ld
-            r5 = -1
-            return r5
-        Ld:
-            r0 = 2147483647(0x7fffffff, float:NaN)
-            if (r6 == 0) goto L1e
-            java.util.Locale r6 = androidx.core.os.LocaleListCompatWrapper.EN_LATN
-            int r6 = r4.findFirstMatchIndex(r6)
-            if (r6 != 0) goto L1b
-            return r2
-        L1b:
-            if (r6 >= r0) goto L1e
-            goto L1f
-        L1e:
-            r6 = r0
-        L1f:
-            java.util.Iterator r5 = r5.iterator()
-        L23:
-            boolean r1 = r5.hasNext()
-            if (r1 == 0) goto L3e
-            java.lang.Object r1 = r5.next()
-            java.lang.String r1 = (java.lang.String) r1
-            java.util.Locale r1 = androidx.core.os.LocaleListCompat.forLanguageTagCompat(r1)
-            int r1 = r4.findFirstMatchIndex(r1)
-            if (r1 != 0) goto L3a
-            return r2
-        L3a:
-            if (r1 >= r6) goto L23
-            r6 = r1
-            goto L23
-        L3e:
-            if (r6 != r0) goto L41
-            return r2
-        L41:
-            return r6
-        */
-        throw new UnsupportedOperationException("Method not decompiled: androidx.core.os.LocaleListCompatWrapper.computeFirstMatchIndex(java.util.Collection, boolean):int");
+    private int computeFirstMatchIndex(Collection<String> collection, boolean z) {
+        int i;
+        Locale[] localeArr = this.mList;
+        if (localeArr.length == 1) {
+            return 0;
+        }
+        if (localeArr.length == 0) {
+            return -1;
+        }
+        if (z) {
+            i = findFirstMatchIndex(EN_LATN);
+            if (i == 0) {
+                return 0;
+            }
+        }
+        i = Integer.MAX_VALUE;
+        for (String str : collection) {
+            int findFirstMatchIndex = findFirstMatchIndex(LocaleListCompat.forLanguageTagCompat(str));
+            if (findFirstMatchIndex == 0) {
+                return 0;
+            }
+            if (findFirstMatchIndex < i) {
+                i = findFirstMatchIndex;
+            }
+        }
+        if (i == Integer.MAX_VALUE) {
+            return 0;
+        }
+        return i;
     }
 
     private Locale computeFirstMatch(Collection<String> collection, boolean z) {

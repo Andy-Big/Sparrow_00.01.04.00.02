@@ -2,14 +2,17 @@ package me.jessyan.autosize.external;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+
 /* loaded from: classes2.dex */
 public class ExternalAdaptInfo implements Parcelable {
     public static final Parcelable.Creator<ExternalAdaptInfo> CREATOR = new Parcelable.Creator<ExternalAdaptInfo>() { // from class: me.jessyan.autosize.external.ExternalAdaptInfo.1
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         public ExternalAdaptInfo createFromParcel(Parcel parcel) {
             return new ExternalAdaptInfo(parcel);
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         public ExternalAdaptInfo[] newArray(int i) {
             return new ExternalAdaptInfo[i];

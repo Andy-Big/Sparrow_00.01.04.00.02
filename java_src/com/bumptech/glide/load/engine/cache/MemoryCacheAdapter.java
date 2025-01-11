@@ -3,6 +3,7 @@ package com.bumptech.glide.load.engine.cache;
 import com.bumptech.glide.load.Key;
 import com.bumptech.glide.load.engine.Resource;
 import com.bumptech.glide.load.engine.cache.MemoryCache;
+
 /* loaded from: classes.dex */
 public class MemoryCacheAdapter implements MemoryCache {
     private MemoryCache.ResourceRemovedListener listener;

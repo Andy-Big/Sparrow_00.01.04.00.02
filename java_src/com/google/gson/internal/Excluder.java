@@ -16,6 +16,7 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public final class Excluder implements TypeAdapterFactory, Cloneable {
     public static final Excluder DEFAULT = new Excluder();
@@ -27,6 +28,7 @@ public final class Excluder implements TypeAdapterFactory, Cloneable {
     private List<ExclusionStrategy> serializationStrategies = Collections.emptyList();
     private List<ExclusionStrategy> deserializationStrategies = Collections.emptyList();
 
+    /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     /* renamed from: clone */
     public Excluder m10clone() {

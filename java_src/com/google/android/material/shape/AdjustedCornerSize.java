@@ -2,6 +2,7 @@ package com.google.android.material.shape;
 
 import android.graphics.RectF;
 import java.util.Arrays;
+
 /* loaded from: classes.dex */
 public final class AdjustedCornerSize implements CornerSize {
     private final float adjustment;

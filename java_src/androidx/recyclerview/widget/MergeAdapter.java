@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public final class MergeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     static final String TAG = "MergeAdapter";
@@ -74,8 +75,7 @@ public final class MergeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
         return this.mController.getItemId(i);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void internalSetStateRestorationPolicy(RecyclerView.Adapter.StateRestorationPolicy stateRestorationPolicy) {
+    void internalSetStateRestorationPolicy(RecyclerView.Adapter.StateRestorationPolicy stateRestorationPolicy) {
         super.setStateRestorationPolicy(stateRestorationPolicy);
     }
 

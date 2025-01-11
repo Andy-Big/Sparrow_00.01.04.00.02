@@ -4,6 +4,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.widget.ViewPager2;
 import com.google.android.material.tabs.TabLayout;
 import java.lang.ref.WeakReference;
+
 /* loaded from: classes.dex */
 public final class TabLayoutMediator {
     private RecyclerView.Adapter<?> adapter;

@@ -2,6 +2,7 @@ package org.slf4j.helpers;
 
 import java.util.HashMap;
 import java.util.Map;
+
 /* loaded from: classes2.dex */
 public final class MessageFormatter {
     static final char DELIM_START = '{';

@@ -1,4 +1,5 @@
 package com.blankj.utilcode.constant;
+
 /* loaded from: classes.dex */
 public final class RegexConstants {
     public static final String REGEX_BLANK_LINE = "\\n\\s*\\r";

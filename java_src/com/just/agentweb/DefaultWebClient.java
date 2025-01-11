@@ -26,6 +26,7 @@ import java.net.URISyntaxException;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+
 /* loaded from: classes.dex */
 public class DefaultWebClient extends MiddlewareWebClientBase {
     public static final String ALIPAYS_SCHEME = "alipays://";
@@ -356,72 +357,30 @@ public class DefaultWebClient extends MiddlewareWebClientBase {
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    private void onMainFrameError(android.webkit.WebView r10, int r11, java.lang.String r12, java.lang.String r13) {
-        /*
-            r9 = this;
-            java.util.Set<java.lang.String> r0 = r9.mErrorUrlsSet
-            r0.add(r13)
-            android.webkit.WebViewClient r0 = r9.mWebViewClient
-            if (r0 == 0) goto L5e
-            boolean r1 = r9.webClientHelper
-            if (r1 == 0) goto L5e
-            java.lang.reflect.Method r1 = r9.onMainFrameErrorMethod
-            r2 = 4
-            r3 = 3
-            r4 = 2
-            r5 = 1
-            r6 = 0
-            r7 = 5
-            if (r1 != 0) goto L37
-            java.lang.Class[] r1 = new java.lang.Class[r7]
-            java.lang.Class<com.just.agentweb.AbsAgentWebUIController> r8 = com.just.agentweb.AbsAgentWebUIController.class
-            r1[r6] = r8
-            java.lang.Class<android.webkit.WebView> r8 = android.webkit.WebView.class
-            r1[r5] = r8
-            java.lang.Class r8 = java.lang.Integer.TYPE
-            r1[r4] = r8
-            java.lang.Class<java.lang.String> r8 = java.lang.String.class
-            r1[r3] = r8
-            java.lang.Class<java.lang.String> r8 = java.lang.String.class
-            r1[r2] = r8
-            java.lang.String r8 = "onMainFrameError"
-            java.lang.reflect.Method r1 = com.just.agentweb.AgentWebUtils.isExistMethod(r0, r8, r1)
-            r9.onMainFrameErrorMethod = r1
-            if (r1 == 0) goto L5e
-        L37:
-            android.webkit.WebViewClient r0 = r9.mWebViewClient     // Catch: java.lang.Throwable -> L53
-            java.lang.Object[] r7 = new java.lang.Object[r7]     // Catch: java.lang.Throwable -> L53
-            java.lang.ref.WeakReference<com.just.agentweb.AbsAgentWebUIController> r8 = r9.mAgentWebUIController     // Catch: java.lang.Throwable -> L53
-            java.lang.Object r8 = r8.get()     // Catch: java.lang.Throwable -> L53
-            r7[r6] = r8     // Catch: java.lang.Throwable -> L53
-            r7[r5] = r10     // Catch: java.lang.Throwable -> L53
-            java.lang.Integer r10 = java.lang.Integer.valueOf(r11)     // Catch: java.lang.Throwable -> L53
-            r7[r4] = r10     // Catch: java.lang.Throwable -> L53
-            r7[r3] = r12     // Catch: java.lang.Throwable -> L53
-            r7[r2] = r13     // Catch: java.lang.Throwable -> L53
-            r1.invoke(r0, r7)     // Catch: java.lang.Throwable -> L53
-            goto L5d
-        L53:
-            r10 = move-exception
-            boolean r11 = com.just.agentweb.LogUtils.isDebug()
-            if (r11 == 0) goto L5d
-            r10.printStackTrace()
-        L5d:
-            return
-        L5e:
-            java.lang.ref.WeakReference<com.just.agentweb.AbsAgentWebUIController> r0 = r9.mAgentWebUIController
-            java.lang.Object r0 = r0.get()
-            if (r0 == 0) goto L71
-            java.lang.ref.WeakReference<com.just.agentweb.AbsAgentWebUIController> r0 = r9.mAgentWebUIController
-            java.lang.Object r0 = r0.get()
-            com.just.agentweb.AbsAgentWebUIController r0 = (com.just.agentweb.AbsAgentWebUIController) r0
-            r0.onMainFrameError(r10, r11, r12, r13)
-        L71:
-            return
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.just.agentweb.DefaultWebClient.onMainFrameError(android.webkit.WebView, int, java.lang.String, java.lang.String):void");
+    private void onMainFrameError(WebView webView, int i, String str, String str2) {
+        this.mErrorUrlsSet.add(str2);
+        android.webkit.WebViewClient webViewClient = this.mWebViewClient;
+        if (webViewClient != null && this.webClientHelper) {
+            Method method = this.onMainFrameErrorMethod;
+            if (method == null) {
+                method = AgentWebUtils.isExistMethod(webViewClient, "onMainFrameError", AbsAgentWebUIController.class, WebView.class, Integer.TYPE, String.class, String.class);
+                this.onMainFrameErrorMethod = method;
+            }
+            try {
+                method.invoke(this.mWebViewClient, this.mAgentWebUIController.get(), webView, Integer.valueOf(i), str, str2);
+                return;
+            } catch (Throwable th) {
+                if (LogUtils.isDebug()) {
+                    th.printStackTrace();
+                    return;
+                }
+                return;
+            }
+        }
+        if (this.mAgentWebUIController.get() != null) {
+            this.mAgentWebUIController.get().onMainFrameError(webView, i, str, str2);
+        }
     }
 
     @Override // com.just.agentweb.WebViewClientDelegate, android.webkit.WebViewClient

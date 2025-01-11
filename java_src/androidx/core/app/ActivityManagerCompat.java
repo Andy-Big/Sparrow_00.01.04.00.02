@@ -2,6 +2,7 @@ package androidx.core.app;
 
 import android.app.ActivityManager;
 import android.os.Build;
+
 /* loaded from: classes.dex */
 public final class ActivityManagerCompat {
     private ActivityManagerCompat() {

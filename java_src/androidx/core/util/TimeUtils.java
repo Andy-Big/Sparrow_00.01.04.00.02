@@ -1,6 +1,7 @@
 package androidx.core.util;
 
 import java.io.PrintWriter;
+
 /* loaded from: classes.dex */
 public final class TimeUtils {
     public static final int HUNDRED_DAY_FIELD_LEN = 19;

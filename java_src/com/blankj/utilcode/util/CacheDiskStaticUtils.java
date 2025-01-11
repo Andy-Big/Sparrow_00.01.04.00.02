@@ -6,6 +6,7 @@ import android.os.Parcelable;
 import java.io.Serializable;
 import org.json.JSONArray;
 import org.json.JSONObject;
+
 /* loaded from: classes.dex */
 public final class CacheDiskStaticUtils {
     private static CacheDiskUtils sDefaultCacheDiskUtils;

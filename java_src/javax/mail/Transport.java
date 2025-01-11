@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Vector;
 import javax.mail.event.TransportEvent;
 import javax.mail.event.TransportListener;
+
 /* loaded from: classes2.dex */
 public abstract class Transport extends Service {
     private volatile Vector<TransportListener> transportListeners;
@@ -168,8 +169,7 @@ public abstract class Transport extends Service {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void notifyTransportListeners(int i, Address[] addressArr, Address[] addressArr2, Address[] addressArr3, Message message) {
+    protected void notifyTransportListeners(int i, Address[] addressArr, Address[] addressArr2, Address[] addressArr3, Message message) {
         if (this.transportListeners == null) {
             return;
         }

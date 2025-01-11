@@ -6,6 +6,7 @@ import com.sun.mail.iap.Response;
 import com.sun.mail.util.ASCIIUtility;
 import java.io.IOException;
 import java.util.ArrayList;
+
 /* loaded from: classes2.dex */
 public class IMAPResponse extends Response {
     private String key;

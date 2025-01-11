@@ -8,6 +8,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.security.AccessController;
 import java.security.PrivilegedAction;
+
 /* loaded from: classes2.dex */
 public class CommandInfo {
     private String className;
@@ -39,9 +40,8 @@ public class CommandInfo {
         return instantiate;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
-    public static final class Beans {
+    private static final class Beans {
         static final Method instantiateMethod;
 
         private Beans() {

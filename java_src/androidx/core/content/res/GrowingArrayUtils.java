@@ -1,6 +1,7 @@
 package androidx.core.content.res;
 
 import java.lang.reflect.Array;
+
 /* loaded from: classes.dex */
 final class GrowingArrayUtils {
     public static int growSize(int i) {

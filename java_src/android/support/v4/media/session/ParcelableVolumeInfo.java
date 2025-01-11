@@ -2,15 +2,18 @@ package android.support.v4.media.session;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+
 /* loaded from: classes.dex */
 public class ParcelableVolumeInfo implements Parcelable {
     public static final Parcelable.Creator<ParcelableVolumeInfo> CREATOR = new Parcelable.Creator<ParcelableVolumeInfo>() { // from class: android.support.v4.media.session.ParcelableVolumeInfo.1
+        /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
         public ParcelableVolumeInfo createFromParcel(Parcel parcel) {
             return new ParcelableVolumeInfo(parcel);
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
         public ParcelableVolumeInfo[] newArray(int i) {

@@ -10,6 +10,7 @@ import android.graphics.PorterDuffColorFilter;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
+
 /* loaded from: classes.dex */
 class RoundRectDrawable extends Drawable {
     private ColorStateList mBackground;
@@ -29,8 +30,7 @@ class RoundRectDrawable extends Drawable {
         return -3;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public RoundRectDrawable(ColorStateList colorStateList, float f) {
+    RoundRectDrawable(ColorStateList colorStateList, float f) {
         this.mRadius = f;
         setBackground(colorStateList);
         this.mBoundsF = new RectF();
@@ -45,8 +45,7 @@ class RoundRectDrawable extends Drawable {
         this.mPaint.setColor(colorStateList.getColorForState(getState(), this.mBackground.getDefaultColor()));
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setPadding(float f, boolean z, boolean z2) {
+    void setPadding(float f, boolean z, boolean z2) {
         if (f == this.mPadding && this.mInsetForPadding == z && this.mInsetForRadius == z2) {
             return;
         }
@@ -57,8 +56,7 @@ class RoundRectDrawable extends Drawable {
         invalidateSelf();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public float getPadding() {
+    float getPadding() {
         return this.mPadding;
     }
 
@@ -104,8 +102,7 @@ class RoundRectDrawable extends Drawable {
         outline.setRoundRect(this.mBoundsI, this.mRadius);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setRadius(float f) {
+    void setRadius(float f) {
         if (f == this.mRadius) {
             return;
         }

@@ -98,6 +98,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+
 /* loaded from: classes.dex */
 public class Glide implements ComponentCallbacks2 {
     private static final String DEFAULT_DISK_CACHE_DIR = "image_manager_disk_cache";
@@ -274,8 +275,7 @@ public class Glide implements ComponentCallbacks2 {
         throw new IllegalStateException("GeneratedAppGlideModuleImpl is implemented incorrectly. If you've manually implemented this class, remove your implementation. The Annotation processor will generate a correct implementation.", exc);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public Glide(Context context, Engine engine, MemoryCache memoryCache, BitmapPool bitmapPool, ArrayPool arrayPool, RequestManagerRetriever requestManagerRetriever, ConnectivityMonitorFactory connectivityMonitorFactory, int i, RequestOptionsFactory requestOptionsFactory, Map<Class<?>, TransitionOptions<?, ?>> map, List<RequestListener<Object>> list, boolean z, boolean z2) {
+    Glide(Context context, Engine engine, MemoryCache memoryCache, BitmapPool bitmapPool, ArrayPool arrayPool, RequestManagerRetriever requestManagerRetriever, ConnectivityMonitorFactory connectivityMonitorFactory, int i, RequestOptionsFactory requestOptionsFactory, Map<Class<?>, TransitionOptions<?, ?>> map, List<RequestListener<Object>> list, boolean z, boolean z2) {
         ResourceDecoder byteBufferBitmapDecoder;
         ResourceDecoder streamBitmapDecoder;
         ResourceDrawableDecoder resourceDrawableDecoder;
@@ -352,13 +352,11 @@ public class Glide implements ComponentCallbacks2 {
         return this.glideContext.getBaseContext();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ConnectivityMonitorFactory getConnectivityMonitorFactory() {
+    ConnectivityMonitorFactory getConnectivityMonitorFactory() {
         return this.connectivityMonitorFactory;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public GlideContext getGlideContext() {
+    GlideContext getGlideContext() {
         return this.glideContext;
     }
 
@@ -438,8 +436,7 @@ public class Glide implements ComponentCallbacks2 {
         return this.registry;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean removeFromManagers(Target<?> target) {
+    boolean removeFromManagers(Target<?> target) {
         synchronized (this.managers) {
             for (RequestManager requestManager : this.managers) {
                 if (requestManager.untrack(target)) {
@@ -450,8 +447,7 @@ public class Glide implements ComponentCallbacks2 {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void registerRequestManager(RequestManager requestManager) {
+    void registerRequestManager(RequestManager requestManager) {
         synchronized (this.managers) {
             if (this.managers.contains(requestManager)) {
                 throw new IllegalStateException("Cannot register already registered manager");
@@ -460,8 +456,7 @@ public class Glide implements ComponentCallbacks2 {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void unregisterRequestManager(RequestManager requestManager) {
+    void unregisterRequestManager(RequestManager requestManager) {
         synchronized (this.managers) {
             if (!this.managers.contains(requestManager)) {
                 throw new IllegalStateException("Cannot unregister not yet registered manager");

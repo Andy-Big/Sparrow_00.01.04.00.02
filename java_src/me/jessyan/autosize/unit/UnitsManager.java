@@ -1,6 +1,7 @@
 package me.jessyan.autosize.unit;
 
 import me.jessyan.autosize.utils.Preconditions;
+
 /* loaded from: classes2.dex */
 public class UnitsManager {
     private float mDesignHeight;

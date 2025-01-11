@@ -4,6 +4,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import java.lang.ref.WeakReference;
+
 /* loaded from: classes.dex */
 class SnackbarManager {
     private static final int LONG_DURATION_MS = 2750;
@@ -24,16 +25,14 @@ class SnackbarManager {
         }
     });
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public interface Callback {
+    interface Callback {
         void dismiss(int i);
 
         void show();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static SnackbarManager getInstance() {
+    static SnackbarManager getInstance() {
         if (snackbarManager == null) {
             snackbarManager = new SnackbarManager();
         }
@@ -126,9 +125,8 @@ class SnackbarManager {
         return z;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static class SnackbarRecord {
+    private static class SnackbarRecord {
         final WeakReference<Callback> callback;
         int duration;
         boolean paused;

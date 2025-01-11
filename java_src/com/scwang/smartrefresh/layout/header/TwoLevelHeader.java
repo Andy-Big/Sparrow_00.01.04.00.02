@@ -15,6 +15,7 @@ import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.constant.RefreshState;
 import com.scwang.smartrefresh.layout.constant.SpinnerStyle;
 import com.scwang.smartrefresh.layout.internal.InternalAbstract;
+
 /* loaded from: classes2.dex */
 public class TwoLevelHeader extends InternalAbstract implements RefreshHeader {
     protected boolean mEnablePullToCloseTwoLevel;
@@ -218,10 +219,9 @@ public class TwoLevelHeader extends InternalAbstract implements RefreshHeader {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.scwang.smartrefresh.layout.header.TwoLevelHeader$1  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    static /* synthetic */ class AnonymousClass1 {
         static final /* synthetic */ int[] $SwitchMap$com$scwang$smartrefresh$layout$constant$RefreshState;
         static final /* synthetic */ int[] $SwitchMap$com$scwang$smartrefresh$layout$constant$SpinnerStyle;
 

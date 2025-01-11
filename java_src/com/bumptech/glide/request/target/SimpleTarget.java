@@ -1,6 +1,7 @@
 package com.bumptech.glide.request.target;
 
 import com.bumptech.glide.util.Util;
+
 @Deprecated
 /* loaded from: classes.dex */
 public abstract class SimpleTarget<Z> extends BaseTarget<Z> {

@@ -5,6 +5,7 @@ import com.sun.mail.iap.Response;
 import java.util.ArrayList;
 import java.util.List;
 import javax.mail.Flags;
+
 /* loaded from: classes2.dex */
 public class MailboxInfo {
     public Flags availableFlags;

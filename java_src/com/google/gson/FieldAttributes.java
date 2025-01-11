@@ -6,6 +6,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Type;
 import java.util.Arrays;
 import java.util.Collection;
+
 /* loaded from: classes.dex */
 public final class FieldAttributes {
     private final Field field;

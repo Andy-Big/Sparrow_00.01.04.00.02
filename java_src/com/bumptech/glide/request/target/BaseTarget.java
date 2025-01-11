@@ -2,6 +2,7 @@ package com.bumptech.glide.request.target;
 
 import android.graphics.drawable.Drawable;
 import com.bumptech.glide.request.Request;
+
 @Deprecated
 /* loaded from: classes.dex */
 public abstract class BaseTarget<Z> implements Target<Z> {

@@ -13,6 +13,7 @@ import com.google.android.material.animation.Positioning;
 import com.google.android.material.transformation.FabTransformationBehavior;
 import java.util.HashMap;
 import java.util.Map;
+
 @Deprecated
 /* loaded from: classes.dex */
 public class FabTransformationSheetBehavior extends FabTransformationBehavior {
@@ -39,9 +40,8 @@ public class FabTransformationSheetBehavior extends FabTransformationBehavior {
         return fabTransformationSpec;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.google.android.material.transformation.ExpandableTransformationBehavior, com.google.android.material.transformation.ExpandableBehavior
-    public boolean onExpandedStateChange(View view, View view2, boolean z, boolean z2) {
+    protected boolean onExpandedStateChange(View view, View view2, boolean z, boolean z2) {
         updateImportantForAccessibility(view2, z);
         return super.onExpandedStateChange(view, view2, z, z2);
     }

@@ -2,6 +2,7 @@ package androidx.core.graphics;
 
 import android.graphics.Bitmap;
 import android.os.Build;
+
 /* loaded from: classes.dex */
 public final class BitmapCompat {
     public static boolean hasMipMap(Bitmap bitmap) {

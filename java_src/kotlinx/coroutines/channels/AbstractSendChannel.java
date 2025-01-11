@@ -22,12 +22,14 @@ import kotlinx.coroutines.DebugStringsKt;
 import kotlinx.coroutines.DisposableHandle;
 import kotlinx.coroutines.YieldKt;
 import kotlinx.coroutines.internal.LockFreeLinkedListHead;
+import kotlinx.coroutines.internal.LockFreeLinkedListKt;
 import kotlinx.coroutines.internal.LockFreeLinkedListNode;
 import kotlinx.coroutines.internal.StackTraceRecoveryKt;
 import kotlinx.coroutines.intrinsics.UndispatchedKt;
 import kotlinx.coroutines.selects.SelectClause2;
 import kotlinx.coroutines.selects.SelectInstance;
 import kotlinx.coroutines.selects.SelectKt;
+
 /* compiled from: AbstractChannel.kt */
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u009c\u0001\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0003\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\t\n\u0002\u0010\u000e\n\u0002\b\u0010\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\f\b \u0018\u0000*\u0004\b\u0000\u0010\u00012\b\u0012\u0004\u0012\u00028\u00000\u0002:\u0005_`abcB\u0007¢\u0006\u0004\b\u0003\u0010\u0004J\u0019\u0010\b\u001a\u00020\u00072\b\u0010\u0006\u001a\u0004\u0018\u00010\u0005H\u0016¢\u0006\u0004\b\b\u0010\tJ\u000f\u0010\u000b\u001a\u00020\nH\u0002¢\u0006\u0004\b\u000b\u0010\fJ#\u0010\u0010\u001a\u000e\u0012\u0002\b\u00030\u000ej\u0006\u0012\u0002\b\u0003`\u000f2\u0006\u0010\r\u001a\u00028\u0000H\u0004¢\u0006\u0004\b\u0010\u0010\u0011J#\u0010\u0012\u001a\u000e\u0012\u0002\b\u00030\u000ej\u0006\u0012\u0002\b\u0003`\u000f2\u0006\u0010\r\u001a\u00028\u0000H\u0004¢\u0006\u0004\b\u0012\u0010\u0011J\u001d\u0010\u0014\u001a\b\u0012\u0004\u0012\u00028\u00000\u00132\u0006\u0010\r\u001a\u00028\u0000H\u0004¢\u0006\u0004\b\u0014\u0010\u0015J\u0019\u0010\u0019\u001a\u0004\u0018\u00010\u00182\u0006\u0010\u0017\u001a\u00020\u0016H\u0002¢\u0006\u0004\b\u0019\u0010\u001aJ\u001b\u0010\u001e\u001a\u00020\u001d2\n\u0010\u001c\u001a\u0006\u0012\u0002\b\u00030\u001bH\u0002¢\u0006\u0004\b\u001e\u0010\u001fJ)\u0010#\u001a\u00020\u001d2\u0018\u0010\"\u001a\u0014\u0012\u0006\u0012\u0004\u0018\u00010\u0005\u0012\u0004\u0012\u00020\u001d0 j\u0002`!H\u0016¢\u0006\u0004\b#\u0010$J\u0019\u0010%\u001a\u00020\u001d2\b\u0010\u0006\u001a\u0004\u0018\u00010\u0005H\u0002¢\u0006\u0004\b%\u0010&J\u0015\u0010'\u001a\u00020\u00072\u0006\u0010\r\u001a\u00028\u0000¢\u0006\u0004\b'\u0010(J\u0017\u0010)\u001a\u00020\u00182\u0006\u0010\r\u001a\u00028\u0000H\u0014¢\u0006\u0004\b)\u0010*J#\u0010-\u001a\u00020\u00182\u0006\u0010\r\u001a\u00028\u00002\n\u0010,\u001a\u0006\u0012\u0002\b\u00030+H\u0014¢\u0006\u0004\b-\u0010.J\u0017\u00100\u001a\u00020\u001d2\u0006\u0010\u001c\u001a\u00020/H\u0014¢\u0006\u0004\b0\u00101JX\u00106\u001a\u00020\u001d\"\u0004\b\u0001\u001022\f\u0010,\u001a\b\u0012\u0004\u0012\u00028\u00010+2\u0006\u0010\r\u001a\u00028\u00002(\u00105\u001a$\b\u0001\u0012\n\u0012\b\u0012\u0004\u0012\u00028\u00000\u0002\u0012\n\u0012\b\u0012\u0004\u0012\u00028\u000104\u0012\u0006\u0012\u0004\u0018\u00010\u001803H\u0002ø\u0001\u0000¢\u0006\u0004\b6\u00107J\u001b\u0010\u0017\u001a\u00020\u001d2\u0006\u0010\r\u001a\u00028\u0000H\u0086@ø\u0001\u0000¢\u0006\u0004\b\u0017\u00108J\u001d\u0010:\u001a\b\u0012\u0002\b\u0003\u0018\u0001092\u0006\u0010\r\u001a\u00028\u0000H\u0004¢\u0006\u0004\b:\u0010;J\u001b\u0010=\u001a\u00020\u001d2\u0006\u0010\r\u001a\u00028\u0000H\u0080@ø\u0001\u0000¢\u0006\u0004\b<\u00108J\u001b\u0010>\u001a\u00020\u001d2\u0006\u0010\r\u001a\u00028\u0000H\u0082@ø\u0001\u0000¢\u0006\u0004\b>\u00108J\u0017\u0010?\u001a\n\u0012\u0004\u0012\u00028\u0000\u0018\u000109H\u0014¢\u0006\u0004\b?\u0010@J\u0011\u0010A\u001a\u0004\u0018\u00010\u0016H\u0004¢\u0006\u0004\bA\u0010BJ\u000f\u0010D\u001a\u00020CH\u0016¢\u0006\u0004\bD\u0010ER\u0016\u0010G\u001a\u00020C8T@\u0014X\u0094\u0004¢\u0006\u0006\u001a\u0004\bF\u0010ER\u001c\u0010J\u001a\b\u0012\u0002\b\u0003\u0018\u00010\u001b8D@\u0004X\u0084\u0004¢\u0006\u0006\u001a\u0004\bH\u0010IR\u001c\u0010L\u001a\b\u0012\u0002\b\u0003\u0018\u00010\u001b8D@\u0004X\u0084\u0004¢\u0006\u0006\u001a\u0004\bK\u0010IR\u0016\u0010O\u001a\u00020\u00078B@\u0002X\u0082\u0004¢\u0006\u0006\u001a\u0004\bM\u0010NR\u0016\u0010P\u001a\u00020\u00078$@$X¤\u0004¢\u0006\u0006\u001a\u0004\bP\u0010NR\u0016\u0010Q\u001a\u00020\u00078$@$X¤\u0004¢\u0006\u0006\u001a\u0004\bQ\u0010NR\u0013\u0010R\u001a\u00020\u00078F@\u0006¢\u0006\u0006\u001a\u0004\bR\u0010NR\u0013\u0010S\u001a\u00020\u00078F@\u0006¢\u0006\u0006\u001a\u0004\bS\u0010NR%\u0010W\u001a\u0014\u0012\u0004\u0012\u00028\u0000\u0012\n\u0012\b\u0012\u0004\u0012\u00028\u00000\u00020T8F@\u0006¢\u0006\u0006\u001a\u0004\bU\u0010VR\u001c\u0010Y\u001a\u00020X8\u0004@\u0004X\u0084\u0004¢\u0006\f\n\u0004\bY\u0010Z\u001a\u0004\b[\u0010\\R\u0016\u0010^\u001a\u00020C8B@\u0002X\u0082\u0004¢\u0006\u0006\u001a\u0004\b]\u0010E\u0082\u0002\u0004\n\u0002\b\u0019¨\u0006d"}, d2 = {"Lkotlinx/coroutines/channels/AbstractSendChannel;", ExifInterface.LONGITUDE_EAST, "Lkotlinx/coroutines/channels/SendChannel;", "<init>", "()V", "", "cause", "", "close", "(Ljava/lang/Throwable;)Z", "", "countQueueSize", "()I", "element", "Lkotlinx/coroutines/internal/LockFreeLinkedListNode$AddLastDesc;", "Lkotlinx/coroutines/internal/AddLastDesc;", "describeSendBuffered", "(Ljava/lang/Object;)Lkotlinx/coroutines/internal/LockFreeLinkedListNode$AddLastDesc;", "describeSendConflated", "Lkotlinx/coroutines/channels/AbstractSendChannel$TryOfferDesc;", "describeTryOffer", "(Ljava/lang/Object;)Lkotlinx/coroutines/channels/AbstractSendChannel$TryOfferDesc;", "Lkotlinx/coroutines/channels/Send;", "send", "", "enqueueSend", "(Lkotlinx/coroutines/channels/Send;)Ljava/lang/Object;", "Lkotlinx/coroutines/channels/Closed;", "closed", "", "helpClose", "(Lkotlinx/coroutines/channels/Closed;)V", "Lkotlin/Function1;", "Lkotlinx/coroutines/channels/Handler;", "handler", "invokeOnClose", "(Lkotlin/jvm/functions/Function1;)V", "invokeOnCloseHandler", "(Ljava/lang/Throwable;)V", "offer", "(Ljava/lang/Object;)Z", "offerInternal", "(Ljava/lang/Object;)Ljava/lang/Object;", "Lkotlinx/coroutines/selects/SelectInstance;", "select", "offerSelectInternal", "(Ljava/lang/Object;Lkotlinx/coroutines/selects/SelectInstance;)Ljava/lang/Object;", "Lkotlinx/coroutines/internal/LockFreeLinkedListNode;", "onClosedIdempotent", "(Lkotlinx/coroutines/internal/LockFreeLinkedListNode;)V", "R", "Lkotlin/Function2;", "Lkotlin/coroutines/Continuation;", "block", "registerSelectSend", "(Lkotlinx/coroutines/selects/SelectInstance;Ljava/lang/Object;Lkotlin/jvm/functions/Function2;)V", "(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "Lkotlinx/coroutines/channels/ReceiveOrClosed;", "sendBuffered", "(Ljava/lang/Object;)Lkotlinx/coroutines/channels/ReceiveOrClosed;", "sendFair$kotlinx_coroutines_core", "sendFair", "sendSuspend", "takeFirstReceiveOrPeekClosed", "()Lkotlinx/coroutines/channels/ReceiveOrClosed;", "takeFirstSendOrPeekClosed", "()Lkotlinx/coroutines/channels/Send;", "", "toString", "()Ljava/lang/String;", "getBufferDebugString", "bufferDebugString", "getClosedForReceive", "()Lkotlinx/coroutines/channels/Closed;", "closedForReceive", "getClosedForSend", "closedForSend", "getFull", "()Z", "full", "isBufferAlwaysFull", "isBufferFull", "isClosedForSend", "isFull", "Lkotlinx/coroutines/selects/SelectClause2;", "getOnSend", "()Lkotlinx/coroutines/selects/SelectClause2;", "onSend", "Lkotlinx/coroutines/internal/LockFreeLinkedListHead;", "queue", "Lkotlinx/coroutines/internal/LockFreeLinkedListHead;", "getQueue", "()Lkotlinx/coroutines/internal/LockFreeLinkedListHead;", "getQueueDebugStateString", "queueDebugStateString", "SendBuffered", "SendBufferedDesc", "SendConflatedDesc", "SendSelect", "TryOfferDesc", "kotlinx-coroutines-core"}, k = 1, mv = {1, 1, 15})
 /* loaded from: classes2.dex */
@@ -42,20 +44,22 @@ public abstract class AbstractSendChannel<E> implements SendChannel<E> {
 
     protected abstract boolean isBufferAlwaysFull();
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public abstract boolean isBufferFull();
+    protected abstract boolean isBufferFull();
 
     protected void onClosedIdempotent(LockFreeLinkedListNode closed) {
         Intrinsics.checkParameterIsNotNull(closed, "closed");
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public final LockFreeLinkedListHead getQueue() {
+    /* JADX DEBUG: Method not inlined, still used in: [kotlinx.coroutines.channels.AbstractSendChannel$onSend$1.registerSelectClause2(kotlinx.coroutines.selects.SelectInstance<? super R>, E, kotlin.jvm.functions.Function2<? super kotlinx.coroutines.channels.SendChannel<? super E>, ? super kotlin.coroutines.Continuation<? super R>, ? extends java.lang.Object>):void] */
+    public static final /* synthetic */ void access$registerSelectSend(AbstractSendChannel abstractSendChannel, SelectInstance selectInstance, Object obj, Function2 function2) {
+        abstractSendChannel.registerSelectSend(selectInstance, obj, function2);
+    }
+
+    protected final LockFreeLinkedListHead getQueue() {
         return this.queue;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public Object offerInternal(E e) {
+    protected Object offerInternal(E e) {
         ReceiveOrClosed<E> takeFirstReceiveOrPeekClosed;
         Object tryResumeReceive;
         do {
@@ -69,8 +73,7 @@ public abstract class AbstractSendChannel<E> implements SendChannel<E> {
         return takeFirstReceiveOrPeekClosed.getOfferResult();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public Object offerSelectInternal(E e, SelectInstance<?> select) {
+    protected Object offerSelectInternal(E e, SelectInstance<?> select) {
         Intrinsics.checkParameterIsNotNull(select, "select");
         TryOfferDesc<E> describeTryOffer = describeTryOffer(e);
         Object performAtomicTrySelect = select.performAtomicTrySelect(describeTryOffer);
@@ -86,8 +89,7 @@ public abstract class AbstractSendChannel<E> implements SendChannel<E> {
         return result.getOfferResult();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public final Closed<?> getClosedForSend() {
+    protected final Closed<?> getClosedForSend() {
         LockFreeLinkedListNode prevNode = this.queue.getPrevNode();
         if (!(prevNode instanceof Closed)) {
             prevNode = null;
@@ -100,8 +102,7 @@ public abstract class AbstractSendChannel<E> implements SendChannel<E> {
         return null;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public final Closed<?> getClosedForReceive() {
+    protected final Closed<?> getClosedForReceive() {
         LockFreeLinkedListNode nextNode = this.queue.getNextNode();
         if (!(nextNode instanceof Closed)) {
             nextNode = null;
@@ -114,8 +115,7 @@ public abstract class AbstractSendChannel<E> implements SendChannel<E> {
         return null;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public final Send takeFirstSendOrPeekClosed() {
+    protected final Send takeFirstSendOrPeekClosed() {
         LockFreeLinkedListNode lockFreeLinkedListNode;
         LockFreeLinkedListHead lockFreeLinkedListHead = this.queue;
         while (true) {
@@ -135,8 +135,7 @@ public abstract class AbstractSendChannel<E> implements SendChannel<E> {
         return (Send) lockFreeLinkedListNode;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public final ReceiveOrClosed<?> sendBuffered(E e) {
+    protected final ReceiveOrClosed<?> sendBuffered(E e) {
         LockFreeLinkedListNode lockFreeLinkedListNode;
         LockFreeLinkedListHead lockFreeLinkedListHead = this.queue;
         SendBuffered sendBuffered = new SendBuffered(e);
@@ -154,8 +153,7 @@ public abstract class AbstractSendChannel<E> implements SendChannel<E> {
         return null;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public final LockFreeLinkedListNode.AddLastDesc<?> describeSendBuffered(E e) {
+    protected final LockFreeLinkedListNode.AddLastDesc<?> describeSendBuffered(E e) {
         return new SendBufferedDesc(this.queue, e);
     }
 
@@ -182,8 +180,7 @@ public abstract class AbstractSendChannel<E> implements SendChannel<E> {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public final LockFreeLinkedListNode.AddLastDesc<?> describeSendConflated(E e) {
+    protected final LockFreeLinkedListNode.AddLastDesc<?> describeSendConflated(E e) {
         return new SendConflatedDesc(this.queue, e);
     }
 
@@ -197,9 +194,8 @@ public abstract class AbstractSendChannel<E> implements SendChannel<E> {
             Intrinsics.checkParameterIsNotNull(queue, "queue");
         }
 
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // kotlinx.coroutines.internal.LockFreeLinkedListNode.AddLastDesc, kotlinx.coroutines.internal.LockFreeLinkedListNode.AbstractAtomicDesc
-        public void finishOnSuccess(LockFreeLinkedListNode affected, LockFreeLinkedListNode next) {
+        protected void finishOnSuccess(LockFreeLinkedListNode affected, LockFreeLinkedListNode next) {
             Intrinsics.checkParameterIsNotNull(affected, "affected");
             Intrinsics.checkParameterIsNotNull(next, "next");
             super.finishOnSuccess(affected, next);
@@ -223,7 +219,6 @@ public abstract class AbstractSendChannel<E> implements SendChannel<E> {
         return getFull();
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public final boolean getFull() {
         return !(this.queue.getNextNode() instanceof ReceiveOrClosed) && isBufferFull();
     }
@@ -261,81 +256,70 @@ public abstract class AbstractSendChannel<E> implements SendChannel<E> {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* JADX WARN: Code restructure failed: missing block: B:27:0x004b, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:69:0x004b, code lost:
         if (r4 != false) goto L32;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:29:0x004f, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:71:0x004f, code lost:
         return kotlinx.coroutines.channels.AbstractChannelKt.ENQUEUE_FAILED;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:30:0x0050, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:72:0x0050, code lost:
         return null;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    public final java.lang.Object enqueueSend(kotlinx.coroutines.channels.Send r6) {
-        /*
-            r5 = this;
-            boolean r0 = r5.isBufferAlwaysFull()
-        */
-        //  java.lang.String r1 = "null cannot be cast to non-null type kotlinx.coroutines.internal.Node /* = kotlinx.coroutines.internal.LockFreeLinkedListNode */"
-        /*
-            if (r0 == 0) goto L27
-            kotlinx.coroutines.internal.LockFreeLinkedListHead r0 = r5.queue
-        La:
-            java.lang.Object r2 = r0.getPrev()
-            if (r2 == 0) goto L21
-            kotlinx.coroutines.internal.LockFreeLinkedListNode r2 = (kotlinx.coroutines.internal.LockFreeLinkedListNode) r2
-            boolean r3 = r2 instanceof kotlinx.coroutines.channels.ReceiveOrClosed
-            if (r3 == 0) goto L17
-            return r2
-        L17:
-            r3 = r6
-            kotlinx.coroutines.internal.LockFreeLinkedListNode r3 = (kotlinx.coroutines.internal.LockFreeLinkedListNode) r3
-            boolean r2 = r2.addNext(r3, r0)
-            if (r2 == 0) goto La
-            goto L50
-        L21:
-            kotlin.TypeCastException r6 = new kotlin.TypeCastException
-            r6.<init>(r1)
-            throw r6
-        L27:
-            kotlinx.coroutines.internal.LockFreeLinkedListHead r0 = r5.queue
-            kotlinx.coroutines.channels.AbstractSendChannel$enqueueSend$$inlined$addLastIfPrevAndIf$1 r2 = new kotlinx.coroutines.channels.AbstractSendChannel$enqueueSend$$inlined$addLastIfPrevAndIf$1
-            kotlinx.coroutines.internal.LockFreeLinkedListNode r6 = (kotlinx.coroutines.internal.LockFreeLinkedListNode) r6
-            r2.<init>(r6)
-            kotlinx.coroutines.internal.LockFreeLinkedListNode$CondAddOp r2 = (kotlinx.coroutines.internal.LockFreeLinkedListNode.CondAddOp) r2
-        L32:
-            java.lang.Object r3 = r0.getPrev()
-            if (r3 == 0) goto L52
-            kotlinx.coroutines.internal.LockFreeLinkedListNode r3 = (kotlinx.coroutines.internal.LockFreeLinkedListNode) r3
-            boolean r4 = r3 instanceof kotlinx.coroutines.channels.ReceiveOrClosed
-            if (r4 == 0) goto L3f
-            return r3
-        L3f:
-            int r3 = r3.tryCondAddNext(r6, r0, r2)
-            r4 = 1
-            if (r3 == r4) goto L4b
-            r4 = 2
-            if (r3 == r4) goto L4a
-            goto L32
-        L4a:
-            r4 = 0
-        L4b:
-            if (r4 != 0) goto L50
-            java.lang.Object r6 = kotlinx.coroutines.channels.AbstractChannelKt.ENQUEUE_FAILED
-            return r6
-        L50:
-            r6 = 0
-            return r6
-        L52:
-            kotlin.TypeCastException r6 = new kotlin.TypeCastException
-            r6.<init>(r1)
-            throw r6
-        */
-        throw new UnsupportedOperationException("Method not decompiled: kotlinx.coroutines.channels.AbstractSendChannel.enqueueSend(kotlinx.coroutines.channels.Send):java.lang.Object");
+    public final Object enqueueSend(Send send) {
+        LockFreeLinkedListNode lockFreeLinkedListNode;
+        if (isBufferAlwaysFull()) {
+            LockFreeLinkedListHead lockFreeLinkedListHead = this.queue;
+            do {
+                Object prev = lockFreeLinkedListHead.getPrev();
+                if (prev != null) {
+                    lockFreeLinkedListNode = (LockFreeLinkedListNode) prev;
+                    if (lockFreeLinkedListNode instanceof ReceiveOrClosed) {
+                        return lockFreeLinkedListNode;
+                    }
+                } else {
+                    throw new TypeCastException("null cannot be cast to non-null type kotlinx.coroutines.internal.Node /* = kotlinx.coroutines.internal.LockFreeLinkedListNode */");
+                }
+            } while (!lockFreeLinkedListNode.addNext(send, lockFreeLinkedListHead));
+            return null;
+        }
+        LockFreeLinkedListHead lockFreeLinkedListHead2 = this.queue;
+        final Send send2 = send;
+        LockFreeLinkedListNode.CondAddOp condAddOp = new LockFreeLinkedListNode.CondAddOp(send2) { // from class: kotlinx.coroutines.channels.AbstractSendChannel$enqueueSend$$inlined$addLastIfPrevAndIf$1
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // kotlinx.coroutines.internal.AtomicOp
+            public Object prepare(LockFreeLinkedListNode affected) {
+                Intrinsics.checkParameterIsNotNull(affected, "affected");
+                if (this.isBufferFull()) {
+                    return null;
+                }
+                return LockFreeLinkedListKt.getCONDITION_FALSE();
+            }
+        };
+        while (true) {
+            Object prev2 = lockFreeLinkedListHead2.getPrev();
+            if (prev2 != null) {
+                LockFreeLinkedListNode lockFreeLinkedListNode2 = (LockFreeLinkedListNode) prev2;
+                if (!(lockFreeLinkedListNode2 instanceof ReceiveOrClosed)) {
+                    int tryCondAddNext = lockFreeLinkedListNode2.tryCondAddNext(send2, lockFreeLinkedListHead2, condAddOp);
+                    boolean z = true;
+                    if (tryCondAddNext != 1) {
+                        if (tryCondAddNext == 2) {
+                            z = false;
+                            break;
+                        }
+                    } else {
+                        break;
+                    }
+                } else {
+                    return lockFreeLinkedListNode2;
+                }
+            } else {
+                throw new TypeCastException("null cannot be cast to non-null type kotlinx.coroutines.internal.Node /* = kotlinx.coroutines.internal.LockFreeLinkedListNode */");
+            }
+        }
     }
 
     @Override // kotlinx.coroutines.channels.SendChannel
@@ -396,7 +380,6 @@ public abstract class AbstractSendChannel<E> implements SendChannel<E> {
         handler.invoke(closedForSend.closeCause);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public final void helpClose(Closed<?> closed) {
         while (true) {
             LockFreeLinkedListNode prevNode = closed.getPrevNode();
@@ -411,8 +394,7 @@ public abstract class AbstractSendChannel<E> implements SendChannel<E> {
         onClosedIdempotent(closed);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public ReceiveOrClosed<E> takeFirstReceiveOrPeekClosed() {
+    protected ReceiveOrClosed<E> takeFirstReceiveOrPeekClosed() {
         LockFreeLinkedListNode lockFreeLinkedListNode;
         LockFreeLinkedListHead lockFreeLinkedListHead = this.queue;
         while (true) {
@@ -432,16 +414,14 @@ public abstract class AbstractSendChannel<E> implements SendChannel<E> {
         return (ReceiveOrClosed) lockFreeLinkedListNode;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public final TryOfferDesc<E> describeTryOffer(E e) {
+    protected final TryOfferDesc<E> describeTryOffer(E e) {
         return new TryOfferDesc<>(e, this.queue);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     /* compiled from: AbstractChannel.kt */
     @Metadata(bv = {1, 0, 3}, d1 = {"\u00004\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0002\b\u0004\u0018\u0000*\u0004\b\u0001\u0010\u00012\u001e\u0012\n\u0012\b\u0012\u0004\u0012\u0002H\u00010\u00030\u0002j\u000e\u0012\n\u0012\b\u0012\u0004\u0012\u0002H\u00010\u0003`\u0004B\u0015\u0012\u0006\u0010\u0005\u001a\u00028\u0001\u0012\u0006\u0010\u0006\u001a\u00020\u0007¢\u0006\u0002\u0010\bJ\u0012\u0010\f\u001a\u0004\u0018\u00010\u000b2\u0006\u0010\r\u001a\u00020\u000eH\u0014J\u0016\u0010\u000f\u001a\u00020\u00102\f\u0010\u0011\u001a\b\u0012\u0004\u0012\u00028\u00010\u0003H\u0014R\u0012\u0010\u0005\u001a\u00028\u00018\u0006X\u0087\u0004¢\u0006\u0004\n\u0002\u0010\tR\u0014\u0010\n\u001a\u0004\u0018\u00010\u000b8\u0006@\u0006X\u0087\u000e¢\u0006\u0002\n\u0000¨\u0006\u0012"}, d2 = {"Lkotlinx/coroutines/channels/AbstractSendChannel$TryOfferDesc;", ExifInterface.LONGITUDE_EAST, "Lkotlinx/coroutines/internal/LockFreeLinkedListNode$RemoveFirstDesc;", "Lkotlinx/coroutines/channels/ReceiveOrClosed;", "Lkotlinx/coroutines/internal/RemoveFirstDesc;", "element", "queue", "Lkotlinx/coroutines/internal/LockFreeLinkedListHead;", "(Ljava/lang/Object;Lkotlinx/coroutines/internal/LockFreeLinkedListHead;)V", "Ljava/lang/Object;", "resumeToken", "", "failure", "affected", "Lkotlinx/coroutines/internal/LockFreeLinkedListNode;", "validatePrepared", "", "node", "kotlinx-coroutines-core"}, k = 1, mv = {1, 1, 15})
     /* loaded from: classes2.dex */
-    public static final class TryOfferDesc<E> extends LockFreeLinkedListNode.RemoveFirstDesc<ReceiveOrClosed<? super E>> {
+    protected static final class TryOfferDesc<E> extends LockFreeLinkedListNode.RemoveFirstDesc<ReceiveOrClosed<? super E>> {
         public final E element;
         public Object resumeToken;
 
@@ -469,6 +449,7 @@ public abstract class AbstractSendChannel<E> implements SendChannel<E> {
             return AbstractChannelKt.OFFER_FAILED;
         }
 
+        /* JADX DEBUG: Type inference failed for r0v1. Raw type applied. Possible types: E, ? super E */
         protected boolean validatePrepared(ReceiveOrClosed<? super E> node) {
             Intrinsics.checkParameterIsNotNull(node, "node");
             Object tryResumeReceive = node.tryResumeReceive((E) this.element, this);
@@ -487,12 +468,11 @@ public abstract class AbstractSendChannel<E> implements SendChannel<E> {
             public <R> void registerSelectClause2(SelectInstance<? super R> select, E e, Function2<? super SendChannel<? super E>, ? super Continuation<? super R>, ? extends Object> block) {
                 Intrinsics.checkParameterIsNotNull(select, "select");
                 Intrinsics.checkParameterIsNotNull(block, "block");
-                AbstractSendChannel.this.registerSelectSend(select, e, block);
+                AbstractSendChannel.access$registerSelectSend(AbstractSendChannel.this, select, e, block);
             }
         });
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public final <R> void registerSelectSend(SelectInstance<? super R> selectInstance, E e, Function2<? super SendChannel<? super E>, ? super Continuation<? super R>, ? extends Object> function2) {
         while (!selectInstance.isSelected()) {
             if (getFull()) {
@@ -573,11 +553,10 @@ public abstract class AbstractSendChannel<E> implements SendChannel<E> {
         return i;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* compiled from: AbstractChannel.kt */
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000F\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0000\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0003\b\u0002\u0018\u0000*\u0004\b\u0001\u0010\u0001*\u0004\b\u0002\u0010\u00022\u00020\u00032\u00020\u0004BX\u0012\b\u0010\u0005\u001a\u0004\u0018\u00010\u0006\u0012\f\u0010\u0007\u001a\b\u0012\u0004\u0012\u00028\u00010\b\u0012\f\u0010\t\u001a\b\u0012\u0004\u0012\u00028\u00020\n\u0012(\u0010\u000b\u001a$\b\u0001\u0012\n\u0012\b\u0012\u0004\u0012\u00028\u00010\b\u0012\n\u0012\b\u0012\u0004\u0012\u00028\u00020\r\u0012\u0006\u0012\u0004\u0018\u00010\u00060\fø\u0001\u0000¢\u0006\u0002\u0010\u000eJ\u0010\u0010\u0012\u001a\u00020\u00132\u0006\u0010\u0014\u001a\u00020\u0006H\u0016J\b\u0010\u0015\u001a\u00020\u0013H\u0016J\u0014\u0010\u0016\u001a\u00020\u00132\n\u0010\u0017\u001a\u0006\u0012\u0002\b\u00030\u0018H\u0016J\b\u0010\u0019\u001a\u00020\u001aH\u0016J\u0014\u0010\u001b\u001a\u0004\u0018\u00010\u00062\b\u0010\u001c\u001a\u0004\u0018\u00010\u0006H\u0016R7\u0010\u000b\u001a$\b\u0001\u0012\n\u0012\b\u0012\u0004\u0012\u00028\u00010\b\u0012\n\u0012\b\u0012\u0004\u0012\u00028\u00020\r\u0012\u0006\u0012\u0004\u0018\u00010\u00060\f8\u0006X\u0087\u0004ø\u0001\u0000¢\u0006\u0004\n\u0002\u0010\u000fR\u0016\u0010\u0007\u001a\b\u0012\u0004\u0012\u00028\u00010\b8\u0006X\u0087\u0004¢\u0006\u0002\n\u0000R\u0016\u0010\u0005\u001a\u0004\u0018\u00010\u0006X\u0096\u0004¢\u0006\b\n\u0000\u001a\u0004\b\u0010\u0010\u0011R\u0016\u0010\t\u001a\b\u0012\u0004\u0012\u00028\u00020\n8\u0006X\u0087\u0004¢\u0006\u0002\n\u0000\u0082\u0002\u0004\n\u0002\b\u0019¨\u0006\u001d"}, d2 = {"Lkotlinx/coroutines/channels/AbstractSendChannel$SendSelect;", ExifInterface.LONGITUDE_EAST, "R", "Lkotlinx/coroutines/channels/Send;", "Lkotlinx/coroutines/DisposableHandle;", "pollResult", "", "channel", "Lkotlinx/coroutines/channels/SendChannel;", "select", "Lkotlinx/coroutines/selects/SelectInstance;", "block", "Lkotlin/Function2;", "Lkotlin/coroutines/Continuation;", "(Ljava/lang/Object;Lkotlinx/coroutines/channels/SendChannel;Lkotlinx/coroutines/selects/SelectInstance;Lkotlin/jvm/functions/Function2;)V", "Lkotlin/jvm/functions/Function2;", "getPollResult", "()Ljava/lang/Object;", "completeResumeSend", "", "token", "dispose", "resumeSendClosed", "closed", "Lkotlinx/coroutines/channels/Closed;", "toString", "", "tryResumeSend", "idempotent", "kotlinx-coroutines-core"}, k = 1, mv = {1, 1, 15})
     /* loaded from: classes2.dex */
-    public static final class SendSelect<E, R> extends Send implements DisposableHandle {
+    private static final class SendSelect<E, R> extends Send implements DisposableHandle {
         public final Function2<SendChannel<? super E>, Continuation<? super R>, Object> block;
         public final SendChannel<E> channel;
         private final Object pollResult;
@@ -588,6 +567,9 @@ public abstract class AbstractSendChannel<E> implements SendChannel<E> {
             return this.pollResult;
         }
 
+        /* JADX DEBUG: Multi-variable search result rejected for r3v0, resolved type: kotlinx.coroutines.channels.SendChannel<? super E> */
+        /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: kotlinx.coroutines.selects.SelectInstance<? super R> */
+        /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: kotlin.jvm.functions.Function2<? super kotlinx.coroutines.channels.SendChannel<? super E>, ? super kotlin.coroutines.Continuation<? super R>, ? extends java.lang.Object> */
         /* JADX WARN: Multi-variable type inference failed */
         public SendSelect(Object obj, SendChannel<? super E> channel, SelectInstance<? super R> select, Function2<? super SendChannel<? super E>, ? super Continuation<? super R>, ? extends Object> block) {
             Intrinsics.checkParameterIsNotNull(channel, "channel");

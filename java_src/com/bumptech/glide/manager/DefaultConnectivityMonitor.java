@@ -9,6 +9,7 @@ import android.net.NetworkInfo;
 import android.util.Log;
 import com.bumptech.glide.manager.ConnectivityMonitor;
 import com.bumptech.glide.util.Preconditions;
+
 /* loaded from: classes.dex */
 final class DefaultConnectivityMonitor implements ConnectivityMonitor {
     private static final String TAG = "ConnectivityMonitor";
@@ -35,8 +36,7 @@ final class DefaultConnectivityMonitor implements ConnectivityMonitor {
     public void onDestroy() {
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public DefaultConnectivityMonitor(Context context, ConnectivityMonitor.ConnectivityListener connectivityListener) {
+    DefaultConnectivityMonitor(Context context, ConnectivityMonitor.ConnectivityListener connectivityListener) {
         this.context = context.getApplicationContext();
         this.listener = connectivityListener;
     }

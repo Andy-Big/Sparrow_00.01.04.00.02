@@ -6,6 +6,7 @@ import android.text.TextPaint;
 import com.google.android.material.resources.TextAppearance;
 import com.google.android.material.resources.TextAppearanceFontCallback;
 import java.lang.ref.WeakReference;
+
 /* loaded from: classes.dex */
 public class TextDrawableHelper {
     private TextAppearance textAppearance;

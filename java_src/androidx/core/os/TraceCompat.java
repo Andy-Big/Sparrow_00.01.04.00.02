@@ -4,6 +4,7 @@ import android.os.Build;
 import android.os.Trace;
 import android.util.Log;
 import java.lang.reflect.Method;
+
 /* loaded from: classes.dex */
 public final class TraceCompat {
     private static final String TAG = "TraceCompat";

@@ -40,6 +40,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicIntegerArray;
 import org.slf4j.Marker;
+
 /* loaded from: classes.dex */
 public final class TypeAdapters {
     public static final TypeAdapter<AtomicBoolean> ATOMIC_BOOLEAN;
@@ -101,11 +102,13 @@ public final class TypeAdapters {
 
     static {
         TypeAdapter<Class> nullSafe = new TypeAdapter<Class>() { // from class: com.google.gson.internal.bind.TypeAdapters.1
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.gson.TypeAdapter
             public void write(JsonWriter jsonWriter, Class cls) throws IOException {
                 throw new UnsupportedOperationException("Attempted to serialize java.lang.Class: " + cls.getName() + ". Forgot to register a type adapter?");
             }
 
+            /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // com.google.gson.TypeAdapter
             public Class read(JsonReader jsonReader) throws IOException {
@@ -115,6 +118,7 @@ public final class TypeAdapters {
         CLASS = nullSafe;
         CLASS_FACTORY = newFactory(Class.class, nullSafe);
         TypeAdapter<BitSet> nullSafe2 = new TypeAdapter<BitSet>() { // from class: com.google.gson.internal.bind.TypeAdapters.2
+            /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Code restructure failed: missing block: B:13:0x002b, code lost:
                 if (java.lang.Integer.parseInt(r1) != 0) goto L15;
              */
@@ -127,76 +131,39 @@ public final class TypeAdapters {
             @Override // com.google.gson.TypeAdapter
             /*
                 Code decompiled incorrectly, please refer to instructions dump.
-                To view partially-correct add '--show-bad-code' argument
             */
-            public java.util.BitSet read(com.google.gson.stream.JsonReader r8) throws java.io.IOException {
-                /*
-                    r7 = this;
-                    java.util.BitSet r0 = new java.util.BitSet
-                    r0.<init>()
-                    r8.beginArray()
-                    com.google.gson.stream.JsonToken r1 = r8.peek()
-                    r2 = 0
-                    r3 = r2
-                Le:
-                    com.google.gson.stream.JsonToken r4 = com.google.gson.stream.JsonToken.END_ARRAY
-                    if (r1 == r4) goto L75
-                    int[] r4 = com.google.gson.internal.bind.TypeAdapters.AnonymousClass36.$SwitchMap$com$google$gson$stream$JsonToken
-                    int r5 = r1.ordinal()
-                    r4 = r4[r5]
-                    r5 = 1
-                    if (r4 == r5) goto L63
-                    r6 = 2
-                    if (r4 == r6) goto L5e
-                    r6 = 3
-                    if (r4 != r6) goto L47
-                    java.lang.String r1 = r8.nextString()
-                    int r1 = java.lang.Integer.parseInt(r1)     // Catch: java.lang.NumberFormatException -> L30
-                    if (r1 == 0) goto L2e
-                    goto L69
-                L2e:
-                    r5 = r2
-                    goto L69
-                L30:
-                    com.google.gson.JsonSyntaxException r8 = new com.google.gson.JsonSyntaxException
-                    java.lang.StringBuilder r0 = new java.lang.StringBuilder
-                    r0.<init>()
-                    java.lang.String r2 = "Error: Expecting: bitset number value (1, 0), Found: "
-                    r0.append(r2)
-                    r0.append(r1)
-                    java.lang.String r0 = r0.toString()
-                    r8.<init>(r0)
-                    throw r8
-                L47:
-                    com.google.gson.JsonSyntaxException r8 = new com.google.gson.JsonSyntaxException
-                    java.lang.StringBuilder r0 = new java.lang.StringBuilder
-                    r0.<init>()
-                    java.lang.String r2 = "Invalid bitset value type: "
-                    r0.append(r2)
-                    r0.append(r1)
-                    java.lang.String r0 = r0.toString()
-                    r8.<init>(r0)
-                    throw r8
-                L5e:
-                    boolean r5 = r8.nextBoolean()
-                    goto L69
-                L63:
-                    int r1 = r8.nextInt()
-                    if (r1 == 0) goto L2e
-                L69:
-                    if (r5 == 0) goto L6e
-                    r0.set(r3)
-                L6e:
-                    int r3 = r3 + 1
-                    com.google.gson.stream.JsonToken r1 = r8.peek()
-                    goto Le
-                L75:
-                    r8.endArray()
-                    return r0
-                */
-                throw new UnsupportedOperationException("Method not decompiled: com.google.gson.internal.bind.TypeAdapters.AnonymousClass2.read(com.google.gson.stream.JsonReader):java.util.BitSet");
+            public BitSet read(JsonReader jsonReader) throws IOException {
+                BitSet bitSet = new BitSet();
+                jsonReader.beginArray();
+                JsonToken peek = jsonReader.peek();
+                int i = 0;
+                while (peek != JsonToken.END_ARRAY) {
+                    int i2 = AnonymousClass36.$SwitchMap$com$google$gson$stream$JsonToken[peek.ordinal()];
+                    boolean z = true;
+                    if (i2 != 1) {
+                        if (i2 == 2) {
+                            z = jsonReader.nextBoolean();
+                        } else if (i2 == 3) {
+                            String nextString = jsonReader.nextString();
+                            try {
+                            } catch (NumberFormatException unused) {
+                                throw new JsonSyntaxException("Error: Expecting: bitset number value (1, 0), Found: " + nextString);
+                            }
+                        } else {
+                            throw new JsonSyntaxException("Invalid bitset value type: " + peek);
+                        }
+                        if (z) {
+                            bitSet.set(i);
+                        }
+                        i++;
+                        peek = jsonReader.peek();
+                    }
+                }
+                jsonReader.endArray();
+                return bitSet;
             }
 
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.gson.TypeAdapter
             public void write(JsonWriter jsonWriter, BitSet bitSet) throws IOException {
                 jsonWriter.beginArray();
@@ -210,6 +177,7 @@ public final class TypeAdapters {
         BIT_SET = nullSafe2;
         BIT_SET_FACTORY = newFactory(BitSet.class, nullSafe2);
         BOOLEAN = new TypeAdapter<Boolean>() { // from class: com.google.gson.internal.bind.TypeAdapters.3
+            /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // com.google.gson.TypeAdapter
             public Boolean read(JsonReader jsonReader) throws IOException {
@@ -224,12 +192,14 @@ public final class TypeAdapters {
                 }
             }
 
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.gson.TypeAdapter
             public void write(JsonWriter jsonWriter, Boolean bool) throws IOException {
                 jsonWriter.value(bool);
             }
         };
         BOOLEAN_AS_STRING = new TypeAdapter<Boolean>() { // from class: com.google.gson.internal.bind.TypeAdapters.4
+            /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // com.google.gson.TypeAdapter
             public Boolean read(JsonReader jsonReader) throws IOException {
@@ -240,6 +210,7 @@ public final class TypeAdapters {
                 return Boolean.valueOf(jsonReader.nextString());
             }
 
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.gson.TypeAdapter
             public void write(JsonWriter jsonWriter, Boolean bool) throws IOException {
                 jsonWriter.value(bool == null ? "null" : bool.toString());
@@ -247,6 +218,7 @@ public final class TypeAdapters {
         };
         BOOLEAN_FACTORY = newFactory(Boolean.TYPE, Boolean.class, BOOLEAN);
         BYTE = new TypeAdapter<Number>() { // from class: com.google.gson.internal.bind.TypeAdapters.5
+            /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // com.google.gson.TypeAdapter
             public Number read(JsonReader jsonReader) throws IOException {
@@ -261,6 +233,7 @@ public final class TypeAdapters {
                 }
             }
 
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.gson.TypeAdapter
             public void write(JsonWriter jsonWriter, Number number) throws IOException {
                 jsonWriter.value(number);
@@ -268,6 +241,7 @@ public final class TypeAdapters {
         };
         BYTE_FACTORY = newFactory(Byte.TYPE, Byte.class, BYTE);
         SHORT = new TypeAdapter<Number>() { // from class: com.google.gson.internal.bind.TypeAdapters.6
+            /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // com.google.gson.TypeAdapter
             public Number read(JsonReader jsonReader) throws IOException {
@@ -282,6 +256,7 @@ public final class TypeAdapters {
                 }
             }
 
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.gson.TypeAdapter
             public void write(JsonWriter jsonWriter, Number number) throws IOException {
                 jsonWriter.value(number);
@@ -289,6 +264,7 @@ public final class TypeAdapters {
         };
         SHORT_FACTORY = newFactory(Short.TYPE, Short.class, SHORT);
         INTEGER = new TypeAdapter<Number>() { // from class: com.google.gson.internal.bind.TypeAdapters.7
+            /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // com.google.gson.TypeAdapter
             public Number read(JsonReader jsonReader) throws IOException {
@@ -303,6 +279,7 @@ public final class TypeAdapters {
                 }
             }
 
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.gson.TypeAdapter
             public void write(JsonWriter jsonWriter, Number number) throws IOException {
                 jsonWriter.value(number);
@@ -310,6 +287,7 @@ public final class TypeAdapters {
         };
         INTEGER_FACTORY = newFactory(Integer.TYPE, Integer.class, INTEGER);
         TypeAdapter<AtomicInteger> nullSafe3 = new TypeAdapter<AtomicInteger>() { // from class: com.google.gson.internal.bind.TypeAdapters.8
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.gson.TypeAdapter
             public AtomicInteger read(JsonReader jsonReader) throws IOException {
                 try {
@@ -319,6 +297,7 @@ public final class TypeAdapters {
                 }
             }
 
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.gson.TypeAdapter
             public void write(JsonWriter jsonWriter, AtomicInteger atomicInteger) throws IOException {
                 jsonWriter.value(atomicInteger.get());
@@ -327,11 +306,13 @@ public final class TypeAdapters {
         ATOMIC_INTEGER = nullSafe3;
         ATOMIC_INTEGER_FACTORY = newFactory(AtomicInteger.class, nullSafe3);
         TypeAdapter<AtomicBoolean> nullSafe4 = new TypeAdapter<AtomicBoolean>() { // from class: com.google.gson.internal.bind.TypeAdapters.9
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.gson.TypeAdapter
             public AtomicBoolean read(JsonReader jsonReader) throws IOException {
                 return new AtomicBoolean(jsonReader.nextBoolean());
             }
 
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.gson.TypeAdapter
             public void write(JsonWriter jsonWriter, AtomicBoolean atomicBoolean) throws IOException {
                 jsonWriter.value(atomicBoolean.get());
@@ -340,6 +321,7 @@ public final class TypeAdapters {
         ATOMIC_BOOLEAN = nullSafe4;
         ATOMIC_BOOLEAN_FACTORY = newFactory(AtomicBoolean.class, nullSafe4);
         TypeAdapter<AtomicIntegerArray> nullSafe5 = new TypeAdapter<AtomicIntegerArray>() { // from class: com.google.gson.internal.bind.TypeAdapters.10
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.gson.TypeAdapter
             public AtomicIntegerArray read(JsonReader jsonReader) throws IOException {
                 ArrayList arrayList = new ArrayList();
@@ -360,6 +342,7 @@ public final class TypeAdapters {
                 return atomicIntegerArray;
             }
 
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.gson.TypeAdapter
             public void write(JsonWriter jsonWriter, AtomicIntegerArray atomicIntegerArray) throws IOException {
                 jsonWriter.beginArray();
@@ -373,6 +356,7 @@ public final class TypeAdapters {
         ATOMIC_INTEGER_ARRAY = nullSafe5;
         ATOMIC_INTEGER_ARRAY_FACTORY = newFactory(AtomicIntegerArray.class, nullSafe5);
         LONG = new TypeAdapter<Number>() { // from class: com.google.gson.internal.bind.TypeAdapters.11
+            /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // com.google.gson.TypeAdapter
             public Number read(JsonReader jsonReader) throws IOException {
@@ -387,12 +371,14 @@ public final class TypeAdapters {
                 }
             }
 
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.gson.TypeAdapter
             public void write(JsonWriter jsonWriter, Number number) throws IOException {
                 jsonWriter.value(number);
             }
         };
         FLOAT = new TypeAdapter<Number>() { // from class: com.google.gson.internal.bind.TypeAdapters.12
+            /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // com.google.gson.TypeAdapter
             public Number read(JsonReader jsonReader) throws IOException {
@@ -403,12 +389,14 @@ public final class TypeAdapters {
                 return Float.valueOf((float) jsonReader.nextDouble());
             }
 
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.gson.TypeAdapter
             public void write(JsonWriter jsonWriter, Number number) throws IOException {
                 jsonWriter.value(number);
             }
         };
         DOUBLE = new TypeAdapter<Number>() { // from class: com.google.gson.internal.bind.TypeAdapters.13
+            /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // com.google.gson.TypeAdapter
             public Number read(JsonReader jsonReader) throws IOException {
@@ -419,12 +407,14 @@ public final class TypeAdapters {
                 return Double.valueOf(jsonReader.nextDouble());
             }
 
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.gson.TypeAdapter
             public void write(JsonWriter jsonWriter, Number number) throws IOException {
                 jsonWriter.value(number);
             }
         };
         TypeAdapter<Number> typeAdapter = new TypeAdapter<Number>() { // from class: com.google.gson.internal.bind.TypeAdapters.14
+            /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // com.google.gson.TypeAdapter
             public Number read(JsonReader jsonReader) throws IOException {
@@ -440,6 +430,7 @@ public final class TypeAdapters {
                 throw new JsonSyntaxException("Expecting number, got: " + peek);
             }
 
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.gson.TypeAdapter
             public void write(JsonWriter jsonWriter, Number number) throws IOException {
                 jsonWriter.value(number);
@@ -448,6 +439,7 @@ public final class TypeAdapters {
         NUMBER = typeAdapter;
         NUMBER_FACTORY = newFactory(Number.class, typeAdapter);
         CHARACTER = new TypeAdapter<Character>() { // from class: com.google.gson.internal.bind.TypeAdapters.15
+            /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // com.google.gson.TypeAdapter
             public Character read(JsonReader jsonReader) throws IOException {
@@ -462,6 +454,7 @@ public final class TypeAdapters {
                 return Character.valueOf(nextString.charAt(0));
             }
 
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.gson.TypeAdapter
             public void write(JsonWriter jsonWriter, Character ch2) throws IOException {
                 jsonWriter.value(ch2 == null ? null : String.valueOf(ch2));
@@ -469,6 +462,7 @@ public final class TypeAdapters {
         };
         CHARACTER_FACTORY = newFactory(Character.TYPE, Character.class, CHARACTER);
         STRING = new TypeAdapter<String>() { // from class: com.google.gson.internal.bind.TypeAdapters.16
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.gson.TypeAdapter
             public String read(JsonReader jsonReader) throws IOException {
                 JsonToken peek = jsonReader.peek();
@@ -482,12 +476,14 @@ public final class TypeAdapters {
                 }
             }
 
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.gson.TypeAdapter
             public void write(JsonWriter jsonWriter, String str) throws IOException {
                 jsonWriter.value(str);
             }
         };
         BIG_DECIMAL = new TypeAdapter<BigDecimal>() { // from class: com.google.gson.internal.bind.TypeAdapters.17
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.gson.TypeAdapter
             public BigDecimal read(JsonReader jsonReader) throws IOException {
                 if (jsonReader.peek() == JsonToken.NULL) {
@@ -501,12 +497,14 @@ public final class TypeAdapters {
                 }
             }
 
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.gson.TypeAdapter
             public void write(JsonWriter jsonWriter, BigDecimal bigDecimal) throws IOException {
                 jsonWriter.value(bigDecimal);
             }
         };
         BIG_INTEGER = new TypeAdapter<BigInteger>() { // from class: com.google.gson.internal.bind.TypeAdapters.18
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.gson.TypeAdapter
             public BigInteger read(JsonReader jsonReader) throws IOException {
                 if (jsonReader.peek() == JsonToken.NULL) {
@@ -520,6 +518,7 @@ public final class TypeAdapters {
                 }
             }
 
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.gson.TypeAdapter
             public void write(JsonWriter jsonWriter, BigInteger bigInteger) throws IOException {
                 jsonWriter.value(bigInteger);
@@ -527,6 +526,7 @@ public final class TypeAdapters {
         };
         STRING_FACTORY = newFactory(String.class, STRING);
         TypeAdapter<StringBuilder> typeAdapter2 = new TypeAdapter<StringBuilder>() { // from class: com.google.gson.internal.bind.TypeAdapters.19
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.gson.TypeAdapter
             public StringBuilder read(JsonReader jsonReader) throws IOException {
                 if (jsonReader.peek() == JsonToken.NULL) {
@@ -536,6 +536,7 @@ public final class TypeAdapters {
                 return new StringBuilder(jsonReader.nextString());
             }
 
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.gson.TypeAdapter
             public void write(JsonWriter jsonWriter, StringBuilder sb) throws IOException {
                 jsonWriter.value(sb == null ? null : sb.toString());
@@ -544,6 +545,7 @@ public final class TypeAdapters {
         STRING_BUILDER = typeAdapter2;
         STRING_BUILDER_FACTORY = newFactory(StringBuilder.class, typeAdapter2);
         TypeAdapter<StringBuffer> typeAdapter3 = new TypeAdapter<StringBuffer>() { // from class: com.google.gson.internal.bind.TypeAdapters.20
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.gson.TypeAdapter
             public StringBuffer read(JsonReader jsonReader) throws IOException {
                 if (jsonReader.peek() == JsonToken.NULL) {
@@ -553,6 +555,7 @@ public final class TypeAdapters {
                 return new StringBuffer(jsonReader.nextString());
             }
 
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.gson.TypeAdapter
             public void write(JsonWriter jsonWriter, StringBuffer stringBuffer) throws IOException {
                 jsonWriter.value(stringBuffer == null ? null : stringBuffer.toString());
@@ -561,6 +564,7 @@ public final class TypeAdapters {
         STRING_BUFFER = typeAdapter3;
         STRING_BUFFER_FACTORY = newFactory(StringBuffer.class, typeAdapter3);
         TypeAdapter<URL> typeAdapter4 = new TypeAdapter<URL>() { // from class: com.google.gson.internal.bind.TypeAdapters.21
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.gson.TypeAdapter
             public URL read(JsonReader jsonReader) throws IOException {
                 if (jsonReader.peek() == JsonToken.NULL) {
@@ -574,6 +578,7 @@ public final class TypeAdapters {
                 return new URL(nextString);
             }
 
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.gson.TypeAdapter
             public void write(JsonWriter jsonWriter, URL url) throws IOException {
                 jsonWriter.value(url == null ? null : url.toExternalForm());
@@ -582,6 +587,7 @@ public final class TypeAdapters {
         URL = typeAdapter4;
         URL_FACTORY = newFactory(URL.class, typeAdapter4);
         TypeAdapter<URI> typeAdapter5 = new TypeAdapter<URI>() { // from class: com.google.gson.internal.bind.TypeAdapters.22
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.gson.TypeAdapter
             public URI read(JsonReader jsonReader) throws IOException {
                 if (jsonReader.peek() == JsonToken.NULL) {
@@ -599,6 +605,7 @@ public final class TypeAdapters {
                 }
             }
 
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.gson.TypeAdapter
             public void write(JsonWriter jsonWriter, URI uri) throws IOException {
                 jsonWriter.value(uri == null ? null : uri.toASCIIString());
@@ -607,6 +614,7 @@ public final class TypeAdapters {
         URI = typeAdapter5;
         URI_FACTORY = newFactory(URI.class, typeAdapter5);
         TypeAdapter<InetAddress> typeAdapter6 = new TypeAdapter<InetAddress>() { // from class: com.google.gson.internal.bind.TypeAdapters.23
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.gson.TypeAdapter
             public InetAddress read(JsonReader jsonReader) throws IOException {
                 if (jsonReader.peek() == JsonToken.NULL) {
@@ -616,6 +624,7 @@ public final class TypeAdapters {
                 return InetAddress.getByName(jsonReader.nextString());
             }
 
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.gson.TypeAdapter
             public void write(JsonWriter jsonWriter, InetAddress inetAddress) throws IOException {
                 jsonWriter.value(inetAddress == null ? null : inetAddress.getHostAddress());
@@ -624,6 +633,7 @@ public final class TypeAdapters {
         INET_ADDRESS = typeAdapter6;
         INET_ADDRESS_FACTORY = newTypeHierarchyFactory(InetAddress.class, typeAdapter6);
         TypeAdapter<UUID> typeAdapter7 = new TypeAdapter<UUID>() { // from class: com.google.gson.internal.bind.TypeAdapters.24
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.gson.TypeAdapter
             public UUID read(JsonReader jsonReader) throws IOException {
                 if (jsonReader.peek() == JsonToken.NULL) {
@@ -633,6 +643,7 @@ public final class TypeAdapters {
                 return UUID.fromString(jsonReader.nextString());
             }
 
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.gson.TypeAdapter
             public void write(JsonWriter jsonWriter, UUID uuid) throws IOException {
                 jsonWriter.value(uuid == null ? null : uuid.toString());
@@ -641,11 +652,13 @@ public final class TypeAdapters {
         UUID = typeAdapter7;
         UUID_FACTORY = newFactory(UUID.class, typeAdapter7);
         TypeAdapter<Currency> nullSafe6 = new TypeAdapter<Currency>() { // from class: com.google.gson.internal.bind.TypeAdapters.25
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.gson.TypeAdapter
             public Currency read(JsonReader jsonReader) throws IOException {
                 return Currency.getInstance(jsonReader.nextString());
             }
 
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.gson.TypeAdapter
             public void write(JsonWriter jsonWriter, Currency currency) throws IOException {
                 jsonWriter.value(currency.getCurrencyCode());
@@ -661,6 +674,7 @@ public final class TypeAdapters {
                 }
                 final TypeAdapter<T> adapter = gson.getAdapter(Date.class);
                 return (TypeAdapter<T>) new TypeAdapter<Timestamp>() { // from class: com.google.gson.internal.bind.TypeAdapters.26.1
+                    /* JADX DEBUG: Method merged with bridge method */
                     @Override // com.google.gson.TypeAdapter
                     public Timestamp read(JsonReader jsonReader) throws IOException {
                         Date date = (Date) adapter.read(jsonReader);
@@ -670,6 +684,7 @@ public final class TypeAdapters {
                         return null;
                     }
 
+                    /* JADX DEBUG: Method merged with bridge method */
                     @Override // com.google.gson.TypeAdapter
                     public void write(JsonWriter jsonWriter, Timestamp timestamp) throws IOException {
                         adapter.write(jsonWriter, timestamp);
@@ -685,6 +700,7 @@ public final class TypeAdapters {
             private static final String SECOND = "second";
             private static final String YEAR = "year";
 
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.gson.TypeAdapter
             public Calendar read(JsonReader jsonReader) throws IOException {
                 if (jsonReader.peek() == JsonToken.NULL) {
@@ -719,6 +735,7 @@ public final class TypeAdapters {
                 return new GregorianCalendar(i, i2, i3, i4, i5, i6);
             }
 
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.gson.TypeAdapter
             public void write(JsonWriter jsonWriter, Calendar calendar) throws IOException {
                 if (calendar == null) {
@@ -744,6 +761,7 @@ public final class TypeAdapters {
         CALENDAR = typeAdapter8;
         CALENDAR_FACTORY = newFactoryForMultipleTypes(Calendar.class, GregorianCalendar.class, typeAdapter8);
         TypeAdapter<Locale> typeAdapter9 = new TypeAdapter<Locale>() { // from class: com.google.gson.internal.bind.TypeAdapters.28
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.gson.TypeAdapter
             public Locale read(JsonReader jsonReader) throws IOException {
                 if (jsonReader.peek() == JsonToken.NULL) {
@@ -763,6 +781,7 @@ public final class TypeAdapters {
                 return new Locale(nextToken, nextToken2, nextToken3);
             }
 
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.gson.TypeAdapter
             public void write(JsonWriter jsonWriter, Locale locale) throws IOException {
                 jsonWriter.value(locale == null ? null : locale.toString());
@@ -771,6 +790,7 @@ public final class TypeAdapters {
         LOCALE = typeAdapter9;
         LOCALE_FACTORY = newFactory(Locale.class, typeAdapter9);
         TypeAdapter<JsonElement> typeAdapter10 = new TypeAdapter<JsonElement>() { // from class: com.google.gson.internal.bind.TypeAdapters.29
+            /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // com.google.gson.TypeAdapter
             public JsonElement read(JsonReader jsonReader) throws IOException {
@@ -805,6 +825,7 @@ public final class TypeAdapters {
                 }
             }
 
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.gson.TypeAdapter
             public void write(JsonWriter jsonWriter, JsonElement jsonElement) throws IOException {
                 if (jsonElement == null || jsonElement.isJsonNull()) {
@@ -854,10 +875,9 @@ public final class TypeAdapters {
         };
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.google.gson.internal.bind.TypeAdapters$36  reason: invalid class name */
     /* loaded from: classes.dex */
-    public static /* synthetic */ class AnonymousClass36 {
+    static /* synthetic */ class AnonymousClass36 {
         static final /* synthetic */ int[] $SwitchMap$com$google$gson$stream$JsonToken;
 
         static {
@@ -911,6 +931,7 @@ public final class TypeAdapters {
         private final Map<String, T> nameToConstant = new HashMap();
         private final Map<T, String> constantToName = new HashMap();
 
+        /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.google.gson.internal.bind.TypeAdapters$EnumTypeAdapter<T extends java.lang.Enum<T>> */
         /* JADX WARN: Multi-variable type inference failed */
         @Override // com.google.gson.TypeAdapter
         public /* bridge */ /* synthetic */ void write(JsonWriter jsonWriter, Object obj) throws IOException {
@@ -937,6 +958,7 @@ public final class TypeAdapters {
             }
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.gson.TypeAdapter
         public T read(JsonReader jsonReader) throws IOException {
             if (jsonReader.peek() == JsonToken.NULL) {

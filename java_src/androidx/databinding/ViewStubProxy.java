@@ -2,6 +2,7 @@ package androidx.databinding;
 
 import android.view.View;
 import android.view.ViewStub;
+
 /* loaded from: classes.dex */
 public class ViewStubProxy {
     private ViewDataBinding mContainingBinding;

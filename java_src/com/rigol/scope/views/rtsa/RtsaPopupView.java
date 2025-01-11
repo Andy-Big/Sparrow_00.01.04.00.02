@@ -70,6 +70,10 @@ public class RtsaPopupView extends BasePopupView implements RtsaViewPagerAdapter
         if (id == R.id.fftCenter_edit_text) {
             fftParam.readCenterAttr();
             ViewUtil.showKeyboard(this.anchor, view, ServiceEnum.Unit.Unit_hz, fftParam.getCenterAttr().getMaxLongValue(), fftParam.getCenterAttr().getMinLongValue(), fftParam.getCenterAttr().getDefLongValue(), fftParam.getCenter(), new KeyboardListener() { // from class: com.rigol.scope.views.rtsa.RtsaPopupView.1
+                {
+                    RtsaPopupView.this = this;
+                }
+
                 @Override // com.rigol.scope.views.keyboard.KeyboardListener
                 public <T> void resultMinUnitValueListener(T t) {
                     fftParam.saveCenter(((Long) t).longValue());
@@ -83,6 +87,10 @@ public class RtsaPopupView extends BasePopupView implements RtsaViewPagerAdapter
         } else if (id == R.id.fftStart_edit_text) {
             fftParam.readStartAttr();
             ViewUtil.showKeyboard(this.anchor, view, ServiceEnum.Unit.Unit_hz, fftParam.getStartAttr().getMaxLongValue(), fftParam.getStartAttr().getMinLongValue(), fftParam.getStartAttr().getDefLongValue(), fftParam.getStart(), new KeyboardListener() { // from class: com.rigol.scope.views.rtsa.RtsaPopupView.2
+                {
+                    RtsaPopupView.this = this;
+                }
+
                 @Override // com.rigol.scope.views.keyboard.KeyboardListener
                 public <T> void resultMinUnitValueListener(T t) {
                     fftParam.saveStart(((Long) t).longValue());
@@ -96,6 +104,10 @@ public class RtsaPopupView extends BasePopupView implements RtsaViewPagerAdapter
         } else if (id == R.id.fftEnd_edit_text) {
             fftParam.readEndAttr();
             ViewUtil.showKeyboard(this.anchor, view, ServiceEnum.Unit.Unit_hz, fftParam.getEndAttr().getMaxLongValue(), fftParam.getEndAttr().getMinLongValue(), fftParam.getEndAttr().getDefLongValue(), fftParam.getEnd(), new KeyboardListener() { // from class: com.rigol.scope.views.rtsa.RtsaPopupView.3
+                {
+                    RtsaPopupView.this = this;
+                }
+
                 @Override // com.rigol.scope.views.keyboard.KeyboardListener
                 public <T> void resultMinUnitValueListener(T t) {
                     fftParam.saveEnd(((Long) t).longValue());
@@ -109,6 +121,10 @@ public class RtsaPopupView extends BasePopupView implements RtsaViewPagerAdapter
         } else if (id == R.id.fftSpan_edit_text) {
             fftParam.readSpanAttr();
             ViewUtil.showKeyboard(this.anchor, view, ServiceEnum.Unit.Unit_hz, fftParam.getSpanAttr().getMaxLongValue(), fftParam.getSpanAttr().getMinLongValue(), fftParam.getSpanAttr().getDefLongValue(), fftParam.getSpan(), new KeyboardListener() { // from class: com.rigol.scope.views.rtsa.RtsaPopupView.4
+                {
+                    RtsaPopupView.this = this;
+                }
+
                 @Override // com.rigol.scope.views.keyboard.KeyboardListener
                 public <T> void resultMinUnitValueListener(T t) {
                     fftParam.saveSpan(((Long) t).longValue());
@@ -136,12 +152,16 @@ public class RtsaPopupView extends BasePopupView implements RtsaViewPagerAdapter
             ViewUtil.showSpinner(this.anchor, view, (int) R.array.msg_fft_window, new PopupSpinner.OnItemClickListener() { // from class: com.rigol.scope.views.rtsa.-$$Lambda$RtsaPopupView$oNRgZXF3f88-NhzZa69gk7zi-TA
                 @Override // com.rigol.scope.views.spinner.PopupSpinner.OnItemClickListener
                 public final void onItemClick(View view2, RecyclerView.ViewHolder viewHolder, int i, Object obj) {
-                    FftParam.this.saveWindow(ServiceEnum.getfftWindowFromValue1(((MappingObject) obj).getValue()));
+                    RtsaPopupView.lambda$onBasicItemClick$2(FftParam.this, view2, viewHolder, i, (MappingObject) obj);
                 }
             });
         } else if (id == R.id.ref_level_edit_text) {
             fftParam.readRefLevelAttr();
             ViewUtil.showKeyboard(this.anchor, view, fftParam.getUnit(), fftParam.getRefLevelAttr().getMaxLongValue(), fftParam.getRefLevelAttr().getMinLongValue(), fftParam.getRefLevelAttr().getDefLongValue(), fftParam.getRefLevel(), UnitFormat.SI.NANO, new KeyboardListener() { // from class: com.rigol.scope.views.rtsa.RtsaPopupView.5
+                {
+                    RtsaPopupView.this = this;
+                }
+
                 @Override // com.rigol.scope.views.keyboard.KeyboardListener
                 public <T> void resultMinUnitValueListener(T t) {
                     fftParam.saveRefLevel(((Long) t).longValue());
@@ -160,12 +180,16 @@ public class RtsaPopupView extends BasePopupView implements RtsaViewPagerAdapter
             ViewUtil.showSpinner(this.anchor, view, unitSpinnerList, new PopupSpinner.OnItemClickListener() { // from class: com.rigol.scope.views.rtsa.-$$Lambda$RtsaPopupView$0loX0TIVH3urhtS0XLFpPdxjBuE
                 @Override // com.rigol.scope.views.spinner.PopupSpinner.OnItemClickListener
                 public final void onItemClick(View view2, RecyclerView.ViewHolder viewHolder, int i, Object obj) {
-                    FftParam.this.saveUnit(ServiceEnum.getUnitFromValue1(((MappingObject) obj).getValue()));
+                    RtsaPopupView.lambda$onBasicItemClick$3(FftParam.this, view2, viewHolder, i, (MappingObject) obj);
                 }
             });
         } else if (id == R.id.scale_edit_text) {
             fftParam.readScaleAttr();
             ViewUtil.showKeyboard(this.anchor, view, ServiceEnum.Unit.Unit_db, fftParam.getScaleAttr().getMaxLongValue(), fftParam.getScaleAttr().getMinLongValue(), fftParam.getScaleAttr().getDefLongValue(), fftParam.getScale(), UnitFormat.SI.NANO, new KeyboardListener() { // from class: com.rigol.scope.views.rtsa.RtsaPopupView.6
+                {
+                    RtsaPopupView.this = this;
+                }
+
                 @Override // com.rigol.scope.views.keyboard.KeyboardListener
                 public <T> void resultMinUnitValueListener(T t) {
                     fftParam.saveScale(((Long) t).longValue());
@@ -180,7 +204,7 @@ public class RtsaPopupView extends BasePopupView implements RtsaViewPagerAdapter
             ViewUtil.showChanSpinner(this.anchor, view, (int) R.array.msg_fft_src, new PopupSpinner.OnItemClickListener() { // from class: com.rigol.scope.views.rtsa.-$$Lambda$RtsaPopupView$xsBVWhcLp0pkxBfhhNhGHQcELq0
                 @Override // com.rigol.scope.views.spinner.PopupSpinner.OnItemClickListener
                 public final void onItemClick(View view2, RecyclerView.ViewHolder viewHolder, int i, Object obj) {
-                    FftParam.this.saveSrc(ServiceEnum.getChanFromValue1(((MappingObject) obj).getValue()));
+                    RtsaPopupView.lambda$onBasicItemClick$4(FftParam.this, view2, viewHolder, i, (MappingObject) obj);
                 }
             });
         } else if (id == R.id.auto_tune_btn) {
@@ -191,7 +215,7 @@ public class RtsaPopupView extends BasePopupView implements RtsaViewPagerAdapter
             ViewUtil.showSpinner(this.anchor, view, (int) R.array.msg_display_persistime, new PopupSpinner.OnItemClickListener() { // from class: com.rigol.scope.views.rtsa.-$$Lambda$RtsaPopupView$1L4PkP5HrWGVqu1Tod66o2CinRE
                 @Override // com.rigol.scope.views.spinner.PopupSpinner.OnItemClickListener
                 public final void onItemClick(View view2, RecyclerView.ViewHolder viewHolder, int i, Object obj) {
-                    FftParam.this.savePersistTime(ServiceEnum.getEWavePersisFromValue1(((MappingObject) obj).getValue()));
+                    RtsaPopupView.lambda$onBasicItemClick$5(FftParam.this, view2, viewHolder, i, (MappingObject) obj);
                 }
             });
         }
@@ -200,6 +224,26 @@ public class RtsaPopupView extends BasePopupView implements RtsaViewPagerAdapter
     static /* synthetic */ void lambda$onBasicItemClick$1(FftParam fftParam, View view, RecyclerView.ViewHolder viewHolder, int i, MappingObject mappingObject) {
         fftParam.saveRbw(ServiceEnum.getRtsaRBWFromValue1(mappingObject.getValue()));
         fftParam.saveAutoRbw(false);
+    }
+
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.views.rtsa.-$$Lambda$RtsaPopupView$oNRgZXF3f88-NhzZa69gk7zi-TA.onItemClick(android.view.View, androidx.recyclerview.widget.RecyclerView$ViewHolder, int, java.lang.Object):void] */
+    static /* synthetic */ void lambda$onBasicItemClick$2(FftParam fftParam, View view, RecyclerView.ViewHolder viewHolder, int i, MappingObject mappingObject) {
+        fftParam.saveWindow(ServiceEnum.getfftWindowFromValue1(mappingObject.getValue()));
+    }
+
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.views.rtsa.-$$Lambda$RtsaPopupView$0loX0TIVH3urhtS0XLFpPdxjBuE.onItemClick(android.view.View, androidx.recyclerview.widget.RecyclerView$ViewHolder, int, java.lang.Object):void] */
+    static /* synthetic */ void lambda$onBasicItemClick$3(FftParam fftParam, View view, RecyclerView.ViewHolder viewHolder, int i, MappingObject mappingObject) {
+        fftParam.saveUnit(ServiceEnum.getUnitFromValue1(mappingObject.getValue()));
+    }
+
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.views.rtsa.-$$Lambda$RtsaPopupView$xsBVWhcLp0pkxBfhhNhGHQcELq0.onItemClick(android.view.View, androidx.recyclerview.widget.RecyclerView$ViewHolder, int, java.lang.Object):void] */
+    static /* synthetic */ void lambda$onBasicItemClick$4(FftParam fftParam, View view, RecyclerView.ViewHolder viewHolder, int i, MappingObject mappingObject) {
+        fftParam.saveSrc(ServiceEnum.getChanFromValue1(mappingObject.getValue()));
+    }
+
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.views.rtsa.-$$Lambda$RtsaPopupView$1L4PkP5HrWGVqu1Tod66o2CinRE.onItemClick(android.view.View, androidx.recyclerview.widget.RecyclerView$ViewHolder, int, java.lang.Object):void] */
+    static /* synthetic */ void lambda$onBasicItemClick$5(FftParam fftParam, View view, RecyclerView.ViewHolder viewHolder, int i, MappingObject mappingObject) {
+        fftParam.savePersistTime(ServiceEnum.getEWavePersisFromValue1(mappingObject.getValue()));
     }
 
     @Override // com.rigol.scope.views.rtsa.RtsaViewPagerAdapter.OnItemClickCallback
@@ -274,6 +318,10 @@ public class RtsaPopupView extends BasePopupView implements RtsaViewPagerAdapter
         } else if (id == R.id.peak_num_text) {
             fftParam.readPeakNumAttr();
             ViewUtil.showKeyboard(this.anchor, view, ServiceEnum.Unit.Unit_number, fftParam.getPeakNumAttr().getMaxIntValue(), fftParam.getPeakNumAttr().getMinIntValue(), fftParam.getPeakNumAttr().getDefIntValue(), fftParam.getPeakNum(), new KeyboardListener() { // from class: com.rigol.scope.views.rtsa.RtsaPopupView.7
+                {
+                    RtsaPopupView.this = this;
+                }
+
                 @Override // com.rigol.scope.views.keyboard.KeyboardListener
                 public <T> void resultMinUnitValueListener(T t) {
                     fftParam.savePeakNum(((Long) t).intValue());
@@ -287,6 +335,10 @@ public class RtsaPopupView extends BasePopupView implements RtsaViewPagerAdapter
         } else if (id == R.id.threshold_text) {
             fftParam.readPeakThresholdAttr();
             ViewUtil.showKeyboard(this.anchor, view, fftParam.getUnit(), fftParam.getPeakThresholdAttr().getMaxLongValue(), fftParam.getPeakThresholdAttr().getMinLongValue(), fftParam.getPeakThresholdAttr().getDefLongValue(), fftParam.getPeakThreshold(), UnitFormat.SI.NANO, new KeyboardListener() { // from class: com.rigol.scope.views.rtsa.RtsaPopupView.8
+                {
+                    RtsaPopupView.this = this;
+                }
+
                 @Override // com.rigol.scope.views.keyboard.KeyboardListener
                 public <T> void resultMinUnitValueListener(T t) {
                     fftParam.savePeakThreshold(((Long) t).longValue());
@@ -300,6 +352,10 @@ public class RtsaPopupView extends BasePopupView implements RtsaViewPagerAdapter
         } else if (id == R.id.excursion_text) {
             fftParam.readExcurAttr();
             ViewUtil.showKeyboard(this.anchor, view, ServiceEnum.Unit.Unit_db, fftParam.getExcurAttr().getMaxLongValue(), fftParam.getExcurAttr().getMinLongValue(), fftParam.getExcurAttr().getDefLongValue(), fftParam.getPeakExcur(), UnitFormat.SI.NANO, new KeyboardListener() { // from class: com.rigol.scope.views.rtsa.RtsaPopupView.9
+                {
+                    RtsaPopupView.this = this;
+                }
+
                 @Override // com.rigol.scope.views.keyboard.KeyboardListener
                 public <T> void resultMinUnitValueListener(T t) {
                     fftParam.savePeakExcur(((Long) t).longValue());

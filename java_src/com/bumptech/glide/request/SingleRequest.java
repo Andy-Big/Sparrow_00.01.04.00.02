@@ -18,6 +18,7 @@ import com.bumptech.glide.util.Util;
 import com.bumptech.glide.util.pool.StateVerifier;
 import java.util.List;
 import java.util.concurrent.Executor;
+
 /* loaded from: classes.dex */
 public final class SingleRequest<R> implements Request, SizeReadyCallback, ResourceCallback {
     private static final String GLIDE_TAG = "Glide";
@@ -53,9 +54,8 @@ public final class SingleRequest<R> implements Request, SizeReadyCallback, Resou
     private static final String TAG = "Request";
     private static final boolean IS_VERBOSE_LOGGABLE = Log.isLoggable(TAG, 2);
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public enum Status {
+    private enum Status {
         PENDING,
         RUNNING,
         WAITING_FOR_SIZE,
@@ -300,10 +300,10 @@ public final class SingleRequest<R> implements Request, SizeReadyCallback, Resou
                     }
                 } catch (Throwable th2) {
                     th = th2;
+                    obj = obj2;
                 }
             } catch (Throwable th3) {
                 th = th3;
-                obj = obj2;
             }
         }
     }
@@ -346,6 +346,7 @@ public final class SingleRequest<R> implements Request, SizeReadyCallback, Resou
         }
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: com.bumptech.glide.request.SingleRequest<R> */
     /* JADX WARN: Code restructure failed: missing block: B:19:0x004f, code lost:
         if (r6 == null) goto L25;
      */
@@ -374,117 +375,57 @@ public final class SingleRequest<R> implements Request, SizeReadyCallback, Resou
     @Override // com.bumptech.glide.request.ResourceCallback
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    public void onResourceReady(com.bumptech.glide.load.engine.Resource<?> r6, com.bumptech.glide.load.DataSource r7) {
-        /*
-            r5 = this;
-            com.bumptech.glide.util.pool.StateVerifier r0 = r5.stateVerifier
-            r0.throwIfRecycled()
-            r0 = 0
-            java.lang.Object r1 = r5.requestLock     // Catch: java.lang.Throwable -> Lbc
-            monitor-enter(r1)     // Catch: java.lang.Throwable -> Lbc
-            r5.loadStatus = r0     // Catch: java.lang.Throwable -> Lb9
-            if (r6 != 0) goto L2f
-            com.bumptech.glide.load.engine.GlideException r6 = new com.bumptech.glide.load.engine.GlideException     // Catch: java.lang.Throwable -> Lb9
-            java.lang.StringBuilder r7 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> Lb9
-            r7.<init>()     // Catch: java.lang.Throwable -> Lb9
-            java.lang.String r2 = "Expected to receive a Resource<R> with an object of "
-            r7.append(r2)     // Catch: java.lang.Throwable -> Lb9
-            java.lang.Class<R> r2 = r5.transcodeClass     // Catch: java.lang.Throwable -> Lb9
-            r7.append(r2)     // Catch: java.lang.Throwable -> Lb9
-            java.lang.String r2 = " inside, but instead got null."
-            r7.append(r2)     // Catch: java.lang.Throwable -> Lb9
-            java.lang.String r7 = r7.toString()     // Catch: java.lang.Throwable -> Lb9
-            r6.<init>(r7)     // Catch: java.lang.Throwable -> Lb9
-            r5.onLoadFailed(r6)     // Catch: java.lang.Throwable -> Lb9
-            monitor-exit(r1)     // Catch: java.lang.Throwable -> Lb9
-            return
-        L2f:
-            java.lang.Object r2 = r6.get()     // Catch: java.lang.Throwable -> Lb9
-            if (r2 == 0) goto L5c
-            java.lang.Class<R> r3 = r5.transcodeClass     // Catch: java.lang.Throwable -> Lb9
-            java.lang.Class r4 = r2.getClass()     // Catch: java.lang.Throwable -> Lb9
-            boolean r3 = r3.isAssignableFrom(r4)     // Catch: java.lang.Throwable -> Lb9
-            if (r3 != 0) goto L42
-            goto L5c
-        L42:
-            boolean r3 = r5.canSetResource()     // Catch: java.lang.Throwable -> Lb9
-            if (r3 != 0) goto L57
-            r5.resource = r0     // Catch: java.lang.Throwable -> Lb5
-            com.bumptech.glide.request.SingleRequest$Status r7 = com.bumptech.glide.request.SingleRequest.Status.COMPLETE     // Catch: java.lang.Throwable -> Lb5
-            r5.status = r7     // Catch: java.lang.Throwable -> Lb5
-            monitor-exit(r1)     // Catch: java.lang.Throwable -> Lb5
-            if (r6 == 0) goto L56
-            com.bumptech.glide.load.engine.Engine r7 = r5.engine
-            r7.release(r6)
-        L56:
-            return
-        L57:
-            r5.onResourceReady(r6, r2, r7)     // Catch: java.lang.Throwable -> Lb9
-            monitor-exit(r1)     // Catch: java.lang.Throwable -> Lb9
-            return
-        L5c:
-            r5.resource = r0     // Catch: java.lang.Throwable -> Lb5
-            com.bumptech.glide.load.engine.GlideException r7 = new com.bumptech.glide.load.engine.GlideException     // Catch: java.lang.Throwable -> Lb5
-            java.lang.StringBuilder r0 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> Lb5
-            r0.<init>()     // Catch: java.lang.Throwable -> Lb5
-            java.lang.String r3 = "Expected to receive an object of "
-            r0.append(r3)     // Catch: java.lang.Throwable -> Lb5
-            java.lang.Class<R> r3 = r5.transcodeClass     // Catch: java.lang.Throwable -> Lb5
-            r0.append(r3)     // Catch: java.lang.Throwable -> Lb5
-            java.lang.String r3 = " but instead got "
-            r0.append(r3)     // Catch: java.lang.Throwable -> Lb5
-            if (r2 == 0) goto L7b
-            java.lang.Class r3 = r2.getClass()     // Catch: java.lang.Throwable -> Lb5
-            goto L7d
-        L7b:
-            java.lang.String r3 = ""
-        L7d:
-            r0.append(r3)     // Catch: java.lang.Throwable -> Lb5
-            java.lang.String r3 = "{"
-            r0.append(r3)     // Catch: java.lang.Throwable -> Lb5
-            r0.append(r2)     // Catch: java.lang.Throwable -> Lb5
-            java.lang.String r3 = "} inside Resource{"
-            r0.append(r3)     // Catch: java.lang.Throwable -> Lb5
-            r0.append(r6)     // Catch: java.lang.Throwable -> Lb5
-            java.lang.String r3 = "}."
-            r0.append(r3)     // Catch: java.lang.Throwable -> Lb5
-            if (r2 == 0) goto L9d
-            java.lang.String r2 = ""
-            goto L9f
-        L9d:
-            java.lang.String r2 = " To indicate failure return a null Resource object, rather than a Resource object containing null data."
-        L9f:
-            r0.append(r2)     // Catch: java.lang.Throwable -> Lb5
-            java.lang.String r0 = r0.toString()     // Catch: java.lang.Throwable -> Lb5
-            r7.<init>(r0)     // Catch: java.lang.Throwable -> Lb5
-            r5.onLoadFailed(r7)     // Catch: java.lang.Throwable -> Lb5
-            monitor-exit(r1)     // Catch: java.lang.Throwable -> Lb5
-            if (r6 == 0) goto Lb4
-            com.bumptech.glide.load.engine.Engine r7 = r5.engine
-            r7.release(r6)
-        Lb4:
-            return
-        Lb5:
-            r7 = move-exception
-            r0 = r6
-            r6 = r7
-            goto Lba
-        Lb9:
-            r6 = move-exception
-        Lba:
-            monitor-exit(r1)     // Catch: java.lang.Throwable -> Lb9
-            throw r6     // Catch: java.lang.Throwable -> Lbc
-        Lbc:
-            r6 = move-exception
-            if (r0 == 0) goto Lc4
-            com.bumptech.glide.load.engine.Engine r7 = r5.engine
-            r7.release(r0)
-        Lc4:
-            throw r6
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.bumptech.glide.request.SingleRequest.onResourceReady(com.bumptech.glide.load.engine.Resource, com.bumptech.glide.load.DataSource):void");
+    public void onResourceReady(Resource<?> resource, DataSource dataSource) {
+        this.stateVerifier.throwIfRecycled();
+        Resource<?> resource2 = null;
+        try {
+            synchronized (this.requestLock) {
+                try {
+                    this.loadStatus = null;
+                    if (resource == null) {
+                        onLoadFailed(new GlideException("Expected to receive a Resource<R> with an object of " + this.transcodeClass + " inside, but instead got null."));
+                        return;
+                    }
+                    Object obj = resource.get();
+                    try {
+                        if (obj != null && this.transcodeClass.isAssignableFrom(obj.getClass())) {
+                            if (!canSetResource()) {
+                                this.resource = null;
+                                this.status = Status.COMPLETE;
+                            } else {
+                                onResourceReady(resource, obj, dataSource);
+                                return;
+                            }
+                        }
+                        this.resource = null;
+                        StringBuilder sb = new StringBuilder();
+                        sb.append("Expected to receive an object of ");
+                        sb.append(this.transcodeClass);
+                        sb.append(" but instead got ");
+                        sb.append(obj != null ? obj.getClass() : "");
+                        sb.append("{");
+                        sb.append(obj);
+                        sb.append("} inside Resource{");
+                        sb.append(resource);
+                        sb.append("}.");
+                        sb.append(obj != null ? "" : " To indicate failure return a null Resource object, rather than a Resource object containing null data.");
+                        onLoadFailed(new GlideException(sb.toString()));
+                    } catch (Throwable th) {
+                        resource2 = resource;
+                        th = th;
+                    }
+                } catch (Throwable th2) {
+                    th = th2;
+                }
+            }
+            throw th;
+        } catch (Throwable th3) {
+            if (resource2 != null) {
+                this.engine.release(resource2);
+            }
+            throw th3;
+        }
     }
 
     private void onResourceReady(Resource<R> resource, R r, DataSource dataSource) {

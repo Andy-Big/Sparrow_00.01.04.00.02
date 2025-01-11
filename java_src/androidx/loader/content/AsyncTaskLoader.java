@@ -9,6 +9,7 @@ import java.io.FileDescriptor;
 import java.io.PrintWriter;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.Executor;
+
 /* loaded from: classes.dex */
 public abstract class AsyncTaskLoader<D> extends Loader<D> {
     static final boolean DEBUG = false;
@@ -28,15 +29,15 @@ public abstract class AsyncTaskLoader<D> extends Loader<D> {
     public void onCanceled(D d) {
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public final class LoadTask extends ModernAsyncTask<Void, Void, D> implements Runnable {
+    final class LoadTask extends ModernAsyncTask<Void, Void, D> implements Runnable {
         private final CountDownLatch mDone = new CountDownLatch(1);
         boolean waiting;
 
         LoadTask() {
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // androidx.loader.content.ModernAsyncTask
         public D doInBackground(Void... voidArr) {
@@ -99,9 +100,8 @@ public abstract class AsyncTaskLoader<D> extends Loader<D> {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // androidx.loader.content.Loader
-    public void onForceLoad() {
+    protected void onForceLoad() {
         super.onForceLoad();
         cancelLoad();
         this.mTask = new LoadTask();

@@ -4,6 +4,7 @@ import android.graphics.Typeface;
 import java.lang.reflect.Array;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+
 /* loaded from: classes.dex */
 public class TypefaceCompatApi28Impl extends TypefaceCompatApi26Impl {
     private static final String CREATE_FROM_FAMILIES_WITH_DEFAULT_METHOD = "createFromFamiliesWithDefault";

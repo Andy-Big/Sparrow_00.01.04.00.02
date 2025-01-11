@@ -5,13 +5,16 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import kotlin.Deprecated;
 import kotlin.Metadata;
+import kotlin.Unit;
 import kotlin.collections.CollectionsKt;
 import kotlin.jvm.functions.Function2;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.text.StringsKt;
+
 /* compiled from: Utils.kt */
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000<\n\u0000\n\u0002\u0010\u000e\n\u0002\u0018\u0002\n\u0002\b\f\n\u0002\u0010\u000b\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0004\n\u0002\u0010 \n\u0000\n\u0002\u0018\u0002\n\u0002\b\f\u001a*\u0010\t\u001a\u00020\u00022\b\b\u0002\u0010\n\u001a\u00020\u00012\n\b\u0002\u0010\u000b\u001a\u0004\u0018\u00010\u00012\n\b\u0002\u0010\f\u001a\u0004\u0018\u00010\u0002H\u0007\u001a*\u0010\r\u001a\u00020\u00022\b\b\u0002\u0010\n\u001a\u00020\u00012\n\b\u0002\u0010\u000b\u001a\u0004\u0018\u00010\u00012\n\b\u0002\u0010\f\u001a\u0004\u0018\u00010\u0002H\u0007\u001a8\u0010\u000e\u001a\u00020\u000f*\u00020\u00022\u0006\u0010\u0010\u001a\u00020\u00022\b\b\u0002\u0010\u0011\u001a\u00020\u000f2\u001a\b\u0002\u0010\u0012\u001a\u0014\u0012\u0004\u0012\u00020\u0002\u0012\u0004\u0012\u00020\u0014\u0012\u0004\u0012\u00020\u00150\u0013\u001a&\u0010\u0016\u001a\u00020\u0002*\u00020\u00022\u0006\u0010\u0010\u001a\u00020\u00022\b\b\u0002\u0010\u0011\u001a\u00020\u000f2\b\b\u0002\u0010\u0017\u001a\u00020\u0018\u001a\n\u0010\u0019\u001a\u00020\u000f*\u00020\u0002\u001a\u0012\u0010\u001a\u001a\u00020\u000f*\u00020\u00022\u0006\u0010\u001b\u001a\u00020\u0002\u001a\u0012\u0010\u001a\u001a\u00020\u000f*\u00020\u00022\u0006\u0010\u001b\u001a\u00020\u0001\u001a\n\u0010\u001c\u001a\u00020\u0002*\u00020\u0002\u001a\u001d\u0010\u001c\u001a\b\u0012\u0004\u0012\u00020\u00020\u001d*\b\u0012\u0004\u0012\u00020\u00020\u001dH\u0002¢\u0006\u0002\b\u001e\u001a\u0011\u0010\u001c\u001a\u00020\u001f*\u00020\u001fH\u0002¢\u0006\u0002\b\u001e\u001a\u0012\u0010 \u001a\u00020\u0002*\u00020\u00022\u0006\u0010!\u001a\u00020\u0002\u001a\u0014\u0010\"\u001a\u0004\u0018\u00010\u0002*\u00020\u00022\u0006\u0010!\u001a\u00020\u0002\u001a\u0012\u0010#\u001a\u00020\u0002*\u00020\u00022\u0006\u0010!\u001a\u00020\u0002\u001a\u0012\u0010$\u001a\u00020\u0002*\u00020\u00022\u0006\u0010%\u001a\u00020\u0002\u001a\u0012\u0010$\u001a\u00020\u0002*\u00020\u00022\u0006\u0010%\u001a\u00020\u0001\u001a\u0012\u0010&\u001a\u00020\u0002*\u00020\u00022\u0006\u0010%\u001a\u00020\u0002\u001a\u0012\u0010&\u001a\u00020\u0002*\u00020\u00022\u0006\u0010%\u001a\u00020\u0001\u001a\u0012\u0010'\u001a\u00020\u000f*\u00020\u00022\u0006\u0010\u001b\u001a\u00020\u0002\u001a\u0012\u0010'\u001a\u00020\u000f*\u00020\u00022\u0006\u0010\u001b\u001a\u00020\u0001\u001a\u0012\u0010(\u001a\u00020\u0001*\u00020\u00022\u0006\u0010!\u001a\u00020\u0002\u001a\u001b\u0010)\u001a\u0004\u0018\u00010\u0001*\u00020\u00022\u0006\u0010!\u001a\u00020\u0002H\u0002¢\u0006\u0002\b*\"\u0015\u0010\u0000\u001a\u00020\u0001*\u00020\u00028F¢\u0006\u0006\u001a\u0004\b\u0003\u0010\u0004\"\u0015\u0010\u0005\u001a\u00020\u0001*\u00020\u00028F¢\u0006\u0006\u001a\u0004\b\u0006\u0010\u0004\"\u0015\u0010\u0007\u001a\u00020\u0001*\u00020\u00028F¢\u0006\u0006\u001a\u0004\b\b\u0010\u0004¨\u0006+"}, d2 = {"extension", "", "Ljava/io/File;", "getExtension", "(Ljava/io/File;)Ljava/lang/String;", "invariantSeparatorsPath", "getInvariantSeparatorsPath", "nameWithoutExtension", "getNameWithoutExtension", "createTempDir", "prefix", "suffix", "directory", "createTempFile", "copyRecursively", "", "target", "overwrite", "onError", "Lkotlin/Function2;", "Ljava/io/IOException;", "Lkotlin/io/OnErrorAction;", "copyTo", "bufferSize", "", "deleteRecursively", "endsWith", "other", "normalize", "", "normalize$FilesKt__UtilsKt", "Lkotlin/io/FilePathComponents;", "relativeTo", "base", "relativeToOrNull", "relativeToOrSelf", "resolve", "relative", "resolveSibling", "startsWith", "toRelativeString", "toRelativeStringOrNull", "toRelativeStringOrNull$FilesKt__UtilsKt", "kotlin-stdlib"}, k = 5, mv = {1, 4, 0}, xi = 1, xs = "kotlin/io/FilesKt")
 /* loaded from: classes2.dex */
@@ -169,6 +172,7 @@ class FilesKt__UtilsKt extends FilesKt__FileTreeWalkKt {
         return FilesKt.copyTo(file, file2, z, i);
     }
 
+    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
     public static final File copyTo(File copyTo, File target, boolean z, int i) {
         Intrinsics.checkNotNullParameter(copyTo, "$this$copyTo");
         Intrinsics.checkNotNullParameter(target, "target");
@@ -213,6 +217,7 @@ class FilesKt__UtilsKt extends FilesKt__FileTreeWalkKt {
         }
         if ((i & 4) != 0) {
             function2 = new Function2() { // from class: kotlin.io.FilesKt__UtilsKt$copyRecursively$1
+                /* JADX DEBUG: Method merged with bridge method */
                 @Override // kotlin.jvm.functions.Function2
                 public final Void invoke(File file3, IOException exception) {
                     Intrinsics.checkNotNullParameter(file3, "<anonymous parameter 0>");
@@ -228,14 +233,78 @@ class FilesKt__UtilsKt extends FilesKt__FileTreeWalkKt {
     /* JADX WARN: Removed duplicated region for block: B:58:0x00a2 A[SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    public static final boolean copyRecursively(java.io.File r11, java.io.File r12, boolean r13, final kotlin.jvm.functions.Function2<? super java.io.File, ? super java.io.IOException, ? extends kotlin.io.OnErrorAction> r14) {
-        /*
-            Method dump skipped, instructions count: 231
-            To view this dump add '--comments-level debug' option
-        */
-        throw new UnsupportedOperationException("Method not decompiled: kotlin.io.FilesKt__UtilsKt.copyRecursively(java.io.File, java.io.File, boolean, kotlin.jvm.functions.Function2):boolean");
+    public static final boolean copyRecursively(File copyRecursively, File target, boolean z, final Function2<? super File, ? super IOException, ? extends OnErrorAction> onError) {
+        boolean z2;
+        Intrinsics.checkNotNullParameter(copyRecursively, "$this$copyRecursively");
+        Intrinsics.checkNotNullParameter(target, "target");
+        Intrinsics.checkNotNullParameter(onError, "onError");
+        if (!copyRecursively.exists()) {
+            return onError.invoke(copyRecursively, new NoSuchFileException(copyRecursively, null, "The source file doesn't exist.", 2, null)) != OnErrorAction.TERMINATE;
+        }
+        try {
+            Iterator<File> it = FilesKt.walkTopDown(copyRecursively).onFail(new Function2<File, IOException, Unit>() { // from class: kotlin.io.FilesKt__UtilsKt$copyRecursively$2
+                {
+                    super(2);
+                }
+
+                /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
+                /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+                @Override // kotlin.jvm.functions.Function2
+                public /* bridge */ /* synthetic */ Unit invoke(File file, IOException iOException) {
+                    invoke2(file, iOException);
+                    return Unit.INSTANCE;
+                }
+
+                /* renamed from: invoke  reason: avoid collision after fix types in other method */
+                public final void invoke2(File f, IOException e) {
+                    Intrinsics.checkNotNullParameter(f, "f");
+                    Intrinsics.checkNotNullParameter(e, "e");
+                    if (((OnErrorAction) Function2.this.invoke(f, e)) == OnErrorAction.TERMINATE) {
+                        throw new TerminateException(f);
+                    }
+                }
+            }).iterator();
+            while (it.hasNext()) {
+                File next = it.next();
+                if (!next.exists()) {
+                    if (onError.invoke(next, new NoSuchFileException(next, null, "The source file doesn't exist.", 2, null)) == OnErrorAction.TERMINATE) {
+                        return false;
+                    }
+                } else {
+                    File file = new File(target, FilesKt.toRelativeString(next, copyRecursively));
+                    if (file.exists() && (!next.isDirectory() || !file.isDirectory())) {
+                        if (z) {
+                            if (file.isDirectory()) {
+                                if (!FilesKt.deleteRecursively(file)) {
+                                }
+                                z2 = false;
+                            } else {
+                                if (!file.delete()) {
+                                }
+                                z2 = false;
+                            }
+                            if (!z2) {
+                                if (onError.invoke(file, new FileAlreadyExistsException(next, file, "The destination file already exists.")) == OnErrorAction.TERMINATE) {
+                                    return false;
+                                }
+                            }
+                        }
+                        z2 = true;
+                        if (!z2) {
+                        }
+                    }
+                    if (next.isDirectory()) {
+                        file.mkdirs();
+                    } else if (FilesKt.copyTo$default(next, file, z, 0, 4, null).length() != next.length() && onError.invoke(next, new IOException("Source file wasn't copied completely, length of destination file differs.")) == OnErrorAction.TERMINATE) {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        } catch (TerminateException unused) {
+            return false;
+        }
     }
 
     public static final boolean deleteRecursively(File deleteRecursively) {

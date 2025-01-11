@@ -2,6 +2,7 @@ package androidx.recyclerview.widget;
 
 import android.view.View;
 import androidx.recyclerview.widget.RecyclerView;
+
 /* loaded from: classes.dex */
 public abstract class SimpleItemAnimator extends RecyclerView.ItemAnimator {
     private static final boolean DEBUG = false;

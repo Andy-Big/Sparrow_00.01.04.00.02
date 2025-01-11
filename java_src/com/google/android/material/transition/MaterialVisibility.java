@@ -10,13 +10,13 @@ import com.google.android.material.animation.AnimationUtils;
 import com.google.android.material.animation.AnimatorSetCompat;
 import com.google.android.material.transition.VisibilityAnimatorProvider;
 import java.util.ArrayList;
+
 /* loaded from: classes.dex */
 abstract class MaterialVisibility<P extends VisibilityAnimatorProvider> extends Visibility {
     private final P primaryAnimatorProvider;
     private VisibilityAnimatorProvider secondaryAnimatorProvider;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public MaterialVisibility(P p, VisibilityAnimatorProvider visibilityAnimatorProvider) {
+    protected MaterialVisibility(P p, VisibilityAnimatorProvider visibilityAnimatorProvider) {
         this.primaryAnimatorProvider = p;
         this.secondaryAnimatorProvider = visibilityAnimatorProvider;
         setInterpolator(AnimationUtils.FAST_OUT_SLOW_IN_INTERPOLATOR);

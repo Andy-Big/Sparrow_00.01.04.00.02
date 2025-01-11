@@ -36,6 +36,7 @@ import javax.jmdns.impl.constants.DNSConstants;
 import javax.jmdns.impl.util.NamedThreadFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 /* loaded from: classes2.dex */
 public class JmmDNSImpl implements JmmDNS, NetworkTopologyListener, ServiceInfoImpl.Delegate {
     private static Logger logger = LoggerFactory.getLogger(JmmDNSImpl.class.getName());
@@ -168,6 +169,7 @@ public class JmmDNSImpl implements JmmDNS, NetworkTopologyListener, ServiceInfoI
             ArrayList arrayList = new ArrayList(dns.length);
             for (final JmDNS jmDNS : dns) {
                 arrayList.add(new Callable<ServiceInfo>() { // from class: javax.jmdns.impl.JmmDNSImpl.2
+                    /* JADX DEBUG: Method merged with bridge method */
                     @Override // java.util.concurrent.Callable
                     public ServiceInfo call() throws Exception {
                         return jmDNS.getServiceInfo(str, str2, z, j);
@@ -191,12 +193,12 @@ public class JmmDNSImpl implements JmmDNS, NetworkTopologyListener, ServiceInfoI
                                 if (serviceInfo != null) {
                                     hashSet.add(serviceInfo);
                                 }
-                            } catch (ExecutionException e2) {
-                                logger.warn("Exception ", (Throwable) e2);
+                            } catch (InterruptedException e2) {
+                                logger.debug("Interrupted ", (Throwable) e2);
+                                Thread.currentThread().interrupt();
                             }
-                        } catch (InterruptedException e3) {
-                            logger.debug("Interrupted ", (Throwable) e3);
-                            Thread.currentThread().interrupt();
+                        } catch (ExecutionException e3) {
+                            logger.warn("Exception ", (Throwable) e3);
                         }
                     }
                 }
@@ -360,6 +362,7 @@ public class JmmDNSImpl implements JmmDNS, NetworkTopologyListener, ServiceInfoI
             ArrayList arrayList = new ArrayList(dns.length);
             for (final JmDNS jmDNS : dns) {
                 arrayList.add(new Callable<List<ServiceInfo>>() { // from class: javax.jmdns.impl.JmmDNSImpl.4
+                    /* JADX DEBUG: Method merged with bridge method */
                     @Override // java.util.concurrent.Callable
                     public List<ServiceInfo> call() throws Exception {
                         return Arrays.asList(jmDNS.list(str, j));

@@ -4,6 +4,7 @@ import com.scwang.smartrefresh.layout.api.RefreshFooter;
 import com.scwang.smartrefresh.layout.api.RefreshHeader;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.constant.RefreshState;
+
 /* loaded from: classes2.dex */
 public class SimpleMultiPurposeListener implements OnMultiPurposeListener {
     @Override // com.scwang.smartrefresh.layout.listener.OnMultiPurposeListener

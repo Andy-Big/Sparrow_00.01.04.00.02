@@ -8,6 +8,7 @@ import com.bumptech.glide.load.ResourceEncoder;
 import com.bumptech.glide.load.engine.Resource;
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
 import java.io.File;
+
 /* loaded from: classes.dex */
 public class BitmapDrawableEncoder implements ResourceEncoder<BitmapDrawable> {
     private final BitmapPool bitmapPool;
@@ -18,6 +19,7 @@ public class BitmapDrawableEncoder implements ResourceEncoder<BitmapDrawable> {
         this.encoder = resourceEncoder;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.Encoder
     public boolean encode(Resource<BitmapDrawable> resource, File file, Options options) {
         return this.encoder.encode(new BitmapResource(resource.get().getBitmap(), this.bitmapPool), file, options);

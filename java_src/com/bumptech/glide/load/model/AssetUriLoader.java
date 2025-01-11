@@ -10,6 +10,7 @@ import com.bumptech.glide.load.data.StreamAssetPathFetcher;
 import com.bumptech.glide.load.model.ModelLoader;
 import com.bumptech.glide.signature.ObjectKey;
 import java.io.InputStream;
+
 /* loaded from: classes.dex */
 public class AssetUriLoader<Data> implements ModelLoader<Uri, Data> {
     private static final String ASSET_PATH_SEGMENT = "android_asset";
@@ -28,11 +29,13 @@ public class AssetUriLoader<Data> implements ModelLoader<Uri, Data> {
         this.factory = assetFetcherFactory;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.model.ModelLoader
     public ModelLoader.LoadData<Data> buildLoadData(Uri uri, int i, int i2, Options options) {
         return new ModelLoader.LoadData<>(new ObjectKey(uri), this.factory.buildFetcher(this.assetManager, uri.toString().substring(ASSET_PREFIX_LENGTH)));
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.model.ModelLoader
     public boolean handles(Uri uri) {
         return "file".equals(uri.getScheme()) && !uri.getPathSegments().isEmpty() && ASSET_PATH_SEGMENT.equals(uri.getPathSegments().get(0));

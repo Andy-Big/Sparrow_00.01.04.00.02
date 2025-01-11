@@ -4,6 +4,7 @@ import androidx.collection.ArrayMap;
 import com.bumptech.glide.util.MultiClassKey;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
+
 /* loaded from: classes.dex */
 public class ModelToResourceClassCache {
     private final AtomicReference<MultiClassKey> resourceClassKeyRef = new AtomicReference<>();

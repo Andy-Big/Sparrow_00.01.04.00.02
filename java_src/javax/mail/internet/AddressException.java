@@ -1,4 +1,5 @@
 package javax.mail.internet;
+
 /* loaded from: classes2.dex */
 public class AddressException extends ParseException {
     private static final long serialVersionUID = 9134583443539323120L;

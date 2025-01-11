@@ -46,6 +46,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Shapeable {
     private static final String BUTTON_ACCESSIBILITY_CLASS_NAME = "android.widget.Button";
@@ -517,8 +518,7 @@ public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Sh
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setOnCheckedChangeListenerInternal(CompoundButton.OnCheckedChangeListener onCheckedChangeListener) {
+    void setOnCheckedChangeListenerInternal(CompoundButton.OnCheckedChangeListener onCheckedChangeListener) {
         this.onCheckedChangeListenerInternal = onCheckedChangeListener;
     }
 
@@ -545,60 +545,37 @@ public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Sh
     @Override // android.widget.TextView, android.view.View
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    public boolean onTouchEvent(android.view.MotionEvent r6) {
-        /*
-            r5 = this;
-            int r0 = r6.getActionMasked()
-            android.graphics.RectF r1 = r5.getCloseIconTouchBounds()
-            float r2 = r6.getX()
-            float r3 = r6.getY()
-            boolean r1 = r1.contains(r2, r3)
-            r2 = 0
-            r3 = 1
-            if (r0 == 0) goto L39
-            if (r0 == r3) goto L2b
-            r4 = 2
-            if (r0 == r4) goto L21
-            r1 = 3
-            if (r0 == r1) goto L34
-            goto L40
-        L21:
-            boolean r0 = r5.closeIconPressed
-            if (r0 == 0) goto L40
-            if (r1 != 0) goto L3e
-            r5.setCloseIconPressed(r2)
-            goto L3e
-        L2b:
-            boolean r0 = r5.closeIconPressed
-            if (r0 == 0) goto L34
-            r5.performCloseIconClick()
-            r0 = r3
-            goto L35
-        L34:
-            r0 = r2
-        L35:
-            r5.setCloseIconPressed(r2)
-            goto L41
-        L39:
-            if (r1 == 0) goto L40
-            r5.setCloseIconPressed(r3)
-        L3e:
-            r0 = r3
-            goto L41
-        L40:
-            r0 = r2
-        L41:
-            if (r0 != 0) goto L49
-            boolean r6 = super.onTouchEvent(r6)
-            if (r6 == 0) goto L4a
-        L49:
-            r2 = r3
-        L4a:
-            return r2
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.google.android.material.chip.Chip.onTouchEvent(android.view.MotionEvent):boolean");
+    public boolean onTouchEvent(MotionEvent motionEvent) {
+        boolean z;
+        int actionMasked = motionEvent.getActionMasked();
+        boolean contains = getCloseIconTouchBounds().contains(motionEvent.getX(), motionEvent.getY());
+        if (actionMasked != 0) {
+            if (actionMasked != 1) {
+                if (actionMasked == 2) {
+                    if (this.closeIconPressed) {
+                        if (!contains) {
+                            setCloseIconPressed(false);
+                        }
+                        z = true;
+                    }
+                }
+                z = false;
+            } else if (this.closeIconPressed) {
+                performCloseIconClick();
+                z = true;
+                setCloseIconPressed(false);
+            }
+            z = false;
+            setCloseIconPressed(false);
+        } else {
+            if (contains) {
+                setCloseIconPressed(true);
+                z = true;
+            }
+            z = false;
+        }
+        return z || super.onTouchEvent(motionEvent);
     }
 
     @Override // android.view.View
@@ -678,9 +655,8 @@ public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Sh
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // androidx.appcompat.widget.AppCompatCheckBox, android.widget.CompoundButton, android.widget.TextView, android.view.View
-    public void drawableStateChanged() {
+    protected void drawableStateChanged() {
         super.drawableStateChanged();
         ChipDrawable chipDrawable = this.chipDrawable;
         if ((chipDrawable == null || !chipDrawable.isCloseIconStateful()) ? false : this.chipDrawable.setCloseIconState(createCloseIconDrawableState())) {
@@ -756,9 +732,8 @@ public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Sh
         return null;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public class ChipTouchHelper extends ExploreByTouchHelper {
+    private class ChipTouchHelper extends ExploreByTouchHelper {
         ChipTouchHelper(Chip chip) {
             super(chip);
         }

@@ -6,6 +6,7 @@ import android.graphics.drawable.Drawable;
 import android.util.Property;
 import com.google.android.material.circularreveal.CircularRevealHelper;
 import com.google.android.material.math.MathUtils;
+
 /* loaded from: classes.dex */
 public interface CircularRevealWidget extends CircularRevealHelper.Delegate {
     void buildCircularRevealCache();
@@ -71,11 +72,13 @@ public interface CircularRevealWidget extends CircularRevealHelper.Delegate {
             super(RevealInfo.class, str);
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // android.util.Property
         public RevealInfo get(CircularRevealWidget circularRevealWidget) {
             return circularRevealWidget.getRevealInfo();
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // android.util.Property
         public void set(CircularRevealWidget circularRevealWidget, RevealInfo revealInfo) {
             circularRevealWidget.setRevealInfo(revealInfo);
@@ -87,6 +90,7 @@ public interface CircularRevealWidget extends CircularRevealHelper.Delegate {
         public static final TypeEvaluator<RevealInfo> CIRCULAR_REVEAL = new CircularRevealEvaluator();
         private final RevealInfo revealInfo = new RevealInfo();
 
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // android.animation.TypeEvaluator
         public RevealInfo evaluate(float f, RevealInfo revealInfo, RevealInfo revealInfo2) {
             this.revealInfo.set(MathUtils.lerp(revealInfo.centerX, revealInfo2.centerX, f), MathUtils.lerp(revealInfo.centerY, revealInfo2.centerY, f), MathUtils.lerp(revealInfo.radius, revealInfo2.radius, f));
@@ -102,11 +106,13 @@ public interface CircularRevealWidget extends CircularRevealHelper.Delegate {
             super(Integer.class, str);
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // android.util.Property
         public Integer get(CircularRevealWidget circularRevealWidget) {
             return Integer.valueOf(circularRevealWidget.getCircularRevealScrimColor());
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // android.util.Property
         public void set(CircularRevealWidget circularRevealWidget, Integer num) {
             circularRevealWidget.setCircularRevealScrimColor(num.intValue());

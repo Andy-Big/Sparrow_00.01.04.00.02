@@ -3,6 +3,7 @@ package com.bumptech.glide.signature;
 import com.bumptech.glide.load.Key;
 import java.nio.ByteBuffer;
 import java.security.MessageDigest;
+
 /* loaded from: classes.dex */
 public class MediaStoreSignature implements Key {
     private final long dateModified;

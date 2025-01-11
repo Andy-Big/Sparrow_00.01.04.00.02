@@ -2,6 +2,7 @@ package androidx.collection;
 
 import java.util.ConcurrentModificationException;
 import java.util.Map;
+
 /* loaded from: classes.dex */
 public class SimpleArrayMap<K, V> {
     private static final int BASE_SIZE = 4;
@@ -149,6 +150,7 @@ public class SimpleArrayMap<K, V> {
         this.mSize = 0;
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: androidx.collection.SimpleArrayMap<K, V> */
     /* JADX WARN: Multi-variable type inference failed */
     public SimpleArrayMap(SimpleArrayMap<K, V> simpleArrayMap) {
         this();
@@ -197,8 +199,7 @@ public class SimpleArrayMap<K, V> {
         return obj == null ? indexOfNull() : indexOf(obj, obj.hashCode());
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public int indexOfValue(Object obj) {
+    int indexOfValue(Object obj) {
         int i = this.mSize * 2;
         Object[] objArr = this.mArray;
         if (obj == null) {

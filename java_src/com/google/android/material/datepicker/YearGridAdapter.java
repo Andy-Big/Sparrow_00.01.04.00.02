@@ -9,9 +9,9 @@ import com.google.android.material.R;
 import com.google.android.material.datepicker.MaterialCalendar;
 import java.util.Calendar;
 import java.util.Locale;
-/* JADX INFO: Access modifiers changed from: package-private */
+
 /* loaded from: classes.dex */
-public class YearGridAdapter extends RecyclerView.Adapter<ViewHolder> {
+class YearGridAdapter extends RecyclerView.Adapter<ViewHolder> {
     private final MaterialCalendar<?> materialCalendar;
 
     /* loaded from: classes.dex */
@@ -24,16 +24,17 @@ public class YearGridAdapter extends RecyclerView.Adapter<ViewHolder> {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public YearGridAdapter(MaterialCalendar<?> materialCalendar) {
+    YearGridAdapter(MaterialCalendar<?> materialCalendar) {
         this.materialCalendar = materialCalendar;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         return new ViewHolder((TextView) LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.mtrl_calendar_year, viewGroup, false));
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(ViewHolder viewHolder, int i) {
         int yearForPosition = getYearForPosition(i);
@@ -68,8 +69,7 @@ public class YearGridAdapter extends RecyclerView.Adapter<ViewHolder> {
         return this.materialCalendar.getCalendarConstraints().getYearSpan();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public int getPositionForYear(int i) {
+    int getPositionForYear(int i) {
         return i - this.materialCalendar.getCalendarConstraints().getStart().year;
     }
 

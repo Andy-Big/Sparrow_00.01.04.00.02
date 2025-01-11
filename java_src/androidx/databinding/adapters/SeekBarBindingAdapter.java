@@ -2,6 +2,7 @@ package androidx.databinding.adapters;
 
 import android.widget.SeekBar;
 import androidx.databinding.InverseBindingListener;
+
 /* loaded from: classes.dex */
 public class SeekBarBindingAdapter {
 

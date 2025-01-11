@@ -8,6 +8,7 @@ import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.view.View;
 import androidx.recyclerview.widget.RecyclerView;
+
 /* loaded from: classes.dex */
 public class DividerItemDecoration extends RecyclerView.ItemDecoration {
     private static final int[] ATTRS = {16843284};

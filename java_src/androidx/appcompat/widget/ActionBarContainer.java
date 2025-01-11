@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import androidx.appcompat.R;
 import androidx.core.view.ViewCompat;
+
 /* loaded from: classes.dex */
 public class ActionBarContainer extends FrameLayout {
     private View mActionBarView;

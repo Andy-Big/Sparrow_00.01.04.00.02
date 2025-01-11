@@ -3,6 +3,7 @@ package com.sun.mail.util;
 import java.io.IOException;
 import java.io.OutputStream;
 import kotlin.UByte;
+
 /* loaded from: classes2.dex */
 public class QEncoderStream extends QPEncoderStream {
     private static String TEXT_SPECIALS = "=_?";

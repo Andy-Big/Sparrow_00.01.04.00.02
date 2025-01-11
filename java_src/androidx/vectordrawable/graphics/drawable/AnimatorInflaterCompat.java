@@ -2,6 +2,7 @@ package androidx.vectordrawable.graphics.drawable;
 
 import android.animation.Animator;
 import android.animation.AnimatorInflater;
+import android.animation.AnimatorSet;
 import android.animation.Keyframe;
 import android.animation.ObjectAnimator;
 import android.animation.PropertyValuesHolder;
@@ -23,8 +24,10 @@ import androidx.core.content.res.TypedArrayUtils;
 import androidx.core.graphics.PathParser;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
+
 /* loaded from: classes.dex */
 public class AnimatorInflaterCompat {
     private static final boolean DBG_ANIMATOR_INFLATER = false;
@@ -59,12 +62,12 @@ public class AnimatorInflaterCompat {
                 try {
                     xmlResourceParser = resources.getAnimation(i);
                     return createAnimatorFromXml(context, resources, theme, xmlResourceParser, f);
-                } catch (XmlPullParserException e) {
+                } catch (IOException e) {
                     Resources.NotFoundException notFoundException = new Resources.NotFoundException("Can't load animation resource ID #0x" + Integer.toHexString(i));
                     notFoundException.initCause(e);
                     throw notFoundException;
                 }
-            } catch (IOException e2) {
+            } catch (XmlPullParserException e2) {
                 Resources.NotFoundException notFoundException2 = new Resources.NotFoundException("Can't load animation resource ID #0x" + Integer.toHexString(i));
                 notFoundException2.initCause(e2);
                 throw notFoundException2;
@@ -76,9 +79,8 @@ public class AnimatorInflaterCompat {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static class PathDataEvaluator implements TypeEvaluator<PathParser.PathDataNode[]> {
+    private static class PathDataEvaluator implements TypeEvaluator<PathParser.PathDataNode[]> {
         private PathParser.PathDataNode[] mNodeArray;
 
         PathDataEvaluator() {
@@ -88,6 +90,7 @@ public class AnimatorInflaterCompat {
             this.mNodeArray = pathDataNodeArr;
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // android.animation.TypeEvaluator
         public PathParser.PathDataNode[] evaluate(float f, PathParser.PathDataNode[] pathDataNodeArr, PathParser.PathDataNode[] pathDataNodeArr2) {
             if (!PathParser.canMorph(pathDataNodeArr, pathDataNodeArr2)) {
@@ -302,14 +305,67 @@ public class AnimatorInflaterCompat {
     /* JADX WARN: Removed duplicated region for block: B:33:0x00ba  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    private static android.animation.Animator createAnimatorFromXml(android.content.Context r18, android.content.res.Resources r19, android.content.res.Resources.Theme r20, org.xmlpull.v1.XmlPullParser r21, android.util.AttributeSet r22, android.animation.AnimatorSet r23, int r24, float r25) throws org.xmlpull.v1.XmlPullParserException, java.io.IOException {
-        /*
-            Method dump skipped, instructions count: 265
-            To view this dump add '--comments-level debug' option
-        */
-        throw new UnsupportedOperationException("Method not decompiled: androidx.vectordrawable.graphics.drawable.AnimatorInflaterCompat.createAnimatorFromXml(android.content.Context, android.content.res.Resources, android.content.res.Resources$Theme, org.xmlpull.v1.XmlPullParser, android.util.AttributeSet, android.animation.AnimatorSet, int, float):android.animation.Animator");
+    private static Animator createAnimatorFromXml(Context context, Resources resources, Resources.Theme theme, XmlPullParser xmlPullParser, AttributeSet attributeSet, AnimatorSet animatorSet, int i, float f) throws XmlPullParserException, IOException {
+        int i2;
+        int depth = xmlPullParser.getDepth();
+        AnimatorSet animatorSet2 = null;
+        ArrayList arrayList = null;
+        while (true) {
+            int next = xmlPullParser.next();
+            i2 = 0;
+            if ((next != 3 || xmlPullParser.getDepth() > depth) && next != 1) {
+                if (next == 2) {
+                    String name = xmlPullParser.getName();
+                    if (name.equals("objectAnimator")) {
+                        animatorSet2 = loadObjectAnimator(context, resources, theme, attributeSet, f, xmlPullParser);
+                    } else if (name.equals("animator")) {
+                        animatorSet2 = loadAnimator(context, resources, theme, attributeSet, null, f, xmlPullParser);
+                    } else {
+                        if (name.equals("set")) {
+                            AnimatorSet animatorSet3 = new AnimatorSet();
+                            TypedArray obtainAttributes = TypedArrayUtils.obtainAttributes(resources, theme, attributeSet, AndroidResources.STYLEABLE_ANIMATOR_SET);
+                            createAnimatorFromXml(context, resources, theme, xmlPullParser, attributeSet, animatorSet3, TypedArrayUtils.getNamedInt(obtainAttributes, xmlPullParser, "ordering", 0, 0), f);
+                            obtainAttributes.recycle();
+                            animatorSet2 = animatorSet3;
+                        } else if (name.equals("propertyValuesHolder")) {
+                            PropertyValuesHolder[] loadValues = loadValues(context, resources, theme, xmlPullParser, Xml.asAttributeSet(xmlPullParser));
+                            if (loadValues != null && (animatorSet2 instanceof ValueAnimator)) {
+                                ((ValueAnimator) animatorSet2).setValues(loadValues);
+                            }
+                            i2 = 1;
+                        } else {
+                            throw new RuntimeException("Unknown animator name: " + xmlPullParser.getName());
+                        }
+                        if (animatorSet != null && i2 == 0) {
+                            if (arrayList == null) {
+                                arrayList = new ArrayList();
+                            }
+                            arrayList.add(animatorSet2);
+                        }
+                    }
+                    if (animatorSet != null) {
+                        if (arrayList == null) {
+                        }
+                        arrayList.add(animatorSet2);
+                    }
+                }
+            }
+        }
+        if (animatorSet != null && arrayList != null) {
+            Animator[] animatorArr = new Animator[arrayList.size()];
+            Iterator it = arrayList.iterator();
+            while (it.hasNext()) {
+                animatorArr[i2] = (Animator) it.next();
+                i2++;
+            }
+            if (i == 0) {
+                animatorSet.playTogether(animatorArr);
+            } else {
+                animatorSet.playSequentially(animatorArr);
+            }
+        }
+        return animatorSet2;
     }
 
     private static PropertyValuesHolder[] loadValues(Context context, Resources resources, Resources.Theme theme, XmlPullParser xmlPullParser, AttributeSet attributeSet) throws XmlPullParserException, IOException {

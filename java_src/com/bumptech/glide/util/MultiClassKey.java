@@ -1,4 +1,5 @@
 package com.bumptech.glide.util;
+
 /* loaded from: classes.dex */
 public class MultiClassKey {
     private Class<?> first;

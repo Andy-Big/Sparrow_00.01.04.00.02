@@ -3,12 +3,14 @@ package com.bumptech.glide.load.data;
 import android.content.res.AssetManager;
 import java.io.IOException;
 import java.io.InputStream;
+
 /* loaded from: classes.dex */
 public class StreamAssetPathFetcher extends AssetPathFetcher<InputStream> {
     public StreamAssetPathFetcher(AssetManager assetManager, String str) {
         super(assetManager, str);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.bumptech.glide.load.data.AssetPathFetcher
@@ -16,6 +18,7 @@ public class StreamAssetPathFetcher extends AssetPathFetcher<InputStream> {
         return assetManager.open(str);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.bumptech.glide.load.data.AssetPathFetcher
     public void close(InputStream inputStream) throws IOException {

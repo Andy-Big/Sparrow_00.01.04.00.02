@@ -22,6 +22,7 @@ import com.scwang.smartrefresh.layout.constant.SpinnerStyle;
 import com.scwang.smartrefresh.layout.internal.InternalAbstract;
 import com.scwang.smartrefresh.layout.util.DensityUtil;
 import com.scwang.smartrefresh.layout.util.SmartUtil;
+
 /* loaded from: classes2.dex */
 public class BezierRadarHeader extends InternalAbstract implements RefreshHeader {
     protected static final byte PROPERTY_DOT_ALPHA = 2;

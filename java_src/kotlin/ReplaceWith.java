@@ -6,6 +6,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 import kotlin.annotation.AnnotationRetention;
 import kotlin.annotation.MustBeDocumented;
+
 /* compiled from: Annotations.kt */
 @Target({})
 @kotlin.annotation.Target(allowedTargets = {})

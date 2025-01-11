@@ -3,9 +3,11 @@ package com.google.android.material.internal;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.SparseBooleanArray;
+
 /* loaded from: classes.dex */
 public class ParcelableSparseBooleanArray extends SparseBooleanArray implements Parcelable {
     public static final Parcelable.Creator<ParcelableSparseBooleanArray> CREATOR = new Parcelable.Creator<ParcelableSparseBooleanArray>() { // from class: com.google.android.material.internal.ParcelableSparseBooleanArray.1
+        /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
         public ParcelableSparseBooleanArray createFromParcel(Parcel parcel) {
@@ -21,6 +23,7 @@ public class ParcelableSparseBooleanArray extends SparseBooleanArray implements 
             return parcelableSparseBooleanArray;
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
         public ParcelableSparseBooleanArray[] newArray(int i) {

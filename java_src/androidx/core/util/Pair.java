@@ -1,4 +1,5 @@
 package androidx.core.util;
+
 /* loaded from: classes.dex */
 public class Pair<F, S> {
     public final F first;

@@ -7,6 +7,7 @@ import android.os.Build;
 import android.view.View;
 import android.view.animation.Interpolator;
 import java.lang.ref.WeakReference;
+
 /* loaded from: classes.dex */
 public final class ViewPropertyAnimatorCompat {
     static final int LISTENER_TAG_ID = 2113929216;
@@ -15,8 +16,7 @@ public final class ViewPropertyAnimatorCompat {
     Runnable mEndAction = null;
     int mOldLayerType = -1;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ViewPropertyAnimatorCompat(View view) {
+    ViewPropertyAnimatorCompat(View view) {
         this.mView = new WeakReference<>(view);
     }
 

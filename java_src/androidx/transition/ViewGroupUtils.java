@@ -4,22 +4,21 @@ import android.os.Build;
 import android.view.ViewGroup;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+
 /* loaded from: classes.dex */
 class ViewGroupUtils {
     private static Method sGetChildDrawingOrderMethod = null;
     private static boolean sGetChildDrawingOrderMethodFetched = false;
     private static boolean sTryHiddenSuppressLayout = true;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static ViewGroupOverlayImpl getOverlay(ViewGroup viewGroup) {
+    static ViewGroupOverlayImpl getOverlay(ViewGroup viewGroup) {
         if (Build.VERSION.SDK_INT >= 18) {
             return new ViewGroupOverlayApi18(viewGroup);
         }
         return ViewGroupOverlayApi14.createFrom(viewGroup);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static void suppressLayout(ViewGroup viewGroup, boolean z) {
+    static void suppressLayout(ViewGroup viewGroup, boolean z) {
         if (Build.VERSION.SDK_INT >= 29) {
             viewGroup.suppressLayout(z);
         } else if (Build.VERSION.SDK_INT >= 18) {
@@ -39,8 +38,7 @@ class ViewGroupUtils {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static int getChildDrawingOrder(ViewGroup viewGroup, int i) {
+    static int getChildDrawingOrder(ViewGroup viewGroup, int i) {
         if (Build.VERSION.SDK_INT >= 29) {
             return viewGroup.getChildDrawingOrder(i);
         }

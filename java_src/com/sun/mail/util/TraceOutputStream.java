@@ -4,6 +4,7 @@ import java.io.FilterOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.logging.Level;
+
 /* loaded from: classes2.dex */
 public class TraceOutputStream extends FilterOutputStream {
     private boolean quote;

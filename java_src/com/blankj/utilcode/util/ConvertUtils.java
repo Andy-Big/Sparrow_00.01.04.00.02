@@ -6,19 +6,24 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.support.v4.media.session.PlaybackStateCompat;
 import android.view.View;
+import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.OutputStream;
 import java.io.Serializable;
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.Charset;
+import java.util.ArrayList;
 import java.util.List;
 import kotlin.UByte;
 import org.json.JSONArray;
 import org.json.JSONObject;
+
 /* loaded from: classes.dex */
 public final class ConvertUtils {
     private static final int BUFFER_SIZE = 8192;
@@ -259,107 +264,106 @@ public final class ConvertUtils {
     /* JADX WARN: Removed duplicated region for block: B:35:0x0033 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    public static java.lang.Object bytes2Object(byte[] r3) {
-        /*
-            r0 = 0
-            if (r3 != 0) goto L4
-            return r0
-        L4:
-            java.io.ObjectInputStream r1 = new java.io.ObjectInputStream     // Catch: java.lang.Throwable -> L1d java.lang.Exception -> L1f
-            java.io.ByteArrayInputStream r2 = new java.io.ByteArrayInputStream     // Catch: java.lang.Throwable -> L1d java.lang.Exception -> L1f
-            r2.<init>(r3)     // Catch: java.lang.Throwable -> L1d java.lang.Exception -> L1f
-            r1.<init>(r2)     // Catch: java.lang.Throwable -> L1d java.lang.Exception -> L1f
-            java.lang.Object r3 = r1.readObject()     // Catch: java.lang.Exception -> L1b java.lang.Throwable -> L2f
-            r1.close()     // Catch: java.io.IOException -> L16
-            goto L1a
-        L16:
-            r0 = move-exception
-            r0.printStackTrace()
-        L1a:
-            return r3
-        L1b:
-            r3 = move-exception
-            goto L21
-        L1d:
-            r3 = move-exception
-            goto L31
-        L1f:
-            r3 = move-exception
-            r1 = r0
-        L21:
-            r3.printStackTrace()     // Catch: java.lang.Throwable -> L2f
-            if (r1 == 0) goto L2e
-            r1.close()     // Catch: java.io.IOException -> L2a
-            goto L2e
-        L2a:
-            r3 = move-exception
-            r3.printStackTrace()
-        L2e:
-            return r0
-        L2f:
-            r3 = move-exception
-            r0 = r1
-        L31:
-            if (r0 == 0) goto L3b
-            r0.close()     // Catch: java.io.IOException -> L37
-            goto L3b
-        L37:
-            r0 = move-exception
-            r0.printStackTrace()
-        L3b:
-            throw r3
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.blankj.utilcode.util.ConvertUtils.bytes2Object(byte[]):java.lang.Object");
+    public static Object bytes2Object(byte[] bArr) {
+        ObjectInputStream objectInputStream;
+        ObjectInputStream objectInputStream2 = null;
+        if (bArr == null) {
+            return null;
+        }
+        try {
+            objectInputStream = new ObjectInputStream(new ByteArrayInputStream(bArr));
+        } catch (Exception e) {
+            e = e;
+            objectInputStream = null;
+        } catch (Throwable th) {
+            th = th;
+            if (objectInputStream2 != null) {
+            }
+            throw th;
+        }
+        try {
+            try {
+                Object readObject = objectInputStream.readObject();
+                try {
+                    objectInputStream.close();
+                } catch (IOException e2) {
+                    e2.printStackTrace();
+                }
+                return readObject;
+            } catch (Throwable th2) {
+                th = th2;
+                objectInputStream2 = objectInputStream;
+                if (objectInputStream2 != null) {
+                    try {
+                        objectInputStream2.close();
+                    } catch (IOException e3) {
+                        e3.printStackTrace();
+                    }
+                }
+                throw th;
+            }
+        } catch (Exception e4) {
+            e = e4;
+            e.printStackTrace();
+            if (objectInputStream != null) {
+                try {
+                    objectInputStream.close();
+                } catch (IOException e5) {
+                    e5.printStackTrace();
+                }
+            }
+            return null;
+        }
     }
 
     /* JADX WARN: Not initialized variable reg: 1, insn: 0x0033: MOVE  (r0 I:??[OBJECT, ARRAY]) = (r1 I:??[OBJECT, ARRAY]), block:B:26:0x0033 */
     public static byte[] serializable2Bytes(Serializable serializable) {
         ObjectOutputStream objectOutputStream;
         ObjectOutputStream objectOutputStream2;
+        ByteArrayOutputStream byteArrayOutputStream;
         ObjectOutputStream objectOutputStream3 = null;
         try {
             if (serializable == null) {
                 return null;
             }
             try {
-                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                byteArrayOutputStream = new ByteArrayOutputStream();
                 objectOutputStream2 = new ObjectOutputStream(byteArrayOutputStream);
-                try {
-                    objectOutputStream2.writeObject(serializable);
-                    byte[] byteArray = byteArrayOutputStream.toByteArray();
-                    try {
-                        objectOutputStream2.close();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                    return byteArray;
-                } catch (Exception e2) {
-                    e = e2;
-                    e.printStackTrace();
-                    if (objectOutputStream2 != null) {
-                        try {
-                            objectOutputStream2.close();
-                        } catch (IOException e3) {
-                            e3.printStackTrace();
-                        }
-                    }
-                    return null;
-                }
-            } catch (Exception e4) {
-                e = e4;
+            } catch (Exception e) {
+                e = e;
                 objectOutputStream2 = null;
             } catch (Throwable th) {
                 th = th;
                 if (objectOutputStream3 != null) {
                     try {
                         objectOutputStream3.close();
+                    } catch (IOException e2) {
+                        e2.printStackTrace();
+                    }
+                }
+                throw th;
+            }
+            try {
+                objectOutputStream2.writeObject(serializable);
+                byte[] byteArray = byteArrayOutputStream.toByteArray();
+                try {
+                    objectOutputStream2.close();
+                } catch (IOException e3) {
+                    e3.printStackTrace();
+                }
+                return byteArray;
+            } catch (Exception e4) {
+                e = e4;
+                e.printStackTrace();
+                if (objectOutputStream2 != null) {
+                    try {
+                        objectOutputStream2.close();
                     } catch (IOException e5) {
                         e5.printStackTrace();
                     }
                 }
-                throw th;
+                return null;
             }
         } catch (Throwable th2) {
             th = th2;
@@ -493,61 +497,57 @@ public final class ConvertUtils {
     /* JADX WARN: Removed duplicated region for block: B:42:0x0030 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    public static java.io.OutputStream bytes2OutputStream(byte[] r2) {
-        /*
-            r0 = 0
-            if (r2 == 0) goto L39
-            int r1 = r2.length
-            if (r1 > 0) goto L7
-            goto L39
-        L7:
-            java.io.ByteArrayOutputStream r1 = new java.io.ByteArrayOutputStream     // Catch: java.lang.Throwable -> L1a java.io.IOException -> L1c
-            r1.<init>()     // Catch: java.lang.Throwable -> L1a java.io.IOException -> L1c
-            r1.write(r2)     // Catch: java.io.IOException -> L18 java.lang.Throwable -> L2c
-            r1.close()     // Catch: java.io.IOException -> L13
-            goto L17
-        L13:
-            r2 = move-exception
-            r2.printStackTrace()
-        L17:
-            return r1
-        L18:
-            r2 = move-exception
-            goto L1e
-        L1a:
-            r2 = move-exception
-            goto L2e
-        L1c:
-            r2 = move-exception
-            r1 = r0
-        L1e:
-            r2.printStackTrace()     // Catch: java.lang.Throwable -> L2c
-            if (r1 == 0) goto L2b
-            r1.close()     // Catch: java.io.IOException -> L27
-            goto L2b
-        L27:
-            r2 = move-exception
-            r2.printStackTrace()
-        L2b:
-            return r0
-        L2c:
-            r2 = move-exception
-            r0 = r1
-        L2e:
-            if (r0 == 0) goto L38
-            r0.close()     // Catch: java.io.IOException -> L34
-            goto L38
-        L34:
-            r0 = move-exception
-            r0.printStackTrace()
-        L38:
-            throw r2
-        L39:
-            return r0
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.blankj.utilcode.util.ConvertUtils.bytes2OutputStream(byte[]):java.io.OutputStream");
+    public static OutputStream bytes2OutputStream(byte[] bArr) {
+        ByteArrayOutputStream byteArrayOutputStream;
+        ByteArrayOutputStream byteArrayOutputStream2 = null;
+        if (bArr == null || bArr.length <= 0) {
+            return null;
+        }
+        try {
+            byteArrayOutputStream = new ByteArrayOutputStream();
+        } catch (IOException e) {
+            e = e;
+            byteArrayOutputStream = null;
+        } catch (Throwable th) {
+            th = th;
+            if (byteArrayOutputStream2 != null) {
+            }
+            throw th;
+        }
+        try {
+            try {
+                byteArrayOutputStream.write(bArr);
+                try {
+                    byteArrayOutputStream.close();
+                } catch (IOException e2) {
+                    e2.printStackTrace();
+                }
+                return byteArrayOutputStream;
+            } catch (Throwable th2) {
+                th = th2;
+                byteArrayOutputStream2 = byteArrayOutputStream;
+                if (byteArrayOutputStream2 != null) {
+                    try {
+                        byteArrayOutputStream2.close();
+                    } catch (IOException e3) {
+                        e3.printStackTrace();
+                    }
+                }
+                throw th;
+            }
+        } catch (IOException e4) {
+            e = e4;
+            e.printStackTrace();
+            if (byteArrayOutputStream != null) {
+                try {
+                    byteArrayOutputStream.close();
+                } catch (IOException e5) {
+                    e5.printStackTrace();
+                }
+            }
+            return null;
+        }
     }
 
     public static String inputStream2String(InputStream inputStream, String str) {
@@ -606,64 +606,62 @@ public final class ConvertUtils {
     /* JADX WARN: Removed duplicated region for block: B:38:0x003f A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    public static java.util.List<java.lang.String> inputStream2Lines(java.io.InputStream r4, java.lang.String r5) {
-        /*
-            r0 = 0
-            java.util.ArrayList r1 = new java.util.ArrayList     // Catch: java.lang.Throwable -> L29 java.io.IOException -> L2b
-            r1.<init>()     // Catch: java.lang.Throwable -> L29 java.io.IOException -> L2b
-            java.io.BufferedReader r2 = new java.io.BufferedReader     // Catch: java.lang.Throwable -> L29 java.io.IOException -> L2b
-            java.io.InputStreamReader r3 = new java.io.InputStreamReader     // Catch: java.lang.Throwable -> L29 java.io.IOException -> L2b
-            java.lang.String r5 = getSafeCharset(r5)     // Catch: java.lang.Throwable -> L29 java.io.IOException -> L2b
-            r3.<init>(r4, r5)     // Catch: java.lang.Throwable -> L29 java.io.IOException -> L2b
-            r2.<init>(r3)     // Catch: java.lang.Throwable -> L29 java.io.IOException -> L2b
-        L14:
-            java.lang.String r4 = r2.readLine()     // Catch: java.io.IOException -> L27 java.lang.Throwable -> L3b
-            if (r4 == 0) goto L1e
-            r1.add(r4)     // Catch: java.io.IOException -> L27 java.lang.Throwable -> L3b
-            goto L14
-        L1e:
-            r2.close()     // Catch: java.io.IOException -> L22
-            goto L26
-        L22:
-            r4 = move-exception
-            r4.printStackTrace()
-        L26:
-            return r1
-        L27:
-            r4 = move-exception
-            goto L2d
-        L29:
-            r4 = move-exception
-            goto L3d
-        L2b:
-            r4 = move-exception
-            r2 = r0
-        L2d:
-            r4.printStackTrace()     // Catch: java.lang.Throwable -> L3b
-            if (r2 == 0) goto L3a
-            r2.close()     // Catch: java.io.IOException -> L36
-            goto L3a
-        L36:
-            r4 = move-exception
-            r4.printStackTrace()
-        L3a:
-            return r0
-        L3b:
-            r4 = move-exception
-            r0 = r2
-        L3d:
-            if (r0 == 0) goto L47
-            r0.close()     // Catch: java.io.IOException -> L43
-            goto L47
-        L43:
-            r5 = move-exception
-            r5.printStackTrace()
-        L47:
-            throw r4
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.blankj.utilcode.util.ConvertUtils.inputStream2Lines(java.io.InputStream, java.lang.String):java.util.List");
+    public static List<String> inputStream2Lines(InputStream inputStream, String str) {
+        BufferedReader bufferedReader;
+        BufferedReader bufferedReader2 = null;
+        try {
+            ArrayList arrayList = new ArrayList();
+            bufferedReader = new BufferedReader(new InputStreamReader(inputStream, getSafeCharset(str)));
+            while (true) {
+                try {
+                    try {
+                        String readLine = bufferedReader.readLine();
+                        if (readLine != null) {
+                            arrayList.add(readLine);
+                        } else {
+                            try {
+                                break;
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    } catch (Throwable th) {
+                        th = th;
+                        bufferedReader2 = bufferedReader;
+                        if (bufferedReader2 != null) {
+                            try {
+                                bufferedReader2.close();
+                            } catch (IOException e2) {
+                                e2.printStackTrace();
+                            }
+                        }
+                        throw th;
+                    }
+                } catch (IOException e3) {
+                    e = e3;
+                    e.printStackTrace();
+                    if (bufferedReader != null) {
+                        try {
+                            bufferedReader.close();
+                        } catch (IOException e4) {
+                            e4.printStackTrace();
+                        }
+                    }
+                    return null;
+                }
+            }
+            bufferedReader.close();
+            return arrayList;
+        } catch (IOException e5) {
+            e = e5;
+            bufferedReader = null;
+        } catch (Throwable th2) {
+            th = th2;
+            if (bufferedReader2 != null) {
+            }
+            throw th;
+        }
     }
 
     public static Bitmap drawable2Bitmap(Drawable drawable) {

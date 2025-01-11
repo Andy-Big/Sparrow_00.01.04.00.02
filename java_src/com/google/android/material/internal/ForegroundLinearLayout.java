@@ -10,6 +10,7 @@ import android.view.Gravity;
 import androidx.appcompat.widget.LinearLayoutCompat;
 import androidx.core.view.GravityCompat;
 import com.google.android.material.R;
+
 /* loaded from: classes.dex */
 public class ForegroundLinearLayout extends LinearLayoutCompat {
     private Drawable foreground;
@@ -121,9 +122,8 @@ public class ForegroundLinearLayout extends LinearLayoutCompat {
         return this.foreground;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // androidx.appcompat.widget.LinearLayoutCompat, android.view.ViewGroup, android.view.View
-    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
+    protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
         this.foregroundBoundsChanged = z | this.foregroundBoundsChanged;
     }

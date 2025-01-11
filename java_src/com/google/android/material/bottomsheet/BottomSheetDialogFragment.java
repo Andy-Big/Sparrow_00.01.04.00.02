@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.FrameLayout;
 import androidx.appcompat.app.AppCompatDialogFragment;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
+
 /* loaded from: classes.dex */
 public class BottomSheetDialogFragment extends AppCompatDialogFragment {
     private boolean waitingForDismissAllowingStateLoss;
@@ -67,9 +68,8 @@ public class BottomSheetDialogFragment extends AppCompatDialogFragment {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public class BottomSheetDismissCallback extends BottomSheetBehavior.BottomSheetCallback {
+    private class BottomSheetDismissCallback extends BottomSheetBehavior.BottomSheetCallback {
         @Override // com.google.android.material.bottomsheet.BottomSheetBehavior.BottomSheetCallback
         public void onSlide(View view, float f) {
         }

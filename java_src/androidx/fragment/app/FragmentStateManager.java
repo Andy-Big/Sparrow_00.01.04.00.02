@@ -13,9 +13,9 @@ import androidx.fragment.R;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.ViewModelStoreOwner;
-/* JADX INFO: Access modifiers changed from: package-private */
+
 /* loaded from: classes.dex */
-public class FragmentStateManager {
+class FragmentStateManager {
     private static final String TAG = "FragmentManager";
     private static final String TARGET_REQUEST_CODE_STATE_TAG = "android:target_req_state";
     private static final String TARGET_STATE_TAG = "android:target_state";
@@ -25,14 +25,12 @@ public class FragmentStateManager {
     private final Fragment mFragment;
     private int mFragmentManagerState = -1;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public FragmentStateManager(FragmentLifecycleCallbacksDispatcher fragmentLifecycleCallbacksDispatcher, Fragment fragment) {
+    FragmentStateManager(FragmentLifecycleCallbacksDispatcher fragmentLifecycleCallbacksDispatcher, Fragment fragment) {
         this.mDispatcher = fragmentLifecycleCallbacksDispatcher;
         this.mFragment = fragment;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public FragmentStateManager(FragmentLifecycleCallbacksDispatcher fragmentLifecycleCallbacksDispatcher, ClassLoader classLoader, FragmentFactory fragmentFactory, FragmentState fragmentState) {
+    FragmentStateManager(FragmentLifecycleCallbacksDispatcher fragmentLifecycleCallbacksDispatcher, ClassLoader classLoader, FragmentFactory fragmentFactory, FragmentState fragmentState) {
         this.mDispatcher = fragmentLifecycleCallbacksDispatcher;
         this.mFragment = fragmentFactory.instantiate(classLoader, fragmentState.mClassName);
         if (fragmentState.mArguments != null) {
@@ -60,8 +58,7 @@ public class FragmentStateManager {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public FragmentStateManager(FragmentLifecycleCallbacksDispatcher fragmentLifecycleCallbacksDispatcher, Fragment fragment, FragmentState fragmentState) {
+    FragmentStateManager(FragmentLifecycleCallbacksDispatcher fragmentLifecycleCallbacksDispatcher, Fragment fragment, FragmentState fragmentState) {
         this.mDispatcher = fragmentLifecycleCallbacksDispatcher;
         this.mFragment = fragment;
         fragment.mSavedViewState = null;
@@ -78,18 +75,15 @@ public class FragmentStateManager {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public Fragment getFragment() {
+    Fragment getFragment() {
         return this.mFragment;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setFragmentManagerState(int i) {
+    void setFragmentManagerState(int i) {
         this.mFragmentManagerState = i;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public int computeMaxState() {
+    int computeMaxState() {
         int i = this.mFragmentManagerState;
         if (this.mFragment.mFromLayout) {
             if (this.mFragment.mInLayout) {
@@ -124,10 +118,9 @@ public class FragmentStateManager {
         return i;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: androidx.fragment.app.FragmentStateManager$1  reason: invalid class name */
     /* loaded from: classes.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    static /* synthetic */ class AnonymousClass1 {
         static final /* synthetic */ int[] $SwitchMap$androidx$lifecycle$Lifecycle$State;
 
         static {
@@ -148,8 +141,7 @@ public class FragmentStateManager {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void ensureInflatedView() {
+    void ensureInflatedView() {
         if (this.mFragment.mFromLayout && this.mFragment.mInLayout && !this.mFragment.mPerformedCreateView) {
             if (FragmentManager.isLoggingEnabled(3)) {
                 Log.d(TAG, "moveto CREATE_VIEW: " + this.mFragment);
@@ -170,8 +162,7 @@ public class FragmentStateManager {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void restoreState(ClassLoader classLoader) {
+    void restoreState(ClassLoader classLoader) {
         if (this.mFragment.mSavedFragmentState == null) {
             return;
         }
@@ -198,8 +189,7 @@ public class FragmentStateManager {
         this.mFragment.mDeferStart = true;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void attach(FragmentHostCallback<?> fragmentHostCallback, FragmentManager fragmentManager, Fragment fragment) {
+    void attach(FragmentHostCallback<?> fragmentHostCallback, FragmentManager fragmentManager, Fragment fragment) {
         this.mFragment.mHost = fragmentHostCallback;
         this.mFragment.mParentFragment = fragment;
         this.mFragment.mFragmentManager = fragmentManager;
@@ -213,8 +203,7 @@ public class FragmentStateManager {
         this.mDispatcher.dispatchOnFragmentAttached(this.mFragment, fragmentHostCallback.getContext(), false);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void create() {
+    void create() {
         if (FragmentManager.isLoggingEnabled(3)) {
             Log.d(TAG, "moveto CREATED: " + this.mFragment);
         }
@@ -234,8 +223,7 @@ public class FragmentStateManager {
         this.mFragment.mState = 1;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void createView(FragmentContainer fragmentContainer) {
+    void createView(FragmentContainer fragmentContainer) {
         String str;
         if (this.mFragment.mFromLayout) {
             return;
@@ -287,8 +275,7 @@ public class FragmentStateManager {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void activityCreated() {
+    void activityCreated() {
         if (FragmentManager.isLoggingEnabled(3)) {
             Log.d(TAG, "moveto ACTIVITY_CREATED: " + this.mFragment);
         }
@@ -299,8 +286,7 @@ public class FragmentStateManager {
         fragmentLifecycleCallbacksDispatcher.dispatchOnFragmentActivityCreated(fragment2, fragment2.mSavedFragmentState, false);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void restoreViewState() {
+    void restoreViewState() {
         if (FragmentManager.isLoggingEnabled(3)) {
             Log.d(TAG, "moveto RESTORE_VIEW_STATE: " + this.mFragment);
         }
@@ -311,8 +297,7 @@ public class FragmentStateManager {
         this.mFragment.mSavedFragmentState = null;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void start() {
+    void start() {
         if (FragmentManager.isLoggingEnabled(3)) {
             Log.d(TAG, "moveto STARTED: " + this.mFragment);
         }
@@ -320,8 +305,7 @@ public class FragmentStateManager {
         this.mDispatcher.dispatchOnFragmentStarted(this.mFragment, false);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void resume() {
+    void resume() {
         if (FragmentManager.isLoggingEnabled(3)) {
             Log.d(TAG, "moveto RESUMED: " + this.mFragment);
         }
@@ -331,8 +315,7 @@ public class FragmentStateManager {
         this.mFragment.mSavedViewState = null;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void pause() {
+    void pause() {
         if (FragmentManager.isLoggingEnabled(3)) {
             Log.d(TAG, "movefrom RESUMED: " + this.mFragment);
         }
@@ -340,8 +323,7 @@ public class FragmentStateManager {
         this.mDispatcher.dispatchOnFragmentPaused(this.mFragment, false);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void stop() {
+    void stop() {
         if (FragmentManager.isLoggingEnabled(3)) {
             Log.d(TAG, "movefrom STARTED: " + this.mFragment);
         }
@@ -349,8 +331,7 @@ public class FragmentStateManager {
         this.mDispatcher.dispatchOnFragmentStopped(this.mFragment, false);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public FragmentState saveState() {
+    FragmentState saveState() {
         FragmentState fragmentState = new FragmentState(this.mFragment);
         if (this.mFragment.mState > -1 && fragmentState.mSavedFragmentState == null) {
             fragmentState.mSavedFragmentState = saveBasicState();
@@ -369,8 +350,7 @@ public class FragmentStateManager {
         return fragmentState;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public Fragment.SavedState saveInstanceState() {
+    Fragment.SavedState saveInstanceState() {
         Bundle saveBasicState;
         if (this.mFragment.mState <= -1 || (saveBasicState = saveBasicState()) == null) {
             return null;
@@ -403,8 +383,7 @@ public class FragmentStateManager {
         return bundle;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void saveViewState() {
+    void saveViewState() {
         if (this.mFragment.mView == null) {
             return;
         }
@@ -415,8 +394,7 @@ public class FragmentStateManager {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void destroy(FragmentHostCallback<?> fragmentHostCallback, FragmentManagerViewModel fragmentManagerViewModel) {
+    void destroy(FragmentHostCallback<?> fragmentHostCallback, FragmentManagerViewModel fragmentManagerViewModel) {
         if (FragmentManager.isLoggingEnabled(3)) {
             Log.d(TAG, "movefrom CREATED: " + this.mFragment);
         }
@@ -438,8 +416,7 @@ public class FragmentStateManager {
         this.mFragment.mState = 0;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void detach(FragmentManagerViewModel fragmentManagerViewModel) {
+    void detach(FragmentManagerViewModel fragmentManagerViewModel) {
         if (FragmentManager.isLoggingEnabled(3)) {
             Log.d(TAG, "movefrom ATTACHED: " + this.mFragment);
         }

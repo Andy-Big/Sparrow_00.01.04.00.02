@@ -1,6 +1,7 @@
 package androidx.core.view;
 
 import android.view.MotionEvent;
+
 /* loaded from: classes.dex */
 public final class MotionEventCompat {
     @Deprecated

@@ -131,7 +131,10 @@ public final class XYWindowHolder extends WindowHolder {
             Activity topActivity = ActivityUtils.getTopActivity();
             if (topActivity != null) {
                 liveData2.observe((LifecycleOwner) topActivity, new Observer<HorizontalParam>() { // from class: com.rigol.scope.views.window.XYWindowHolder.1
-                    /* JADX DEBUG: Method merged with bridge method */
+                    {
+                        XYWindowHolder.this = this;
+                    }
+
                     @Override // androidx.lifecycle.Observer
                     public final void onChanged(HorizontalParam horizontalParam) {
                         XYWindowHolder.this.horizontalParam = horizontalParam;
@@ -161,7 +164,7 @@ public final class XYWindowHolder extends WindowHolder {
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // androidx.lifecycle.Observer
                     public final void onChanged(XYParam xYParam) {
-                        XYWindowHolder.this.xyParam = xYParam;
+                        XYWindowHolder.access$setXyParam$p(XYWindowHolder.this, xYParam);
                     }
                 });
             } else {
@@ -179,8 +182,8 @@ public final class XYWindowHolder extends WindowHolder {
                 mutableLiveData.observe((LifecycleOwner) topActivity3, new Observer<Object>() { // from class: com.rigol.scope.views.window.XYWindowHolder$$special$$inlined$let$lambda$2
                     @Override // androidx.lifecycle.Observer
                     public final void onChanged(Object obj) {
-                        if (XYWindowHolder.this.horizontalParam != null) {
-                            XYWindowHolder.this.updateTips();
+                        if (XYWindowHolder.access$getHorizontalParam$p(XYWindowHolder.this) != null) {
+                            XYWindowHolder.access$updateTips(XYWindowHolder.this);
                         }
                     }
                 });
@@ -194,8 +197,8 @@ public final class XYWindowHolder extends WindowHolder {
                 mutableLiveData2.observe((LifecycleOwner) topActivity4, new Observer<Object>() { // from class: com.rigol.scope.views.window.XYWindowHolder$$special$$inlined$let$lambda$3
                     @Override // androidx.lifecycle.Observer
                     public final void onChanged(Object obj) {
-                        if (XYWindowHolder.this.horizontalParam != null) {
-                            XYWindowHolder.this.updateTips();
+                        if (XYWindowHolder.access$getHorizontalParam$p(XYWindowHolder.this) != null) {
+                            XYWindowHolder.access$updateTips(XYWindowHolder.this);
                         }
                     }
                 });
@@ -209,8 +212,8 @@ public final class XYWindowHolder extends WindowHolder {
                 mutableLiveData3.observe((LifecycleOwner) topActivity5, new Observer<Object>() { // from class: com.rigol.scope.views.window.XYWindowHolder$$special$$inlined$let$lambda$4
                     @Override // androidx.lifecycle.Observer
                     public final void onChanged(Object obj) {
-                        if (XYWindowHolder.this.horizontalParam != null) {
-                            XYWindowHolder.this.updateTips();
+                        if (XYWindowHolder.access$getHorizontalParam$p(XYWindowHolder.this) != null) {
+                            XYWindowHolder.access$updateTips(XYWindowHolder.this);
                         }
                     }
                 });
@@ -224,15 +227,14 @@ public final class XYWindowHolder extends WindowHolder {
                 mutableLiveData4.observe((LifecycleOwner) topActivity6, new Observer<Object>() { // from class: com.rigol.scope.views.window.XYWindowHolder$$special$$inlined$let$lambda$5
                     @Override // androidx.lifecycle.Observer
                     public final void onChanged(Object obj) {
-                        XYParam xYParam;
-                        xYParam = XYWindowHolder.this.xyParam;
-                        if (xYParam != null) {
+                        XYParam access$getXyParam$p = XYWindowHolder.access$getXyParam$p(XYWindowHolder.this);
+                        if (access$getXyParam$p != null) {
                             WindowParam windowParam2 = windowParam;
-                            ServiceEnum.Chan chanFromValue1 = ServiceEnum.getChanFromValue1(xYParam.getSourceA().getValue().intValue());
+                            ServiceEnum.Chan chanFromValue1 = ServiceEnum.getChanFromValue1(access$getXyParam$p.getSourceA().getValue().intValue());
                             Intrinsics.checkNotNullExpressionValue(chanFromValue1, "ServiceEnum.getChanFromValue1(itxy.sourceA.value)");
                             windowParam2.setSource1(chanFromValue1);
                             XYWindowHolder.this.updateTitle();
-                            XYWindowHolder.this.gridRulerView.updateColumnRulers(windowParam.getSource1());
+                            XYWindowHolder.access$getGridRulerView$p(XYWindowHolder.this).updateColumnRulers(windowParam.getSource1());
                         }
                     }
                 });
@@ -246,15 +248,14 @@ public final class XYWindowHolder extends WindowHolder {
                 mutableLiveData5.observe((LifecycleOwner) topActivity7, new Observer<Object>() { // from class: com.rigol.scope.views.window.XYWindowHolder$$special$$inlined$let$lambda$6
                     @Override // androidx.lifecycle.Observer
                     public final void onChanged(Object obj) {
-                        XYParam xYParam;
-                        xYParam = XYWindowHolder.this.xyParam;
-                        if (xYParam != null) {
+                        XYParam access$getXyParam$p = XYWindowHolder.access$getXyParam$p(XYWindowHolder.this);
+                        if (access$getXyParam$p != null) {
                             WindowParam windowParam2 = windowParam;
-                            ServiceEnum.Chan chanFromValue1 = ServiceEnum.getChanFromValue1(xYParam.getSourceB().getValue().intValue());
+                            ServiceEnum.Chan chanFromValue1 = ServiceEnum.getChanFromValue1(access$getXyParam$p.getSourceB().getValue().intValue());
                             Intrinsics.checkNotNullExpressionValue(chanFromValue1, "ServiceEnum.getChanFromValue1(itxy.sourceB.value)");
                             windowParam2.setSource2(chanFromValue1);
                             XYWindowHolder.this.updateTitle();
-                            XYWindowHolder.this.gridRulerView.updateRowRulers(windowParam.getSource2());
+                            XYWindowHolder.access$getGridRulerView$p(XYWindowHolder.this).updateRowRulers(windowParam.getSource2());
                         }
                     }
                 });
@@ -268,15 +269,14 @@ public final class XYWindowHolder extends WindowHolder {
                 mutableLiveData6.observe((LifecycleOwner) topActivity8, new Observer<Object>() { // from class: com.rigol.scope.views.window.XYWindowHolder$$special$$inlined$let$lambda$7
                     @Override // androidx.lifecycle.Observer
                     public final void onChanged(Object obj) {
-                        XYParam xYParam;
-                        xYParam = XYWindowHolder.this.xyParam;
-                        if (xYParam != null) {
+                        XYParam access$getXyParam$p = XYWindowHolder.access$getXyParam$p(XYWindowHolder.this);
+                        if (access$getXyParam$p != null) {
                             WindowParam windowParam2 = windowParam;
-                            ServiceEnum.Chan chanFromValue1 = ServiceEnum.getChanFromValue1(xYParam.getSourceC().getValue().intValue());
+                            ServiceEnum.Chan chanFromValue1 = ServiceEnum.getChanFromValue1(access$getXyParam$p.getSourceC().getValue().intValue());
                             Intrinsics.checkNotNullExpressionValue(chanFromValue1, "ServiceEnum.getChanFromValue1(itxy.sourceC.value)");
                             windowParam2.setSource3(chanFromValue1);
                             XYWindowHolder.this.updateTitle();
-                            XYWindowHolder.this.gridRulerView.updateRowRulers(windowParam.getSource3());
+                            XYWindowHolder.access$getGridRulerView$p(XYWindowHolder.this).updateRowRulers(windowParam.getSource3());
                         }
                     }
                 });
@@ -288,6 +288,10 @@ public final class XYWindowHolder extends WindowHolder {
             throw new NullPointerException("null cannot be cast to non-null type androidx.lifecycle.LifecycleOwner");
         }
         mutableLiveData7.observe((LifecycleOwner) topActivity9, new Observer<Object>() { // from class: com.rigol.scope.views.window.XYWindowHolder.4
+            {
+                XYWindowHolder.this = this;
+            }
+
             @Override // androidx.lifecycle.Observer
             public final void onChanged(Object obj) {
                 if (XYWindowHolder.this.horizontalParam != null) {
@@ -301,10 +305,17 @@ public final class XYWindowHolder extends WindowHolder {
             throw new NullPointerException("null cannot be cast to non-null type androidx.lifecycle.LifecycleOwner");
         }
         liveData3.observe((LifecycleOwner) topActivity10, new Observer<SharedParam>() { // from class: com.rigol.scope.views.window.XYWindowHolder.5
-            /* JADX DEBUG: Method merged with bridge method */
+            {
+                XYWindowHolder.this = this;
+            }
+
             @Override // androidx.lifecycle.Observer
             public final void onChanged(final SharedParam sharedParam) {
                 sharedParam.addOnPropertyChangedCallback(new Observable.OnPropertyChangedCallback() { // from class: com.rigol.scope.views.window.XYWindowHolder.5.1
+                    {
+                        AnonymousClass5.this = this;
+                    }
+
                     @Override // androidx.databinding.Observable.OnPropertyChangedCallback
                     public void onPropertyChanged(Observable observable, int i) {
                         if (sharedParam.getShowResultBar()) {
@@ -326,6 +337,31 @@ public final class XYWindowHolder extends WindowHolder {
         });
     }
 
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.views.window.XYWindowHolder$$special$$inlined$let$lambda$5.onChanged(java.lang.Object):void, com.rigol.scope.views.window.XYWindowHolder$$special$$inlined$let$lambda$6.onChanged(java.lang.Object):void, com.rigol.scope.views.window.XYWindowHolder$$special$$inlined$let$lambda$7.onChanged(java.lang.Object):void] */
+    public static final /* synthetic */ XYGridRulderView access$getGridRulerView$p(XYWindowHolder xYWindowHolder) {
+        return xYWindowHolder.gridRulerView;
+    }
+
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.views.window.XYWindowHolder$$special$$inlined$let$lambda$2.onChanged(java.lang.Object):void, com.rigol.scope.views.window.XYWindowHolder$$special$$inlined$let$lambda$3.onChanged(java.lang.Object):void, com.rigol.scope.views.window.XYWindowHolder$$special$$inlined$let$lambda$4.onChanged(java.lang.Object):void] */
+    public static final /* synthetic */ HorizontalParam access$getHorizontalParam$p(XYWindowHolder xYWindowHolder) {
+        return xYWindowHolder.horizontalParam;
+    }
+
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.views.window.XYWindowHolder$$special$$inlined$let$lambda$5.onChanged(java.lang.Object):void, com.rigol.scope.views.window.XYWindowHolder$$special$$inlined$let$lambda$6.onChanged(java.lang.Object):void, com.rigol.scope.views.window.XYWindowHolder$$special$$inlined$let$lambda$7.onChanged(java.lang.Object):void] */
+    public static final /* synthetic */ XYParam access$getXyParam$p(XYWindowHolder xYWindowHolder) {
+        return xYWindowHolder.xyParam;
+    }
+
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.views.window.XYWindowHolder$$special$$inlined$let$lambda$1.onChanged(com.rigol.scope.data.XYParam):void] */
+    public static final /* synthetic */ void access$setXyParam$p(XYWindowHolder xYWindowHolder, XYParam xYParam) {
+        xYWindowHolder.xyParam = xYParam;
+    }
+
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.views.window.XYWindowHolder$$special$$inlined$let$lambda$2.onChanged(java.lang.Object):void, com.rigol.scope.views.window.XYWindowHolder$$special$$inlined$let$lambda$3.onChanged(java.lang.Object):void, com.rigol.scope.views.window.XYWindowHolder$$special$$inlined$let$lambda$4.onChanged(java.lang.Object):void] */
+    public static final /* synthetic */ void access$updateTips(XYWindowHolder xYWindowHolder) {
+        xYWindowHolder.updateTips();
+    }
+
     public final WindowContent getContent() {
         return this.content;
     }
@@ -334,7 +370,6 @@ public final class XYWindowHolder extends WindowHolder {
         return this.binding;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public final void updateTips() {
         if (API.getInstance().UI_QueryBool(40, MessageID.MSG_XY_USABLE)) {
             TextView textView = this.binding.warning;

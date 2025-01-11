@@ -14,6 +14,7 @@ import javax.jmdns.impl.constants.DNSState;
 import javax.jmdns.impl.tasks.DNSTask;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 /* loaded from: classes2.dex */
 public abstract class DNSStateTask extends DNSTask {
     private DNSState _taskState;
@@ -53,8 +54,7 @@ public abstract class DNSStateTask extends DNSTask {
         return this._ttl;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void associate(DNSState dNSState) {
+    protected void associate(DNSState dNSState) {
         synchronized (getDns()) {
             getDns().associateWithTask(this, dNSState);
         }
@@ -64,8 +64,7 @@ public abstract class DNSStateTask extends DNSTask {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void removeAssociation() {
+    protected void removeAssociation() {
         synchronized (getDns()) {
             getDns().removeAssociationWithTask(this);
         }
@@ -128,13 +127,11 @@ public abstract class DNSStateTask extends DNSTask {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public DNSState getTaskState() {
+    protected DNSState getTaskState() {
         return this._taskState;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void setTaskState(DNSState dNSState) {
+    protected void setTaskState(DNSState dNSState) {
         this._taskState = dNSState;
     }
 }

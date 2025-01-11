@@ -5,6 +5,7 @@ import android.graphics.Path;
 import android.os.Build;
 import java.util.ArrayList;
 import java.util.List;
+
 /* loaded from: classes2.dex */
 class PathParser {
     private static final String TAG = "PathParser";
@@ -51,14 +52,161 @@ class PathParser {
     /* JADX WARN: Removed duplicated region for block: B:31:0x005c  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    private static void transformScaleCommand(float r19, float r20, char r21, float[] r22) {
-        /*
-            Method dump skipped, instructions count: 322
-            To view this dump add '--comments-level debug' option
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.scwang.smartrefresh.header.internal.pathview.PathParser.transformScaleCommand(float, float, char, float[]):void");
+    private static void transformScaleCommand(float f, float f2, char c, float[] fArr) {
+        int i;
+        char c2 = 'Q';
+        int i2 = 2;
+        if (c != 'A') {
+            if (c != 'C') {
+                if (c != 'H') {
+                    if (c != 'Q') {
+                        if (c != 'V') {
+                            if (c != 'a') {
+                                if (c != 'c') {
+                                    if (c != 'h') {
+                                        if (c != 'q') {
+                                            if (c != 'v') {
+                                                if (c != 'L') {
+                                                    if (c != 'M') {
+                                                        if (c != 'S') {
+                                                            if (c != 'T') {
+                                                                if (c != 'l') {
+                                                                    if (c != 'm') {
+                                                                        if (c != 's') {
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                                i = 0;
+                                                while (i < fArr.length) {
+                                                    if (c != 'A') {
+                                                        if (c != 'C') {
+                                                            if (c != 'H') {
+                                                                if (c != c2) {
+                                                                    if (c != 'V') {
+                                                                        if (c != 'a') {
+                                                                            if (c != 'c') {
+                                                                                if (c != 'h') {
+                                                                                    if (c != 'q') {
+                                                                                        if (c != 'v') {
+                                                                                            if (c != 'L' && c != 'M') {
+                                                                                                if (c != 'S') {
+                                                                                                    if (c != 'T' && c != 'l' && c != 'm') {
+                                                                                                        if (c != 's') {
+                                                                                                            if (c != 't') {
+                                                                                                                i += i2;
+                                                                                                                c2 = 'Q';
+                                                                                                            }
+                                                                                                        }
+                                                                                                    }
+                                                                                                }
+                                                                                                fArr[i] = fArr[i] * f;
+                                                                                                int i3 = i + 1;
+                                                                                                fArr[i3] = fArr[i3] * f2;
+                                                                                                int i4 = i + 2;
+                                                                                                fArr[i4] = fArr[i4] * f;
+                                                                                                int i5 = i + 3;
+                                                                                                fArr[i5] = fArr[i5] * f2;
+                                                                                                fArr[i] = fArr[i] * f;
+                                                                                                int i6 = i + 1;
+                                                                                                fArr[i6] = fArr[i6] * f2;
+                                                                                                int i7 = i + 5;
+                                                                                                fArr[i7] = fArr[i7] * f;
+                                                                                                int i8 = i + 6;
+                                                                                                fArr[i8] = fArr[i8] * f2;
+                                                                                                i += i2;
+                                                                                                c2 = 'Q';
+                                                                                            }
+                                                                                            fArr[i] = fArr[i] * f;
+                                                                                            int i9 = i + 1;
+                                                                                            fArr[i9] = fArr[i9] * f2;
+                                                                                            i += i2;
+                                                                                            c2 = 'Q';
+                                                                                        }
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                    fArr[i] = fArr[i] * f2;
+                                                                    i += i2;
+                                                                    c2 = 'Q';
+                                                                }
+                                                                fArr[i] = fArr[i] * f;
+                                                                int i32 = i + 1;
+                                                                fArr[i32] = fArr[i32] * f2;
+                                                                int i42 = i + 2;
+                                                                fArr[i42] = fArr[i42] * f;
+                                                                int i52 = i + 3;
+                                                                fArr[i52] = fArr[i52] * f2;
+                                                                fArr[i] = fArr[i] * f;
+                                                                int i62 = i + 1;
+                                                                fArr[i62] = fArr[i62] * f2;
+                                                                int i72 = i + 5;
+                                                                fArr[i72] = fArr[i72] * f;
+                                                                int i82 = i + 6;
+                                                                fArr[i82] = fArr[i82] * f2;
+                                                                i += i2;
+                                                                c2 = 'Q';
+                                                            }
+                                                            fArr[i] = fArr[i] * f;
+                                                            i += i2;
+                                                            c2 = 'Q';
+                                                        }
+                                                        fArr[i] = fArr[i] * f;
+                                                        int i10 = i + 1;
+                                                        fArr[i10] = fArr[i10] * f2;
+                                                        int i11 = i + 2;
+                                                        fArr[i11] = fArr[i11] * f;
+                                                        int i12 = i + 3;
+                                                        fArr[i12] = fArr[i12] * f2;
+                                                        int i13 = i + 4;
+                                                        fArr[i13] = fArr[i13] * f;
+                                                        int i14 = i + 5;
+                                                        fArr[i14] = fArr[i14] * f2;
+                                                        i += i2;
+                                                        c2 = 'Q';
+                                                    }
+                                                    fArr[i] = fArr[i] * f;
+                                                    int i622 = i + 1;
+                                                    fArr[i622] = fArr[i622] * f2;
+                                                    int i722 = i + 5;
+                                                    fArr[i722] = fArr[i722] * f;
+                                                    int i822 = i + 6;
+                                                    fArr[i822] = fArr[i822] * f2;
+                                                    i += i2;
+                                                    c2 = 'Q';
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    i2 = 4;
+                    i = 0;
+                    while (i < fArr.length) {
+                    }
+                }
+                i2 = 1;
+                i = 0;
+                while (i < fArr.length) {
+                }
+            }
+            i2 = 6;
+            i = 0;
+            while (i < fArr.length) {
+            }
+        }
+        i2 = 7;
+        i = 0;
+        while (i < fArr.length) {
+        }
     }
 
     public static Path createPathFromPathData(String str) {
@@ -112,9 +260,8 @@ class PathParser {
         list.add(new PathDataNode(c, fArr));
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
-    public static class ExtractFloatResult {
+    private static class ExtractFloatResult {
         int mEndPosition;
         boolean mEndWithNegOrDot;
 
@@ -152,68 +299,52 @@ class PathParser {
     /* JADX WARN: Removed duplicated region for block: B:28:0x003d A[SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    private static void extract(java.lang.String r8, int r9, com.scwang.smartrefresh.header.internal.pathview.PathParser.ExtractFloatResult r10) {
-        /*
-            r0 = 0
-            r10.mEndWithNegOrDot = r0
-            r1 = r9
-            r2 = r0
-            r3 = r2
-            r4 = r3
-        L7:
-            int r5 = r8.length()
-            if (r1 >= r5) goto L3d
-            char r5 = r8.charAt(r1)
-            r6 = 32
-            r7 = 1
-            if (r5 == r6) goto L35
-            r6 = 69
-            if (r5 == r6) goto L33
-            r6 = 101(0x65, float:1.42E-43)
-            if (r5 == r6) goto L33
-            switch(r5) {
-                case 44: goto L35;
-                case 45: goto L2a;
-                case 46: goto L22;
-                default: goto L21;
+    private static void extract(String str, int i, ExtractFloatResult extractFloatResult) {
+        extractFloatResult.mEndWithNegOrDot = false;
+        boolean z = false;
+        boolean z2 = false;
+        boolean z3 = false;
+        for (int i2 = i; i2 < str.length(); i2++) {
+            char charAt = str.charAt(i2);
+            if (charAt != ' ') {
+                if (charAt != 'E' && charAt != 'e') {
+                    switch (charAt) {
+                        case ',':
+                            break;
+                        case '-':
+                            if (i2 != i && !z) {
+                                extractFloatResult.mEndWithNegOrDot = true;
+                                break;
+                            }
+                            z = false;
+                            break;
+                        case '.':
+                            if (z2) {
+                                extractFloatResult.mEndWithNegOrDot = true;
+                                break;
+                            } else {
+                                z = false;
+                                z2 = true;
+                                break;
+                            }
+                        default:
+                            z = false;
+                            break;
+                    }
+                } else {
+                    z = true;
+                }
+                if (!z3) {
+                    extractFloatResult.mEndPosition = i2;
+                }
             }
-        L21:
-            goto L31
-        L22:
-            if (r3 != 0) goto L27
-            r2 = r0
-            r3 = r7
-            goto L37
-        L27:
-            r10.mEndWithNegOrDot = r7
-            goto L35
-        L2a:
-            if (r1 == r9) goto L31
-            if (r2 != 0) goto L31
-            r10.mEndWithNegOrDot = r7
-            goto L35
-        L31:
-            r2 = r0
-            goto L37
-        L33:
-            r2 = r7
-            goto L37
-        L35:
-            r2 = r0
-            r4 = r7
-        L37:
-            if (r4 == 0) goto L3a
-            goto L3d
-        L3a:
-            int r1 = r1 + 1
-            goto L7
-        L3d:
-            r10.mEndPosition = r1
-            return
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.scwang.smartrefresh.header.internal.pathview.PathParser.extract(java.lang.String, int, com.scwang.smartrefresh.header.internal.pathview.PathParser$ExtractFloatResult):void");
+            z = false;
+            z3 = true;
+            if (!z3) {
+            }
+        }
+        extractFloatResult.mEndPosition = i2;
     }
 
     /* loaded from: classes2.dex */

@@ -2,13 +2,13 @@ package com.bumptech.glide.load.engine;
 
 import com.bumptech.glide.load.Key;
 import java.security.MessageDigest;
+
 /* loaded from: classes.dex */
 final class DataCacheKey implements Key {
     private final Key signature;
     private final Key sourceKey;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public DataCacheKey(Key key, Key key2) {
+    DataCacheKey(Key key, Key key2) {
         this.sourceKey = key;
         this.signature = key2;
     }

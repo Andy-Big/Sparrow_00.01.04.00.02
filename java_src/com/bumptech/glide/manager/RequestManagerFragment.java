@@ -9,6 +9,7 @@ import com.bumptech.glide.RequestManager;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
+
 @Deprecated
 /* loaded from: classes.dex */
 public class RequestManagerFragment extends Fragment {
@@ -34,8 +35,7 @@ public class RequestManagerFragment extends Fragment {
         this.requestManager = requestManager;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ActivityFragmentLifecycle getGlideLifecycle() {
+    ActivityFragmentLifecycle getGlideLifecycle() {
         return this.lifecycle;
     }
 
@@ -71,8 +71,7 @@ public class RequestManagerFragment extends Fragment {
         return Collections.unmodifiableSet(hashSet);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setParentFragmentHint(Fragment fragment) {
+    void setParentFragmentHint(Fragment fragment) {
         this.parentFragmentHint = fragment;
         if (fragment == null || fragment.getActivity() == null) {
             return;

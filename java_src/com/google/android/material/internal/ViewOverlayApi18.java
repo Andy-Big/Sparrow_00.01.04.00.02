@@ -3,12 +3,12 @@ package com.google.android.material.internal;
 import android.graphics.drawable.Drawable;
 import android.view.View;
 import android.view.ViewOverlay;
+
 /* loaded from: classes.dex */
 class ViewOverlayApi18 implements ViewOverlayImpl {
     private final ViewOverlay viewOverlay;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ViewOverlayApi18(View view) {
+    ViewOverlayApi18(View view) {
         this.viewOverlay = view.getOverlay();
     }
 

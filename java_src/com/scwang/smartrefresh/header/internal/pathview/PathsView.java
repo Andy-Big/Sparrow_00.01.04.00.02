@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.util.AttributeSet;
 import android.view.View;
+
 /* loaded from: classes2.dex */
 public class PathsView extends View {
     protected PathsDrawable mPathsDrawable;

@@ -6,6 +6,7 @@ import android.os.Handler;
 import android.webkit.JsPromptResult;
 import android.webkit.JsResult;
 import android.webkit.WebView;
+
 /* loaded from: classes.dex */
 public abstract class AbsAgentWebUIController {
     public static boolean HAS_DESIGN_LIB = false;
@@ -15,8 +16,7 @@ public abstract class AbsAgentWebUIController {
     private volatile boolean mIsBindWebParent = false;
     protected String TAG = getClass().getSimpleName();
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void bindSupportWebParent(WebParentLayout webParentLayout, Activity activity);
+    protected abstract void bindSupportWebParent(WebParentLayout webParentLayout, Activity activity);
 
     public abstract void onCancelLoading();
 
@@ -56,8 +56,7 @@ public abstract class AbsAgentWebUIController {
         return HAS_DESIGN_LIB ? new DefaultDesignUIController() : new DefaultUIController();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public AbsAgentWebUIController getDelegate() {
+    protected AbsAgentWebUIController getDelegate() {
         AbsAgentWebUIController absAgentWebUIController = this.mAgentWebUIControllerDelegate;
         if (absAgentWebUIController == null) {
             AbsAgentWebUIController create = create();
@@ -67,8 +66,7 @@ public abstract class AbsAgentWebUIController {
         return absAgentWebUIController;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public final synchronized void bindWebParent(WebParentLayout webParentLayout, Activity activity) {
+    final synchronized void bindWebParent(WebParentLayout webParentLayout, Activity activity) {
         if (!this.mIsBindWebParent) {
             this.mIsBindWebParent = true;
             this.mWebParentLayout = webParentLayout;
@@ -77,8 +75,7 @@ public abstract class AbsAgentWebUIController {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void toDismissDialog(Dialog dialog) {
+    protected void toDismissDialog(Dialog dialog) {
         if (dialog == null || !dialog.isShowing()) {
             return;
         }

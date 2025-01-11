@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 /* loaded from: classes.dex */
 public class ResourceDecoderRegistry {
     private final List<String> bucketPriorityList = new ArrayList();
@@ -76,9 +77,8 @@ public class ResourceDecoderRegistry {
         return list;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static class Entry<T, R> {
+    private static class Entry<T, R> {
         private final Class<T> dataClass;
         final ResourceDecoder<T, R> decoder;
         final Class<R> resourceClass;

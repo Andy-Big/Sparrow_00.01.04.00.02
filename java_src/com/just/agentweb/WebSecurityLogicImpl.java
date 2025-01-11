@@ -4,6 +4,7 @@ import android.os.Build;
 import android.webkit.WebView;
 import androidx.collection.ArrayMap;
 import com.just.agentweb.AgentWeb;
+
 /* loaded from: classes.dex */
 public class WebSecurityLogicImpl implements WebSecurityCheckLogic {
     private String TAG = getClass().getSimpleName();

@@ -2,6 +2,7 @@ package androidx.core.content;
 
 import java.util.ArrayList;
 import org.slf4j.Marker;
+
 /* loaded from: classes.dex */
 public final class MimeTypeFilter {
     private MimeTypeFilter() {

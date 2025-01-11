@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.util.Log;
 import com.github.barteksc.pdfviewer.PDFView;
 import com.github.barteksc.pdfviewer.model.LinkTapEvent;
+
 /* loaded from: classes.dex */
 public class DefaultLinkHandler implements LinkHandler {
     private static final String TAG = DefaultLinkHandler.class.getSimpleName();

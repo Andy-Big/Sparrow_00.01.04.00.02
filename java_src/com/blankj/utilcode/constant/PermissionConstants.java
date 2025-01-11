@@ -3,6 +3,7 @@ package com.blankj.utilcode.constant;
 import android.os.Build;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
+
 /* loaded from: classes.dex */
 public final class PermissionConstants {
     public static final String ACTIVITY_RECOGNITION = "ACTIVITY_RECOGNITION";

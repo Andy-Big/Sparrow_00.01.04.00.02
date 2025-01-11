@@ -18,6 +18,7 @@ import android.widget.ShareActionProvider;
 import androidx.core.content.IntentCompat;
 import androidx.core.util.Preconditions;
 import java.util.ArrayList;
+
 /* loaded from: classes.dex */
 public final class ShareCompat {
     public static final String EXTRA_CALLING_ACTIVITY = "androidx.core.app.EXTRA_CALLING_ACTIVITY";

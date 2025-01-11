@@ -12,6 +12,7 @@ import javax.jmdns.impl.constants.DNSState;
 import javax.jmdns.impl.tasks.DNSTask;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 /* loaded from: classes2.dex */
 public interface DNSStatefulObject {
     boolean advanceState(DNSTask dNSTask);
@@ -117,8 +118,7 @@ public interface DNSStatefulObject {
             return this._dns;
         }
 
-        /* JADX INFO: Access modifiers changed from: protected */
-        public void setDns(JmDNSImpl jmDNSImpl) {
+        protected void setDns(JmDNSImpl jmDNSImpl) {
             this._dns = jmDNSImpl;
         }
 
@@ -168,13 +168,11 @@ public interface DNSStatefulObject {
             }
         }
 
-        /* JADX INFO: Access modifiers changed from: protected */
-        public void setTask(DNSTask dNSTask) {
+        protected void setTask(DNSTask dNSTask) {
             this._task = dNSTask;
         }
 
-        /* JADX INFO: Access modifiers changed from: protected */
-        public void setState(DNSState dNSState) {
+        protected void setState(DNSState dNSState) {
             lock();
             try {
                 this._state = dNSState;

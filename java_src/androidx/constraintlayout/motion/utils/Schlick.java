@@ -1,4 +1,5 @@
 package androidx.constraintlayout.motion.utils;
+
 /* loaded from: classes.dex */
 public class Schlick extends Easing {
     private static final boolean DEBUG = false;
@@ -6,8 +7,7 @@ public class Schlick extends Easing {
     double mS;
     double mT;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public Schlick(String str) {
+    Schlick(String str) {
         this.str = str;
         int indexOf = str.indexOf(40);
         int indexOf2 = str.indexOf(44, indexOf);

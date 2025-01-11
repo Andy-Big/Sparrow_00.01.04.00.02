@@ -16,9 +16,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* JADX INFO: Access modifiers changed from: package-private */
+
 /* loaded from: classes.dex */
-public final class UtilsActivityLifecycleImpl implements Application.ActivityLifecycleCallbacks {
+final class UtilsActivityLifecycleImpl implements Application.ActivityLifecycleCallbacks {
     static final UtilsActivityLifecycleImpl INSTANCE = new UtilsActivityLifecycleImpl();
     private static final Activity STUB = new Activity();
     private final LinkedList<Activity> mActivityList = new LinkedList<>();
@@ -31,19 +31,16 @@ public final class UtilsActivityLifecycleImpl implements Application.ActivityLif
     UtilsActivityLifecycleImpl() {
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void init(Application application) {
+    void init(Application application) {
         application.registerActivityLifecycleCallbacks(this);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void unInit(Application application) {
+    void unInit(Application application) {
         this.mActivityList.clear();
         application.unregisterActivityLifecycleCallbacks(this);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public Activity getTopActivity() {
+    Activity getTopActivity() {
         for (Activity activity : getActivityList()) {
             if (UtilsBridge.isActivityAlive(activity)) {
                 return activity;
@@ -52,8 +49,7 @@ public final class UtilsActivityLifecycleImpl implements Application.ActivityLif
         return null;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public List<Activity> getActivityList() {
+    List<Activity> getActivityList() {
         if (!this.mActivityList.isEmpty()) {
             return new LinkedList(this.mActivityList);
         }
@@ -61,23 +57,19 @@ public final class UtilsActivityLifecycleImpl implements Application.ActivityLif
         return new LinkedList(this.mActivityList);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void addOnAppStatusChangedListener(Utils.OnAppStatusChangedListener onAppStatusChangedListener) {
+    void addOnAppStatusChangedListener(Utils.OnAppStatusChangedListener onAppStatusChangedListener) {
         this.mStatusListeners.add(onAppStatusChangedListener);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void removeOnAppStatusChangedListener(Utils.OnAppStatusChangedListener onAppStatusChangedListener) {
+    void removeOnAppStatusChangedListener(Utils.OnAppStatusChangedListener onAppStatusChangedListener) {
         this.mStatusListeners.remove(onAppStatusChangedListener);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void addActivityLifecycleCallbacks(Utils.ActivityLifecycleCallbacks activityLifecycleCallbacks) {
+    void addActivityLifecycleCallbacks(Utils.ActivityLifecycleCallbacks activityLifecycleCallbacks) {
         addActivityLifecycleCallbacks(STUB, activityLifecycleCallbacks);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void addActivityLifecycleCallbacks(final Activity activity, final Utils.ActivityLifecycleCallbacks activityLifecycleCallbacks) {
+    void addActivityLifecycleCallbacks(final Activity activity, final Utils.ActivityLifecycleCallbacks activityLifecycleCallbacks) {
         if (activity == null || activityLifecycleCallbacks == null) {
             return;
         }
@@ -89,8 +81,7 @@ public final class UtilsActivityLifecycleImpl implements Application.ActivityLif
         });
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean isAppForeground() {
+    boolean isAppForeground() {
         return !this.mIsBackground;
     }
 
@@ -106,13 +97,11 @@ public final class UtilsActivityLifecycleImpl implements Application.ActivityLif
         list.add(activityLifecycleCallbacks);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void removeActivityLifecycleCallbacks(Utils.ActivityLifecycleCallbacks activityLifecycleCallbacks) {
+    void removeActivityLifecycleCallbacks(Utils.ActivityLifecycleCallbacks activityLifecycleCallbacks) {
         removeActivityLifecycleCallbacks(STUB, activityLifecycleCallbacks);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void removeActivityLifecycleCallbacks(final Activity activity) {
+    void removeActivityLifecycleCallbacks(final Activity activity) {
         if (activity == null) {
             return;
         }
@@ -124,8 +113,7 @@ public final class UtilsActivityLifecycleImpl implements Application.ActivityLif
         });
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void removeActivityLifecycleCallbacks(final Activity activity, final Utils.ActivityLifecycleCallbacks activityLifecycleCallbacks) {
+    void removeActivityLifecycleCallbacks(final Activity activity, final Utils.ActivityLifecycleCallbacks activityLifecycleCallbacks) {
         if (activity == null || activityLifecycleCallbacks == null) {
             return;
         }
@@ -176,8 +164,7 @@ public final class UtilsActivityLifecycleImpl implements Application.ActivityLif
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public Application getApplicationByReflect() {
+    Application getApplicationByReflect() {
         try {
             Class<?> cls = Class.forName("android.app.ActivityThread");
             Object invoke = cls.getMethod("getApplication", new Class[0]).invoke(getActivityThread(), new Object[0]);

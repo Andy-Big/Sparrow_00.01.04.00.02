@@ -6,6 +6,7 @@ import android.util.AttributeSet;
 import android.util.TypedValue;
 import androidx.appcompat.widget.TintTypedArray;
 import com.google.android.material.R;
+
 /* loaded from: classes.dex */
 public final class ThemeEnforcement {
     private static final String APPCOMPAT_THEME_NAME = "Theme.AppCompat";

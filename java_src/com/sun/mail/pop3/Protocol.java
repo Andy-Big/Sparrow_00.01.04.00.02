@@ -7,6 +7,7 @@ import com.sun.mail.util.BASE64EncoderStream;
 import com.sun.mail.util.LineInputStream;
 import com.sun.mail.util.MailLogger;
 import com.sun.mail.util.PropUtil;
+import com.sun.mail.util.SharedByteArrayOutputStream;
 import com.sun.mail.util.SocketFetcher;
 import com.sun.mail.util.TraceInputStream;
 import com.sun.mail.util.TraceOutputStream;
@@ -18,6 +19,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.InterruptedIOException;
+import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
@@ -36,9 +38,9 @@ import java.util.StringTokenizer;
 import java.util.logging.Level;
 import javax.net.ssl.SSLSocket;
 import kotlin.UByte;
-/* JADX INFO: Access modifiers changed from: package-private */
+
 /* loaded from: classes2.dex */
-public class Protocol {
+class Protocol {
     static final /* synthetic */ boolean $assertionsDisabled = false;
     private static final String CRLF = "\r\n";
     private static final int POP3_PORT = 110;
@@ -84,21 +86,77 @@ public class Protocol {
     private void simpleCommandStart(String str) {
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: Removed duplicated region for block: B:30:0x00f4  */
     /* JADX WARN: Removed duplicated region for block: B:33:0x0121 A[LOOP:0: B:32:0x011f->B:33:0x0121, LOOP_END] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    public Protocol(java.lang.String r9, int r10, com.sun.mail.util.MailLogger r11, java.util.Properties r12, java.lang.String r13, boolean r14) throws java.io.IOException {
-        /*
-            Method dump skipped, instructions count: 348
-            To view this dump add '--comments-level debug' option
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.sun.mail.pop3.Protocol.<init>(java.lang.String, int, com.sun.mail.util.MailLogger, java.util.Properties, java.lang.String, boolean):void");
+    Protocol(String str, int i, MailLogger mailLogger, Properties properties, String str2, boolean z) throws IOException {
+        boolean z2;
+        this.apopChallenge = null;
+        this.noauthdebug = true;
+        this.host = str;
+        this.props = properties;
+        this.prefix = str2;
+        this.logger = mailLogger;
+        this.traceLogger = mailLogger.getSubLogger("protocol", null);
+        this.noauthdebug = !PropUtil.getBooleanProperty(properties, "mail.debug.auth", false);
+        boolean boolProp = getBoolProp(properties, str2 + ".apop.enable");
+        boolean boolProp2 = getBoolProp(properties, str2 + ".disablecapa");
+        i = i == -1 ? 110 : i;
+        try {
+            if (mailLogger.isLoggable(Level.FINE)) {
+                mailLogger.fine("connecting to host \"" + str + "\", port " + i + ", isSSL " + z);
+            }
+            this.socket = SocketFetcher.getSocket(str, i, properties, str2, z);
+            initStreams();
+            Response simpleCommand = simpleCommand(null);
+            if (!simpleCommand.ok) {
+                throw cleanupAndThrow(this.socket, new IOException("Connect failed"));
+            }
+            if (boolProp && simpleCommand.data != null) {
+                int indexOf = simpleCommand.data.indexOf(60);
+                int indexOf2 = simpleCommand.data.indexOf(62, indexOf);
+                if (indexOf != -1 && indexOf2 != -1) {
+                    this.apopChallenge = simpleCommand.data.substring(indexOf, indexOf2 + 1);
+                }
+                mailLogger.log(Level.FINE, "APOP challenge: {0}", this.apopChallenge);
+            }
+            if (!boolProp2) {
+                setCapabilities(capa());
+            }
+            if (!hasCapability("PIPELINING")) {
+                if (!PropUtil.getBooleanProperty(properties, str2 + ".pipelining", false)) {
+                    z2 = false;
+                    this.pipelining = z2;
+                    if (z2) {
+                        mailLogger.config("PIPELINING enabled");
+                    }
+                    Authenticator[] authenticatorArr = {new LoginAuthenticator(), new PlainAuthenticator(), new NtlmAuthenticator(), new OAuth2Authenticator()};
+                    StringBuilder sb = new StringBuilder();
+                    for (int i2 = 0; i2 < 4; i2++) {
+                        this.authenticators.put(authenticatorArr[i2].getMechanism(), authenticatorArr[i2]);
+                        sb.append(authenticatorArr[i2].getMechanism());
+                        sb.append(' ');
+                    }
+                    this.defaultAuthenticationMechanisms = sb.toString();
+                }
+            }
+            z2 = true;
+            this.pipelining = z2;
+            if (z2) {
+            }
+            Authenticator[] authenticatorArr2 = {new LoginAuthenticator(), new PlainAuthenticator(), new NtlmAuthenticator(), new OAuth2Authenticator()};
+            StringBuilder sb2 = new StringBuilder();
+            while (i2 < 4) {
+            }
+            this.defaultAuthenticationMechanisms = sb2.toString();
+        } catch (IOException e) {
+            throw cleanupAndThrow(this.socket, e);
+        }
     }
 
+    /* JADX DEBUG: Finally have unexpected throw blocks count: 3, expect 1 */
     private static IOException cleanupAndThrow(Socket socket, IOException iOException) {
         try {
             socket.close();
@@ -155,8 +213,7 @@ public class Protocol {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public synchronized void setCapabilities(InputStream inputStream) {
+    synchronized void setCapabilities(InputStream inputStream) {
         BufferedReader bufferedReader = null;
         if (inputStream == null) {
             this.capabilities = null;
@@ -191,8 +248,7 @@ public class Protocol {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public synchronized boolean hasCapability(String str) {
+    synchronized boolean hasCapability(String str) {
         boolean z;
         if (this.capabilities != null) {
             z = this.capabilities.containsKey(str.toUpperCase(Locale.ENGLISH));
@@ -200,29 +256,24 @@ public class Protocol {
         return z;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public synchronized Map<String, String> getCapabilities() {
+    synchronized Map<String, String> getCapabilities() {
         return this.capabilities;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean supportsMechanism(String str) {
+    boolean supportsMechanism(String str) {
         return this.authenticators.containsKey(str.toUpperCase(Locale.ENGLISH));
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public String getDefaultMechanisms() {
+    String getDefaultMechanisms() {
         return this.defaultAuthenticationMechanisms;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean isMechanismEnabled(String str) {
+    boolean isMechanismEnabled(String str) {
         Authenticator authenticator = this.authenticators.get(str.toUpperCase(Locale.ENGLISH));
         return authenticator != null && authenticator.enabled();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public synchronized String authenticate(String str, String str2, String str3, String str4, String str5) {
+    synchronized String authenticate(String str, String str2, String str3, String str4, String str5) {
         Authenticator authenticator = this.authenticators.get(str.toUpperCase(Locale.ENGLISH));
         if (authenticator == null) {
             return "No such authentication mechanism: " + str;
@@ -237,8 +288,7 @@ public class Protocol {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public synchronized boolean supportsAuthentication(String str) {
+    synchronized boolean supportsAuthentication(String str) {
         if (str.equals("LOGIN")) {
             return true;
         }
@@ -258,6 +308,7 @@ public class Protocol {
         return false;
     }
 
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [391=5] */
     synchronized String login(String str, String str2) throws IOException {
         Response simpleCommand;
         boolean z = this.pipelining && (this.socket instanceof SSLSocket);
@@ -314,9 +365,8 @@ public class Protocol {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
-    public abstract class Authenticator {
+    private abstract class Authenticator {
         static final /* synthetic */ boolean $assertionsDisabled = false;
         private final boolean enabled;
         private final String mech;
@@ -345,6 +395,7 @@ public class Protocol {
             return this.enabled;
         }
 
+        /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [481=4, 482=4, 483=4, 496=4, 478=4, 479=4] */
         boolean authenticate(String str, String str2, String str3, String str4) throws IOException {
             try {
                 try {
@@ -387,26 +438,26 @@ public class Protocol {
                     }
                     Protocol.this.close();
                     throw new EOFException(this.resp.data != null ? this.resp.data : "authentication failed");
-                } catch (IOException e) {
-                    MailLogger mailLogger3 = Protocol.this.logger;
-                    Level level = Level.FINE;
-                    mailLogger3.log(level, "AUTH " + this.mech + " failed", (Throwable) e);
-                    if (Protocol.this.noauthdebug && Protocol.this.isTracing()) {
-                        MailLogger mailLogger4 = Protocol.this.logger;
-                        StringBuilder sb3 = new StringBuilder();
-                        sb3.append("AUTH ");
-                        sb3.append(this.mech);
-                        sb3.append(" ");
-                        sb3.append(this.resp.ok ? "succeeded" : "failed");
-                        mailLogger4.fine(sb3.toString());
-                    }
-                    Protocol.this.resumeTracing();
-                    if (this.resp.ok) {
-                        return true;
-                    }
-                    Protocol.this.close();
-                    throw new EOFException(this.resp.data != null ? this.resp.data : "authentication failed");
                 }
+            } catch (IOException e) {
+                MailLogger mailLogger3 = Protocol.this.logger;
+                Level level = Level.FINE;
+                mailLogger3.log(level, "AUTH " + this.mech + " failed", (Throwable) e);
+                if (Protocol.this.noauthdebug && Protocol.this.isTracing()) {
+                    MailLogger mailLogger4 = Protocol.this.logger;
+                    StringBuilder sb3 = new StringBuilder();
+                    sb3.append("AUTH ");
+                    sb3.append(this.mech);
+                    sb3.append(" ");
+                    sb3.append(this.resp.ok ? "succeeded" : "failed");
+                    mailLogger4.fine(sb3.toString());
+                }
+                Protocol.this.resumeTracing();
+                if (this.resp.ok) {
+                    return true;
+                }
+                Protocol.this.close();
+                throw new EOFException(this.resp.data != null ? this.resp.data : "authentication failed");
             }
         }
     }
@@ -540,16 +591,14 @@ public class Protocol {
         return new String(cArr);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public synchronized boolean quit() throws IOException {
+    synchronized boolean quit() throws IOException {
         boolean z;
         z = simpleCommand("QUIT").ok;
         close();
         return z;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void close() {
+    void close() {
         try {
             if (this.socket != null) {
                 this.socket.close();
@@ -566,8 +615,7 @@ public class Protocol {
         this.output = null;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public synchronized Status stat() throws IOException {
+    synchronized Status stat() throws IOException {
         Status status;
         Response simpleCommand = simpleCommand("STAT");
         status = new Status();
@@ -584,8 +632,7 @@ public class Protocol {
         return status;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public synchronized int list(int i) throws IOException {
+    synchronized int list(int i) throws IOException {
         int i2;
         Response simpleCommand = simpleCommand("LIST " + i);
         i2 = -1;
@@ -600,141 +647,176 @@ public class Protocol {
         return i2;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public synchronized InputStream list() throws IOException {
+    synchronized InputStream list() throws IOException {
         return multilineCommand("LIST", 128).bytes;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: Removed duplicated region for block: B:13:0x0012 A[Catch: all -> 0x000a, TryCatch #2 {all -> 0x000a, blocks: (B:5:0x0004, B:13:0x0012, B:15:0x0048, B:17:0x004c, B:21:0x0063, B:23:0x006d, B:27:0x0088, B:29:0x0090, B:30:0x0098, B:52:0x0115, B:55:0x011b, B:57:0x0125, B:58:0x0141, B:31:0x009d, B:33:0x00bc, B:38:0x00c4, B:40:0x00c8, B:42:0x00df, B:46:0x00e8, B:48:0x00f2, B:51:0x010c), top: B:70:0x0004 }] */
     /* JADX WARN: Removed duplicated region for block: B:31:0x009d A[Catch: all -> 0x000a, TryCatch #2 {all -> 0x000a, blocks: (B:5:0x0004, B:13:0x0012, B:15:0x0048, B:17:0x004c, B:21:0x0063, B:23:0x006d, B:27:0x0088, B:29:0x0090, B:30:0x0098, B:52:0x0115, B:55:0x011b, B:57:0x0125, B:58:0x0141, B:31:0x009d, B:33:0x00bc, B:38:0x00c4, B:40:0x00c8, B:42:0x00df, B:46:0x00e8, B:48:0x00f2, B:51:0x010c), top: B:70:0x0004 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    public synchronized java.io.InputStream retr(int r6, int r7) throws java.io.IOException {
-        /*
-            Method dump skipped, instructions count: 327
-            To view this dump add '--comments-level debug' option
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.sun.mail.pop3.Protocol.retr(int, int):java.io.InputStream");
+    synchronized InputStream retr(int i, int i2) throws IOException {
+        boolean z;
+        Response readResponse;
+        if (i2 == 0) {
+            try {
+                if (this.pipelining) {
+                    z = true;
+                    if (!z) {
+                        String str = "LIST " + i;
+                        batchCommandStart(str);
+                        issueCommand(str);
+                        String str2 = "RETR " + i;
+                        batchCommandContinue(str2);
+                        issueCommand(str2);
+                        Response readResponse2 = readResponse();
+                        if (readResponse2.ok && readResponse2.data != null) {
+                            try {
+                                StringTokenizer stringTokenizer = new StringTokenizer(readResponse2.data);
+                                stringTokenizer.nextToken();
+                                int parseInt = Integer.parseInt(stringTokenizer.nextToken());
+                                if (parseInt > 1073741824 || parseInt < 0) {
+                                    i2 = 0;
+                                } else {
+                                    try {
+                                        if (this.logger.isLoggable(Level.FINE)) {
+                                            this.logger.fine("pipeline message size " + parseInt);
+                                        }
+                                        parseInt += 128;
+                                    } catch (RuntimeException unused) {
+                                    }
+                                    i2 = parseInt;
+                                }
+                            } catch (RuntimeException unused2) {
+                            }
+                        }
+                        readResponse = readResponse();
+                        if (readResponse.ok) {
+                            readResponse.bytes = readMultilineResponse(i2 + 128);
+                        }
+                        batchCommandEnd();
+                    } else {
+                        String str3 = "RETR " + i;
+                        multilineCommandStart(str3);
+                        issueCommand(str3);
+                        readResponse = readResponse();
+                        if (!readResponse.ok) {
+                            multilineCommandEnd();
+                            return null;
+                        }
+                        if (i2 <= 0 && readResponse.data != null) {
+                            try {
+                                StringTokenizer stringTokenizer2 = new StringTokenizer(readResponse.data);
+                                String nextToken = stringTokenizer2.nextToken();
+                                if (stringTokenizer2.nextToken().equals("octets")) {
+                                    i2 = Integer.parseInt(nextToken);
+                                    if (i2 <= 1073741824 && i2 >= 0) {
+                                        if (this.logger.isLoggable(Level.FINE)) {
+                                            this.logger.fine("guessing message size: " + i2);
+                                        }
+                                        i2 += 128;
+                                    }
+                                    i2 = 0;
+                                }
+                            } catch (RuntimeException unused3) {
+                            }
+                        }
+                        readResponse.bytes = readMultilineResponse(i2);
+                        multilineCommandEnd();
+                    }
+                    if (readResponse.ok && i2 > 0 && this.logger.isLoggable(Level.FINE)) {
+                        this.logger.fine("got message size " + readResponse.bytes.available());
+                    }
+                    return readResponse.bytes;
+                }
+            } catch (Throwable th) {
+                throw th;
+            }
+        }
+        z = false;
+        if (!z) {
+        }
+        if (readResponse.ok) {
+            this.logger.fine("got message size " + readResponse.bytes.available());
+        }
+        return readResponse.bytes;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: Code restructure failed: missing block: B:17:0x0042, code lost:
         r2 = r5.input.read();
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    public synchronized boolean retr(int r6, java.io.OutputStream r7) throws java.io.IOException {
-        /*
-            r5 = this;
-            monitor-enter(r5)
-            java.lang.StringBuilder r0 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L8e
-            r0.<init>()     // Catch: java.lang.Throwable -> L8e
-            java.lang.String r1 = "RETR "
-            r0.append(r1)     // Catch: java.lang.Throwable -> L8e
-            r0.append(r6)     // Catch: java.lang.Throwable -> L8e
-            java.lang.String r6 = r0.toString()     // Catch: java.lang.Throwable -> L8e
-            r5.multilineCommandStart(r6)     // Catch: java.lang.Throwable -> L8e
-            r5.issueCommand(r6)     // Catch: java.lang.Throwable -> L8e
-            com.sun.mail.pop3.Response r6 = r5.readResponse()     // Catch: java.lang.Throwable -> L8e
-            boolean r6 = r6.ok     // Catch: java.lang.Throwable -> L8e
-            if (r6 != 0) goto L26
-            r5.multilineCommandEnd()     // Catch: java.lang.Throwable -> L8e
-            r6 = 0
-            monitor-exit(r5)
-            return r6
-        L26:
-            r6 = 0
-            r0 = 10
-            r1 = r0
-        L2a:
-            java.io.BufferedReader r2 = r5.input     // Catch: java.io.InterruptedIOException -> L87 java.lang.Throwable -> L8e
-            int r2 = r2.read()     // Catch: java.io.InterruptedIOException -> L87 java.lang.Throwable -> L8e
-            if (r2 < 0) goto L66
-            if (r1 != r0) goto L49
-            r1 = 46
-            if (r2 != r1) goto L49
-            java.io.BufferedReader r1 = r5.input     // Catch: java.io.InterruptedIOException -> L87 java.lang.Throwable -> L8e
-            int r1 = r1.read()     // Catch: java.io.InterruptedIOException -> L87 java.lang.Throwable -> L8e
-            r2 = 13
-            if (r1 != r2) goto L4a
-            java.io.BufferedReader r7 = r5.input     // Catch: java.io.InterruptedIOException -> L87 java.lang.Throwable -> L8e
-            int r2 = r7.read()     // Catch: java.io.InterruptedIOException -> L87 java.lang.Throwable -> L8e
-            goto L66
-        L49:
-            r1 = r2
-        L4a:
-            if (r6 != 0) goto L2a
-            r7.write(r1)     // Catch: java.lang.RuntimeException -> L50 java.io.IOException -> L5b java.lang.Throwable -> L8e
-            goto L2a
-        L50:
-            r6 = move-exception
-            com.sun.mail.util.MailLogger r2 = r5.logger     // Catch: java.io.InterruptedIOException -> L87 java.lang.Throwable -> L8e
-            java.util.logging.Level r3 = java.util.logging.Level.FINE     // Catch: java.io.InterruptedIOException -> L87 java.lang.Throwable -> L8e
-            java.lang.String r4 = "exception while streaming"
-            r2.log(r3, r4, r6)     // Catch: java.io.InterruptedIOException -> L87 java.lang.Throwable -> L8e
-            goto L2a
-        L5b:
-            r6 = move-exception
-            com.sun.mail.util.MailLogger r2 = r5.logger     // Catch: java.io.InterruptedIOException -> L87 java.lang.Throwable -> L8e
-            java.util.logging.Level r3 = java.util.logging.Level.FINE     // Catch: java.io.InterruptedIOException -> L87 java.lang.Throwable -> L8e
-            java.lang.String r4 = "exception while streaming"
-            r2.log(r3, r4, r6)     // Catch: java.io.InterruptedIOException -> L87 java.lang.Throwable -> L8e
-            goto L2a
-        L66:
-            if (r2 < 0) goto L7f
-            if (r6 == 0) goto L79
-            boolean r7 = r6 instanceof java.io.IOException     // Catch: java.lang.Throwable -> L8e
-            if (r7 != 0) goto L76
-            boolean r7 = r6 instanceof java.lang.RuntimeException     // Catch: java.lang.Throwable -> L8e
-            if (r7 != 0) goto L73
-            goto L79
-        L73:
-            java.lang.RuntimeException r6 = (java.lang.RuntimeException) r6     // Catch: java.lang.Throwable -> L8e
-            throw r6     // Catch: java.lang.Throwable -> L8e
-        L76:
-            java.io.IOException r6 = (java.io.IOException) r6     // Catch: java.lang.Throwable -> L8e
-            throw r6     // Catch: java.lang.Throwable -> L8e
-        L79:
-            r5.multilineCommandEnd()     // Catch: java.lang.Throwable -> L8e
-            r6 = 1
-            monitor-exit(r5)
-            return r6
-        L7f:
-            java.io.EOFException r6 = new java.io.EOFException     // Catch: java.lang.Throwable -> L8e
-            java.lang.String r7 = "EOF on socket"
-            r6.<init>(r7)     // Catch: java.lang.Throwable -> L8e
-            throw r6     // Catch: java.lang.Throwable -> L8e
-        L87:
-            r6 = move-exception
-            java.net.Socket r7 = r5.socket     // Catch: java.io.IOException -> L8d java.lang.Throwable -> L8e
-            r7.close()     // Catch: java.io.IOException -> L8d java.lang.Throwable -> L8e
-        L8d:
-            throw r6     // Catch: java.lang.Throwable -> L8e
-        L8e:
-            r6 = move-exception
-            monitor-exit(r5)
-            throw r6
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.sun.mail.pop3.Protocol.retr(int, java.io.OutputStream):boolean");
+    synchronized boolean retr(int i, OutputStream outputStream) throws IOException {
+        int read;
+        String str = "RETR " + i;
+        multilineCommandStart(str);
+        issueCommand(str);
+        if (!readResponse().ok) {
+            multilineCommandEnd();
+            return false;
+        }
+        Throwable e = null;
+        int i2 = 10;
+        while (true) {
+            try {
+                read = this.input.read();
+                if (read < 0) {
+                    break;
+                }
+                if (i2 == 10 && read == 46) {
+                    i2 = this.input.read();
+                    if (i2 == 13) {
+                        break;
+                    }
+                } else {
+                    i2 = read;
+                }
+                if (e == null) {
+                    try {
+                        outputStream.write(i2);
+                    } catch (IOException e2) {
+                        e = e2;
+                        this.logger.log(Level.FINE, "exception while streaming", e);
+                    } catch (RuntimeException e3) {
+                        e = e3;
+                        this.logger.log(Level.FINE, "exception while streaming", e);
+                    }
+                }
+            } catch (InterruptedIOException e4) {
+                try {
+                    this.socket.close();
+                } catch (IOException unused) {
+                }
+                throw e4;
+            }
+        }
+        if (read < 0) {
+            throw new EOFException("EOF on socket");
+        }
+        if (e != null) {
+            if (e instanceof IOException) {
+                throw ((IOException) e);
+            }
+            if (e instanceof RuntimeException) {
+                throw ((RuntimeException) e);
+            }
+        }
+        multilineCommandEnd();
+        return true;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public synchronized InputStream top(int i, int i2) throws IOException {
+    synchronized InputStream top(int i, int i2) throws IOException {
         return multilineCommand("TOP " + i + " " + i2, 0).bytes;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public synchronized boolean dele(int i) throws IOException {
+    synchronized boolean dele(int i) throws IOException {
         return simpleCommand("DELE " + i).ok;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public synchronized String uidl(int i) throws IOException {
+    synchronized String uidl(int i) throws IOException {
         Response simpleCommand = simpleCommand("UIDL " + i);
         if (simpleCommand.ok) {
             int indexOf = simpleCommand.data.indexOf(32);
@@ -746,8 +828,7 @@ public class Protocol {
         return null;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public synchronized boolean uidl(String[] strArr) throws IOException {
+    synchronized boolean uidl(String[] strArr) throws IOException {
         int parseInt;
         Response multilineCommand = multilineCommand("UIDL", strArr.length * 15);
         if (multilineCommand.ok) {
@@ -772,18 +853,15 @@ public class Protocol {
         return false;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public synchronized boolean noop() throws IOException {
+    synchronized boolean noop() throws IOException {
         return simpleCommand("NOOP").ok;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public synchronized boolean rset() throws IOException {
+    synchronized boolean rset() throws IOException {
         return simpleCommand("RSET").ok;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public synchronized boolean stls() throws IOException {
+    synchronized boolean stls() throws IOException {
         if (this.socket instanceof SSLSocket) {
             return true;
         }
@@ -805,13 +883,11 @@ public class Protocol {
         return simpleCommand.ok;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public synchronized boolean isSSL() {
+    synchronized boolean isSSL() {
         return this.socket instanceof SSLSocket;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public synchronized InputStream capa() throws IOException {
+    synchronized InputStream capa() throws IOException {
         Response multilineCommand = multilineCommand("CAPA", 128);
         if (multilineCommand.ok) {
             return multilineCommand.bytes;
@@ -894,51 +970,38 @@ public class Protocol {
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    private java.io.InputStream readMultilineResponse(int r4) throws java.io.IOException {
-        /*
-            r3 = this;
-            com.sun.mail.util.SharedByteArrayOutputStream r0 = new com.sun.mail.util.SharedByteArrayOutputStream
-            r0.<init>(r4)
-            r4 = 10
-            r1 = r4
-        L8:
-            java.io.BufferedReader r2 = r3.input     // Catch: java.io.InterruptedIOException -> L3b
-            int r2 = r2.read()     // Catch: java.io.InterruptedIOException -> L3b
-            if (r2 < 0) goto L2c
-            if (r1 != r4) goto L27
-            r1 = 46
-            if (r2 != r1) goto L27
-            java.io.BufferedReader r1 = r3.input     // Catch: java.io.InterruptedIOException -> L3b
-            int r1 = r1.read()     // Catch: java.io.InterruptedIOException -> L3b
-            r2 = 13
-            if (r1 != r2) goto L28
-            java.io.BufferedReader r4 = r3.input     // Catch: java.io.InterruptedIOException -> L3b
-            int r2 = r4.read()     // Catch: java.io.InterruptedIOException -> L3b
-            goto L2c
-        L27:
-            r1 = r2
-        L28:
-            r0.write(r1)     // Catch: java.io.InterruptedIOException -> L3b
-            goto L8
-        L2c:
-            if (r2 < 0) goto L33
-            java.io.InputStream r4 = r0.toStream()
-            return r4
-        L33:
-            java.io.EOFException r4 = new java.io.EOFException
-            java.lang.String r0 = "EOF on socket"
-            r4.<init>(r0)
-            throw r4
-        L3b:
-            r4 = move-exception
-            java.net.Socket r0 = r3.socket     // Catch: java.io.IOException -> L41
-            r0.close()     // Catch: java.io.IOException -> L41
-        L41:
-            throw r4
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.sun.mail.pop3.Protocol.readMultilineResponse(int):java.io.InputStream");
+    private InputStream readMultilineResponse(int i) throws IOException {
+        int read;
+        SharedByteArrayOutputStream sharedByteArrayOutputStream = new SharedByteArrayOutputStream(i);
+        int i2 = 10;
+        while (true) {
+            try {
+                read = this.input.read();
+                if (read < 0) {
+                    break;
+                }
+                if (i2 == 10 && read == 46) {
+                    i2 = this.input.read();
+                    if (i2 == 13) {
+                        break;
+                    }
+                } else {
+                    i2 = read;
+                }
+                sharedByteArrayOutputStream.write(i2);
+            } catch (InterruptedIOException e) {
+                try {
+                    this.socket.close();
+                } catch (IOException unused) {
+                }
+                throw e;
+            }
+        }
+        if (read < 0) {
+            throw new EOFException("EOF on socket");
+        }
+        return sharedByteArrayOutputStream.toStream();
     }
 
     protected boolean isTracing() {

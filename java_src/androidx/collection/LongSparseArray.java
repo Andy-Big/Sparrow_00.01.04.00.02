@@ -1,4 +1,5 @@
 package androidx.collection;
+
 /* loaded from: classes.dex */
 public class LongSparseArray<E> implements Cloneable {
     private static final Object DELETED = new Object();
@@ -23,6 +24,7 @@ public class LongSparseArray<E> implements Cloneable {
         this.mValues = new Object[idealLongArraySize];
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
     public LongSparseArray<E> m0clone() {
         try {

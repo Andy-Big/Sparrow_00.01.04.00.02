@@ -2,6 +2,7 @@ package com.sun.mail.imap;
 
 import java.io.IOException;
 import java.io.OutputStream;
+
 /* compiled from: IMAPFolder.java */
 /* loaded from: classes2.dex */
 class LengthCounter extends OutputStream {

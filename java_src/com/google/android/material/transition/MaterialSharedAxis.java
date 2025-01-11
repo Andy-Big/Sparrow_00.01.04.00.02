@@ -7,6 +7,7 @@ import androidx.core.view.GravityCompat;
 import androidx.transition.TransitionValues;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
+
 /* loaded from: classes.dex */
 public final class MaterialSharedAxis extends MaterialVisibility<VisibilityAnimatorProvider> {
     public static final int X = 0;

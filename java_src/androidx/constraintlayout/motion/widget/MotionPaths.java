@@ -6,9 +6,9 @@ import androidx.constraintlayout.widget.ConstraintAttribute;
 import androidx.constraintlayout.widget.ConstraintSet;
 import java.util.Arrays;
 import java.util.LinkedHashMap;
-/* JADX INFO: Access modifiers changed from: package-private */
+
 /* loaded from: classes.dex */
-public class MotionPaths implements Comparable<MotionPaths> {
+class MotionPaths implements Comparable<MotionPaths> {
     static final int CARTESIAN = 0;
     public static final boolean DEBUG = false;
     static final int OFF_HEIGHT = 4;
@@ -278,8 +278,7 @@ public class MotionPaths implements Comparable<MotionPaths> {
         return (Float.isNaN(f) || Float.isNaN(f2)) ? Float.isNaN(f) != Float.isNaN(f2) : Math.abs(f - f2) > 1.0E-6f;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void different(MotionPaths motionPaths, boolean[] zArr, String[] strArr, boolean z) {
+    void different(MotionPaths motionPaths, boolean[] zArr, String[] strArr, boolean z) {
         boolean diff = diff(this.x, motionPaths.x);
         boolean diff2 = diff(this.y, motionPaths.y);
         zArr[0] = zArr[0] | diff(this.position, motionPaths.position);
@@ -290,8 +289,7 @@ public class MotionPaths implements Comparable<MotionPaths> {
         zArr[4] = diff(this.height, motionPaths.height) | zArr[4];
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void getCenter(double d, int[] iArr, double[] dArr, float[] fArr, int i) {
+    void getCenter(double d, int[] iArr, double[] dArr, float[] fArr, int i) {
         float f = this.x;
         float f2 = this.y;
         float f3 = this.width;
@@ -325,8 +323,7 @@ public class MotionPaths implements Comparable<MotionPaths> {
         fArr[i + 1] = f2 + (f4 / 2.0f) + 0.0f;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void getCenter(double d, int[] iArr, double[] dArr, float[] fArr, double[] dArr2, float[] fArr2) {
+    void getCenter(double d, int[] iArr, double[] dArr, float[] fArr, double[] dArr2, float[] fArr2) {
         float f;
         float f2 = this.x;
         float f3 = this.y;
@@ -420,8 +417,7 @@ public class MotionPaths implements Comparable<MotionPaths> {
         fArr[i + 1] = f2 + (f4 / 2.0f) + 0.0f;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void getBounds(int[] iArr, double[] dArr, float[] fArr, int i) {
+    void getBounds(int[] iArr, double[] dArr, float[] fArr, int i) {
         float f = this.width;
         float f2 = this.height;
         for (int i2 = 0; i2 < iArr.length; i2++) {
@@ -437,8 +433,7 @@ public class MotionPaths implements Comparable<MotionPaths> {
         fArr[i + 1] = f2;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setView(float f, View view, int[] iArr, double[] dArr, double[] dArr2, double[] dArr3) {
+    void setView(float f, View view, int[] iArr, double[] dArr, double[] dArr2, double[] dArr3) {
         float f2;
         boolean z;
         boolean z2;
@@ -564,8 +559,7 @@ public class MotionPaths implements Comparable<MotionPaths> {
         view.layout(i4, i5, i6, i7);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void getRect(int[] iArr, double[] dArr, float[] fArr, int i) {
+    void getRect(int[] iArr, double[] dArr, float[] fArr, int i) {
         float f = this.x;
         float f2 = this.y;
         float f3 = this.width;
@@ -611,8 +605,7 @@ public class MotionPaths implements Comparable<MotionPaths> {
         fArr[i9 + 1] = f7 + 0.0f;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setDpDt(float f, float f2, float[] fArr, int[] iArr, double[] dArr, double[] dArr2) {
+    void setDpDt(float f, float f2, float[] fArr, int[] iArr, double[] dArr, double[] dArr2) {
         float f3 = 0.0f;
         float f4 = 0.0f;
         float f5 = 0.0f;
@@ -637,8 +630,7 @@ public class MotionPaths implements Comparable<MotionPaths> {
         fArr[1] = (f9 * (1.0f - f2)) + (((f6 * 1.0f) + f9) * f2) + 0.0f;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void fillStandard(double[] dArr, int[] iArr) {
+    void fillStandard(double[] dArr, int[] iArr) {
         float[] fArr = {this.position, this.x, this.y, this.width, this.height, this.mPathRotate};
         int i = 0;
         for (int i2 = 0; i2 < iArr.length; i2++) {
@@ -649,18 +641,15 @@ public class MotionPaths implements Comparable<MotionPaths> {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean hasCustomData(String str) {
+    boolean hasCustomData(String str) {
         return this.attributes.containsKey(str);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public int getCustomDataCount(String str) {
+    int getCustomDataCount(String str) {
         return this.attributes.get(str).noOfInterpValues();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public int getCustomData(String str, double[] dArr, int i) {
+    int getCustomData(String str, double[] dArr, int i) {
         ConstraintAttribute constraintAttribute = this.attributes.get(str);
         if (constraintAttribute.noOfInterpValues() == 1) {
             dArr[i] = constraintAttribute.getValueToInterpolate();
@@ -678,14 +667,14 @@ public class MotionPaths implements Comparable<MotionPaths> {
         return noOfInterpValues;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setBounds(float f, float f2, float f3, float f4) {
+    void setBounds(float f, float f2, float f3, float f4) {
         this.x = f;
         this.y = f2;
         this.width = f3;
         this.height = f4;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // java.lang.Comparable
     public int compareTo(MotionPaths motionPaths) {
         return Float.compare(this.position, motionPaths.position);

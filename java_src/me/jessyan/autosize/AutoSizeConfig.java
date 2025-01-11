@@ -16,6 +16,7 @@ import me.jessyan.autosize.unit.UnitsManager;
 import me.jessyan.autosize.utils.AutoSizeLog;
 import me.jessyan.autosize.utils.Preconditions;
 import me.jessyan.autosize.utils.ScreenUtils;
+
 /* loaded from: classes2.dex */
 public final class AutoSizeConfig {
     public static final boolean DEPENDENCY_ANDROIDX = findClassByClassName("androidx.fragment.app.FragmentActivity");
@@ -77,8 +78,7 @@ public final class AutoSizeConfig {
         return this.mApplication;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public AutoSizeConfig init(Application application) {
+    AutoSizeConfig init(Application application) {
         return init(application, true, null);
     }
 

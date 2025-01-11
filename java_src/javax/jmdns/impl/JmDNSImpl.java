@@ -37,6 +37,7 @@ import javax.jmdns.ServiceTypeListener;
 import javax.jmdns.impl.DNSRecord;
 import javax.jmdns.impl.DNSTaskStarter;
 import javax.jmdns.impl.ListenerStatus;
+import javax.jmdns.impl.NameRegister;
 import javax.jmdns.impl.constants.DNSConstants;
 import javax.jmdns.impl.constants.DNSRecordClass;
 import javax.jmdns.impl.constants.DNSRecordType;
@@ -45,6 +46,7 @@ import javax.jmdns.impl.tasks.DNSTask;
 import javax.jmdns.impl.util.NamedThreadFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 /* loaded from: classes2.dex */
 public class JmDNSImpl extends JmDNS implements DNSStatefulObject, DNSTaskStarter {
     private final DNSCache _cache;
@@ -90,13 +92,13 @@ public class JmDNSImpl extends JmDNS implements DNSStatefulObject, DNSTaskStarte
         private final Set<Map.Entry<String, String>> _entrySet = new HashSet();
         private final String _type;
 
-        /* JADX INFO: Access modifiers changed from: private */
         /* loaded from: classes2.dex */
-        public static class SubTypeEntry implements Map.Entry<String, String>, Serializable, Cloneable {
+        private static class SubTypeEntry implements Map.Entry<String, String>, Serializable, Cloneable {
             private static final long serialVersionUID = 9188503522395855322L;
             private final String _key;
             private final String _value;
 
+            /* JADX DEBUG: Method merged with bridge method */
             public SubTypeEntry clone() {
                 return this;
             }
@@ -107,16 +109,19 @@ public class JmDNSImpl extends JmDNS implements DNSStatefulObject, DNSTaskStarte
                 this._key = str.toLowerCase();
             }
 
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.Map.Entry
             public String getKey() {
                 return this._key;
             }
 
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.Map.Entry
             public String getValue() {
                 return this._value;
             }
 
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.Map.Entry
             public String setValue(String str) {
                 throw new UnsupportedOperationException();
@@ -173,6 +178,7 @@ public class JmDNSImpl extends JmDNS implements DNSStatefulObject, DNSTaskStarte
             return keySet().iterator();
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.AbstractMap
         public ServiceTypeEntry clone() {
             ServiceTypeEntry serviceTypeEntry = new ServiceTypeEntry(getType());
@@ -288,24 +294,24 @@ public class JmDNSImpl extends JmDNS implements DNSStatefulObject, DNSTaskStarte
             try {
                 try {
                     this._socket.leaveGroup(this._group);
-                } catch (SocketException unused) {
+                } catch (Exception e) {
+                    logger.warn("closeMulticastSocket() Close socket exception ", (Throwable) e);
                 }
-                this._socket.close();
-                while (this._incomingListener != null && this._incomingListener.isAlive()) {
-                    synchronized (this) {
-                        try {
-                            if (this._incomingListener != null && this._incomingListener.isAlive()) {
-                                logger.debug("closeMulticastSocket(): waiting for jmDNS monitor");
-                                wait(1000L);
-                            }
-                        } catch (InterruptedException unused2) {
+            } catch (SocketException unused) {
+            }
+            this._socket.close();
+            while (this._incomingListener != null && this._incomingListener.isAlive()) {
+                synchronized (this) {
+                    try {
+                        if (this._incomingListener != null && this._incomingListener.isAlive()) {
+                            logger.debug("closeMulticastSocket(): waiting for jmDNS monitor");
+                            wait(1000L);
                         }
+                    } catch (InterruptedException unused2) {
                     }
                 }
-                this._incomingListener = null;
-            } catch (Exception e) {
-                logger.warn("closeMulticastSocket() Close socket exception ", (Throwable) e);
             }
+            this._incomingListener = null;
             this._socket = null;
         }
     }
@@ -552,8 +558,7 @@ public class JmDNSImpl extends JmDNS implements DNSStatefulObject, DNSTaskStarte
         waitForInfoData(resolveServiceInfo(str, str2, "", z), j);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void handleServiceResolved(final ServiceEvent serviceEvent) {
+    void handleServiceResolved(final ServiceEvent serviceEvent) {
         ArrayList<ListenerStatus.ServiceListenerStatus> arrayList;
         List<ListenerStatus.ServiceListenerStatus> list = this._serviceListeners.get(serviceEvent.getType().toLowerCase());
         if (list == null || list.isEmpty() || serviceEvent.getInfo() == null || !serviceEvent.getInfo().hasData()) {
@@ -772,92 +777,34 @@ public class JmDNSImpl extends JmDNS implements DNSStatefulObject, DNSTaskStarte
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    private boolean makeServiceNameUnique(javax.jmdns.impl.ServiceInfoImpl r11) {
-        /*
-            r10 = this;
-            java.lang.String r0 = r11.getKey()
-            long r1 = java.lang.System.currentTimeMillis()
-        L8:
-            javax.jmdns.impl.DNSCache r3 = r10.getCache()
-            java.lang.String r4 = r11.getKey()
-            java.util.Collection r3 = r3.getDNSEntryList(r4)
-            java.util.Iterator r3 = r3.iterator()
-        L18:
-            boolean r4 = r3.hasNext()
-            r5 = 0
-            r6 = 1
-            if (r4 == 0) goto L9d
-            java.lang.Object r4 = r3.next()
-            javax.jmdns.impl.DNSEntry r4 = (javax.jmdns.impl.DNSEntry) r4
-            javax.jmdns.impl.constants.DNSRecordType r7 = javax.jmdns.impl.constants.DNSRecordType.TYPE_SRV
-            javax.jmdns.impl.constants.DNSRecordType r8 = r4.getRecordType()
-            boolean r7 = r7.equals(r8)
-            if (r7 == 0) goto L18
-            boolean r7 = r4.isExpired(r1)
-            if (r7 != 0) goto L18
-            r7 = r4
-            javax.jmdns.impl.DNSRecord$Service r7 = (javax.jmdns.impl.DNSRecord.Service) r7
-            int r8 = r7.getPort()
-            int r9 = r11.getPort()
-            if (r8 != r9) goto L55
-            java.lang.String r8 = r7.getServer()
-            javax.jmdns.impl.HostInfo r9 = r10._localHost
-            java.lang.String r9 = r9.getName()
-            boolean r8 = r8.equals(r9)
-            if (r8 != 0) goto L18
-        L55:
-            org.slf4j.Logger r3 = javax.jmdns.impl.JmDNSImpl.logger
-            r8 = 4
-            java.lang.Object[] r8 = new java.lang.Object[r8]
-            r8[r5] = r4
-            java.lang.String r4 = r7.getServer()
-            r8[r6] = r4
-            r4 = 2
-            javax.jmdns.impl.HostInfo r5 = r10._localHost
-            java.lang.String r5 = r5.getName()
-            r8[r4] = r5
-            r4 = 3
-            java.lang.String r5 = r7.getServer()
-            javax.jmdns.impl.HostInfo r7 = r10._localHost
-            java.lang.String r7 = r7.getName()
-            boolean r5 = r5.equals(r7)
-            java.lang.Boolean r5 = java.lang.Boolean.valueOf(r5)
-            r8[r4] = r5
-            java.lang.String r4 = "makeServiceNameUnique() JmDNS.makeServiceNameUnique srv collision:{} s.server={} {} equals:{}"
-            r3.debug(r4, r8)
-            javax.jmdns.impl.NameRegister r3 = javax.jmdns.impl.NameRegister.Factory.getRegistry()
-            javax.jmdns.impl.HostInfo r4 = r10._localHost
-            java.net.InetAddress r4 = r4.getInetAddress()
-            java.lang.String r5 = r11.getName()
-            javax.jmdns.impl.NameRegister$NameType r7 = javax.jmdns.impl.NameRegister.NameType.SERVICE
-            java.lang.String r3 = r3.incrementName(r4, r5, r7)
-            r11.setName(r3)
-            r5 = r6
-        L9d:
-            java.util.concurrent.ConcurrentMap<java.lang.String, javax.jmdns.ServiceInfo> r3 = r10._services
-            java.lang.String r4 = r11.getKey()
-            java.lang.Object r3 = r3.get(r4)
-            javax.jmdns.ServiceInfo r3 = (javax.jmdns.ServiceInfo) r3
-            if (r3 == 0) goto Lc5
-            if (r3 == r11) goto Lc5
-            javax.jmdns.impl.NameRegister r3 = javax.jmdns.impl.NameRegister.Factory.getRegistry()
-            javax.jmdns.impl.HostInfo r4 = r10._localHost
-            java.net.InetAddress r4 = r4.getInetAddress()
-            java.lang.String r5 = r11.getName()
-            javax.jmdns.impl.NameRegister$NameType r7 = javax.jmdns.impl.NameRegister.NameType.SERVICE
-            java.lang.String r3 = r3.incrementName(r4, r5, r7)
-            r11.setName(r3)
-            r5 = r6
-        Lc5:
-            if (r5 != 0) goto L8
-            java.lang.String r11 = r11.getKey()
-            boolean r11 = r0.equals(r11)
-            r11 = r11 ^ r6
-            return r11
-        */
-        throw new UnsupportedOperationException("Method not decompiled: javax.jmdns.impl.JmDNSImpl.makeServiceNameUnique(javax.jmdns.impl.ServiceInfoImpl):boolean");
+    private boolean makeServiceNameUnique(ServiceInfoImpl serviceInfoImpl) {
+        boolean z;
+        String key = serviceInfoImpl.getKey();
+        long currentTimeMillis = System.currentTimeMillis();
+        do {
+            Iterator<? extends DNSEntry> it = getCache().getDNSEntryList(serviceInfoImpl.getKey()).iterator();
+            while (true) {
+                z = false;
+                if (!it.hasNext()) {
+                    break;
+                }
+                DNSEntry next = it.next();
+                if (DNSRecordType.TYPE_SRV.equals(next.getRecordType()) && !next.isExpired(currentTimeMillis)) {
+                    DNSRecord.Service service = (DNSRecord.Service) next;
+                    if (service.getPort() != serviceInfoImpl.getPort() || !service.getServer().equals(this._localHost.getName())) {
+                        break;
+                    }
+                }
+            }
+            ServiceInfo serviceInfo = this._services.get(serviceInfoImpl.getKey());
+            if (serviceInfo != null && serviceInfo != serviceInfoImpl) {
+                serviceInfoImpl.setName(NameRegister.Factory.getRegistry().incrementName(this._localHost.getInetAddress(), serviceInfoImpl.getName(), NameRegister.NameType.SERVICE));
+                z = true;
+                continue;
+            }
+        } while (z);
+        return !key.equals(serviceInfoImpl.getKey());
     }
 
     public void addListener(DNSListener dNSListener, DNSQuestion dNSQuestion) {
@@ -945,10 +892,9 @@ public class JmDNSImpl extends JmDNS implements DNSStatefulObject, DNSTaskStarte
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: javax.jmdns.impl.JmDNSImpl$7  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public static /* synthetic */ class AnonymousClass7 {
+    static /* synthetic */ class AnonymousClass7 {
         static final /* synthetic */ int[] $SwitchMap$javax$jmdns$impl$JmDNSImpl$Operation;
 
         static {
@@ -1042,8 +988,7 @@ public class JmDNSImpl extends JmDNS implements DNSStatefulObject, DNSTaskStarte
         return dNSRecord.getCreated() < j - 1000;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void handleResponse(DNSIncoming dNSIncoming) throws IOException {
+    void handleResponse(DNSIncoming dNSIncoming) throws IOException {
         long currentTimeMillis = System.currentTimeMillis();
         boolean z = false;
         boolean z2 = false;
@@ -1074,8 +1019,7 @@ public class JmDNSImpl extends JmDNS implements DNSStatefulObject, DNSTaskStarte
         return arrayList;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void handleQuery(DNSIncoming dNSIncoming, InetAddress inetAddress, int i) throws IOException {
+    void handleQuery(DNSIncoming dNSIncoming, InetAddress inetAddress, int i) throws IOException {
         logger.debug("{} handle query: {}", getName(), dNSIncoming);
         long currentTimeMillis = System.currentTimeMillis() + 120;
         boolean z = false;
@@ -1361,6 +1305,8 @@ public class JmDNSImpl extends JmDNS implements DNSStatefulObject, DNSTaskStarte
         System.err.println(toString());
     }
 
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:26:0x0086 */
+    /* JADX DEBUG: Multi-variable search result rejected for r3v11, resolved type: java.lang.Object */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r3v10, types: [javax.jmdns.impl.JmDNSImpl$ServiceTypeEntry] */
     /* JADX WARN: Type inference failed for: r3v12, types: [java.lang.String] */
@@ -1470,9 +1416,8 @@ public class JmDNSImpl extends JmDNS implements DNSStatefulObject, DNSTaskStarte
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
-    public static class ServiceCollector implements ServiceListener {
+    private static class ServiceCollector implements ServiceListener {
         private final String _type;
         private final ConcurrentMap<String, ServiceInfo> _infos = new ConcurrentHashMap();
         private final ConcurrentMap<String, ServiceEvent> _events = new ConcurrentHashMap();
@@ -1565,8 +1510,7 @@ public class JmDNSImpl extends JmDNS implements DNSStatefulObject, DNSTaskStarte
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static String toUnqualifiedName(String str, String str2) {
+    static String toUnqualifiedName(String str, String str2) {
         String lowerCase = str.toLowerCase();
         String lowerCase2 = str2.toLowerCase();
         return (!lowerCase2.endsWith(lowerCase) || lowerCase2.equals(lowerCase)) ? str2 : str2.substring(0, (str2.length() - str.length()) - 1);

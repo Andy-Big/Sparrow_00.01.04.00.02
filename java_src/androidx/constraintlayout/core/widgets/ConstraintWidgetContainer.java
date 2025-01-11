@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Iterator;
+
 /* loaded from: classes.dex */
 public class ConstraintWidgetContainer extends WidgetContainer {
     private static final boolean DEBUG = false;
@@ -251,8 +252,7 @@ public class ConstraintWidgetContainer extends WidgetContainer {
         return this.mHeightMeasuredTooSmall;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void addVerticalWrapMinVariable(ConstraintAnchor constraintAnchor) {
+    void addVerticalWrapMinVariable(ConstraintAnchor constraintAnchor) {
         WeakReference<ConstraintAnchor> weakReference = this.verticalWrapMin;
         if (weakReference == null || weakReference.get() == null || constraintAnchor.getFinalValue() > this.verticalWrapMin.get().getFinalValue()) {
             this.verticalWrapMin = new WeakReference<>(constraintAnchor);
@@ -266,8 +266,7 @@ public class ConstraintWidgetContainer extends WidgetContainer {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void addVerticalWrapMaxVariable(ConstraintAnchor constraintAnchor) {
+    void addVerticalWrapMaxVariable(ConstraintAnchor constraintAnchor) {
         WeakReference<ConstraintAnchor> weakReference = this.verticalWrapMax;
         if (weakReference == null || weakReference.get() == null || constraintAnchor.getFinalValue() > this.verticalWrapMax.get().getFinalValue()) {
             this.verticalWrapMax = new WeakReference<>(constraintAnchor);
@@ -721,8 +720,7 @@ public class ConstraintWidgetContainer extends WidgetContainer {
         this.mVerticalChainsSize = 0;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void addChain(ConstraintWidget constraintWidget, int i) {
+    void addChain(ConstraintWidget constraintWidget, int i) {
         if (i == 0) {
             addHorizontalChain(constraintWidget);
         } else if (i == 1) {

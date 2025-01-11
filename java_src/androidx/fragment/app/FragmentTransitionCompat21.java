@@ -9,8 +9,12 @@ import android.view.ViewGroup;
 import androidx.core.os.CancellationSignal;
 import java.util.ArrayList;
 import java.util.List;
+
 /* loaded from: classes.dex */
 class FragmentTransitionCompat21 extends FragmentTransitionImpl {
+    FragmentTransitionCompat21() {
+    }
+
     @Override // androidx.fragment.app.FragmentTransitionImpl
     public boolean canHandle(Object obj) {
         return obj instanceof Transition;

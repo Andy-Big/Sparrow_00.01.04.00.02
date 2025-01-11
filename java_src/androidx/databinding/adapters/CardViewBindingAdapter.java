@@ -1,6 +1,7 @@
 package androidx.databinding.adapters;
 
 import androidx.cardview.widget.CardView;
+
 /* loaded from: classes.dex */
 public class CardViewBindingAdapter {
     public static void setContentPadding(CardView cardView, int i) {

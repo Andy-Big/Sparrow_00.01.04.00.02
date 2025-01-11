@@ -7,6 +7,7 @@ import android.view.MenuItem;
 import android.view.SubMenu;
 import android.view.View;
 import androidx.appcompat.view.menu.MenuBuilder;
+
 /* loaded from: classes.dex */
 public class SubMenuBuilder extends MenuBuilder implements SubMenu {
     private MenuItemImpl mItem;
@@ -57,9 +58,8 @@ public class SubMenuBuilder extends MenuBuilder implements SubMenu {
         return this.mParentMenu.getRootMenu();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     @Override // androidx.appcompat.view.menu.MenuBuilder
-    public boolean dispatchMenuItemSelected(MenuBuilder menuBuilder, MenuItem menuItem) {
+    boolean dispatchMenuItemSelected(MenuBuilder menuBuilder, MenuItem menuItem) {
         return super.dispatchMenuItemSelected(menuBuilder, menuItem) || this.mParentMenu.dispatchMenuItemSelected(menuBuilder, menuItem);
     }
 

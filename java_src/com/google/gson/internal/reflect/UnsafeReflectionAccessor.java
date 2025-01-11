@@ -3,11 +3,15 @@ package com.google.gson.internal.reflect;
 import com.google.gson.JsonIOException;
 import java.lang.reflect.AccessibleObject;
 import java.lang.reflect.Field;
+
 /* loaded from: classes.dex */
 final class UnsafeReflectionAccessor extends ReflectionAccessor {
     private static Class unsafeClass;
     private final Object theUnsafe = getUnsafeInstance();
     private final Field overrideField = getOverrideField();
+
+    UnsafeReflectionAccessor() {
+    }
 
     @Override // com.google.gson.internal.reflect.ReflectionAccessor
     public void makeAccessible(AccessibleObject accessibleObject) {

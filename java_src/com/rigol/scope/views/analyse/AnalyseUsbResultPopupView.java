@@ -42,6 +42,12 @@ public class AnalyseUsbResultPopupView extends BasePopupView implements View.OnC
     private PopupviewAnalyseUsbResultBinding binding;
     private BusAnalyseParam param;
 
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.views.analyse.-$$Lambda$AnalyseUsbResultPopupView$Tha7ZnHW8A1nry-d5wBJrK-IyrE.run():void] */
+    /* renamed from: lambda$Tha7ZnHW8A1nry-d5wBJrK-IyrE */
+    public static /* synthetic */ void m14lambda$Tha7ZnHW8A1nryd5wBJrKIyrE(AnalyseUsbResultPopupView analyseUsbResultPopupView) {
+        analyseUsbResultPopupView.updateContent();
+    }
+
     public AnalyseUsbResultPopupView() {
         super((int) R.style.App_PopupWindow_Analyse_usb_result);
         PopupviewAnalyseUsbResultBinding inflate = PopupviewAnalyseUsbResultBinding.inflate(LayoutInflater.from(this.context));
@@ -51,7 +57,10 @@ public class AnalyseUsbResultPopupView extends BasePopupView implements View.OnC
         BusAnalyseViewModel busAnalyseViewModel = (BusAnalyseViewModel) ContextUtil.getAppViewModel(BusAnalyseViewModel.class);
         if (busAnalyseViewModel != null) {
             busAnalyseViewModel.getLiveData().observe((LifecycleOwner) ActivityUtils.getTopActivity(), new Observer<BusAnalyseParam>() { // from class: com.rigol.scope.views.analyse.AnalyseUsbResultPopupView.1
-                /* JADX DEBUG: Method merged with bridge method */
+                {
+                    AnalyseUsbResultPopupView.this = this;
+                }
+
                 @Override // androidx.lifecycle.Observer
                 public void onChanged(BusAnalyseParam busAnalyseParam) {
                     AnalyseUsbResultPopupView.this.param = busAnalyseParam;
@@ -84,13 +93,12 @@ public class AnalyseUsbResultPopupView extends BasePopupView implements View.OnC
             popupviewAnalyseUsbResultBinding.getRoot().post(new Runnable() { // from class: com.rigol.scope.views.analyse.-$$Lambda$AnalyseUsbResultPopupView$Tha7ZnHW8A1nry-d5wBJrK-IyrE
                 @Override // java.lang.Runnable
                 public final void run() {
-                    AnalyseUsbResultPopupView.this.updateContent();
+                    AnalyseUsbResultPopupView.m14lambda$Tha7ZnHW8A1nryd5wBJrKIyrE(AnalyseUsbResultPopupView.this);
                 }
             });
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public void updateContent() {
         if (this.titleView != null) {
             this.titleView.setText(getTitle());
@@ -114,7 +122,6 @@ public class AnalyseUsbResultPopupView extends BasePopupView implements View.OnC
         showTable();
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public Bitmap getDiskBitmap(String str) {
         try {
             if (new File(str).exists()) {
@@ -126,8 +133,8 @@ public class AnalyseUsbResultPopupView extends BasePopupView implements View.OnC
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:32:0x00dc A[RETURN] */
-    /* JADX WARN: Removed duplicated region for block: B:33:0x00dd A[Catch: Exception -> 0x0127, TryCatch #0 {Exception -> 0x0127, blocks: (B:13:0x0093, B:15:0x0099, B:27:0x00b4, B:30:0x00c5, B:33:0x00dd, B:35:0x00e6, B:37:0x00ea, B:40:0x00ee, B:42:0x00ff, B:44:0x0103, B:46:0x010a, B:45:0x0107, B:51:0x011b, B:47:0x010d, B:48:0x0111, B:50:0x0115, B:52:0x0120, B:28:0x00bc), top: B:57:0x0093 }] */
+    /* JADX WARN: Removed duplicated region for block: B:98:0x00dc A[RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:99:0x00dd A[Catch: Exception -> 0x0127, TryCatch #0 {Exception -> 0x0127, blocks: (B:79:0x0093, B:81:0x0099, B:93:0x00b4, B:96:0x00c5, B:99:0x00dd, B:101:0x00e6, B:103:0x00ea, B:106:0x00ee, B:108:0x00ff, B:110:0x0103, B:112:0x010a, B:111:0x0107, B:117:0x011b, B:113:0x010d, B:114:0x0111, B:116:0x0115, B:118:0x0120, B:94:0x00bc), top: B:123:0x0093 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -135,6 +142,10 @@ public class AnalyseUsbResultPopupView extends BasePopupView implements View.OnC
         List<MappingObject> list;
         RecyclerView.LayoutManager layoutManager;
         BaseAdapter<List<String>> baseAdapter = new BaseAdapter<List<String>>(this.context, R.layout.adapter_item_result_table_header) { // from class: com.rigol.scope.views.analyse.AnalyseUsbResultPopupView.2
+            {
+                AnalyseUsbResultPopupView.this = this;
+            }
+
             @Override // com.rigol.scope.adapters.BaseAdapter
             protected void convert(BaseViewHolder<? extends ViewDataBinding> baseViewHolder, List<String> list2, int i) {
                 AdapterItemResultTableHeaderBinding adapterItemResultTableHeaderBinding = (AdapterItemResultTableHeaderBinding) baseViewHolder.getBinding();
@@ -146,12 +157,15 @@ public class AnalyseUsbResultPopupView extends BasePopupView implements View.OnC
         };
         this.binding.header.setAdapter(baseAdapter);
         BaseAdapter<List<String>> baseAdapter2 = new BaseAdapter<List<String>>(this.context, R.layout.adapter_item_result_table_content) { // from class: com.rigol.scope.views.analyse.AnalyseUsbResultPopupView.3
+            {
+                AnalyseUsbResultPopupView.this = this;
+            }
+
             @Override // com.rigol.scope.adapters.BaseAdapter
             protected void convert(BaseViewHolder<? extends ViewDataBinding> baseViewHolder, List<String> list2, int i) {
                 ((AdapterItemResultTableContentBinding) baseViewHolder.getBinding()).content.setText(list2.get(i));
             }
 
-            /* JADX DEBUG: Method merged with bridge method */
             @Override // com.rigol.scope.adapters.MultiItemTypeAdapter, androidx.recyclerview.widget.RecyclerView.Adapter
             public BaseViewHolder<? extends ViewDataBinding> onCreateViewHolder(ViewGroup viewGroup, int i) {
                 BaseViewHolder<? extends ViewDataBinding> onCreateViewHolder = super.onCreateViewHolder(viewGroup, i);

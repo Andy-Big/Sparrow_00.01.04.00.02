@@ -6,6 +6,7 @@ import com.bumptech.glide.load.Transformation;
 import com.bumptech.glide.util.Preconditions;
 import java.security.MessageDigest;
 import java.util.Map;
+
 /* loaded from: classes.dex */
 class EngineKey implements Key {
     private int hashCode;
@@ -18,8 +19,7 @@ class EngineKey implements Key {
     private final Map<Class<?>, Transformation<?>> transformations;
     private final int width;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public EngineKey(Object obj, Key key, int i, int i2, Map<Class<?>, Transformation<?>> map, Class<?> cls, Class<?> cls2, Options options) {
+    EngineKey(Object obj, Key key, int i, int i2, Map<Class<?>, Transformation<?>> map, Class<?> cls, Class<?> cls2, Options options) {
         this.model = Preconditions.checkNotNull(obj);
         this.signature = (Key) Preconditions.checkNotNull(key, "Signature must not be null");
         this.width = i;

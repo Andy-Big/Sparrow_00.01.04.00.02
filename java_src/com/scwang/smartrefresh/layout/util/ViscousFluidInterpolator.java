@@ -1,6 +1,7 @@
 package com.scwang.smartrefresh.layout.util;
 
 import android.view.animation.Interpolator;
+
 /* loaded from: classes2.dex */
 public class ViscousFluidInterpolator implements Interpolator {
     private static final float VISCOUS_FLUID_NORMALIZE;

@@ -3,6 +3,7 @@ package androidx.databinding.adapters;
 import android.os.Build;
 import android.widget.TimePicker;
 import androidx.databinding.InverseBindingListener;
+
 /* loaded from: classes.dex */
 public class TimePickerBindingAdapter {
     public static void setHour(TimePicker timePicker, int i) {

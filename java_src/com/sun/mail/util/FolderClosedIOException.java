@@ -2,6 +2,7 @@ package com.sun.mail.util;
 
 import java.io.IOException;
 import javax.mail.Folder;
+
 /* loaded from: classes2.dex */
 public class FolderClosedIOException extends IOException {
     private static final long serialVersionUID = 4281122580365555735L;

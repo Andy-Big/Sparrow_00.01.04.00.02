@@ -5,6 +5,7 @@ import androidx.constraintlayout.core.widgets.analyzer.WidgetGroup;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+
 /* loaded from: classes.dex */
 public class HelperWidget extends ConstraintWidget implements Helper {
     public ConstraintWidget[] mWidgets = new ConstraintWidget[4];

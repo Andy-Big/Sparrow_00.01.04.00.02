@@ -8,21 +8,20 @@ import kotlin.coroutines.jvm.internal.SuspendLambda;
 import kotlin.jvm.functions.Function2;
 import kotlin.jvm.internal.Intrinsics;
 import kotlinx.coroutines.channels.ProducerScope;
-/* JADX INFO: Access modifiers changed from: package-private */
+
 /* compiled from: Delay.kt */
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u000e\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\u0010\u0000\u001a\u00020\u0001*\b\u0012\u0004\u0012\u00020\u00010\u0002H\u008a@¢\u0006\u0004\b\u0003\u0010\u0004"}, d2 = {"<anonymous>", "", "Lkotlinx/coroutines/channels/ProducerScope;", "invoke", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;"}, k = 3, mv = {1, 1, 15})
 @DebugMetadata(c = "kotlinx.coroutines.flow.FlowKt__DelayKt$fixedPeriodTicker$3", f = "Delay.kt", i = {0, 1, 2}, l = {129, 131, 132}, m = "invokeSuspend", n = {"$this$produce", "$this$produce", "$this$produce"}, s = {"L$0", "L$0", "L$0"})
 /* loaded from: classes2.dex */
-public final class FlowKt__DelayKt$fixedPeriodTicker$3 extends SuspendLambda implements Function2<ProducerScope<? super Unit>, Continuation<? super Unit>, Object> {
+final class FlowKt__DelayKt$fixedPeriodTicker$3 extends SuspendLambda implements Function2<ProducerScope<? super Unit>, Continuation<? super Unit>, Object> {
     final /* synthetic */ long $delayMillis;
     final /* synthetic */ long $initialDelayMillis;
     Object L$0;
     int label;
     private ProducerScope p$;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowKt__DelayKt$fixedPeriodTicker$3(long j, long j2, Continuation continuation) {
+    FlowKt__DelayKt$fixedPeriodTicker$3(long j, long j2, Continuation continuation) {
         super(2, continuation);
         this.$initialDelayMillis = j;
         this.$delayMillis = j2;
@@ -36,6 +35,7 @@ public final class FlowKt__DelayKt$fixedPeriodTicker$3 extends SuspendLambda imp
         return flowKt__DelayKt$fixedPeriodTicker$3;
     }
 
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
     @Override // kotlin.jvm.functions.Function2
     public final Object invoke(ProducerScope<? super Unit> producerScope, Continuation<? super Unit> continuation) {
         return ((FlowKt__DelayKt$fixedPeriodTicker$3) create(producerScope, continuation)).invokeSuspend(Unit.INSTANCE);
@@ -53,9 +53,27 @@ public final class FlowKt__DelayKt$fixedPeriodTicker$3 extends SuspendLambda imp
     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
     public final java.lang.Object invokeSuspend(java.lang.Object r8) {
+        /*  JADX ERROR: JadxOverflowException in pass: RegionMakerVisitor
+            jadx.core.utils.exceptions.JadxOverflowException: Regions count limit reached
+            	at jadx.core.utils.ErrorsCounter.addError(ErrorsCounter.java:56)
+            	at jadx.core.utils.ErrorsCounter.error(ErrorsCounter.java:30)
+            */
+        /*  JADX ERROR: Method code generation error
+            java.lang.NullPointerException: Cannot invoke "jadx.core.dex.nodes.IContainer.get(jadx.api.plugins.input.data.attributes.IJadxAttrType)" because "cont" is null
+            	at jadx.core.codegen.RegionGen.declareVars(RegionGen.java:67)
+            	at jadx.core.codegen.RegionGen.makeRegion(RegionGen.java:62)
+            	at jadx.core.codegen.MethodGen.addRegionInsns(MethodGen.java:296)
+            	at jadx.core.codegen.MethodGen.addInstructions(MethodGen.java:280)
+            	at jadx.core.codegen.ClassGen.addMethodCode(ClassGen.java:377)
+            	at jadx.core.codegen.ClassGen.addMethod(ClassGen.java:306)
+            	at jadx.core.codegen.ClassGen.lambda$addInnerClsAndMethods$3(ClassGen.java:272)
+            	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(Unknown Source)
+            	at java.base/java.util.ArrayList.forEach(Unknown Source)
+            	at java.base/java.util.stream.SortedOps$RefSortingSink.end(Unknown Source)
+            	at java.base/java.util.stream.Sink$ChainedReference.end(Unknown Source)
+            */
         /*
             r7 = this;
             java.lang.Object r0 = kotlin.coroutines.intrinsics.IntrinsicsKt.getCOROUTINE_SUSPENDED()

@@ -22,6 +22,7 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.List;
 import java.util.Queue;
+
 /* loaded from: classes.dex */
 public class ByteBufferGifDecoder implements ResourceDecoder<ByteBuffer, GifDrawable> {
     private static final GifDecoderFactory GIF_DECODER_FACTORY = new GifDecoderFactory();
@@ -49,11 +50,13 @@ public class ByteBufferGifDecoder implements ResourceDecoder<ByteBuffer, GifDraw
         this.parserPool = gifHeaderParserPool;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.ResourceDecoder
     public boolean handles(ByteBuffer byteBuffer, Options options) throws IOException {
         return !((Boolean) options.get(GifOptions.DISABLE_ANIMATION)).booleanValue() && ImageHeaderParserUtils.getType(this.parsers, byteBuffer) == ImageHeaderParser.ImageType.GIF;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.ResourceDecoder
     public GifDrawableResource decode(ByteBuffer byteBuffer, int i, int i2, Options options) {
         GifHeaderParser obtain = this.parserPool.obtain(byteBuffer);
@@ -64,6 +67,8 @@ public class ByteBufferGifDecoder implements ResourceDecoder<ByteBuffer, GifDraw
         }
     }
 
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[INVOKE]}, finally: {[INVOKE, CONSTRUCTOR, INVOKE, INVOKE, INVOKE, INVOKE, INVOKE, IF] complete} */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [128=4, 129=4] */
     private GifDrawableResource decode(ByteBuffer byteBuffer, int i, int i2, GifHeaderParser gifHeaderParser, Options options) {
         long logTime = LogTime.getLogTime();
         try {
@@ -103,9 +108,8 @@ public class ByteBufferGifDecoder implements ResourceDecoder<ByteBuffer, GifDraw
         return max;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static class GifDecoderFactory {
+    static class GifDecoderFactory {
         GifDecoderFactory() {
         }
 
@@ -114,9 +118,8 @@ public class ByteBufferGifDecoder implements ResourceDecoder<ByteBuffer, GifDraw
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static class GifHeaderParserPool {
+    static class GifHeaderParserPool {
         private final Queue<GifHeaderParser> pool = Util.createQueue(0);
 
         GifHeaderParserPool() {

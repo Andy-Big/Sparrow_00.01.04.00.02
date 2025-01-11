@@ -6,6 +6,7 @@ import java.net.InetAddress;
 import java.util.Enumeration;
 import java.util.Map;
 import javax.jmdns.impl.ServiceInfoImpl;
+
 /* loaded from: classes2.dex */
 public abstract class ServiceInfo implements Cloneable {
 
@@ -164,6 +165,7 @@ public abstract class ServiceInfo implements Cloneable {
         return new ServiceInfoImpl(map, i, i2, i3, z, map2);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // 
     public ServiceInfo clone() {
         try {

@@ -1,6 +1,7 @@
 package com.google.android.material.animation;
 
 import android.animation.TypeEvaluator;
+
 /* loaded from: classes.dex */
 public class ArgbEvaluatorCompat implements TypeEvaluator<Integer> {
     private static final ArgbEvaluatorCompat instance = new ArgbEvaluatorCompat();
@@ -9,6 +10,7 @@ public class ArgbEvaluatorCompat implements TypeEvaluator<Integer> {
         return instance;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // android.animation.TypeEvaluator
     public Integer evaluate(float f, Integer num, Integer num2) {
         int intValue = num.intValue();

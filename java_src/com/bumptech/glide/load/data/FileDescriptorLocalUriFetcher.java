@@ -6,12 +6,14 @@ import android.net.Uri;
 import android.os.ParcelFileDescriptor;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+
 /* loaded from: classes.dex */
 public class FileDescriptorLocalUriFetcher extends LocalUriFetcher<ParcelFileDescriptor> {
     public FileDescriptorLocalUriFetcher(ContentResolver contentResolver, Uri uri) {
         super(contentResolver, uri);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.bumptech.glide.load.data.LocalUriFetcher
@@ -23,6 +25,7 @@ public class FileDescriptorLocalUriFetcher extends LocalUriFetcher<ParcelFileDes
         return openAssetFileDescriptor.getParcelFileDescriptor();
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.bumptech.glide.load.data.LocalUriFetcher
     public void close(ParcelFileDescriptor parcelFileDescriptor) throws IOException {

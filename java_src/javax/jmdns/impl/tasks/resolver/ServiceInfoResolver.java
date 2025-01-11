@@ -10,6 +10,7 @@ import javax.jmdns.impl.JmDNSImpl;
 import javax.jmdns.impl.ServiceInfoImpl;
 import javax.jmdns.impl.constants.DNSRecordClass;
 import javax.jmdns.impl.constants.DNSRecordType;
+
 /* loaded from: classes2.dex */
 public class ServiceInfoResolver extends DNSResolverTask {
     private final ServiceInfoImpl _info;

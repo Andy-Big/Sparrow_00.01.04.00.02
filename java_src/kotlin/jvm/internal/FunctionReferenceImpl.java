@@ -2,6 +2,7 @@ package kotlin.jvm.internal;
 
 import kotlin.reflect.KClass;
 import kotlin.reflect.KDeclarationContainer;
+
 /* loaded from: classes2.dex */
 public class FunctionReferenceImpl extends FunctionReference {
     public FunctionReferenceImpl(int i, KDeclarationContainer kDeclarationContainer, String str, String str2) {

@@ -2,6 +2,7 @@ package com.sun.mail.util.logging;
 
 import java.util.logging.Filter;
 import java.util.logging.LogRecord;
+
 /* loaded from: classes2.dex */
 public class DurationFilter implements Filter {
     static final /* synthetic */ boolean $assertionsDisabled = false;
@@ -92,6 +93,7 @@ public class DurationFilter implements Filter {
         return getClass().getName() + "{records=" + this.records + ", duration=" + this.duration + ", idle=" + test + ", loggable=" + test2 + '}';
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     /* renamed from: clone */
     public DurationFilter m18clone() throws CloneNotSupportedException {
@@ -143,62 +145,39 @@ public class DurationFilter implements Filter {
     /* JADX WARN: Removed duplicated region for block: B:24:0x0064  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    private long initLong(java.lang.String r10) {
-        /*
-            r9 = this;
-            java.lang.Class r0 = r9.getClass()
-            java.lang.String r0 = r0.getName()
-            java.lang.String r0 = r0.concat(r10)
-            java.lang.String r0 = com.sun.mail.util.logging.LogManagerProperties.fromLogManager(r0)
-            r1 = -9223372036854775808
-            if (r0 == 0) goto L65
-            int r3 = r0.length()
-            if (r3 == 0) goto L65
-            java.lang.String r0 = r0.trim()
-            boolean r10 = r9.isTimeEntry(r10, r0)
-            r3 = 0
-            if (r10 == 0) goto L2b
-            long r5 = com.sun.mail.util.logging.LogManagerProperties.parseDurationToMillis(r0)     // Catch: java.lang.Throwable -> L2b
-            goto L2c
-        L2b:
-            r5 = r3
-        L2c:
-            int r10 = (r5 > r3 ? 1 : (r5 == r3 ? 0 : -1))
-            if (r10 != 0) goto L64
-            r3 = 1
-            java.lang.String[] r10 = tokenizeLongs(r0)     // Catch: java.lang.RuntimeException -> L65
-            int r0 = r10.length     // Catch: java.lang.RuntimeException -> L65
-            r5 = 0
-            r6 = r5
-        L39:
-            if (r6 >= r0) goto L62
-            r7 = r10[r6]     // Catch: java.lang.RuntimeException -> L65
-            java.lang.String r8 = "L"
-            boolean r8 = r7.endsWith(r8)     // Catch: java.lang.RuntimeException -> L65
-            if (r8 != 0) goto L4d
-            java.lang.String r8 = "l"
-            boolean r8 = r7.endsWith(r8)     // Catch: java.lang.RuntimeException -> L65
-            if (r8 == 0) goto L57
-        L4d:
-            int r8 = r7.length()     // Catch: java.lang.RuntimeException -> L65
-            int r8 = r8 + (-1)
-            java.lang.String r7 = r7.substring(r5, r8)     // Catch: java.lang.RuntimeException -> L65
-        L57:
-            long r7 = java.lang.Long.parseLong(r7)     // Catch: java.lang.RuntimeException -> L65
-            long r3 = multiplyExact(r3, r7)     // Catch: java.lang.RuntimeException -> L65
-            int r6 = r6 + 1
-            goto L39
-        L62:
-            r1 = r3
-            goto L65
-        L64:
-            r1 = r5
-        L65:
-            return r1
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.sun.mail.util.logging.DurationFilter.initLong(java.lang.String):long");
+    private long initLong(String str) {
+        long parseDurationToMillis;
+        String[] strArr;
+        String fromLogManager = LogManagerProperties.fromLogManager(getClass().getName().concat(str));
+        if (fromLogManager == null || fromLogManager.length() == 0) {
+            return Long.MIN_VALUE;
+        }
+        String trim = fromLogManager.trim();
+        if (isTimeEntry(str, trim)) {
+            try {
+                parseDurationToMillis = LogManagerProperties.parseDurationToMillis(trim);
+            } catch (RuntimeException | Exception | LinkageError unused) {
+            }
+            if (parseDurationToMillis != 0) {
+                long j = 1;
+                try {
+                    for (String str2 : tokenizeLongs(trim)) {
+                        if (str2.endsWith("L") || str2.endsWith("l")) {
+                            str2 = str2.substring(0, str2.length() - 1);
+                        }
+                        j = multiplyExact(j, Long.parseLong(str2));
+                    }
+                    return j;
+                } catch (RuntimeException unused2) {
+                    return Long.MIN_VALUE;
+                }
+            }
+            return parseDurationToMillis;
+        }
+        parseDurationToMillis = 0;
+        if (parseDurationToMillis != 0) {
+        }
     }
 
     private boolean isTimeEntry(String str, String str2) {

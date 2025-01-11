@@ -12,16 +12,15 @@ import androidx.core.view.ViewCompat;
 import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.R;
 import com.google.android.material.datepicker.MaterialCalendar;
-/* JADX INFO: Access modifiers changed from: package-private */
+
 /* loaded from: classes.dex */
-public class MonthsPagerAdapter extends RecyclerView.Adapter<ViewHolder> {
+class MonthsPagerAdapter extends RecyclerView.Adapter<ViewHolder> {
     private final CalendarConstraints calendarConstraints;
     private final DateSelector<?> dateSelector;
     private final int itemHeight;
     private final MaterialCalendar.OnDayClickListener onDayClickListener;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public MonthsPagerAdapter(Context context, DateSelector<?> dateSelector, CalendarConstraints calendarConstraints, MaterialCalendar.OnDayClickListener onDayClickListener) {
+    MonthsPagerAdapter(Context context, DateSelector<?> dateSelector, CalendarConstraints calendarConstraints, MaterialCalendar.OnDayClickListener onDayClickListener) {
         Month start = calendarConstraints.getStart();
         Month end = calendarConstraints.getEnd();
         Month openAt = calendarConstraints.getOpenAt();
@@ -56,6 +55,7 @@ public class MonthsPagerAdapter extends RecyclerView.Adapter<ViewHolder> {
         }
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.mtrl_calendar_month_labeled, viewGroup, false);
@@ -66,6 +66,7 @@ public class MonthsPagerAdapter extends RecyclerView.Adapter<ViewHolder> {
         return new ViewHolder(linearLayout, false);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(ViewHolder viewHolder, int i) {
         Month monthsLater = this.calendarConstraints.getStart().monthsLater(i);
@@ -98,18 +99,15 @@ public class MonthsPagerAdapter extends RecyclerView.Adapter<ViewHolder> {
         return this.calendarConstraints.getMonthSpan();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public CharSequence getPageTitle(int i) {
+    CharSequence getPageTitle(int i) {
         return getPageMonth(i).getLongName();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public Month getPageMonth(int i) {
+    Month getPageMonth(int i) {
         return this.calendarConstraints.getStart().monthsLater(i);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public int getPosition(Month month) {
+    int getPosition(Month month) {
         return this.calendarConstraints.getStart().monthsUntil(month);
     }
 }

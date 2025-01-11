@@ -56,6 +56,16 @@ public final class SearchRippleWindowHolder extends WindowHolder {
     private SparseArray<MappingObject> titlesArray;
     private final UpdateUIViewModel updateUIViewModel;
 
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.views.window.SearchRippleWindowHolder$updateContent$$inlined$let$lambda$1.run():void] */
+    public static final /* synthetic */ int access$getMAX_CSV_LENGTH$p(SearchRippleWindowHolder searchRippleWindowHolder) {
+        return searchRippleWindowHolder.MAX_CSV_LENGTH;
+    }
+
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.views.window.SearchRippleWindowHolder$updateContent$$inlined$let$lambda$1.run():void] */
+    public static final /* synthetic */ void access$setDecodeTypeStr$p(SearchRippleWindowHolder searchRippleWindowHolder, String str) {
+        searchRippleWindowHolder.decodeTypeStr = str;
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SearchRippleWindowHolder(Context context, WindowParam windowParam) {
         super(windowParam);
@@ -69,10 +79,17 @@ public final class SearchRippleWindowHolder extends WindowHolder {
             throw new NullPointerException("null cannot be cast to non-null type androidx.lifecycle.LifecycleOwner");
         }
         liveData.observe((LifecycleOwner) topActivity, new Observer<SharedParam>() { // from class: com.rigol.scope.views.window.SearchRippleWindowHolder.1
-            /* JADX DEBUG: Method merged with bridge method */
+            {
+                SearchRippleWindowHolder.this = this;
+            }
+
             @Override // androidx.lifecycle.Observer
             public final void onChanged(final SharedParam sharedParam) {
                 sharedParam.addOnPropertyChangedCallback(new Observable.OnPropertyChangedCallback() { // from class: com.rigol.scope.views.window.SearchRippleWindowHolder.1.1
+                    {
+                        AnonymousClass1.this = this;
+                    }
+
                     @Override // androidx.databinding.Observable.OnPropertyChangedCallback
                     public void onPropertyChanged(Observable observable, int i) {
                         if (sharedParam.getShowResultBar()) {
@@ -186,12 +203,11 @@ public final class SearchRippleWindowHolder extends WindowHolder {
             new Thread(new Runnable() { // from class: com.rigol.scope.views.window.SearchRippleWindowHolder$updateContent$$inlined$let$lambda$1
                 @Override // java.lang.Runnable
                 public final void run() {
-                    int i;
                     List subList;
                     if (csvInfo.size() >= 2) {
                         String[] strArr = (String[]) csvInfo.get(0);
                         if (strArr.length >= 2) {
-                            SearchRippleWindowHolder.this.decodeTypeStr = strArr[1];
+                            SearchRippleWindowHolder.access$setDecodeTypeStr$p(SearchRippleWindowHolder.this, strArr[1]);
                         }
                         String[] headInfo = (String[]) csvInfo.get(1);
                         Intrinsics.checkNotNullExpressionValue(headInfo, "headInfo");
@@ -207,9 +223,7 @@ public final class SearchRippleWindowHolder extends WindowHolder {
                             }
                         }
                         arrayList.add(arrayList2);
-                        int size = csvInfo.size();
-                        i = SearchRippleWindowHolder.this.MAX_CSV_LENGTH;
-                        if (size == i) {
+                        if (csvInfo.size() == SearchRippleWindowHolder.access$getMAX_CSV_LENGTH$p(SearchRippleWindowHolder.this)) {
                             ArrayList arrayList3 = csvInfo;
                             subList = arrayList3.subList(2, arrayList3.size() - 1);
                         } else {
@@ -220,30 +234,30 @@ public final class SearchRippleWindowHolder extends WindowHolder {
                         if (subList.isEmpty()) {
                             return;
                         }
-                        int i2 = 0;
+                        int i = 0;
                         for (Object obj : subList) {
-                            int i3 = i2 + 1;
-                            if (i2 < 0) {
+                            int i2 = i + 1;
+                            if (i < 0) {
                                 CollectionsKt.throwIndexOverflow();
                             }
                             String[] strArr2 = (String[]) obj;
                             if (strArr2 != null) {
                                 if (!(strArr2.length == 0)) {
                                     ArrayList arrayList5 = new ArrayList();
-                                    arrayList5.add(String.valueOf(i3));
+                                    arrayList5.add(String.valueOf(i2));
                                     int length = headInfo.length;
-                                    for (int i4 = 1; i4 < length; i4++) {
-                                        int i5 = i4 - 1;
-                                        if (i5 >= strArr2.length) {
+                                    for (int i3 = 1; i3 < length; i3++) {
+                                        int i4 = i3 - 1;
+                                        if (i4 >= strArr2.length) {
                                             arrayList5.add("null");
                                         } else {
-                                            arrayList5.add(strArr2[i5]);
+                                            arrayList5.add(strArr2[i4]);
                                         }
                                     }
                                     arrayList.add(arrayList5);
                                 }
                             }
-                            i2 = i3;
+                            i = i2;
                         }
                         handler.post(new Runnable() { // from class: com.rigol.scope.views.window.SearchRippleWindowHolder$updateContent$$inlined$let$lambda$1.1
                             @Override // java.lang.Runnable

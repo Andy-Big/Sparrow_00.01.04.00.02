@@ -13,6 +13,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 /* loaded from: classes.dex */
 public final class GsonBuilder {
     private boolean complexMapKeySerialization;
@@ -50,8 +51,7 @@ public final class GsonBuilder {
         this.lenient = false;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public GsonBuilder(Gson gson) {
+    GsonBuilder(Gson gson) {
         this.excluder = Excluder.DEFAULT;
         this.longSerializationPolicy = LongSerializationPolicy.DEFAULT;
         this.fieldNamingPolicy = FieldNamingPolicy.IDENTITY;

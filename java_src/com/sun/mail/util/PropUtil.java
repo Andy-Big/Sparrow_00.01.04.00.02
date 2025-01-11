@@ -2,6 +2,7 @@ package com.sun.mail.util;
 
 import java.util.Properties;
 import javax.mail.Session;
+
 /* loaded from: classes2.dex */
 public class PropUtil {
     private PropUtil() {
@@ -30,17 +31,17 @@ public class PropUtil {
             try {
                 return getBoolean(getProp(System.getProperties(), str), z);
             } catch (SecurityException unused) {
-                return z;
+                String property = System.getProperty(str);
+                if (property == null) {
+                    return z;
+                }
+                if (z) {
+                    return !property.equalsIgnoreCase("false");
+                }
+                return property.equalsIgnoreCase("true");
             }
         } catch (SecurityException unused2) {
-            String property = System.getProperty(str);
-            if (property == null) {
-                return z;
-            }
-            if (z) {
-                return !property.equalsIgnoreCase("false");
-            }
-            return property.equalsIgnoreCase("true");
+            return z;
         }
     }
 

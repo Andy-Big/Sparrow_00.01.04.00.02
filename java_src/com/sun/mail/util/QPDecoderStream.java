@@ -4,6 +4,7 @@ import java.io.FilterInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PushbackInputStream;
+
 /* loaded from: classes2.dex */
 public class QPDecoderStream extends FilterInputStream {
     protected byte[] ba;

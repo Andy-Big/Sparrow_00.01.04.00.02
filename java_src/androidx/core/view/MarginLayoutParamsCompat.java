@@ -2,6 +2,7 @@ package androidx.core.view;
 
 import android.os.Build;
 import android.view.ViewGroup;
+
 /* loaded from: classes.dex */
 public final class MarginLayoutParamsCompat {
     public static int getMarginStart(ViewGroup.MarginLayoutParams marginLayoutParams) {

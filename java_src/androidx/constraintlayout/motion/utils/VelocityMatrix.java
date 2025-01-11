@@ -2,6 +2,7 @@ package androidx.constraintlayout.motion.utils;
 
 import androidx.constraintlayout.motion.widget.KeyCycleOscillator;
 import androidx.constraintlayout.motion.widget.SplineSet;
+
 /* loaded from: classes.dex */
 public class VelocityMatrix {
     private static String TAG = "VelocityMatrix";

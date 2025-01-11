@@ -5,6 +5,7 @@ import android.media.MediaDescription;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Parcel;
+
 /* loaded from: classes.dex */
 class MediaDescriptionCompatApi21 {
     public static String getMediaId(Object obj) {

@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import androidx.appcompat.view.menu.MenuPresenter;
 import androidx.appcompat.view.menu.MenuView;
 import java.util.ArrayList;
+
 /* loaded from: classes.dex */
 public abstract class BaseMenuPresenter implements MenuPresenter {
     private MenuPresenter.Callback mCallback;
@@ -112,8 +113,7 @@ public abstract class BaseMenuPresenter implements MenuPresenter {
         ((ViewGroup) this.mMenuView).addView(view, i);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public boolean filterLeftoverView(ViewGroup viewGroup, int i) {
+    protected boolean filterLeftoverView(ViewGroup viewGroup, int i) {
         viewGroup.removeViewAt(i);
         return true;
     }

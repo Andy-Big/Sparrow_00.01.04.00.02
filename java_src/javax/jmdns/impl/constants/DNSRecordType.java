@@ -3,6 +3,7 @@ package javax.jmdns.impl.constants;
 import com.rigol.scope.utilities.ViewUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 /* loaded from: classes2.dex */
 public enum DNSRecordType {
     TYPE_IGNORE("ignore", 0),

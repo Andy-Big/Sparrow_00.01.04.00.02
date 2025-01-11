@@ -3,6 +3,7 @@ package androidx.lifecycle;
 import android.app.Activity;
 import android.app.Application;
 import android.os.Bundle;
+
 /* loaded from: classes.dex */
 class EmptyActivityLifecycleCallbacks implements Application.ActivityLifecycleCallbacks {
     @Override // android.app.Application.ActivityLifecycleCallbacks
@@ -31,5 +32,8 @@ class EmptyActivityLifecycleCallbacks implements Application.ActivityLifecycleCa
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityStopped(Activity activity) {
+    }
+
+    EmptyActivityLifecycleCallbacks() {
     }
 }

@@ -1,4 +1,5 @@
 package androidx.collection;
+
 /* loaded from: classes.dex */
 public class SparseArrayCompat<E> implements Cloneable {
     private static final Object DELETED = new Object();
@@ -23,6 +24,7 @@ public class SparseArrayCompat<E> implements Cloneable {
         this.mValues = new Object[idealIntArraySize];
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
     public SparseArrayCompat<E> m1clone() {
         try {

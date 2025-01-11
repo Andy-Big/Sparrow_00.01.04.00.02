@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewConfiguration;
 import androidx.core.content.ContextCompat;
 import androidx.core.view.ViewCompat;
+
 /* loaded from: classes.dex */
 public class PagerTabStrip extends PagerTitleStrip {
     private static final int FULL_UNDERLINE_HEIGHT = 1;
@@ -151,9 +152,8 @@ public class PagerTabStrip extends PagerTitleStrip {
         return this.mDrawFullUnderline;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     @Override // androidx.viewpager.widget.PagerTitleStrip
-    public int getMinHeight() {
+    int getMinHeight() {
         return Math.max(super.getMinHeight(), this.mMinStripHeight);
     }
 
@@ -196,9 +196,8 @@ public class PagerTabStrip extends PagerTitleStrip {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     @Override // androidx.viewpager.widget.PagerTitleStrip
-    public void updateTextPositions(int i, float f, boolean z) {
+    void updateTextPositions(int i, float f, boolean z) {
         Rect rect = this.mTempRect;
         int height = getHeight();
         int left = this.mCurrText.getLeft() - this.mTabPadding;

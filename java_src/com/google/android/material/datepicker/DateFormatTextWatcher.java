@@ -8,6 +8,7 @@ import com.google.android.material.textfield.TextInputLayout;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.util.Date;
+
 /* loaded from: classes.dex */
 abstract class DateFormatTextWatcher implements TextWatcher {
     private final CalendarConstraints constraints;
@@ -29,8 +30,7 @@ abstract class DateFormatTextWatcher implements TextWatcher {
 
     abstract void onValidDate(Long l);
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public DateFormatTextWatcher(String str, DateFormat dateFormat, TextInputLayout textInputLayout, CalendarConstraints calendarConstraints) {
+    DateFormatTextWatcher(String str, DateFormat dateFormat, TextInputLayout textInputLayout, CalendarConstraints calendarConstraints) {
         this.formatHint = str;
         this.dateFormat = dateFormat;
         this.textInputLayout = textInputLayout;

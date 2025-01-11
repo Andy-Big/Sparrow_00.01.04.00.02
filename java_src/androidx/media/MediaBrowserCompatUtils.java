@@ -2,6 +2,7 @@ package androidx.media;
 
 import android.os.Bundle;
 import android.support.v4.media.MediaBrowserCompat;
+
 /* loaded from: classes.dex */
 public class MediaBrowserCompatUtils {
     public static boolean areSameOptions(Bundle bundle, Bundle bundle2) {

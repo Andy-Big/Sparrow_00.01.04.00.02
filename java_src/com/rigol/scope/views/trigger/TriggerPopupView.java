@@ -113,6 +113,11 @@ public class TriggerPopupView extends BasePopupView implements View.OnClickListe
     TriggerVideoAdapter triggerVideoAdapter;
     private TriggerViewModel triggerViewModel;
 
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.views.trigger.-$$Lambda$TriggerPopupView$MJjLya1zPVZztwYGjvXJXujxTkU.onCall(int, com.rigol.scope.data.MappingObject):void] */
+    public static /* synthetic */ void lambda$MJjLya1zPVZztwYGjvXJXujxTkU(TriggerPopupView triggerPopupView, int i, MappingObject mappingObject) {
+        triggerPopupView.selectAdapter(i, mappingObject);
+    }
+
     public void setSharedViewModel(SharedViewModel sharedViewModel) {
     }
 
@@ -173,7 +178,10 @@ public class TriggerPopupView extends BasePopupView implements View.OnClickListe
         this.binding.singleRadioButton.setOnCheckedChangeListener(this);
         this.binding.triggerType.setOnClickListener(this);
         this.triggerViewModel.getLiveData().observe((LifecycleOwner) ActivityUtils.getTopActivity(), new Observer<TriggerParam>() { // from class: com.rigol.scope.views.trigger.TriggerPopupView.1
-            /* JADX DEBUG: Method merged with bridge method */
+            {
+                TriggerPopupView.this = this;
+            }
+
             @Override // androidx.lifecycle.Observer
             public void onChanged(TriggerParam triggerParam) {
                 TriggerPopupView.this.param = triggerParam;
@@ -191,6 +199,10 @@ public class TriggerPopupView extends BasePopupView implements View.OnClickListe
 
             @Override // com.rigol.scope.utilities.AorBManager
             protected void setrecovery_num(int i) {
+            }
+
+            {
+                TriggerPopupView.this = this;
             }
         };
         PanelKeyViewModel panelKeyViewModel = (PanelKeyViewModel) ContextUtil.getAppViewModel(PanelKeyViewModel.class);
@@ -216,7 +228,7 @@ public class TriggerPopupView extends BasePopupView implements View.OnClickListe
             this.panelKeyViewModel.abSwitch(keyEvent, this.clickedView, this.popupSpinner, list, this.spinnerAdapter, this.aorBManager, null, null, new AorBManager.OnSpinnerItemChangeListener() { // from class: com.rigol.scope.views.trigger.-$$Lambda$TriggerPopupView$MJjLya1zPVZztwYGjvXJXujxTkU
                 @Override // com.rigol.scope.utilities.AorBManager.OnSpinnerItemChangeListener
                 public final void onCall(int i, MappingObject mappingObject) {
-                    TriggerPopupView.this.selectAdapter(i, mappingObject);
+                    TriggerPopupView.lambda$MJjLya1zPVZztwYGjvXJXujxTkU(TriggerPopupView.this, i, mappingObject);
                 }
             });
         }
@@ -610,7 +622,6 @@ public class TriggerPopupView extends BasePopupView implements View.OnClickListe
         selectAdapter(i, mappingObject);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public void selectAdapter(int i, MappingObject mappingObject) {
         List filter = KtUtilKt.filter(ViewUtil.getList((int) R.array.msg_trigger_type), new Function1() { // from class: com.rigol.scope.views.trigger.-$$Lambda$TriggerPopupView$lZP4tj2L-hUSdjlxJtEd8-YO4BY
             @Override // kotlin.jvm.functions.Function1
@@ -752,7 +763,7 @@ public class TriggerPopupView extends BasePopupView implements View.OnClickListe
         }
     }
 
-    /* renamed from: com.rigol.scope.views.trigger.TriggerPopupView$3  reason: invalid class name */
+    /* renamed from: com.rigol.scope.views.trigger.TriggerPopupView$3 */
     /* loaded from: classes2.dex */
     static /* synthetic */ class AnonymousClass3 {
         static final /* synthetic */ int[] $SwitchMap$com$rigol$scope$cil$ServiceEnum$TriggerMode;

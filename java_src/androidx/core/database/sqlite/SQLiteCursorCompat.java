@@ -2,6 +2,7 @@ package androidx.core.database.sqlite;
 
 import android.database.sqlite.SQLiteCursor;
 import android.os.Build;
+
 /* loaded from: classes.dex */
 public final class SQLiteCursorCompat {
     private SQLiteCursorCompat() {

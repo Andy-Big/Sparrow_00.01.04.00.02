@@ -1,6 +1,7 @@
 package me.jessyan.autosize.utils;
 
 import android.os.Looper;
+
 /* loaded from: classes2.dex */
 public final class Preconditions {
     private Preconditions() {

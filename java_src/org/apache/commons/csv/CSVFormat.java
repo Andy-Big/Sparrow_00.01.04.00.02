@@ -18,6 +18,7 @@ import java.sql.SQLException;
 import java.util.Arrays;
 import java.util.HashSet;
 import kotlin.text.Typography;
+
 /* loaded from: classes2.dex */
 public final class CSVFormat implements Serializable {
     public static final CSVFormat DEFAULT;
@@ -479,137 +480,96 @@ public final class CSVFormat implements Serializable {
     /* JADX WARN: Removed duplicated region for block: B:56:0x00a7  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    private void printWithQuotes(java.lang.Object r10, java.lang.CharSequence r11, java.lang.Appendable r12, boolean r13) throws java.io.IOException {
-        /*
-            r9 = this;
-            int r0 = r11.length()
-            char r1 = r9.getDelimiter()
-            java.lang.Character r2 = r9.getQuoteCharacter()
-            char r2 = r2.charValue()
-            boolean r3 = r9.isEscapeCharacterSet()
-            if (r3 == 0) goto L1f
-            java.lang.Character r3 = r9.getEscapeCharacter()
-            char r3 = r3.charValue()
-            goto L20
-        L1f:
-            r3 = r2
-        L20:
-            org.apache.commons.csv.QuoteMode r4 = r9.getQuoteMode()
-            if (r4 != 0) goto L28
-            org.apache.commons.csv.QuoteMode r4 = org.apache.commons.csv.QuoteMode.MINIMAL
-        L28:
-            int[] r5 = org.apache.commons.csv.CSVFormat.AnonymousClass1.$SwitchMap$org$apache$commons$csv$QuoteMode
-            int r6 = r4.ordinal()
-            r5 = r5[r6]
-            r6 = 0
-            r7 = 1
-            if (r5 == r7) goto La0
-            r8 = 2
-            if (r5 == r8) goto La0
-            r8 = 3
-            if (r5 == r8) goto L9d
-            r10 = 4
-            if (r5 == r10) goto L99
-            r10 = 5
-            if (r5 != r10) goto L82
-            if (r0 > 0) goto L48
-            if (r13 == 0) goto L45
-            goto L50
-        L45:
-            r10 = r6
-            r7 = r10
-            goto L7c
-        L48:
-            char r10 = r11.charAt(r6)
-            r13 = 35
-            if (r10 > r13) goto L52
-        L50:
-            r10 = r6
-            goto L7c
-        L52:
-            r10 = r6
-        L53:
-            if (r10 >= r0) goto L6d
-            char r13 = r11.charAt(r10)
-            r4 = 10
-            if (r13 == r4) goto L6b
-            r4 = 13
-            if (r13 == r4) goto L6b
-            if (r13 == r2) goto L6b
-            if (r13 == r1) goto L6b
-            if (r13 != r3) goto L68
-            goto L6b
-        L68:
-            int r10 = r10 + 1
-            goto L53
-        L6b:
-            r13 = r7
-            goto L6e
-        L6d:
-            r13 = r6
-        L6e:
-            if (r13 != 0) goto L7b
-            int r10 = r0 + (-1)
-            char r1 = r11.charAt(r10)
-            r4 = 32
-            if (r1 > r4) goto L7b
-            goto L7c
-        L7b:
-            r7 = r13
-        L7c:
-            if (r7 != 0) goto La1
-            r12.append(r11, r6, r0)
-            return
-        L82:
-            java.lang.IllegalStateException r10 = new java.lang.IllegalStateException
-            java.lang.StringBuilder r11 = new java.lang.StringBuilder
-            r11.<init>()
-            java.lang.String r12 = "Unexpected Quote value: "
-            r11.append(r12)
-            r11.append(r4)
-            java.lang.String r11 = r11.toString()
-            r10.<init>(r11)
-            throw r10
-        L99:
-            r9.printWithEscapes(r11, r12)
-            return
-        L9d:
-            boolean r10 = r10 instanceof java.lang.Number
-            r7 = r7 ^ r10
-        La0:
-            r10 = r6
-        La1:
-            if (r7 != 0) goto La7
-            r12.append(r11, r6, r0)
-            return
-        La7:
-            r12.append(r2)
-        Laa:
-            if (r10 >= r0) goto Lbe
-            char r13 = r11.charAt(r10)
-            if (r13 == r2) goto Lb4
-            if (r13 != r3) goto Lbb
-        Lb4:
-            r12.append(r11, r6, r10)
-            r12.append(r3)
-            r6 = r10
-        Lbb:
-            int r10 = r10 + 1
-            goto Laa
-        Lbe:
-            r12.append(r11, r6, r10)
-            r12.append(r2)
-            return
-        */
-        throw new UnsupportedOperationException("Method not decompiled: org.apache.commons.csv.CSVFormat.printWithQuotes(java.lang.Object, java.lang.CharSequence, java.lang.Appendable, boolean):void");
+    private void printWithQuotes(Object obj, CharSequence charSequence, Appendable appendable, boolean z) throws IOException {
+        int i;
+        boolean z2;
+        int length = charSequence.length();
+        char delimiter = getDelimiter();
+        char charValue = getQuoteCharacter().charValue();
+        char charValue2 = isEscapeCharacterSet() ? getEscapeCharacter().charValue() : charValue;
+        QuoteMode quoteMode = getQuoteMode();
+        if (quoteMode == null) {
+            quoteMode = QuoteMode.MINIMAL;
+        }
+        int i2 = AnonymousClass1.$SwitchMap$org$apache$commons$csv$QuoteMode[quoteMode.ordinal()];
+        int i3 = 0;
+        boolean z3 = true;
+        if (i2 != 1 && i2 != 2) {
+            if (i2 == 3) {
+                z3 = true ^ (obj instanceof Number);
+            } else if (i2 == 4) {
+                printWithEscapes(charSequence, appendable);
+                return;
+            } else if (i2 != 5) {
+                throw new IllegalStateException("Unexpected Quote value: " + quoteMode);
+            } else if (length <= 0) {
+                if (!z) {
+                    i = 0;
+                    z3 = false;
+                    if (!z3) {
+                        appendable.append(charSequence, 0, length);
+                        return;
+                    }
+                    if (!z3) {
+                        appendable.append(charSequence, 0, length);
+                        return;
+                    }
+                    appendable.append(charValue);
+                    while (i < length) {
+                        char charAt = charSequence.charAt(i);
+                        if (charAt == charValue || charAt == charValue2) {
+                            appendable.append(charSequence, i3, i);
+                            appendable.append(charValue2);
+                            i3 = i;
+                        }
+                        i++;
+                    }
+                    appendable.append(charSequence, i3, i);
+                    appendable.append(charValue);
+                    return;
+                }
+                i = 0;
+                if (!z3) {
+                }
+                if (!z3) {
+                }
+            } else {
+                if (charSequence.charAt(0) > '#') {
+                    i = 0;
+                    while (i < length) {
+                        char charAt2 = charSequence.charAt(i);
+                        if (charAt2 == '\n' || charAt2 == '\r' || charAt2 == charValue || charAt2 == delimiter || charAt2 == charValue2) {
+                            z2 = true;
+                            break;
+                        }
+                        i++;
+                    }
+                    z2 = false;
+                    if (!z2) {
+                        i = length - 1;
+                    }
+                    z3 = z2;
+                    if (!z3) {
+                    }
+                    if (!z3) {
+                    }
+                }
+                i = 0;
+                if (!z3) {
+                }
+                if (!z3) {
+                }
+            }
+        }
+        i = 0;
+        if (!z3) {
+        }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: org.apache.commons.csv.CSVFormat$1  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    static /* synthetic */ class AnonymousClass1 {
         static final /* synthetic */ int[] $SwitchMap$org$apache$commons$csv$QuoteMode;
 
         static {

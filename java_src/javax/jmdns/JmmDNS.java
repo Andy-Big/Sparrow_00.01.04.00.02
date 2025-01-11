@@ -6,6 +6,7 @@ import java.net.InetAddress;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicReference;
 import javax.jmdns.impl.JmmDNSImpl;
+
 /* loaded from: classes2.dex */
 public interface JmmDNS extends Closeable {
     void addNetworkTopologyListener(NetworkTopologyListener networkTopologyListener);

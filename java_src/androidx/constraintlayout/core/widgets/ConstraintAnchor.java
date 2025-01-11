@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
+
 /* loaded from: classes.dex */
 public class ConstraintAnchor {
     private static final boolean ALLOW_BINARY = false;
@@ -243,10 +244,9 @@ public class ConstraintAnchor {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: androidx.constraintlayout.core.widgets.ConstraintAnchor$1  reason: invalid class name */
     /* loaded from: classes.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    static /* synthetic */ class AnonymousClass1 {
         static final /* synthetic */ int[] $SwitchMap$androidx$constraintlayout$core$widgets$ConstraintAnchor$Type;
 
         static {

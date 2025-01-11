@@ -17,6 +17,7 @@ import java.io.InputStream;
 import java.nio.ByteBuffer;
 import java.nio.MappedByteBuffer;
 import java.nio.channels.FileChannel;
+
 /* loaded from: classes.dex */
 public class TypefaceCompatUtil {
     private static final String CACHE_FILE_PREFIX = ".font";
@@ -99,43 +100,42 @@ public class TypefaceCompatUtil {
     }
 
     public static boolean copyToFile(File file, InputStream inputStream) {
-        FileOutputStream fileOutputStream;
         StrictMode.ThreadPolicy allowThreadDiskWrites = StrictMode.allowThreadDiskWrites();
-        FileOutputStream fileOutputStream2 = null;
+        FileOutputStream fileOutputStream = null;
         try {
             try {
-                fileOutputStream = new FileOutputStream(file, false);
-            } catch (IOException e) {
-                e = e;
-            }
-        } catch (Throwable th) {
-            th = th;
-        }
-        try {
-            byte[] bArr = new byte[1024];
-            while (true) {
-                int read = inputStream.read(bArr);
-                if (read != -1) {
-                    fileOutputStream.write(bArr, 0, read);
-                } else {
+                FileOutputStream fileOutputStream2 = new FileOutputStream(file, false);
+                try {
+                    byte[] bArr = new byte[1024];
+                    while (true) {
+                        int read = inputStream.read(bArr);
+                        if (read != -1) {
+                            fileOutputStream2.write(bArr, 0, read);
+                        } else {
+                            closeQuietly(fileOutputStream2);
+                            StrictMode.setThreadPolicy(allowThreadDiskWrites);
+                            return true;
+                        }
+                    }
+                } catch (IOException e) {
+                    e = e;
+                    fileOutputStream = fileOutputStream2;
+                    Log.e(TAG, "Error copying resource contents to temp file: " + e.getMessage());
                     closeQuietly(fileOutputStream);
                     StrictMode.setThreadPolicy(allowThreadDiskWrites);
-                    return true;
+                    return false;
+                } catch (Throwable th) {
+                    th = th;
+                    fileOutputStream = fileOutputStream2;
+                    closeQuietly(fileOutputStream);
+                    StrictMode.setThreadPolicy(allowThreadDiskWrites);
+                    throw th;
                 }
+            } catch (Throwable th2) {
+                th = th2;
             }
         } catch (IOException e2) {
             e = e2;
-            fileOutputStream2 = fileOutputStream;
-            Log.e(TAG, "Error copying resource contents to temp file: " + e.getMessage());
-            closeQuietly(fileOutputStream2);
-            StrictMode.setThreadPolicy(allowThreadDiskWrites);
-            return false;
-        } catch (Throwable th2) {
-            th = th2;
-            fileOutputStream2 = fileOutputStream;
-            closeQuietly(fileOutputStream2);
-            StrictMode.setThreadPolicy(allowThreadDiskWrites);
-            throw th;
         }
     }
 
@@ -143,18 +143,18 @@ public class TypefaceCompatUtil {
         InputStream inputStream;
         try {
             inputStream = resources.openRawResource(i);
-            try {
-                boolean copyToFile = copyToFile(file, inputStream);
-                closeQuietly(inputStream);
-                return copyToFile;
-            } catch (Throwable th) {
-                th = th;
-                closeQuietly(inputStream);
-                throw th;
-            }
+        } catch (Throwable th) {
+            th = th;
+            inputStream = null;
+        }
+        try {
+            boolean copyToFile = copyToFile(file, inputStream);
+            closeQuietly(inputStream);
+            return copyToFile;
         } catch (Throwable th2) {
             th = th2;
-            inputStream = null;
+            closeQuietly(inputStream);
+            throw th;
         }
     }
 

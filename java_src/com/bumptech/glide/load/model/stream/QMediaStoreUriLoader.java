@@ -20,6 +20,7 @@ import com.bumptech.glide.signature.ObjectKey;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
+
 /* loaded from: classes.dex */
 public final class QMediaStoreUriLoader<DataT> implements ModelLoader<Uri, DataT> {
     private final Context context;
@@ -34,19 +35,20 @@ public final class QMediaStoreUriLoader<DataT> implements ModelLoader<Uri, DataT
         this.dataClass = cls;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.model.ModelLoader
     public ModelLoader.LoadData<DataT> buildLoadData(Uri uri, int i, int i2, Options options) {
         return new ModelLoader.LoadData<>(new ObjectKey(uri), new QMediaStoreUriFetcher(this.context, this.fileDelegate, this.uriDelegate, uri, i, i2, options, this.dataClass));
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.model.ModelLoader
     public boolean handles(Uri uri) {
         return Build.VERSION.SDK_INT >= 29 && MediaStoreUtil.isMediaStoreUri(uri);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static final class QMediaStoreUriFetcher<DataT> implements DataFetcher<DataT> {
+    private static final class QMediaStoreUriFetcher<DataT> implements DataFetcher<DataT> {
         private static final String[] PROJECTION = {"_data"};
         private final Context context;
         private final Class<DataT> dataClass;

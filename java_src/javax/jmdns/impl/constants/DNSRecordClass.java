@@ -2,6 +2,7 @@ package javax.jmdns.impl.constants;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 /* loaded from: classes2.dex */
 public enum DNSRecordClass {
     CLASS_UNKNOWN("?", 0),

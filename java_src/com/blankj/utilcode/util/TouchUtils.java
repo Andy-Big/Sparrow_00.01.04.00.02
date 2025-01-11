@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewConfiguration;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
+
 /* loaded from: classes.dex */
 public class TouchUtils {
     public static final int DOWN = 8;

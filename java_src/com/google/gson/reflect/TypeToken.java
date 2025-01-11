@@ -8,6 +8,7 @@ import java.lang.reflect.Type;
 import java.lang.reflect.TypeVariable;
 import java.util.HashMap;
 import java.util.Map;
+
 /* loaded from: classes.dex */
 public class TypeToken<T> {
     final int hashCode;
@@ -75,6 +76,7 @@ public class TypeToken<T> {
         return isAssignableFrom(typeToken.getType());
     }
 
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:17:0x0024 */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r1v0, types: [java.lang.reflect.Type] */
     /* JADX WARN: Type inference failed for: r1v10 */

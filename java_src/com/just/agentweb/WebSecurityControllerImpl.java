@@ -4,6 +4,7 @@ import android.os.Build;
 import android.webkit.WebView;
 import androidx.collection.ArrayMap;
 import com.just.agentweb.AgentWeb;
+
 /* loaded from: classes.dex */
 public class WebSecurityControllerImpl implements WebSecurityController<WebSecurityCheckLogic> {
     private ArrayMap<String, Object> mMap;
@@ -16,6 +17,7 @@ public class WebSecurityControllerImpl implements WebSecurityController<WebSecur
         this.mSecurityType = securityType;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.just.agentweb.WebSecurityController
     public void check(WebSecurityCheckLogic webSecurityCheckLogic) {
         if (Build.VERSION.SDK_INT > 11) {

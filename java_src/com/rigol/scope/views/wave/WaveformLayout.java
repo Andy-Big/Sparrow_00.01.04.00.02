@@ -113,10 +113,11 @@ public class WaveformLayout extends ConstraintLayout {
     private BaseSurfaceView zoomSurfaceView;
     private BaseWaveformView zoomView;
 
-    /* renamed from: com.rigol.scope.views.wave.WaveformLayout$1  reason: invalid class name */
+    /* renamed from: com.rigol.scope.views.wave.WaveformLayout$1 */
     /* loaded from: classes2.dex */
     class AnonymousClass1 extends GestureDetector.SimpleOnGestureListener {
         AnonymousClass1() {
+            WaveformLayout.this = r1;
         }
 
         @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
@@ -283,6 +284,10 @@ public class WaveformLayout extends ConstraintLayout {
                 return true;
             }
 
+            {
+                WaveformLayout.this = this;
+            }
+
             @Override // android.view.ScaleGestureDetector.SimpleOnScaleGestureListener, android.view.ScaleGestureDetector.OnScaleGestureListener
             public boolean onScale(ScaleGestureDetector scaleGestureDetector) {
                 if (Math.abs(WaveformLayout.this.mainSurfaceView.getTotalScaleSpan()[0]) > Math.abs(WaveformLayout.this.mainSurfaceView.getTotalScaleSpan()[1])) {
@@ -312,6 +317,10 @@ public class WaveformLayout extends ConstraintLayout {
             }
         };
         this.zoomOnGestureListener = new GestureDetector.SimpleOnGestureListener() { // from class: com.rigol.scope.views.wave.WaveformLayout.3
+            {
+                WaveformLayout.this = this;
+            }
+
             @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
             public boolean onDown(MotionEvent motionEvent) {
                 if (PopupViewManager.getInstance().isShowingWhenClickDown()) {
@@ -347,6 +356,10 @@ public class WaveformLayout extends ConstraintLayout {
             @Override // android.view.ScaleGestureDetector.SimpleOnScaleGestureListener, android.view.ScaleGestureDetector.OnScaleGestureListener
             public boolean onScaleBegin(ScaleGestureDetector scaleGestureDetector) {
                 return true;
+            }
+
+            {
+                WaveformLayout.this = this;
             }
 
             @Override // android.view.ScaleGestureDetector.SimpleOnScaleGestureListener, android.view.ScaleGestureDetector.OnScaleGestureListener
@@ -404,6 +417,10 @@ public class WaveformLayout extends ConstraintLayout {
                 return true;
             }
 
+            {
+                WaveformLayout.this = this;
+            }
+
             @Override // android.view.ScaleGestureDetector.SimpleOnScaleGestureListener, android.view.ScaleGestureDetector.OnScaleGestureListener
             public boolean onScale(ScaleGestureDetector scaleGestureDetector) {
                 if (Math.abs(WaveformLayout.this.mainSurfaceView.getTotalScaleSpan()[0]) > Math.abs(WaveformLayout.this.mainSurfaceView.getTotalScaleSpan()[1])) {
@@ -433,6 +450,10 @@ public class WaveformLayout extends ConstraintLayout {
             }
         };
         this.zoomOnGestureListener = new GestureDetector.SimpleOnGestureListener() { // from class: com.rigol.scope.views.wave.WaveformLayout.3
+            {
+                WaveformLayout.this = this;
+            }
+
             @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
             public boolean onDown(MotionEvent motionEvent) {
                 if (PopupViewManager.getInstance().isShowingWhenClickDown()) {
@@ -468,6 +489,10 @@ public class WaveformLayout extends ConstraintLayout {
             @Override // android.view.ScaleGestureDetector.SimpleOnScaleGestureListener, android.view.ScaleGestureDetector.OnScaleGestureListener
             public boolean onScaleBegin(ScaleGestureDetector scaleGestureDetector) {
                 return true;
+            }
+
+            {
+                WaveformLayout.this = this;
             }
 
             @Override // android.view.ScaleGestureDetector.SimpleOnScaleGestureListener, android.view.ScaleGestureDetector.OnScaleGestureListener
@@ -525,6 +550,10 @@ public class WaveformLayout extends ConstraintLayout {
                 return true;
             }
 
+            {
+                WaveformLayout.this = this;
+            }
+
             @Override // android.view.ScaleGestureDetector.SimpleOnScaleGestureListener, android.view.ScaleGestureDetector.OnScaleGestureListener
             public boolean onScale(ScaleGestureDetector scaleGestureDetector) {
                 if (Math.abs(WaveformLayout.this.mainSurfaceView.getTotalScaleSpan()[0]) > Math.abs(WaveformLayout.this.mainSurfaceView.getTotalScaleSpan()[1])) {
@@ -554,6 +583,10 @@ public class WaveformLayout extends ConstraintLayout {
             }
         };
         this.zoomOnGestureListener = new GestureDetector.SimpleOnGestureListener() { // from class: com.rigol.scope.views.wave.WaveformLayout.3
+            {
+                WaveformLayout.this = this;
+            }
+
             @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
             public boolean onDown(MotionEvent motionEvent) {
                 if (PopupViewManager.getInstance().isShowingWhenClickDown()) {
@@ -589,6 +622,10 @@ public class WaveformLayout extends ConstraintLayout {
             @Override // android.view.ScaleGestureDetector.SimpleOnScaleGestureListener, android.view.ScaleGestureDetector.OnScaleGestureListener
             public boolean onScaleBegin(ScaleGestureDetector scaleGestureDetector) {
                 return true;
+            }
+
+            {
+                WaveformLayout.this = this;
             }
 
             @Override // android.view.ScaleGestureDetector.SimpleOnScaleGestureListener, android.view.ScaleGestureDetector.OnScaleGestureListener
@@ -719,12 +756,13 @@ public class WaveformLayout extends ConstraintLayout {
         updateZoomInfo();
     }
 
-    /* renamed from: com.rigol.scope.views.wave.WaveformLayout$5  reason: invalid class name */
+    /* renamed from: com.rigol.scope.views.wave.WaveformLayout$5 */
     /* loaded from: classes2.dex */
     class AnonymousClass5 implements View.OnLayoutChangeListener {
         final /* synthetic */ SyncDataViewModel val$syncDataViewModel;
 
         AnonymousClass5(SyncDataViewModel syncDataViewModel) {
+            WaveformLayout.this = r1;
             this.val$syncDataViewModel = syncDataViewModel;
         }
 
@@ -880,7 +918,6 @@ public class WaveformLayout extends ConstraintLayout {
         textView3.setText(sb.toString());
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public void updateZoomInfo() {
         if (this.horizontalParam == null || this.zoomInfoView == null) {
             return;
@@ -919,6 +956,10 @@ public class WaveformLayout extends ConstraintLayout {
 
     public /* synthetic */ void lambda$addMain$10$WaveformLayout(final SharedParam sharedParam) {
         sharedParam.addOnPropertyChangedCallback(new Observable.OnPropertyChangedCallback() { // from class: com.rigol.scope.views.wave.WaveformLayout.6
+            {
+                WaveformLayout.this = this;
+            }
+
             @Override // androidx.databinding.Observable.OnPropertyChangedCallback
             public void onPropertyChanged(Observable observable, int i) {
                 int[] iArr = new int[2];
@@ -1271,15 +1312,24 @@ public class WaveformLayout extends ConstraintLayout {
         this.bodeCloseButton.setOnClickListener(new View.OnClickListener() { // from class: com.rigol.scope.views.wave.-$$Lambda$WaveformLayout$W3_JtsRuAEqmr4yta2UWyoiZ1tw
             @Override // android.view.View.OnClickListener
             public final void onClick(View view) {
-                ((BodeViewModel) ContextUtil.getAppViewModel(BodeViewModel.class)).getValue().saveBodeEnable(false);
+                WaveformLayout.lambda$addBodeCloseView$14(view);
             }
         });
         this.bode_menu.setOnClickListener(new View.OnClickListener() { // from class: com.rigol.scope.views.wave.WaveformLayout.7
+            {
+                WaveformLayout.this = this;
+            }
+
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 PopupViewManager.getInstance().toggle(BodePopupWin.class);
             }
         });
+    }
+
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.views.wave.-$$Lambda$WaveformLayout$W3_JtsRuAEqmr4yta2UWyoiZ1tw.onClick(android.view.View):void] */
+    static /* synthetic */ void lambda$addBodeCloseView$14(View view) {
+        ((BodeViewModel) ContextUtil.getAppViewModel(BodeViewModel.class)).getValue().saveBodeEnable(false);
     }
 
     private void addZoomScaleView() {
@@ -1373,7 +1423,7 @@ public class WaveformLayout extends ConstraintLayout {
         ThreadUtils.runOnUiThreadDelayed(new Runnable() { // from class: com.rigol.scope.views.wave.-$$Lambda$WaveformLayout$r9ALB68MeUIFBM3W8xoaTVa8FJg
             @Override // java.lang.Runnable
             public final void run() {
-                MessageBus.getInstance().onSyncData(MessageBus.getKey(60, MessageID.MSG_LA_ENABLE), true);
+                WaveformLayout.lambda$closeZoom$18();
             }
         }, 200L);
     }
@@ -1384,6 +1434,11 @@ public class WaveformLayout extends ConstraintLayout {
         ViewUtil.setVisibility(this.zoomRulerView, 8);
         ViewUtil.setVisibility(this.zoomInfoView, 8);
         ViewUtil.setVisibility(this.zoomCloseButton, 8);
+    }
+
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.views.wave.-$$Lambda$WaveformLayout$r9ALB68MeUIFBM3W8xoaTVa8FJg.run():void] */
+    static /* synthetic */ void lambda$closeZoom$18() {
+        MessageBus.getInstance().onSyncData(MessageBus.getKey(60, MessageID.MSG_LA_ENABLE), true);
     }
 
     public void toggleZoom() {
@@ -1428,6 +1483,10 @@ public class WaveformLayout extends ConstraintLayout {
         this.laLienView.setPosition(i, str);
         this.laLienView.setVisibility(0);
         this.laLienView.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.rigol.scope.views.wave.WaveformLayout.8
+            {
+                WaveformLayout.this = this;
+            }
+
             @Override // android.view.View.OnLongClickListener
             public boolean onLongClick(View view) {
                 ClipData.Item item = new ClipData.Item(i + "");
@@ -1441,6 +1500,10 @@ public class WaveformLayout extends ConstraintLayout {
             }
         });
         this.laLienView.setOnDragListener(new View.OnDragListener() { // from class: com.rigol.scope.views.wave.WaveformLayout.9
+            {
+                WaveformLayout.this = this;
+            }
+
             /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
             @Override // android.view.View.OnDragListener
             public boolean onDrag(View view, DragEvent dragEvent) {

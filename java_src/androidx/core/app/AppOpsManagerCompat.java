@@ -3,6 +3,7 @@ package androidx.core.app;
 import android.app.AppOpsManager;
 import android.content.Context;
 import android.os.Build;
+
 /* loaded from: classes.dex */
 public final class AppOpsManagerCompat {
     public static final int MODE_ALLOWED = 0;

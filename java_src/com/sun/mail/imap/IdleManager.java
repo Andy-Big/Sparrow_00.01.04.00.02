@@ -16,6 +16,7 @@ import java.util.logging.Level;
 import javax.mail.Folder;
 import javax.mail.MessagingException;
 import javax.mail.Session;
+
 /* loaded from: classes2.dex */
 public class IdleManager {
     private Executor es;
@@ -87,12 +88,13 @@ public class IdleManager {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void requestAbort(IMAPFolder iMAPFolder) {
+    void requestAbort(IMAPFolder iMAPFolder) {
         this.toAbort.add(iMAPFolder);
         this.selector.wakeup();
     }
 
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[IPUT, IGET, INVOKE]}, finally: {[IPUT, IGET, INVOKE, IGET, INVOKE] complete} */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [274=5, 275=5, 277=5, 278=5] */
     /* JADX INFO: Access modifiers changed from: private */
     public void select() {
         this.die = false;
@@ -115,8 +117,8 @@ public class IdleManager {
                                 if (this.selector.selectNow() > 0 || !this.toAbort.isEmpty()) {
                                 }
                             }
-                        } catch (IOException e) {
-                            this.logger.log(Level.FINEST, "IdleManager got I/O exception", (Throwable) e);
+                        } catch (InterruptedIOException e) {
+                            this.logger.log(Level.FINEST, "IdleManager interrupted", (Throwable) e);
                             this.die = true;
                             this.logger.finest("IdleManager unwatchAll");
                             try {
@@ -141,8 +143,8 @@ public class IdleManager {
                             this.logger.fine("IdleManager exiting");
                         }
                     }
-                } catch (InterruptedIOException e5) {
-                    this.logger.log(Level.FINEST, "IdleManager interrupted", (Throwable) e5);
+                } catch (IOException e5) {
+                    this.logger.log(Level.FINEST, "IdleManager got I/O exception", (Throwable) e5);
                     this.die = true;
                     this.logger.finest("IdleManager unwatchAll");
                     try {

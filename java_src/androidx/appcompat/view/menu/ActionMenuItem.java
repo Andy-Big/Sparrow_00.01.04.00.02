@@ -14,6 +14,7 @@ import androidx.core.content.ContextCompat;
 import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.core.internal.view.SupportMenuItem;
 import androidx.core.view.ActionProvider;
+
 /* loaded from: classes.dex */
 public class ActionMenuItem implements SupportMenuItem {
     private static final int CHECKABLE = 1;
@@ -308,6 +309,7 @@ public class ActionMenuItem implements SupportMenuItem {
         return true;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.core.internal.view.SupportMenuItem, android.view.MenuItem
     public SupportMenuItem setActionView(View view) {
         throw new UnsupportedOperationException();
@@ -323,6 +325,7 @@ public class ActionMenuItem implements SupportMenuItem {
         throw new UnsupportedOperationException();
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.core.internal.view.SupportMenuItem, android.view.MenuItem
     public SupportMenuItem setActionView(int i) {
         throw new UnsupportedOperationException();
@@ -333,6 +336,7 @@ public class ActionMenuItem implements SupportMenuItem {
         throw new UnsupportedOperationException();
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.core.internal.view.SupportMenuItem, android.view.MenuItem
     public SupportMenuItem setShowAsActionFlags(int i) {
         setShowAsAction(i);
@@ -344,6 +348,7 @@ public class ActionMenuItem implements SupportMenuItem {
         throw new UnsupportedOperationException();
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // android.view.MenuItem
     public SupportMenuItem setContentDescription(CharSequence charSequence) {
         this.mContentDescription = charSequence;
@@ -355,6 +360,7 @@ public class ActionMenuItem implements SupportMenuItem {
         return this.mContentDescription;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // android.view.MenuItem
     public SupportMenuItem setTooltipText(CharSequence charSequence) {
         this.mTooltipText = charSequence;

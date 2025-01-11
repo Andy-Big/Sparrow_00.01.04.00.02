@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.PopupWindow;
 import androidx.appcompat.R;
 import androidx.core.widget.PopupWindowCompat;
+
 /* loaded from: classes.dex */
 class AppCompatPopupWindow extends PopupWindow {
     private static final boolean COMPAT_OVERLAP_ANCHOR;

@@ -4,6 +4,7 @@ import java.io.FilterOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import kotlin.UByte;
+
 /* loaded from: classes2.dex */
 public class BASE64EncoderStream extends FilterOutputStream {
     private static byte[] newline = {13, 10};

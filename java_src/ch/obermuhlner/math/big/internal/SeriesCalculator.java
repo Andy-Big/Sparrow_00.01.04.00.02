@@ -6,6 +6,7 @@ import java.math.MathContext;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+
 /* loaded from: classes.dex */
 public abstract class SeriesCalculator {
     private final boolean calculateInPairs;
@@ -17,13 +18,11 @@ public abstract class SeriesCalculator {
 
     protected abstract BigRational getCurrentFactor();
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public SeriesCalculator() {
+    protected SeriesCalculator() {
         this(false);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public SeriesCalculator(boolean z) {
+    protected SeriesCalculator(boolean z) {
         this.factors = new ArrayList();
         this.calculateInPairs = z;
     }
@@ -60,6 +59,7 @@ public abstract class SeriesCalculator {
         return this.factors.get(i);
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: java.util.List<ch.obermuhlner.math.big.BigRational> */
     /* JADX WARN: Multi-variable type inference failed */
     private void addFactor(BigRational bigRational) {
         this.factors.add(Objects.requireNonNull(bigRational, "Factor cannot be null"));

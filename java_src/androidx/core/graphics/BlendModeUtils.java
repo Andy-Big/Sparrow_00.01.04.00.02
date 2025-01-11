@@ -2,6 +2,7 @@ package androidx.core.graphics;
 
 import android.graphics.BlendMode;
 import android.graphics.PorterDuff;
+
 /* loaded from: classes.dex */
 class BlendModeUtils {
 
@@ -132,8 +133,7 @@ class BlendModeUtils {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static BlendMode obtainBlendModeFromCompat(BlendModeCompat blendModeCompat) {
+    static BlendMode obtainBlendModeFromCompat(BlendModeCompat blendModeCompat) {
         switch (AnonymousClass1.$SwitchMap$androidx$core$graphics$BlendModeCompat[blendModeCompat.ordinal()]) {
             case 1:
                 return BlendMode.CLEAR;
@@ -198,8 +198,7 @@ class BlendModeUtils {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static PorterDuff.Mode obtainPorterDuffFromCompat(BlendModeCompat blendModeCompat) {
+    static PorterDuff.Mode obtainPorterDuffFromCompat(BlendModeCompat blendModeCompat) {
         if (blendModeCompat != null) {
             switch (AnonymousClass1.$SwitchMap$androidx$core$graphics$BlendModeCompat[blendModeCompat.ordinal()]) {
                 case 1:

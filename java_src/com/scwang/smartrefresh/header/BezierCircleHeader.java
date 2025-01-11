@@ -15,6 +15,7 @@ import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.constant.SpinnerStyle;
 import com.scwang.smartrefresh.layout.internal.InternalAbstract;
 import com.scwang.smartrefresh.layout.util.DensityUtil;
+
 /* loaded from: classes2.dex */
 public class BezierCircleHeader extends InternalAbstract implements RefreshHeader {
     protected static final int TARGET_DEGREE = 270;

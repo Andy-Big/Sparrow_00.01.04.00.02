@@ -12,6 +12,7 @@ import androidx.appcompat.R;
 import androidx.core.graphics.drawable.DrawableCompat;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
+
 /* loaded from: classes.dex */
 public class DrawerArrowDrawable extends Drawable {
     public static final int ARROW_DIRECTION_END = 3;

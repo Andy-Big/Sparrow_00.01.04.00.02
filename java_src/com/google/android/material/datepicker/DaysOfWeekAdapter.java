@@ -9,6 +9,7 @@ import android.widget.TextView;
 import com.google.android.material.R;
 import java.util.Calendar;
 import java.util.Locale;
+
 /* loaded from: classes.dex */
 class DaysOfWeekAdapter extends BaseAdapter {
     private static final int CALENDAR_DAY_STYLE;
@@ -33,6 +34,7 @@ class DaysOfWeekAdapter extends BaseAdapter {
         this.firstDayOfWeek = this.calendar.getFirstDayOfWeek();
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     public Integer getItem(int i) {
         if (i >= this.daysInWeek) {

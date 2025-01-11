@@ -1,13 +1,13 @@
 package javax.mail.search;
 
 import javax.mail.Address;
+
 /* loaded from: classes2.dex */
 public abstract class AddressTerm extends SearchTerm {
     private static final long serialVersionUID = 2005405551929769980L;
     protected Address address;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public AddressTerm(Address address) {
+    protected AddressTerm(Address address) {
         this.address = address;
     }
 
@@ -15,8 +15,7 @@ public abstract class AddressTerm extends SearchTerm {
         return this.address;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public boolean match(Address address) {
+    protected boolean match(Address address) {
         return address.equals(this.address);
     }
 

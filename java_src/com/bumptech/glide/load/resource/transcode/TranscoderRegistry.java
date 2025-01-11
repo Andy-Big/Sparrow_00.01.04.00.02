@@ -2,6 +2,7 @@ package com.bumptech.glide.load.resource.transcode;
 
 import java.util.ArrayList;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public class TranscoderRegistry {
     private final List<Entry<?, ?>> transcoders = new ArrayList();

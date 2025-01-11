@@ -9,12 +9,12 @@ import javax.mail.FolderClosedException;
 import javax.mail.MessageRemovedException;
 import javax.mail.MessagingException;
 import javax.mail.MethodNotSupportedException;
+
 /* loaded from: classes2.dex */
 public class IMAPNestedMessage extends IMAPMessage {
     private IMAPMessage msg;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public IMAPNestedMessage(IMAPMessage iMAPMessage, BODYSTRUCTURE bodystructure, ENVELOPE envelope, String str) {
+    IMAPNestedMessage(IMAPMessage iMAPMessage, BODYSTRUCTURE bodystructure, ENVELOPE envelope, String str) {
         super(iMAPMessage._getSession());
         this.msg = iMAPMessage;
         this.bs = bodystructure;

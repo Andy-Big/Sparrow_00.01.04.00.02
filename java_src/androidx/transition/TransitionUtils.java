@@ -12,6 +12,7 @@ import android.os.Build;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+
 /* loaded from: classes.dex */
 class TransitionUtils {
     private static final boolean HAS_IS_ATTACHED_TO_WINDOW;
@@ -25,8 +26,7 @@ class TransitionUtils {
         HAS_PICTURE_BITMAP = Build.VERSION.SDK_INT >= 28;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static View copyViewImage(ViewGroup viewGroup, View view, View view2) {
+    static View copyViewImage(ViewGroup viewGroup, View view, View view2) {
         Matrix matrix = new Matrix();
         matrix.setTranslate(-view2.getScrollX(), -view2.getScrollY());
         ViewUtils.transformMatrixToGlobal(view, matrix);
@@ -100,8 +100,7 @@ class TransitionUtils {
         return bitmap;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static Animator mergeAnimators(Animator animator, Animator animator2) {
+    static Animator mergeAnimators(Animator animator, Animator animator2) {
         if (animator == null) {
             return animator2;
         }
@@ -119,6 +118,10 @@ class TransitionUtils {
         final float[] mTempEndValues = new float[9];
         final Matrix mTempMatrix = new Matrix();
 
+        MatrixEvaluator() {
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // android.animation.TypeEvaluator
         public Matrix evaluate(float f, Matrix matrix, Matrix matrix2) {
             matrix.getValues(this.mTempStartValues);

@@ -17,6 +17,7 @@ import android.util.Log;
 import android.view.KeyEvent;
 import androidx.media.MediaBrowserServiceCompat;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public class MediaButtonReceiver extends BroadcastReceiver {
     private static final String TAG = "MediaButtonReceiver";

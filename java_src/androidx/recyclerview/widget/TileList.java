@@ -2,6 +2,7 @@ package androidx.recyclerview.widget;
 
 import android.util.SparseArray;
 import java.lang.reflect.Array;
+
 /* loaded from: classes.dex */
 class TileList<T> {
     Tile<T> mLastAccessedTile;

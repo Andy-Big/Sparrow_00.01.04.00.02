@@ -8,9 +8,9 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 import com.google.android.material.R;
 import java.util.Iterator;
-/* JADX INFO: Access modifiers changed from: package-private */
+
 /* loaded from: classes.dex */
-public class MonthAdapter extends BaseAdapter {
+class MonthAdapter extends BaseAdapter {
     static final int MAXIMUM_WEEKS = UtcDates.getUtcCalendar().getMaximum(4);
     final CalendarConstraints calendarConstraints;
     CalendarStyle calendarStyle;
@@ -22,13 +22,13 @@ public class MonthAdapter extends BaseAdapter {
         return true;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public MonthAdapter(Month month, DateSelector<?> dateSelector, CalendarConstraints calendarConstraints) {
+    MonthAdapter(Month month, DateSelector<?> dateSelector, CalendarConstraints calendarConstraints) {
         this.month = month;
         this.dateSelector = dateSelector;
         this.calendarConstraints = calendarConstraints;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     public Long getItem(int i) {
         if (i < this.month.daysFromStartOfWeekToFirstOfMonth() || i > lastPositionInMonth()) {
@@ -47,6 +47,7 @@ public class MonthAdapter extends BaseAdapter {
         return this.month.daysInMonth + firstPositionInMonth();
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     public TextView getView(int i, View view, ViewGroup viewGroup) {
         initializeStyles(viewGroup.getContext());
@@ -102,13 +103,11 @@ public class MonthAdapter extends BaseAdapter {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public int firstPositionInMonth() {
+    int firstPositionInMonth() {
         return this.month.daysFromStartOfWeekToFirstOfMonth();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public int lastPositionInMonth() {
+    int lastPositionInMonth() {
         return (this.month.daysFromStartOfWeekToFirstOfMonth() + this.month.daysInMonth) - 1;
     }
 
@@ -116,23 +115,19 @@ public class MonthAdapter extends BaseAdapter {
         return (i - this.month.daysFromStartOfWeekToFirstOfMonth()) + 1;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public int dayToPosition(int i) {
+    int dayToPosition(int i) {
         return firstPositionInMonth() + (i - 1);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean withinMonth(int i) {
+    boolean withinMonth(int i) {
         return i >= firstPositionInMonth() && i <= lastPositionInMonth();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean isFirstInRow(int i) {
+    boolean isFirstInRow(int i) {
         return i % this.month.daysInWeek == 0;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean isLastInRow(int i) {
+    boolean isLastInRow(int i) {
         return (i + 1) % this.month.daysInWeek == 0;
     }
 }

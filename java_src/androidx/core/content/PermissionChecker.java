@@ -6,6 +6,7 @@ import android.os.Process;
 import androidx.core.app.AppOpsManagerCompat;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
+
 /* loaded from: classes.dex */
 public final class PermissionChecker {
     public static final int PERMISSION_DENIED = -1;

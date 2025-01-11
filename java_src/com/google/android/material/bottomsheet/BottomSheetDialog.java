@@ -18,6 +18,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.android.material.R;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
+
 /* loaded from: classes.dex */
 public class BottomSheetDialog extends AppCompatDialog {
     private BottomSheetBehavior<FrameLayout> behavior;
@@ -76,9 +77,8 @@ public class BottomSheetDialog extends AppCompatDialog {
         super.setContentView(wrapInBottomSheet(i, null, null));
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // androidx.appcompat.app.AppCompatDialog, android.app.Dialog
-    public void onCreate(Bundle bundle) {
+    protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         Window window = getWindow();
         if (window != null) {
@@ -241,8 +241,7 @@ public class BottomSheetDialog extends AppCompatDialog {
         return i;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void removeDefaultCallback() {
+    void removeDefaultCallback() {
         this.behavior.removeBottomSheetCallback(this.bottomSheetCallback);
     }
 }

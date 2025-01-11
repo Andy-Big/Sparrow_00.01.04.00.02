@@ -27,6 +27,7 @@ import androidx.appcompat.R;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.view.ActionBarPolicy;
 import androidx.appcompat.widget.LinearLayoutCompat;
+
 /* loaded from: classes.dex */
 public class ScrollingTabContainerView extends HorizontalScrollView implements AdapterView.OnItemSelectedListener {
     private static final int FADE_DURATION = 200;
@@ -328,9 +329,8 @@ public class ScrollingTabContainerView extends HorizontalScrollView implements A
         ((TabView) view).getTab().select();
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public class TabView extends LinearLayout {
+    private class TabView extends LinearLayout {
         private static final String ACCESSIBILITY_CLASS_NAME = "androidx.appcompat.app.ActionBar$Tab";
         private final int[] BG_ATTRS;
         private View mCustomView;
@@ -470,9 +470,8 @@ public class ScrollingTabContainerView extends HorizontalScrollView implements A
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public class TabAdapter extends BaseAdapter {
+    private class TabAdapter extends BaseAdapter {
         @Override // android.widget.Adapter
         public long getItemId(int i) {
             return i;
@@ -501,9 +500,8 @@ public class ScrollingTabContainerView extends HorizontalScrollView implements A
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public class TabClickListener implements View.OnClickListener {
+    private class TabClickListener implements View.OnClickListener {
         TabClickListener() {
         }
 

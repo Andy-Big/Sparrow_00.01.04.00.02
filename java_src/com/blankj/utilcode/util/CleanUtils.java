@@ -3,6 +3,7 @@ package com.blankj.utilcode.util;
 import android.app.ActivityManager;
 import android.os.Environment;
 import java.io.File;
+
 /* loaded from: classes.dex */
 public final class CleanUtils {
     private CleanUtils() {

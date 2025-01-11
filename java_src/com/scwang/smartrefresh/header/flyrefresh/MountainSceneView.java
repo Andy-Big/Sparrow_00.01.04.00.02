@@ -14,6 +14,7 @@ import androidx.core.graphics.ColorUtils;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.animation.PathInterpolatorCompat;
 import com.scwang.smartrefresh.header.R;
+
 /* loaded from: classes2.dex */
 public class MountainSceneView extends View {
     protected static final int HEIGHT = 180;

@@ -5,15 +5,18 @@ import android.os.Parcelable;
 import androidx.core.util.Preconditions;
 import com.google.android.material.datepicker.CalendarConstraints;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public final class CompositeDateValidator implements CalendarConstraints.DateValidator {
     public static final Parcelable.Creator<CompositeDateValidator> CREATOR = new Parcelable.Creator<CompositeDateValidator>() { // from class: com.google.android.material.datepicker.CompositeDateValidator.1
+        /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
         public CompositeDateValidator createFromParcel(Parcel parcel) {
             return new CompositeDateValidator((List) Preconditions.checkNotNull(parcel.readArrayList(CalendarConstraints.DateValidator.class.getClassLoader())));
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
         public CompositeDateValidator[] newArray(int i) {

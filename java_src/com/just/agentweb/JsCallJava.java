@@ -10,6 +10,7 @@ import java.util.HashMap;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
 /* loaded from: classes.dex */
 public class JsCallJava {
     private static final String[] IGNORE_UNSAFE_METHODS = {"getClass", "hashCode", "notify", "notifyAll", "equals", "toString", "wait"};
@@ -190,13 +191,11 @@ public class JsCallJava {
         return "{" + KEY_OBJ + ":" + str + "," + KEY_METHOD + ":" + str2 + "," + KEY_TYPES + ":" + str3 + "," + KEY_ARGS + ":" + str4 + "}";
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static boolean isSafeWebViewCallMsg(String str) {
+    static boolean isSafeWebViewCallMsg(String str) {
         return str.startsWith(MSG_PROMPT_HEADER);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static JSONObject getMsgJSONObject(String str) {
+    static JSONObject getMsgJSONObject(String str) {
         try {
             return new JSONObject(str.substring(9));
         } catch (JSONException e) {
@@ -205,8 +204,7 @@ public class JsCallJava {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static String getInterfacedName(JSONObject jSONObject) {
+    static String getInterfacedName(JSONObject jSONObject) {
         return jSONObject.optString(KEY_OBJ);
     }
 }

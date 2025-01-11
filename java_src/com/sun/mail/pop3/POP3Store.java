@@ -20,6 +20,7 @@ import javax.mail.MessagingException;
 import javax.mail.Session;
 import javax.mail.Store;
 import javax.mail.URLName;
+
 /* loaded from: classes2.dex */
 public class POP3Store extends Store {
     volatile boolean cacheWriteTo;
@@ -132,8 +133,7 @@ public class POP3Store extends Store {
         return booleanProperty;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public synchronized Session getSession() {
+    synchronized Session getSession() {
         return this.session;
     }
 
@@ -161,13 +161,13 @@ public class POP3Store extends Store {
             try {
                 this.port = getPort(null);
                 return true;
-            } catch (EOFException e) {
-                throw new AuthenticationFailedException(e.getMessage());
+            } catch (SocketConnectException e) {
+                throw new MailConnectException(e);
+            } catch (IOException e2) {
+                throw new MessagingException("Connect failed", e2);
             }
-        } catch (SocketConnectException e2) {
-            throw new MailConnectException(e2);
-        } catch (IOException e3) {
-            throw new MessagingException("Connect failed", e3);
+        } catch (EOFException e3) {
+            throw new AuthenticationFailedException(e3.getMessage());
         }
     }
 
@@ -182,19 +182,18 @@ public class POP3Store extends Store {
                         throw new IOException("NOOP failed");
                     }
                     return true;
-                } catch (IOException unused) {
-                    super.close();
+                } catch (MessagingException unused) {
                     return false;
                 }
-            } catch (MessagingException unused2) {
+            } catch (IOException unused2) {
+                super.close();
                 return false;
             }
         }
         return false;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public synchronized Protocol getPort(POP3Folder pOP3Folder) throws IOException {
+    synchronized Protocol getPort(POP3Folder pOP3Folder) throws IOException {
         if (this.port != null && this.portOwner == null) {
             this.portOwner = pOP3Folder;
             return this.port;
@@ -247,6 +246,7 @@ public class POP3Store extends Store {
         }
     }
 
+    /* JADX DEBUG: Finally have unexpected throw blocks count: 3, expect 1 */
     private static IOException cleanupAndThrow(Protocol protocol, IOException iOException) {
         try {
             protocol.quit();
@@ -312,8 +312,7 @@ public class POP3Store extends Store {
         return (th instanceof Exception) || (th instanceof LinkageError);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public synchronized void closePort(POP3Folder pOP3Folder) {
+    synchronized void closePort(POP3Folder pOP3Folder) {
         if (this.portOwner == pOP3Folder) {
             this.port = null;
             this.portOwner = null;

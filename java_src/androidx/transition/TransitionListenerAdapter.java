@@ -1,6 +1,7 @@
 package androidx.transition;
 
 import androidx.transition.Transition;
+
 /* loaded from: classes.dex */
 public class TransitionListenerAdapter implements Transition.TransitionListener {
     @Override // androidx.transition.Transition.TransitionListener

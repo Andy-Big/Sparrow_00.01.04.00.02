@@ -3,6 +3,7 @@ package com.blankj.utilcode.util;
 import android.content.ClipData;
 import android.content.ClipDescription;
 import android.content.ClipboardManager;
+
 /* loaded from: classes.dex */
 public final class ClipboardUtils {
     private ClipboardUtils() {

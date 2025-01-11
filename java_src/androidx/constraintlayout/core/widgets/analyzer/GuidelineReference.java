@@ -2,12 +2,11 @@ package androidx.constraintlayout.core.widgets.analyzer;
 
 import androidx.constraintlayout.core.widgets.ConstraintWidget;
 import androidx.constraintlayout.core.widgets.Guideline;
-/* JADX INFO: Access modifiers changed from: package-private */
+
 /* loaded from: classes.dex */
-public class GuidelineReference extends WidgetRun {
-    /* JADX INFO: Access modifiers changed from: package-private */
+class GuidelineReference extends WidgetRun {
     @Override // androidx.constraintlayout.core.widgets.analyzer.WidgetRun
-    public boolean supportsWrapComputation() {
+    boolean supportsWrapComputation() {
         return false;
     }
 
@@ -18,9 +17,8 @@ public class GuidelineReference extends WidgetRun {
         this.orientation = ((Guideline) constraintWidget).getOrientation();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     @Override // androidx.constraintlayout.core.widgets.analyzer.WidgetRun
-    public void clear() {
+    void clear() {
         this.start.clear();
     }
 
@@ -42,9 +40,8 @@ public class GuidelineReference extends WidgetRun {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     @Override // androidx.constraintlayout.core.widgets.analyzer.WidgetRun
-    public void apply() {
+    void apply() {
         Guideline guideline = (Guideline) this.widget;
         int relativeBegin = guideline.getRelativeBegin();
         int relativeEnd = guideline.getRelativeEnd();

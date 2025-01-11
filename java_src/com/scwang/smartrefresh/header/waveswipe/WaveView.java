@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewTreeObserver;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.BounceInterpolator;
+
 /* loaded from: classes2.dex */
 public class WaveView extends View implements ViewTreeObserver.OnPreDrawListener {
     protected static final long DROP_BOUNCE_ANIMATOR_DURATION = 500;

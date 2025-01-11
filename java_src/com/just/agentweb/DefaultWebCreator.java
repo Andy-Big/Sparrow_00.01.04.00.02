@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.view.ViewStub;
 import android.webkit.WebView;
 import android.widget.FrameLayout;
+
 /* loaded from: classes.dex */
 public class DefaultWebCreator implements WebCreator {
     private static final String TAG = DefaultWebCreator.class.getSimpleName();
@@ -26,8 +27,7 @@ public class DefaultWebCreator implements WebCreator {
     private WebView mWebView;
     private int mWebViewType;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public DefaultWebCreator(Activity activity, ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams, int i, int i2, int i3, WebView webView, IWebLayout iWebLayout) {
+    protected DefaultWebCreator(Activity activity, ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams, int i, int i2, int i3, WebView webView, IWebLayout iWebLayout) {
         this.mLayoutParams = null;
         this.mColor = -1;
         this.mIsCreated = false;
@@ -45,8 +45,7 @@ public class DefaultWebCreator implements WebCreator {
         this.mIWebLayout = iWebLayout;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public DefaultWebCreator(Activity activity, ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams, int i, WebView webView, IWebLayout iWebLayout) {
+    protected DefaultWebCreator(Activity activity, ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams, int i, WebView webView, IWebLayout iWebLayout) {
         this.mLayoutParams = null;
         this.mColor = -1;
         this.mIsCreated = false;
@@ -62,8 +61,7 @@ public class DefaultWebCreator implements WebCreator {
         this.mIWebLayout = iWebLayout;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public DefaultWebCreator(Activity activity, ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams, int i, BaseIndicatorView baseIndicatorView, WebView webView, IWebLayout iWebLayout) {
+    protected DefaultWebCreator(Activity activity, ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams, int i, BaseIndicatorView baseIndicatorView, WebView webView, IWebLayout iWebLayout) {
         this.mLayoutParams = null;
         this.mColor = -1;
         this.mIsCreated = false;
@@ -96,6 +94,7 @@ public class DefaultWebCreator implements WebCreator {
         this.mTargetProgress = view;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.just.agentweb.WebCreator
     public DefaultWebCreator create() {
         if (this.mIsCreated) {

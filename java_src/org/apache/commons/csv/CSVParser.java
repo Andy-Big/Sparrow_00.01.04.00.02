@@ -23,6 +23,7 @@ import java.util.Map;
 import java.util.NoSuchElementException;
 import java.util.TreeMap;
 import org.apache.commons.csv.Token;
+
 /* loaded from: classes2.dex */
 public final class CSVParser implements Iterable<CSVRecord>, Closeable {
     private final long characterOffset;
@@ -61,6 +62,7 @@ public final class CSVParser implements Iterable<CSVRecord>, Closeable {
             return this.current != null;
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Iterator
         public CSVRecord next() {
             if (CSVParser.this.isClosed()) {
@@ -162,9 +164,8 @@ public final class CSVParser implements Iterable<CSVRecord>, Closeable {
         return this.format.getIgnoreHeaderCase() ? new TreeMap(String.CASE_INSENSITIVE_ORDER) : new LinkedHashMap();
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
-    public static final class Headers {
+    private static final class Headers {
         final Map<String, Integer> headerMap;
         final List<String> headerNames;
 
@@ -234,8 +235,7 @@ public final class CSVParser implements Iterable<CSVRecord>, Closeable {
         return createEmptyHeaderMap;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public Map<String, Integer> getHeaderMapRaw() {
+    Map<String, Integer> getHeaderMapRaw() {
         return this.headerMap;
     }
 
@@ -306,10 +306,9 @@ public final class CSVParser implements Iterable<CSVRecord>, Closeable {
         return new CSVRecord(this, (String[]) list.toArray(new String[list.size()]), sb2, this.recordNumber, characterPosition);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: org.apache.commons.csv.CSVParser$1  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    static /* synthetic */ class AnonymousClass1 {
         static final /* synthetic */ int[] $SwitchMap$org$apache$commons$csv$Token$Type;
 
         static {

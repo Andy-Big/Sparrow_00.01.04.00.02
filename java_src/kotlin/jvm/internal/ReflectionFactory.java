@@ -15,6 +15,7 @@ import kotlin.reflect.KType;
 import kotlin.reflect.KTypeParameter;
 import kotlin.reflect.KTypeProjection;
 import kotlin.reflect.KVariance;
+
 /* loaded from: classes2.dex */
 public class ReflectionFactory {
     private static final String KOTLIN_JVM_FUNCTIONS = "kotlin.jvm.functions.";

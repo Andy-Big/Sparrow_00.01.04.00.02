@@ -9,6 +9,7 @@ import android.widget.SeekBar;
 import androidx.appcompat.R;
 import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.core.view.ViewCompat;
+
 /* loaded from: classes.dex */
 class AppCompatSeekBarHelper extends AppCompatProgressBarHelper {
     private boolean mHasTickMarkTint;
@@ -18,8 +19,7 @@ class AppCompatSeekBarHelper extends AppCompatProgressBarHelper {
     private PorterDuff.Mode mTickMarkTintMode;
     private final SeekBar mView;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public AppCompatSeekBarHelper(SeekBar seekBar) {
+    AppCompatSeekBarHelper(SeekBar seekBar) {
         super(seekBar);
         this.mTickMarkTintList = null;
         this.mTickMarkTintMode = null;
@@ -28,9 +28,8 @@ class AppCompatSeekBarHelper extends AppCompatProgressBarHelper {
         this.mView = seekBar;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     @Override // androidx.appcompat.widget.AppCompatProgressBarHelper
-    public void loadFromAttributes(AttributeSet attributeSet, int i) {
+    void loadFromAttributes(AttributeSet attributeSet, int i) {
         super.loadFromAttributes(attributeSet, i);
         TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(this.mView.getContext(), attributeSet, R.styleable.AppCompatSeekBar, i, 0);
         SeekBar seekBar = this.mView;
@@ -111,24 +110,21 @@ class AppCompatSeekBarHelper extends AppCompatProgressBarHelper {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void jumpDrawablesToCurrentState() {
+    void jumpDrawablesToCurrentState() {
         Drawable drawable = this.mTickMark;
         if (drawable != null) {
             drawable.jumpToCurrentState();
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void drawableStateChanged() {
+    void drawableStateChanged() {
         Drawable drawable = this.mTickMark;
         if (drawable != null && drawable.isStateful() && drawable.setState(this.mView.getDrawableState())) {
             this.mView.invalidateDrawable(drawable);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void drawTickMarks(Canvas canvas) {
+    void drawTickMarks(Canvas canvas) {
         if (this.mTickMark != null) {
             int max = this.mView.getMax();
             if (max > 1) {

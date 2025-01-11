@@ -55,6 +55,7 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public class PDFView extends RelativeLayout {
     public static final float DEFAULT_MAX_SCALE = 3.0f;
@@ -105,25 +106,22 @@ public class PDFView extends RelativeLayout {
     private Configurator waitingDocumentConfigurator;
     private float zoom;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public enum ScrollDir {
+    enum ScrollDir {
         NONE,
         START,
         END
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public enum State {
+    private enum State {
         DEFAULT,
         LOADED,
         SHOWN,
         ERROR
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ScrollHandle getScrollHandle() {
+    ScrollHandle getScrollHandle() {
         return this.scrollHandle;
     }
 
@@ -285,13 +283,11 @@ public class PDFView extends RelativeLayout {
         this.doubletapEnabled = z;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean isDoubletapEnabled() {
+    boolean isDoubletapEnabled() {
         return this.doubletapEnabled;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void onPageError(PageRenderingException pageRenderingException) {
+    void onPageError(PageRenderingException pageRenderingException) {
         if (this.callbacks.callOnPageError(pageRenderingException.getPage(), pageRenderingException.getCause())) {
             return;
         }
@@ -528,8 +524,7 @@ public class PDFView extends RelativeLayout {
         redraw();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void loadComplete(PdfFile pdfFile) {
+    void loadComplete(PdfFile pdfFile) {
         this.state = State.LOADED;
         this.pdfFile = pdfFile;
         if (!this.renderingHandlerThread.isAlive()) {
@@ -548,8 +543,7 @@ public class PDFView extends RelativeLayout {
         jumpTo(this.defaultPage, false);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void loadError(Throwable th) {
+    void loadError(Throwable th) {
         this.state = State.ERROR;
         OnErrorListener onError = this.callbacks.getOnError();
         recycle();
@@ -592,18 +586,96 @@ public class PDFView extends RelativeLayout {
     /* JADX WARN: Removed duplicated region for block: B:52:0x00f8  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    public void moveTo(float r6, float r7, boolean r8) {
-        /*
-            Method dump skipped, instructions count: 299
-            To view this dump add '--comments-level debug' option
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.github.barteksc.pdfviewer.PDFView.moveTo(float, float, boolean):void");
+    public void moveTo(float f, float f2, boolean z) {
+        float height;
+        float docLen;
+        float f3;
+        float width;
+        float docLen2;
+        float f4;
+        if (this.swipeVertical) {
+            float currentScale = toCurrentScale(this.pdfFile.getMaxPageWidth());
+            if (currentScale < getWidth()) {
+                width = getWidth() / 2;
+                currentScale /= 2.0f;
+            } else {
+                if (f > 0.0f) {
+                    f = 0.0f;
+                } else if (f + currentScale < getWidth()) {
+                    width = getWidth();
+                }
+                docLen2 = this.pdfFile.getDocLen(this.zoom);
+                if (docLen2 >= getHeight()) {
+                    f2 = (getHeight() - docLen2) / 2.0f;
+                } else if (f2 > 0.0f) {
+                    f2 = 0.0f;
+                } else if (f2 + docLen2 < getHeight()) {
+                    f2 = (-docLen2) + getHeight();
+                }
+                f4 = this.currentYOffset;
+                if (f2 >= f4) {
+                    this.scrollDir = ScrollDir.END;
+                } else if (f2 > f4) {
+                    this.scrollDir = ScrollDir.START;
+                } else {
+                    this.scrollDir = ScrollDir.NONE;
+                }
+            }
+            f = width - currentScale;
+            docLen2 = this.pdfFile.getDocLen(this.zoom);
+            if (docLen2 >= getHeight()) {
+            }
+            f4 = this.currentYOffset;
+            if (f2 >= f4) {
+            }
+        } else {
+            float currentScale2 = toCurrentScale(this.pdfFile.getMaxPageHeight());
+            if (currentScale2 < getHeight()) {
+                height = getHeight() / 2;
+                currentScale2 /= 2.0f;
+            } else {
+                if (f2 > 0.0f) {
+                    f2 = 0.0f;
+                } else if (f2 + currentScale2 < getHeight()) {
+                    height = getHeight();
+                }
+                docLen = this.pdfFile.getDocLen(this.zoom);
+                if (docLen >= getWidth()) {
+                    f = (getWidth() - docLen) / 2.0f;
+                } else if (f > 0.0f) {
+                    f = 0.0f;
+                } else if (f + docLen < getWidth()) {
+                    f = (-docLen) + getWidth();
+                }
+                f3 = this.currentXOffset;
+                if (f >= f3) {
+                    this.scrollDir = ScrollDir.END;
+                } else if (f > f3) {
+                    this.scrollDir = ScrollDir.START;
+                } else {
+                    this.scrollDir = ScrollDir.NONE;
+                }
+            }
+            f2 = height - currentScale2;
+            docLen = this.pdfFile.getDocLen(this.zoom);
+            if (docLen >= getWidth()) {
+            }
+            f3 = this.currentXOffset;
+            if (f >= f3) {
+            }
+        }
+        this.currentXOffset = f;
+        this.currentYOffset = f2;
+        float positionOffset = getPositionOffset();
+        if (z && this.scrollHandle != null && !documentFitsView()) {
+            this.scrollHandle.setScroll(positionOffset);
+        }
+        this.callbacks.callOnPageScroll(getCurrentPage(), positionOffset);
+        redraw();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void loadPageByOffset() {
+    void loadPageByOffset() {
         float f;
         int width;
         if (this.pdfFile.getPagesCount() == 0) {
@@ -639,8 +711,7 @@ public class PDFView extends RelativeLayout {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public SnapEdge findSnapEdge(int i) {
+    SnapEdge findSnapEdge(int i) {
         if (!this.pageSnap || i < 0) {
             return SnapEdge.NONE;
         }
@@ -661,8 +732,7 @@ public class PDFView extends RelativeLayout {
         return SnapEdge.NONE;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public float snapOffsetForPage(int i, SnapEdge snapEdge) {
+    float snapOffsetForPage(int i, SnapEdge snapEdge) {
         float f;
         float pageOffset = this.pdfFile.getPageOffset(i, this.zoom);
         float height = this.swipeVertical ? getHeight() : getWidth();
@@ -678,8 +748,7 @@ public class PDFView extends RelativeLayout {
         return f + pageLength;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public int findFocusPage(float f, float f2) {
+    int findFocusPage(float f, float f2) {
         if (this.swipeVertical) {
             f = f2;
         }

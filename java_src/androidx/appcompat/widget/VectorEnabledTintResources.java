@@ -5,6 +5,7 @@ import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import java.lang.ref.WeakReference;
+
 /* loaded from: classes.dex */
 public class VectorEnabledTintResources extends Resources {
     public static final int MAX_SDK_WHERE_REQUIRED = 20;
@@ -29,8 +30,7 @@ public class VectorEnabledTintResources extends Resources {
         return super.getDrawable(i);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public final Drawable superGetDrawable(int i) {
+    final Drawable superGetDrawable(int i) {
         return super.getDrawable(i);
     }
 

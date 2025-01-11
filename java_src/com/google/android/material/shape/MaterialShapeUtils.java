@@ -3,13 +3,13 @@ package com.google.android.material.shape;
 import android.graphics.drawable.Drawable;
 import android.view.View;
 import com.google.android.material.internal.ViewUtils;
+
 /* loaded from: classes.dex */
 public class MaterialShapeUtils {
     private MaterialShapeUtils() {
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static CornerTreatment createCornerTreatment(int i) {
+    static CornerTreatment createCornerTreatment(int i) {
         if (i != 0) {
             if (i == 1) {
                 return new CutCornerTreatment();
@@ -19,13 +19,11 @@ public class MaterialShapeUtils {
         return new RoundedCornerTreatment();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static CornerTreatment createDefaultCornerTreatment() {
+    static CornerTreatment createDefaultCornerTreatment() {
         return new RoundedCornerTreatment();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static EdgeTreatment createDefaultEdgeTreatment() {
+    static EdgeTreatment createDefaultEdgeTreatment() {
         return new EdgeTreatment();
     }
 

@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.lang.reflect.Constructor;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
+
 /* loaded from: classes.dex */
 public class TransitionInflater {
     private final Context mContext;
@@ -67,14 +68,75 @@ public class TransitionInflater {
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    private androidx.transition.Transition createTransitionFromXml(org.xmlpull.v1.XmlPullParser r8, android.util.AttributeSet r9, androidx.transition.Transition r10) throws org.xmlpull.v1.XmlPullParserException, java.io.IOException {
-        /*
-            Method dump skipped, instructions count: 382
-            To view this dump add '--comments-level debug' option
-        */
-        throw new UnsupportedOperationException("Method not decompiled: androidx.transition.TransitionInflater.createTransitionFromXml(org.xmlpull.v1.XmlPullParser, android.util.AttributeSet, androidx.transition.Transition):androidx.transition.Transition");
+    private Transition createTransitionFromXml(XmlPullParser xmlPullParser, AttributeSet attributeSet, Transition transition) throws XmlPullParserException, IOException {
+        int depth = xmlPullParser.getDepth();
+        TransitionSet transitionSet = transition instanceof TransitionSet ? (TransitionSet) transition : null;
+        loop0: while (true) {
+            Transition transition2 = null;
+            while (true) {
+                int next = xmlPullParser.next();
+                if ((next != 3 || xmlPullParser.getDepth() > depth) && next != 1) {
+                    if (next == 2) {
+                        String name = xmlPullParser.getName();
+                        if ("fade".equals(name)) {
+                            transition2 = new Fade(this.mContext, attributeSet);
+                        } else if ("changeBounds".equals(name)) {
+                            transition2 = new ChangeBounds(this.mContext, attributeSet);
+                        } else if ("slide".equals(name)) {
+                            transition2 = new Slide(this.mContext, attributeSet);
+                        } else if ("explode".equals(name)) {
+                            transition2 = new Explode(this.mContext, attributeSet);
+                        } else if ("changeImageTransform".equals(name)) {
+                            transition2 = new ChangeImageTransform(this.mContext, attributeSet);
+                        } else if ("changeTransform".equals(name)) {
+                            transition2 = new ChangeTransform(this.mContext, attributeSet);
+                        } else if ("changeClipBounds".equals(name)) {
+                            transition2 = new ChangeClipBounds(this.mContext, attributeSet);
+                        } else if ("autoTransition".equals(name)) {
+                            transition2 = new AutoTransition(this.mContext, attributeSet);
+                        } else if ("changeScroll".equals(name)) {
+                            transition2 = new ChangeScroll(this.mContext, attributeSet);
+                        } else if ("transitionSet".equals(name)) {
+                            transition2 = new TransitionSet(this.mContext, attributeSet);
+                        } else if ("transition".equals(name)) {
+                            transition2 = (Transition) createCustom(attributeSet, Transition.class, "transition");
+                        } else if ("targets".equals(name)) {
+                            getTargetIds(xmlPullParser, attributeSet, transition);
+                        } else if ("arcMotion".equals(name)) {
+                            if (transition == null) {
+                                throw new RuntimeException("Invalid use of arcMotion element");
+                            }
+                            transition.setPathMotion(new ArcMotion(this.mContext, attributeSet));
+                        } else if ("pathMotion".equals(name)) {
+                            if (transition == null) {
+                                throw new RuntimeException("Invalid use of pathMotion element");
+                            }
+                            transition.setPathMotion((PathMotion) createCustom(attributeSet, PathMotion.class, "pathMotion"));
+                        } else if (!"patternPathMotion".equals(name)) {
+                            throw new RuntimeException("Unknown scene name: " + xmlPullParser.getName());
+                        } else if (transition == null) {
+                            throw new RuntimeException("Invalid use of patternPathMotion element");
+                        } else {
+                            transition.setPathMotion(new PatternPathMotion(this.mContext, attributeSet));
+                        }
+                        if (transition2 == null) {
+                            continue;
+                        } else {
+                            if (!xmlPullParser.isEmptyElementTag()) {
+                                createTransitionFromXml(xmlPullParser, attributeSet, transition2);
+                            }
+                            if (transitionSet != null) {
+                                break;
+                            } else if (transition != null) {
+                                throw new InflateException("Could not add transition to another transition.");
+                            }
+                        }
+                    }
+                }
+            }
+            transitionSet.addTransition(transition2);
+        }
     }
 
     private Object createCustom(AttributeSet attributeSet, Class<?> cls, String str) {
@@ -157,55 +219,26 @@ public class TransitionInflater {
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    private androidx.transition.TransitionManager createTransitionManagerFromXml(org.xmlpull.v1.XmlPullParser r5, android.util.AttributeSet r6, android.view.ViewGroup r7) throws org.xmlpull.v1.XmlPullParserException, java.io.IOException {
-        /*
-            r4 = this;
-            int r0 = r5.getDepth()
-            r1 = 0
-        L5:
-            int r2 = r5.next()
-            r3 = 3
-            if (r2 != r3) goto L12
-            int r3 = r5.getDepth()
-            if (r3 <= r0) goto L54
-        L12:
-            r3 = 1
-            if (r2 == r3) goto L54
-            r3 = 2
-            if (r2 == r3) goto L19
-            goto L5
-        L19:
-            java.lang.String r2 = r5.getName()
-            java.lang.String r3 = "transitionManager"
-            boolean r3 = r2.equals(r3)
-            if (r3 == 0) goto L2b
-            androidx.transition.TransitionManager r1 = new androidx.transition.TransitionManager
-            r1.<init>()
-            goto L5
-        L2b:
-            java.lang.String r3 = "transition"
-            boolean r2 = r2.equals(r3)
-            if (r2 == 0) goto L39
-            if (r1 == 0) goto L39
-            r4.loadTransition(r6, r5, r7, r1)
-            goto L5
-        L39:
-            java.lang.RuntimeException r6 = new java.lang.RuntimeException
-            java.lang.StringBuilder r7 = new java.lang.StringBuilder
-            r7.<init>()
-            java.lang.String r0 = "Unknown scene name: "
-            r7.append(r0)
-            java.lang.String r5 = r5.getName()
-            r7.append(r5)
-            java.lang.String r5 = r7.toString()
-            r6.<init>(r5)
-            throw r6
-        L54:
-            return r1
-        */
-        throw new UnsupportedOperationException("Method not decompiled: androidx.transition.TransitionInflater.createTransitionManagerFromXml(org.xmlpull.v1.XmlPullParser, android.util.AttributeSet, android.view.ViewGroup):androidx.transition.TransitionManager");
+    private TransitionManager createTransitionManagerFromXml(XmlPullParser xmlPullParser, AttributeSet attributeSet, ViewGroup viewGroup) throws XmlPullParserException, IOException {
+        int depth = xmlPullParser.getDepth();
+        TransitionManager transitionManager = null;
+        while (true) {
+            int next = xmlPullParser.next();
+            if ((next != 3 || xmlPullParser.getDepth() > depth) && next != 1) {
+                if (next == 2) {
+                    String name = xmlPullParser.getName();
+                    if (name.equals("transitionManager")) {
+                        transitionManager = new TransitionManager();
+                    } else if (!name.equals("transition") || transitionManager == null) {
+                        break;
+                    } else {
+                        loadTransition(attributeSet, xmlPullParser, viewGroup, transitionManager);
+                    }
+                }
+            }
+        }
+        throw new RuntimeException("Unknown scene name: " + xmlPullParser.getName());
     }
 
     private void loadTransition(AttributeSet attributeSet, XmlPullParser xmlPullParser, ViewGroup viewGroup, TransitionManager transitionManager) throws Resources.NotFoundException {

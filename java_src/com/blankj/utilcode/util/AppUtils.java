@@ -17,6 +17,7 @@ import com.blankj.utilcode.util.Utils;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public final class AppUtils {
     private AppUtils() {

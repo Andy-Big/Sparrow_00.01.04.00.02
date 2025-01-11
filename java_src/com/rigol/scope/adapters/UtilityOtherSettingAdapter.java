@@ -52,7 +52,6 @@ public class UtilityOtherSettingAdapter extends RecyclerView.Adapter<OtherSettin
         this.baseView = view;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public OtherSettingViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         this.binding = AdapterUtilityOtherBinding.inflate(LayoutInflater.from(viewGroup.getContext()), viewGroup, false);
@@ -67,7 +66,6 @@ public class UtilityOtherSettingAdapter extends RecyclerView.Adapter<OtherSettin
         return new OtherSettingViewHolder(this.binding);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(OtherSettingViewHolder otherSettingViewHolder, int i) {
         final HorizontalParam value = this.horizontalViewModel.getLiveData().getValue();
@@ -144,7 +142,7 @@ public class UtilityOtherSettingAdapter extends RecyclerView.Adapter<OtherSettin
         }
     }
 
-    /* renamed from: com.rigol.scope.adapters.UtilityOtherSettingAdapter$1  reason: invalid class name */
+    /* renamed from: com.rigol.scope.adapters.UtilityOtherSettingAdapter$1 */
     /* loaded from: classes.dex */
     class AnonymousClass1 implements View.OnClickListener {
         final /* synthetic */ UtilityParam val$utilityParam;
@@ -153,6 +151,7 @@ public class UtilityOtherSettingAdapter extends RecyclerView.Adapter<OtherSettin
         }
 
         AnonymousClass1(UtilityParam utilityParam) {
+            UtilityOtherSettingAdapter.this = r1;
             this.val$utilityParam = utilityParam;
         }
 
@@ -217,14 +216,19 @@ public class UtilityOtherSettingAdapter extends RecyclerView.Adapter<OtherSettin
                 new Handler().postDelayed(new Runnable() { // from class: com.rigol.scope.adapters.-$$Lambda$UtilityOtherSettingAdapter$1$B_oAOm9a2-kRToQQXNWnJF5aAB0
                     @Override // java.lang.Runnable
                     public final void run() {
-                        ReflectUtil.setProperty(UtilityOtherSettingAdapter.SYS_DP_STATE, DebugKt.DEBUG_PROPERTY_VALUE_ON);
+                        UtilityOtherSettingAdapter.AnonymousClass1.lambda$onClick$1();
                     }
                 }, 500L);
             }
         }
+
+        /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.adapters.-$$Lambda$UtilityOtherSettingAdapter$1$B_oAOm9a2-kRToQQXNWnJF5aAB0.run():void] */
+        static /* synthetic */ void lambda$onClick$1() {
+            ReflectUtil.setProperty(UtilityOtherSettingAdapter.SYS_DP_STATE, DebugKt.DEBUG_PROPERTY_VALUE_ON);
+        }
     }
 
-    /* renamed from: com.rigol.scope.adapters.UtilityOtherSettingAdapter$2  reason: invalid class name */
+    /* renamed from: com.rigol.scope.adapters.UtilityOtherSettingAdapter$2 */
     /* loaded from: classes.dex */
     static /* synthetic */ class AnonymousClass2 {
         static final /* synthetic */ int[] $SwitchMap$com$rigol$scope$cil$ServiceEnum$HDMI_Ratio;

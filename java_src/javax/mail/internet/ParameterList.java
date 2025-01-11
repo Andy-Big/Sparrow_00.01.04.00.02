@@ -1,5 +1,6 @@
 package javax.mail.internet;
 
+import com.sun.mail.imap.IMAPStore;
 import com.sun.mail.util.ASCIIUtility;
 import com.sun.mail.util.PropUtil;
 import java.io.ByteArrayOutputStream;
@@ -15,8 +16,10 @@ import java.util.LinkedHashMap;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
+import javax.mail.internet.HeaderTokenizer;
 import kotlin.UByte;
 import org.slf4j.Marker;
+
 /* loaded from: classes2.dex */
 public class ParameterList {
     private String lastName;
@@ -32,9 +35,8 @@ public class ParameterList {
     private static final boolean splitLongParameters = PropUtil.getBooleanSystemProperty("mail.mime.splitlongparameters", true);
     private static final char[] hex = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
-    public static class Value {
+    private static class Value {
         String charset;
         String encodedValue;
         String value;
@@ -43,18 +45,16 @@ public class ParameterList {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
-    public static class LiteralValue {
+    private static class LiteralValue {
         String value;
 
         private LiteralValue() {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
-    public static class MultiValue extends ArrayList<Object> {
+    private static class MultiValue extends ArrayList<Object> {
         private static final long serialVersionUID = 699561094618751023L;
         String value;
 
@@ -75,6 +75,7 @@ public class ParameterList {
             return this.it.hasNext();
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Enumeration
         public String nextElement() {
             return this.it.next();
@@ -107,14 +108,54 @@ public class ParameterList {
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    public ParameterList(java.lang.String r12) throws javax.mail.internet.ParseException {
-        /*
-            Method dump skipped, instructions count: 366
-            To view this dump add '--comments-level debug' option
-        */
-        throw new UnsupportedOperationException("Method not decompiled: javax.mail.internet.ParameterList.<init>(java.lang.String):void");
+    public ParameterList(String str) throws ParseException {
+        this();
+        HeaderTokenizer.Token next;
+        String str2;
+        HeaderTokenizer headerTokenizer = new HeaderTokenizer(str, HeaderTokenizer.MIME);
+        while (true) {
+            HeaderTokenizer.Token next2 = headerTokenizer.next();
+            int type = next2.getType();
+            if (type == -4) {
+                break;
+            } else if (((char) type) == ';') {
+                HeaderTokenizer.Token next3 = headerTokenizer.next();
+                if (next3.getType() == -4) {
+                    break;
+                } else if (next3.getType() != -1) {
+                    throw new ParseException("In parameter list <" + str + ">, expected parameter name, got \"" + next3.getValue() + "\"");
+                } else {
+                    String lowerCase = next3.getValue().toLowerCase(Locale.ENGLISH);
+                    HeaderTokenizer.Token next4 = headerTokenizer.next();
+                    if (((char) next4.getType()) != '=') {
+                        throw new ParseException("In parameter list <" + str + ">, expected '=', got \"" + next4.getValue() + "\"");
+                    }
+                    if (windowshack && (lowerCase.equals(IMAPStore.ID_NAME) || lowerCase.equals("filename"))) {
+                        next = headerTokenizer.next(';', true);
+                    } else if (parametersStrict) {
+                        next = headerTokenizer.next();
+                    } else {
+                        next = headerTokenizer.next(';');
+                    }
+                    int type2 = next.getType();
+                    if (type2 != -1 && type2 != -2) {
+                        throw new ParseException("In parameter list <" + str + ">, expected parameter value, got \"" + next.getValue() + "\"");
+                    }
+                    String value = next.getValue();
+                    this.lastName = lowerCase;
+                    if (decodeParameters) {
+                        putEncodedName(lowerCase, value);
+                    } else {
+                        this.list.put(lowerCase, value);
+                    }
+                }
+            } else if (type != -1 || (str2 = this.lastName) == null || (!(applehack && (str2.equals(IMAPStore.ID_NAME) || this.lastName.equals("filename"))) && parametersStrict)) {
+                break;
+            } else {
+                this.list.put(this.lastName, ((String) this.list.get(this.lastName)) + " " + next2.getValue());
+            }
+        }
     }
 
     public void combineSegments() {
@@ -165,6 +206,7 @@ public class ParameterList {
         }
     }
 
+    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
     private void combineMultisegmentNames(boolean z) throws ParseException {
         try {
             for (String str : this.multisegmentNames) {
@@ -311,8 +353,7 @@ public class ParameterList {
         set(str, str2);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setLiteral(String str, String str2) {
+    void setLiteral(String str, String str2) {
         LiteralValue literalValue = new LiteralValue();
         literalValue.value = str2;
         this.list.put(str, literalValue);
@@ -376,9 +417,8 @@ public class ParameterList {
         return toStringBuffer.toString();
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
-    public static class ToStringBuffer {
+    private static class ToStringBuffer {
         private StringBuilder sb = new StringBuilder();
         private int used;
 

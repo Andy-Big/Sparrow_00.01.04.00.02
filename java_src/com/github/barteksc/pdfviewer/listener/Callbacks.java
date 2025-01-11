@@ -3,6 +3,7 @@ package com.github.barteksc.pdfviewer.listener;
 import android.view.MotionEvent;
 import com.github.barteksc.pdfviewer.link.LinkHandler;
 import com.github.barteksc.pdfviewer.model.LinkTapEvent;
+
 /* loaded from: classes.dex */
 public class Callbacks {
     private LinkHandler linkHandler;

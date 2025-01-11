@@ -6,6 +6,7 @@ import android.view.accessibility.AccessibilityNodeInfo;
 import android.view.accessibility.AccessibilityNodeProvider;
 import java.util.ArrayList;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public class AccessibilityNodeProviderCompat {
     public static final int HOST_VIEW_ID = -1;

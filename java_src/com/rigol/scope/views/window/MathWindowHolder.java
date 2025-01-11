@@ -87,22 +87,22 @@ public final class MathWindowHolder extends WindowHolder {
             public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
                 if (Math.abs(f) > Math.abs(f2)) {
                     float f3 = BaseSurfaceView.this.getTotalScrollDistance()[0];
-                    MathParam mathParam = this.mathParam;
-                    if (mathParam != null && mathParam.getOperator() == ServiceEnum.MathOperator.operator_fft) {
-                        float fftEnd = (((float) (mathParam.getFftEnd() - mathParam.getFftStart())) * f3) / BaseSurfaceView.this.getWidth();
-                        mathParam.saveFftEnd(((float) mathParam.getFftEnd()) + fftEnd);
-                        mathParam.saveFftStart(((float) mathParam.getFftStart()) + fftEnd);
+                    MathParam access$getMathParam$p = MathWindowHolder.access$getMathParam$p(this);
+                    if (access$getMathParam$p != null && access$getMathParam$p.getOperator() == ServiceEnum.MathOperator.operator_fft) {
+                        float fftEnd = (((float) (access$getMathParam$p.getFftEnd() - access$getMathParam$p.getFftStart())) * f3) / BaseSurfaceView.this.getWidth();
+                        access$getMathParam$p.saveFftEnd(((float) access$getMathParam$p.getFftEnd()) + fftEnd);
+                        access$getMathParam$p.saveFftStart(((float) access$getMathParam$p.getFftStart()) + fftEnd);
                     }
                 } else {
                     float f4 = BaseSurfaceView.this.getTotalScrollDistance()[1];
-                    MathParam mathParam2 = this.mathParam;
-                    if (mathParam2 != null) {
-                        if (mathParam2.getOperator() == ServiceEnum.MathOperator.operator_and || mathParam2.getOperator() == ServiceEnum.MathOperator.operator_or || mathParam2.getOperator() == ServiceEnum.MathOperator.operator_not || mathParam2.getOperator() == ServiceEnum.MathOperator.operator_xor) {
-                            mathParam2.saveLogicOffset(((float) mathParam2.getLogicOffset()) + ((((float) (mathParam2.getLogicScale() * 8)) * f4) / BaseSurfaceView.this.getHeight()));
-                        } else if (mathParam2.getOperator() == ServiceEnum.MathOperator.operator_fft) {
-                            mathParam2.saveFftOffset(((float) mathParam2.getFftOffset()) + ((((float) (mathParam2.getFftScale() * 8)) * f4) / BaseSurfaceView.this.getHeight()));
+                    MathParam access$getMathParam$p2 = MathWindowHolder.access$getMathParam$p(this);
+                    if (access$getMathParam$p2 != null) {
+                        if (access$getMathParam$p2.getOperator() == ServiceEnum.MathOperator.operator_and || access$getMathParam$p2.getOperator() == ServiceEnum.MathOperator.operator_or || access$getMathParam$p2.getOperator() == ServiceEnum.MathOperator.operator_not || access$getMathParam$p2.getOperator() == ServiceEnum.MathOperator.operator_xor) {
+                            access$getMathParam$p2.saveLogicOffset(((float) access$getMathParam$p2.getLogicOffset()) + ((((float) (access$getMathParam$p2.getLogicScale() * 8)) * f4) / BaseSurfaceView.this.getHeight()));
+                        } else if (access$getMathParam$p2.getOperator() == ServiceEnum.MathOperator.operator_fft) {
+                            access$getMathParam$p2.saveFftOffset(((float) access$getMathParam$p2.getFftOffset()) + ((((float) (access$getMathParam$p2.getFftScale() * 8)) * f4) / BaseSurfaceView.this.getHeight()));
                         } else {
-                            mathParam2.saveOffset(((float) mathParam2.getOffset()) + ((((float) (mathParam2.getScale() * 8)) * f4) / BaseSurfaceView.this.getHeight()));
+                            access$getMathParam$p2.saveOffset(((float) access$getMathParam$p2.getOffset()) + ((((float) (access$getMathParam$p2.getScale() * 8)) * f4) / BaseSurfaceView.this.getHeight()));
                         }
                     }
                 }
@@ -115,44 +115,44 @@ public final class MathWindowHolder extends WindowHolder {
                 Intrinsics.checkNotNullParameter(detector, "detector");
                 if (Math.abs(BaseSurfaceView.this.getTotalScaleSpan()[0]) > Math.abs(BaseSurfaceView.this.getTotalScaleSpan()[1])) {
                     float currentSpanX = detector.getCurrentSpanX() / detector.getPreviousSpanX();
-                    MathParam mathParam = this.mathParam;
-                    if (mathParam != null && mathParam.getOperator() == ServiceEnum.MathOperator.operator_fft) {
-                        long fftCenter = mathParam.getFftCenter();
+                    MathParam access$getMathParam$p = MathWindowHolder.access$getMathParam$p(this);
+                    if (access$getMathParam$p != null && access$getMathParam$p.getOperator() == ServiceEnum.MathOperator.operator_fft) {
+                        long fftCenter = access$getMathParam$p.getFftCenter();
                         long j = 10;
-                        long fftEnd = (mathParam.getFftEnd() - mathParam.getFftStart()) / j;
+                        long fftEnd = (access$getMathParam$p.getFftEnd() - access$getMathParam$p.getFftStart()) / j;
                         float f = 1;
                         if (currentSpanX < f) {
                             long plusNum = ScaleNumUtil.getPlusNum(fftEnd, 1.0f);
-                            if (mathParam.getFftStart() == 0) {
-                                mathParam.saveFftEnd(plusNum * j);
+                            if (access$getMathParam$p.getFftStart() == 0) {
+                                access$getMathParam$p.saveFftEnd(plusNum * j);
                             } else {
                                 long j2 = plusNum * 5;
-                                mathParam.saveFftStart(fftCenter - j2);
-                                mathParam.saveFftEnd(fftCenter + j2);
+                                access$getMathParam$p.saveFftStart(fftCenter - j2);
+                                access$getMathParam$p.saveFftEnd(fftCenter + j2);
                             }
                         } else if (currentSpanX > f) {
                             long minusNum = ScaleNumUtil.getMinusNum(fftEnd, 1.0f) * 5;
-                            mathParam.saveFftStart(fftCenter - minusNum);
-                            mathParam.saveFftEnd(fftCenter + minusNum);
+                            access$getMathParam$p.saveFftStart(fftCenter - minusNum);
+                            access$getMathParam$p.saveFftEnd(fftCenter + minusNum);
                         }
                     }
                 } else {
                     float currentSpanY = detector.getCurrentSpanY() / detector.getPreviousSpanY();
-                    MathParam mathParam2 = this.mathParam;
-                    if (mathParam2 != null && mathParam2.getOperator() != ServiceEnum.MathOperator.operator_and && mathParam2.getOperator() != ServiceEnum.MathOperator.operator_or && mathParam2.getOperator() != ServiceEnum.MathOperator.operator_not && mathParam2.getOperator() != ServiceEnum.MathOperator.operator_xor) {
-                        if (mathParam2.getOperator() == ServiceEnum.MathOperator.operator_fft) {
+                    MathParam access$getMathParam$p2 = MathWindowHolder.access$getMathParam$p(this);
+                    if (access$getMathParam$p2 != null && access$getMathParam$p2.getOperator() != ServiceEnum.MathOperator.operator_and && access$getMathParam$p2.getOperator() != ServiceEnum.MathOperator.operator_or && access$getMathParam$p2.getOperator() != ServiceEnum.MathOperator.operator_not && access$getMathParam$p2.getOperator() != ServiceEnum.MathOperator.operator_xor) {
+                        if (access$getMathParam$p2.getOperator() == ServiceEnum.MathOperator.operator_fft) {
                             float f2 = 1;
                             if (currentSpanY < f2) {
-                                mathParam2.saveFftScale(ScaleNumUtil.getPlusNum(mathParam2.getFftScale(), 1.0f));
+                                access$getMathParam$p2.saveFftScale(ScaleNumUtil.getPlusNum(access$getMathParam$p2.getFftScale(), 1.0f));
                             } else if (currentSpanY > f2) {
-                                mathParam2.saveFftScale(ScaleNumUtil.getMinusNum(mathParam2.getFftScale(), 1.0f));
+                                access$getMathParam$p2.saveFftScale(ScaleNumUtil.getMinusNum(access$getMathParam$p2.getFftScale(), 1.0f));
                             }
                         } else {
                             float f3 = 1;
                             if (currentSpanY < f3) {
-                                mathParam2.saveScale(ScaleNumUtil.getPlusNum(mathParam2.getScale(), 1.0f));
+                                access$getMathParam$p2.saveScale(ScaleNumUtil.getPlusNum(access$getMathParam$p2.getScale(), 1.0f));
                             } else if (currentSpanY > f3) {
-                                mathParam2.saveScale(ScaleNumUtil.getMinusNum(mathParam2.getScale(), 1.0f));
+                                access$getMathParam$p2.saveScale(ScaleNumUtil.getMinusNum(access$getMathParam$p2.getScale(), 1.0f));
                             }
                         }
                     }
@@ -174,20 +174,14 @@ public final class MathWindowHolder extends WindowHolder {
 
             @Override // com.rigol.scope.views.TagView.Callback
             public void onMove(int i, int i2, int i3, int i4) {
-                WindowContent windowContent;
-                WindowContent windowContent2;
-                WindowContent windowContent3;
-                MathParam mathParam = MathWindowHolder.this.mathParam;
-                if (mathParam != null) {
-                    if (mathParam.getOperator() == ServiceEnum.MathOperator.operator_and || mathParam.getOperator() == ServiceEnum.MathOperator.operator_or || mathParam.getOperator() == ServiceEnum.MathOperator.operator_not || mathParam.getOperator() == ServiceEnum.MathOperator.operator_xor) {
-                        windowContent = MathWindowHolder.this.content;
-                        mathParam.saveLogicOffset(((float) mathParam.getLogicOffset()) - (((i2 / windowContent.getHeight()) * ((float) mathParam.getLogicScale())) * 8));
-                    } else if (mathParam.getOperator() == ServiceEnum.MathOperator.operator_fft) {
-                        windowContent3 = MathWindowHolder.this.content;
-                        mathParam.saveFftOffset(((float) mathParam.getFftOffset()) - (((i2 / windowContent3.getHeight()) * ((float) mathParam.getFftScale())) * 8));
+                MathParam access$getMathParam$p = MathWindowHolder.access$getMathParam$p(MathWindowHolder.this);
+                if (access$getMathParam$p != null) {
+                    if (access$getMathParam$p.getOperator() == ServiceEnum.MathOperator.operator_and || access$getMathParam$p.getOperator() == ServiceEnum.MathOperator.operator_or || access$getMathParam$p.getOperator() == ServiceEnum.MathOperator.operator_not || access$getMathParam$p.getOperator() == ServiceEnum.MathOperator.operator_xor) {
+                        access$getMathParam$p.saveLogicOffset(((float) access$getMathParam$p.getLogicOffset()) - (((i2 / MathWindowHolder.access$getContent$p(MathWindowHolder.this).getHeight()) * ((float) access$getMathParam$p.getLogicScale())) * 8));
+                    } else if (access$getMathParam$p.getOperator() == ServiceEnum.MathOperator.operator_fft) {
+                        access$getMathParam$p.saveFftOffset(((float) access$getMathParam$p.getFftOffset()) - (((i2 / MathWindowHolder.access$getContent$p(MathWindowHolder.this).getHeight()) * ((float) access$getMathParam$p.getFftScale())) * 8));
                     } else {
-                        windowContent2 = MathWindowHolder.this.content;
-                        mathParam.saveOffset(((float) mathParam.getOffset()) - (((i2 / windowContent2.getHeight()) * ((float) mathParam.getScale())) * 8));
+                        access$getMathParam$p.saveOffset(((float) access$getMathParam$p.getOffset()) - (((i2 / MathWindowHolder.access$getContent$p(MathWindowHolder.this).getHeight()) * ((float) access$getMathParam$p.getScale())) * 8));
                     }
                     FunctionManager.getInstance().setFlexKnobEnum(ServiceEnum.Function.FUN_MATH, windowParam.getServiceID() - 17, false);
                 }
@@ -256,10 +250,8 @@ public final class MathWindowHolder extends WindowHolder {
                     mathTag2.postDelayed(new Runnable() { // from class: com.rigol.scope.views.window.MathWindowHolder$$special$$inlined$apply$lambda$6.1
                         @Override // java.lang.Runnable
                         public final void run() {
-                            WindowContent windowContent3;
                             mathTag2.setPosition();
-                            windowContent3 = this.content;
-                            windowContent3.updateCursorA_B();
+                            MathWindowHolder.access$getContent$p(this).updateCursorA_B();
                         }
                     }, 200L);
                 }
@@ -285,6 +277,10 @@ public final class MathWindowHolder extends WindowHolder {
                 throw new NullPointerException("null cannot be cast to non-null type androidx.lifecycle.LifecycleOwner");
             }
             mutableLiveData.observe((LifecycleOwner) topActivity2, new Observer<Object>() { // from class: com.rigol.scope.views.window.MathWindowHolder.2
+                {
+                    MathWindowHolder.this = this;
+                }
+
                 @Override // androidx.lifecycle.Observer
                 public final void onChanged(Object obj) {
                     MathWindowHolder.this.updateTitle();
@@ -297,10 +293,17 @@ public final class MathWindowHolder extends WindowHolder {
             throw new NullPointerException("null cannot be cast to non-null type androidx.lifecycle.LifecycleOwner");
         }
         liveData2.observe((LifecycleOwner) topActivity3, new Observer<SharedParam>() { // from class: com.rigol.scope.views.window.MathWindowHolder.3
-            /* JADX DEBUG: Method merged with bridge method */
+            {
+                MathWindowHolder.this = this;
+            }
+
             @Override // androidx.lifecycle.Observer
             public final void onChanged(final SharedParam sharedParam) {
                 sharedParam.addOnPropertyChangedCallback(new Observable.OnPropertyChangedCallback() { // from class: com.rigol.scope.views.window.MathWindowHolder.3.1
+                    {
+                        AnonymousClass3.this = this;
+                    }
+
                     @Override // androidx.databinding.Observable.OnPropertyChangedCallback
                     public void onPropertyChanged(Observable observable, int i) {
                         if (sharedParam.getShowResultBar()) {
@@ -316,6 +319,16 @@ public final class MathWindowHolder extends WindowHolder {
         });
     }
 
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.views.window.MathWindowHolder$$special$$inlined$apply$lambda$3.onMove(int, int, int, int):void, com.rigol.scope.views.window.MathWindowHolder$$special$$inlined$apply$lambda$6.1.run():void] */
+    public static final /* synthetic */ WindowContent access$getContent$p(MathWindowHolder mathWindowHolder) {
+        return mathWindowHolder.content;
+    }
+
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.views.window.MathWindowHolder$$special$$inlined$apply$lambda$1.onScroll(android.view.MotionEvent, android.view.MotionEvent, float, float):boolean, com.rigol.scope.views.window.MathWindowHolder$$special$$inlined$apply$lambda$2.onScale(android.view.ScaleGestureDetector):boolean, com.rigol.scope.views.window.MathWindowHolder$$special$$inlined$apply$lambda$3.onMove(int, int, int, int):void, com.rigol.scope.views.window.MathWindowHolder$1$$special$$inlined$let$lambda$1.onChanged(java.lang.Boolean):void] */
+    public static final /* synthetic */ MathParam access$getMathParam$p(MathWindowHolder mathWindowHolder) {
+        return mathWindowHolder.mathParam;
+    }
+
     public final Context getContext() {
         return this.context;
     }
@@ -326,16 +339,16 @@ public final class MathWindowHolder extends WindowHolder {
 
     /* compiled from: WindowHolder.kt */
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0018\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\u0010\u0000\u001a\u00020\u000120\u0010\u0002\u001a,\u0012\u0004\u0012\u00020\u0004 \u0006*\u0016\u0012\u0004\u0012\u00020\u0004\u0018\u00010\u0003j\n\u0012\u0004\u0012\u00020\u0004\u0018\u0001`\u00050\u0003j\b\u0012\u0004\u0012\u00020\u0004`\u0005H\n¢\u0006\u0002\b\u0007"}, d2 = {"<anonymous>", "", "t", "Ljava/util/ArrayList;", "Lcom/rigol/scope/data/MathParam;", "Lkotlin/collections/ArrayList;", "kotlin.jvm.PlatformType", "onChanged"}, k = 3, mv = {1, 4, 1})
-    /* renamed from: com.rigol.scope.views.window.MathWindowHolder$1  reason: invalid class name */
+    /* renamed from: com.rigol.scope.views.window.MathWindowHolder$1 */
     /* loaded from: classes2.dex */
     static final class AnonymousClass1<T> implements Observer<ArrayList<MathParam>> {
         final /* synthetic */ WindowParam $windowParam;
 
         AnonymousClass1(WindowParam windowParam) {
+            MathWindowHolder.this = r1;
             this.$windowParam = windowParam;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.lifecycle.Observer
         public final void onChanged(ArrayList<MathParam> arrayList) {
             MutableLiveData<Boolean> mutableLiveData;
@@ -360,8 +373,8 @@ public final class MathWindowHolder extends WindowHolder {
                     @Override // androidx.lifecycle.Observer
                     public final void onChanged(Boolean bool) {
                         API api = API.getInstance();
-                        MathParam mathParam2 = MathWindowHolder.this.mathParam;
-                        Integer valueOf = mathParam2 != null ? Integer.valueOf(mathParam2.getServiceId()) : null;
+                        MathParam access$getMathParam$p = MathWindowHolder.access$getMathParam$p(MathWindowHolder.this);
+                        Integer valueOf = access$getMathParam$p != null ? Integer.valueOf(access$getMathParam$p.getServiceId()) : null;
                         Intrinsics.checkNotNull(valueOf);
                         boolean UI_QueryBool = api.UI_QueryBool(valueOf.intValue(), MessageID.MSG_MATH_INPUT_VALID);
                         TextView textView = MathWindowHolder.this.getBinding().warning;

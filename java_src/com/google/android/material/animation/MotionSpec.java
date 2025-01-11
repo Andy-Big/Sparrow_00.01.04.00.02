@@ -12,6 +12,7 @@ import android.util.Property;
 import androidx.collection.SimpleArrayMap;
 import java.util.ArrayList;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public class MotionSpec {
     private static final String TAG = "MotionSpec";

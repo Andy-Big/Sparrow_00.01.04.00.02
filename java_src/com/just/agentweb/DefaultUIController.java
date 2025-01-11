@@ -13,6 +13,7 @@ import android.webkit.JsResult;
 import android.webkit.WebView;
 import android.widget.EditText;
 import androidx.appcompat.app.AlertDialog;
+
 /* loaded from: classes.dex */
 public class DefaultUIController extends AbsAgentWebUIController {
     private Activity mActivity;
@@ -294,9 +295,8 @@ public class DefaultUIController extends AbsAgentWebUIController {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.just.agentweb.AbsAgentWebUIController
-    public void bindSupportWebParent(WebParentLayout webParentLayout, Activity activity) {
+    protected void bindSupportWebParent(WebParentLayout webParentLayout, Activity activity) {
         this.mActivity = activity;
         this.mWebParentLayout = webParentLayout;
         this.mResources = activity.getResources();

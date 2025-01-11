@@ -10,6 +10,7 @@ import androidx.loader.content.Loader;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
 import java.util.Arrays;
+
 /* loaded from: classes.dex */
 public class CursorLoader extends AsyncTaskLoader<Cursor> {
     CancellationSignal mCancellationSignal;
@@ -21,6 +22,8 @@ public class CursorLoader extends AsyncTaskLoader<Cursor> {
     String mSortOrder;
     Uri mUri;
 
+    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
+    /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // androidx.loader.content.AsyncTaskLoader
     public Cursor loadInBackground() {
@@ -63,6 +66,7 @@ public class CursorLoader extends AsyncTaskLoader<Cursor> {
         }
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.loader.content.Loader
     public void deliverResult(Cursor cursor) {
         if (isReset()) {
@@ -114,6 +118,7 @@ public class CursorLoader extends AsyncTaskLoader<Cursor> {
         cancelLoad();
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.loader.content.AsyncTaskLoader
     public void onCanceled(Cursor cursor) {
         if (cursor == null || cursor.isClosed()) {
@@ -122,9 +127,8 @@ public class CursorLoader extends AsyncTaskLoader<Cursor> {
         cursor.close();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // androidx.loader.content.Loader
-    public void onReset() {
+    protected void onReset() {
         super.onReset();
         onStopLoading();
         Cursor cursor = this.mCursor;

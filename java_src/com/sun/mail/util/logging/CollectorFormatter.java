@@ -8,6 +8,7 @@ import java.util.ResourceBundle;
 import java.util.logging.Formatter;
 import java.util.logging.Handler;
 import java.util.logging.LogRecord;
+
 /* loaded from: classes2.dex */
 public class CollectorFormatter extends Formatter {
     static final /* synthetic */ boolean $assertionsDisabled = false;

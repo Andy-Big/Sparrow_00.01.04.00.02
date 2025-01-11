@@ -25,6 +25,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
+
 /* loaded from: classes.dex */
 public class ViewTransition {
     static final int ANTICIPATE = 6;
@@ -144,8 +145,7 @@ public class ViewTransition {
         return AnimationUtils.loadInterpolator(context, this.mDefaultInterpolatorID);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ViewTransition(Context context, XmlPullParser xmlPullParser) {
+    ViewTransition(Context context, XmlPullParser xmlPullParser) {
         boolean z;
         this.mContext = context;
         try {
@@ -293,9 +293,8 @@ public class ViewTransition {
         new Animate(viewTransitionController, motionController, this.mDuration, getInterpolator(motionLayout.getContext()), this.mSetsTag, this.mClearsTag);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static class Animate {
+    static class Animate {
         private final int mClearsTag;
         int mDuration;
         Interpolator mInterpolator;
@@ -316,8 +315,7 @@ public class ViewTransition {
             mutate();
         }
 
-        /* JADX INFO: Access modifiers changed from: package-private */
-        public void mutate() {
+        void mutate() {
             long nanoTime = System.nanoTime();
             float f = ((float) ((nanoTime - this.mStart) * 1.0E-6d)) / this.mDuration;
             Interpolator interpolator = this.mInterpolator;
@@ -339,8 +337,7 @@ public class ViewTransition {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void applyTransition(ViewTransitionController viewTransitionController, MotionLayout motionLayout, int i, ConstraintSet constraintSet, final View... viewArr) {
+    void applyTransition(ViewTransitionController viewTransitionController, MotionLayout motionLayout, int i, ConstraintSet constraintSet, final View... viewArr) {
         int[] constraintSetIds;
         if (this.mDisabled) {
             return;
@@ -424,8 +421,7 @@ public class ViewTransition {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public int getId() {
+    int getId() {
         return this.mId;
     }
 
@@ -433,8 +429,7 @@ public class ViewTransition {
         this.mId = i;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean matchesView(View view) {
+    boolean matchesView(View view) {
         String str;
         if (view == null) {
             return false;
@@ -448,24 +443,20 @@ public class ViewTransition {
         return false;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean supports(int i) {
+    boolean supports(int i) {
         int i2 = this.mOnStateTransition;
         return i2 == 1 ? i == 0 : i2 == 2 && i == 1;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean isEnabled() {
+    boolean isEnabled() {
         return !this.mDisabled;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setEnable(boolean z) {
+    void setEnable(boolean z) {
         this.mDisabled = !z;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean checkTags(View view) {
+    boolean checkTags(View view) {
         int i = this.mIfTagSet;
         boolean z = i == -1 || view.getTag(i) != null;
         int i2 = this.mIfTagNotSet;

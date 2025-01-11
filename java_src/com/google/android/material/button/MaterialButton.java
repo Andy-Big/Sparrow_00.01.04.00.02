@@ -34,6 +34,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
+
 /* loaded from: classes.dex */
 public class MaterialButton extends AppCompatButton implements Checkable, Shapeable {
     private static final int[] CHECKABLE_STATE_SET = {16842911};
@@ -227,9 +228,8 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
         super.setBackgroundDrawable(drawable);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // androidx.appcompat.widget.AppCompatButton, android.widget.TextView, android.view.View
-    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
+    protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         MaterialButtonHelper materialButtonHelper;
         super.onLayout(z, i, i2, i3, i4);
         if (Build.VERSION.SDK_INT != 21 || (materialButtonHelper = this.materialButtonHelper) == null) {
@@ -244,16 +244,14 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
         updateIconPosition();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // androidx.appcompat.widget.AppCompatButton, android.widget.TextView
-    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    protected void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
         super.onTextChanged(charSequence, i, i2, i3);
         updateIconPosition();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.widget.TextView, android.view.View
-    public void onAttachedToWindow() {
+    protected void onAttachedToWindow() {
         super.onAttachedToWindow();
         if (isUsingOriginalBackground()) {
             MaterialShapeUtils.setParentAbsoluteElevation(this, this.materialButtonHelper.getMaterialShapeDrawable());
@@ -302,8 +300,7 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
         return ViewCompat.getLayoutDirection(this) == 1;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setInternalBackground(Drawable drawable) {
+    void setInternalBackground(Drawable drawable) {
         super.setBackgroundDrawable(drawable);
     }
 
@@ -593,8 +590,7 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
         throw new IllegalStateException("Attempted to get ShapeAppearanceModel from a MaterialButton which has an overwritten background.");
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setOnPressedChangeListenerInternal(OnPressedChangeListener onPressedChangeListener) {
+    void setOnPressedChangeListenerInternal(OnPressedChangeListener onPressedChangeListener) {
         this.onPressedChangeListenerInternal = onPressedChangeListener;
     }
 
@@ -612,28 +608,29 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
         return (materialButtonHelper == null || materialButtonHelper.isBackgroundOverwritten()) ? false : true;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setShouldDrawSurfaceColorStroke(boolean z) {
+    void setShouldDrawSurfaceColorStroke(boolean z) {
         if (isUsingOriginalBackground()) {
             this.materialButtonHelper.setShouldDrawSurfaceColorStroke(z);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static class SavedState extends AbsSavedState {
+    static class SavedState extends AbsSavedState {
         public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.ClassLoaderCreator<SavedState>() { // from class: com.google.android.material.button.MaterialButton.SavedState.1
+            /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.ClassLoaderCreator
             public SavedState createFromParcel(Parcel parcel, ClassLoader classLoader) {
                 return new SavedState(parcel, classLoader);
             }
 
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // android.os.Parcelable.Creator
             public SavedState createFromParcel(Parcel parcel) {
                 return new SavedState(parcel, null);
             }
 
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // android.os.Parcelable.Creator
             public SavedState[] newArray(int i) {
                 return new SavedState[i];

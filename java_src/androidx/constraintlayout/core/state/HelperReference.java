@@ -3,6 +3,7 @@ package androidx.constraintlayout.core.state;
 import androidx.constraintlayout.core.state.State;
 import androidx.constraintlayout.core.widgets.HelperWidget;
 import java.util.ArrayList;
+
 /* loaded from: classes.dex */
 public class HelperReference {
     private HelperWidget mHelperWidget;

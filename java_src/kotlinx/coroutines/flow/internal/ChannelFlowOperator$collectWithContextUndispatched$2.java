@@ -11,6 +11,7 @@ import kotlin.coroutines.jvm.internal.SuspendLambda;
 import kotlin.jvm.functions.Function2;
 import kotlin.jvm.internal.Intrinsics;
 import kotlinx.coroutines.flow.FlowCollector;
+
 /* JADX INFO: Add missing generic type declarations: [T] */
 /* compiled from: ChannelFlow.kt */
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0012\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002\"\u0004\b\u0001\u0010\u00032\f\u0010\u0004\u001a\b\u0012\u0004\u0012\u0002H\u00030\u0005H\u008a@¢\u0006\u0004\b\u0006\u0010\u0007"}, d2 = {"<anonymous>", "", ExifInterface.LATITUDE_SOUTH, ExifInterface.GPS_DIRECTION_TRUE, "it", "Lkotlinx/coroutines/flow/FlowCollector;", "invoke", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;"}, k = 3, mv = {1, 1, 15})
@@ -22,9 +23,8 @@ final class ChannelFlowOperator$collectWithContextUndispatched$2<T> extends Susp
     private FlowCollector p$0;
     final /* synthetic */ ChannelFlowOperator this$0;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ChannelFlowOperator$collectWithContextUndispatched$2(ChannelFlowOperator channelFlowOperator, Continuation continuation) {
+    ChannelFlowOperator$collectWithContextUndispatched$2(ChannelFlowOperator channelFlowOperator, Continuation continuation) {
         super(2, continuation);
         this.this$0 = channelFlowOperator;
     }
@@ -37,6 +37,7 @@ final class ChannelFlowOperator$collectWithContextUndispatched$2<T> extends Susp
         return channelFlowOperator$collectWithContextUndispatched$2;
     }
 
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
     @Override // kotlin.jvm.functions.Function2
     public final Object invoke(Object obj, Continuation<? super Unit> continuation) {
         return ((ChannelFlowOperator$collectWithContextUndispatched$2) create(obj, continuation)).invokeSuspend(Unit.INSTANCE);

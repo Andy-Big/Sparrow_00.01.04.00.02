@@ -11,6 +11,7 @@ import javax.jmdns.impl.constants.DNSRecordClass;
 import javax.jmdns.impl.constants.DNSRecordType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 /* loaded from: classes2.dex */
 public class DNSQuestion extends DNSEntry {
     private static Logger logger = LoggerFactory.getLogger(DNSQuestion.class.getName());
@@ -267,8 +268,7 @@ public class DNSQuestion extends DNSEntry {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean answeredBy(DNSEntry dNSEntry) {
+    boolean answeredBy(DNSEntry dNSEntry) {
         return isSameRecordClass(dNSEntry) && isSameType(dNSEntry) && getName().equals(dNSEntry.getName());
     }
 

@@ -43,14 +43,12 @@ public class UtilityAutoConfigAdapter extends RecyclerView.Adapter<AutoSettingHo
         this.baseView = view;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public AutoSettingHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         this.binding = AdapterUtilityAutosettingBinding.inflate(LayoutInflater.from(viewGroup.getContext()), viewGroup, false);
         return new AutoSettingHolder(this.binding);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(AutoSettingHolder autoSettingHolder, int i) {
         initViewStyle();
@@ -118,6 +116,10 @@ public class UtilityAutoConfigAdapter extends RecyclerView.Adapter<AutoSettingHo
             case R.id.edt_confirmPassword /* 2131362749 */:
                 if (this.autosetParam != null) {
                     ViewUtil.showKeyboard(this.baseView, view, ServiceEnum.Unit.Unit_number, this.autosetParam.getPasswordAttr().getMaxIntValue(), this.autosetParam.getPasswordAttr().getMinIntValue(), this.autosetParam.getPasswordAttr().getDefIntValue(), 0L, new KeyboardListener() { // from class: com.rigol.scope.adapters.UtilityAutoConfigAdapter.3
+                        {
+                            UtilityAutoConfigAdapter.this = this;
+                        }
+
                         @Override // com.rigol.scope.views.keyboard.KeyboardListener
                         public <T> void resultMinUnitValueListener(T t) {
                             UtilityAutoConfigAdapter.this.binding.edtConfirmPassword.setText(t.toString());
@@ -134,6 +136,10 @@ public class UtilityAutoConfigAdapter extends RecyclerView.Adapter<AutoSettingHo
             case R.id.edt_newPassword /* 2131362754 */:
                 if (this.autosetParam != null) {
                     ViewUtil.showKeyboard(this.baseView, view, ServiceEnum.Unit.Unit_number, this.autosetParam.getPasswordAttr().getMaxIntValue(), this.autosetParam.getPasswordAttr().getMinIntValue(), this.autosetParam.getPasswordAttr().getDefIntValue(), 0L, new KeyboardListener() { // from class: com.rigol.scope.adapters.UtilityAutoConfigAdapter.2
+                        {
+                            UtilityAutoConfigAdapter.this = this;
+                        }
+
                         @Override // com.rigol.scope.views.keyboard.KeyboardListener
                         public <T> void resultMinUnitValueListener(T t) {
                             UtilityAutoConfigAdapter.this.binding.edtNewPassword.setText(t.toString());
@@ -150,6 +156,10 @@ public class UtilityAutoConfigAdapter extends RecyclerView.Adapter<AutoSettingHo
             case R.id.edt_oldPassword /* 2131362755 */:
                 if (this.autosetParam != null) {
                     ViewUtil.showKeyboard(this.baseView, view, ServiceEnum.Unit.Unit_number, this.autosetParam.getPasswordAttr().getMaxIntValue(), this.autosetParam.getPasswordAttr().getMinIntValue(), this.autosetParam.getPasswordAttr().getDefIntValue(), 0L, new KeyboardListener() { // from class: com.rigol.scope.adapters.UtilityAutoConfigAdapter.1
+                        {
+                            UtilityAutoConfigAdapter.this = this;
+                        }
+
                         @Override // com.rigol.scope.views.keyboard.KeyboardListener
                         public <T> void resultMinUnitValueListener(T t) {
                             UtilityAutoConfigAdapter.this.binding.edtOldPassword.setText(t.toString());
@@ -196,7 +206,7 @@ public class UtilityAutoConfigAdapter extends RecyclerView.Adapter<AutoSettingHo
             builder.setNegativeButton(this.context.getString(R.string.autoset_20), new DialogInterface.OnClickListener() { // from class: com.rigol.scope.adapters.-$$Lambda$UtilityAutoConfigAdapter$rPRtsMap6sePf8doxU2KlA51kiE
                 @Override // android.content.DialogInterface.OnClickListener
                 public final void onClick(DialogInterface dialogInterface, int i) {
-                    SnackbarUtils.dismiss();
+                    UtilityAutoConfigAdapter.lambda$clickLock$1(dialogInterface, i);
                 }
             });
             builder.show();
@@ -209,6 +219,11 @@ public class UtilityAutoConfigAdapter extends RecyclerView.Adapter<AutoSettingHo
         this.binding.imageViewLock.setImageResource(R.drawable.unlock);
         API.getInstance().UI_PostBool(35, 776, false);
         ToastUtils.showShort(this.context.getResources().getString(R.string.err_auto_unlocked));
+    }
+
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.adapters.-$$Lambda$UtilityAutoConfigAdapter$rPRtsMap6sePf8doxU2KlA51kiE.onClick(android.content.DialogInterface, int):void] */
+    static /* synthetic */ void lambda$clickLock$1(DialogInterface dialogInterface, int i) {
+        SnackbarUtils.dismiss();
     }
 
     @Override // android.widget.CompoundButton.OnCheckedChangeListener

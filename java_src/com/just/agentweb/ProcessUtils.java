@@ -10,13 +10,13 @@ import java.io.File;
 import java.io.FileReader;
 import java.lang.reflect.Field;
 import java.util.List;
+
 /* loaded from: classes.dex */
 class ProcessUtils {
     ProcessUtils() {
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static String getCurrentProcessName(Context context) {
+    static String getCurrentProcessName(Context context) {
         String currentProcessNameByFile = getCurrentProcessNameByFile();
         if (TextUtils.isEmpty(currentProcessNameByFile)) {
             String currentProcessNameByAms = getCurrentProcessNameByAms(context);

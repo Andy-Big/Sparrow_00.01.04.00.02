@@ -5,6 +5,7 @@ import android.graphics.Canvas;
 import android.util.AttributeSet;
 import android.view.View;
 import androidx.constraintlayout.widget.ConstraintLayout;
+
 /* loaded from: classes.dex */
 public class Guideline extends View {
     @Override // android.view.View

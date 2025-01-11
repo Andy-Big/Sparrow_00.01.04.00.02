@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.StringWriter;
 import java.math.BigDecimal;
 import java.math.BigInteger;
+
 /* loaded from: classes.dex */
 public abstract class JsonElement {
     public abstract JsonElement deepCopy();

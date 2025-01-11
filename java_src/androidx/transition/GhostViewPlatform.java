@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+
 /* loaded from: classes.dex */
 class GhostViewPlatform implements GhostView {
     private static final String TAG = "GhostViewApi21";
@@ -21,8 +22,7 @@ class GhostViewPlatform implements GhostView {
     public void reserveEndViewTransition(ViewGroup viewGroup, View view) {
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static GhostView addGhost(View view, ViewGroup viewGroup, Matrix matrix) {
+    static GhostView addGhost(View view, ViewGroup viewGroup, Matrix matrix) {
         fetchAddGhostMethod();
         if (sAddGhostMethod != null) {
             try {
@@ -35,8 +35,7 @@ class GhostViewPlatform implements GhostView {
         return null;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static void removeGhost(View view) {
+    static void removeGhost(View view) {
         fetchRemoveGhostMethod();
         Method method = sRemoveGhostMethod;
         if (method != null) {

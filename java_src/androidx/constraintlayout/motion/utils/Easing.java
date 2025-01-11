@@ -2,6 +2,7 @@ package androidx.constraintlayout.motion.utils;
 
 import android.util.Log;
 import java.util.Arrays;
+
 /* loaded from: classes.dex */
 public class Easing {
     private static final String ACCELERATE = "cubic(0.4, 0.05, 0.8, 0.7)";

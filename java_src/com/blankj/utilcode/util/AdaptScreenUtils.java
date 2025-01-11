@@ -5,6 +5,7 @@ import android.util.DisplayMetrics;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public final class AdaptScreenUtils {
     private static List<Field> sMetricsFields;
@@ -54,8 +55,7 @@ public final class AdaptScreenUtils {
         applyOtherDisplayMetrics(resources, f);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static Runnable getPreLoadRunnable() {
+    static Runnable getPreLoadRunnable() {
         return new Runnable() { // from class: com.blankj.utilcode.util.AdaptScreenUtils.1
             @Override // java.lang.Runnable
             public void run() {

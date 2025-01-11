@@ -6,6 +6,7 @@ import android.graphics.PointF;
 import android.view.animation.Animation;
 import android.view.animation.Transformation;
 import java.util.Random;
+
 /* loaded from: classes2.dex */
 public class StoreHouseBarItem extends Animation {
     public int index;

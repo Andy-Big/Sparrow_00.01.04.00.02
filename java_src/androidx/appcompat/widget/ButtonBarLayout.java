@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 import androidx.appcompat.R;
 import androidx.core.view.ViewCompat;
+
 /* loaded from: classes.dex */
 public class ButtonBarLayout extends LinearLayout {
     private static final int PEEK_BUTTON_DP = 16;

@@ -5,6 +5,7 @@ import com.bumptech.glide.load.engine.bitmap_recycle.ArrayPool;
 import com.bumptech.glide.load.resource.bitmap.RecyclableBufferedInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+
 /* loaded from: classes.dex */
 public final class InputStreamRewinder implements DataRewinder<InputStream> {
     private static final int MARK_READ_LIMIT = 5242880;
@@ -16,6 +17,7 @@ public final class InputStreamRewinder implements DataRewinder<InputStream> {
         recyclableBufferedInputStream.mark(MARK_READ_LIMIT);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.bumptech.glide.load.data.DataRewinder
     public InputStream rewindAndGet() throws IOException {
@@ -40,6 +42,7 @@ public final class InputStreamRewinder implements DataRewinder<InputStream> {
             this.byteArrayPool = arrayPool;
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // com.bumptech.glide.load.data.DataRewinder.Factory
         public DataRewinder<InputStream> build(InputStream inputStream) {
             return new InputStreamRewinder(inputStream, this.byteArrayPool);

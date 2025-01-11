@@ -13,6 +13,7 @@ import android.graphics.RectF;
 import android.graphics.Shader;
 import android.graphics.drawable.Drawable;
 import androidx.cardview.R;
+
 /* loaded from: classes.dex */
 class RoundRectDrawableWithShadow extends Drawable {
     private static final double COS_45 = Math.cos(Math.toRadians(45.0d));
@@ -45,8 +46,7 @@ class RoundRectDrawableWithShadow extends Drawable {
         return -3;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public RoundRectDrawableWithShadow(Resources resources, ColorStateList colorStateList, float f, float f2, float f3) {
+    RoundRectDrawableWithShadow(Resources resources, ColorStateList colorStateList, float f, float f2, float f3) {
         this.mShadowStartColor = resources.getColor(R.color.cardview_shadow_start_color);
         this.mShadowEndColor = resources.getColor(R.color.cardview_shadow_end_color);
         this.mInsetShadow = resources.getDimensionPixelSize(R.dimen.cardview_compat_inset_shadow);
@@ -75,8 +75,7 @@ class RoundRectDrawableWithShadow extends Drawable {
         return i % 2 == 1 ? i - 1 : i;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setAddPaddingForCorners(boolean z) {
+    void setAddPaddingForCorners(boolean z) {
         this.mAddPaddingForCorners = z;
         invalidateSelf();
     }
@@ -127,13 +126,11 @@ class RoundRectDrawableWithShadow extends Drawable {
         return true;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static float calculateVerticalPadding(float f, float f2, boolean z) {
+    static float calculateVerticalPadding(float f, float f2, boolean z) {
         return z ? (float) ((f * SHADOW_MULTIPLIER) + ((1.0d - COS_45) * f2)) : f * SHADOW_MULTIPLIER;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static float calculateHorizontalPadding(float f, float f2, boolean z) {
+    static float calculateHorizontalPadding(float f, float f2, boolean z) {
         return z ? (float) (f + ((1.0d - COS_45) * f2)) : f;
     }
 
@@ -161,8 +158,7 @@ class RoundRectDrawableWithShadow extends Drawable {
         this.mPaint.setColorFilter(colorFilter);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setCornerRadius(float f) {
+    void setCornerRadius(float f) {
         if (f < 0.0f) {
             throw new IllegalArgumentException("Invalid radius " + f + ". Must be >= 0");
         }
@@ -265,56 +261,46 @@ class RoundRectDrawableWithShadow extends Drawable {
         buildShadowCorners();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public float getCornerRadius() {
+    float getCornerRadius() {
         return this.mCornerRadius;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void getMaxShadowAndCornerPadding(Rect rect) {
+    void getMaxShadowAndCornerPadding(Rect rect) {
         getPadding(rect);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setShadowSize(float f) {
+    void setShadowSize(float f) {
         setShadowSize(f, this.mRawMaxShadowSize);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setMaxShadowSize(float f) {
+    void setMaxShadowSize(float f) {
         setShadowSize(this.mRawShadowSize, f);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public float getShadowSize() {
+    float getShadowSize() {
         return this.mRawShadowSize;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public float getMaxShadowSize() {
+    float getMaxShadowSize() {
         return this.mRawMaxShadowSize;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public float getMinWidth() {
+    float getMinWidth() {
         float f = this.mRawMaxShadowSize;
         return (Math.max(f, this.mCornerRadius + this.mInsetShadow + (f / 2.0f)) * 2.0f) + ((this.mRawMaxShadowSize + this.mInsetShadow) * 2.0f);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public float getMinHeight() {
+    float getMinHeight() {
         float f = this.mRawMaxShadowSize;
         return (Math.max(f, this.mCornerRadius + this.mInsetShadow + ((f * SHADOW_MULTIPLIER) / 2.0f)) * 2.0f) + (((this.mRawMaxShadowSize * SHADOW_MULTIPLIER) + this.mInsetShadow) * 2.0f);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setColor(ColorStateList colorStateList) {
+    void setColor(ColorStateList colorStateList) {
         setBackground(colorStateList);
         invalidateSelf();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ColorStateList getColor() {
+    ColorStateList getColor() {
         return this.mBackground;
     }
 }

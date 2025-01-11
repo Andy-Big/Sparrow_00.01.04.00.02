@@ -6,6 +6,7 @@ import android.view.MotionEvent;
 import androidx.core.view.MotionEventCompat;
 import androidx.core.view.NestedScrollingChild;
 import androidx.core.view.NestedScrollingChildHelper;
+
 /* loaded from: classes.dex */
 public class NestedScrollAgentWebView extends AgentWebView implements NestedScrollingChild {
     private NestedScrollingChildHelper mChildHelper;

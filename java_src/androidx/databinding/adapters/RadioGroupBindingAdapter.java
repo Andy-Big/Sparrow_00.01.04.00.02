@@ -2,6 +2,7 @@ package androidx.databinding.adapters;
 
 import android.widget.RadioGroup;
 import androidx.databinding.InverseBindingListener;
+
 /* loaded from: classes.dex */
 public class RadioGroupBindingAdapter {
     public static void setCheckedButton(RadioGroup radioGroup, int i) {

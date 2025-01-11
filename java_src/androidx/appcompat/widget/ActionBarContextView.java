@@ -15,6 +15,7 @@ import androidx.appcompat.view.ActionMode;
 import androidx.appcompat.view.menu.MenuBuilder;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.ViewPropertyAnimatorCompat;
+
 /* loaded from: classes.dex */
 public class ActionBarContextView extends AbsActionBarView {
     private View mClose;

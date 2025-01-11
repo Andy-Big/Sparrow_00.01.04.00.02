@@ -12,6 +12,7 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.Comparator;
 import java.util.Map;
+
 /* loaded from: classes.dex */
 public final class ObjectUtils {
     public static <T> T getOrDefault(T t, T t2) {

@@ -31,6 +31,7 @@ import com.google.android.material.internal.CollapsingTextHelper;
 import com.google.android.material.internal.DescendantOffsetUtils;
 import com.google.android.material.internal.ThemeEnforcement;
 import com.google.android.material.theme.overlay.MaterialThemeOverlay;
+
 /* loaded from: classes.dex */
 public class CollapsingToolbarLayout extends FrameLayout {
     private static final int DEFAULT_SCRIM_ANIMATION_DURATION = 600;
@@ -684,17 +685,20 @@ public class CollapsingToolbarLayout extends FrameLayout {
         return layoutParams instanceof LayoutParams;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.widget.FrameLayout, android.view.ViewGroup
     public LayoutParams generateDefaultLayoutParams() {
         return new LayoutParams(-1, -1);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.FrameLayout, android.view.ViewGroup
     public FrameLayout.LayoutParams generateLayoutParams(AttributeSet attributeSet) {
         return new LayoutParams(getContext(), attributeSet);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.widget.FrameLayout, android.view.ViewGroup
     public FrameLayout.LayoutParams generateLayoutParams(ViewGroup.LayoutParams layoutParams) {

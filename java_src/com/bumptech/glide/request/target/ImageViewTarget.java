@@ -4,6 +4,7 @@ import android.graphics.drawable.Animatable;
 import android.graphics.drawable.Drawable;
 import android.widget.ImageView;
 import com.bumptech.glide.request.transition.Transition;
+
 /* loaded from: classes.dex */
 public abstract class ImageViewTarget<Z> extends ViewTarget<ImageView, Z> implements Transition.ViewAdapter {
     private Animatable animatable;

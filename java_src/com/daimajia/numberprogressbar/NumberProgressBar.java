@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.os.Parcelable;
 import android.util.AttributeSet;
 import android.view.View;
+
 /* loaded from: classes.dex */
 public class NumberProgressBar extends View {
     private static final String INSTANCE_MAX = "max";

@@ -1,4 +1,5 @@
 package com.google.android.material.transition;
+
 /* loaded from: classes.dex */
 class FadeModeEvaluators {
     private static final FadeModeEvaluator IN = new FadeModeEvaluator() { // from class: com.google.android.material.transition.FadeModeEvaluators.1
@@ -27,8 +28,7 @@ class FadeModeEvaluators {
         }
     };
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static FadeModeEvaluator get(int i, boolean z) {
+    static FadeModeEvaluator get(int i, boolean z) {
         if (i == 0) {
             return z ? IN : OUT;
         } else if (i == 1) {

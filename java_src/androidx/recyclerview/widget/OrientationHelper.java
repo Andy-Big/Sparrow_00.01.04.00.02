@@ -3,6 +3,7 @@ package androidx.recyclerview.widget;
 import android.graphics.Rect;
 import android.view.View;
 import androidx.recyclerview.widget.RecyclerView;
+
 /* loaded from: classes.dex */
 public abstract class OrientationHelper {
     public static final int HORIZONTAL = 0;

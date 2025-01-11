@@ -6,6 +6,7 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
+
 /* loaded from: classes.dex */
 public interface IResultReceiver extends IInterface {
 
@@ -62,9 +63,8 @@ public interface IResultReceiver extends IInterface {
             }
         }
 
-        /* JADX INFO: Access modifiers changed from: private */
         /* loaded from: classes.dex */
-        public static class Proxy implements IResultReceiver {
+        private static class Proxy implements IResultReceiver {
             public static IResultReceiver sDefaultImpl;
             private IBinder mRemote;
 

@@ -8,6 +8,7 @@ import android.graphics.Path;
 import android.view.View;
 import android.view.animation.DecelerateInterpolator;
 import com.scwang.smartrefresh.layout.util.DensityUtil;
+
 /* loaded from: classes2.dex */
 public class WaterDropView extends View {
     protected static final int BACK_ANIM_DURATION = 180;

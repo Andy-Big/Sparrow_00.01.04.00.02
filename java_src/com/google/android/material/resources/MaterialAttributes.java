@@ -4,6 +4,7 @@ import android.content.Context;
 import android.util.TypedValue;
 import android.view.View;
 import com.google.android.material.R;
+
 /* loaded from: classes.dex */
 public class MaterialAttributes {
     public static TypedValue resolve(Context context, int i) {

@@ -5,6 +5,7 @@ import android.hardware.Camera;
 import android.util.Log;
 import java.io.IOException;
 import kotlinx.coroutines.DebugKt;
+
 /* loaded from: classes.dex */
 public final class FlashlightUtils {
     private static Camera mCamera;

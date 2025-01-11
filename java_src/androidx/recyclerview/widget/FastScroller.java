@@ -9,9 +9,9 @@ import android.graphics.drawable.StateListDrawable;
 import android.view.MotionEvent;
 import androidx.core.view.ViewCompat;
 import androidx.recyclerview.widget.RecyclerView;
-/* JADX INFO: Access modifiers changed from: package-private */
+
 /* loaded from: classes.dex */
-public class FastScroller extends RecyclerView.ItemDecoration implements RecyclerView.OnItemTouchListener {
+class FastScroller extends RecyclerView.ItemDecoration implements RecyclerView.OnItemTouchListener {
     private static final int ANIMATION_STATE_FADING_IN = 1;
     private static final int ANIMATION_STATE_FADING_OUT = 3;
     private static final int ANIMATION_STATE_IN = 2;
@@ -73,8 +73,7 @@ public class FastScroller extends RecyclerView.ItemDecoration implements Recycle
     public void onRequestDisallowInterceptTouchEvent(boolean z) {
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public FastScroller(RecyclerView recyclerView, StateListDrawable stateListDrawable, Drawable drawable, StateListDrawable stateListDrawable2, Drawable drawable2, int i, int i2, int i3) {
+    FastScroller(RecyclerView recyclerView, StateListDrawable stateListDrawable, Drawable drawable, StateListDrawable stateListDrawable2, Drawable drawable2, int i, int i2, int i3) {
         this.mVerticalThumbDrawable = stateListDrawable;
         this.mVerticalTrackDrawable = drawable;
         this.mHorizontalThumbDrawable = stateListDrawable2;

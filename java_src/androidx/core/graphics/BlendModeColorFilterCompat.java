@@ -6,6 +6,7 @@ import android.graphics.ColorFilter;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffColorFilter;
 import android.os.Build;
+
 /* loaded from: classes.dex */
 public class BlendModeColorFilterCompat {
     public static ColorFilter createBlendModeColorFilterCompat(int i, BlendModeCompat blendModeCompat) {

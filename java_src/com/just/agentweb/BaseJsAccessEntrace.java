@@ -3,13 +3,13 @@ package com.just.agentweb;
 import android.os.Build;
 import android.webkit.ValueCallback;
 import android.webkit.WebView;
+
 /* loaded from: classes.dex */
 public abstract class BaseJsAccessEntrace implements JsAccessEntrace {
     public static final String TAG = BaseJsAccessEntrace.class.getSimpleName();
     private WebView mWebView;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public BaseJsAccessEntrace(WebView webView) {
+    BaseJsAccessEntrace(WebView webView) {
         this.mWebView = webView;
     }
 
@@ -33,6 +33,7 @@ public abstract class BaseJsAccessEntrace implements JsAccessEntrace {
 
     private void evaluateJs(String str, final ValueCallback<String> valueCallback) {
         this.mWebView.evaluateJavascript(str, new ValueCallback<String>() { // from class: com.just.agentweb.BaseJsAccessEntrace.1
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // android.webkit.ValueCallback
             public void onReceiveValue(String str2) {
                 ValueCallback valueCallback2 = valueCallback;

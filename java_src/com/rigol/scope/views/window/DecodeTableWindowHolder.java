@@ -56,6 +56,11 @@ public final class DecodeTableWindowHolder extends WindowHolder {
     private final TableAdapter tableAdapter;
     private final TableSimpleBinding tableBinding;
 
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.views.window.DecodeTableWindowHolder$$special$$inlined$apply$lambda$1.onClick(android.view.View):void] */
+    public static final /* synthetic */ DecodeParam access$getDecodeParam$p(DecodeTableWindowHolder decodeTableWindowHolder) {
+        return decodeTableWindowHolder.decodeParam;
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public DecodeTableWindowHolder(Context context, final WindowParam windowParam) {
         super(windowParam);
@@ -71,10 +76,17 @@ public final class DecodeTableWindowHolder extends WindowHolder {
             throw new NullPointerException("null cannot be cast to non-null type androidx.lifecycle.LifecycleOwner");
         }
         liveData2.observe((LifecycleOwner) topActivity, new Observer<SharedParam>() { // from class: com.rigol.scope.views.window.DecodeTableWindowHolder.1
-            /* JADX DEBUG: Method merged with bridge method */
+            {
+                DecodeTableWindowHolder.this = this;
+            }
+
             @Override // androidx.lifecycle.Observer
             public final void onChanged(final SharedParam sharedParam) {
                 sharedParam.addOnPropertyChangedCallback(new Observable.OnPropertyChangedCallback() { // from class: com.rigol.scope.views.window.DecodeTableWindowHolder.1.1
+                    {
+                        AnonymousClass1.this = this;
+                    }
+
                     @Override // androidx.databinding.Observable.OnPropertyChangedCallback
                     public void onPropertyChanged(Observable observable, int i) {
                         if (!sharedParam.getShowResultBar() || DecodeTableWindowHolder.this.getBinding().getRoot() == null) {
@@ -131,9 +143,9 @@ public final class DecodeTableWindowHolder extends WindowHolder {
         inflate2.windowClose.setOnClickListener(new View.OnClickListener() { // from class: com.rigol.scope.views.window.DecodeTableWindowHolder$$special$$inlined$apply$lambda$1
             @Override // android.view.View.OnClickListener
             public final void onClick(View view) {
-                DecodeParam decodeParam = DecodeTableWindowHolder.this.decodeParam;
-                if (decodeParam != null) {
-                    decodeParam.saveEvent(false);
+                DecodeParam access$getDecodeParam$p = DecodeTableWindowHolder.access$getDecodeParam$p(DecodeTableWindowHolder.this);
+                if (access$getDecodeParam$p != null) {
+                    access$getDecodeParam$p.saveEvent(false);
                 }
             }
         });
@@ -153,7 +165,10 @@ public final class DecodeTableWindowHolder extends WindowHolder {
                 throw new NullPointerException("null cannot be cast to non-null type androidx.lifecycle.LifecycleOwner");
             }
             liveData.observe((LifecycleOwner) topActivity2, new Observer<ArrayList<DecodeParam>>() { // from class: com.rigol.scope.views.window.DecodeTableWindowHolder.2
-                /* JADX DEBUG: Method merged with bridge method */
+                {
+                    DecodeTableWindowHolder.this = this;
+                }
+
                 @Override // androidx.lifecycle.Observer
                 public final void onChanged(ArrayList<DecodeParam> arrayList) {
                     if (arrayList != null) {
@@ -167,7 +182,10 @@ public final class DecodeTableWindowHolder extends WindowHolder {
             Activity topActivity3 = ActivityUtils.getTopActivity();
             if (topActivity3 != null) {
                 mutableLiveData3.observe((LifecycleOwner) topActivity3, new Observer<Boolean>() { // from class: com.rigol.scope.views.window.DecodeTableWindowHolder.3
-                    /* JADX DEBUG: Method merged with bridge method */
+                    {
+                        DecodeTableWindowHolder.this = this;
+                    }
+
                     @Override // androidx.lifecycle.Observer
                     public final void onChanged(Boolean bool) {
                         DecodeTableWindowHolder.this.updateContent(windowParam);
@@ -184,6 +202,10 @@ public final class DecodeTableWindowHolder extends WindowHolder {
                 throw new NullPointerException("null cannot be cast to non-null type androidx.lifecycle.LifecycleOwner");
             }
             mutableLiveData2.observe((LifecycleOwner) topActivity4, new Observer<Object>() { // from class: com.rigol.scope.views.window.DecodeTableWindowHolder.4
+                {
+                    DecodeTableWindowHolder.this = this;
+                }
+
                 @Override // androidx.lifecycle.Observer
                 public final void onChanged(Object obj) {
                     DecodeParam decodeParam = DecodeTableWindowHolder.this.decodeParam;
@@ -200,6 +222,10 @@ public final class DecodeTableWindowHolder extends WindowHolder {
                 throw new NullPointerException("null cannot be cast to non-null type androidx.lifecycle.LifecycleOwner");
             }
             mutableLiveData.observe((LifecycleOwner) topActivity5, new Observer<Object>() { // from class: com.rigol.scope.views.window.DecodeTableWindowHolder.5
+                {
+                    DecodeTableWindowHolder.this = this;
+                }
+
                 @Override // androidx.lifecycle.Observer
                 public final void onChanged(Object obj) {
                     if (DecodeTableWindowHolder.this.decodeParam != null) {
@@ -258,7 +284,6 @@ public final class DecodeTableWindowHolder extends WindowHolder {
         return window;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public final void showContentView(boolean z) {
         if (z) {
             this.binding.windowLayout.showContentView();
@@ -267,7 +292,6 @@ public final class DecodeTableWindowHolder extends WindowHolder {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public final void updateContent(WindowParam windowParam) {
         List<String[]> subList;
         ArrayList<String[]> csvInfo = ViewUtil.getCsvInfo(API.getInstance().UI_QueryStr(windowParam.getServiceID(), MessageID.MSG_APP_DECODE_QUERY_EVT_CONTENT), Integer.valueOf(this.MAX_CSV_LENGTH), true);

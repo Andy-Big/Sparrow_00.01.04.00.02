@@ -4,9 +4,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.RandomAccessFile;
-/* JADX INFO: Access modifiers changed from: package-private */
+
 /* loaded from: classes2.dex */
-public class AppendStream extends OutputStream {
+class AppendStream extends OutputStream {
     private long end;
     private RandomAccessFile raf;
     private final long start;

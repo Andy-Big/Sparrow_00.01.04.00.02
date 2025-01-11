@@ -1,6 +1,7 @@
 package com.google.android.material.resources;
 
 import android.graphics.Typeface;
+
 /* loaded from: classes.dex */
 public final class CancelableFontCallback extends TextAppearanceFontCallback {
     private final ApplyFont applyFont;

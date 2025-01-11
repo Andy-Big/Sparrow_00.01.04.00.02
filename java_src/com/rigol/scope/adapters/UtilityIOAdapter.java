@@ -46,7 +46,6 @@ public class UtilityIOAdapter extends RecyclerView.Adapter<LanViewHolder> {
         this.popupView = basePopupView;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public LanViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         this.binding = AdapterUtilityLansettingItemBinding.inflate(LayoutInflater.from(viewGroup.getContext()), viewGroup, false);
@@ -67,7 +66,6 @@ public class UtilityIOAdapter extends RecyclerView.Adapter<LanViewHolder> {
         this.ioParam = iOParam;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(final LanViewHolder lanViewHolder, int i) {
         ViewUtil.setSwitchButton(this.binding.switchMdns);
@@ -136,6 +134,10 @@ public class UtilityIOAdapter extends RecyclerView.Adapter<LanViewHolder> {
     public /* synthetic */ void lambda$onBindViewHolder$5$UtilityIOAdapter(View view) {
         if (this.ioParam != null) {
             ViewUtil.showKeyboard(this.popupView.getAnchor(), view, ServiceEnum.Unit.Unit_number, this.ioParam.getGpibAttr().getMaxIntValue(), this.ioParam.getGpibAttr().getMinIntValue(), this.ioParam.getGpibAttr().getDefIntValue(), this.ioParam.getGpib(), new KeyboardListener() { // from class: com.rigol.scope.adapters.UtilityIOAdapter.1
+                {
+                    UtilityIOAdapter.this = this;
+                }
+
                 @Override // com.rigol.scope.views.keyboard.KeyboardListener
                 public <T> void resultMinUnitValueListener(T t) {
                     UtilityIOAdapter.this.ioParam.saveGPIB(Math.toIntExact(((Long) t).longValue()));
@@ -252,6 +254,10 @@ public class UtilityIOAdapter extends RecyclerView.Adapter<LanViewHolder> {
     private void showKeyBoardView(final EditText editText) {
         int[] offset = BasePopupView.getOffset(this.popupView.getAnchor(), editText);
         new KeyboardPopupView(new KeyboardPopupView.Builder(ServiceEnum.Unit.Unit_ip, "255.255.255.255", "0.0.0.0", "192.168.1.1", editText.getText().toString()).setKeyboardListener(new KeyboardListener() { // from class: com.rigol.scope.adapters.UtilityIOAdapter.2
+            {
+                UtilityIOAdapter.this = this;
+            }
+
             @Override // com.rigol.scope.views.keyboard.KeyboardListener
             public <T> void resultMinUnitValueListener(T t) {
                 if (editText != UtilityIOAdapter.this.binding.edtipAddress) {

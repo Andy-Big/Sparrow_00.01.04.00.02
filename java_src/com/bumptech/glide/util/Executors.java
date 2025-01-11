@@ -5,6 +5,7 @@ import android.os.Looper;
 import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.TimeUnit;
+
 /* loaded from: classes.dex */
 public final class Executors {
     private static final Executor MAIN_THREAD_EXECUTOR = new Executor() { // from class: com.bumptech.glide.util.Executors.1

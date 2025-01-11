@@ -2,6 +2,7 @@ package com.bumptech.glide.load.engine;
 
 import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.load.EncodeStrategy;
+
 /* loaded from: classes.dex */
 public abstract class DiskCacheStrategy {
     public static final DiskCacheStrategy ALL = new DiskCacheStrategy() { // from class: com.bumptech.glide.load.engine.DiskCacheStrategy.1

@@ -3,6 +3,7 @@ package com.google.android.material.internal;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.ImageButton;
+
 /* loaded from: classes.dex */
 public class VisibilityAwareImageButton extends ImageButton {
     private int userSetVisibility;

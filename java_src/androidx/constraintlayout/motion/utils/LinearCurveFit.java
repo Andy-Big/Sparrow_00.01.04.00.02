@@ -1,4 +1,5 @@
 package androidx.constraintlayout.motion.utils;
+
 /* loaded from: classes.dex */
 public class LinearCurveFit extends CurveFit {
     private static final String TAG = "LinearCurveFit";

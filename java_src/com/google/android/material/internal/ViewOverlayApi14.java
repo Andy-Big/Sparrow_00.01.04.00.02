@@ -12,18 +12,16 @@ import androidx.core.view.ViewCompat;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
-/* JADX INFO: Access modifiers changed from: package-private */
+
 /* loaded from: classes.dex */
-public class ViewOverlayApi14 implements ViewOverlayImpl {
+class ViewOverlayApi14 implements ViewOverlayImpl {
     protected OverlayViewGroup overlayViewGroup;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ViewOverlayApi14(Context context, ViewGroup viewGroup, View view) {
+    ViewOverlayApi14(Context context, ViewGroup viewGroup, View view) {
         this.overlayViewGroup = new OverlayViewGroup(context, viewGroup, view, this);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static ViewOverlayApi14 createFrom(View view) {
+    static ViewOverlayApi14 createFrom(View view) {
         ViewGroup contentView = ViewUtils.getContentView(view);
         if (contentView != null) {
             int childCount = contentView.getChildCount();
@@ -48,9 +46,8 @@ public class ViewOverlayApi14 implements ViewOverlayImpl {
         this.overlayViewGroup.remove(drawable);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static class OverlayViewGroup extends ViewGroup {
+    static class OverlayViewGroup extends ViewGroup {
         static Method invalidateChildInParentFastMethod;
         private boolean disposed;
         ArrayList<Drawable> drawables;

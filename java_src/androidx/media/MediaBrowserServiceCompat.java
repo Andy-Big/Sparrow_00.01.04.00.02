@@ -34,6 +34,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public abstract class MediaBrowserServiceCompat extends Service {
     private static final float EPSILON = 1.0E-5f;
@@ -71,9 +72,8 @@ public abstract class MediaBrowserServiceCompat extends Service {
         void setSessionToken(MediaSessionCompat.Token token);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public interface ServiceCallbacks {
+    private interface ServiceCallbacks {
         IBinder asBinder();
 
         void onConnect(String str, MediaSessionCompat.Token token, Bundle bundle) throws RemoteException;
@@ -282,6 +282,7 @@ public abstract class MediaBrowserServiceCompat extends Service {
         @Override // androidx.media.MediaBrowserServiceCompatApi21.ServiceCompatProxy
         public void onLoadChildren(String str, final MediaBrowserServiceCompatApi21.ResultWrapper<List<Parcel>> resultWrapper) {
             MediaBrowserServiceCompat.this.onLoadChildren(str, new Result<List<MediaBrowserCompat.MediaItem>>(str) { // from class: androidx.media.MediaBrowserServiceCompat.MediaBrowserServiceImplApi21.2
+                /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: package-private */
                 @Override // androidx.media.MediaBrowserServiceCompat.Result
                 public void onResultSent(List<MediaBrowserCompat.MediaItem> list) {
@@ -385,6 +386,7 @@ public abstract class MediaBrowserServiceCompat extends Service {
         @Override // androidx.media.MediaBrowserServiceCompatApi23.ServiceCompatProxy
         public void onLoadItem(String str, final MediaBrowserServiceCompatApi21.ResultWrapper<Parcel> resultWrapper) {
             MediaBrowserServiceCompat.this.onLoadItem(str, new Result<MediaBrowserCompat.MediaItem>(str) { // from class: androidx.media.MediaBrowserServiceCompat.MediaBrowserServiceImplApi23.1
+                /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: package-private */
                 @Override // androidx.media.MediaBrowserServiceCompat.Result
                 public void onResultSent(MediaBrowserCompat.MediaItem mediaItem) {
@@ -420,6 +422,7 @@ public abstract class MediaBrowserServiceCompat extends Service {
         @Override // androidx.media.MediaBrowserServiceCompatApi26.ServiceCompatProxy
         public void onLoadChildren(String str, final MediaBrowserServiceCompatApi26.ResultWrapper resultWrapper, Bundle bundle) {
             MediaBrowserServiceCompat.this.onLoadChildren(str, new Result<List<MediaBrowserCompat.MediaItem>>(str) { // from class: androidx.media.MediaBrowserServiceCompat.MediaBrowserServiceImplApi26.1
+                /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: package-private */
                 @Override // androidx.media.MediaBrowserServiceCompat.Result
                 public void onResultSent(List<MediaBrowserCompat.MediaItem> list) {
@@ -480,9 +483,8 @@ public abstract class MediaBrowserServiceCompat extends Service {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public final class ServiceHandler extends Handler {
+    private final class ServiceHandler extends Handler {
         private final ServiceBinderImpl mServiceBinderImpl;
 
         ServiceHandler() {
@@ -554,9 +556,8 @@ public abstract class MediaBrowserServiceCompat extends Service {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public class ConnectionRecord implements IBinder.DeathRecipient {
+    private class ConnectionRecord implements IBinder.DeathRecipient {
         public final MediaSessionManager.RemoteUserInfo browserInfo;
         public final ServiceCallbacks callbacks;
         public final int pid;
@@ -1043,6 +1044,7 @@ public abstract class MediaBrowserServiceCompat extends Service {
 
     void performLoadChildren(final String str, final ConnectionRecord connectionRecord, final Bundle bundle, final Bundle bundle2) {
         Result<List<MediaBrowserCompat.MediaItem>> result = new Result<List<MediaBrowserCompat.MediaItem>>(str) { // from class: androidx.media.MediaBrowserServiceCompat.1
+            /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: package-private */
             @Override // androidx.media.MediaBrowserServiceCompat.Result
             public void onResultSent(List<MediaBrowserCompat.MediaItem> list) {
@@ -1098,6 +1100,7 @@ public abstract class MediaBrowserServiceCompat extends Service {
 
     void performLoadItem(String str, ConnectionRecord connectionRecord, final ResultReceiver resultReceiver) {
         Result<MediaBrowserCompat.MediaItem> result = new Result<MediaBrowserCompat.MediaItem>(str) { // from class: androidx.media.MediaBrowserServiceCompat.2
+            /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: package-private */
             @Override // androidx.media.MediaBrowserServiceCompat.Result
             public void onResultSent(MediaBrowserCompat.MediaItem mediaItem) {
@@ -1121,6 +1124,7 @@ public abstract class MediaBrowserServiceCompat extends Service {
 
     void performSearch(String str, Bundle bundle, ConnectionRecord connectionRecord, final ResultReceiver resultReceiver) {
         Result<List<MediaBrowserCompat.MediaItem>> result = new Result<List<MediaBrowserCompat.MediaItem>>(str) { // from class: androidx.media.MediaBrowserServiceCompat.3
+            /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: package-private */
             @Override // androidx.media.MediaBrowserServiceCompat.Result
             public void onResultSent(List<MediaBrowserCompat.MediaItem> list) {
@@ -1144,6 +1148,7 @@ public abstract class MediaBrowserServiceCompat extends Service {
 
     void performCustomAction(String str, Bundle bundle, ConnectionRecord connectionRecord, final ResultReceiver resultReceiver) {
         Result<Bundle> result = new Result<Bundle>(str) { // from class: androidx.media.MediaBrowserServiceCompat.4
+            /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: package-private */
             @Override // androidx.media.MediaBrowserServiceCompat.Result
             public void onResultSent(Bundle bundle2) {

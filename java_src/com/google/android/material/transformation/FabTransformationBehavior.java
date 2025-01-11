@@ -37,6 +37,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.math.MathUtils;
 import java.util.ArrayList;
 import java.util.List;
+
 @Deprecated
 /* loaded from: classes.dex */
 public abstract class FabTransformationBehavior extends ExpandableTransformationBehavior {
@@ -46,13 +47,6 @@ public abstract class FabTransformationBehavior extends ExpandableTransformation
     private final Rect tmpRect;
     private final RectF tmpRectF1;
     private final RectF tmpRectF2;
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes.dex */
-    public static class FabTransformationSpec {
-        public Positioning positioning;
-        public MotionSpec timings;
-    }
 
     protected abstract FabTransformationSpec onCreateMotionSpec(Context context, boolean z);
 
@@ -493,6 +487,15 @@ public abstract class FabTransformationBehavior extends ExpandableTransformation
                 createCircularReveal.setDuration(j3 - j4);
                 list.add(createCircularReveal);
             }
+        }
+    }
+
+    /* loaded from: classes.dex */
+    protected static class FabTransformationSpec {
+        public Positioning positioning;
+        public MotionSpec timings;
+
+        protected FabTransformationSpec() {
         }
     }
 }

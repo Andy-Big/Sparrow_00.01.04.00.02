@@ -5,6 +5,7 @@ import android.content.res.TypedArray;
 import android.text.Layout;
 import android.util.AttributeSet;
 import androidx.appcompat.R;
+
 /* loaded from: classes.dex */
 public class DialogTitle extends AppCompatTextView {
     public DialogTitle(Context context, AttributeSet attributeSet, int i) {
@@ -19,9 +20,8 @@ public class DialogTitle extends AppCompatTextView {
         super(context);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // androidx.appcompat.widget.AppCompatTextView, android.widget.TextView, android.view.View
-    public void onMeasure(int i, int i2) {
+    protected void onMeasure(int i, int i2) {
         int lineCount;
         super.onMeasure(i, i2);
         Layout layout = getLayout();

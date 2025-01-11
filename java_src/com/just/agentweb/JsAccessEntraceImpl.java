@@ -4,6 +4,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.webkit.ValueCallback;
 import android.webkit.WebView;
+
 /* loaded from: classes.dex */
 public class JsAccessEntraceImpl extends BaseJsAccessEntrace {
     private Handler mHandler;

@@ -32,6 +32,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.Callable;
+
 /* loaded from: classes.dex */
 public class FontsContractCompat {
     private static final int BACKGROUND_THREAD_KEEP_ALIVE_DURATION_MS = 10000;
@@ -43,7 +44,7 @@ public class FontsContractCompat {
     static final Object sLock = new Object();
     static final SimpleArrayMap<String, ArrayList<SelfDestructiveThread.ReplyCallback<TypefaceResult>>> sPendingReplies = new SimpleArrayMap<>();
     private static final Comparator<byte[]> sByteArrayComparator = new Comparator<byte[]>() { // from class: androidx.core.provider.FontsContractCompat.5
-        /* JADX WARN: Multi-variable type inference failed */
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
         public int compare(byte[] bArr, byte[] bArr2) {
             int i;
@@ -117,9 +118,8 @@ public class FontsContractCompat {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static final class TypefaceResult {
+    private static final class TypefaceResult {
         final int mResult;
         final Typeface mTypeface;
 
@@ -153,6 +153,7 @@ public class FontsContractCompat {
             return fontInternal.mTypeface;
         } else {
             Callable<TypefaceResult> callable = new Callable<TypefaceResult>() { // from class: androidx.core.provider.FontsContractCompat.1
+                /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
                 @Override // java.util.concurrent.Callable
                 public TypefaceResult call() throws Exception {
@@ -171,6 +172,7 @@ public class FontsContractCompat {
                 }
             }
             SelfDestructiveThread.ReplyCallback<TypefaceResult> replyCallback = fontCallback == null ? null : new SelfDestructiveThread.ReplyCallback<TypefaceResult>() { // from class: androidx.core.provider.FontsContractCompat.2
+                /* JADX DEBUG: Method merged with bridge method */
                 @Override // androidx.core.provider.SelfDestructiveThread.ReplyCallback
                 public void onReply(TypefaceResult typefaceResult) {
                     if (typefaceResult == null) {
@@ -196,6 +198,7 @@ public class FontsContractCompat {
                     sPendingReplies.put(str, arrayList2);
                 }
                 sBackgroundThread.postAndReply(callable, new SelfDestructiveThread.ReplyCallback<TypefaceResult>() { // from class: androidx.core.provider.FontsContractCompat.3
+                    /* JADX DEBUG: Method merged with bridge method */
                     @Override // androidx.core.provider.SelfDestructiveThread.ReplyCallback
                     public void onReply(TypefaceResult typefaceResult) {
                         synchronized (FontsContractCompat.sLock) {

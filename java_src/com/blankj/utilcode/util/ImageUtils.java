@@ -1,5 +1,6 @@
 package com.blankj.utilcode.util;
 
+import android.content.ContentValues;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -20,7 +21,10 @@ import android.graphics.Shader;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.media.ExifInterface;
+import android.net.Uri;
 import android.os.Build;
+import android.os.Environment;
+import android.provider.MediaStore;
 import android.renderscript.Allocation;
 import android.renderscript.Element;
 import android.renderscript.RenderScript;
@@ -38,7 +42,9 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.lang.reflect.Array;
+
 /* loaded from: classes.dex */
 public final class ImageUtils {
     private ImageUtils() {
@@ -967,7 +973,6 @@ public final class ImageUtils {
 
     /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:24:0x005a -> B:42:0x006f). Please submit an issue!!! */
     public static boolean save(Bitmap bitmap, File file, Bitmap.CompressFormat compressFormat, int i, boolean z) {
-        BufferedOutputStream bufferedOutputStream;
         boolean z2 = false;
         if (isEmptyBitmap(bitmap)) {
             Log.e("ImageUtils", "bitmap is empty.");
@@ -979,47 +984,47 @@ public final class ImageUtils {
             Log.e("ImageUtils", "create or delete file <" + file + "> failed.");
             return false;
         } else {
-            BufferedOutputStream bufferedOutputStream2 = null;
+            BufferedOutputStream bufferedOutputStream = null;
             try {
                 try {
                     try {
-                        bufferedOutputStream = new BufferedOutputStream(new FileOutputStream(file));
-                    } catch (IOException e) {
-                        e.printStackTrace();
+                        BufferedOutputStream bufferedOutputStream2 = new BufferedOutputStream(new FileOutputStream(file));
+                        try {
+                            z2 = bitmap.compress(compressFormat, i, bufferedOutputStream2);
+                            if (z && !bitmap.isRecycled()) {
+                                bitmap.recycle();
+                            }
+                            bufferedOutputStream2.close();
+                        } catch (IOException e) {
+                            e = e;
+                            bufferedOutputStream = bufferedOutputStream2;
+                            e.printStackTrace();
+                            if (bufferedOutputStream != null) {
+                                bufferedOutputStream.close();
+                            }
+                            return z2;
+                        } catch (Throwable th) {
+                            th = th;
+                            bufferedOutputStream = bufferedOutputStream2;
+                            if (bufferedOutputStream != null) {
+                                try {
+                                    bufferedOutputStream.close();
+                                } catch (IOException e2) {
+                                    e2.printStackTrace();
+                                }
+                            }
+                            throw th;
+                        }
+                    } catch (IOException e3) {
+                        e = e3;
                     }
-                } catch (IOException e2) {
-                    e = e2;
-                }
-            } catch (Throwable th) {
-                th = th;
-            }
-            try {
-                z2 = bitmap.compress(compressFormat, i, bufferedOutputStream);
-                if (z && !bitmap.isRecycled()) {
-                    bitmap.recycle();
-                }
-                bufferedOutputStream.close();
-            } catch (IOException e3) {
-                e = e3;
-                bufferedOutputStream2 = bufferedOutputStream;
-                e.printStackTrace();
-                if (bufferedOutputStream2 != null) {
-                    bufferedOutputStream2.close();
+                } catch (IOException e4) {
+                    e4.printStackTrace();
                 }
                 return z2;
             } catch (Throwable th2) {
                 th = th2;
-                bufferedOutputStream2 = bufferedOutputStream;
-                if (bufferedOutputStream2 != null) {
-                    try {
-                        bufferedOutputStream2.close();
-                    } catch (IOException e4) {
-                        e4.printStackTrace();
-                    }
-                }
-                throw th;
             }
-            return z2;
         }
     }
 
@@ -1038,14 +1043,89 @@ public final class ImageUtils {
     /* JADX WARN: Removed duplicated region for block: B:59:0x012f A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    public static java.io.File save2Album(android.graphics.Bitmap r7, android.graphics.Bitmap.CompressFormat r8, int r9, boolean r10) {
-        /*
-            Method dump skipped, instructions count: 312
-            To view this dump add '--comments-level debug' option
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.blankj.utilcode.util.ImageUtils.save2Album(android.graphics.Bitmap, android.graphics.Bitmap$CompressFormat, int, boolean):java.io.File");
+    public static File save2Album(Bitmap bitmap, Bitmap.CompressFormat compressFormat, int i, boolean z) {
+        Uri uri;
+        OutputStream outputStream;
+        String str = System.currentTimeMillis() + "_" + i + "." + (Bitmap.CompressFormat.JPEG.equals(compressFormat) ? "JPG" : compressFormat.name());
+        OutputStream outputStream2 = null;
+        if (Build.VERSION.SDK_INT < 29) {
+            if (!UtilsBridge.isGranted("android.permission.WRITE_EXTERNAL_STORAGE")) {
+                Log.e("ImageUtils", "save to album need storage permission");
+                return null;
+            }
+            File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM), Utils.getApp().getPackageName() + "/" + str);
+            if (save(bitmap, file, compressFormat, i, z)) {
+                UtilsBridge.notifySystemToScan(file);
+                return file;
+            }
+            return null;
+        }
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("_display_name", str);
+        contentValues.put("mime_type", "image/*");
+        if (Environment.getExternalStorageState().equals("mounted")) {
+            uri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
+        } else {
+            uri = MediaStore.Images.Media.INTERNAL_CONTENT_URI;
+        }
+        contentValues.put("relative_path", Environment.DIRECTORY_DCIM + "/" + Utils.getApp().getPackageName());
+        contentValues.put("is_pending", (Integer) 1);
+        Uri insert = Utils.getApp().getContentResolver().insert(uri, contentValues);
+        if (insert == null) {
+            return null;
+        }
+        try {
+            outputStream = Utils.getApp().getContentResolver().openOutputStream(insert);
+        } catch (Exception e) {
+            e = e;
+            outputStream = null;
+        } catch (Throwable th) {
+            th = th;
+            if (outputStream2 != null) {
+            }
+            throw th;
+        }
+        try {
+            try {
+                bitmap.compress(compressFormat, i, outputStream);
+                contentValues.clear();
+                contentValues.put("is_pending", (Integer) 0);
+                Utils.getApp().getContentResolver().update(insert, contentValues, null, null);
+                File uri2File = UtilsBridge.uri2File(insert);
+                if (outputStream != null) {
+                    try {
+                        outputStream.close();
+                    } catch (IOException e2) {
+                        e2.printStackTrace();
+                    }
+                }
+                return uri2File;
+            } catch (Throwable th2) {
+                th = th2;
+                outputStream2 = outputStream;
+                if (outputStream2 != null) {
+                    try {
+                        outputStream2.close();
+                    } catch (IOException e3) {
+                        e3.printStackTrace();
+                    }
+                }
+                throw th;
+            }
+        } catch (Exception e4) {
+            e = e4;
+            Utils.getApp().getContentResolver().delete(insert, null, null);
+            e.printStackTrace();
+            if (outputStream != null) {
+                try {
+                    outputStream.close();
+                } catch (IOException e5) {
+                    e5.printStackTrace();
+                }
+            }
+            return null;
+        }
     }
 
     public static boolean isImage(File file) {
@@ -1073,58 +1153,59 @@ public final class ImageUtils {
         return getImageType(UtilsBridge.getFileByPath(str));
     }
 
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1920=4] */
     public static ImageType getImageType(File file) {
         FileInputStream fileInputStream;
         ImageType imageType;
         FileInputStream fileInputStream2 = null;
         try {
             try {
-            } catch (Throwable th) {
-                th = th;
-                fileInputStream2 = fileInputStream;
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        if (file == null) {
-            return null;
-        }
-        try {
-            fileInputStream = new FileInputStream(file);
+            if (file == null) {
+                return null;
+            }
             try {
-                imageType = getImageType(fileInputStream);
+                fileInputStream = new FileInputStream(file);
             } catch (IOException e2) {
                 e = e2;
+                fileInputStream = null;
+            } catch (Throwable th) {
+                th = th;
+                if (fileInputStream2 != null) {
+                    try {
+                        fileInputStream2.close();
+                    } catch (IOException e3) {
+                        e3.printStackTrace();
+                    }
+                }
+                throw th;
+            }
+            try {
+                imageType = getImageType(fileInputStream);
+            } catch (IOException e4) {
+                e = e4;
                 e.printStackTrace();
                 if (fileInputStream != null) {
                     fileInputStream.close();
                 }
                 return null;
             }
-        } catch (IOException e3) {
-            e = e3;
-            fileInputStream = null;
+            if (imageType == null) {
+                fileInputStream.close();
+                return null;
+            }
+            try {
+                fileInputStream.close();
+            } catch (IOException e5) {
+                e5.printStackTrace();
+            }
+            return imageType;
         } catch (Throwable th2) {
             th = th2;
-            if (fileInputStream2 != null) {
-                try {
-                    fileInputStream2.close();
-                } catch (IOException e4) {
-                    e4.printStackTrace();
-                }
-            }
-            throw th;
+            fileInputStream2 = fileInputStream;
         }
-        if (imageType == null) {
-            fileInputStream.close();
-            return null;
-        }
-        try {
-            fileInputStream.close();
-        } catch (IOException e5) {
-            e5.printStackTrace();
-        }
-        return imageType;
     }
 
     private static ImageType getImageType(InputStream inputStream) {

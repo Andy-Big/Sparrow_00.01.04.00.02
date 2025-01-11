@@ -6,6 +6,7 @@ import com.shockwave.pdfium.PdfDocument;
 import com.shockwave.pdfium.PdfiumCore;
 import java.io.File;
 import java.io.IOException;
+
 /* loaded from: classes.dex */
 public class FileSource implements DocumentSource {
     private File file;

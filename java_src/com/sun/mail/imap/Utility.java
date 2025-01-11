@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import javax.mail.Message;
+
 /* loaded from: classes2.dex */
 public final class Utility {
 
@@ -59,6 +60,7 @@ public final class Utility {
     public static MessageSet[] toMessageSetSorted(Message[] messageArr, Condition condition) {
         Message[] messageArr2 = (Message[]) messageArr.clone();
         Arrays.sort(messageArr2, new Comparator<Message>() { // from class: com.sun.mail.imap.Utility.1
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.Comparator
             public int compare(Message message, Message message2) {
                 return message.getMessageNumber() - message2.getMessageNumber();

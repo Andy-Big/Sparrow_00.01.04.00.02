@@ -3,6 +3,7 @@ package com.blankj.utilcode.util;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
 /* loaded from: classes.dex */
 public final class JsonUtils {
     private static final byte TYPE_BOOLEAN = 0;

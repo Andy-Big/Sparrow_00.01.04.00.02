@@ -11,13 +11,13 @@ import android.webkit.WebResourceError;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebResourceResponse;
 import android.webkit.WebView;
+
 /* loaded from: classes.dex */
 public class WebViewClientDelegate extends android.webkit.WebViewClient {
     private static final String TAG = WebViewClientDelegate.class.getSimpleName();
     private android.webkit.WebViewClient mDelegate;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public WebViewClientDelegate(android.webkit.WebViewClient webViewClient) {
+    WebViewClientDelegate(android.webkit.WebViewClient webViewClient) {
         this.mDelegate = webViewClient;
     }
 
@@ -25,8 +25,7 @@ public class WebViewClientDelegate extends android.webkit.WebViewClient {
         return this.mDelegate;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setDelegate(android.webkit.WebViewClient webViewClient) {
+    void setDelegate(android.webkit.WebViewClient webViewClient) {
         this.mDelegate = webViewClient;
     }
 

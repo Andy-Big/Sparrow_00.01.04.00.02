@@ -2,6 +2,7 @@ package kotlin.jvm.internal;
 
 import java.io.Serializable;
 import kotlin.reflect.KDeclarationContainer;
+
 /* loaded from: classes2.dex */
 public class AdaptedFunctionReference implements FunctionBase, Serializable {
     private final int arity;

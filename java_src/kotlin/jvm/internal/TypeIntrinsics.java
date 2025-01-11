@@ -38,6 +38,7 @@ import kotlin.jvm.internal.markers.KMutableList;
 import kotlin.jvm.internal.markers.KMutableListIterator;
 import kotlin.jvm.internal.markers.KMutableMap;
 import kotlin.jvm.internal.markers.KMutableSet;
+
 /* loaded from: classes2.dex */
 public class TypeIntrinsics {
     private static <T extends Throwable> T sanitizeStackTrace(T t) {

@@ -8,6 +8,7 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.TimeZone;
 import javax.mail.internet.MailDateFormat;
+
 /* loaded from: classes2.dex */
 public class INTERNALDATE implements Item {
     protected Date date;

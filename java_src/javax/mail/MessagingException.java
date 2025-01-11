@@ -1,4 +1,5 @@
 package javax.mail;
+
 /* loaded from: classes2.dex */
 public class MessagingException extends Exception {
     private static final long serialVersionUID = -7569192289819959253L;

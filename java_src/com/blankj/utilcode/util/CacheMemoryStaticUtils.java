@@ -1,4 +1,5 @@
 package com.blankj.utilcode.util;
+
 /* loaded from: classes.dex */
 public final class CacheMemoryStaticUtils {
     private static CacheMemoryUtils sDefaultCacheMemoryUtils;

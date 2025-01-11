@@ -15,6 +15,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.nio.ByteBuffer;
 import java.util.List;
+
 /* loaded from: classes.dex */
 class TypefaceCompatApi24Impl extends TypefaceCompatBaseImpl {
     private static final String ADD_FONT_WEIGHT_STYLE_METHOD = "addFontWeightStyle";
@@ -25,6 +26,9 @@ class TypefaceCompatApi24Impl extends TypefaceCompatBaseImpl {
     private static final Method sCreateFromFamiliesWithDefault;
     private static final Class<?> sFontFamily;
     private static final Constructor<?> sFontFamilyCtor;
+
+    TypefaceCompatApi24Impl() {
+    }
 
     static {
         Class<?> cls;

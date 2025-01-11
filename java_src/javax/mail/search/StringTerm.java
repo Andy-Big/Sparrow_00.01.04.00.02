@@ -1,18 +1,17 @@
 package javax.mail.search;
+
 /* loaded from: classes2.dex */
 public abstract class StringTerm extends SearchTerm {
     private static final long serialVersionUID = 1274042129007696269L;
     protected boolean ignoreCase;
     protected String pattern;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public StringTerm(String str) {
+    protected StringTerm(String str) {
         this.pattern = str;
         this.ignoreCase = true;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public StringTerm(String str, boolean z) {
+    protected StringTerm(String str, boolean z) {
         this.pattern = str;
         this.ignoreCase = z;
     }
@@ -25,8 +24,7 @@ public abstract class StringTerm extends SearchTerm {
         return this.ignoreCase;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public boolean match(String str) {
+    protected boolean match(String str) {
         int length = str.length() - this.pattern.length();
         for (int i = 0; i <= length; i++) {
             boolean z = this.ignoreCase;

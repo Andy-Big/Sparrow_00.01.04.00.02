@@ -6,6 +6,7 @@ import com.sun.mail.iap.Response;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
+
 /* loaded from: classes2.dex */
 public class ID {
     private Map<String, String> serverParams;
@@ -38,13 +39,11 @@ public class ID {
         this.serverParams = Collections.unmodifiableMap(this.serverParams);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public Map<String, String> getServerParams() {
+    Map<String, String> getServerParams() {
         return this.serverParams;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static Argument getArgumentList(Map<String, String> map) {
+    static Argument getArgumentList(Map<String, String> map) {
         Argument argument = new Argument();
         if (map == null) {
             argument.writeAtom("NIL");

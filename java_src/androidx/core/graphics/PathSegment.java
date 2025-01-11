@@ -2,6 +2,7 @@ package androidx.core.graphics;
 
 import android.graphics.PointF;
 import androidx.core.util.Preconditions;
+
 /* loaded from: classes.dex */
 public final class PathSegment {
     private final PointF mEnd;

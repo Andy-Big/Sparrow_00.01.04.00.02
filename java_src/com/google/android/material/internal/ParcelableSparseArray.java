@@ -3,20 +3,24 @@ package com.google.android.material.internal;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.SparseArray;
+
 /* loaded from: classes.dex */
 public class ParcelableSparseArray extends SparseArray<Parcelable> implements Parcelable {
     public static final Parcelable.Creator<ParcelableSparseArray> CREATOR = new Parcelable.ClassLoaderCreator<ParcelableSparseArray>() { // from class: com.google.android.material.internal.ParcelableSparseArray.1
+        /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.ClassLoaderCreator
         public ParcelableSparseArray createFromParcel(Parcel parcel, ClassLoader classLoader) {
             return new ParcelableSparseArray(parcel, classLoader);
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         public ParcelableSparseArray createFromParcel(Parcel parcel) {
             return new ParcelableSparseArray(parcel, null);
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         public ParcelableSparseArray[] newArray(int i) {
             return new ParcelableSparseArray[i];

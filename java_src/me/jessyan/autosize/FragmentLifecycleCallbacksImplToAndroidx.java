@@ -3,6 +3,7 @@ package me.jessyan.autosize;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+
 /* loaded from: classes2.dex */
 public class FragmentLifecycleCallbacksImplToAndroidx extends FragmentManager.FragmentLifecycleCallbacks {
     private AutoAdaptStrategy mAutoAdaptStrategy;

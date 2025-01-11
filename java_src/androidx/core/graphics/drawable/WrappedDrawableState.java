@@ -5,16 +5,15 @@ import android.content.res.Resources;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
-/* JADX INFO: Access modifiers changed from: package-private */
+
 /* loaded from: classes.dex */
-public final class WrappedDrawableState extends Drawable.ConstantState {
+final class WrappedDrawableState extends Drawable.ConstantState {
     int mChangingConfigurations;
     Drawable.ConstantState mDrawableState;
     ColorStateList mTint;
     PorterDuff.Mode mTintMode;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public WrappedDrawableState(WrappedDrawableState wrappedDrawableState) {
+    WrappedDrawableState(WrappedDrawableState wrappedDrawableState) {
         this.mTint = null;
         this.mTintMode = WrappedDrawableApi14.DEFAULT_TINT_MODE;
         if (wrappedDrawableState != null) {
@@ -45,8 +44,7 @@ public final class WrappedDrawableState extends Drawable.ConstantState {
         return i | (constantState != null ? constantState.getChangingConfigurations() : 0);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean canConstantState() {
+    boolean canConstantState() {
         return this.mDrawableState != null;
     }
 }

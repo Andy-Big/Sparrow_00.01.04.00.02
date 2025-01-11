@@ -9,6 +9,7 @@ import me.jessyan.autosize.external.ExternalAdaptInfo;
 import me.jessyan.autosize.internal.CustomAdapt;
 import me.jessyan.autosize.unit.Subunits;
 import me.jessyan.autosize.utils.Preconditions;
+
 /* loaded from: classes2.dex */
 public final class AutoSizeCompat {
     private static final int MODE_DEVICE_SIZE = Integer.MIN_VALUE;
@@ -149,10 +150,9 @@ public final class AutoSizeCompat {
         setScreenSizeDp(resources, AutoSizeConfig.getInstance().getInitScreenWidthDp(), AutoSizeConfig.getInstance().getInitScreenHeightDp());
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: me.jessyan.autosize.AutoSizeCompat$1  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    static /* synthetic */ class AnonymousClass1 {
         static final /* synthetic */ int[] $SwitchMap$me$jessyan$autosize$unit$Subunits;
 
         static {

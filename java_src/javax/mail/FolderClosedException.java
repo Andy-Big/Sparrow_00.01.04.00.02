@@ -1,4 +1,5 @@
 package javax.mail;
+
 /* loaded from: classes2.dex */
 public class FolderClosedException extends MessagingException {
     private static final long serialVersionUID = 1687879213433302315L;

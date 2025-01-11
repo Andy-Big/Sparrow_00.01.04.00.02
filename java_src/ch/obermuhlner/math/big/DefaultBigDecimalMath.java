@@ -7,6 +7,7 @@ import java.math.RoundingMode;
 import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.Objects;
+
 /* loaded from: classes.dex */
 public class DefaultBigDecimalMath {
     private static MathContext defaultMathContext = createDefaultMathContext();
@@ -80,6 +81,7 @@ public class DefaultBigDecimalMath {
         withLocalMathContext(new MathContext(i, roundingMode), runnable);
     }
 
+    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
     public static void withLocalMathContext(MathContext mathContext, Runnable runnable) {
         LocalMathContext createLocalMathContext = createLocalMathContext(mathContext);
         try {

@@ -4,6 +4,7 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.os.Build;
 import java.util.ArrayList;
+
 /* loaded from: classes.dex */
 class AnimatorUtils {
 
@@ -14,15 +15,13 @@ class AnimatorUtils {
         void onAnimationResume(Animator animator);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static void addPauseListener(Animator animator, AnimatorListenerAdapter animatorListenerAdapter) {
+    static void addPauseListener(Animator animator, AnimatorListenerAdapter animatorListenerAdapter) {
         if (Build.VERSION.SDK_INT >= 19) {
             animator.addPauseListener(animatorListenerAdapter);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static void pause(Animator animator) {
+    static void pause(Animator animator) {
         if (Build.VERSION.SDK_INT >= 19) {
             animator.pause();
             return;
@@ -39,8 +38,7 @@ class AnimatorUtils {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static void resume(Animator animator) {
+    static void resume(Animator animator) {
         if (Build.VERSION.SDK_INT >= 19) {
             animator.resume();
             return;

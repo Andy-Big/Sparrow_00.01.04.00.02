@@ -4,6 +4,7 @@ import android.animation.Animator;
 import android.animation.ValueAnimator;
 import android.view.View;
 import android.view.ViewGroup;
+
 /* loaded from: classes.dex */
 public final class FadeProvider implements VisibilityAnimatorProvider {
     private float incomingEndThreshold = 1.0f;

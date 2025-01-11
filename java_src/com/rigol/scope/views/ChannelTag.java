@@ -30,6 +30,11 @@ public final class ChannelTag extends TagView {
         this(context, attributeSet, null, 4, null);
     }
 
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.views.ChannelTag$$special$$inlined$let$lambda$4.onChanged(java.lang.Object):void, com.rigol.scope.views.ChannelTag$$special$$inlined$let$lambda$5.onChanged(java.lang.Object):void] */
+    public static final /* synthetic */ void access$updateTag(ChannelTag channelTag) {
+        channelTag.updateTag();
+    }
+
     public /* synthetic */ ChannelTag(Context context, AttributeSet attributeSet, VerticalParam verticalParam, int i, DefaultConstructorMarker defaultConstructorMarker) {
         this(context, attributeSet, (i & 4) != 0 ? null : verticalParam);
     }
@@ -63,7 +68,7 @@ public final class ChannelTag extends TagView {
                     mutableLiveData.observe((LifecycleOwner) context2, new Observer<Object>() { // from class: com.rigol.scope.views.ChannelTag$$special$$inlined$let$lambda$4
                         @Override // androidx.lifecycle.Observer
                         public final void onChanged(Object obj) {
-                            this.updateTag();
+                            ChannelTag.access$updateTag(this);
                         }
                     });
                 }
@@ -76,7 +81,7 @@ public final class ChannelTag extends TagView {
                     mutableLiveData2.observe((LifecycleOwner) context3, new Observer<Object>() { // from class: com.rigol.scope.views.ChannelTag$$special$$inlined$let$lambda$5
                         @Override // androidx.lifecycle.Observer
                         public final void onChanged(Object obj) {
-                            this.updateTag();
+                            ChannelTag.access$updateTag(this);
                         }
                     });
                 }
@@ -97,7 +102,6 @@ public final class ChannelTag extends TagView {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public final void updateTag() {
         updatePosition();
         VerticalParam verticalParam = this.param;

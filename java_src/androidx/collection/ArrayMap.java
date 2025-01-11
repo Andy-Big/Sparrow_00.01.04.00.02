@@ -3,6 +3,7 @@ package androidx.collection;
 import java.util.Collection;
 import java.util.Map;
 import java.util.Set;
+
 /* loaded from: classes.dex */
 public class ArrayMap<K, V> extends SimpleArrayMap<K, V> implements Map<K, V> {
     MapCollections<K, V> mCollections;

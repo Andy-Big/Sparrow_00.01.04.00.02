@@ -2,12 +2,12 @@ package androidx.constraintlayout.motion.widget;
 
 import java.util.Arrays;
 import java.util.HashMap;
+
 /* loaded from: classes.dex */
 public class KeyCache {
     HashMap<Object, HashMap<String, float[]>> map = new HashMap<>();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setFloatValue(Object obj, String str, int i, float f) {
+    void setFloatValue(Object obj, String str, int i, float f) {
         if (!this.map.containsKey(obj)) {
             HashMap<String, float[]> hashMap = new HashMap<>();
             float[] fArr = new float[i + 1];
@@ -32,8 +32,7 @@ public class KeyCache {
         hashMap2.put(str, fArr3);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public float getFloatValue(Object obj, String str, int i) {
+    float getFloatValue(Object obj, String str, int i) {
         if (this.map.containsKey(obj)) {
             HashMap<String, float[]> hashMap = this.map.get(obj);
             if (hashMap.containsKey(str)) {

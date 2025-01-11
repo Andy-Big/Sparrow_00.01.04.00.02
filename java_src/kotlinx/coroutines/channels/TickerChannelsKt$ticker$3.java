@@ -10,12 +10,12 @@ import kotlin.coroutines.jvm.internal.SuspendLambda;
 import kotlin.jvm.functions.Function2;
 import kotlin.jvm.internal.Intrinsics;
 import kotlinx.coroutines.channels.TickerChannelsKt;
-/* JADX INFO: Access modifiers changed from: package-private */
+
 /* compiled from: TickerChannels.kt */
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u000e\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\u0010\u0000\u001a\u00020\u0001*\b\u0012\u0004\u0012\u00020\u00010\u0002H\u008a@¢\u0006\u0004\b\u0003\u0010\u0004"}, d2 = {"<anonymous>", "", "Lkotlinx/coroutines/channels/ProducerScope;", "invoke", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;"}, k = 3, mv = {1, 1, 15})
 @DebugMetadata(c = "kotlinx.coroutines.channels.TickerChannelsKt$ticker$3", f = "TickerChannels.kt", i = {0, 1}, l = {72, 73}, m = "invokeSuspend", n = {"$this$produce", "$this$produce"}, s = {"L$0", "L$0"})
 /* loaded from: classes2.dex */
-public final class TickerChannelsKt$ticker$3 extends SuspendLambda implements Function2<ProducerScope<? super Unit>, Continuation<? super Unit>, Object> {
+final class TickerChannelsKt$ticker$3 extends SuspendLambda implements Function2<ProducerScope<? super Unit>, Continuation<? super Unit>, Object> {
     final /* synthetic */ long $delayMillis;
     final /* synthetic */ long $initialDelayMillis;
     final /* synthetic */ TickerMode $mode;
@@ -23,9 +23,8 @@ public final class TickerChannelsKt$ticker$3 extends SuspendLambda implements Fu
     int label;
     private ProducerScope p$;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public TickerChannelsKt$ticker$3(TickerMode tickerMode, long j, long j2, Continuation continuation) {
+    TickerChannelsKt$ticker$3(TickerMode tickerMode, long j, long j2, Continuation continuation) {
         super(2, continuation);
         this.$mode = tickerMode;
         this.$delayMillis = j;
@@ -40,6 +39,7 @@ public final class TickerChannelsKt$ticker$3 extends SuspendLambda implements Fu
         return tickerChannelsKt$ticker$3;
     }
 
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
     @Override // kotlin.jvm.functions.Function2
     public final Object invoke(ProducerScope<? super Unit> producerScope, Continuation<? super Unit> continuation) {
         return ((TickerChannelsKt$ticker$3) create(producerScope, continuation)).invokeSuspend(Unit.INSTANCE);

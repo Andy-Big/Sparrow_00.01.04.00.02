@@ -7,6 +7,7 @@ import android.graphics.RectF;
 import com.google.android.material.shadow.ShadowRenderer;
 import java.util.ArrayList;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public class ShapePath {
     protected static final float ANGLE_LEFT = 180.0f;
@@ -112,8 +113,7 @@ public class ShapePath {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ShadowCompatOperation createShadowCompatOperation(final Matrix matrix) {
+    ShadowCompatOperation createShadowCompatOperation(final Matrix matrix) {
         addConnectingShadowIfNecessary(getEndShadowAngle());
         final ArrayList arrayList = new ArrayList(this.shadowCompatOperations);
         return new ShadowCompatOperation() { // from class: com.google.android.material.shape.ShapePath.1
@@ -132,8 +132,7 @@ public class ShapePath {
         setCurrentShadowAngle(f2);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean containsIncompatibleShadowOp() {
+    boolean containsIncompatibleShadowOp() {
         return this.containsIncompatibleShadowOp;
     }
 
@@ -152,23 +151,19 @@ public class ShapePath {
         setCurrentShadowAngle(f);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public float getStartX() {
+    float getStartX() {
         return this.startX;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public float getStartY() {
+    float getStartY() {
         return this.startY;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public float getEndX() {
+    float getEndX() {
         return this.endX;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public float getEndY() {
+    float getEndY() {
         return this.endY;
     }
 
@@ -204,9 +199,8 @@ public class ShapePath {
         this.endShadowAngle = f;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static abstract class ShadowCompatOperation {
+    static abstract class ShadowCompatOperation {
         static final Matrix IDENTITY_MATRIX = new Matrix();
 
         public abstract void draw(Matrix matrix, ShadowRenderer shadowRenderer, int i, Canvas canvas);
@@ -245,9 +239,8 @@ public class ShapePath {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static class ArcShadowOperation extends ShadowCompatOperation {
+    static class ArcShadowOperation extends ShadowCompatOperation {
         private final PathArcOperation operation;
 
         public ArcShadowOperation(PathArcOperation pathArcOperation) {

@@ -12,6 +12,7 @@ import androidx.constraintlayout.widget.ConstraintSet;
 import androidx.constraintlayout.widget.R;
 import java.util.ArrayList;
 import java.util.Iterator;
+
 /* loaded from: classes.dex */
 public class Carousel extends MotionHelper {
     private static final boolean DEBUG = false;
@@ -278,9 +279,8 @@ public class Carousel extends MotionHelper {
         return true;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // androidx.constraintlayout.widget.ConstraintHelper, android.view.View
-    public void onAttachedToWindow() {
+    protected void onAttachedToWindow() {
         super.onAttachedToWindow();
         if (getParent() instanceof MotionLayout) {
             MotionLayout motionLayout = (MotionLayout) getParent();

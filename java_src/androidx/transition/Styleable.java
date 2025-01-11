@@ -1,4 +1,5 @@
 package androidx.transition;
+
 /* loaded from: classes.dex */
 class Styleable {
     static final int[] TRANSITION_TARGET = {16842799, 16843740, 16843841, 16843842, 16843853, 16843854};

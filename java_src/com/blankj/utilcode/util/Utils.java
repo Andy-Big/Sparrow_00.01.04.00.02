@@ -5,6 +5,7 @@ import android.app.Application;
 import android.util.Log;
 import androidx.lifecycle.Lifecycle;
 import com.blankj.utilcode.util.ThreadUtils;
+
 /* loaded from: classes.dex */
 public final class Utils {
     private static Application sApp;

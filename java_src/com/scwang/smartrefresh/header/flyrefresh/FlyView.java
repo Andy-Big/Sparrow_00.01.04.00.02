@@ -4,6 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import com.scwang.smartrefresh.header.internal.pathview.PathsView;
 import com.scwang.smartrefresh.layout.util.DensityUtil;
+
 /* loaded from: classes2.dex */
 public class FlyView extends PathsView {
     public FlyView(Context context) {

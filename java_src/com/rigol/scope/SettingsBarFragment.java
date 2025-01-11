@@ -107,6 +107,10 @@ public class SettingsBarFragment extends BaseFragment implements View.OnClickLis
     ScheduledExecutorService scheduledExecutorService = Executors.newSingleThreadScheduledExecutor();
     final int[] locationOnScreen = new int[2];
     private final Handler updateTimeHandler = new WeakRefHandler(new Handler.Callback() { // from class: com.rigol.scope.SettingsBarFragment.1
+        {
+            SettingsBarFragment.this = this;
+        }
+
         @Override // android.os.Handler.Callback
         public boolean handleMessage(Message message) {
             if (message.what != 1 || SettingsBarFragment.this.utilityParam == null) {
@@ -185,13 +189,13 @@ public class SettingsBarFragment extends BaseFragment implements View.OnClickLis
         this.binding.starterButton.setOnClickListener(new View.OnClickListener() { // from class: com.rigol.scope.-$$Lambda$SettingsBarFragment$ZBma4YPC1a5lNbWe1b9bVovsjCc
             @Override // android.view.View.OnClickListener
             public final void onClick(View view) {
-                PopupViewManager.getInstance().toggle(StartMenuPopupView.class);
+                SettingsBarFragment.lambda$onCreateView$4(view);
             }
         });
         this.binding.systemTimeLayout.setOnClickListener(new View.OnClickListener() { // from class: com.rigol.scope.-$$Lambda$SettingsBarFragment$A4OugMbWzY5SfoJEyBIejRKhcSI
             @Override // android.view.View.OnClickListener
             public final void onClick(View view) {
-                PopupViewManager.getInstance().toggle(UtilityPopupView.class);
+                SettingsBarFragment.lambda$onCreateView$5(view);
             }
         });
         this.binding.beeper.setOnClickListener(new View.OnClickListener() { // from class: com.rigol.scope.-$$Lambda$SettingsBarFragment$qDQ9NwXmf5TJHPL6ehbA-ffDebs
@@ -249,6 +253,10 @@ public class SettingsBarFragment extends BaseFragment implements View.OnClickLis
             public void onStateChanged(RefreshLayout refreshLayout, RefreshState refreshState, RefreshState refreshState2) {
             }
 
+            {
+                SettingsBarFragment.this = this;
+            }
+
             @Override // com.scwang.smartrefresh.layout.listener.OnMultiPurposeListener
             public void onHeaderMoving(RefreshHeader refreshHeader, boolean z, float f, int i, int i2, int i3) {
                 if (i == 0) {
@@ -297,6 +305,10 @@ public class SettingsBarFragment extends BaseFragment implements View.OnClickLis
             public void onStateChanged(RefreshLayout refreshLayout, RefreshState refreshState, RefreshState refreshState2) {
             }
 
+            {
+                SettingsBarFragment.this = this;
+            }
+
             @Override // com.scwang.smartrefresh.layout.listener.OnMultiPurposeListener
             public void onHeaderMoving(RefreshHeader refreshHeader, boolean z, float f, int i, int i2, int i3) {
                 if (i == 0) {
@@ -306,6 +318,10 @@ public class SettingsBarFragment extends BaseFragment implements View.OnClickLis
         });
         ViewUtil.addOutsideEnableClickRects(this.locationOnScreen, this.binding.verticalG, AfwAwgPopupView.class);
         this.binding.verticalGView.setOnClickListener(new View.OnClickListener() { // from class: com.rigol.scope.SettingsBarFragment.4
+            {
+                SettingsBarFragment.this = this;
+            }
+
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (PopupViewManager.getInstance().isShowing(AfwAwgPopupView.class) && SettingsBarFragment.this.afgViewModel.getLiveData().getValue().getBasic_output_enable()) {
@@ -336,6 +352,16 @@ public class SettingsBarFragment extends BaseFragment implements View.OnClickLis
 
     public /* synthetic */ void lambda$onCreateView$3$SettingsBarFragment() {
         this.updateTimeHandler.sendEmptyMessage(1);
+    }
+
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.-$$Lambda$SettingsBarFragment$ZBma4YPC1a5lNbWe1b9bVovsjCc.onClick(android.view.View):void] */
+    static /* synthetic */ void lambda$onCreateView$4(View view) {
+        PopupViewManager.getInstance().toggle(StartMenuPopupView.class);
+    }
+
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.-$$Lambda$SettingsBarFragment$A4OugMbWzY5SfoJEyBIejRKhcSI.onClick(android.view.View):void] */
+    static /* synthetic */ void lambda$onCreateView$5(View view) {
+        PopupViewManager.getInstance().toggle(UtilityPopupView.class);
     }
 
     public /* synthetic */ void lambda$onCreateView$6$SettingsBarFragment(View view) {
@@ -464,6 +490,10 @@ public class SettingsBarFragment extends BaseFragment implements View.OnClickLis
         VerticalAdapter verticalAdapter = new VerticalAdapter(this.mActivity, R.layout.adapter_item_vertical);
         this.verticalAdapter = verticalAdapter;
         verticalAdapter.setOnItemGestureDetectorListener(new OnItemGestureDetectorListener() { // from class: com.rigol.scope.SettingsBarFragment.5
+            {
+                SettingsBarFragment.this = this;
+            }
+
             @Override // com.rigol.scope.adapters.OnItemGestureDetectorListener
             public boolean onDoubleTap(MotionEvent motionEvent, View view, RecyclerView.ViewHolder viewHolder, int i) {
                 SettingsBarFragment.this.showVerticalPopupView(i);
@@ -516,6 +546,10 @@ public class SettingsBarFragment extends BaseFragment implements View.OnClickLis
         this.binding.verticalList.addItemDecoration(new HorizontalSpaceItemDecoration(3));
         this.binding.verticalList.setAdapter(this.verticalAdapter);
         new ItemTouchHelper(new BaseSimpleCallback(0, 2) { // from class: com.rigol.scope.SettingsBarFragment.6
+            {
+                SettingsBarFragment.this = this;
+            }
+
             /* JADX WARN: Type inference failed for: r2v3, types: [java.util.List] */
             @Override // com.rigol.scope.views.baseview.BaseSimpleCallback, androidx.recyclerview.widget.ItemTouchHelper.Callback
             public void onSwiped(RecyclerView.ViewHolder viewHolder, int i) {
@@ -558,6 +592,10 @@ public class SettingsBarFragment extends BaseFragment implements View.OnClickLis
         for (int i = 0; i < arrayList.size(); i++) {
             final VerticalParam verticalParam = (VerticalParam) arrayList.get(i);
             verticalParam.addOnPropertyChangedCallback(new Observable.OnPropertyChangedCallback() { // from class: com.rigol.scope.SettingsBarFragment.7
+                {
+                    SettingsBarFragment.this = this;
+                }
+
                 @Override // androidx.databinding.Observable.OnPropertyChangedCallback
                 public void onPropertyChanged(Observable observable, int i2) {
                     TriggerParam value;
@@ -586,7 +624,6 @@ public class SettingsBarFragment extends BaseFragment implements View.OnClickLis
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public void showVerticalPopupView(int i) {
         BasePopupView basePopupView = PopupViewManager.getInstance().get(VerticalPopupView.class);
         if (basePopupView instanceof VerticalPopupView) {
@@ -605,6 +642,10 @@ public class SettingsBarFragment extends BaseFragment implements View.OnClickLis
 
     private void loadMathInfo() {
         final BaseAdapter<List<MathParam>> baseAdapter = new BaseAdapter<List<MathParam>>(this.mActivity, R.layout.adapter_item_sparrpw_math) { // from class: com.rigol.scope.SettingsBarFragment.8
+            {
+                SettingsBarFragment.this = this;
+            }
+
             @Override // com.rigol.scope.adapters.BaseAdapter
             protected void convert(BaseViewHolder<? extends ViewDataBinding> baseViewHolder, List<MathParam> list, int i) {
                 AdapterItemSparrpwMathBinding adapterItemSparrpwMathBinding = (AdapterItemSparrpwMathBinding) baseViewHolder.getBinding();
@@ -615,7 +656,6 @@ public class SettingsBarFragment extends BaseFragment implements View.OnClickLis
                 adapterItemSparrpwMathBinding.getRoot().setTag(MathPopupView.class.getSimpleName());
             }
 
-            /* JADX DEBUG: Method merged with bridge method */
             @Override // com.rigol.scope.adapters.MultiItemTypeAdapter, androidx.recyclerview.widget.RecyclerView.Adapter
             public BaseViewHolder<? extends ViewDataBinding> onCreateViewHolder(ViewGroup viewGroup, int i) {
                 BaseViewHolder<? extends ViewDataBinding> onCreateViewHolder = super.onCreateViewHolder(viewGroup, i);
@@ -627,12 +667,20 @@ public class SettingsBarFragment extends BaseFragment implements View.OnClickLis
         this.binding.mathItemList.addItemDecoration(new GridSpaceItemDecoration(1, true));
         this.binding.mathItemList.setAdapter(baseAdapter);
         this.binding.verticalM.setOnClickListener(new View.OnClickListener() { // from class: com.rigol.scope.SettingsBarFragment.9
+            {
+                SettingsBarFragment.this = this;
+            }
+
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 new MathListPopuView().showAsDropDown(SettingsBarFragment.this.binding.verticalM, -80, -20, GravityCompat.START);
             }
         });
         baseAdapter.setOnItemGestureDetectorListener(new OnItemGestureDetectorListener() { // from class: com.rigol.scope.SettingsBarFragment.10
+            {
+                SettingsBarFragment.this = this;
+            }
+
             @Override // com.rigol.scope.adapters.OnItemGestureDetectorListener
             public boolean onDoubleTap(MotionEvent motionEvent, View view, RecyclerView.ViewHolder viewHolder, int i) {
                 SettingsBarFragment.this.showMathPopupView(i);
@@ -674,6 +722,10 @@ public class SettingsBarFragment extends BaseFragment implements View.OnClickLis
             }
         });
         new ItemTouchHelper(new BaseSimpleCallback(0, 2) { // from class: com.rigol.scope.SettingsBarFragment.11
+            {
+                SettingsBarFragment.this = this;
+            }
+
             /* JADX WARN: Type inference failed for: r3v4, types: [java.util.List] */
             @Override // com.rigol.scope.views.baseview.BaseSimpleCallback, androidx.recyclerview.widget.ItemTouchHelper.Callback
             public void onSwiped(RecyclerView.ViewHolder viewHolder, int i) {
@@ -704,7 +756,6 @@ public class SettingsBarFragment extends BaseFragment implements View.OnClickLis
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public void showMathPopupView(int i) {
         BasePopupView basePopupView = PopupViewManager.getInstance().get(MathPopupView.class);
         if (basePopupView instanceof MathPopupView) {
@@ -713,7 +764,6 @@ public class SettingsBarFragment extends BaseFragment implements View.OnClickLis
         basePopupView.show();
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public int getMathCurrentItem() {
         BasePopupView basePopupView = PopupViewManager.getInstance().get(MathPopupView.class);
         if (basePopupView instanceof MathPopupView) {
@@ -722,7 +772,6 @@ public class SettingsBarFragment extends BaseFragment implements View.OnClickLis
         return 0;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public void setMathCurrentItem(int i) {
         BasePopupView basePopupView = PopupViewManager.getInstance().get(MathPopupView.class);
         if (basePopupView instanceof MathPopupView) {
@@ -737,7 +786,10 @@ public class SettingsBarFragment extends BaseFragment implements View.OnClickLis
             return;
         }
         this.otherFunAdapter = new BaseAdapter<List<MappingObject>>(this.mActivity, list, R.layout.adapter_item_rtsa) { // from class: com.rigol.scope.SettingsBarFragment.12
-            /* JADX DEBUG: Method merged with bridge method */
+            {
+                SettingsBarFragment.this = this;
+            }
+
             @Override // com.rigol.scope.adapters.MultiItemTypeAdapter, androidx.recyclerview.widget.RecyclerView.Adapter
             public BaseViewHolder<? extends ViewDataBinding> onCreateViewHolder(ViewGroup viewGroup, int i) {
                 BaseViewHolder<? extends ViewDataBinding> onCreateViewHolder = super.onCreateViewHolder(viewGroup, i);
@@ -761,6 +813,10 @@ public class SettingsBarFragment extends BaseFragment implements View.OnClickLis
         this.binding.otherLayout.addItemDecoration(new HorizontalSpaceItemDecoration(3));
         this.binding.otherLayout.setAdapter(this.otherFunAdapter);
         this.otherFunAdapter.setOnItemGestureDetectorListener(new OnItemGestureDetectorListener() { // from class: com.rigol.scope.SettingsBarFragment.13
+            {
+                SettingsBarFragment.this = this;
+            }
+
             @Override // com.rigol.scope.adapters.OnItemGestureDetectorListener
             public boolean onDoubleTap(MotionEvent motionEvent, View view, RecyclerView.ViewHolder viewHolder, int i) {
                 if (SettingsBarFragment.this.optionParam != null && !KtUtilKt.functionEnable(ServiceEnum.Function.FUN_FFT, SettingsBarFragment.this.optionParam)) {
@@ -807,6 +863,10 @@ public class SettingsBarFragment extends BaseFragment implements View.OnClickLis
             }
         });
         new ItemTouchHelper(new BaseSimpleCallback(0, 2) { // from class: com.rigol.scope.SettingsBarFragment.14
+            {
+                SettingsBarFragment.this = this;
+            }
+
             @Override // com.rigol.scope.views.baseview.BaseSimpleCallback, androidx.recyclerview.widget.ItemTouchHelper.Callback
             public void onSwiped(RecyclerView.ViewHolder viewHolder, int i) {
                 super.onSwiped(viewHolder, i);

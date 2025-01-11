@@ -2,6 +2,7 @@ package androidx.constraintlayout.motion.utils;
 
 import android.util.Log;
 import androidx.constraintlayout.motion.widget.MotionInterpolator;
+
 /* loaded from: classes.dex */
 public class StopLogic extends MotionInterpolator {
     private boolean mBackwards = false;

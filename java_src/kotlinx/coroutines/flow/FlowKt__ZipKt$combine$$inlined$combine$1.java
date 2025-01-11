@@ -16,6 +16,7 @@ import kotlin.jvm.internal.InlineMarker;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.Lambda;
 import kotlinx.coroutines.flow.internal.CombineKt;
+
 /* JADX INFO: Add missing generic type declarations: [R] */
 /* compiled from: SafeCollector.kt */
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000%\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\b\u0002\n\u0002\b\u0002\n\u0002\b\u0003*\u0001\u0000\b\n\u0018\u00002\b\u0012\u0004\u0012\u00028\u00000\u0001J\u001f\u0010\u0002\u001a\u00020\u00032\f\u0010\u0004\u001a\b\u0012\u0004\u0012\u00028\u00000\u0005H\u0096@ø\u0001\u0000¢\u0006\u0002\u0010\u0006\u0082\u0002\u0004\n\u0002\b\u0019¨\u0006\u0007¸\u0006\b"}, d2 = {"kotlinx/coroutines/flow/internal/SafeCollectorKt$unsafeFlow$1", "Lkotlinx/coroutines/flow/Flow;", "collect", "", "collector", "Lkotlinx/coroutines/flow/FlowCollector;", "(Lkotlinx/coroutines/flow/FlowCollector;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "kotlinx-coroutines-core", "kotlinx/coroutines/flow/FlowKt__ZipKt$combine$$inlined$unsafeFlow$2"}, k = 1, mv = {1, 1, 15})
@@ -59,6 +60,7 @@ public final class FlowKt__ZipKt$combine$$inlined$combine$1<R> implements Flow<R
             return anonymousClass3;
         }
 
+        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object, java.lang.Object] */
         @Override // kotlin.jvm.functions.Function3
         public final Object invoke(Object obj, Object[] objArr, Continuation<? super Unit> continuation) {
             return ((AnonymousClass3) create((FlowCollector) obj, objArr, continuation)).invokeSuspend(Unit.INSTANCE);
@@ -138,6 +140,7 @@ public final class FlowKt__ZipKt$combine$$inlined$combine$1<R> implements Flow<R
             super(0);
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // kotlin.jvm.functions.Function0
         public final Object[] invoke() {
             return new Object[FlowKt__ZipKt$combine$$inlined$combine$1.this.$flows$inlined.length];

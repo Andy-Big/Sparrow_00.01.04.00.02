@@ -4,15 +4,18 @@ import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
 import java.util.Arrays;
+
 /* loaded from: classes.dex */
 public final class CalendarConstraints implements Parcelable {
     public static final Parcelable.Creator<CalendarConstraints> CREATOR = new Parcelable.Creator<CalendarConstraints>() { // from class: com.google.android.material.datepicker.CalendarConstraints.1
+        /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
         public CalendarConstraints createFromParcel(Parcel parcel) {
             return new CalendarConstraints((Month) parcel.readParcelable(Month.class.getClassLoader()), (Month) parcel.readParcelable(Month.class.getClassLoader()), (Month) parcel.readParcelable(Month.class.getClassLoader()), (DateValidator) parcel.readParcelable(DateValidator.class.getClassLoader()));
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
         public CalendarConstraints[] newArray(int i) {
@@ -51,8 +54,7 @@ public final class CalendarConstraints implements Parcelable {
         this.yearSpan = (month2.year - month.year) + 1;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean isWithinBounds(long j) {
+    boolean isWithinBounds(long j) {
         if (this.start.getDay(1) <= j) {
             Month month = this.end;
             if (j <= month.getDay(month.daysInMonth)) {
@@ -66,28 +68,23 @@ public final class CalendarConstraints implements Parcelable {
         return this.validator;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public Month getStart() {
+    Month getStart() {
         return this.start;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public Month getEnd() {
+    Month getEnd() {
         return this.end;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public Month getOpenAt() {
+    Month getOpenAt() {
         return this.openAt;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public int getMonthSpan() {
+    int getMonthSpan() {
         return this.monthSpan;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public int getYearSpan() {
+    int getYearSpan() {
         return this.yearSpan;
     }
 
@@ -114,8 +111,7 @@ public final class CalendarConstraints implements Parcelable {
         parcel.writeParcelable(this.validator, 0);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public Month clamp(Month month) {
+    Month clamp(Month month) {
         if (month.compareTo(this.start) < 0) {
             return this.start;
         }
@@ -138,8 +134,7 @@ public final class CalendarConstraints implements Parcelable {
             this.validator = DateValidatorPointForward.from(Long.MIN_VALUE);
         }
 
-        /* JADX INFO: Access modifiers changed from: package-private */
-        public Builder(CalendarConstraints calendarConstraints) {
+        Builder(CalendarConstraints calendarConstraints) {
             this.start = DEFAULT_START;
             this.end = DEFAULT_END;
             this.validator = DateValidatorPointForward.from(Long.MIN_VALUE);

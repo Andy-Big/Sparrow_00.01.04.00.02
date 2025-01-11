@@ -12,6 +12,7 @@ import java.io.Reader;
 import java.util.Iterator;
 import java.util.Map;
 import kotlin.text.Typography;
+
 /* loaded from: classes.dex */
 public final class JsonTreeReader extends JsonReader {
     private int[] pathIndices;

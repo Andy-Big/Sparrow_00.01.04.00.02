@@ -6,6 +6,7 @@ import com.shockwave.pdfium.PdfDocument;
 import com.shockwave.pdfium.PdfiumCore;
 import java.io.IOException;
 import java.io.InputStream;
+
 /* loaded from: classes.dex */
 public class InputStreamSource implements DocumentSource {
     private InputStream inputStream;

@@ -12,6 +12,7 @@ import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.Interpolator;
 import android.widget.ImageView;
 import android.widget.OverScroller;
+
 /* loaded from: classes.dex */
 public class PhotoViewAttacher implements View.OnTouchListener, View.OnLayoutChangeListener {
     private static float DEFAULT_MAX_SCALE = 3.0f;
@@ -269,114 +270,61 @@ public class PhotoViewAttacher implements View.OnTouchListener, View.OnLayoutCha
     @Override // android.view.View.OnTouchListener
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    public boolean onTouch(android.view.View r11, android.view.MotionEvent r12) {
-        /*
-            r10 = this;
-            boolean r0 = r10.mZoomEnabled
-            r1 = 0
-            r2 = 1
-            if (r0 == 0) goto Lbe
-            r0 = r11
-            android.widget.ImageView r0 = (android.widget.ImageView) r0
-            boolean r0 = com.github.chrisbanes.photoview.Util.hasDrawable(r0)
-            if (r0 == 0) goto Lbe
-            int r0 = r12.getAction()
-            if (r0 == 0) goto L6e
-            if (r0 == r2) goto L1b
-            r3 = 3
-            if (r0 == r3) goto L1b
-            goto L7a
-        L1b:
-            float r0 = r10.getScale()
-            float r3 = r10.mMinScale
-            int r0 = (r0 > r3 ? 1 : (r0 == r3 ? 0 : -1))
-            if (r0 >= 0) goto L44
-            android.graphics.RectF r0 = r10.getDisplayRect()
-            if (r0 == 0) goto L7a
-            com.github.chrisbanes.photoview.PhotoViewAttacher$AnimatedZoomRunnable r9 = new com.github.chrisbanes.photoview.PhotoViewAttacher$AnimatedZoomRunnable
-            float r5 = r10.getScale()
-            float r6 = r10.mMinScale
-            float r7 = r0.centerX()
-            float r8 = r0.centerY()
-            r3 = r9
-            r4 = r10
-            r3.<init>(r5, r6, r7, r8)
-            r11.post(r9)
-            goto L6c
-        L44:
-            float r0 = r10.getScale()
-            float r3 = r10.mMaxScale
-            int r0 = (r0 > r3 ? 1 : (r0 == r3 ? 0 : -1))
-            if (r0 <= 0) goto L7a
-            android.graphics.RectF r0 = r10.getDisplayRect()
-            if (r0 == 0) goto L7a
-            com.github.chrisbanes.photoview.PhotoViewAttacher$AnimatedZoomRunnable r9 = new com.github.chrisbanes.photoview.PhotoViewAttacher$AnimatedZoomRunnable
-            float r5 = r10.getScale()
-            float r6 = r10.mMaxScale
-            float r7 = r0.centerX()
-            float r8 = r0.centerY()
-            r3 = r9
-            r4 = r10
-            r3.<init>(r5, r6, r7, r8)
-            r11.post(r9)
-        L6c:
-            r11 = r2
-            goto L7b
-        L6e:
-            android.view.ViewParent r11 = r11.getParent()
-            if (r11 == 0) goto L77
-            r11.requestDisallowInterceptTouchEvent(r2)
-        L77:
-            r10.cancelFling()
-        L7a:
-            r11 = r1
-        L7b:
-            com.github.chrisbanes.photoview.CustomGestureDetector r0 = r10.mScaleDragDetector
-            if (r0 == 0) goto Lb2
-            boolean r11 = r0.isScaling()
-            com.github.chrisbanes.photoview.CustomGestureDetector r0 = r10.mScaleDragDetector
-            boolean r0 = r0.isDragging()
-            com.github.chrisbanes.photoview.CustomGestureDetector r3 = r10.mScaleDragDetector
-            boolean r3 = r3.onTouchEvent(r12)
-            if (r11 != 0) goto L9b
-            com.github.chrisbanes.photoview.CustomGestureDetector r11 = r10.mScaleDragDetector
-            boolean r11 = r11.isScaling()
-            if (r11 != 0) goto L9b
-            r11 = r2
-            goto L9c
-        L9b:
-            r11 = r1
-        L9c:
-            if (r0 != 0) goto La8
-            com.github.chrisbanes.photoview.CustomGestureDetector r0 = r10.mScaleDragDetector
-            boolean r0 = r0.isDragging()
-            if (r0 != 0) goto La8
-            r0 = r2
-            goto La9
-        La8:
-            r0 = r1
-        La9:
-            if (r11 == 0) goto Lae
-            if (r0 == 0) goto Lae
-            r1 = r2
-        Lae:
-            r10.mBlockParentIntercept = r1
-            r1 = r3
-            goto Lb3
-        Lb2:
-            r1 = r11
-        Lb3:
-            android.view.GestureDetector r11 = r10.mGestureDetector
-            if (r11 == 0) goto Lbe
-            boolean r11 = r11.onTouchEvent(r12)
-            if (r11 == 0) goto Lbe
-            r1 = r2
-        Lbe:
-            return r1
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.github.chrisbanes.photoview.PhotoViewAttacher.onTouch(android.view.View, android.view.MotionEvent):boolean");
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        boolean z;
+        CustomGestureDetector customGestureDetector;
+        boolean z2;
+        GestureDetector gestureDetector;
+        RectF displayRect;
+        boolean z3 = false;
+        if (this.mZoomEnabled && Util.hasDrawable((ImageView) view)) {
+            int action = motionEvent.getAction();
+            if (action == 0) {
+                ViewParent parent = view.getParent();
+                if (parent != null) {
+                    parent.requestDisallowInterceptTouchEvent(true);
+                }
+                cancelFling();
+            } else if (action == 1 || action == 3) {
+                if (getScale() < this.mMinScale) {
+                    RectF displayRect2 = getDisplayRect();
+                    if (displayRect2 != null) {
+                        view.post(new AnimatedZoomRunnable(getScale(), this.mMinScale, displayRect2.centerX(), displayRect2.centerY()));
+                        z = true;
+                    }
+                } else if (getScale() > this.mMaxScale && (displayRect = getDisplayRect()) != null) {
+                    view.post(new AnimatedZoomRunnable(getScale(), this.mMaxScale, displayRect.centerX(), displayRect.centerY()));
+                    z = true;
+                }
+                customGestureDetector = this.mScaleDragDetector;
+                if (customGestureDetector == null) {
+                    boolean isScaling = customGestureDetector.isScaling();
+                    boolean isDragging = this.mScaleDragDetector.isDragging();
+                    boolean onTouchEvent = this.mScaleDragDetector.onTouchEvent(motionEvent);
+                    boolean z4 = (isScaling || this.mScaleDragDetector.isScaling()) ? false : true;
+                    boolean z5 = (isDragging || this.mScaleDragDetector.isDragging()) ? false : true;
+                    if (z4 && z5) {
+                        z3 = true;
+                    }
+                    this.mBlockParentIntercept = z3;
+                    z2 = onTouchEvent;
+                } else {
+                    z2 = z;
+                }
+                gestureDetector = this.mGestureDetector;
+                if (gestureDetector == null && gestureDetector.onTouchEvent(motionEvent)) {
+                    return true;
+                }
+            }
+            z = false;
+            customGestureDetector = this.mScaleDragDetector;
+            if (customGestureDetector == null) {
+            }
+            gestureDetector = this.mGestureDetector;
+            return gestureDetector == null ? z2 : z2;
+        }
+        return false;
     }
 
     public void setAllowParentInterceptOnEdge(boolean z) {
@@ -585,10 +533,9 @@ public class PhotoViewAttacher implements View.OnTouchListener, View.OnLayoutCha
         resetMatrix();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.github.chrisbanes.photoview.PhotoViewAttacher$4  reason: invalid class name */
     /* loaded from: classes.dex */
-    public static /* synthetic */ class AnonymousClass4 {
+    static /* synthetic */ class AnonymousClass4 {
         static final /* synthetic */ int[] $SwitchMap$android$widget$ImageView$ScaleType;
 
         static {
@@ -699,9 +646,8 @@ public class PhotoViewAttacher implements View.OnTouchListener, View.OnLayoutCha
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public class AnimatedZoomRunnable implements Runnable {
+    private class AnimatedZoomRunnable implements Runnable {
         private final float mFocalX;
         private final float mFocalY;
         private final long mStartTime = System.currentTimeMillis();
@@ -730,9 +676,8 @@ public class PhotoViewAttacher implements View.OnTouchListener, View.OnLayoutCha
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public class FlingRunnable implements Runnable {
+    private class FlingRunnable implements Runnable {
         private int mCurrentX;
         private int mCurrentY;
         private final OverScroller mScroller;

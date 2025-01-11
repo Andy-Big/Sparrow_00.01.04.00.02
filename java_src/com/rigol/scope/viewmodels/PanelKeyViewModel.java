@@ -237,6 +237,21 @@ public class PanelKeyViewModel extends ViewModel {
         }
     }
 
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.viewmodels.-$$Lambda$PanelKeyViewModel$1eVsqZQMYKK3-kOA3162iNIUYHg.accept(java.lang.Object):void] */
+    static /* synthetic */ void lambda$onPanelKeyUp$0(ShellUtils.CommandResult commandResult) {
+        Timber.d(commandResult.toString(), new Object[0]);
+    }
+
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.viewmodels.-$$Lambda$PanelKeyViewModel$siSbSJOePjXw0lYgex3OFVgq2W0.accept(java.lang.Object):void] */
+    static /* synthetic */ void lambda$onPanelKeyUp$1(ShellUtils.CommandResult commandResult) {
+        Timber.d(commandResult.toString(), new Object[0]);
+    }
+
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.viewmodels.-$$Lambda$PanelKeyViewModel$_NFAhMPlZmZu0ph9fWTLtpMsues.run():void] */
+    static /* synthetic */ void lambda$onPanelKeyUp$2() {
+        PopupViewManager.getInstance().toggle(DefaultPopupView.class);
+    }
+
     static /* synthetic */ void lambda$onPanelKeyUp$3(MeasureSettingParam measureSettingParam) {
         measureSettingParam.saveThresholdType(ServiceEnum.ThreType.TH_TYPE_ABS);
         API.getInstance().UI_PostInt32(28, MessageID.MSG_APP_MEAS_TH_DEFAULT, 1);
@@ -396,7 +411,7 @@ public class PanelKeyViewModel extends ViewModel {
                     ThreadUtils.runOnUiThreadDelayed(new Runnable() { // from class: com.rigol.scope.viewmodels.-$$Lambda$PanelKeyViewModel$_NFAhMPlZmZu0ph9fWTLtpMsues
                         @Override // java.lang.Runnable
                         public final void run() {
-                            PopupViewManager.getInstance().toggle(DefaultPopupView.class);
+                            PanelKeyViewModel.lambda$onPanelKeyUp$2();
                         }
                     }, 200L);
                     ToastUtils.showShort(ActivityUtils.getTopActivity().getResources().getString(R.string.inf_click_to_default));
@@ -431,7 +446,7 @@ public class PanelKeyViewModel extends ViewModel {
                     ShellUtils.execCmdAsync("insmod /rigol/driver/focaltech_ts.ko", true, (Utils.Consumer<ShellUtils.CommandResult>) new Utils.Consumer() { // from class: com.rigol.scope.viewmodels.-$$Lambda$PanelKeyViewModel$1eVsqZQMYKK3-kOA3162iNIUYHg
                         @Override // com.blankj.utilcode.util.Utils.Consumer
                         public final void accept(Object obj) {
-                            Timber.d(((ShellUtils.CommandResult) obj).toString(), new Object[0]);
+                            PanelKeyViewModel.lambda$onPanelKeyUp$0((ShellUtils.CommandResult) obj);
                         }
                     });
                 } else {
@@ -439,7 +454,7 @@ public class PanelKeyViewModel extends ViewModel {
                     ShellUtils.execCmdAsync("rmmod /rigol/driver/focaltech_ts.ko", true, (Utils.Consumer<ShellUtils.CommandResult>) new Utils.Consumer() { // from class: com.rigol.scope.viewmodels.-$$Lambda$PanelKeyViewModel$siSbSJOePjXw0lYgex3OFVgq2W0
                         @Override // com.blankj.utilcode.util.Utils.Consumer
                         public final void accept(Object obj) {
-                            Timber.d(((ShellUtils.CommandResult) obj).toString(), new Object[0]);
+                            PanelKeyViewModel.lambda$onPanelKeyUp$1((ShellUtils.CommandResult) obj);
                         }
                     });
                     ToastUtils.showShort(ActivityUtils.getTopActivity().getResources().getString(R.string.inf_touch_disable));
@@ -453,6 +468,10 @@ public class PanelKeyViewModel extends ViewModel {
                 ToastUtils.INSTANCE.cancel();
                 final Handler handler = new Handler();
                 handler.postDelayed(new Runnable() { // from class: com.rigol.scope.viewmodels.PanelKeyViewModel.1
+                    {
+                        PanelKeyViewModel.this = this;
+                    }
+
                     @Override // java.lang.Runnable
                     public void run() {
                         ViewUtil.quickAction();
@@ -1486,7 +1505,7 @@ public class PanelKeyViewModel extends ViewModel {
         }
     }
 
-    /* renamed from: com.rigol.scope.viewmodels.PanelKeyViewModel$2  reason: invalid class name */
+    /* renamed from: com.rigol.scope.viewmodels.PanelKeyViewModel$2 */
     /* loaded from: classes2.dex */
     static /* synthetic */ class AnonymousClass2 {
         static final /* synthetic */ int[] $SwitchMap$com$rigol$scope$cil$ServiceEnum$DecodeBusType;

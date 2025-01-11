@@ -1,6 +1,7 @@
 package javax.mail.event;
 
 import javax.mail.Store;
+
 /* loaded from: classes2.dex */
 public class StoreEvent extends MailEvent {
     public static final int ALERT = 1;

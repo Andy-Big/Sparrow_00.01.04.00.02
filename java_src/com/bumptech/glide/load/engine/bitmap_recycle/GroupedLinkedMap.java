@@ -5,10 +5,14 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 /* loaded from: classes.dex */
 class GroupedLinkedMap<K extends Poolable, V> {
     private final LinkedEntry<K, V> head = new LinkedEntry<>();
     private final Map<K, LinkedEntry<K, V>> keyToEntry = new HashMap();
+
+    GroupedLinkedMap() {
+    }
 
     public void put(K k, V v) {
         LinkedEntry<K, V> linkedEntry = this.keyToEntry.get(k);
@@ -89,9 +93,8 @@ class GroupedLinkedMap<K extends Poolable, V> {
         linkedEntry.next.prev = linkedEntry.prev;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static class LinkedEntry<K, V> {
+    private static class LinkedEntry<K, V> {
         final K key;
         LinkedEntry<K, V> next;
         LinkedEntry<K, V> prev;

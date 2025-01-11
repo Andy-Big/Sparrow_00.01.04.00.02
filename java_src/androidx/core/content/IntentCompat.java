@@ -2,6 +2,7 @@ package androidx.core.content;
 
 import android.content.Intent;
 import android.os.Build;
+
 /* loaded from: classes.dex */
 public final class IntentCompat {
     public static final String CATEGORY_LEANBACK_LAUNCHER = "android.intent.category.LEANBACK_LAUNCHER";

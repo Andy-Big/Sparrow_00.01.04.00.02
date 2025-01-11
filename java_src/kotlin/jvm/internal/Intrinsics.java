@@ -3,6 +3,7 @@ package kotlin.jvm.internal;
 import java.util.Arrays;
 import kotlin.KotlinNullPointerException;
 import kotlin.UninitializedPropertyAccessException;
+
 /* loaded from: classes2.dex */
 public class Intrinsics {
     public static int compare(int i, int i2) {
@@ -245,8 +246,7 @@ public class Intrinsics {
         return (T) sanitizeStackTrace(t, Intrinsics.class.getName());
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static <T extends Throwable> T sanitizeStackTrace(T t, String str) {
+    static <T extends Throwable> T sanitizeStackTrace(T t, String str) {
         StackTraceElement[] stackTrace = t.getStackTrace();
         int length = stackTrace.length;
         int i = -1;

@@ -2,6 +2,7 @@ package com.sun.activation.registries;
 
 import java.util.NoSuchElementException;
 import java.util.Vector;
+
 /* compiled from: MimeTypeFile.java */
 /* loaded from: classes2.dex */
 class LineTokenizer {

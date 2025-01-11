@@ -18,6 +18,7 @@ import android.view.ViewOutlineProvider;
 import android.widget.ImageView;
 import androidx.appcompat.widget.AppCompatImageView;
 import androidx.constraintlayout.widget.R;
+
 /* loaded from: classes.dex */
 public class ImageFilterView extends AppCompatImageView {
     private float mCrossfade;
@@ -35,9 +36,8 @@ public class ImageFilterView extends AppCompatImageView {
     ViewOutlineProvider mViewOutlineProvider;
     float mZoom;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static class ImageMatrix {
+    static class ImageMatrix {
         float[] m = new float[20];
         ColorMatrix mColorMatrix = new ColorMatrix();
         ColorMatrix mTmpColorMatrix = new ColorMatrix();
@@ -45,6 +45,9 @@ public class ImageFilterView extends AppCompatImageView {
         float mSaturation = 1.0f;
         float mContrast = 1.0f;
         float mWarmth = 1.0f;
+
+        ImageMatrix() {
+        }
 
         private void saturation(float f) {
             float f2 = 1.0f - f;
@@ -148,8 +151,7 @@ public class ImageFilterView extends AppCompatImageView {
             fArr[19] = 0.0f;
         }
 
-        /* JADX INFO: Access modifiers changed from: package-private */
-        public void updateMatrix(ImageView imageView) {
+        void updateMatrix(ImageView imageView) {
             boolean z;
             this.mColorMatrix.reset();
             float f = this.mSaturation;

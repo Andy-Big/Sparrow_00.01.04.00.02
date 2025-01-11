@@ -14,9 +14,9 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.android.material.R;
 import java.util.Calendar;
-/* JADX INFO: Access modifiers changed from: package-private */
+
 /* loaded from: classes.dex */
-public final class MaterialCalendarGridView extends GridView {
+final class MaterialCalendarGridView extends GridView {
     private final Calendar dayCompute;
 
     public MaterialCalendarGridView(Context context) {
@@ -73,12 +73,15 @@ public final class MaterialCalendarGridView extends GridView {
         return false;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX DEBUG: Return type fixed from 'com.google.android.material.datepicker.MonthAdapter' to match base method */
     @Override // android.widget.GridView, android.widget.AdapterView
     /* renamed from: getAdapter */
     public ListAdapter getAdapter2() {
         return (MonthAdapter) super.getAdapter();
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.AdapterView
     public final void setAdapter(ListAdapter listAdapter) {
         if (!(listAdapter instanceof MonthAdapter)) {

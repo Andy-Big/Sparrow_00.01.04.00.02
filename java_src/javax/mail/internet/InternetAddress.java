@@ -5,10 +5,14 @@ import java.io.UnsupportedEncodingException;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 import java.util.Locale;
+import java.util.StringTokenizer;
 import javax.mail.Address;
 import javax.mail.Session;
+import kotlin.jvm.internal.CharCompanionObject;
 import kotlin.text.Typography;
+
 /* loaded from: classes2.dex */
 public class InternetAddress extends Address implements Cloneable {
     private static final long serialVersionUID = -7507595530758302903L;
@@ -312,8 +316,7 @@ public class InternetAddress extends Address implements Cloneable {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static InternetAddress _getLocalAddress(Session session) throws SecurityException, AddressException, UnknownHostException {
+    static InternetAddress _getLocalAddress(Session session) throws SecurityException, AddressException, UnknownHostException {
         String property;
         String str;
         String str2;
@@ -421,14 +424,414 @@ public class InternetAddress extends Address implements Cloneable {
     /* JADX WARN: Removed duplicated region for block: B:88:0x0102  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    private static javax.mail.internet.InternetAddress[] parse(java.lang.String r19, boolean r20, boolean r21) throws javax.mail.internet.AddressException {
-        /*
-            Method dump skipped, instructions count: 982
-            To view this dump add '--comments-level debug' option
-        */
-        throw new UnsupportedOperationException("Method not decompiled: javax.mail.internet.InternetAddress.parse(java.lang.String, boolean, boolean):javax.mail.internet.InternetAddress[]");
+    private static InternetAddress[] parse(String str, boolean z, boolean z2) throws AddressException {
+        String str2;
+        int i;
+        String str3;
+        int i2;
+        int i3;
+        int i4;
+        int i5;
+        boolean z3;
+        int i6;
+        int i7;
+        int i8;
+        int i9;
+        int length = str.length();
+        boolean z4 = z2 && !z;
+        ArrayList arrayList = new ArrayList();
+        int i10 = 0;
+        int i11 = -1;
+        int i12 = -1;
+        boolean z5 = false;
+        boolean z6 = false;
+        boolean z7 = false;
+        int i13 = -1;
+        int i14 = -1;
+        while (i10 < length) {
+            char charAt = str.charAt(i10);
+            if (charAt != '\t' && charAt != '\n' && charAt != '\r' && charAt != ' ') {
+                if (charAt != '\"') {
+                    if (charAt != ',') {
+                        if (charAt != '>') {
+                            if (charAt != '[') {
+                                char c = '(';
+                                if (charAt == '(') {
+                                    if (i11 >= 0 && i12 == -1) {
+                                        i12 = i10;
+                                    }
+                                    i10++;
+                                    int i15 = i10;
+                                    int i16 = 1;
+                                    while (i15 < length && i16 > 0) {
+                                        char charAt2 = str.charAt(i15);
+                                        if (charAt2 == c) {
+                                            i16++;
+                                        } else if (charAt2 == ')') {
+                                            i16--;
+                                        } else if (charAt2 == '\\') {
+                                            i15++;
+                                        }
+                                        i15++;
+                                        c = '(';
+                                    }
+                                    if (i16 <= 0) {
+                                        i2 = i15 - 1;
+                                        if (i13 == -1) {
+                                            i13 = i10;
+                                        }
+                                        if (i14 == -1) {
+                                            i10 = i2;
+                                            i14 = i10;
+                                        }
+                                        i10 = i2;
+                                    } else if (!z4) {
+                                        throw new AddressException("Missing ')'", str, i15);
+                                    }
+                                } else if (charAt != ')') {
+                                    switch (charAt) {
+                                        case ':':
+                                            if (!z5 || z4) {
+                                                if (i11 == -1) {
+                                                    i11 = i10;
+                                                }
+                                                if (!z2 || z) {
+                                                    i = 1;
+                                                    z5 = true;
+                                                    z7 = true;
+                                                    break;
+                                                } else {
+                                                    int i17 = i10 + 1;
+                                                    if (i17 < length) {
+                                                        char charAt3 = str.charAt(i17);
+                                                        if (")>[]:@\\,.".indexOf(charAt3) >= 0) {
+                                                            if (charAt3 == '@') {
+                                                                for (int i18 = i10 + 2; i18 < length && (charAt3 = str.charAt(i18)) != ';' && ")>[]:@\\,.".indexOf(charAt3) < 0; i18++) {
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                    String substring = str.substring(i11, i10);
+                                                    if (!ignoreBogusGroupName || (!substring.equalsIgnoreCase("mailto") && !substring.equalsIgnoreCase("From") && !substring.equalsIgnoreCase("To") && !substring.equalsIgnoreCase("Cc") && !substring.equalsIgnoreCase("Subject") && !substring.equalsIgnoreCase("Re"))) {
+                                                        z5 = true;
+                                                        break;
+                                                    } else {
+                                                        i11 = -1;
+                                                        break;
+                                                    }
+                                                }
+                                            } else {
+                                                throw new AddressException("Nested group", str, i10);
+                                            }
+                                            break;
+                                        case ';':
+                                            if (i11 == -1) {
+                                                i = 1;
+                                                i11 = -1;
+                                                i12 = -1;
+                                                z6 = false;
+                                                z7 = false;
+                                                break;
+                                            } else if (z5) {
+                                                if (!z2 || z || (i3 = i10 + 1) >= length || str.charAt(i3) != '@') {
+                                                    InternetAddress internetAddress = new InternetAddress();
+                                                    internetAddress.setAddress(str.substring(i11, i10 + 1).trim());
+                                                    arrayList.add(internetAddress);
+                                                    i = 1;
+                                                    i11 = -1;
+                                                    i12 = -1;
+                                                    z5 = false;
+                                                    z6 = false;
+                                                    z7 = false;
+                                                    i13 = -1;
+                                                    i14 = -1;
+                                                    break;
+                                                } else {
+                                                    i = 1;
+                                                    z5 = false;
+                                                    break;
+                                                }
+                                            } else if (!z4) {
+                                                throw new AddressException("Illegal semicolon, not in group", str, i10);
+                                            }
+                                            break;
+                                        case '<':
+                                            if (z6) {
+                                                if (!z4) {
+                                                    throw new AddressException("Extra route-addr", str, i10);
+                                                }
+                                                if (i11 == -1) {
+                                                    i11 = -1;
+                                                    i12 = i11;
+                                                    i = 1;
+                                                    z6 = false;
+                                                    z7 = false;
+                                                    break;
+                                                } else if (!z5) {
+                                                    if (i12 == -1) {
+                                                        i12 = i10;
+                                                    }
+                                                    String trim = str.substring(i11, i12).trim();
+                                                    InternetAddress internetAddress2 = new InternetAddress();
+                                                    internetAddress2.setAddress(trim);
+                                                    if (i13 >= 0) {
+                                                        internetAddress2.encodedPersonal = unquote(str.substring(i13, i14).trim());
+                                                    }
+                                                    arrayList.add(internetAddress2);
+                                                    i11 = -1;
+                                                    i12 = -1;
+                                                    z6 = false;
+                                                    z7 = false;
+                                                    i13 = -1;
+                                                    i14 = -1;
+                                                    i4 = i10 + 1;
+                                                    i5 = i4;
+                                                    z3 = false;
+                                                    while (true) {
+                                                        i6 = i4;
+                                                        if (i5 >= length) {
+                                                            char charAt4 = str.charAt(i5);
+                                                            i7 = i12;
+                                                            if (charAt4 == '\"') {
+                                                                z3 = !z3;
+                                                            } else if (charAt4 != '>') {
+                                                                if (charAt4 == '\\') {
+                                                                    i5++;
+                                                                }
+                                                            } else if (!z3) {
+                                                            }
+                                                            i5++;
+                                                            i4 = i6;
+                                                            i12 = i7;
+                                                        } else {
+                                                            i7 = i12;
+                                                        }
+                                                    }
+                                                    if (z3) {
+                                                        i12 = i5;
+                                                    } else if (!z4) {
+                                                        throw new AddressException("Missing '\"'", str, i5);
+                                                    } else {
+                                                        int i19 = i6;
+                                                        while (i19 < length) {
+                                                            char charAt5 = str.charAt(i19);
+                                                            if (charAt5 == '\\') {
+                                                                i19++;
+                                                                i9 = 1;
+                                                            } else if (charAt5 == '>') {
+                                                                i12 = i19;
+                                                            } else {
+                                                                i9 = 1;
+                                                            }
+                                                            i19 += i9;
+                                                        }
+                                                        i12 = i19;
+                                                    }
+                                                    if (i12 >= length) {
+                                                        if (z5) {
+                                                            i8 = i11;
+                                                        } else {
+                                                            if (i11 < 0) {
+                                                                i11 = i13;
+                                                                i10 = i14;
+                                                            }
+                                                            i14 = i10;
+                                                            i13 = i11;
+                                                            i8 = i6;
+                                                        }
+                                                        i11 = i8;
+                                                        i10 = i12;
+                                                        i = 1;
+                                                        z6 = true;
+                                                        break;
+                                                    } else if (z4) {
+                                                        if (i11 == -1) {
+                                                            i11 = i10;
+                                                        }
+                                                        i10 = i6;
+                                                        i12 = i7;
+                                                        break;
+                                                    } else {
+                                                        throw new AddressException("Missing '>'", str, i12);
+                                                    }
+                                                }
+                                            }
+                                            z7 = true;
+                                            i4 = i10 + 1;
+                                            i5 = i4;
+                                            z3 = false;
+                                            while (true) {
+                                                i6 = i4;
+                                                if (i5 >= length) {
+                                                }
+                                                i5++;
+                                                i4 = i6;
+                                                i12 = i7;
+                                            }
+                                            if (z3) {
+                                            }
+                                            if (i12 >= length) {
+                                            }
+                                        default:
+                                            if (i11 == -1) {
+                                                i11 = i10;
+                                                break;
+                                            }
+                                            break;
+                                    }
+                                } else if (!z4) {
+                                    throw new AddressException("Missing '('", str, i10);
+                                }
+                            } else {
+                                if (i11 == -1) {
+                                    i11 = i10;
+                                }
+                                i10++;
+                                i2 = i10;
+                                while (i2 < length) {
+                                    char charAt6 = str.charAt(i2);
+                                    if (charAt6 == '\\') {
+                                        i2++;
+                                    } else if (charAt6 == ']') {
+                                        if (i2 >= length) {
+                                            if (!z4) {
+                                                throw new AddressException("Missing ']'", str, i2);
+                                            }
+                                        }
+                                        i10 = i2;
+                                    }
+                                    i2++;
+                                }
+                                if (i2 >= length) {
+                                }
+                                i10 = i2;
+                            }
+                        } else if (!z4) {
+                            throw new AddressException("Missing '<'", str, i10);
+                        }
+                        i10 += i;
+                    }
+                    if (i11 == -1) {
+                        i11 = -1;
+                        i12 = i11;
+                        i = 1;
+                        z6 = false;
+                        z7 = false;
+                        i10 += i;
+                    } else if (z5) {
+                        i = 1;
+                        z6 = false;
+                        i10 += i;
+                    } else {
+                        if (i12 == -1) {
+                            i12 = i10;
+                        }
+                        String trim2 = str.substring(i11, i12).trim();
+                        if (z7 && i13 >= 0) {
+                            str3 = unquote(str.substring(i13, i14).trim());
+                        }
+                        str3 = null;
+                        if (z2 && !z && str3 != null && str3.indexOf(64) >= 0 && trim2.indexOf(64) < 0 && trim2.indexOf(33) < 0) {
+                            String str4 = str3;
+                            str3 = trim2;
+                            trim2 = str4;
+                        }
+                        if (z7 || z || z2) {
+                            if (!z4) {
+                                checkAddress(trim2, z6, false);
+                            }
+                            InternetAddress internetAddress3 = new InternetAddress();
+                            internetAddress3.setAddress(trim2);
+                            if (str3 != null) {
+                                internetAddress3.encodedPersonal = str3;
+                            }
+                            arrayList.add(internetAddress3);
+                        } else {
+                            StringTokenizer stringTokenizer = new StringTokenizer(trim2);
+                            while (stringTokenizer.hasMoreTokens()) {
+                                String nextToken = stringTokenizer.nextToken();
+                                checkAddress(nextToken, false, false);
+                                InternetAddress internetAddress4 = new InternetAddress();
+                                internetAddress4.setAddress(nextToken);
+                                arrayList.add(internetAddress4);
+                            }
+                        }
+                        i = 1;
+                        i11 = -1;
+                        i12 = -1;
+                        z6 = false;
+                        z7 = false;
+                        i13 = -1;
+                        i14 = -1;
+                        i10 += i;
+                    }
+                } else {
+                    if (i11 == -1) {
+                        i11 = i10;
+                    }
+                    i10++;
+                    int i20 = i10;
+                    while (i20 < length) {
+                        char charAt7 = str.charAt(i20);
+                        if (charAt7 != '\"') {
+                            if (charAt7 == '\\') {
+                                i20++;
+                            }
+                            i20++;
+                        } else if (i20 >= length) {
+                            i10 = i20;
+                        } else if (!z4) {
+                            throw new AddressException("Missing '\"'", str, i20);
+                        }
+                    }
+                    if (i20 >= length) {
+                    }
+                }
+                i = 1;
+                z7 = true;
+                i10 += i;
+            }
+            i = 1;
+            i10 += i;
+        }
+        if (i11 >= 0) {
+            if (i12 != -1) {
+                length = i12;
+            }
+            String trim3 = str.substring(i11, length).trim();
+            if (z7 && i13 >= 0) {
+                str2 = unquote(str.substring(i13, i14).trim());
+            }
+            str2 = null;
+            if (z2 && !z && str2 != null && str2.indexOf(64) >= 0 && trim3.indexOf(64) < 0 && trim3.indexOf(33) < 0) {
+                trim3 = str2;
+                str2 = trim3;
+            }
+            if (z7 || z || z2) {
+                if (!z4) {
+                    checkAddress(trim3, z6, false);
+                }
+                InternetAddress internetAddress5 = new InternetAddress();
+                internetAddress5.setAddress(trim3);
+                if (str2 != null) {
+                    internetAddress5.encodedPersonal = str2;
+                }
+                arrayList.add(internetAddress5);
+            } else {
+                StringTokenizer stringTokenizer2 = new StringTokenizer(trim3);
+                while (stringTokenizer2.hasMoreTokens()) {
+                    String nextToken2 = stringTokenizer2.nextToken();
+                    checkAddress(nextToken2, false, false);
+                    InternetAddress internetAddress6 = new InternetAddress();
+                    internetAddress6.setAddress(nextToken2);
+                    arrayList.add(internetAddress6);
+                }
+            }
+        }
+        InternetAddress[] internetAddressArr = new InternetAddress[arrayList.size()];
+        arrayList.toArray(internetAddressArr);
+        return internetAddressArr;
     }
 
     public void validate() throws AddressException {
@@ -557,14 +960,97 @@ public class InternetAddress extends Address implements Cloneable {
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    private static void checkAddress(java.lang.String r16, boolean r17, boolean r18) throws javax.mail.internet.AddressException {
-        /*
-            Method dump skipped, instructions count: 443
-            To view this dump add '--comments-level debug' option
-        */
-        throw new UnsupportedOperationException("Method not decompiled: javax.mail.internet.InternetAddress.checkAddress(java.lang.String, boolean, boolean):void");
+    private static void checkAddress(String str, boolean z, boolean z2) throws AddressException {
+        int i;
+        int i2;
+        int i3;
+        if (str == null) {
+            throw new AddressException("Address is null");
+        }
+        int length = str.length();
+        if (length == 0) {
+            throw new AddressException("Empty address", str);
+        }
+        if (z && str.charAt(0) == '@') {
+            i = 0;
+            while (true) {
+                int indexOfAny = indexOfAny(str, ",:", i);
+                if (indexOfAny < 0) {
+                    break;
+                } else if (str.charAt(i) != '@') {
+                    throw new AddressException("Illegal route-addr", str);
+                } else {
+                    if (str.charAt(indexOfAny) == ':') {
+                        i = indexOfAny + 1;
+                        break;
+                    }
+                    i = indexOfAny + 1;
+                }
+            }
+        } else {
+            i = 0;
+        }
+        char c = CharCompanionObject.MAX_VALUE;
+        boolean z3 = false;
+        int i4 = i;
+        char c2 = 65535;
+        while (true) {
+            if (i4 >= length) {
+                break;
+            }
+            char charAt = str.charAt(i4);
+            if (charAt != '\\' && c != '\\') {
+                if (charAt != '\"') {
+                    if (charAt == '\r') {
+                        int i5 = i4 + 1;
+                        if (i5 < length && str.charAt(i5) != '\n') {
+                            throw new AddressException("Quoted local address contains CR without LF", str);
+                        }
+                    } else if (charAt == '\n' && (i2 = i4 + 1) < length && str.charAt(i2) != ' ' && str.charAt(i2) != '\t') {
+                        throw new AddressException("Quoted local address contains newline without whitespace", str);
+                    }
+                    if (z3) {
+                        continue;
+                    } else {
+                        if (charAt == '.') {
+                            if (i4 == i) {
+                                throw new AddressException("Local address starts with dot", str);
+                            }
+                            if (c == '.') {
+                                throw new AddressException("Local address contains dot-dot", str);
+                            }
+                        }
+                        if (charAt == '@') {
+                            if (i4 == 0) {
+                                throw new AddressException("Missing local name", str);
+                            }
+                            if (c == '.') {
+                                throw new AddressException("Local address ends with dot", str);
+                            }
+                            c2 = c;
+                            c = charAt;
+                        } else if (charAt <= ' ' || charAt == 127) {
+                            break;
+                        } else if (specialsNoDot.indexOf(charAt) >= 0) {
+                            throw new AddressException("Local address contains illegal character", str);
+                        }
+                    }
+                } else if (z3) {
+                    if (z2 && (i3 = i4 + 1) < length && str.charAt(i3) != '@') {
+                        throw new AddressException("Quote not at end of local address", str);
+                    }
+                    z3 = false;
+                } else if (z2 && i4 != 0) {
+                    throw new AddressException("Quote not at start of local address", str);
+                } else {
+                    z3 = true;
+                }
+            }
+            i4++;
+            c2 = c;
+            c = charAt;
+        }
     }
 
     private boolean isSimple() {

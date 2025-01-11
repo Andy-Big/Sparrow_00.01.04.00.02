@@ -52,9 +52,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
-/* JADX INFO: Access modifiers changed from: package-private */
+
 /* loaded from: classes.dex */
-public abstract class BaseSlider<S extends BaseSlider<S, L, T>, L extends BaseOnChangeListener<S>, T extends BaseOnSliderTouchListener<S>> extends View {
+abstract class BaseSlider<S extends BaseSlider<S, L, T>, L extends BaseOnChangeListener<S>, T extends BaseOnSliderTouchListener<S>> extends View {
     private static final String EXCEPTION_ILLEGAL_DISCRETE_VALUE = "Value(%s) must be equal to valueFrom(%s) plus a multiple of stepSize(%s) when using stepSize(%s)";
     private static final String EXCEPTION_ILLEGAL_STEP_SIZE = "The stepSize(%s) must be 0, or a factor of the valueFrom(%s)-valueTo(%s) range";
     private static final String EXCEPTION_ILLEGAL_VALUE = "Slider value(%s) must be greater or equal to valueFrom(%s), and lower or equal to valueTo(%s)";
@@ -111,9 +111,8 @@ public abstract class BaseSlider<S extends BaseSlider<S, L, T>, L extends BaseOn
     private static final String TAG = BaseSlider.class.getSimpleName();
     private static final int DEF_STYLE_RES = R.style.Widget_MaterialComponents_Slider;
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public interface TooltipDrawableFactory {
+    private interface TooltipDrawableFactory {
         TooltipDrawable createTooltipDrawable();
     }
 
@@ -328,20 +327,17 @@ public abstract class BaseSlider<S extends BaseSlider<S, L, T>, L extends BaseOn
         postInvalidate();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public List<Float> getValues() {
+    List<Float> getValues() {
         return new ArrayList(this.values);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setValues(Float... fArr) {
+    void setValues(Float... fArr) {
         ArrayList<Float> arrayList = new ArrayList<>();
         Collections.addAll(arrayList, fArr);
         setValuesInternal(arrayList);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setValues(List<Float> list) {
+    void setValues(List<Float> list) {
         setValuesInternal(new ArrayList<>(list));
     }
 
@@ -413,8 +409,7 @@ public abstract class BaseSlider<S extends BaseSlider<S, L, T>, L extends BaseOn
         postInvalidate();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void setActiveThumbIndex(int i) {
+    protected void setActiveThumbIndex(int i) {
         this.activeThumbIdx = i;
     }
 
@@ -1311,9 +1306,8 @@ public abstract class BaseSlider<S extends BaseSlider<S, L, T>, L extends BaseOn
         postDelayed(this.accessibilityEventSender, 200L);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public class AccessibilityEventSender implements Runnable {
+    private class AccessibilityEventSender implements Runnable {
         int virtualViewId;
 
         private AccessibilityEventSender() {
@@ -1355,16 +1349,17 @@ public abstract class BaseSlider<S extends BaseSlider<S, L, T>, L extends BaseOn
         dispatchOnChangedProgramatically();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static class SliderState extends View.BaseSavedState {
+    static class SliderState extends View.BaseSavedState {
         public static final Parcelable.Creator<SliderState> CREATOR = new Parcelable.Creator<SliderState>() { // from class: com.google.android.material.slider.BaseSlider.SliderState.1
+            /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public SliderState createFromParcel(Parcel parcel) {
                 return new SliderState(parcel);
             }
 
+            /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public SliderState[] newArray(int i) {

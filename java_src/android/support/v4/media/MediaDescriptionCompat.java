@@ -8,7 +8,9 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.support.v4.media.MediaDescriptionCompatApi21;
 import android.support.v4.media.MediaDescriptionCompatApi23;
+import android.support.v4.media.session.MediaSessionCompat;
 import android.text.TextUtils;
+
 /* loaded from: classes.dex */
 public final class MediaDescriptionCompat implements Parcelable {
     public static final long BT_FOLDER_TYPE_ALBUMS = 2;
@@ -19,6 +21,7 @@ public final class MediaDescriptionCompat implements Parcelable {
     public static final long BT_FOLDER_TYPE_TITLES = 1;
     public static final long BT_FOLDER_TYPE_YEARS = 6;
     public static final Parcelable.Creator<MediaDescriptionCompat> CREATOR = new Parcelable.Creator<MediaDescriptionCompat>() { // from class: android.support.v4.media.MediaDescriptionCompat.1
+        /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
         public MediaDescriptionCompat createFromParcel(Parcel parcel) {
@@ -28,6 +31,7 @@ public final class MediaDescriptionCompat implements Parcelable {
             return MediaDescriptionCompat.fromMediaDescription(MediaDescriptionCompatApi21.fromParcel(parcel));
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
         public MediaDescriptionCompat[] newArray(int i) {
@@ -163,70 +167,49 @@ public final class MediaDescriptionCompat implements Parcelable {
     /* JADX WARN: Removed duplicated region for block: B:21:0x006d  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    public static android.support.v4.media.MediaDescriptionCompat fromMediaDescription(java.lang.Object r8) {
-        /*
-            r0 = 0
-            if (r8 == 0) goto L80
-            int r1 = android.os.Build.VERSION.SDK_INT
-            r2 = 21
-            if (r1 < r2) goto L80
-            android.support.v4.media.MediaDescriptionCompat$Builder r1 = new android.support.v4.media.MediaDescriptionCompat$Builder
-            r1.<init>()
-            java.lang.String r2 = android.support.v4.media.MediaDescriptionCompatApi21.getMediaId(r8)
-            r1.setMediaId(r2)
-            java.lang.CharSequence r2 = android.support.v4.media.MediaDescriptionCompatApi21.getTitle(r8)
-            r1.setTitle(r2)
-            java.lang.CharSequence r2 = android.support.v4.media.MediaDescriptionCompatApi21.getSubtitle(r8)
-            r1.setSubtitle(r2)
-            java.lang.CharSequence r2 = android.support.v4.media.MediaDescriptionCompatApi21.getDescription(r8)
-            r1.setDescription(r2)
-            android.graphics.Bitmap r2 = android.support.v4.media.MediaDescriptionCompatApi21.getIconBitmap(r8)
-            r1.setIconBitmap(r2)
-            android.net.Uri r2 = android.support.v4.media.MediaDescriptionCompatApi21.getIconUri(r8)
-            r1.setIconUri(r2)
-            android.os.Bundle r2 = android.support.v4.media.MediaDescriptionCompatApi21.getExtras(r8)
-            java.lang.String r3 = "android.support.v4.media.description.MEDIA_URI"
-            if (r2 == 0) goto L4a
-            android.support.v4.media.session.MediaSessionCompat.ensureClassLoader(r2)
-            android.os.Parcelable r4 = r2.getParcelable(r3)
-            android.net.Uri r4 = (android.net.Uri) r4
-            goto L4b
-        L4a:
-            r4 = r0
-        L4b:
-            if (r4 == 0) goto L63
-            java.lang.String r5 = "android.support.v4.media.description.NULL_BUNDLE_FLAG"
-            boolean r6 = r2.containsKey(r5)
-            if (r6 == 0) goto L5d
-            int r6 = r2.size()
-            r7 = 2
-            if (r6 != r7) goto L5d
-            goto L64
-        L5d:
-            r2.remove(r3)
-            r2.remove(r5)
-        L63:
-            r0 = r2
-        L64:
-            r1.setExtras(r0)
-            if (r4 == 0) goto L6d
-            r1.setMediaUri(r4)
-            goto L7a
-        L6d:
-            int r0 = android.os.Build.VERSION.SDK_INT
-            r2 = 23
-            if (r0 < r2) goto L7a
-            android.net.Uri r0 = android.support.v4.media.MediaDescriptionCompatApi23.getMediaUri(r8)
-            r1.setMediaUri(r0)
-        L7a:
-            android.support.v4.media.MediaDescriptionCompat r0 = r1.build()
-            r0.mDescriptionObj = r8
-        L80:
-            return r0
-        */
-        throw new UnsupportedOperationException("Method not decompiled: android.support.v4.media.MediaDescriptionCompat.fromMediaDescription(java.lang.Object):android.support.v4.media.MediaDescriptionCompat");
+    public static MediaDescriptionCompat fromMediaDescription(Object obj) {
+        Uri uri;
+        Bundle bundle = null;
+        if (obj == null || Build.VERSION.SDK_INT < 21) {
+            return null;
+        }
+        Builder builder = new Builder();
+        builder.setMediaId(MediaDescriptionCompatApi21.getMediaId(obj));
+        builder.setTitle(MediaDescriptionCompatApi21.getTitle(obj));
+        builder.setSubtitle(MediaDescriptionCompatApi21.getSubtitle(obj));
+        builder.setDescription(MediaDescriptionCompatApi21.getDescription(obj));
+        builder.setIconBitmap(MediaDescriptionCompatApi21.getIconBitmap(obj));
+        builder.setIconUri(MediaDescriptionCompatApi21.getIconUri(obj));
+        Bundle extras = MediaDescriptionCompatApi21.getExtras(obj);
+        if (extras != null) {
+            MediaSessionCompat.ensureClassLoader(extras);
+            uri = (Uri) extras.getParcelable(DESCRIPTION_KEY_MEDIA_URI);
+        } else {
+            uri = null;
+        }
+        if (uri != null) {
+            if (!extras.containsKey(DESCRIPTION_KEY_NULL_BUNDLE_FLAG) || extras.size() != 2) {
+                extras.remove(DESCRIPTION_KEY_MEDIA_URI);
+                extras.remove(DESCRIPTION_KEY_NULL_BUNDLE_FLAG);
+            }
+            builder.setExtras(bundle);
+            if (uri == null) {
+                builder.setMediaUri(uri);
+            } else if (Build.VERSION.SDK_INT >= 23) {
+                builder.setMediaUri(MediaDescriptionCompatApi23.getMediaUri(obj));
+            }
+            MediaDescriptionCompat build = builder.build();
+            build.mDescriptionObj = obj;
+            return build;
+        }
+        bundle = extras;
+        builder.setExtras(bundle);
+        if (uri == null) {
+        }
+        MediaDescriptionCompat build2 = builder.build();
+        build2.mDescriptionObj = obj;
+        return build2;
     }
 
     /* loaded from: classes.dex */

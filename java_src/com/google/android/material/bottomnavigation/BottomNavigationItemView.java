@@ -25,6 +25,7 @@ import androidx.core.widget.TextViewCompat;
 import com.google.android.material.R;
 import com.google.android.material.badge.BadgeDrawable;
 import com.google.android.material.badge.BadgeUtils;
+
 /* loaded from: classes.dex */
 public class BottomNavigationItemView extends FrameLayout implements MenuView.ItemView {
     private static final int[] CHECKED_STATE_SET = {16842912};
@@ -362,8 +363,7 @@ public class BottomNavigationItemView extends FrameLayout implements MenuView.It
         ViewCompat.setBackground(this, drawable);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setBadge(BadgeDrawable badgeDrawable) {
+    void setBadge(BadgeDrawable badgeDrawable) {
         this.badgeDrawable = badgeDrawable;
         ImageView imageView = this.icon;
         if (imageView != null) {
@@ -375,8 +375,7 @@ public class BottomNavigationItemView extends FrameLayout implements MenuView.It
         return this.badgeDrawable;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void removeBadge() {
+    void removeBadge() {
         tryRemoveBadgeFromAnchor(this.icon);
     }
 

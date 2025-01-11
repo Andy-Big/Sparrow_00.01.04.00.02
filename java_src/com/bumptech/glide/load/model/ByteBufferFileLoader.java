@@ -11,15 +11,18 @@ import com.bumptech.glide.util.ByteBufferUtil;
 import java.io.File;
 import java.io.IOException;
 import java.nio.ByteBuffer;
+
 /* loaded from: classes.dex */
 public class ByteBufferFileLoader implements ModelLoader<File, ByteBuffer> {
     private static final String TAG = "ByteBufferFileLoader";
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.model.ModelLoader
     public boolean handles(File file) {
         return true;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.model.ModelLoader
     public ModelLoader.LoadData<ByteBuffer> buildLoadData(File file, int i, int i2, Options options) {
         return new ModelLoader.LoadData<>(new ObjectKey(file), new ByteBufferFetcher(file));
@@ -37,9 +40,8 @@ public class ByteBufferFileLoader implements ModelLoader<File, ByteBuffer> {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static final class ByteBufferFetcher implements DataFetcher<ByteBuffer> {
+    private static final class ByteBufferFetcher implements DataFetcher<ByteBuffer> {
         private final File file;
 
         @Override // com.bumptech.glide.load.data.DataFetcher

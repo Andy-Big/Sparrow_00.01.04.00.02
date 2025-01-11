@@ -1,4 +1,5 @@
 package javax.mail.event;
+
 /* loaded from: classes2.dex */
 public abstract class FolderAdapter implements FolderListener {
     @Override // javax.mail.event.FolderListener

@@ -5,6 +5,7 @@ import android.webkit.DownloadListener;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import kotlin.jvm.internal.LongCompanionObject;
+
 /* loaded from: classes.dex */
 public abstract class AbsAgentWebSettings implements IAgentWebSettings, WebListenerManager {
     private static final String TAG = AbsAgentWebSettings.class.getSimpleName();
@@ -20,8 +21,7 @@ public abstract class AbsAgentWebSettings implements IAgentWebSettings, WebListe
         return new AgentWebSettingsImpl();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public final void bindAgentWeb(AgentWeb agentWeb) {
+    final void bindAgentWeb(AgentWeb agentWeb) {
         this.mAgentWeb = agentWeb;
         bindAgentWebSupport(agentWeb);
     }

@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.ByteBuffer;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public class StreamGifDecoder implements ResourceDecoder<InputStream, GifDrawable> {
     private static final String TAG = "StreamGifDecoder";
@@ -25,11 +26,13 @@ public class StreamGifDecoder implements ResourceDecoder<InputStream, GifDrawabl
         this.byteArrayPool = arrayPool;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.ResourceDecoder
     public boolean handles(InputStream inputStream, Options options) throws IOException {
         return !((Boolean) options.get(GifOptions.DISABLE_ANIMATION)).booleanValue() && ImageHeaderParserUtils.getType(this.parsers, inputStream, this.byteArrayPool) == ImageHeaderParser.ImageType.GIF;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.ResourceDecoder
     public Resource<GifDrawable> decode(InputStream inputStream, int i, int i2, Options options) throws IOException {
         byte[] inputStreamToBytes = inputStreamToBytes(inputStream);

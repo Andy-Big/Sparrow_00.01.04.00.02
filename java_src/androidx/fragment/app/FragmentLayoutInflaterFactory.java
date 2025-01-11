@@ -7,14 +7,13 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import androidx.fragment.R;
-/* JADX INFO: Access modifiers changed from: package-private */
+
 /* loaded from: classes.dex */
-public class FragmentLayoutInflaterFactory implements LayoutInflater.Factory2 {
+class FragmentLayoutInflaterFactory implements LayoutInflater.Factory2 {
     private static final String TAG = "FragmentManager";
     private final FragmentManager mFragmentManager;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public FragmentLayoutInflaterFactory(FragmentManager fragmentManager) {
+    FragmentLayoutInflaterFactory(FragmentManager fragmentManager) {
         this.mFragmentManager = fragmentManager;
     }
 

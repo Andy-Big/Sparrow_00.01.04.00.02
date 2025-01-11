@@ -3,6 +3,7 @@ package androidx.core.app;
 import android.app.Dialog;
 import android.os.Build;
 import android.view.View;
+
 /* loaded from: classes.dex */
 public class DialogCompat {
     private DialogCompat() {

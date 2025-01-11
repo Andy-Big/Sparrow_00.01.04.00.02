@@ -2,11 +2,15 @@ package androidx.transition;
 
 import android.graphics.Matrix;
 import android.view.View;
+
 /* loaded from: classes.dex */
 class ViewUtilsApi21 extends ViewUtilsApi19 {
     private static boolean sTryHiddenSetAnimationMatrix = true;
     private static boolean sTryHiddenTransformMatrixToGlobal = true;
     private static boolean sTryHiddenTransformMatrixToLocal = true;
+
+    ViewUtilsApi21() {
+    }
 
     @Override // androidx.transition.ViewUtilsBase
     public void transformMatrixToGlobal(View view, Matrix matrix) {

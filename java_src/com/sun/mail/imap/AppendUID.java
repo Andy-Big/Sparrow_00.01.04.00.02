@@ -1,4 +1,5 @@
 package com.sun.mail.imap;
+
 /* loaded from: classes2.dex */
 public class AppendUID {
     public long uid;

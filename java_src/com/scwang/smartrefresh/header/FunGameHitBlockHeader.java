@@ -13,6 +13,7 @@ import com.scwang.smartrefresh.layout.util.DensityUtil;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+
 /* loaded from: classes2.dex */
 public class FunGameHitBlockHeader extends FunGameView {
     protected static final int BLOCK_HORIZONTAL_NUM = 3;

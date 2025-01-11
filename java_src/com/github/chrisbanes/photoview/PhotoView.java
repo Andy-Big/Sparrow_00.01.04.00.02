@@ -10,6 +10,7 @@ import android.view.GestureDetector;
 import android.view.View;
 import android.widget.ImageView;
 import androidx.appcompat.widget.AppCompatImageView;
+
 /* loaded from: classes.dex */
 public class PhotoView extends AppCompatImageView {
     private PhotoViewAttacher attacher;

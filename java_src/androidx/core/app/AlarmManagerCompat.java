@@ -3,6 +3,7 @@ package androidx.core.app;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.os.Build;
+
 /* loaded from: classes.dex */
 public final class AlarmManagerCompat {
     public static void setAlarmClock(AlarmManager alarmManager, long j, PendingIntent pendingIntent, PendingIntent pendingIntent2) {

@@ -1,4 +1,5 @@
 package com.sun.activation.registries;
+
 /* loaded from: classes2.dex */
 public class MimeTypeEntry {
     private String extension;

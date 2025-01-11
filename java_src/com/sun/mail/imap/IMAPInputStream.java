@@ -14,6 +14,7 @@ import javax.mail.Folder;
 import javax.mail.FolderClosedException;
 import javax.mail.MessagingException;
 import kotlin.UByte;
+
 /* loaded from: classes2.dex */
 public class IMAPInputStream extends InputStream {
     private static final int slop = 64;
@@ -42,12 +43,12 @@ public class IMAPInputStream extends InputStream {
             try {
                 try {
                     this.msg.getProtocol().noop();
-                } catch (ConnectionException e) {
-                    throw new FolderClosedIOException(this.msg.getFolder(), e.getMessage());
+                } catch (ProtocolException unused) {
+                } catch (FolderClosedException e) {
+                    throw new FolderClosedIOException(e.getFolder(), e.getMessage());
                 }
-            } catch (ProtocolException unused) {
-            } catch (FolderClosedException e2) {
-                throw new FolderClosedIOException(e2.getFolder(), e2.getMessage());
+            } catch (ConnectionException e2) {
+                throw new FolderClosedIOException(this.msg.getFolder(), e2.getMessage());
             }
         }
         if (this.msg.isExpunged()) {

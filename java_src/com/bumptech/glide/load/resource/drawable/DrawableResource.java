@@ -6,6 +6,7 @@ import com.bumptech.glide.load.engine.Initializable;
 import com.bumptech.glide.load.engine.Resource;
 import com.bumptech.glide.load.resource.gif.GifDrawable;
 import com.bumptech.glide.util.Preconditions;
+
 /* loaded from: classes.dex */
 public abstract class DrawableResource<T extends Drawable> implements Resource<T>, Initializable {
     protected final T drawable;
@@ -14,6 +15,7 @@ public abstract class DrawableResource<T extends Drawable> implements Resource<T
         this.drawable = (T) Preconditions.checkNotNull(t);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.engine.Resource
     public final T get() {
         Drawable.ConstantState constantState = this.drawable.getConstantState();

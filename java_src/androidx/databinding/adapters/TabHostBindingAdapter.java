@@ -2,6 +2,7 @@ package androidx.databinding.adapters;
 
 import android.widget.TabHost;
 import androidx.databinding.InverseBindingListener;
+
 /* loaded from: classes.dex */
 public class TabHostBindingAdapter {
     public static int getCurrentTab(TabHost tabHost) {

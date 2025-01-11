@@ -15,6 +15,7 @@ import java.util.Collections;
 import java.util.Set;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
+
 /* loaded from: classes2.dex */
 public class WriteTimeoutSocket extends Socket {
     private final ScheduledExecutorService ses;

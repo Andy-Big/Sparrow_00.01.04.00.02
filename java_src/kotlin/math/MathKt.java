@@ -1,6 +1,7 @@
 package kotlin.math;
 
 import kotlin.Metadata;
+
 @Metadata(bv = {1, 0, 3}, d1 = {"kotlin/math/MathKt__MathHKt", "kotlin/math/MathKt__MathJVMKt"}, k = 4, mv = {1, 4, 0}, xi = 1)
 /* loaded from: classes2.dex */
 public final class MathKt extends MathKt__MathJVMKt {

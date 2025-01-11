@@ -27,6 +27,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+
 /* loaded from: classes.dex */
 public final class PrintHelper {
     public static final int COLOR_MODE_COLOR = 2;
@@ -109,9 +110,8 @@ public final class PrintHelper {
         printManager.print(str, new PrintBitmapAdapter(str, this.mScaleMode, bitmap, onPrintFinishCallback), new PrintAttributes.Builder().setMediaSize(mediaSize).setColorMode(this.mColorMode).build());
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public class PrintBitmapAdapter extends PrintDocumentAdapter {
+    private class PrintBitmapAdapter extends PrintDocumentAdapter {
         private PrintAttributes mAttributes;
         private final Bitmap mBitmap;
         private final OnPrintFinishCallback mCallback;
@@ -166,9 +166,8 @@ public final class PrintHelper {
         printManager.print(str, printUriAdapter, builder.build());
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public class PrintUriAdapter extends PrintDocumentAdapter {
+    private class PrintUriAdapter extends PrintDocumentAdapter {
         PrintAttributes mAttributes;
         Bitmap mBitmap = null;
         final OnPrintFinishCallback mCallback;
@@ -207,6 +206,7 @@ public final class PrintHelper {
                         });
                     }
 
+                    /* JADX DEBUG: Method merged with bridge method */
                     /* JADX INFO: Access modifiers changed from: protected */
                     @Override // android.os.AsyncTask
                     public Bitmap doInBackground(Uri... uriArr) {
@@ -217,6 +217,7 @@ public final class PrintHelper {
                         }
                     }
 
+                    /* JADX DEBUG: Method merged with bridge method */
                     /* JADX INFO: Access modifiers changed from: protected */
                     @Override // android.os.AsyncTask
                     public void onPostExecute(Bitmap bitmap) {
@@ -241,6 +242,7 @@ public final class PrintHelper {
                         PrintUriAdapter.this.mLoadBitmap = null;
                     }
 
+                    /* JADX DEBUG: Method merged with bridge method */
                     /* JADX INFO: Access modifiers changed from: protected */
                     @Override // android.os.AsyncTask
                     public void onCancelled(Bitmap bitmap) {
@@ -321,6 +323,7 @@ public final class PrintHelper {
     void writeBitmap(final PrintAttributes printAttributes, final int i, final Bitmap bitmap, final ParcelFileDescriptor parcelFileDescriptor, final CancellationSignal cancellationSignal, final PrintDocumentAdapter.WriteResultCallback writeResultCallback) {
         final PrintAttributes build = IS_MIN_MARGINS_HANDLING_CORRECT ? printAttributes : copyAttributes(printAttributes).setMinMargins(new PrintAttributes.Margins(0, 0, 0, 0)).build();
         new AsyncTask<Void, Void, Throwable>() { // from class: androidx.print.PrintHelper.1
+            /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // android.os.AsyncTask
             public Throwable doInBackground(Void... voidArr) {
@@ -382,6 +385,7 @@ public final class PrintHelper {
                 }
             }
 
+            /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // android.os.AsyncTask
             public void onPostExecute(Throwable th) {
@@ -397,6 +401,7 @@ public final class PrintHelper {
         }.execute(new Void[0]);
     }
 
+    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
     Bitmap loadConstrainedBitmap(Uri uri) throws FileNotFoundException {
         BitmapFactory.Options options;
         if (uri == null || this.mContext == null) {
@@ -441,36 +446,37 @@ public final class PrintHelper {
 
     private Bitmap loadBitmap(Uri uri, BitmapFactory.Options options) throws FileNotFoundException {
         Context context;
+        InputStream openInputStream;
         if (uri == null || (context = this.mContext) == null) {
             throw new IllegalArgumentException("bad argument to loadBitmap");
         }
         InputStream inputStream = null;
         try {
-            InputStream openInputStream = context.getContentResolver().openInputStream(uri);
-            try {
-                Bitmap decodeStream = BitmapFactory.decodeStream(openInputStream, null, options);
-                if (openInputStream != null) {
-                    try {
-                        openInputStream.close();
-                    } catch (IOException e) {
-                        Log.w(LOG_TAG, "close fail ", e);
-                    }
+            openInputStream = context.getContentResolver().openInputStream(uri);
+        } catch (Throwable th) {
+            th = th;
+        }
+        try {
+            Bitmap decodeStream = BitmapFactory.decodeStream(openInputStream, null, options);
+            if (openInputStream != null) {
+                try {
+                    openInputStream.close();
+                } catch (IOException e) {
+                    Log.w(LOG_TAG, "close fail ", e);
                 }
-                return decodeStream;
-            } catch (Throwable th) {
-                th = th;
-                inputStream = openInputStream;
-                if (inputStream != null) {
-                    try {
-                        inputStream.close();
-                    } catch (IOException e2) {
-                        Log.w(LOG_TAG, "close fail ", e2);
-                    }
-                }
-                throw th;
             }
+            return decodeStream;
         } catch (Throwable th2) {
             th = th2;
+            inputStream = openInputStream;
+            if (inputStream != null) {
+                try {
+                    inputStream.close();
+                } catch (IOException e2) {
+                    Log.w(LOG_TAG, "close fail ", e2);
+                }
+            }
+            throw th;
         }
     }
 

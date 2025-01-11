@@ -1,6 +1,7 @@
 package androidx.core.graphics;
 
 import android.graphics.Rect;
+
 /* loaded from: classes.dex */
 public final class Insets {
     public static final Insets NONE = new Insets(0, 0, 0, 0);

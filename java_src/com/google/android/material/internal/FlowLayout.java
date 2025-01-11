@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import androidx.core.view.MarginLayoutParamsCompat;
 import androidx.core.view.ViewCompat;
 import com.google.android.material.R;
+
 /* loaded from: classes.dex */
 public class FlowLayout extends ViewGroup {
     private int itemSpacing;
@@ -46,8 +47,7 @@ public class FlowLayout extends ViewGroup {
         return this.lineSpacing;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void setLineSpacing(int i) {
+    protected void setLineSpacing(int i) {
         this.lineSpacing = i;
     }
 
@@ -55,8 +55,7 @@ public class FlowLayout extends ViewGroup {
         return this.itemSpacing;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void setItemSpacing(int i) {
+    protected void setItemSpacing(int i) {
         this.itemSpacing = i;
     }
 
@@ -176,8 +175,7 @@ public class FlowLayout extends ViewGroup {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public int getRowCount() {
+    protected int getRowCount() {
         return this.rowCount;
     }
 

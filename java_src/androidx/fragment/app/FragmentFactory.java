@@ -3,6 +3,7 @@ package androidx.fragment.app;
 import androidx.collection.SimpleArrayMap;
 import androidx.fragment.app.Fragment;
 import java.lang.reflect.InvocationTargetException;
+
 /* loaded from: classes.dex */
 public class FragmentFactory {
     private static final SimpleArrayMap<String, Class<?>> sClassMap = new SimpleArrayMap<>();
@@ -17,8 +18,7 @@ public class FragmentFactory {
         return cls;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static boolean isFragmentClass(ClassLoader classLoader, String str) {
+    static boolean isFragmentClass(ClassLoader classLoader, String str) {
         try {
             return Fragment.class.isAssignableFrom(loadClass(classLoader, str));
         } catch (ClassNotFoundException unused) {
@@ -26,6 +26,7 @@ public class FragmentFactory {
         }
     }
 
+    /* JADX DEBUG: Type inference failed for r3v3. Raw type applied. Possible types: java.lang.Class<?>, java.lang.Class<? extends androidx.fragment.app.Fragment> */
     public static Class<? extends Fragment> loadFragmentClass(ClassLoader classLoader, String str) {
         try {
             return loadClass(classLoader, str);

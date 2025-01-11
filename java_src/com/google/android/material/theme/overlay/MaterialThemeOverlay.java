@@ -5,6 +5,7 @@ import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import androidx.appcompat.view.ContextThemeWrapper;
 import com.google.android.material.R;
+
 /* loaded from: classes.dex */
 public class MaterialThemeOverlay {
     private static final int[] ANDROID_THEME_OVERLAY_ATTRS = {16842752, R.attr.theme};

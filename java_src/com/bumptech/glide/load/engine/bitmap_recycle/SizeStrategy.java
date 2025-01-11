@@ -3,6 +3,7 @@ package com.bumptech.glide.load.engine.bitmap_recycle;
 import android.graphics.Bitmap;
 import com.bumptech.glide.util.Util;
 import java.util.NavigableMap;
+
 /* loaded from: classes.dex */
 final class SizeStrategy implements LruPoolStrategy {
     private static final int MAX_SIZE_MULTIPLE = 8;
@@ -94,6 +95,7 @@ final class SizeStrategy implements LruPoolStrategy {
             return key;
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.bumptech.glide.load.engine.bitmap_recycle.BaseKeyPool
         public Key create() {
@@ -101,9 +103,8 @@ final class SizeStrategy implements LruPoolStrategy {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static final class Key implements Poolable {
+    static final class Key implements Poolable {
         private final KeyPool pool;
         int size;
 

@@ -55,6 +55,11 @@ public final class AllMeasureWindowHolder extends WindowHolder {
     private final UpdateUIViewModel updateUIViewModel;
     private VerticalParam verticalParam;
 
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.views.window.AllMeasureWindowHolder$2$$special$$inlined$let$lambda$2.onPropertyChanged(androidx.databinding.Observable, int):void] */
+    public static final /* synthetic */ void access$showContentView(AllMeasureWindowHolder allMeasureWindowHolder, VerticalParam verticalParam) {
+        allMeasureWindowHolder.showContentView(verticalParam);
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AllMeasureWindowHolder(Context context, final WindowParam windowParam) {
         super(windowParam);
@@ -68,10 +73,17 @@ public final class AllMeasureWindowHolder extends WindowHolder {
             throw new NullPointerException("null cannot be cast to non-null type androidx.lifecycle.LifecycleOwner");
         }
         liveData2.observe((LifecycleOwner) topActivity, new Observer<SharedParam>() { // from class: com.rigol.scope.views.window.AllMeasureWindowHolder.1
-            /* JADX DEBUG: Method merged with bridge method */
+            {
+                AllMeasureWindowHolder.this = this;
+            }
+
             @Override // androidx.lifecycle.Observer
             public final void onChanged(final SharedParam sharedParam) {
                 sharedParam.addOnPropertyChangedCallback(new Observable.OnPropertyChangedCallback() { // from class: com.rigol.scope.views.window.AllMeasureWindowHolder.1.1
+                    {
+                        AnonymousClass1.this = this;
+                    }
+
                     @Override // androidx.databinding.Observable.OnPropertyChangedCallback
                     public void onPropertyChanged(Observable observable, int i) {
                         if (!sharedParam.getShowResultBar() || AllMeasureWindowHolder.this.getBinding().getRoot() == null) {
@@ -266,16 +278,16 @@ public final class AllMeasureWindowHolder extends WindowHolder {
 
     /* compiled from: WindowHolder.kt */
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0018\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\u0010\u0000\u001a\u00020\u000120\u0010\u0002\u001a,\u0012\u0004\u0012\u00020\u0004 \u0006*\u0016\u0012\u0004\u0012\u00020\u0004\u0018\u00010\u0003j\n\u0012\u0004\u0012\u00020\u0004\u0018\u0001`\u00050\u0003j\b\u0012\u0004\u0012\u00020\u0004`\u0005H\n¢\u0006\u0002\b\u0007"}, d2 = {"<anonymous>", "", "it", "Ljava/util/ArrayList;", "Lcom/rigol/scope/data/VerticalParam;", "Lkotlin/collections/ArrayList;", "kotlin.jvm.PlatformType", "onChanged"}, k = 3, mv = {1, 4, 1})
-    /* renamed from: com.rigol.scope.views.window.AllMeasureWindowHolder$2  reason: invalid class name */
+    /* renamed from: com.rigol.scope.views.window.AllMeasureWindowHolder$2 */
     /* loaded from: classes2.dex */
     static final class AnonymousClass2<T> implements Observer<ArrayList<VerticalParam>> {
         final /* synthetic */ WindowParam $windowParam;
 
         AnonymousClass2(WindowParam windowParam) {
+            AllMeasureWindowHolder.this = r1;
             this.$windowParam = windowParam;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.lifecycle.Observer
         public final void onChanged(ArrayList<VerticalParam> arrayList) {
             if (arrayList != null) {
@@ -287,7 +299,7 @@ public final class AllMeasureWindowHolder extends WindowHolder {
                         @Override // androidx.databinding.Observable.OnPropertyChangedCallback
                         public void onPropertyChanged(Observable observable, int i) {
                             if (i == 909) {
-                                AllMeasureWindowHolder.this.showContentView(VerticalParam.this);
+                                AllMeasureWindowHolder.access$showContentView(AllMeasureWindowHolder.this, VerticalParam.this);
                             }
                         }
                     });
@@ -296,7 +308,6 @@ public final class AllMeasureWindowHolder extends WindowHolder {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public final void showContentView(VerticalParam verticalParam) {
         if (verticalParam.getStatus() == ServiceEnum.enChanStatus.CHAN_OFF) {
             this.binding.windowLayout.showEmptyView();

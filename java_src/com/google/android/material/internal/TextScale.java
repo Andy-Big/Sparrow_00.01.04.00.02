@@ -7,6 +7,7 @@ import android.widget.TextView;
 import androidx.transition.Transition;
 import androidx.transition.TransitionValues;
 import java.util.Map;
+
 /* loaded from: classes.dex */
 public class TextScale extends Transition {
     private static final String PROPNAME_SCALE = "android:textscale:scale";

@@ -6,6 +6,7 @@ import android.os.Build;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewParent;
+
 /* loaded from: classes.dex */
 public abstract class VirtualLayout extends ConstraintHelper {
     private boolean mApplyElevationOnAttach;
@@ -26,9 +27,8 @@ public abstract class VirtualLayout extends ConstraintHelper {
         super(context, attributeSet, i);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // androidx.constraintlayout.widget.ConstraintHelper
-    public void init(AttributeSet attributeSet) {
+    protected void init(AttributeSet attributeSet) {
         super.init(attributeSet);
         if (attributeSet != null) {
             TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, R.styleable.ConstraintLayout_Layout);

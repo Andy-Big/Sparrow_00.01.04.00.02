@@ -7,6 +7,7 @@ import android.util.Log;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
+
 @Deprecated
 /* loaded from: classes.dex */
 public final class ManifestParser {

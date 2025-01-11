@@ -14,6 +14,7 @@ import androidx.core.view.ViewCompat;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import org.xmlpull.v1.XmlPullParser;
+
 /* loaded from: classes.dex */
 public class Slide extends Visibility {
     private static final String PROPNAME_SCREEN_POSITION = "android:slide:screenPosition";
@@ -64,9 +65,8 @@ public class Slide extends Visibility {
         }
     };
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public interface CalculateSlide {
+    private interface CalculateSlide {
         float getGoneX(ViewGroup viewGroup, View view);
 
         float getGoneY(ViewGroup viewGroup, View view);

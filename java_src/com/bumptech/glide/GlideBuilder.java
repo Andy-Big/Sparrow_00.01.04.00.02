@@ -26,6 +26,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+
 /* loaded from: classes.dex */
 public final class GlideBuilder {
     private GlideExecutor animationExecutor;
@@ -160,8 +161,7 @@ public final class GlideBuilder {
         return this;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setRequestManagerFactory(RequestManagerRetriever.RequestManagerFactory requestManagerFactory) {
+    void setRequestManagerFactory(RequestManagerRetriever.RequestManagerFactory requestManagerFactory) {
         this.requestManagerFactory = requestManagerFactory;
     }
 
@@ -170,8 +170,7 @@ public final class GlideBuilder {
         return this;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public Glide build(Context context) {
+    Glide build(Context context) {
         if (this.sourceExecutor == null) {
             this.sourceExecutor = GlideExecutor.newSourceExecutor();
         }

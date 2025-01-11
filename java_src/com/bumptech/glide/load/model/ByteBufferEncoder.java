@@ -7,10 +7,12 @@ import com.bumptech.glide.util.ByteBufferUtil;
 import java.io.File;
 import java.io.IOException;
 import java.nio.ByteBuffer;
+
 /* loaded from: classes.dex */
 public class ByteBufferEncoder implements Encoder<ByteBuffer> {
     private static final String TAG = "ByteBufferEncoder";
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.Encoder
     public boolean encode(ByteBuffer byteBuffer, File file, Options options) {
         try {

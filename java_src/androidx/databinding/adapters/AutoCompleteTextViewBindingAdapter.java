@@ -2,6 +2,7 @@ package androidx.databinding.adapters;
 
 import android.widget.AutoCompleteTextView;
 import androidx.databinding.adapters.AdapterViewBindingAdapter;
+
 /* loaded from: classes.dex */
 public class AutoCompleteTextViewBindingAdapter {
 

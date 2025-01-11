@@ -7,6 +7,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
+
 /* loaded from: classes.dex */
 public class LruBitmapPool implements BitmapPool {
     private static final Bitmap.Config DEFAULT_CONFIG = Bitmap.Config.ARGB_8888;
@@ -22,9 +23,8 @@ public class LruBitmapPool implements BitmapPool {
     private final LruPoolStrategy strategy;
     private final BitmapTracker tracker;
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public interface BitmapTracker {
+    private interface BitmapTracker {
         void add(Bitmap bitmap);
 
         void remove(Bitmap bitmap);

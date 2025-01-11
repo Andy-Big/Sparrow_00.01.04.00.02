@@ -41,6 +41,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public class AppBarLayout extends LinearLayout implements CoordinatorLayout.AttachedBehavior {
     private static final int DEF_STYLE_RES = R.style.Widget_Design_AppBarLayout;
@@ -353,17 +354,20 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
         return layoutParams instanceof LayoutParams;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.widget.LinearLayout, android.view.ViewGroup
     public LayoutParams generateDefaultLayoutParams() {
         return new LayoutParams(-1, -2);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.LinearLayout, android.view.ViewGroup
     public LayoutParams generateLayoutParams(AttributeSet attributeSet) {
         return new LayoutParams(getContext(), attributeSet);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.widget.LinearLayout, android.view.ViewGroup
     public LayoutParams generateLayoutParams(ViewGroup.LayoutParams layoutParams) {
@@ -874,9 +878,8 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     /* loaded from: classes.dex */
-    public static class BaseBehavior<T extends AppBarLayout> extends HeaderBehavior<T> {
+    protected static class BaseBehavior<T extends AppBarLayout> extends HeaderBehavior<T> {
         private static final int INVALID_POSITION = -1;
         private static final int MAX_OFFSET_ANIMATION_DURATION = 600;
         private WeakReference<View> lastNestedScrollingChildRef;
@@ -897,78 +900,91 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
             return (i & i2) == i2;
         }
 
+        /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.google.android.material.appbar.AppBarLayout$BaseBehavior<T extends com.google.android.material.appbar.AppBarLayout> */
         /* JADX WARN: Multi-variable type inference failed */
         @Override // com.google.android.material.appbar.HeaderBehavior
         /* bridge */ /* synthetic */ boolean canDragView(View view) {
             return canDragView((BaseBehavior<T>) ((AppBarLayout) view));
         }
 
+        /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.google.android.material.appbar.AppBarLayout$BaseBehavior<T extends com.google.android.material.appbar.AppBarLayout> */
         /* JADX WARN: Multi-variable type inference failed */
         @Override // com.google.android.material.appbar.HeaderBehavior
         /* bridge */ /* synthetic */ int getMaxDragOffset(View view) {
             return getMaxDragOffset((BaseBehavior<T>) ((AppBarLayout) view));
         }
 
+        /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.google.android.material.appbar.AppBarLayout$BaseBehavior<T extends com.google.android.material.appbar.AppBarLayout> */
         /* JADX WARN: Multi-variable type inference failed */
         @Override // com.google.android.material.appbar.HeaderBehavior
         /* bridge */ /* synthetic */ int getScrollRangeForDragFling(View view) {
             return getScrollRangeForDragFling((BaseBehavior<T>) ((AppBarLayout) view));
         }
 
+        /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.google.android.material.appbar.AppBarLayout$BaseBehavior<T extends com.google.android.material.appbar.AppBarLayout> */
         /* JADX WARN: Multi-variable type inference failed */
         @Override // com.google.android.material.appbar.HeaderBehavior
         /* bridge */ /* synthetic */ void onFlingFinished(CoordinatorLayout coordinatorLayout, View view) {
             onFlingFinished(coordinatorLayout, (CoordinatorLayout) ((AppBarLayout) view));
         }
 
+        /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.google.android.material.appbar.AppBarLayout$BaseBehavior<T extends com.google.android.material.appbar.AppBarLayout> */
         /* JADX WARN: Multi-variable type inference failed */
         @Override // com.google.android.material.appbar.ViewOffsetBehavior, androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
         public /* bridge */ /* synthetic */ boolean onLayoutChild(CoordinatorLayout coordinatorLayout, View view, int i) {
             return onLayoutChild(coordinatorLayout, (CoordinatorLayout) ((AppBarLayout) view), i);
         }
 
+        /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.google.android.material.appbar.AppBarLayout$BaseBehavior<T extends com.google.android.material.appbar.AppBarLayout> */
         /* JADX WARN: Multi-variable type inference failed */
         @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
         public /* bridge */ /* synthetic */ boolean onMeasureChild(CoordinatorLayout coordinatorLayout, View view, int i, int i2, int i3, int i4) {
             return onMeasureChild(coordinatorLayout, (CoordinatorLayout) ((AppBarLayout) view), i, i2, i3, i4);
         }
 
+        /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.google.android.material.appbar.AppBarLayout$BaseBehavior<T extends com.google.android.material.appbar.AppBarLayout> */
         /* JADX WARN: Multi-variable type inference failed */
         @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
         public /* bridge */ /* synthetic */ void onNestedPreScroll(CoordinatorLayout coordinatorLayout, View view, View view2, int i, int i2, int[] iArr, int i3) {
             onNestedPreScroll(coordinatorLayout, (CoordinatorLayout) ((AppBarLayout) view), view2, i, i2, iArr, i3);
         }
 
+        /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.google.android.material.appbar.AppBarLayout$BaseBehavior<T extends com.google.android.material.appbar.AppBarLayout> */
         /* JADX WARN: Multi-variable type inference failed */
         @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
         public /* bridge */ /* synthetic */ void onNestedScroll(CoordinatorLayout coordinatorLayout, View view, View view2, int i, int i2, int i3, int i4, int i5, int[] iArr) {
             onNestedScroll(coordinatorLayout, (CoordinatorLayout) ((AppBarLayout) view), view2, i, i2, i3, i4, i5, iArr);
         }
 
+        /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.google.android.material.appbar.AppBarLayout$BaseBehavior<T extends com.google.android.material.appbar.AppBarLayout> */
         /* JADX WARN: Multi-variable type inference failed */
         @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
         public /* bridge */ /* synthetic */ void onRestoreInstanceState(CoordinatorLayout coordinatorLayout, View view, Parcelable parcelable) {
             onRestoreInstanceState(coordinatorLayout, (CoordinatorLayout) ((AppBarLayout) view), parcelable);
         }
 
+        /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.google.android.material.appbar.AppBarLayout$BaseBehavior<T extends com.google.android.material.appbar.AppBarLayout> */
         /* JADX WARN: Multi-variable type inference failed */
         @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
         public /* bridge */ /* synthetic */ Parcelable onSaveInstanceState(CoordinatorLayout coordinatorLayout, View view) {
             return onSaveInstanceState(coordinatorLayout, (CoordinatorLayout) ((AppBarLayout) view));
         }
 
+        /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.google.android.material.appbar.AppBarLayout$BaseBehavior<T extends com.google.android.material.appbar.AppBarLayout> */
         /* JADX WARN: Multi-variable type inference failed */
         @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
         public /* bridge */ /* synthetic */ boolean onStartNestedScroll(CoordinatorLayout coordinatorLayout, View view, View view2, View view3, int i, int i2) {
             return onStartNestedScroll(coordinatorLayout, (CoordinatorLayout) ((AppBarLayout) view), view2, view3, i, i2);
         }
 
+        /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.google.android.material.appbar.AppBarLayout$BaseBehavior<T extends com.google.android.material.appbar.AppBarLayout> */
         /* JADX WARN: Multi-variable type inference failed */
         @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
         public /* bridge */ /* synthetic */ void onStopNestedScroll(CoordinatorLayout coordinatorLayout, View view, View view2, int i) {
             onStopNestedScroll(coordinatorLayout, (CoordinatorLayout) ((AppBarLayout) view), view2, i);
         }
 
+        /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.google.android.material.appbar.AppBarLayout$BaseBehavior<T extends com.google.android.material.appbar.AppBarLayout> */
         /* JADX WARN: Multi-variable type inference failed */
         @Override // com.google.android.material.appbar.HeaderBehavior
         /* bridge */ /* synthetic */ int setHeaderTopBottomOffset(CoordinatorLayout coordinatorLayout, View view, int i, int i2, int i3) {
@@ -1206,6 +1222,7 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
                     final int i = -t.getDownNestedPreScrollRange();
                     if (i != 0) {
                         ViewCompat.replaceAccessibilityAction(coordinatorLayout, AccessibilityNodeInfoCompat.AccessibilityActionCompat.ACTION_SCROLL_BACKWARD, null, new AccessibilityViewCommand() { // from class: com.google.android.material.appbar.AppBarLayout.BaseBehavior.2
+                            /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.google.android.material.appbar.AppBarLayout$BaseBehavior */
                             /* JADX WARN: Multi-variable type inference failed */
                             @Override // androidx.core.view.accessibility.AccessibilityViewCommand
                             public boolean perform(View view2, AccessibilityViewCommand.CommandArguments commandArguments) {
@@ -1413,21 +1430,23 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
             this.offsetToChildIndexOnLayout = -1;
         }
 
-        /* JADX INFO: Access modifiers changed from: protected */
         /* loaded from: classes.dex */
-        public static class SavedState extends AbsSavedState {
+        protected static class SavedState extends AbsSavedState {
             public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.ClassLoaderCreator<SavedState>() { // from class: com.google.android.material.appbar.AppBarLayout.BaseBehavior.SavedState.1
+                /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
                 @Override // android.os.Parcelable.ClassLoaderCreator
                 public SavedState createFromParcel(Parcel parcel, ClassLoader classLoader) {
                     return new SavedState(parcel, classLoader);
                 }
 
+                /* JADX DEBUG: Method merged with bridge method */
                 @Override // android.os.Parcelable.Creator
                 public SavedState createFromParcel(Parcel parcel) {
                     return new SavedState(parcel, null);
                 }
 
+                /* JADX DEBUG: Method merged with bridge method */
                 @Override // android.os.Parcelable.Creator
                 public SavedState[] newArray(int i) {
                     return new SavedState[i];

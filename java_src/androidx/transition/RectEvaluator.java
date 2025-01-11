@@ -2,19 +2,19 @@ package androidx.transition;
 
 import android.animation.TypeEvaluator;
 import android.graphics.Rect;
+
 /* loaded from: classes.dex */
 class RectEvaluator implements TypeEvaluator<Rect> {
     private Rect mRect;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public RectEvaluator() {
+    RectEvaluator() {
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public RectEvaluator(Rect rect) {
+    RectEvaluator(Rect rect) {
         this.mRect = rect;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // android.animation.TypeEvaluator
     public Rect evaluate(float f, Rect rect, Rect rect2) {
         int i = rect.left + ((int) ((rect2.left - rect.left) * f));

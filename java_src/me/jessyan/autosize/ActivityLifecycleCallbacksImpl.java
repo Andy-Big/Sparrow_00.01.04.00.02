@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.Application;
 import android.os.Bundle;
 import androidx.fragment.app.FragmentActivity;
+
 /* loaded from: classes2.dex */
 public class ActivityLifecycleCallbacksImpl implements Application.ActivityLifecycleCallbacks {
     private AutoAdaptStrategy mAutoAdaptStrategy;

@@ -17,6 +17,7 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
+
 /* loaded from: classes.dex */
 public class DefaultDesignUIController extends DefaultUIController {
     private static final int RECYCLERVIEW_ID = 4097;
@@ -92,11 +93,13 @@ public class DefaultDesignUIController extends DefaultUIController {
 
     private RecyclerView.Adapter getAdapter(final String[] strArr, final Handler.Callback callback) {
         return new RecyclerView.Adapter<BottomSheetHolder>() { // from class: com.just.agentweb.DefaultDesignUIController.2
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // androidx.recyclerview.widget.RecyclerView.Adapter
             public BottomSheetHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
                 return new BottomSheetHolder(DefaultDesignUIController.this.mLayoutInflater.inflate(17367043, viewGroup, false));
             }
 
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // androidx.recyclerview.widget.RecyclerView.Adapter
             public void onBindViewHolder(BottomSheetHolder bottomSheetHolder, final int i) {
                 TypedValue typedValue = new TypedValue();
@@ -123,9 +126,8 @@ public class DefaultDesignUIController extends DefaultUIController {
         };
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static class BottomSheetHolder extends RecyclerView.ViewHolder {
+    private static class BottomSheetHolder extends RecyclerView.ViewHolder {
         TextView mTextView;
 
         public BottomSheetHolder(View view) {

@@ -13,6 +13,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.Collection;
+
 /* loaded from: classes.dex */
 public final class CollectionTypeAdapterFactory implements TypeAdapterFactory {
     private final ConstructorConstructor constructorConstructor;
@@ -47,6 +48,7 @@ public final class CollectionTypeAdapterFactory implements TypeAdapterFactory {
             this.constructor = objectConstructor;
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.gson.TypeAdapter
         public Collection<E> read(JsonReader jsonReader) throws IOException {
             if (jsonReader.peek() == JsonToken.NULL) {

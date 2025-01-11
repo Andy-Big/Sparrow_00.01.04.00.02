@@ -11,6 +11,7 @@ import androidx.core.app.NotificationManagerCompat;
 import com.blankj.utilcode.util.Utils;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
+
 /* loaded from: classes.dex */
 public class NotificationUtils {
     public static final int IMPORTANCE_DEFAULT = 3;

@@ -4,6 +4,7 @@ import android.animation.Animator;
 import android.transition.TransitionValues;
 import android.view.View;
 import android.view.ViewGroup;
+
 /* loaded from: classes.dex */
 public final class MaterialFade extends MaterialVisibility<FadeProvider> {
     private static final float DEFAULT_FADE_END_THRESHOLD_ENTER = 0.3f;

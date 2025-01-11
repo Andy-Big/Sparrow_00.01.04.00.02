@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.provider.DocumentsContract;
 import java.io.File;
+
 /* loaded from: classes.dex */
 public abstract class DocumentFile {
     static final String TAG = "DocumentFile";
@@ -42,8 +43,7 @@ public abstract class DocumentFile {
 
     public abstract boolean renameTo(String str);
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public DocumentFile(DocumentFile documentFile) {
+    DocumentFile(DocumentFile documentFile) {
         this.mParent = documentFile;
     }
 

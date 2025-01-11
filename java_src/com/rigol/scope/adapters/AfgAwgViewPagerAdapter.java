@@ -121,6 +121,10 @@ public class AfgAwgViewPagerAdapter extends MultiItemTypeAdapter<List<MappingObj
                             public void onCall(KeyboardPopupView keyboardPopupView) {
                             }
 
+                            {
+                                AfgBasicDelegate.this = this;
+                            }
+
                             @Override // com.rigol.scope.views.keyboard.KeyboardListener
                             public <T> void resultMinUnitValueListener(T t) {
                                 AfgBasicDelegate.this.afgParam.saveBasicamp(Long.parseLong(t.toString()));
@@ -136,6 +140,10 @@ public class AfgAwgViewPagerAdapter extends MultiItemTypeAdapter<List<MappingObj
                             public void onCall(KeyboardPopupView keyboardPopupView) {
                             }
 
+                            {
+                                AfgBasicDelegate.this = this;
+                            }
+
                             @Override // com.rigol.scope.views.keyboard.KeyboardListener
                             public <T> void resultMinUnitValueListener(T t) {
                                 AfgBasicDelegate.this.afgParam.saveOffset(Long.parseLong(t.toString()));
@@ -149,6 +157,10 @@ public class AfgAwgViewPagerAdapter extends MultiItemTypeAdapter<List<MappingObj
                         ViewUtil.showKeyboard(this.popupView.getAnchor(), view, ServiceEnum.Unit.Unit_percent, this.afgParam.getBasic_pul_dutyAttr().getMaxLongValue() / 1000, this.afgParam.getBasic_pul_dutyAttr().getMinLongValue() / 1000, this.afgParam.getBasic_pul_dutyAttr().getDefLongValue() / 1000, this.afgParam.getBasic_pul_duty(), new KeyboardListener() { // from class: com.rigol.scope.adapters.AfgAwgViewPagerAdapter.AfgBasicDelegate.5
                             @Override // com.rigol.scope.views.keyboard.KeyboardListener
                             public void onCall(KeyboardPopupView keyboardPopupView) {
+                            }
+
+                            {
+                                AfgBasicDelegate.this = this;
                             }
 
                             @Override // com.rigol.scope.views.keyboard.KeyboardListener
@@ -184,6 +196,10 @@ public class AfgAwgViewPagerAdapter extends MultiItemTypeAdapter<List<MappingObj
                             public void onCall(KeyboardPopupView keyboardPopupView) {
                             }
 
+                            {
+                                AfgBasicDelegate.this = this;
+                            }
+
                             @Override // com.rigol.scope.views.keyboard.KeyboardListener
                             public <T> void resultMinUnitValueListener(T t) {
                                 AfgBasicDelegate.this.afgParam.saveBasicPhase(Integer.parseInt(t.toString()));
@@ -197,6 +213,10 @@ public class AfgAwgViewPagerAdapter extends MultiItemTypeAdapter<List<MappingObj
                         ViewUtil.showKeyboard(this.popupView.getAnchor(), view, ServiceEnum.Unit.Unit_percent, this.afgParam.getBasic_SYMMAttr().getMaxLongValue() / 1000, this.afgParam.getBasic_SYMMAttr().getMinLongValue() / 1000, this.afgParam.getBasic_SYMMAttr().getDefLongValue() / 1000, this.afgParam.getBasic_SYMM(), new KeyboardListener() { // from class: com.rigol.scope.adapters.AfgAwgViewPagerAdapter.AfgBasicDelegate.6
                             @Override // com.rigol.scope.views.keyboard.KeyboardListener
                             public void onCall(KeyboardPopupView keyboardPopupView) {
+                            }
+
+                            {
+                                AfgBasicDelegate.this = this;
                             }
 
                             @Override // com.rigol.scope.views.keyboard.KeyboardListener
@@ -214,6 +234,10 @@ public class AfgAwgViewPagerAdapter extends MultiItemTypeAdapter<List<MappingObj
                             public void onCall(KeyboardPopupView keyboardPopupView) {
                             }
 
+                            {
+                                AfgBasicDelegate.this = this;
+                            }
+
                             @Override // com.rigol.scope.views.keyboard.KeyboardListener
                             public <T> void resultMinUnitValueListener(T t) {
                                 AfgBasicDelegate.this.afgParam.saveBasicPulDuty(Integer.parseInt(t.toString()));
@@ -227,6 +251,10 @@ public class AfgAwgViewPagerAdapter extends MultiItemTypeAdapter<List<MappingObj
                         ViewUtil.showKeyboard(this.popupView.getAnchor(), view, ServiceEnum.Unit.Unit_s, this.afgParam.getBasic_falledgeAttr().getMaxLongValue(), this.afgParam.getBasic_falledgeAttr().getMinLongValue(), this.afgParam.getBasic_falledgeAttr().getDefLongValue(), this.afgParam.getBasic_falledge(), new KeyboardListener() { // from class: com.rigol.scope.adapters.AfgAwgViewPagerAdapter.AfgBasicDelegate.3
                             @Override // com.rigol.scope.views.keyboard.KeyboardListener
                             public void onCall(KeyboardPopupView keyboardPopupView) {
+                            }
+
+                            {
+                                AfgBasicDelegate.this = this;
                             }
 
                             @Override // com.rigol.scope.views.keyboard.KeyboardListener
@@ -245,6 +273,10 @@ public class AfgAwgViewPagerAdapter extends MultiItemTypeAdapter<List<MappingObj
                             public void onCall(KeyboardPopupView keyboardPopupView) {
                             }
 
+                            {
+                                AfgBasicDelegate.this = this;
+                            }
+
                             @Override // com.rigol.scope.views.keyboard.KeyboardListener
                             public <T> void resultMinUnitValueListener(T t) {
                                 AfgBasicDelegate.this.afgParam.saveBasicFreq(((Long) t).longValue());
@@ -258,6 +290,10 @@ public class AfgAwgViewPagerAdapter extends MultiItemTypeAdapter<List<MappingObj
                         ViewUtil.showKeyboard(this.popupView.getAnchor(), view, ServiceEnum.Unit.Unit_s, this.afgParam.getBasic_riseedgeAttr().getMaxLongValue(), this.afgParam.getBasic_riseedgeAttr().getMinLongValue(), this.afgParam.getBasic_riseedgeAttr().getDefLongValue(), this.afgParam.getBasic_riseedge(), new KeyboardListener() { // from class: com.rigol.scope.adapters.AfgAwgViewPagerAdapter.AfgBasicDelegate.2
                             @Override // com.rigol.scope.views.keyboard.KeyboardListener
                             public void onCall(KeyboardPopupView keyboardPopupView) {
+                            }
+
+                            {
+                                AfgBasicDelegate.this = this;
                             }
 
                             @Override // com.rigol.scope.views.keyboard.KeyboardListener
@@ -324,8 +360,6 @@ public class AfgAwgViewPagerAdapter extends MultiItemTypeAdapter<List<MappingObj
             }
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.rigol.scope.adapters.AdapterDelegate
         public boolean isForViewType(List<MappingObject> list, int i) {
             return list.get(i).getValue() == 0;
@@ -361,6 +395,10 @@ public class AfgAwgViewPagerAdapter extends MultiItemTypeAdapter<List<MappingObj
             this.list_aorbParam.add(new AorBParam(this.adapterAfgBinding.sourceTypeSpinner, 0, false, ViewUtil.KEY_A, 2));
             ViewUtil.setSwitchButton(this.adapterAfgBinding.labelSwitch);
             AorBManager aorBManager = new AorBManager(this.popupView.getAnchor().getContext(), this.list_aorbParam, this, this) { // from class: com.rigol.scope.adapters.AfgAwgViewPagerAdapter.AfgBasicDelegate.10
+                {
+                    AfgBasicDelegate.this = this;
+                }
+
                 @Override // com.rigol.scope.utilities.AorBManager
                 protected void setSwitch_num(int i2) {
                     showKey(AfgBasicDelegate.this.popupView.getAnchor().getContext(), ((AorBParam) AfgBasicDelegate.this.list_aorbParam.get(i2)).getEditText(), true, ((AorBParam) AfgBasicDelegate.this.list_aorbParam.get(i2)).getAorb());
@@ -575,6 +613,10 @@ public class AfgAwgViewPagerAdapter extends MultiItemTypeAdapter<List<MappingObj
                             public void onCall(KeyboardPopupView keyboardPopupView) {
                             }
 
+                            {
+                                AwgBasicDelegate.this = this;
+                            }
+
                             @Override // com.rigol.scope.views.keyboard.KeyboardListener
                             public <T> void resultMinUnitValueListener(T t) {
                                 AwgBasicDelegate.this.afgParam.saveWaveModFmDeviation(((Long) t).longValue());
@@ -588,6 +630,10 @@ public class AfgAwgViewPagerAdapter extends MultiItemTypeAdapter<List<MappingObj
                         ViewUtil.showKeyboard(this.popupView.getAnchor(), view, this.afgParam.getAfgFreqUnit(), this.afgParam.getAfg_wave_am_freqAttr().getMaxLongValue(), this.afgParam.getAfg_wave_am_freqAttr().getMinLongValue(), this.afgParam.getAfg_wave_am_freqAttr().getDefLongValue(), this.afgParam.getWave_mod_am_freq(), new KeyboardListener() { // from class: com.rigol.scope.adapters.AfgAwgViewPagerAdapter.AwgBasicDelegate.1
                             @Override // com.rigol.scope.views.keyboard.KeyboardListener
                             public void onCall(KeyboardPopupView keyboardPopupView) {
+                            }
+
+                            {
+                                AwgBasicDelegate.this = this;
                             }
 
                             @Override // com.rigol.scope.views.keyboard.KeyboardListener
@@ -605,6 +651,10 @@ public class AfgAwgViewPagerAdapter extends MultiItemTypeAdapter<List<MappingObj
                             public void onCall(KeyboardPopupView keyboardPopupView) {
                             }
 
+                            {
+                                AwgBasicDelegate.this = this;
+                            }
+
                             @Override // com.rigol.scope.views.keyboard.KeyboardListener
                             public <T> void resultMinUnitValueListener(T t) {
                                 AwgBasicDelegate.this.afgParam.saveWaveModPmDev(((Long) t).longValue());
@@ -618,6 +668,10 @@ public class AfgAwgViewPagerAdapter extends MultiItemTypeAdapter<List<MappingObj
                         ViewUtil.showKeyboard(this.popupView.getAnchor(), view, this.afgParam.getAfgFreqUnit(), this.afgParam.getAfg_wave_pm_freqAttr().getMaxLongValue(), this.afgParam.getAfg_wave_pm_freqAttr().getMinLongValue(), this.afgParam.getAfg_wave_pm_freqAttr().getDefLongValue(), this.afgParam.getWave_mod_pm_freq(), new KeyboardListener() { // from class: com.rigol.scope.adapters.AfgAwgViewPagerAdapter.AwgBasicDelegate.5
                             @Override // com.rigol.scope.views.keyboard.KeyboardListener
                             public void onCall(KeyboardPopupView keyboardPopupView) {
+                            }
+
+                            {
+                                AwgBasicDelegate.this = this;
                             }
 
                             @Override // com.rigol.scope.views.keyboard.KeyboardListener
@@ -635,6 +689,10 @@ public class AfgAwgViewPagerAdapter extends MultiItemTypeAdapter<List<MappingObj
                             public void onCall(KeyboardPopupView keyboardPopupView) {
                             }
 
+                            {
+                                AwgBasicDelegate.this = this;
+                            }
+
                             @Override // com.rigol.scope.views.keyboard.KeyboardListener
                             public <T> void resultMinUnitValueListener(T t) {
                                 AwgBasicDelegate.this.afgParam.saveWaveModAmDepth(((Long) t).longValue());
@@ -648,6 +706,10 @@ public class AfgAwgViewPagerAdapter extends MultiItemTypeAdapter<List<MappingObj
                         ViewUtil.showKeyboard(this.popupView.getAnchor(), view, this.afgParam.getAfgFreqUnit(), this.afgParam.getAfg_wave_pm_freqAttr().getMaxLongValue(), this.afgParam.getAfg_wave_pm_freqAttr().getMinLongValue(), this.afgParam.getAfg_wave_pm_freqAttr().getDefLongValue(), this.afgParam.getWave_mod_fm_freq(), new KeyboardListener() { // from class: com.rigol.scope.adapters.AfgAwgViewPagerAdapter.AwgBasicDelegate.3
                             @Override // com.rigol.scope.views.keyboard.KeyboardListener
                             public void onCall(KeyboardPopupView keyboardPopupView) {
+                            }
+
+                            {
+                                AwgBasicDelegate.this = this;
                             }
 
                             @Override // com.rigol.scope.views.keyboard.KeyboardListener
@@ -773,8 +835,6 @@ public class AfgAwgViewPagerAdapter extends MultiItemTypeAdapter<List<MappingObj
             }
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.rigol.scope.adapters.AdapterDelegate
         public boolean isForViewType(List<MappingObject> list, int i) {
             return list.get(i).getValue() == 1;
@@ -812,6 +872,10 @@ public class AfgAwgViewPagerAdapter extends MultiItemTypeAdapter<List<MappingObj
             this.adapterAfgBinding.setParam(this.afgParam);
             ViewUtil.setSwitchButton(this.adapterAfgBinding.labelSwitch);
             AorBManager aorBManager = new AorBManager(this.popupView.getAnchor().getContext(), this.list_aorbParam, this, this) { // from class: com.rigol.scope.adapters.AfgAwgViewPagerAdapter.AwgBasicDelegate.7
+                {
+                    AwgBasicDelegate.this = this;
+                }
+
                 @Override // com.rigol.scope.utilities.AorBManager
                 protected void setSwitch_num(int i2) {
                     showKey(AwgBasicDelegate.this.popupView.getAnchor().getContext(), ((AorBParam) AwgBasicDelegate.this.list_aorbParam.get(i2)).getEditText(), true, ((AorBParam) AwgBasicDelegate.this.list_aorbParam.get(i2)).getAorb());

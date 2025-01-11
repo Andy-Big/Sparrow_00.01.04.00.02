@@ -4,6 +4,7 @@ import android.animation.Animator;
 import android.transition.TransitionValues;
 import android.view.View;
 import android.view.ViewGroup;
+
 /* loaded from: classes.dex */
 public final class MaterialFadeThrough extends MaterialVisibility<FadeThroughProvider> {
     private static final float DEFAULT_START_SCALE = 0.92f;

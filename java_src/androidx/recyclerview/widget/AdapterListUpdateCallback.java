@@ -1,6 +1,7 @@
 package androidx.recyclerview.widget;
 
 import androidx.recyclerview.widget.RecyclerView;
+
 /* loaded from: classes.dex */
 public final class AdapterListUpdateCallback implements ListUpdateCallback {
     private final RecyclerView.Adapter mAdapter;

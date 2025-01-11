@@ -8,6 +8,7 @@ import android.text.TextUtils;
 import android.view.Display;
 import androidx.core.util.Preconditions;
 import java.util.ArrayList;
+
 /* loaded from: classes.dex */
 public final class DisplayCompat {
     private static final int DISPLAY_SIZE_4K_HEIGHT = 2160;

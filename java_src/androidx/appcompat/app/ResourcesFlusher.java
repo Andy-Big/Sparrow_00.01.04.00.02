@@ -6,6 +6,7 @@ import android.util.Log;
 import android.util.LongSparseArray;
 import java.lang.reflect.Field;
 import java.util.Map;
+
 /* loaded from: classes.dex */
 class ResourcesFlusher {
     private static final String TAG = "ResourcesFlusher";
@@ -18,8 +19,7 @@ class ResourcesFlusher {
     private static Field sThemedResourceCache_mUnthemedEntriesField;
     private static boolean sThemedResourceCache_mUnthemedEntriesFieldFetched;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static void flush(Resources resources) {
+    static void flush(Resources resources) {
         if (Build.VERSION.SDK_INT >= 28) {
             return;
         }

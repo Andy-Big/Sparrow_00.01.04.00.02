@@ -6,6 +6,7 @@ import android.util.Base64;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
+
 /* loaded from: classes.dex */
 public final class EncodeUtils {
     private EncodeUtils() {

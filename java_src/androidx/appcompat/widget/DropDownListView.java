@@ -17,9 +17,9 @@ import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.core.view.ViewPropertyAnimatorCompat;
 import androidx.core.widget.ListViewAutoScrollHelper;
 import java.lang.reflect.Field;
-/* JADX INFO: Access modifiers changed from: package-private */
+
 /* loaded from: classes.dex */
-public class DropDownListView extends ListView {
+class DropDownListView extends ListView {
     public static final int INVALID_POSITION = -1;
     public static final int NO_POSITION = -1;
     private ViewPropertyAnimatorCompat mClickAnimation;
@@ -37,8 +37,7 @@ public class DropDownListView extends ListView {
     private GateKeeperDrawable mSelector;
     private final Rect mSelectorRect;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public DropDownListView(Context context, boolean z) {
+    DropDownListView(Context context, boolean z) {
         super(context, null, R.attr.dropDownListViewStyle);
         this.mSelectorRect = new Rect();
         this.mSelectionLeftPadding = 0;
@@ -207,9 +206,8 @@ public class DropDownListView extends ListView {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static class GateKeeperDrawable extends DrawableWrapper {
+    private static class GateKeeperDrawable extends DrawableWrapper {
         private boolean mEnabled;
 
         GateKeeperDrawable(Drawable drawable) {
@@ -300,90 +298,69 @@ public class DropDownListView extends ListView {
     /* JADX WARN: Removed duplicated region for block: B:29:0x0065  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    public boolean onForwardedEvent(android.view.MotionEvent r8, int r9) {
-        /*
-            r7 = this;
-            int r0 = r8.getActionMasked()
-            r1 = 0
-            r2 = 1
-            if (r0 == r2) goto L16
-            r3 = 2
-            if (r0 == r3) goto L14
-            r9 = 3
-            if (r0 == r9) goto L11
-        Le:
-            r9 = r1
-            r3 = r2
-            goto L46
-        L11:
-            r9 = r1
-            r3 = r9
-            goto L46
-        L14:
-            r3 = r2
-            goto L17
-        L16:
-            r3 = r1
-        L17:
-            int r9 = r8.findPointerIndex(r9)
-            if (r9 >= 0) goto L1e
-            goto L11
-        L1e:
-            float r4 = r8.getX(r9)
-            int r4 = (int) r4
-            float r9 = r8.getY(r9)
-            int r9 = (int) r9
-            int r5 = r7.pointToPosition(r4, r9)
-            r6 = -1
-            if (r5 != r6) goto L31
-            r9 = r2
-            goto L46
-        L31:
-            int r3 = r7.getFirstVisiblePosition()
-            int r3 = r5 - r3
-            android.view.View r3 = r7.getChildAt(r3)
-            float r4 = (float) r4
-            float r9 = (float) r9
-            r7.setPressedItem(r3, r5, r4, r9)
-            if (r0 != r2) goto Le
-            r7.clickPressedItem(r3, r5)
-            goto Le
-        L46:
-            if (r3 == 0) goto L4a
-            if (r9 == 0) goto L4d
-        L4a:
-            r7.clearPressedItem()
-        L4d:
-            if (r3 == 0) goto L65
-            androidx.core.widget.ListViewAutoScrollHelper r9 = r7.mScrollHelper
-            if (r9 != 0) goto L5a
-            androidx.core.widget.ListViewAutoScrollHelper r9 = new androidx.core.widget.ListViewAutoScrollHelper
-            r9.<init>(r7)
-            r7.mScrollHelper = r9
-        L5a:
-            androidx.core.widget.ListViewAutoScrollHelper r9 = r7.mScrollHelper
-            r9.setEnabled(r2)
-            androidx.core.widget.ListViewAutoScrollHelper r9 = r7.mScrollHelper
-            r9.onTouch(r7, r8)
-            goto L6c
-        L65:
-            androidx.core.widget.ListViewAutoScrollHelper r8 = r7.mScrollHelper
-            if (r8 == 0) goto L6c
-            r8.setEnabled(r1)
-        L6c:
-            return r3
-        */
-        throw new UnsupportedOperationException("Method not decompiled: androidx.appcompat.widget.DropDownListView.onForwardedEvent(android.view.MotionEvent, int):boolean");
+    public boolean onForwardedEvent(MotionEvent motionEvent, int i) {
+        boolean z;
+        boolean z2;
+        int actionMasked = motionEvent.getActionMasked();
+        if (actionMasked == 1) {
+            z = false;
+        } else if (actionMasked == 2) {
+            z = true;
+        }
+        int findPointerIndex = motionEvent.findPointerIndex(i);
+        if (findPointerIndex >= 0) {
+            int x = (int) motionEvent.getX(findPointerIndex);
+            int y = (int) motionEvent.getY(findPointerIndex);
+            int pointToPosition = pointToPosition(x, y);
+            if (pointToPosition != -1) {
+                View childAt = getChildAt(pointToPosition - getFirstVisiblePosition());
+                setPressedItem(childAt, pointToPosition, x, y);
+                if (actionMasked == 1) {
+                    clickPressedItem(childAt, pointToPosition);
+                }
+                z2 = false;
+                z = true;
+                if (z) {
+                }
+                clearPressedItem();
+                if (z) {
+                }
+                return z;
+            }
+            z2 = true;
+            if (z || z2) {
+                clearPressedItem();
+            }
+            if (z) {
+                if (this.mScrollHelper == null) {
+                    this.mScrollHelper = new ListViewAutoScrollHelper(this);
+                }
+                this.mScrollHelper.setEnabled(true);
+                this.mScrollHelper.onTouch(this, motionEvent);
+            } else {
+                ListViewAutoScrollHelper listViewAutoScrollHelper = this.mScrollHelper;
+                if (listViewAutoScrollHelper != null) {
+                    listViewAutoScrollHelper.setEnabled(false);
+                }
+            }
+            return z;
+        }
+        z2 = false;
+        z = false;
+        if (z) {
+        }
+        clearPressedItem();
+        if (z) {
+        }
+        return z;
     }
 
     private void clickPressedItem(View view, int i) {
         performItemClick(view, i, getItemIdAtPosition(i));
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setListSelectionHidden(boolean z) {
+    void setListSelectionHidden(boolean z) {
         this.mListSelectionHidden = z;
     }
 
@@ -495,9 +472,8 @@ public class DropDownListView extends ListView {
         return this.mDrawsInPressedState;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public class ResolveHoverRunnable implements Runnable {
+    private class ResolveHoverRunnable implements Runnable {
         ResolveHoverRunnable() {
         }
 

@@ -9,11 +9,13 @@ import com.bumptech.glide.load.model.ModelLoader;
 import com.bumptech.glide.load.model.ModelLoaderFactory;
 import com.bumptech.glide.load.model.MultiModelLoaderFactory;
 import java.io.InputStream;
+
 /* loaded from: classes.dex */
 public class HttpGlideUrlLoader implements ModelLoader<GlideUrl, InputStream> {
     public static final Option<Integer> TIMEOUT = Option.memory("com.bumptech.glide.load.model.stream.HttpGlideUrlLoader.Timeout", 2500);
     private final ModelCache<GlideUrl, GlideUrl> modelCache;
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.model.ModelLoader
     public boolean handles(GlideUrl glideUrl) {
         return true;
@@ -27,6 +29,7 @@ public class HttpGlideUrlLoader implements ModelLoader<GlideUrl, InputStream> {
         this.modelCache = modelCache;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.model.ModelLoader
     public ModelLoader.LoadData<InputStream> buildLoadData(GlideUrl glideUrl, int i, int i2, Options options) {
         ModelCache<GlideUrl, GlideUrl> modelCache = this.modelCache;

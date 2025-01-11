@@ -6,6 +6,7 @@ import android.graphics.RectF;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
+
 /* loaded from: classes.dex */
 public class DescendantOffsetUtils {
     private static final ThreadLocal<Matrix> matrix = new ThreadLocal<>();

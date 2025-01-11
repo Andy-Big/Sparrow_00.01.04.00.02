@@ -6,6 +6,7 @@ import com.github.barteksc.pdfviewer.util.FileUtils;
 import com.shockwave.pdfium.PdfDocument;
 import com.shockwave.pdfium.PdfiumCore;
 import java.io.IOException;
+
 /* loaded from: classes.dex */
 public class AssetSource implements DocumentSource {
     private final String assetName;

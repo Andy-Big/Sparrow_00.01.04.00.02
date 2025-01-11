@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MailDateFormat;
+
 /* loaded from: classes2.dex */
 public class ENVELOPE implements Item {
     public InternetAddress[] bcc;

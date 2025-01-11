@@ -31,6 +31,7 @@ import java.util.Set;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.CopyOnWriteArraySet;
+
 /* loaded from: classes.dex */
 public final class NetworkUtils {
     private static final long SCAN_PERIOD_MILLIS = 3000;
@@ -75,6 +76,7 @@ public final class NetworkUtils {
             throw new NullPointerException("Argument 'consumer' of type Utils.Consumer<Boolean> (#0 out of 1, zero-based) is marked by @androidx.annotation.NonNull but got null for it");
         }
         return UtilsBridge.doAsync(new Utils.Task<Boolean>(consumer) { // from class: com.blankj.utilcode.util.NetworkUtils.1
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // com.blankj.utilcode.util.ThreadUtils.Task
             public Boolean doInBackground() {
                 return Boolean.valueOf(NetworkUtils.isAvailable());
@@ -95,6 +97,7 @@ public final class NetworkUtils {
             throw new NullPointerException("Argument 'consumer' of type Utils.Consumer<Boolean> (#1 out of 2, zero-based) is marked by @androidx.annotation.NonNull but got null for it");
         }
         return UtilsBridge.doAsync(new Utils.Task<Boolean>(consumer) { // from class: com.blankj.utilcode.util.NetworkUtils.2
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // com.blankj.utilcode.util.ThreadUtils.Task
             public Boolean doInBackground() {
                 return Boolean.valueOf(NetworkUtils.isAvailableByPing(str));
@@ -122,6 +125,7 @@ public final class NetworkUtils {
             throw new NullPointerException("Argument 'consumer' of type Utils.Consumer<Boolean> (#1 out of 2, zero-based) is marked by @androidx.annotation.NonNull but got null for it");
         }
         return UtilsBridge.doAsync(new Utils.Task<Boolean>(consumer) { // from class: com.blankj.utilcode.util.NetworkUtils.3
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // com.blankj.utilcode.util.ThreadUtils.Task
             public Boolean doInBackground() {
                 return Boolean.valueOf(NetworkUtils.isAvailableByDns(str));
@@ -211,6 +215,7 @@ public final class NetworkUtils {
             throw new NullPointerException("Argument 'consumer' of type Utils.Consumer<Boolean> (#0 out of 1, zero-based) is marked by @androidx.annotation.NonNull but got null for it");
         }
         return UtilsBridge.doAsync(new Utils.Task<Boolean>(consumer) { // from class: com.blankj.utilcode.util.NetworkUtils.4
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // com.blankj.utilcode.util.ThreadUtils.Task
             public Boolean doInBackground() {
                 return Boolean.valueOf(NetworkUtils.isWifiAvailable());
@@ -294,6 +299,7 @@ public final class NetworkUtils {
             throw new NullPointerException("Argument 'consumer' of type Utils.Consumer<String> (#1 out of 2, zero-based) is marked by @androidx.annotation.NonNull but got null for it");
         }
         return UtilsBridge.doAsync(new Utils.Task<String>(consumer) { // from class: com.blankj.utilcode.util.NetworkUtils.5
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // com.blankj.utilcode.util.ThreadUtils.Task
             public String doInBackground() {
                 return NetworkUtils.getIPAddress(z);
@@ -370,6 +376,7 @@ public final class NetworkUtils {
             throw new NullPointerException("Argument 'consumer' of type Utils.Consumer<String> (#1 out of 2, zero-based) is marked by @androidx.annotation.NonNull but got null for it");
         }
         return UtilsBridge.doAsync(new Utils.Task<String>(consumer) { // from class: com.blankj.utilcode.util.NetworkUtils.6
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // com.blankj.utilcode.util.ThreadUtils.Task
             public String doInBackground() {
                 return NetworkUtils.getDomainAddress(str);
@@ -610,9 +617,8 @@ public final class NetworkUtils {
             }
         }
 
-        /* JADX INFO: Access modifiers changed from: private */
         /* loaded from: classes.dex */
-        public static class LazyHolder {
+        private static class LazyHolder {
             private static final NetworkChangedReceiver INSTANCE = new NetworkChangedReceiver();
 
             private LazyHolder() {

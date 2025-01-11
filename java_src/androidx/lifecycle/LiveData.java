@@ -5,6 +5,7 @@ import androidx.arch.core.internal.SafeIterableMap;
 import androidx.lifecycle.Lifecycle;
 import java.util.Iterator;
 import java.util.Map;
+
 /* loaded from: classes.dex */
 public abstract class LiveData<T> {
     static final Object NOT_SET = new Object();
@@ -31,6 +32,7 @@ public abstract class LiveData<T> {
         this.mActiveCount = 0;
         this.mPendingData = NOT_SET;
         this.mPostValueRunnable = new Runnable() { // from class: androidx.lifecycle.LiveData.1
+            /* JADX DEBUG: Multi-variable search result rejected for r0v2, resolved type: androidx.lifecycle.LiveData */
             /* JADX WARN: Multi-variable type inference failed */
             @Override // java.lang.Runnable
             public void run() {
@@ -52,6 +54,7 @@ public abstract class LiveData<T> {
         this.mActiveCount = 0;
         this.mPendingData = NOT_SET;
         this.mPostValueRunnable = new Runnable() { // from class: androidx.lifecycle.LiveData.1
+            /* JADX DEBUG: Multi-variable search result rejected for r0v2, resolved type: androidx.lifecycle.LiveData */
             /* JADX WARN: Multi-variable type inference failed */
             @Override // java.lang.Runnable
             public void run() {
@@ -157,8 +160,7 @@ public abstract class LiveData<T> {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void postValue(T t) {
+    protected void postValue(T t) {
         boolean z;
         synchronized (this.mDataLock) {
             z = this.mPendingData == NOT_SET;
@@ -169,8 +171,7 @@ public abstract class LiveData<T> {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void setValue(T t) {
+    protected void setValue(T t) {
         assertMainThread("setValue");
         this.mVersion++;
         this.mData = t;
@@ -185,8 +186,7 @@ public abstract class LiveData<T> {
         return null;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public int getVersion() {
+    int getVersion() {
         return this.mVersion;
     }
 
@@ -232,9 +232,8 @@ public abstract class LiveData<T> {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public abstract class ObserverWrapper {
+    private abstract class ObserverWrapper {
         boolean mActive;
         int mLastVersion = -1;
         final Observer<? super T> mObserver;

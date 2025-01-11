@@ -7,6 +7,7 @@ import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
 import android.view.IRotationWatcher;
+
 /* loaded from: classes.dex */
 public interface IWindowManager extends IInterface {
 
@@ -126,9 +127,8 @@ public interface IWindowManager extends IInterface {
             }
         }
 
-        /* JADX INFO: Access modifiers changed from: private */
         /* loaded from: classes.dex */
-        public static class Proxy implements IWindowManager {
+        private static class Proxy implements IWindowManager {
             public static IWindowManager sDefaultImpl;
             private IBinder mRemote;
 

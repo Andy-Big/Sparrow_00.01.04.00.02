@@ -8,8 +8,11 @@ import androidx.recyclerview.widget.ThreadUtil;
 import androidx.recyclerview.widget.TileList;
 import java.util.concurrent.Executor;
 import java.util.concurrent.atomic.AtomicBoolean;
+
 /* loaded from: classes.dex */
 class MessageThreadUtil<T> implements ThreadUtil<T> {
+    MessageThreadUtil() {
+    }
 
     /* renamed from: androidx.recyclerview.widget.MessageThreadUtil$1  reason: invalid class name */
     /* loaded from: classes.dex */
@@ -156,9 +159,8 @@ class MessageThreadUtil<T> implements ThreadUtil<T> {
         return new AnonymousClass2(backgroundCallback);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static class SyncQueueItem {
+    static class SyncQueueItem {
         private static SyncQueueItem sPool;
         private static final Object sPoolLock = new Object();
         public int arg1;
@@ -220,9 +222,8 @@ class MessageThreadUtil<T> implements ThreadUtil<T> {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static class MessageQueue {
+    static class MessageQueue {
         private SyncQueueItem mRoot;
 
         MessageQueue() {

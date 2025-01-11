@@ -85,30 +85,27 @@ public final class FFTWindowHolder extends WindowHolder {
         baseSurfaceView.setGestureListener(new GestureDetector.SimpleOnGestureListener() { // from class: com.rigol.scope.views.window.FFTWindowHolder$$special$$inlined$apply$lambda$1
             @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
             public boolean onDown(MotionEvent motionEvent) {
-                HorizontalParam horizontalParam;
-                horizontalParam = this.horizontalParam;
-                return (horizontalParam != null ? horizontalParam.getRunStop() : null) != ServiceEnum.ControlAction.Control_Stop;
+                HorizontalParam access$getHorizontalParam$p = FFTWindowHolder.access$getHorizontalParam$p(this);
+                return (access$getHorizontalParam$p != null ? access$getHorizontalParam$p.getRunStop() : null) != ServiceEnum.ControlAction.Control_Stop;
             }
 
             @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
             public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
-                FftParam fftParam;
-                FftParam fftParam2;
                 if (Math.abs(f) > Math.abs(f2)) {
                     float f3 = BaseSurfaceView.this.getTotalScrollDistance()[0];
-                    fftParam2 = this.fftParam;
-                    if (fftParam2 != null) {
-                        float end = (((float) (fftParam2.getEnd() - fftParam2.getStart())) * f3) / BaseSurfaceView.this.getWidth();
-                        fftParam2.saveEnd(((float) fftParam2.getEnd()) + end);
-                        fftParam2.saveStart(((float) fftParam2.getStart()) + end);
+                    FftParam access$getFftParam$p = FFTWindowHolder.access$getFftParam$p(this);
+                    if (access$getFftParam$p != null) {
+                        float end = (((float) (access$getFftParam$p.getEnd() - access$getFftParam$p.getStart())) * f3) / BaseSurfaceView.this.getWidth();
+                        access$getFftParam$p.saveEnd(((float) access$getFftParam$p.getEnd()) + end);
+                        access$getFftParam$p.saveStart(((float) access$getFftParam$p.getStart()) + end);
                     }
                 } else {
                     float f4 = BaseSurfaceView.this.getTotalScrollDistance()[1];
-                    fftParam = this.fftParam;
-                    if (fftParam != null) {
-                        float scale = (((float) (fftParam.getScale() * 10)) * f4) / BaseSurfaceView.this.getHeight();
-                        if (fftParam.getUnit() == ServiceEnum.Unit.Unit_dbm || fftParam.getUnit() == ServiceEnum.Unit.Unit_dBmV || fftParam.getUnit() == ServiceEnum.Unit.Unit_dBuV) {
-                            fftParam.saveRefLevel(fftParam.getRefLevel() - scale);
+                    FftParam access$getFftParam$p2 = FFTWindowHolder.access$getFftParam$p(this);
+                    if (access$getFftParam$p2 != null) {
+                        float scale = (((float) (access$getFftParam$p2.getScale() * 10)) * f4) / BaseSurfaceView.this.getHeight();
+                        if (access$getFftParam$p2.getUnit() == ServiceEnum.Unit.Unit_dbm || access$getFftParam$p2.getUnit() == ServiceEnum.Unit.Unit_dBmV || access$getFftParam$p2.getUnit() == ServiceEnum.Unit.Unit_dBuV) {
+                            access$getFftParam$p2.saveRefLevel(access$getFftParam$p2.getRefLevel() - scale);
                         }
                     }
                 }
@@ -118,46 +115,43 @@ public final class FFTWindowHolder extends WindowHolder {
         baseSurfaceView.setOnScaleGestureListener(new ScaleGestureDetector.SimpleOnScaleGestureListener() { // from class: com.rigol.scope.views.window.FFTWindowHolder$$special$$inlined$apply$lambda$2
             @Override // android.view.ScaleGestureDetector.SimpleOnScaleGestureListener, android.view.ScaleGestureDetector.OnScaleGestureListener
             public boolean onScale(ScaleGestureDetector detector) {
-                HorizontalParam horizontalParam;
-                FftParam fftParam;
-                FftParam fftParam2;
                 Intrinsics.checkNotNullParameter(detector, "detector");
-                horizontalParam = this.horizontalParam;
-                if ((horizontalParam != null ? horizontalParam.getRunStop() : null) == ServiceEnum.ControlAction.Control_Stop) {
+                HorizontalParam access$getHorizontalParam$p = FFTWindowHolder.access$getHorizontalParam$p(this);
+                if ((access$getHorizontalParam$p != null ? access$getHorizontalParam$p.getRunStop() : null) == ServiceEnum.ControlAction.Control_Stop) {
                     return true;
                 }
                 if (Math.abs(BaseSurfaceView.this.getTotalScaleSpan()[0]) > Math.abs(BaseSurfaceView.this.getTotalScaleSpan()[1])) {
                     float currentSpanX = detector.getCurrentSpanX() / detector.getPreviousSpanX();
-                    fftParam2 = this.fftParam;
-                    if (fftParam2 != null) {
-                        long center = fftParam2.getCenter();
+                    FftParam access$getFftParam$p = FFTWindowHolder.access$getFftParam$p(this);
+                    if (access$getFftParam$p != null) {
+                        long center = access$getFftParam$p.getCenter();
                         long j = 10;
-                        long end = (fftParam2.getEnd() - fftParam2.getStart()) / j;
+                        long end = (access$getFftParam$p.getEnd() - access$getFftParam$p.getStart()) / j;
                         float f = 1;
                         if (currentSpanX < f) {
                             long plusNum = ScaleNumUtil.getPlusNum(end, 1.0f);
-                            if (fftParam2.getStart() == 0) {
-                                fftParam2.saveEnd(plusNum * j);
+                            if (access$getFftParam$p.getStart() == 0) {
+                                access$getFftParam$p.saveEnd(plusNum * j);
                             } else {
                                 long j2 = plusNum * 5;
-                                fftParam2.saveStart(center - j2);
-                                fftParam2.saveEnd(center + j2);
+                                access$getFftParam$p.saveStart(center - j2);
+                                access$getFftParam$p.saveEnd(center + j2);
                             }
                         } else if (currentSpanX > f) {
                             long minusNum = ScaleNumUtil.getMinusNum(end, 1.0f) * 5;
-                            fftParam2.saveStart(center - minusNum);
-                            fftParam2.saveEnd(center + minusNum);
+                            access$getFftParam$p.saveStart(center - minusNum);
+                            access$getFftParam$p.saveEnd(center + minusNum);
                         }
                     }
                 } else {
                     float currentSpanY = detector.getCurrentSpanY() / detector.getPreviousSpanY();
-                    fftParam = this.fftParam;
-                    if (fftParam != null && fftParam.getUnit() != ServiceEnum.Unit.Unit_V && fftParam.getUnit() != ServiceEnum.Unit.Unit_W) {
+                    FftParam access$getFftParam$p2 = FFTWindowHolder.access$getFftParam$p(this);
+                    if (access$getFftParam$p2 != null && access$getFftParam$p2.getUnit() != ServiceEnum.Unit.Unit_V && access$getFftParam$p2.getUnit() != ServiceEnum.Unit.Unit_W) {
                         float f2 = 1;
                         if (currentSpanY < f2) {
-                            fftParam.saveScale(ScaleNumUtil.getPlusNum(fftParam.getScale(), 1.0f));
+                            access$getFftParam$p2.saveScale(ScaleNumUtil.getPlusNum(access$getFftParam$p2.getScale(), 1.0f));
                         } else if (currentSpanY > f2) {
-                            fftParam.saveScale(ScaleNumUtil.getMinusNum(fftParam.getScale(), 1.0f));
+                            access$getFftParam$p2.saveScale(ScaleNumUtil.getMinusNum(access$getFftParam$p2.getScale(), 1.0f));
                         }
                     }
                 }
@@ -166,9 +160,8 @@ public final class FFTWindowHolder extends WindowHolder {
 
             @Override // android.view.ScaleGestureDetector.SimpleOnScaleGestureListener, android.view.ScaleGestureDetector.OnScaleGestureListener
             public boolean onScaleBegin(ScaleGestureDetector scaleGestureDetector) {
-                HorizontalParam horizontalParam;
-                horizontalParam = this.horizontalParam;
-                return (horizontalParam != null ? horizontalParam.getRunStop() : null) != ServiceEnum.ControlAction.Control_Stop;
+                HorizontalParam access$getHorizontalParam$p = FFTWindowHolder.access$getHorizontalParam$p(this);
+                return (access$getHorizontalParam$p != null ? access$getHorizontalParam$p.getRunStop() : null) != ServiceEnum.ControlAction.Control_Stop;
             }
         });
         Unit unit2 = Unit.INSTANCE;
@@ -214,7 +207,10 @@ public final class FFTWindowHolder extends WindowHolder {
             Activity topActivity = ActivityUtils.getTopActivity();
             if (topActivity != null) {
                 liveData2.observe((LifecycleOwner) topActivity, new Observer<FftParam>() { // from class: com.rigol.scope.views.window.FFTWindowHolder.1
-                    /* JADX DEBUG: Method merged with bridge method */
+                    {
+                        FFTWindowHolder.this = this;
+                    }
+
                     @Override // androidx.lifecycle.Observer
                     public final void onChanged(FftParam fftParam) {
                         FFTWindowHolder.this.fftParam = fftParam;
@@ -230,7 +226,10 @@ public final class FFTWindowHolder extends WindowHolder {
             Activity topActivity2 = ActivityUtils.getTopActivity();
             if (topActivity2 != null) {
                 liveData.observe((LifecycleOwner) topActivity2, new Observer<HorizontalParam>() { // from class: com.rigol.scope.views.window.FFTWindowHolder.2
-                    /* JADX DEBUG: Method merged with bridge method */
+                    {
+                        FFTWindowHolder.this = this;
+                    }
+
                     @Override // androidx.lifecycle.Observer
                     public final void onChanged(HorizontalParam horizontalParam) {
                         FFTWindowHolder.this.horizontalParam = horizontalParam;
@@ -247,6 +246,10 @@ public final class FFTWindowHolder extends WindowHolder {
                 throw new NullPointerException("null cannot be cast to non-null type androidx.lifecycle.LifecycleOwner");
             }
             mutableLiveData.observe((LifecycleOwner) topActivity3, new Observer<Object>() { // from class: com.rigol.scope.views.window.FFTWindowHolder.3
+                {
+                    FFTWindowHolder.this = this;
+                }
+
                 @Override // androidx.lifecycle.Observer
                 public final void onChanged(Object obj) {
                     FFTWindowHolder.this.updateTitle();
@@ -277,10 +280,9 @@ public final class FFTWindowHolder extends WindowHolder {
                 mutableLiveData3.observe((LifecycleOwner) topActivity5, new Observer<Object>() { // from class: com.rigol.scope.views.window.FFTWindowHolder$$special$$inlined$let$lambda$2
                     @Override // androidx.lifecycle.Observer
                     public final void onChanged(Object obj) {
-                        HorizontalParam horizontalParam;
-                        horizontalParam = FFTWindowHolder.this.horizontalParam;
-                        if (horizontalParam != null) {
-                            if (FFTWindowHolder.WhenMappings.$EnumSwitchMapping$0[horizontalParam.getTimeMode().ordinal()] == 1) {
+                        HorizontalParam access$getHorizontalParam$p = FFTWindowHolder.access$getHorizontalParam$p(FFTWindowHolder.this);
+                        if (access$getHorizontalParam$p != null) {
+                            if (FFTWindowHolder.WhenMappings.$EnumSwitchMapping$0[access$getHorizontalParam$p.getTimeMode().ordinal()] == 1) {
                                 TextView textView = FFTWindowHolder.this.getBinding().warning;
                                 Intrinsics.checkNotNullExpressionValue(textView, "binding.warning");
                                 textView.setVisibility(0);
@@ -294,6 +296,16 @@ public final class FFTWindowHolder extends WindowHolder {
                 });
             }
         }
+    }
+
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.views.window.FFTWindowHolder$$special$$inlined$apply$lambda$1.onScroll(android.view.MotionEvent, android.view.MotionEvent, float, float):boolean, com.rigol.scope.views.window.FFTWindowHolder$$special$$inlined$apply$lambda$2.onScale(android.view.ScaleGestureDetector):boolean] */
+    public static final /* synthetic */ FftParam access$getFftParam$p(FFTWindowHolder fFTWindowHolder) {
+        return fFTWindowHolder.fftParam;
+    }
+
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.views.window.FFTWindowHolder$$special$$inlined$apply$lambda$1.onDown(android.view.MotionEvent):boolean, com.rigol.scope.views.window.FFTWindowHolder$$special$$inlined$apply$lambda$2.onScale(android.view.ScaleGestureDetector):boolean, com.rigol.scope.views.window.FFTWindowHolder$$special$$inlined$apply$lambda$2.onScaleBegin(android.view.ScaleGestureDetector):boolean, com.rigol.scope.views.window.FFTWindowHolder$$special$$inlined$let$lambda$2.onChanged(java.lang.Object):void] */
+    public static final /* synthetic */ HorizontalParam access$getHorizontalParam$p(FFTWindowHolder fFTWindowHolder) {
+        return fFTWindowHolder.horizontalParam;
     }
 
     public final Context getContext() {

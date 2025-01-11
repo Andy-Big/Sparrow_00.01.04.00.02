@@ -3,6 +3,7 @@ package com.sun.mail.smtp;
 import com.sun.mail.util.CRLFOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+
 /* loaded from: classes2.dex */
 public class SMTPOutputStream extends CRLFOutputStream {
     @Override // java.io.FilterOutputStream, java.io.OutputStream, java.io.Flushable

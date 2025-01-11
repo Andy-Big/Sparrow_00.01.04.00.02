@@ -10,6 +10,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Queue;
 import kotlin.UByte;
+
 /* loaded from: classes.dex */
 public final class Util {
     private static final int HASH_ACCUMULATOR = 17;
@@ -83,10 +84,9 @@ public final class Util {
         return 1;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.bumptech.glide.util.Util$1  reason: invalid class name */
     /* loaded from: classes.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    static /* synthetic */ class AnonymousClass1 {
         static final /* synthetic */ int[] $SwitchMap$android$graphics$Bitmap$Config;
 
         static {

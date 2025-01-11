@@ -1,4 +1,5 @@
 package com.bumptech.glide.request;
+
 /* loaded from: classes.dex */
 public interface RequestCoordinator {
     boolean canNotifyCleared(Request request);
@@ -29,8 +30,7 @@ public interface RequestCoordinator {
             this.isComplete = z;
         }
 
-        /* JADX INFO: Access modifiers changed from: package-private */
-        public boolean isComplete() {
+        boolean isComplete() {
             return this.isComplete;
         }
     }

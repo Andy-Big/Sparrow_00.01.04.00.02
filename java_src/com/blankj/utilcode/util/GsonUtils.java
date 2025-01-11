@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
+
 /* loaded from: classes.dex */
 public final class GsonUtils {
     private static final Map<String, Gson> GSONS = new ConcurrentHashMap();
@@ -196,8 +197,7 @@ public final class GsonUtils {
         throw new NullPointerException("Argument 'rawType' of type Type (#0 out of 2, zero-based) is marked by @androidx.annotation.NonNull but got null for it");
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static Gson getGson4LogUtils() {
+    static Gson getGson4LogUtils() {
         Gson gson = GSONS.get(KEY_LOG_UTILS);
         if (gson == null) {
             Gson create = new GsonBuilder().setPrettyPrinting().serializeNulls().create();

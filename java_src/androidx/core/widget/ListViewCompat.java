@@ -3,6 +3,7 @@ package androidx.core.widget;
 import android.os.Build;
 import android.view.View;
 import android.widget.ListView;
+
 /* loaded from: classes.dex */
 public final class ListViewCompat {
     public static void scrollListBy(ListView listView, int i) {

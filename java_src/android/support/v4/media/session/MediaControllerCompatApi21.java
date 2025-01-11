@@ -15,9 +15,9 @@ import android.os.ResultReceiver;
 import android.view.KeyEvent;
 import java.util.ArrayList;
 import java.util.List;
-/* JADX INFO: Access modifiers changed from: package-private */
+
 /* loaded from: classes.dex */
-public class MediaControllerCompatApi21 {
+class MediaControllerCompatApi21 {
 
     /* loaded from: classes.dex */
     public interface Callback {
@@ -253,9 +253,8 @@ public class MediaControllerCompatApi21 {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static class CallbackProxy<T extends Callback> extends MediaController.Callback {
+    static class CallbackProxy<T extends Callback> extends MediaController.Callback {
         protected final T mCallback;
 
         public CallbackProxy(T t) {

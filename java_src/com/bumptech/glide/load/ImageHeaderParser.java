@@ -4,6 +4,7 @@ import com.bumptech.glide.load.engine.bitmap_recycle.ArrayPool;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.ByteBuffer;
+
 /* loaded from: classes.dex */
 public interface ImageHeaderParser {
     public static final int UNKNOWN_ORIENTATION = -1;

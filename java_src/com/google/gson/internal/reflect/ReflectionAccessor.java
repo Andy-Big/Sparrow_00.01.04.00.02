@@ -2,6 +2,7 @@ package com.google.gson.internal.reflect;
 
 import com.google.gson.internal.JavaVersion;
 import java.lang.reflect.AccessibleObject;
+
 /* loaded from: classes.dex */
 public abstract class ReflectionAccessor {
     private static final ReflectionAccessor instance;

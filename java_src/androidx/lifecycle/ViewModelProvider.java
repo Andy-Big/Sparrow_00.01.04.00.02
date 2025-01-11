@@ -2,6 +2,7 @@ package androidx.lifecycle;
 
 import android.app.Application;
 import java.lang.reflect.InvocationTargetException;
+
 /* loaded from: classes.dex */
 public class ViewModelProvider {
     private static final String DEFAULT_KEY = "androidx.lifecycle.ViewModelProvider.DefaultKey";
@@ -13,9 +14,8 @@ public class ViewModelProvider {
         <T extends ViewModel> T create(Class<T> cls);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static class OnRequeryFactory {
+    static class OnRequeryFactory {
         void onRequery(ViewModel viewModel) {
         }
 
@@ -23,10 +23,12 @@ public class ViewModelProvider {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static abstract class KeyedFactory extends OnRequeryFactory implements Factory {
+    static abstract class KeyedFactory extends OnRequeryFactory implements Factory {
         public abstract <T extends ViewModel> T create(String str, Class<T> cls);
+
+        KeyedFactory() {
+        }
 
         public <T extends ViewModel> T create(Class<T> cls) {
             throw new UnsupportedOperationException("create(String, Class<?>) must be called on implementaions of KeyedFactory");
@@ -36,24 +38,16 @@ public class ViewModelProvider {
     /* JADX WARN: Illegal instructions before constructor call */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    public ViewModelProvider(androidx.lifecycle.ViewModelStoreOwner r3) {
-        /*
-            r2 = this;
-            androidx.lifecycle.ViewModelStore r0 = r3.getViewModelStore()
-            boolean r1 = r3 instanceof androidx.lifecycle.HasDefaultViewModelProviderFactory
-            if (r1 == 0) goto Lf
-            androidx.lifecycle.HasDefaultViewModelProviderFactory r3 = (androidx.lifecycle.HasDefaultViewModelProviderFactory) r3
-            androidx.lifecycle.ViewModelProvider$Factory r3 = r3.getDefaultViewModelProviderFactory()
-            goto L13
-        Lf:
-            androidx.lifecycle.ViewModelProvider$NewInstanceFactory r3 = androidx.lifecycle.ViewModelProvider.NewInstanceFactory.getInstance()
-        L13:
-            r2.<init>(r0, r3)
-            return
-        */
-        throw new UnsupportedOperationException("Method not decompiled: androidx.lifecycle.ViewModelProvider.<init>(androidx.lifecycle.ViewModelStoreOwner):void");
+    public ViewModelProvider(ViewModelStoreOwner viewModelStoreOwner) {
+        this(r0, r3);
+        Factory newInstanceFactory;
+        ViewModelStore viewModelStore = viewModelStoreOwner.getViewModelStore();
+        if (viewModelStoreOwner instanceof HasDefaultViewModelProviderFactory) {
+            newInstanceFactory = ((HasDefaultViewModelProviderFactory) viewModelStoreOwner).getDefaultViewModelProviderFactory();
+        } else {
+            newInstanceFactory = NewInstanceFactory.getInstance();
+        }
     }
 
     public ViewModelProvider(ViewModelStoreOwner viewModelStoreOwner, Factory factory) {

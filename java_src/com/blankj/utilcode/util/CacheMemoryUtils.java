@@ -4,6 +4,7 @@ import androidx.collection.LruCache;
 import com.blankj.utilcode.constant.CacheConstants;
 import java.util.HashMap;
 import java.util.Map;
+
 /* loaded from: classes.dex */
 public final class CacheMemoryUtils implements CacheConstants {
     private static final Map<String, CacheMemoryUtils> CACHE_MAP = new HashMap();
@@ -100,9 +101,8 @@ public final class CacheMemoryUtils implements CacheConstants {
         this.mMemoryCache.evictAll();
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static final class CacheValue {
+    private static final class CacheValue {
         long dueTime;
         Object value;
 

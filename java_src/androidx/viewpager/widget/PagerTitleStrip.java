@@ -16,6 +16,7 @@ import androidx.core.widget.TextViewCompat;
 import androidx.viewpager.widget.ViewPager;
 import java.lang.ref.WeakReference;
 import java.util.Locale;
+
 @ViewPager.DecorView
 /* loaded from: classes.dex */
 public class PagerTitleStrip extends ViewGroup {
@@ -38,9 +39,8 @@ public class PagerTitleStrip extends ViewGroup {
     private static final int[] ATTRS = {16842804, 16842901, 16842904, 16842927};
     private static final int[] TEXT_ATTRS = {16843660};
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static class SingleLineAllCapsTransform extends SingleLineTransformationMethod {
+    private static class SingleLineAllCapsTransform extends SingleLineTransformationMethod {
         private Locale mLocale;
 
         SingleLineAllCapsTransform(Context context) {
@@ -234,8 +234,7 @@ public class PagerTitleStrip extends ViewGroup {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void updateTextPositions(int i, float f, boolean z) {
+    void updateTextPositions(int i, float f, boolean z) {
         int i2;
         int i3;
         int i4;
@@ -339,8 +338,7 @@ public class PagerTitleStrip extends ViewGroup {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public int getMinHeight() {
+    int getMinHeight() {
         Drawable background = getBackground();
         if (background != null) {
             return background.getIntrinsicHeight();
@@ -348,9 +346,8 @@ public class PagerTitleStrip extends ViewGroup {
         return 0;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public class PageListener extends DataSetObserver implements ViewPager.OnPageChangeListener, ViewPager.OnAdapterChangeListener {
+    private class PageListener extends DataSetObserver implements ViewPager.OnPageChangeListener, ViewPager.OnAdapterChangeListener {
         private int mScrollState;
 
         PageListener() {

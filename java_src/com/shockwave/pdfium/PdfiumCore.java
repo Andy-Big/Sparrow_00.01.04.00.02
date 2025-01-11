@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
+
 /* loaded from: classes2.dex */
 public class PdfiumCore {
     private static final String FD_FIELD_NAME = "descriptor";
@@ -222,25 +223,25 @@ public class PdfiumCore {
         synchronized (lock) {
             try {
                 try {
-                    try {
-                        nativeRenderPage(pdfDocument.mNativePagesPtr.get(Integer.valueOf(i)).longValue(), surface, this.mCurrentDpi, i2, i3, i4, i5, z);
-                    } catch (NullPointerException e) {
-                        e = e;
-                        Log.e(TAG, "mContext may be null");
-                        e.printStackTrace();
-                    } catch (Exception e2) {
-                        e = e2;
-                        Log.e(TAG, "Exception throw from native");
-                        e.printStackTrace();
-                    }
+                } catch (NullPointerException e) {
+                    e = e;
+                } catch (Exception e2) {
+                    e = e2;
                 } catch (Throwable th) {
                     th = th;
                     throw th;
                 }
-            } catch (NullPointerException e3) {
-                e = e3;
-            } catch (Exception e4) {
-                e = e4;
+                try {
+                    nativeRenderPage(pdfDocument.mNativePagesPtr.get(Integer.valueOf(i)).longValue(), surface, this.mCurrentDpi, i2, i3, i4, i5, z);
+                } catch (NullPointerException e3) {
+                    e = e3;
+                    Log.e(TAG, "mContext may be null");
+                    e.printStackTrace();
+                } catch (Exception e4) {
+                    e = e4;
+                    Log.e(TAG, "Exception throw from native");
+                    e.printStackTrace();
+                }
             } catch (Throwable th2) {
                 th = th2;
                 throw th;
@@ -256,25 +257,25 @@ public class PdfiumCore {
         synchronized (lock) {
             try {
                 try {
-                    try {
-                        nativeRenderPageBitmap(pdfDocument.mNativePagesPtr.get(Integer.valueOf(i)).longValue(), bitmap, this.mCurrentDpi, i2, i3, i4, i5, z);
-                    } catch (NullPointerException e) {
-                        e = e;
-                        Log.e(TAG, "mContext may be null");
-                        e.printStackTrace();
-                    } catch (Exception e2) {
-                        e = e2;
-                        Log.e(TAG, "Exception throw from native");
-                        e.printStackTrace();
-                    }
+                } catch (NullPointerException e) {
+                    e = e;
+                } catch (Exception e2) {
+                    e = e2;
                 } catch (Throwable th) {
                     th = th;
                     throw th;
                 }
-            } catch (NullPointerException e3) {
-                e = e3;
-            } catch (Exception e4) {
-                e = e4;
+                try {
+                    nativeRenderPageBitmap(pdfDocument.mNativePagesPtr.get(Integer.valueOf(i)).longValue(), bitmap, this.mCurrentDpi, i2, i3, i4, i5, z);
+                } catch (NullPointerException e3) {
+                    e = e3;
+                    Log.e(TAG, "mContext may be null");
+                    e.printStackTrace();
+                } catch (Exception e4) {
+                    e = e4;
+                    Log.e(TAG, "Exception throw from native");
+                    e.printStackTrace();
+                }
             } catch (Throwable th2) {
                 th = th2;
                 throw th;

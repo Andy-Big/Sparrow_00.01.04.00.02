@@ -10,6 +10,7 @@ import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.LifecycleRegistry;
 import androidx.lifecycle.ReportFragment;
+
 /* loaded from: classes.dex */
 public class ComponentActivity extends Activity implements LifecycleOwner, KeyEventDispatcher.Component {
     private SimpleArrayMap<Class<? extends ExtraData>, ExtraData> mExtraDataMap = new SimpleArrayMap<>();
@@ -20,22 +21,21 @@ public class ComponentActivity extends Activity implements LifecycleOwner, KeyEv
     public static class ExtraData {
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: androidx.collection.SimpleArrayMap<java.lang.Class<? extends androidx.core.app.ComponentActivity$ExtraData>, androidx.core.app.ComponentActivity$ExtraData> */
     /* JADX WARN: Multi-variable type inference failed */
     @Deprecated
     public void putExtraData(ExtraData extraData) {
         this.mExtraDataMap.put(extraData.getClass(), extraData);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.app.Activity
-    public void onCreate(Bundle bundle) {
+    protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         ReportFragment.injectIfNeededIn(this);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.app.Activity
-    public void onSaveInstanceState(Bundle bundle) {
+    protected void onSaveInstanceState(Bundle bundle) {
         this.mLifecycleRegistry.markState(Lifecycle.State.CREATED);
         super.onSaveInstanceState(bundle);
     }

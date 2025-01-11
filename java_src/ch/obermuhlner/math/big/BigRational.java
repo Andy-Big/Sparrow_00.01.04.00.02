@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.function.BinaryOperator;
 import java.util.function.IntFunction;
 import java.util.stream.IntStream;
+
 /* loaded from: classes.dex */
 public class BigRational implements Comparable<BigRational> {
     private final BigDecimal denominator;
@@ -503,8 +504,7 @@ public class BigRational implements Comparable<BigRational> {
         });
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ BigRational lambda$calculateBernoulli$0(int i, int i2) {
+    static /* synthetic */ BigRational lambda$calculateBernoulli$0(int i, int i2) {
         BigRational bigRational = ZERO;
         BigRational bigRational2 = ONE;
         int i3 = 0;

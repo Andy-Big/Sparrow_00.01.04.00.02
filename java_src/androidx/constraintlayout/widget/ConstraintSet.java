@@ -19,6 +19,7 @@ import androidx.constraintlayout.core.widgets.HelperWidget;
 import androidx.constraintlayout.motion.utils.Easing;
 import androidx.constraintlayout.motion.widget.Debug;
 import androidx.constraintlayout.motion.widget.MotionScene;
+import androidx.constraintlayout.motion.widget.ViewTransition;
 import androidx.constraintlayout.widget.ConstraintAttribute;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.Constraints;
@@ -35,6 +36,7 @@ import java.util.Iterator;
 import java.util.Set;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
+
 /* loaded from: classes.dex */
 public class ConstraintSet {
     private static final int ALPHA = 43;
@@ -475,8 +477,7 @@ public class ConstraintSet {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static void parseDimensionConstraints(Object obj, TypedArray typedArray, int i, int i2) {
+    static void parseDimensionConstraints(Object obj, TypedArray typedArray, int i, int i2) {
         if (obj == null) {
             return;
         }
@@ -527,8 +528,7 @@ public class ConstraintSet {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static void parseDimensionRatioString(ConstraintLayout.LayoutParams layoutParams, String str) {
+    static void parseDimensionRatioString(ConstraintLayout.LayoutParams layoutParams, String str) {
         float f = Float.NaN;
         int i = -1;
         if (str != null) {
@@ -1518,9 +1518,8 @@ public class ConstraintSet {
         public final Transform transform = new Transform();
         public HashMap<String, ConstraintAttribute> mCustomConstraints = new HashMap<>();
 
-        /* JADX INFO: Access modifiers changed from: package-private */
         /* loaded from: classes.dex */
-        public static class Delta {
+        static class Delta {
             private static final int INITAL_BOOLEAN = 4;
             private static final int INITAL_FLOAT = 10;
             private static final int INITAL_INT = 10;
@@ -1689,6 +1688,7 @@ public class ConstraintSet {
             get(str, ConstraintAttribute.AttributeType.COLOR_TYPE).setColorValue(i);
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         /* renamed from: clone */
         public Constraint m3clone() {
             Constraint constraint = new Constraint();
@@ -1986,8 +1986,7 @@ public class ConstraintSet {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void applyToInternal(ConstraintLayout constraintLayout, boolean z) {
+    void applyToInternal(ConstraintLayout constraintLayout, boolean z) {
         int childCount = constraintLayout.getChildCount();
         HashSet hashSet = new HashSet(this.mConstraints.keySet());
         for (int i = 0; i < childCount; i++) {
@@ -3062,14 +3061,177 @@ public class ConstraintSet {
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    public void load(android.content.Context r10, org.xmlpull.v1.XmlPullParser r11) {
-        /*
-            Method dump skipped, instructions count: 560
-            To view this dump add '--comments-level debug' option
-        */
-        throw new UnsupportedOperationException("Method not decompiled: androidx.constraintlayout.widget.ConstraintSet.load(android.content.Context, org.xmlpull.v1.XmlPullParser):void");
+    public void load(Context context, XmlPullParser xmlPullParser) {
+        Constraint fillFromAttributeList;
+        try {
+            int eventType = xmlPullParser.getEventType();
+            Constraint constraint = null;
+            while (eventType != 1) {
+                if (eventType != 0) {
+                    char c = 65535;
+                    if (eventType == 2) {
+                        String name = xmlPullParser.getName();
+                        switch (name.hashCode()) {
+                            case -2025855158:
+                                if (name.equals("Layout")) {
+                                    c = 6;
+                                    break;
+                                }
+                                break;
+                            case -1984451626:
+                                if (name.equals("Motion")) {
+                                    c = 7;
+                                    break;
+                                }
+                                break;
+                            case -1962203927:
+                                if (name.equals(ViewTransition.CONSTRAINT_OVERRIDE)) {
+                                    c = 1;
+                                    break;
+                                }
+                                break;
+                            case -1269513683:
+                                if (name.equals("PropertySet")) {
+                                    c = 4;
+                                    break;
+                                }
+                                break;
+                            case -1238332596:
+                                if (name.equals("Transform")) {
+                                    c = 5;
+                                    break;
+                                }
+                                break;
+                            case -71750448:
+                                if (name.equals("Guideline")) {
+                                    c = 2;
+                                    break;
+                                }
+                                break;
+                            case 366511058:
+                                if (name.equals(ViewTransition.CUSTOM_METHOD)) {
+                                    c = '\t';
+                                    break;
+                                }
+                                break;
+                            case 1331510167:
+                                if (name.equals("Barrier")) {
+                                    c = 3;
+                                    break;
+                                }
+                                break;
+                            case 1791837707:
+                                if (name.equals(ViewTransition.CUSTOM_ATTRIBUTE)) {
+                                    c = '\b';
+                                    break;
+                                }
+                                break;
+                            case 1803088381:
+                                if (name.equals("Constraint")) {
+                                    c = 0;
+                                    break;
+                                }
+                                break;
+                        }
+                        switch (c) {
+                            case 0:
+                                fillFromAttributeList = fillFromAttributeList(context, Xml.asAttributeSet(xmlPullParser), false);
+                                constraint = fillFromAttributeList;
+                                break;
+                            case 1:
+                                fillFromAttributeList = fillFromAttributeList(context, Xml.asAttributeSet(xmlPullParser), true);
+                                constraint = fillFromAttributeList;
+                                break;
+                            case 2:
+                                fillFromAttributeList = fillFromAttributeList(context, Xml.asAttributeSet(xmlPullParser), false);
+                                fillFromAttributeList.layout.mIsGuideline = true;
+                                fillFromAttributeList.layout.mApply = true;
+                                constraint = fillFromAttributeList;
+                                break;
+                            case 3:
+                                fillFromAttributeList = fillFromAttributeList(context, Xml.asAttributeSet(xmlPullParser), false);
+                                fillFromAttributeList.layout.mHelperType = 1;
+                                constraint = fillFromAttributeList;
+                                break;
+                            case 4:
+                                if (constraint == null) {
+                                    throw new RuntimeException(ERROR_MESSAGE + xmlPullParser.getLineNumber());
+                                }
+                                constraint.propertySet.fillFromAttributeList(context, Xml.asAttributeSet(xmlPullParser));
+                                break;
+                            case 5:
+                                if (constraint == null) {
+                                    throw new RuntimeException(ERROR_MESSAGE + xmlPullParser.getLineNumber());
+                                }
+                                constraint.transform.fillFromAttributeList(context, Xml.asAttributeSet(xmlPullParser));
+                                break;
+                            case 6:
+                                if (constraint == null) {
+                                    throw new RuntimeException(ERROR_MESSAGE + xmlPullParser.getLineNumber());
+                                }
+                                constraint.layout.fillFromAttributeList(context, Xml.asAttributeSet(xmlPullParser));
+                                break;
+                            case 7:
+                                if (constraint == null) {
+                                    throw new RuntimeException(ERROR_MESSAGE + xmlPullParser.getLineNumber());
+                                }
+                                constraint.motion.fillFromAttributeList(context, Xml.asAttributeSet(xmlPullParser));
+                                break;
+                            case '\b':
+                            case '\t':
+                                if (constraint == null) {
+                                    throw new RuntimeException(ERROR_MESSAGE + xmlPullParser.getLineNumber());
+                                }
+                                ConstraintAttribute.parse(context, xmlPullParser, constraint.mCustomConstraints);
+                                break;
+                        }
+                    } else if (eventType == 3) {
+                        String lowerCase = xmlPullParser.getName().toLowerCase();
+                        switch (lowerCase.hashCode()) {
+                            case -2075718416:
+                                if (lowerCase.equals("guideline")) {
+                                    c = 3;
+                                    break;
+                                }
+                                break;
+                            case -190376483:
+                                if (lowerCase.equals("constraint")) {
+                                    c = 1;
+                                    break;
+                                }
+                                break;
+                            case 426575017:
+                                if (lowerCase.equals("constraintoverride")) {
+                                    c = 2;
+                                    break;
+                                }
+                                break;
+                            case 2146106725:
+                                if (lowerCase.equals("constraintset")) {
+                                    c = 0;
+                                    break;
+                                }
+                                break;
+                        }
+                        if (c == 0) {
+                            return;
+                        }
+                        if (c == 1 || c == 2 || c == 3) {
+                            this.mConstraints.put(Integer.valueOf(constraint.mViewId), constraint);
+                            constraint = null;
+                        }
+                    }
+                } else {
+                    xmlPullParser.getName();
+                }
+                eventType = xmlPullParser.next();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (XmlPullParserException e2) {
+            e2.printStackTrace();
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: private */

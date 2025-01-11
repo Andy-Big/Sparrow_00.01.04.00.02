@@ -12,6 +12,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.util.Preconditions;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
+
 /* loaded from: classes.dex */
 public abstract class FragmentHostCallback<E> extends FragmentContainer {
     private final Activity mActivity;
@@ -20,8 +21,7 @@ public abstract class FragmentHostCallback<E> extends FragmentContainer {
     private final Handler mHandler;
     private final int mWindowAnimations;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void onAttachFragment(Fragment fragment) {
+    void onAttachFragment(Fragment fragment) {
     }
 
     public void onDump(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
@@ -61,8 +61,7 @@ public abstract class FragmentHostCallback<E> extends FragmentContainer {
         this(context instanceof Activity ? (Activity) context : null, context, handler, i);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public FragmentHostCallback(FragmentActivity fragmentActivity) {
+    FragmentHostCallback(FragmentActivity fragmentActivity) {
         this(fragmentActivity, fragmentActivity, new Handler(), 0);
     }
 
@@ -100,18 +99,15 @@ public abstract class FragmentHostCallback<E> extends FragmentContainer {
         return this.mWindowAnimations;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public Activity getActivity() {
+    Activity getActivity() {
         return this.mActivity;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public Context getContext() {
+    Context getContext() {
         return this.mContext;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public Handler getHandler() {
+    Handler getHandler() {
         return this.mHandler;
     }
 }

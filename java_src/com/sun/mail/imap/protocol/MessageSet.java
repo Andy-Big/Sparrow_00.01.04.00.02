@@ -1,6 +1,7 @@
 package com.sun.mail.imap.protocol;
 
 import java.util.ArrayList;
+
 /* loaded from: classes2.dex */
 public class MessageSet {
     public int end;

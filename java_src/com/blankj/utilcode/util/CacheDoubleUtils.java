@@ -9,6 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
+
 /* loaded from: classes.dex */
 public final class CacheDoubleUtils implements CacheConstants {
     private static final Map<String, CacheDoubleUtils> CACHE_MAP = new HashMap();

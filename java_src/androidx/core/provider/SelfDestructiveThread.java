@@ -9,6 +9,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
+
 /* loaded from: classes.dex */
 public class SelfDestructiveThread {
     private static final int MSG_DESTRUCTION = 0;

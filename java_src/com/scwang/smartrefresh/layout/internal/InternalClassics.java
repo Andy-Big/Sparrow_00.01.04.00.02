@@ -20,6 +20,7 @@ import com.scwang.smartrefresh.layout.constant.SpinnerStyle;
 import com.scwang.smartrefresh.layout.internal.InternalClassics;
 import com.scwang.smartrefresh.layout.util.DensityUtil;
 import com.scwang.smartrefresh.layout.util.SmartUtil;
+
 /* loaded from: classes2.dex */
 public abstract class InternalClassics<T extends InternalClassics> extends InternalAbstract implements RefreshInternal {
     public static final byte ID_IMAGE_ARROW = 2;

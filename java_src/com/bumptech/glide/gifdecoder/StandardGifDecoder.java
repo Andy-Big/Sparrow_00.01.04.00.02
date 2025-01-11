@@ -12,6 +12,7 @@ import java.nio.ByteOrder;
 import java.util.Arrays;
 import java.util.Iterator;
 import kotlin.UByte;
+
 /* loaded from: classes.dex */
 public class StandardGifDecoder implements GifDecoder {
     private static final int BYTES_PER_INTEGER = 4;
@@ -580,6 +581,8 @@ public class StandardGifDecoder implements GifDecoder {
         return ((i4 / i8) << 24) | ((i5 / i8) << 16) | ((i6 / i8) << 8) | (i7 / i8);
     }
 
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:78:0x00f9 */
+    /* JADX DEBUG: Multi-variable search result rejected for r7v15, resolved type: short */
     /* JADX WARN: Multi-variable type inference failed */
     private void decodeBitmapData(GifFrame gifFrame) {
         short s;

@@ -10,6 +10,7 @@ import java.io.Reader;
 import java.io.StringReader;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
+
 /* loaded from: classes.dex */
 public final class JsonStreamParser implements Iterator<JsonElement> {
     private final Object lock;
@@ -26,6 +27,7 @@ public final class JsonStreamParser implements Iterator<JsonElement> {
         this.lock = new Object();
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // java.util.Iterator
     public JsonElement next() throws JsonParseException {
@@ -54,11 +56,11 @@ public final class JsonStreamParser implements Iterator<JsonElement> {
                 try {
                     try {
                         z = this.parser.peek() != JsonToken.END_DOCUMENT;
-                    } catch (IOException e) {
-                        throw new JsonIOException(e);
+                    } catch (MalformedJsonException e) {
+                        throw new JsonSyntaxException(e);
                     }
-                } catch (MalformedJsonException e2) {
-                    throw new JsonSyntaxException(e2);
+                } catch (IOException e2) {
+                    throw new JsonIOException(e2);
                 }
             } catch (Throwable th) {
                 throw th;

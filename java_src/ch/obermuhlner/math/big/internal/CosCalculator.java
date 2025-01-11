@@ -3,6 +3,7 @@ package ch.obermuhlner.math.big.internal;
 import ch.obermuhlner.math.big.BigRational;
 import java.math.BigDecimal;
 import java.math.MathContext;
+
 /* loaded from: classes.dex */
 public class CosCalculator extends SeriesCalculator {
     public static final CosCalculator INSTANCE = new CosCalculator();

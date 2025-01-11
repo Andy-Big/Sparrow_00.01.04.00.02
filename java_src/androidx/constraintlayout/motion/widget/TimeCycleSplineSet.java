@@ -10,6 +10,7 @@ import java.lang.reflect.Array;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.text.DecimalFormat;
+
 /* loaded from: classes.dex */
 public abstract class TimeCycleSplineSet {
     private static final int CURVE_OFFSET = 2;
@@ -98,14 +99,12 @@ public abstract class TimeCycleSplineSet {
         return this.mCurveFit;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static TimeCycleSplineSet makeCustomSpline(String str, SparseArray<ConstraintAttribute> sparseArray) {
+    static TimeCycleSplineSet makeCustomSpline(String str, SparseArray<ConstraintAttribute> sparseArray) {
         return new CustomSet(str, sparseArray);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    public static TimeCycleSplineSet makeSpline(String str, long j) {
+    static TimeCycleSplineSet makeSpline(String str, long j) {
         char c;
         TimeCycleSplineSet alphaSet;
         switch (str.hashCode()) {
@@ -299,9 +298,8 @@ public abstract class TimeCycleSplineSet {
         this.mCurveFit = CurveFit.get(i, dArr, dArr2);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static class ElevationSet extends TimeCycleSplineSet {
+    static class ElevationSet extends TimeCycleSplineSet {
         ElevationSet() {
         }
 
@@ -314,9 +312,8 @@ public abstract class TimeCycleSplineSet {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static class AlphaSet extends TimeCycleSplineSet {
+    static class AlphaSet extends TimeCycleSplineSet {
         AlphaSet() {
         }
 
@@ -327,9 +324,8 @@ public abstract class TimeCycleSplineSet {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static class RotationSet extends TimeCycleSplineSet {
+    static class RotationSet extends TimeCycleSplineSet {
         RotationSet() {
         }
 
@@ -340,9 +336,8 @@ public abstract class TimeCycleSplineSet {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static class RotationXset extends TimeCycleSplineSet {
+    static class RotationXset extends TimeCycleSplineSet {
         RotationXset() {
         }
 
@@ -353,9 +348,8 @@ public abstract class TimeCycleSplineSet {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static class RotationYset extends TimeCycleSplineSet {
+    static class RotationYset extends TimeCycleSplineSet {
         RotationYset() {
         }
 
@@ -366,9 +360,8 @@ public abstract class TimeCycleSplineSet {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static class PathRotate extends TimeCycleSplineSet {
+    static class PathRotate extends TimeCycleSplineSet {
         PathRotate() {
         }
 
@@ -383,9 +376,8 @@ public abstract class TimeCycleSplineSet {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static class ScaleXset extends TimeCycleSplineSet {
+    static class ScaleXset extends TimeCycleSplineSet {
         ScaleXset() {
         }
 
@@ -396,9 +388,8 @@ public abstract class TimeCycleSplineSet {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static class ScaleYset extends TimeCycleSplineSet {
+    static class ScaleYset extends TimeCycleSplineSet {
         ScaleYset() {
         }
 
@@ -409,9 +400,8 @@ public abstract class TimeCycleSplineSet {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static class TranslationXset extends TimeCycleSplineSet {
+    static class TranslationXset extends TimeCycleSplineSet {
         TranslationXset() {
         }
 
@@ -422,9 +412,8 @@ public abstract class TimeCycleSplineSet {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static class TranslationYset extends TimeCycleSplineSet {
+    static class TranslationYset extends TimeCycleSplineSet {
         TranslationYset() {
         }
 
@@ -435,9 +424,8 @@ public abstract class TimeCycleSplineSet {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static class TranslationZset extends TimeCycleSplineSet {
+    static class TranslationZset extends TimeCycleSplineSet {
         TranslationZset() {
         }
 
@@ -450,9 +438,8 @@ public abstract class TimeCycleSplineSet {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static class CustomSet extends TimeCycleSplineSet {
+    static class CustomSet extends TimeCycleSplineSet {
         String mAttributeName;
         float[] mCache;
         SparseArray<ConstraintAttribute> mConstraintAttributeList;
@@ -532,9 +519,8 @@ public abstract class TimeCycleSplineSet {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static class ProgressSet extends TimeCycleSplineSet {
+    static class ProgressSet extends TimeCycleSplineSet {
         boolean mNoMethod = false;
 
         ProgressSet() {
@@ -568,9 +554,8 @@ public abstract class TimeCycleSplineSet {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static class Sort {
+    private static class Sort {
         private Sort() {
         }
 

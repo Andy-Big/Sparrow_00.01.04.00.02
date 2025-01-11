@@ -2,6 +2,7 @@ package com.scwang.smartrefresh.layout.api;
 
 import android.animation.ValueAnimator;
 import com.scwang.smartrefresh.layout.constant.RefreshState;
+
 /* loaded from: classes2.dex */
 public interface RefreshKernel {
     ValueAnimator animSpinner(int i);

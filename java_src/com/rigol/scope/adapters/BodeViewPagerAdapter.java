@@ -255,8 +255,6 @@ public class BodeViewPagerAdapter extends MultiItemTypeAdapter<List<MappingObjec
             }
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.rigol.scope.adapters.AdapterDelegate
         public boolean isForViewType(List<MappingObject> list, int i) {
             return list.get(i).getValue() == 0;
@@ -288,6 +286,10 @@ public class BodeViewPagerAdapter extends MultiItemTypeAdapter<List<MappingObjec
 
                 @Override // com.rigol.scope.utilities.AorBManager
                 protected void setrecovery_num(int i2) {
+                }
+
+                {
+                    BodeasicDelegate.this = this;
                 }
             };
             this.panelKeyViewModel = (PanelKeyViewModel) ContextUtil.getAppViewModel(PanelKeyViewModel.class);
@@ -398,6 +400,10 @@ public class BodeViewPagerAdapter extends MultiItemTypeAdapter<List<MappingObjec
                             public void onCall(KeyboardPopupView keyboardPopupView) {
                             }
 
+                            {
+                                BodeafDelegate.this = this;
+                            }
+
                             @Override // com.rigol.scope.views.keyboard.KeyboardListener
                             public <T> void resultMinUnitValueListener(T t) {
                                 BodeafDelegate.this.bodeParam.saveBodeAmpout(((Long) t).longValue());
@@ -411,6 +417,10 @@ public class BodeViewPagerAdapter extends MultiItemTypeAdapter<List<MappingObjec
                         ViewUtil.showKeyboard(this.popupView.getAnchor(), view, ServiceEnum.Unit.Unit_V, this.bodeParam.getBodevaramp1Attr().getMaxLongValue(), this.bodeParam.getBodevaramp1Attr().getMinLongValue(), this.bodeParam.getBodevaramp1Attr().getDefLongValue(), this.bodeParam.getBodevaramp1(), new KeyboardListener() { // from class: com.rigol.scope.adapters.BodeViewPagerAdapter.BodeafDelegate.5
                             @Override // com.rigol.scope.views.keyboard.KeyboardListener
                             public void onCall(KeyboardPopupView keyboardPopupView) {
+                            }
+
+                            {
+                                BodeafDelegate.this = this;
                             }
 
                             @Override // com.rigol.scope.views.keyboard.KeyboardListener
@@ -428,6 +438,10 @@ public class BodeViewPagerAdapter extends MultiItemTypeAdapter<List<MappingObjec
                             public void onCall(KeyboardPopupView keyboardPopupView) {
                             }
 
+                            {
+                                BodeafDelegate.this = this;
+                            }
+
                             @Override // com.rigol.scope.views.keyboard.KeyboardListener
                             public <T> void resultMinUnitValueListener(T t) {
                                 BodeafDelegate.this.bodeParam.saveBodevaramp2(((Long) t).longValue());
@@ -441,6 +455,10 @@ public class BodeViewPagerAdapter extends MultiItemTypeAdapter<List<MappingObjec
                         ViewUtil.showKeyboard(this.popupView.getAnchor(), view, ServiceEnum.Unit.Unit_V, this.bodeParam.getBodevaramp3Attr().getMaxLongValue(), this.bodeParam.getBodevaramp3Attr().getMinLongValue(), this.bodeParam.getBodevaramp3Attr().getDefLongValue(), this.bodeParam.getBodevaramp3(), new KeyboardListener() { // from class: com.rigol.scope.adapters.BodeViewPagerAdapter.BodeafDelegate.7
                             @Override // com.rigol.scope.views.keyboard.KeyboardListener
                             public void onCall(KeyboardPopupView keyboardPopupView) {
+                            }
+
+                            {
+                                BodeafDelegate.this = this;
                             }
 
                             @Override // com.rigol.scope.views.keyboard.KeyboardListener
@@ -458,6 +476,10 @@ public class BodeViewPagerAdapter extends MultiItemTypeAdapter<List<MappingObjec
                             public void onCall(KeyboardPopupView keyboardPopupView) {
                             }
 
+                            {
+                                BodeafDelegate.this = this;
+                            }
+
                             @Override // com.rigol.scope.views.keyboard.KeyboardListener
                             public <T> void resultMinUnitValueListener(T t) {
                                 BodeafDelegate.this.bodeParam.saveBodevaramp4(((Long) t).longValue());
@@ -471,6 +493,10 @@ public class BodeViewPagerAdapter extends MultiItemTypeAdapter<List<MappingObjec
                         ViewUtil.showKeyboard(this.popupView.getAnchor(), view, ServiceEnum.Unit.Unit_V, this.bodeParam.getBodevaramp5Attr().getMaxLongValue(), this.bodeParam.getBodevaramp5Attr().getMinLongValue(), this.bodeParam.getBodevaramp5Attr().getDefLongValue(), this.bodeParam.getBodevaramp5(), new KeyboardListener() { // from class: com.rigol.scope.adapters.BodeViewPagerAdapter.BodeafDelegate.9
                             @Override // com.rigol.scope.views.keyboard.KeyboardListener
                             public void onCall(KeyboardPopupView keyboardPopupView) {
+                            }
+
+                            {
+                                BodeafDelegate.this = this;
                             }
 
                             @Override // com.rigol.scope.views.keyboard.KeyboardListener
@@ -488,6 +514,10 @@ public class BodeViewPagerAdapter extends MultiItemTypeAdapter<List<MappingObjec
                             public void onCall(KeyboardPopupView keyboardPopupView) {
                             }
 
+                            {
+                                BodeafDelegate.this = this;
+                            }
+
                             @Override // com.rigol.scope.views.keyboard.KeyboardListener
                             public <T> void resultMinUnitValueListener(T t) {
                                 BodeafDelegate.this.bodeParam.saveBodevaramp6(((Long) t).longValue());
@@ -503,6 +533,10 @@ public class BodeViewPagerAdapter extends MultiItemTypeAdapter<List<MappingObjec
                             public void onCall(KeyboardPopupView keyboardPopupView) {
                             }
 
+                            {
+                                BodeafDelegate.this = this;
+                            }
+
                             @Override // com.rigol.scope.views.keyboard.KeyboardListener
                             public <T> void resultMinUnitValueListener(T t) {
                                 BodeafDelegate.this.bodeParam.saveBodevaramp7(((Long) t).longValue());
@@ -516,6 +550,10 @@ public class BodeViewPagerAdapter extends MultiItemTypeAdapter<List<MappingObjec
                         ViewUtil.showKeyboard(this.popupView.getAnchor(), view, ServiceEnum.Unit.Unit_V, this.bodeParam.getBodevaramp8Attr().getMaxLongValue(), this.bodeParam.getBodevaramp8Attr().getMinLongValue(), this.bodeParam.getBodevaramp8Attr().getDefLongValue(), this.bodeParam.getBodevaramp8(), new KeyboardListener() { // from class: com.rigol.scope.adapters.BodeViewPagerAdapter.BodeafDelegate.12
                             @Override // com.rigol.scope.views.keyboard.KeyboardListener
                             public void onCall(KeyboardPopupView keyboardPopupView) {
+                            }
+
+                            {
+                                BodeafDelegate.this = this;
                             }
 
                             @Override // com.rigol.scope.views.keyboard.KeyboardListener
@@ -540,6 +578,10 @@ public class BodeViewPagerAdapter extends MultiItemTypeAdapter<List<MappingObjec
                             public void onCall(KeyboardPopupView keyboardPopupView) {
                             }
 
+                            {
+                                BodeafDelegate.this = this;
+                            }
+
                             @Override // com.rigol.scope.views.keyboard.KeyboardListener
                             public <T> void resultMinUnitValueListener(T t) {
                                 BodeafDelegate.this.bodeParam.saveBodePointNum(Integer.parseInt(t.toString()));
@@ -555,6 +597,10 @@ public class BodeViewPagerAdapter extends MultiItemTypeAdapter<List<MappingObjec
                             public void onCall(KeyboardPopupView keyboardPopupView) {
                             }
 
+                            {
+                                BodeafDelegate.this = this;
+                            }
+
                             @Override // com.rigol.scope.views.keyboard.KeyboardListener
                             public <T> void resultMinUnitValueListener(T t) {
                                 BodeafDelegate.this.bodeParam.saveBodeStartFreq(((Long) t).longValue());
@@ -568,6 +614,10 @@ public class BodeViewPagerAdapter extends MultiItemTypeAdapter<List<MappingObjec
                         ViewUtil.showKeyboard(this.popupView.getAnchor(), view, ServiceEnum.Unit.Unit_hz, this.bodeParam.getBodeStopFreqAttr().getMaxLongValue(), this.bodeParam.getBodeStopFreqAttr().getMinLongValue(), this.bodeParam.getBodeStopFreqAttr().getDefLongValue(), this.bodeParam.getBodeStopFreq(), new KeyboardListener() { // from class: com.rigol.scope.adapters.BodeViewPagerAdapter.BodeafDelegate.3
                             @Override // com.rigol.scope.views.keyboard.KeyboardListener
                             public void onCall(KeyboardPopupView keyboardPopupView) {
+                            }
+
+                            {
+                                BodeafDelegate.this = this;
                             }
 
                             @Override // com.rigol.scope.views.keyboard.KeyboardListener
@@ -588,8 +638,6 @@ public class BodeViewPagerAdapter extends MultiItemTypeAdapter<List<MappingObjec
             }
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.rigol.scope.adapters.AdapterDelegate
         public boolean isForViewType(List<MappingObject> list, int i) {
             return list.get(i).getValue() == 1;
@@ -626,6 +674,10 @@ public class BodeViewPagerAdapter extends MultiItemTypeAdapter<List<MappingObjec
             this.list_aorbParam.add(new AorBParam(this.adapterBodeAfSeniorBinding.bodeBodevaramp7, 0, true, ViewUtil.KEY_A, 0));
             this.list_aorbParam.add(new AorBParam(this.adapterBodeAfSeniorBinding.bodeBodevaramp8, 0, true, ViewUtil.KEY_A, 0));
             AorBManager aorBManager = new AorBManager(this.popupView.getAnchor().getContext(), this.list_aorbParam, this, this) { // from class: com.rigol.scope.adapters.BodeViewPagerAdapter.BodeafDelegate.13
+                {
+                    BodeafDelegate.this = this;
+                }
+
                 @Override // com.rigol.scope.utilities.AorBManager
                 protected void setSwitch_num(int i2) {
                     showKey(BodeafDelegate.this.popupView.getAnchor().getContext(), ((AorBParam) BodeafDelegate.this.list_aorbParam.get(i2)).getTextView(), true, ((AorBParam) BodeafDelegate.this.list_aorbParam.get(i2)).getAorb());
@@ -916,8 +968,6 @@ public class BodeViewPagerAdapter extends MultiItemTypeAdapter<List<MappingObjec
             return false;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.rigol.scope.adapters.AdapterDelegate
         public boolean isForViewType(List<MappingObject> list, int i) {
             return list.get(i).getValue() == 2;

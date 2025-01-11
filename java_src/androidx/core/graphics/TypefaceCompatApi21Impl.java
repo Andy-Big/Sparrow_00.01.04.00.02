@@ -18,6 +18,7 @@ import java.lang.reflect.Array;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+
 /* loaded from: classes.dex */
 class TypefaceCompatApi21Impl extends TypefaceCompatBaseImpl {
     private static final String ADD_FONT_WEIGHT_STYLE_METHOD = "addFontWeightStyle";
@@ -29,6 +30,9 @@ class TypefaceCompatApi21Impl extends TypefaceCompatBaseImpl {
     private static Class<?> sFontFamily = null;
     private static Constructor<?> sFontFamilyCtor = null;
     private static boolean sHasInitBeenCalled = false;
+
+    TypefaceCompatApi21Impl() {
+    }
 
     private static void init() {
         Method method;

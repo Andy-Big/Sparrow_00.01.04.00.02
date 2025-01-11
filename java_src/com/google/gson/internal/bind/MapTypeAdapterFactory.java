@@ -19,6 +19,7 @@ import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Map;
+
 /* loaded from: classes.dex */
 public final class MapTypeAdapterFactory implements TypeAdapterFactory {
     final boolean complexMapKeySerialization;
@@ -63,6 +64,7 @@ public final class MapTypeAdapterFactory implements TypeAdapterFactory {
             this.constructor = objectConstructor;
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.gson.TypeAdapter
         public Map<K, V> read(JsonReader jsonReader) throws IOException {
             JsonToken peek = jsonReader.peek();
@@ -96,6 +98,8 @@ public final class MapTypeAdapterFactory implements TypeAdapterFactory {
             return construct;
         }
 
+        /* JADX DEBUG: Multi-variable search result rejected for r3v5, resolved type: com.google.gson.TypeAdapter<V> */
+        /* JADX DEBUG: Multi-variable search result rejected for r3v8, resolved type: com.google.gson.TypeAdapter<V> */
         /* JADX WARN: Multi-variable type inference failed */
         public void write(JsonWriter jsonWriter, Map<K, V> map) throws IOException {
             if (map == null) {

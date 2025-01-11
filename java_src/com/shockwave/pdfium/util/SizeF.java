@@ -1,4 +1,5 @@
 package com.shockwave.pdfium.util;
+
 /* loaded from: classes2.dex */
 public class SizeF {
     private final float height;

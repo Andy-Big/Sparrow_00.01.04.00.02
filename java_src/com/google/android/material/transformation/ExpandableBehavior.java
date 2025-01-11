@@ -9,6 +9,7 @@ import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.view.ViewCompat;
 import com.google.android.material.expandable.ExpandableWidget;
 import java.util.List;
+
 @Deprecated
 /* loaded from: classes.dex */
 public abstract class ExpandableBehavior extends CoordinatorLayout.Behavior<View> {

@@ -6,6 +6,7 @@ import java.math.MathContext;
 import java.math.RoundingMode;
 import java.util.Objects;
 import kotlin.jvm.internal.LongCompanionObject;
+
 /* loaded from: classes.dex */
 public class BigFloat implements Comparable<BigFloat>, Serializable {
     private static final long serialVersionUID = -7323679117445486894L;
@@ -263,6 +264,7 @@ public class BigFloat implements Comparable<BigFloat>, Serializable {
         return this.value.signum() > 0;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // java.lang.Comparable
     public int compareTo(BigFloat bigFloat) {
         if (bigFloat.isSpecial()) {
@@ -522,6 +524,7 @@ public class BigFloat implements Comparable<BigFloat>, Serializable {
             return signum() > 0;
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // ch.obermuhlner.math.big.BigFloat, java.lang.Comparable
         public int compareTo(BigFloat bigFloat) {
@@ -558,9 +561,8 @@ public class BigFloat implements Comparable<BigFloat>, Serializable {
             return this.type.toString();
         }
 
-        /* JADX INFO: Access modifiers changed from: package-private */
         /* loaded from: classes.dex */
-        public enum Type {
+        enum Type {
             NaN(Objects.hashCode(Double.valueOf(Double.NaN))),
             POSITIVE_INFINITY(Objects.hashCode(Double.valueOf(Double.POSITIVE_INFINITY))),
             NORMAL(Objects.hashCode(0)),
@@ -589,10 +591,9 @@ public class BigFloat implements Comparable<BigFloat>, Serializable {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: ch.obermuhlner.math.big.BigFloat$1  reason: invalid class name */
     /* loaded from: classes.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    static /* synthetic */ class AnonymousClass1 {
         static final /* synthetic */ int[] $SwitchMap$ch$obermuhlner$math$big$BigFloat$SpecialBigFloat$Type;
 
         static {

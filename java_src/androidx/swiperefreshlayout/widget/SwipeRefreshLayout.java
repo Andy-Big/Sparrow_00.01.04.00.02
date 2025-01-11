@@ -22,6 +22,7 @@ import androidx.core.view.NestedScrollingParent;
 import androidx.core.view.NestedScrollingParentHelper;
 import androidx.core.view.ViewCompat;
 import androidx.core.widget.ListViewCompat;
+
 /* loaded from: classes.dex */
 public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingParent, NestedScrollingChild {
     private static final int ALPHA_ANIMATION_DURATION = 300;

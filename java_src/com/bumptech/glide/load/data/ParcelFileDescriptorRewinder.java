@@ -7,6 +7,7 @@ import android.system.Os;
 import android.system.OsConstants;
 import com.bumptech.glide.load.data.DataRewinder;
 import java.io.IOException;
+
 /* loaded from: classes.dex */
 public final class ParcelFileDescriptorRewinder implements DataRewinder<ParcelFileDescriptor> {
     private final InternalRewinder rewinder;
@@ -23,6 +24,7 @@ public final class ParcelFileDescriptorRewinder implements DataRewinder<ParcelFi
         this.rewinder = new InternalRewinder(parcelFileDescriptor);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.bumptech.glide.load.data.DataRewinder
     public ParcelFileDescriptor rewindAndGet() throws IOException {
@@ -31,6 +33,7 @@ public final class ParcelFileDescriptorRewinder implements DataRewinder<ParcelFi
 
     /* loaded from: classes.dex */
     public static final class Factory implements DataRewinder.Factory<ParcelFileDescriptor> {
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // com.bumptech.glide.load.data.DataRewinder.Factory
         public DataRewinder<ParcelFileDescriptor> build(ParcelFileDescriptor parcelFileDescriptor) {
             return new ParcelFileDescriptorRewinder(parcelFileDescriptor);
@@ -42,9 +45,8 @@ public final class ParcelFileDescriptorRewinder implements DataRewinder<ParcelFi
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static final class InternalRewinder {
+    private static final class InternalRewinder {
         private final ParcelFileDescriptor parcelFileDescriptor;
 
         InternalRewinder(ParcelFileDescriptor parcelFileDescriptor) {

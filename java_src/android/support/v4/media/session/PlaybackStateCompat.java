@@ -11,6 +11,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.ArrayList;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public final class PlaybackStateCompat implements Parcelable {
     public static final long ACTION_FAST_FORWARD = 64;
@@ -37,12 +38,14 @@ public final class PlaybackStateCompat implements Parcelable {
     public static final long ACTION_SKIP_TO_QUEUE_ITEM = 4096;
     public static final long ACTION_STOP = 1;
     public static final Parcelable.Creator<PlaybackStateCompat> CREATOR = new Parcelable.Creator<PlaybackStateCompat>() { // from class: android.support.v4.media.session.PlaybackStateCompat.1
+        /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
         public PlaybackStateCompat createFromParcel(Parcel parcel) {
             return new PlaybackStateCompat(parcel);
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
         public PlaybackStateCompat[] newArray(int i) {
@@ -295,12 +298,14 @@ public final class PlaybackStateCompat implements Parcelable {
     /* loaded from: classes.dex */
     public static final class CustomAction implements Parcelable {
         public static final Parcelable.Creator<CustomAction> CREATOR = new Parcelable.Creator<CustomAction>() { // from class: android.support.v4.media.session.PlaybackStateCompat.CustomAction.1
+            /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public CustomAction createFromParcel(Parcel parcel) {
                 return new CustomAction(parcel);
             }
 
+            /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public CustomAction[] newArray(int i) {

@@ -9,6 +9,7 @@ import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
 import com.bumptech.glide.util.Preconditions;
+
 /* loaded from: classes.dex */
 public class FixedSizeDrawable extends Drawable {
     private final RectF bounds;

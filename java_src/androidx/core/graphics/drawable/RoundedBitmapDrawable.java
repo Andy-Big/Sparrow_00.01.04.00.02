@@ -12,6 +12,7 @@ import android.graphics.RectF;
 import android.graphics.Shader;
 import android.graphics.drawable.Drawable;
 import android.util.DisplayMetrics;
+
 /* loaded from: classes.dex */
 public abstract class RoundedBitmapDrawable extends Drawable {
     private static final int DEFAULT_PAINT_FLAGS = 3;
@@ -112,8 +113,7 @@ public abstract class RoundedBitmapDrawable extends Drawable {
         throw new UnsupportedOperationException();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void updateDstRect() {
+    void updateDstRect() {
         if (this.mApplyGravity) {
             if (this.mIsCircular) {
                 int min = Math.min(this.mBitmapWidth, this.mBitmapHeight);
@@ -238,8 +238,7 @@ public abstract class RoundedBitmapDrawable extends Drawable {
         return (this.mGravity != 119 || this.mIsCircular || (bitmap = this.mBitmap) == null || bitmap.hasAlpha() || this.mPaint.getAlpha() < 255 || isGreaterThanZero(this.mCornerRadius)) ? -3 : -1;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public RoundedBitmapDrawable(Resources resources, Bitmap bitmap) {
+    RoundedBitmapDrawable(Resources resources, Bitmap bitmap) {
         this.mTargetDensity = 160;
         if (resources != null) {
             this.mTargetDensity = resources.getDisplayMetrics().densityDpi;

@@ -1,4 +1,5 @@
 package javax.jmdns.impl.constants;
+
 /* loaded from: classes2.dex */
 public enum DNSState {
     PROBING_1("probing 1", StateClass.probing),

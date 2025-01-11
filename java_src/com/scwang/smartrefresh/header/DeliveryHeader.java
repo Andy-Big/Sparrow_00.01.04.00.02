@@ -13,6 +13,7 @@ import com.scwang.smartrefresh.layout.constant.RefreshState;
 import com.scwang.smartrefresh.layout.constant.SpinnerStyle;
 import com.scwang.smartrefresh.layout.internal.InternalAbstract;
 import com.scwang.smartrefresh.layout.util.DensityUtil;
+
 /* loaded from: classes2.dex */
 public class DeliveryHeader extends InternalAbstract implements RefreshHeader {
     protected float mAppreciation;

@@ -5,6 +5,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.lifecycle.Lifecycle;
 import androidx.viewpager.widget.PagerAdapter;
+
 /* loaded from: classes.dex */
 public abstract class FragmentPagerAdapter extends PagerAdapter {
     public static final int BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT = 1;

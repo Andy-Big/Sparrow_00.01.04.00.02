@@ -23,6 +23,7 @@ import com.scwang.smartrefresh.layout.api.RefreshKernel;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.constant.RefreshState;
 import com.scwang.smartrefresh.layout.util.DensityUtil;
+
 /* loaded from: classes2.dex */
 public abstract class FunGameView<T extends FunGameView> extends FunGameBase {
     protected static final int STATUS_GAME_FAIL = 4;

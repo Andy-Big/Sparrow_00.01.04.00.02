@@ -1,6 +1,7 @@
 package javax.mail;
 
 import javax.mail.FetchProfile;
+
 /* loaded from: classes2.dex */
 public interface UIDFolder {
     public static final long LASTUID = -1;

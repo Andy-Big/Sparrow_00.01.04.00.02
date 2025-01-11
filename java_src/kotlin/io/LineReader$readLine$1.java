@@ -3,6 +3,7 @@ package kotlin.io;
 import java.nio.charset.CharsetDecoder;
 import kotlin.Metadata;
 import kotlin.jvm.internal.MutablePropertyReference0Impl;
+
 /* compiled from: Console.kt */
 @Metadata(bv = {1, 0, 3}, k = 3, mv = {1, 4, 0})
 /* loaded from: classes2.dex */

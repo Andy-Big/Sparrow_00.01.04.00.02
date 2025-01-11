@@ -1,4 +1,5 @@
 package com.scwang.smartrefresh.layout.constant;
+
 /* loaded from: classes2.dex */
 public enum RefreshState {
     None(0, false, false, false, false, false),

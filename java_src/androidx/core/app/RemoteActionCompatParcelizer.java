@@ -3,6 +3,7 @@ package androidx.core.app;
 import android.app.PendingIntent;
 import androidx.core.graphics.drawable.IconCompat;
 import androidx.versionedparcelable.VersionedParcel;
+
 /* loaded from: classes.dex */
 public class RemoteActionCompatParcelizer {
     public static RemoteActionCompat read(VersionedParcel versionedParcel) {

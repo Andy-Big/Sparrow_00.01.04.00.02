@@ -23,6 +23,11 @@ import timber.log.Timber;
 public class PowerPopupView extends BasePopupView implements View.OnClickListener, PopupWindow.OnDismissListener {
     private PopupviewPowerBinding binding;
 
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.views.power.-$$Lambda$PowerPopupView$f0rZkPNCQYOQPYmV9rAXrEPzgsc.accept(java.lang.Object):void] */
+    public static /* synthetic */ void lambda$f0rZkPNCQYOQPYmV9rAXrEPzgsc(PrintStream printStream, Object obj) {
+        printStream.println(obj);
+    }
+
     public PowerPopupView() {
         super((int) R.style.App_PopupWindow_Common_Alert);
         PopupviewPowerBinding inflate = PopupviewPowerBinding.inflate(LayoutInflater.from(this.context));
@@ -50,7 +55,7 @@ public class PowerPopupView extends BasePopupView implements View.OnClickListene
         ShellUtils.execCmdAsync("rmmod /rigol/driver/focaltech_ts.ko", true, (Utils.Consumer<ShellUtils.CommandResult>) new Utils.Consumer() { // from class: com.rigol.scope.views.power.-$$Lambda$PowerPopupView$GkrNGLGx6TOvATp1e2GRBKdMzX8
             @Override // com.blankj.utilcode.util.Utils.Consumer
             public final void accept(Object obj) {
-                Timber.d(((ShellUtils.CommandResult) obj).toString(), new Object[0]);
+                PowerPopupView.lambda$onClick$0((ShellUtils.CommandResult) obj);
             }
         });
         for (int i = 0; i < ServiceEnum.PanelLed.ALL_LEDS.value1; i++) {
@@ -68,9 +73,14 @@ public class PowerPopupView extends BasePopupView implements View.OnClickListene
         ShellUtils.execCmdAsync("su -c \"/rigol/shell/quick_boot_test.sh off\"", true, (Utils.Consumer<ShellUtils.CommandResult>) new Utils.Consumer() { // from class: com.rigol.scope.views.power.-$$Lambda$PowerPopupView$f0rZkPNCQYOQPYmV9rAXrEPzgsc
             @Override // com.blankj.utilcode.util.Utils.Consumer
             public final void accept(Object obj) {
-                printStream.println((ShellUtils.CommandResult) obj);
+                PowerPopupView.lambda$f0rZkPNCQYOQPYmV9rAXrEPzgsc(printStream, (ShellUtils.CommandResult) obj);
             }
         });
+    }
+
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.views.power.-$$Lambda$PowerPopupView$GkrNGLGx6TOvATp1e2GRBKdMzX8.accept(java.lang.Object):void] */
+    static /* synthetic */ void lambda$onClick$0(ShellUtils.CommandResult commandResult) {
+        Timber.d(commandResult.toString(), new Object[0]);
     }
 
     @Override // com.rigol.scope.views.baseview.BasePopupView, android.widget.PopupWindow.OnDismissListener

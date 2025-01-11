@@ -1,6 +1,7 @@
 package com.just.agentweb;
 
 import android.webkit.WebView;
+
 /* loaded from: classes.dex */
 public class IndicatorHandler implements IndicatorController {
     private BaseIndicatorSpec mBaseIndicatorSpec;
@@ -55,13 +56,11 @@ public class IndicatorHandler implements IndicatorController {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static IndicatorHandler getInstance() {
+    static IndicatorHandler getInstance() {
         return new IndicatorHandler();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public IndicatorHandler inJectIndicator(BaseIndicatorSpec baseIndicatorSpec) {
+    IndicatorHandler inJectIndicator(BaseIndicatorSpec baseIndicatorSpec) {
         this.mBaseIndicatorSpec = baseIndicatorSpec;
         return this;
     }

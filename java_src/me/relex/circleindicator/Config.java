@@ -1,4 +1,5 @@
 package me.relex.circleindicator;
+
 /* loaded from: classes2.dex */
 public class Config {
     int unselectedBackgroundId;
@@ -10,6 +11,9 @@ public class Config {
     int backgroundResId = R.drawable.white_radius;
     int orientation = 0;
     int gravity = 17;
+
+    Config() {
+    }
 
     /* loaded from: classes2.dex */
     public static class Builder {

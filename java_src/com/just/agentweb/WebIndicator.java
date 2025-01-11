@@ -15,6 +15,7 @@ import android.view.animation.DecelerateInterpolator;
 import android.view.animation.LinearInterpolator;
 import android.widget.FrameLayout;
 import androidx.constraintlayout.motion.widget.Key;
+
 /* loaded from: classes.dex */
 public class WebIndicator extends BaseIndicatorView implements BaseIndicatorSpec {
     public static final int DO_END_ANIMATION_DURATION = 600;

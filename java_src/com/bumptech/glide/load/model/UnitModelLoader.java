@@ -6,6 +6,7 @@ import com.bumptech.glide.load.Options;
 import com.bumptech.glide.load.data.DataFetcher;
 import com.bumptech.glide.load.model.ModelLoader;
 import com.bumptech.glide.signature.ObjectKey;
+
 /* loaded from: classes.dex */
 public class UnitModelLoader<Model> implements ModelLoader<Model, Model> {
     private static final UnitModelLoader<?> INSTANCE = new UnitModelLoader<>();
@@ -40,6 +41,7 @@ public class UnitModelLoader<Model> implements ModelLoader<Model, Model> {
             this.resource = model;
         }
 
+        /* JADX DEBUG: Type inference failed for r1v1. Raw type applied. Possible types: Model, ? super Model */
         @Override // com.bumptech.glide.load.data.DataFetcher
         public void loadData(Priority priority, DataFetcher.DataCallback<? super Model> dataCallback) {
             dataCallback.onDataReady((Model) this.resource);

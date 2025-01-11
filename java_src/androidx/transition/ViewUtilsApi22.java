@@ -1,9 +1,13 @@
 package androidx.transition;
 
 import android.view.View;
+
 /* loaded from: classes.dex */
 class ViewUtilsApi22 extends ViewUtilsApi21 {
     private static boolean sTryHiddenSetLeftTopRightBottom = true;
+
+    ViewUtilsApi22() {
+    }
 
     @Override // androidx.transition.ViewUtilsBase
     public void setLeftTopRightBottom(View view, int i, int i2, int i3, int i4) {

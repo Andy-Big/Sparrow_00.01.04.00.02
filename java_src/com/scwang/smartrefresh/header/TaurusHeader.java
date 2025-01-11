@@ -22,6 +22,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Random;
+
 /* loaded from: classes2.dex */
 public class TaurusHeader extends InternalAbstract implements RefreshHeader {
     protected static final int ANIMATION_DURATION = 1000;
@@ -62,9 +63,8 @@ public class TaurusHeader extends InternalAbstract implements RefreshHeader {
     protected static int[] cloudColors = {-1429742351, -571935747, -131587};
     protected static final Interpolator ACCELERATE_DECELERATE_INTERPOLATOR = new AccelerateDecelerateInterpolator();
 
-    /* JADX INFO: Access modifiers changed from: protected */
     /* loaded from: classes2.dex */
-    public enum AnimationPart {
+    protected enum AnimationPart {
         FIRST,
         SECOND,
         THIRD,
@@ -431,10 +431,9 @@ public class TaurusHeader extends InternalAbstract implements RefreshHeader {
         return this.mRandom.nextInt((i2 - i) + 1) + i;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.scwang.smartrefresh.header.TaurusHeader$3  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public static /* synthetic */ class AnonymousClass3 {
+    static /* synthetic */ class AnonymousClass3 {
         static final /* synthetic */ int[] $SwitchMap$com$scwang$smartrefresh$header$TaurusHeader$AnimationPart;
 
         static {

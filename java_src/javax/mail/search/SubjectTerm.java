@@ -1,6 +1,7 @@
 package javax.mail.search;
 
 import javax.mail.Message;
+
 /* loaded from: classes2.dex */
 public final class SubjectTerm extends StringTerm {
     private static final long serialVersionUID = 7481568618055573432L;

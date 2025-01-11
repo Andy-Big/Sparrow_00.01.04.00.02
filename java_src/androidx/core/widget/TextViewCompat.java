@@ -30,6 +30,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public final class TextViewCompat {
     public static final int AUTO_SIZE_TEXT_TYPE_NONE = 0;
@@ -270,9 +271,8 @@ public final class TextViewCompat {
         return (Build.VERSION.SDK_INT < 26 || Build.VERSION.SDK_INT > 27 || (callback instanceof OreoCallback)) ? callback : new OreoCallback(callback, textView);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static class OreoCallback implements ActionMode.Callback {
+    private static class OreoCallback implements ActionMode.Callback {
         private static final int MENU_ITEM_ORDER_PROCESS_TEXT_INTENT_ACTIONS_START = 100;
         private final ActionMode.Callback mCallback;
         private boolean mCanUseMenuBuilderReferences;

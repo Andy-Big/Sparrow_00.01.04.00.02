@@ -51,6 +51,7 @@ import javax.mail.internet.MimeMessage;
 import javax.mail.search.FlagTerm;
 import javax.mail.search.SearchException;
 import javax.mail.search.SearchTerm;
+
 /* loaded from: classes2.dex */
 public class IMAPFolder extends Folder implements UIDFolder, ResponseHandler {
     static final /* synthetic */ boolean $assertionsDisabled = false;
@@ -111,8 +112,7 @@ public class IMAPFolder extends Folder implements UIDFolder, ResponseHandler {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public IMAPFolder(String str, char c, IMAPStore iMAPStore, Boolean bool) {
+    protected IMAPFolder(String str, char c, IMAPStore iMAPStore, Boolean bool) {
         super(iMAPStore);
         int indexOf;
         this.isNamespace = false;
@@ -148,8 +148,7 @@ public class IMAPFolder extends Folder implements UIDFolder, ResponseHandler {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public IMAPFolder(ListInfo listInfo, IMAPStore iMAPStore) {
+    protected IMAPFolder(ListInfo listInfo, IMAPStore iMAPStore) {
         this(listInfo.name, listInfo.separator, iMAPStore, null);
         if (listInfo.hasInferiors) {
             this.type |= 2;
@@ -195,11 +194,11 @@ public class IMAPFolder extends Folder implements UIDFolder, ResponseHandler {
             try {
                 try {
                     keepConnectionAlive(false);
-                } catch (ConnectionException e) {
-                    throw new FolderClosedException(this, e.getMessage());
+                } catch (ProtocolException e) {
+                    throw new MessagingException(e.getMessage(), e);
                 }
-            } catch (ProtocolException e2) {
-                throw new MessagingException(e2.getMessage(), e2);
+            } catch (ConnectionException e2) {
+                throw new FolderClosedException(this, e2.getMessage());
             }
         }
         if (i <= this.total) {
@@ -474,13 +473,13 @@ public class IMAPFolder extends Folder implements UIDFolder, ResponseHandler {
             try {
                 try {
                     return getStatus().recent > 0;
-                } catch (ConnectionException e3) {
-                    throw new StoreClosedException(this.store, e3.getMessage());
+                } catch (BadCommandException unused) {
+                    return false;
+                } catch (ProtocolException e3) {
+                    throw new MessagingException(e3.getMessage(), e3);
                 }
-            } catch (BadCommandException unused) {
-                return false;
-            } catch (ProtocolException e4) {
-                throw new MessagingException(e4.getMessage(), e4);
+            } catch (ConnectionException e4) {
+                throw new StoreClosedException(this.store, e4.getMessage());
             }
         }
     }
@@ -640,12 +639,12 @@ public class IMAPFolder extends Folder implements UIDFolder, ResponseHandler {
             try {
                 this.protocol.close();
                 releaseProtocol(true);
-            } catch (ProtocolException e) {
-                addSuppressed(messagingException, logoutAndThrow(e.getMessage(), e));
-                releaseProtocol(false);
+            } catch (Throwable th) {
+                addSuppressed(messagingException, th);
             }
-        } catch (Throwable th) {
-            addSuppressed(messagingException, th);
+        } catch (ProtocolException e) {
+            addSuppressed(messagingException, logoutAndThrow(e.getMessage(), e));
+            releaseProtocol(false);
         }
         return messagingException;
     }
@@ -811,8 +810,7 @@ public class IMAPFolder extends Folder implements UIDFolder, ResponseHandler {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public IMAPMessage newIMAPMessage(int i) {
+    protected IMAPMessage newIMAPMessage(int i) {
         return new IMAPMessage(this, i);
     }
 
@@ -988,11 +986,11 @@ public class IMAPFolder extends Folder implements UIDFolder, ResponseHandler {
                     try {
                         keepConnectionAlive(true);
                         return this.total;
-                    } catch (ProtocolException e) {
-                        throw new MessagingException(e.getMessage(), e);
+                    } catch (ConnectionException e) {
+                        throw new FolderClosedException(this, e.getMessage());
                     }
-                } catch (ConnectionException e2) {
-                    throw new FolderClosedException(this, e2.getMessage());
+                } catch (ProtocolException e2) {
+                    throw new MessagingException(e2.getMessage(), e2);
                 }
             }
             checkExists();
@@ -1000,23 +998,23 @@ public class IMAPFolder extends Folder implements UIDFolder, ResponseHandler {
                 try {
                     try {
                         return getStatus().total;
-                    } catch (BadCommandException unused) {
-                        try {
-                            IMAPProtocol storeProtocol = getStoreProtocol();
-                            MailboxInfo examine = storeProtocol.examine(this.fullName);
-                            storeProtocol.close();
-                            int i = examine.total;
-                            releaseStoreProtocol(storeProtocol);
-                            return i;
-                        } catch (ProtocolException e3) {
-                            throw new MessagingException(e3.getMessage(), e3);
-                        }
+                    } catch (ProtocolException e3) {
+                        throw new MessagingException(e3.getMessage(), e3);
                     }
                 } catch (ConnectionException e4) {
                     throw new StoreClosedException(this.store, e4.getMessage());
                 }
-            } catch (ProtocolException e5) {
-                throw new MessagingException(e5.getMessage(), e5);
+            } catch (BadCommandException unused) {
+                try {
+                    IMAPProtocol storeProtocol = getStoreProtocol();
+                    MailboxInfo examine = storeProtocol.examine(this.fullName);
+                    storeProtocol.close();
+                    int i = examine.total;
+                    releaseStoreProtocol(storeProtocol);
+                    return i;
+                } catch (ProtocolException e5) {
+                    throw new MessagingException(e5.getMessage(), e5);
+                }
             }
         }
     }
@@ -1029,11 +1027,11 @@ public class IMAPFolder extends Folder implements UIDFolder, ResponseHandler {
                     try {
                         keepConnectionAlive(true);
                         return this.recent;
-                    } catch (ProtocolException e) {
-                        throw new MessagingException(e.getMessage(), e);
+                    } catch (ConnectionException e) {
+                        throw new FolderClosedException(this, e.getMessage());
                     }
-                } catch (ConnectionException e2) {
-                    throw new FolderClosedException(this, e2.getMessage());
+                } catch (ProtocolException e2) {
+                    throw new MessagingException(e2.getMessage(), e2);
                 }
             }
             checkExists();
@@ -1041,23 +1039,23 @@ public class IMAPFolder extends Folder implements UIDFolder, ResponseHandler {
                 try {
                     try {
                         return getStatus().recent;
-                    } catch (BadCommandException unused) {
-                        try {
-                            IMAPProtocol storeProtocol = getStoreProtocol();
-                            MailboxInfo examine = storeProtocol.examine(this.fullName);
-                            storeProtocol.close();
-                            int i = examine.recent;
-                            releaseStoreProtocol(storeProtocol);
-                            return i;
-                        } catch (ProtocolException e3) {
-                            throw new MessagingException(e3.getMessage(), e3);
-                        }
+                    } catch (ProtocolException e3) {
+                        throw new MessagingException(e3.getMessage(), e3);
                     }
                 } catch (ConnectionException e4) {
                     throw new StoreClosedException(this.store, e4.getMessage());
                 }
-            } catch (ProtocolException e5) {
-                throw new MessagingException(e5.getMessage(), e5);
+            } catch (BadCommandException unused) {
+                try {
+                    IMAPProtocol storeProtocol = getStoreProtocol();
+                    MailboxInfo examine = storeProtocol.examine(this.fullName);
+                    storeProtocol.close();
+                    int i = examine.recent;
+                    releaseStoreProtocol(storeProtocol);
+                    return i;
+                } catch (ProtocolException e5) {
+                    throw new MessagingException(e5.getMessage(), e5);
+                }
             }
         }
     }
@@ -1070,13 +1068,13 @@ public class IMAPFolder extends Folder implements UIDFolder, ResponseHandler {
             try {
                 try {
                     return getStatus().unseen;
-                } catch (ConnectionException e) {
-                    throw new StoreClosedException(this.store, e.getMessage());
+                } catch (BadCommandException unused) {
+                    return -1;
+                } catch (ProtocolException e) {
+                    throw new MessagingException(e.getMessage(), e);
                 }
-            } catch (BadCommandException unused) {
-                return -1;
-            } catch (ProtocolException e2) {
-                throw new MessagingException(e2.getMessage(), e2);
+            } catch (ConnectionException e2) {
+                throw new StoreClosedException(this.store, e2.getMessage());
             }
         }
         Flags flags = new Flags();
@@ -1115,29 +1113,30 @@ public class IMAPFolder extends Folder implements UIDFolder, ResponseHandler {
     }
 
     private Status getStatus() throws ProtocolException {
+        IMAPProtocol storeProtocol;
         int statusCacheTimeout = ((IMAPStore) this.store).getStatusCacheTimeout();
         if (statusCacheTimeout > 0 && this.cachedStatus != null && System.currentTimeMillis() - this.cachedStatusTime < statusCacheTimeout) {
             return this.cachedStatus;
         }
         IMAPProtocol iMAPProtocol = null;
         try {
-            IMAPProtocol storeProtocol = getStoreProtocol();
-            try {
-                Status status = storeProtocol.status(this.fullName, null);
-                if (statusCacheTimeout > 0) {
-                    this.cachedStatus = status;
-                    this.cachedStatusTime = System.currentTimeMillis();
-                }
-                releaseStoreProtocol(storeProtocol);
-                return status;
-            } catch (Throwable th) {
-                th = th;
-                iMAPProtocol = storeProtocol;
-                releaseStoreProtocol(iMAPProtocol);
-                throw th;
+            storeProtocol = getStoreProtocol();
+        } catch (Throwable th) {
+            th = th;
+        }
+        try {
+            Status status = storeProtocol.status(this.fullName, null);
+            if (statusCacheTimeout > 0) {
+                this.cachedStatus = status;
+                this.cachedStatusTime = System.currentTimeMillis();
             }
+            releaseStoreProtocol(storeProtocol);
+            return status;
         } catch (Throwable th2) {
             th = th2;
+            iMAPProtocol = storeProtocol;
+            releaseStoreProtocol(iMAPProtocol);
+            throw th;
         }
     }
 
@@ -1214,6 +1213,7 @@ public class IMAPFolder extends Folder implements UIDFolder, ResponseHandler {
         return appendUIDArr;
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r0v1, resolved type: javax.mail.internet.MimeMessage[] */
     /* JADX WARN: Multi-variable type inference failed */
     public synchronized Message[] addMessages(Message[] messageArr) throws MessagingException {
         MimeMessage[] mimeMessageArr;
@@ -1409,18 +1409,18 @@ public class IMAPFolder extends Folder implements UIDFolder, ResponseHandler {
                     int[] search = getProtocol().search(searchTerm);
                     messagesBySeqNumbers = search != null ? getMessagesBySeqNumbers(search) : null;
                 }
-            } catch (CommandFailedException unused) {
+            } catch (ProtocolException e) {
+                throw new MessagingException(e.getMessage(), e);
+            } catch (SearchException e2) {
+                if (((IMAPStore) this.store).throwSearchException()) {
+                    throw e2;
+                }
                 return super.search(searchTerm);
-            } catch (ConnectionException e) {
-                throw new FolderClosedException(this, e.getMessage());
             }
-        } catch (ProtocolException e2) {
-            throw new MessagingException(e2.getMessage(), e2);
-        } catch (SearchException e3) {
-            if (((IMAPStore) this.store).throwSearchException()) {
-                throw e3;
-            }
+        } catch (CommandFailedException unused) {
             return super.search(searchTerm);
+        } catch (ConnectionException e3) {
+            throw new FolderClosedException(this, e3.getMessage());
         }
         return messagesBySeqNumbers;
     }
@@ -1446,17 +1446,17 @@ public class IMAPFolder extends Folder implements UIDFolder, ResponseHandler {
                             messagesBySeqNumbers = search != null ? getMessagesBySeqNumbers(search) : null;
                         }
                         return messagesBySeqNumbers;
-                    } catch (CommandFailedException unused) {
-                        return super.search(searchTerm, messageArr);
+                    } catch (ConnectionException e) {
+                        throw new FolderClosedException(this, e.getMessage());
                     }
-                } catch (ProtocolException e) {
-                    throw new MessagingException(e.getMessage(), e);
+                } catch (SearchException unused) {
+                    return super.search(searchTerm, messageArr);
                 }
-            } catch (SearchException unused2) {
-                return super.search(searchTerm, messageArr);
+            } catch (ProtocolException e2) {
+                throw new MessagingException(e2.getMessage(), e2);
             }
-        } catch (ConnectionException e2) {
-            throw new FolderClosedException(this, e2.getMessage());
+        } catch (CommandFailedException unused2) {
+            return super.search(searchTerm, messageArr);
         }
     }
 
@@ -1474,15 +1474,15 @@ public class IMAPFolder extends Folder implements UIDFolder, ResponseHandler {
                         int[] sort = getProtocol().sort(sortTermArr, searchTerm);
                         messagesBySeqNumbers = sort != null ? getMessagesBySeqNumbers(sort) : null;
                     }
-                } catch (CommandFailedException e) {
-                    throw new MessagingException(e.getMessage(), e);
+                } catch (ConnectionException e) {
+                    throw new FolderClosedException(this, e.getMessage());
+                } catch (ProtocolException e2) {
+                    throw new MessagingException(e2.getMessage(), e2);
                 }
-            } catch (SearchException e2) {
-                throw new MessagingException(e2.getMessage(), e2);
+            } catch (SearchException e3) {
+                throw new MessagingException(e3.getMessage(), e3);
             }
-        } catch (ConnectionException e3) {
-            throw new FolderClosedException(this, e3.getMessage());
-        } catch (ProtocolException e4) {
+        } catch (CommandFailedException e4) {
             throw new MessagingException(e4.getMessage(), e4);
         }
         return messagesBySeqNumbers;
@@ -1499,89 +1499,56 @@ public class IMAPFolder extends Folder implements UIDFolder, ResponseHandler {
     @Override // javax.mail.UIDFolder
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    public synchronized long getUIDValidity() throws javax.mail.MessagingException {
-        /*
-            r5 = this;
-            monitor-enter(r5)
-            boolean r0 = r5.opened     // Catch: java.lang.Throwable -> L5c
-            if (r0 == 0) goto L9
-            long r0 = r5.uidvalidity     // Catch: java.lang.Throwable -> L5c
-            monitor-exit(r5)
-            return r0
-        L9:
-            r0 = 0
-            com.sun.mail.imap.protocol.IMAPProtocol r1 = r5.getStoreProtocol()     // Catch: java.lang.Throwable -> L24 com.sun.mail.iap.ProtocolException -> L29 com.sun.mail.iap.ConnectionException -> L37 com.sun.mail.iap.BadCommandException -> L4b
-            java.lang.String r2 = "UIDVALIDITY"
-            java.lang.String[] r2 = new java.lang.String[]{r2}     // Catch: com.sun.mail.iap.ProtocolException -> L1e com.sun.mail.iap.ConnectionException -> L20 com.sun.mail.iap.BadCommandException -> L22 java.lang.Throwable -> L57
-            java.lang.String r3 = r5.fullName     // Catch: com.sun.mail.iap.ProtocolException -> L1e com.sun.mail.iap.ConnectionException -> L20 com.sun.mail.iap.BadCommandException -> L22 java.lang.Throwable -> L57
-            com.sun.mail.imap.protocol.Status r0 = r1.status(r3, r2)     // Catch: com.sun.mail.iap.ProtocolException -> L1e com.sun.mail.iap.ConnectionException -> L20 com.sun.mail.iap.BadCommandException -> L22 java.lang.Throwable -> L57
-        L1a:
-            r5.releaseStoreProtocol(r1)     // Catch: java.lang.Throwable -> L5c
-            goto L3d
-        L1e:
-            r0 = move-exception
-            goto L2d
-        L20:
-            r2 = move-exception
-            goto L39
-        L22:
-            r0 = move-exception
-            goto L4f
-        L24:
-            r1 = move-exception
-            r4 = r1
-            r1 = r0
-            r0 = r4
-            goto L58
-        L29:
-            r1 = move-exception
-            r4 = r1
-            r1 = r0
-            r0 = r4
-        L2d:
-            javax.mail.MessagingException r2 = new javax.mail.MessagingException     // Catch: java.lang.Throwable -> L57
-            java.lang.String r3 = r0.getMessage()     // Catch: java.lang.Throwable -> L57
-            r2.<init>(r3, r0)     // Catch: java.lang.Throwable -> L57
-            throw r2     // Catch: java.lang.Throwable -> L57
-        L37:
-            r2 = move-exception
-            r1 = r0
-        L39:
-            r5.throwClosedException(r2)     // Catch: java.lang.Throwable -> L57
-            goto L1a
-        L3d:
-            if (r0 == 0) goto L43
-            long r0 = r0.uidvalidity     // Catch: java.lang.Throwable -> L5c
-            monitor-exit(r5)
-            return r0
-        L43:
-            javax.mail.MessagingException r0 = new javax.mail.MessagingException     // Catch: java.lang.Throwable -> L5c
-            java.lang.String r1 = "Cannot obtain UIDValidity"
-            r0.<init>(r1)     // Catch: java.lang.Throwable -> L5c
-            throw r0     // Catch: java.lang.Throwable -> L5c
-        L4b:
-            r1 = move-exception
-            r4 = r1
-            r1 = r0
-            r0 = r4
-        L4f:
-            javax.mail.MessagingException r2 = new javax.mail.MessagingException     // Catch: java.lang.Throwable -> L57
-            java.lang.String r3 = "Cannot obtain UIDValidity"
-            r2.<init>(r3, r0)     // Catch: java.lang.Throwable -> L57
-            throw r2     // Catch: java.lang.Throwable -> L57
-        L57:
-            r0 = move-exception
-        L58:
-            r5.releaseStoreProtocol(r1)     // Catch: java.lang.Throwable -> L5c
-            throw r0     // Catch: java.lang.Throwable -> L5c
-        L5c:
-            r0 = move-exception
-            monitor-exit(r5)
-            throw r0
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.sun.mail.imap.IMAPFolder.getUIDValidity():long");
+    public synchronized long getUIDValidity() throws MessagingException {
+        Throwable th;
+        ProtocolException e;
+        IMAPProtocol iMAPProtocol;
+        BadCommandException e2;
+        if (this.opened) {
+            return this.uidvalidity;
+        }
+        Status status = null;
+        try {
+            try {
+                iMAPProtocol = getStoreProtocol();
+            } catch (BadCommandException e3) {
+                e2 = e3;
+            } catch (ConnectionException e4) {
+                e = e4;
+                iMAPProtocol = null;
+            } catch (ProtocolException e5) {
+                e = e5;
+            } catch (Throwable th2) {
+                th = th2;
+                releaseStoreProtocol(null);
+                throw th;
+            }
+            try {
+                status = iMAPProtocol.status(this.fullName, new String[]{"UIDVALIDITY"});
+            } catch (BadCommandException e6) {
+                e2 = e6;
+                throw new MessagingException("Cannot obtain UIDValidity", e2);
+            } catch (ConnectionException e7) {
+                e = e7;
+                throwClosedException(e);
+                releaseStoreProtocol(iMAPProtocol);
+                if (status != null) {
+                }
+            } catch (ProtocolException e8) {
+                e = e8;
+                throw new MessagingException(e.getMessage(), e);
+            }
+            releaseStoreProtocol(iMAPProtocol);
+            if (status != null) {
+                throw new MessagingException("Cannot obtain UIDValidity");
+            }
+            return status.uidvalidity;
+        } catch (Throwable th3) {
+            th = th3;
+            releaseStoreProtocol(null);
+            throw th;
+        }
     }
 
     /* JADX WARN: Removed duplicated region for block: B:30:0x003f A[Catch: all -> 0x005c, TRY_ENTER, TRY_LEAVE, TryCatch #7 {, blocks: (B:3:0x0001, B:5:0x0005, B:11:0x001a, B:30:0x003f, B:33:0x0043, B:34:0x004a, B:40:0x0058, B:41:0x005b), top: B:46:0x0001 }] */
@@ -1589,89 +1556,56 @@ public class IMAPFolder extends Folder implements UIDFolder, ResponseHandler {
     @Override // javax.mail.UIDFolder
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    public synchronized long getUIDNext() throws javax.mail.MessagingException {
-        /*
-            r5 = this;
-            monitor-enter(r5)
-            boolean r0 = r5.opened     // Catch: java.lang.Throwable -> L5c
-            if (r0 == 0) goto L9
-            long r0 = r5.uidnext     // Catch: java.lang.Throwable -> L5c
-            monitor-exit(r5)
-            return r0
-        L9:
-            r0 = 0
-            com.sun.mail.imap.protocol.IMAPProtocol r1 = r5.getStoreProtocol()     // Catch: java.lang.Throwable -> L24 com.sun.mail.iap.ProtocolException -> L29 com.sun.mail.iap.ConnectionException -> L37 com.sun.mail.iap.BadCommandException -> L4b
-            java.lang.String r2 = "UIDNEXT"
-            java.lang.String[] r2 = new java.lang.String[]{r2}     // Catch: com.sun.mail.iap.ProtocolException -> L1e com.sun.mail.iap.ConnectionException -> L20 com.sun.mail.iap.BadCommandException -> L22 java.lang.Throwable -> L57
-            java.lang.String r3 = r5.fullName     // Catch: com.sun.mail.iap.ProtocolException -> L1e com.sun.mail.iap.ConnectionException -> L20 com.sun.mail.iap.BadCommandException -> L22 java.lang.Throwable -> L57
-            com.sun.mail.imap.protocol.Status r0 = r1.status(r3, r2)     // Catch: com.sun.mail.iap.ProtocolException -> L1e com.sun.mail.iap.ConnectionException -> L20 com.sun.mail.iap.BadCommandException -> L22 java.lang.Throwable -> L57
-        L1a:
-            r5.releaseStoreProtocol(r1)     // Catch: java.lang.Throwable -> L5c
-            goto L3d
-        L1e:
-            r0 = move-exception
-            goto L2d
-        L20:
-            r2 = move-exception
-            goto L39
-        L22:
-            r0 = move-exception
-            goto L4f
-        L24:
-            r1 = move-exception
-            r4 = r1
-            r1 = r0
-            r0 = r4
-            goto L58
-        L29:
-            r1 = move-exception
-            r4 = r1
-            r1 = r0
-            r0 = r4
-        L2d:
-            javax.mail.MessagingException r2 = new javax.mail.MessagingException     // Catch: java.lang.Throwable -> L57
-            java.lang.String r3 = r0.getMessage()     // Catch: java.lang.Throwable -> L57
-            r2.<init>(r3, r0)     // Catch: java.lang.Throwable -> L57
-            throw r2     // Catch: java.lang.Throwable -> L57
-        L37:
-            r2 = move-exception
-            r1 = r0
-        L39:
-            r5.throwClosedException(r2)     // Catch: java.lang.Throwable -> L57
-            goto L1a
-        L3d:
-            if (r0 == 0) goto L43
-            long r0 = r0.uidnext     // Catch: java.lang.Throwable -> L5c
-            monitor-exit(r5)
-            return r0
-        L43:
-            javax.mail.MessagingException r0 = new javax.mail.MessagingException     // Catch: java.lang.Throwable -> L5c
-            java.lang.String r1 = "Cannot obtain UIDNext"
-            r0.<init>(r1)     // Catch: java.lang.Throwable -> L5c
-            throw r0     // Catch: java.lang.Throwable -> L5c
-        L4b:
-            r1 = move-exception
-            r4 = r1
-            r1 = r0
-            r0 = r4
-        L4f:
-            javax.mail.MessagingException r2 = new javax.mail.MessagingException     // Catch: java.lang.Throwable -> L57
-            java.lang.String r3 = "Cannot obtain UIDNext"
-            r2.<init>(r3, r0)     // Catch: java.lang.Throwable -> L57
-            throw r2     // Catch: java.lang.Throwable -> L57
-        L57:
-            r0 = move-exception
-        L58:
-            r5.releaseStoreProtocol(r1)     // Catch: java.lang.Throwable -> L5c
-            throw r0     // Catch: java.lang.Throwable -> L5c
-        L5c:
-            r0 = move-exception
-            monitor-exit(r5)
-            throw r0
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.sun.mail.imap.IMAPFolder.getUIDNext():long");
+    public synchronized long getUIDNext() throws MessagingException {
+        Throwable th;
+        ProtocolException e;
+        IMAPProtocol iMAPProtocol;
+        BadCommandException e2;
+        if (this.opened) {
+            return this.uidnext;
+        }
+        Status status = null;
+        try {
+            try {
+                iMAPProtocol = getStoreProtocol();
+            } catch (BadCommandException e3) {
+                e2 = e3;
+            } catch (ConnectionException e4) {
+                e = e4;
+                iMAPProtocol = null;
+            } catch (ProtocolException e5) {
+                e = e5;
+            } catch (Throwable th2) {
+                th = th2;
+                releaseStoreProtocol(null);
+                throw th;
+            }
+            try {
+                status = iMAPProtocol.status(this.fullName, new String[]{"UIDNEXT"});
+            } catch (BadCommandException e6) {
+                e2 = e6;
+                throw new MessagingException("Cannot obtain UIDNext", e2);
+            } catch (ConnectionException e7) {
+                e = e7;
+                throwClosedException(e);
+                releaseStoreProtocol(iMAPProtocol);
+                if (status != null) {
+                }
+            } catch (ProtocolException e8) {
+                e = e8;
+                throw new MessagingException(e.getMessage(), e);
+            }
+            releaseStoreProtocol(iMAPProtocol);
+            if (status != null) {
+                throw new MessagingException("Cannot obtain UIDNext");
+            }
+            return status.uidnext;
+        } catch (Throwable th3) {
+            th = th3;
+            releaseStoreProtocol(null);
+            throw th;
+        }
     }
 
     @Override // javax.mail.UIDFolder
@@ -1693,11 +1627,11 @@ public class IMAPFolder extends Folder implements UIDFolder, ResponseHandler {
                     getProtocol().fetchSequenceNumber(j);
                     return (this.uidTable == null || (iMAPMessage = this.uidTable.get(valueOf)) == null) ? iMAPMessage : iMAPMessage;
                 }
-            } catch (ConnectionException e) {
-                throw new FolderClosedException(this, e.getMessage());
+            } catch (ProtocolException e) {
+                throw new MessagingException(e.getMessage(), e);
             }
-        } catch (ProtocolException e2) {
-            throw new MessagingException(e2.getMessage(), e2);
+        } catch (ConnectionException e2) {
+            throw new FolderClosedException(this, e2.getMessage());
         }
     }
 
@@ -1721,11 +1655,11 @@ public class IMAPFolder extends Folder implements UIDFolder, ResponseHandler {
                     }
                     messageArr = (Message[]) arrayList.toArray(new Message[arrayList.size()]);
                 }
-            } catch (ConnectionException e) {
-                throw new FolderClosedException(this, e.getMessage());
+            } catch (ProtocolException e) {
+                throw new MessagingException(e.getMessage(), e);
             }
-        } catch (ProtocolException e2) {
-            throw new MessagingException(e2.getMessage(), e2);
+        } catch (ConnectionException e2) {
+            throw new FolderClosedException(this, e2.getMessage());
         }
         return messageArr;
     }
@@ -1829,98 +1763,59 @@ public class IMAPFolder extends Folder implements UIDFolder, ResponseHandler {
     /* JADX WARN: Removed duplicated region for block: B:39:0x0055 A[Catch: all -> 0x006d, TRY_ENTER, TryCatch #5 {, blocks: (B:3:0x0001, B:5:0x0005, B:13:0x0022, B:36:0x0051, B:39:0x0055, B:40:0x005c, B:45:0x0069, B:46:0x006c), top: B:50:0x0001 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    public synchronized long getHighestModSeq() throws javax.mail.MessagingException {
-        /*
-            r5 = this;
-            monitor-enter(r5)
-            boolean r0 = r5.opened     // Catch: java.lang.Throwable -> L6d
-            if (r0 == 0) goto L9
-            long r0 = r5.highestmodseq     // Catch: java.lang.Throwable -> L6d
-            monitor-exit(r5)
-            return r0
-        L9:
-            r0 = 0
-            com.sun.mail.imap.protocol.IMAPProtocol r1 = r5.getStoreProtocol()     // Catch: java.lang.Throwable -> L36 com.sun.mail.iap.ProtocolException -> L3b com.sun.mail.iap.ConnectionException -> L49 com.sun.mail.iap.BadCommandException -> L5d
-            java.lang.String r2 = "CONDSTORE"
-            boolean r2 = r1.hasCapability(r2)     // Catch: java.lang.Throwable -> L2e com.sun.mail.iap.ProtocolException -> L30 com.sun.mail.iap.ConnectionException -> L32 com.sun.mail.iap.BadCommandException -> L34
-            if (r2 == 0) goto L26
-            java.lang.String r2 = "HIGHESTMODSEQ"
-            java.lang.String[] r2 = new java.lang.String[]{r2}     // Catch: java.lang.Throwable -> L2e com.sun.mail.iap.ProtocolException -> L30 com.sun.mail.iap.ConnectionException -> L32 com.sun.mail.iap.BadCommandException -> L34
-            java.lang.String r3 = r5.fullName     // Catch: java.lang.Throwable -> L2e com.sun.mail.iap.ProtocolException -> L30 com.sun.mail.iap.ConnectionException -> L32 com.sun.mail.iap.BadCommandException -> L34
-            com.sun.mail.imap.protocol.Status r0 = r1.status(r3, r2)     // Catch: java.lang.Throwable -> L2e com.sun.mail.iap.ProtocolException -> L30 com.sun.mail.iap.ConnectionException -> L32 com.sun.mail.iap.BadCommandException -> L34
-        L22:
-            r5.releaseStoreProtocol(r1)     // Catch: java.lang.Throwable -> L6d
-            goto L4f
-        L26:
-            com.sun.mail.iap.BadCommandException r2 = new com.sun.mail.iap.BadCommandException     // Catch: java.lang.Throwable -> L2e com.sun.mail.iap.ProtocolException -> L30 com.sun.mail.iap.ConnectionException -> L32 com.sun.mail.iap.BadCommandException -> L34
-            java.lang.String r3 = "CONDSTORE not supported"
-            r2.<init>(r3)     // Catch: java.lang.Throwable -> L2e com.sun.mail.iap.ProtocolException -> L30 com.sun.mail.iap.ConnectionException -> L32 com.sun.mail.iap.BadCommandException -> L34
-            throw r2     // Catch: java.lang.Throwable -> L2e com.sun.mail.iap.ProtocolException -> L30 com.sun.mail.iap.ConnectionException -> L32 com.sun.mail.iap.BadCommandException -> L34
-        L2e:
-            r0 = move-exception
-            goto L69
-        L30:
-            r0 = move-exception
-            goto L3f
-        L32:
-            r2 = move-exception
-            goto L4b
-        L34:
-            r0 = move-exception
-            goto L61
-        L36:
-            r1 = move-exception
-            r4 = r1
-            r1 = r0
-            r0 = r4
-            goto L69
-        L3b:
-            r1 = move-exception
-            r4 = r1
-            r1 = r0
-            r0 = r4
-        L3f:
-            javax.mail.MessagingException r2 = new javax.mail.MessagingException     // Catch: java.lang.Throwable -> L2e
-            java.lang.String r3 = r0.getMessage()     // Catch: java.lang.Throwable -> L2e
-            r2.<init>(r3, r0)     // Catch: java.lang.Throwable -> L2e
-            throw r2     // Catch: java.lang.Throwable -> L2e
-        L49:
-            r2 = move-exception
-            r1 = r0
-        L4b:
-            r5.throwClosedException(r2)     // Catch: java.lang.Throwable -> L2e
-            goto L22
-        L4f:
-            if (r0 == 0) goto L55
-            long r0 = r0.highestmodseq     // Catch: java.lang.Throwable -> L6d
-            monitor-exit(r5)
-            return r0
-        L55:
-            javax.mail.MessagingException r0 = new javax.mail.MessagingException     // Catch: java.lang.Throwable -> L6d
-            java.lang.String r1 = "Cannot obtain HIGHESTMODSEQ"
-            r0.<init>(r1)     // Catch: java.lang.Throwable -> L6d
-            throw r0     // Catch: java.lang.Throwable -> L6d
-        L5d:
-            r1 = move-exception
-            r4 = r1
-            r1 = r0
-            r0 = r4
-        L61:
-            javax.mail.MessagingException r2 = new javax.mail.MessagingException     // Catch: java.lang.Throwable -> L2e
-            java.lang.String r3 = "Cannot obtain HIGHESTMODSEQ"
-            r2.<init>(r3, r0)     // Catch: java.lang.Throwable -> L2e
-            throw r2     // Catch: java.lang.Throwable -> L2e
-        L69:
-            r5.releaseStoreProtocol(r1)     // Catch: java.lang.Throwable -> L6d
-            throw r0     // Catch: java.lang.Throwable -> L6d
-        L6d:
-            r0 = move-exception
-            monitor-exit(r5)
-            throw r0
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.sun.mail.imap.IMAPFolder.getHighestModSeq():long");
+    public synchronized long getHighestModSeq() throws MessagingException {
+        Throwable th;
+        ProtocolException e;
+        IMAPProtocol iMAPProtocol;
+        BadCommandException e2;
+        if (this.opened) {
+            return this.highestmodseq;
+        }
+        Status status = null;
+        try {
+            try {
+                iMAPProtocol = getStoreProtocol();
+            } catch (BadCommandException e3) {
+                e2 = e3;
+            } catch (ConnectionException e4) {
+                e = e4;
+                iMAPProtocol = null;
+            } catch (ProtocolException e5) {
+                e = e5;
+            } catch (Throwable th2) {
+                th = th2;
+                releaseStoreProtocol(null);
+                throw th;
+            }
+            try {
+            } catch (BadCommandException e6) {
+                e2 = e6;
+                throw new MessagingException("Cannot obtain HIGHESTMODSEQ", e2);
+            } catch (ConnectionException e7) {
+                e = e7;
+                throwClosedException(e);
+                releaseStoreProtocol(iMAPProtocol);
+                if (status != null) {
+                }
+            } catch (ProtocolException e8) {
+                e = e8;
+                throw new MessagingException(e.getMessage(), e);
+            }
+            if (!iMAPProtocol.hasCapability("CONDSTORE")) {
+                throw new BadCommandException("CONDSTORE not supported");
+            }
+            status = iMAPProtocol.status(this.fullName, new String[]{"HIGHESTMODSEQ"});
+            releaseStoreProtocol(iMAPProtocol);
+            if (status != null) {
+                throw new MessagingException("Cannot obtain HIGHESTMODSEQ");
+            }
+            return status.highestmodseq;
+        } catch (Throwable th3) {
+            th = th3;
+            releaseStoreProtocol(null);
+            throw th;
+        }
     }
 
     public synchronized Message[] getMessagesByUIDChangedSince(long j, long j2, long j3) throws MessagingException {
@@ -2052,8 +1947,7 @@ public class IMAPFolder extends Folder implements UIDFolder, ResponseHandler {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean startIdle(final IdleManager idleManager) throws MessagingException {
+    boolean startIdle(final IdleManager idleManager) throws MessagingException {
         boolean booleanValue;
         synchronized (this) {
             checkOpened();
@@ -2088,8 +1982,7 @@ public class IMAPFolder extends Folder implements UIDFolder, ResponseHandler {
         return booleanValue;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean handleIdle(boolean z) throws MessagingException {
+    boolean handleIdle(boolean z) throws MessagingException {
         while (true) {
             Response readIdleResponse = this.protocol.readIdleResponse();
             try {
@@ -2143,8 +2036,7 @@ public class IMAPFolder extends Folder implements UIDFolder, ResponseHandler {
         return false;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void waitIfIdle() throws ProtocolException {
+    void waitIfIdle() throws ProtocolException {
         while (true) {
             int i = this.idleState;
             if (i == 0) {
@@ -2180,8 +2072,7 @@ public class IMAPFolder extends Folder implements UIDFolder, ResponseHandler {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void idleAbort() {
+    void idleAbort() {
         synchronized (this.messageCacheLock) {
             if (this.idleState == 1 && this.protocol != null) {
                 this.protocol.idleAbort();
@@ -2190,8 +2081,7 @@ public class IMAPFolder extends Folder implements UIDFolder, ResponseHandler {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void idleAbortWait() {
+    void idleAbortWait() {
         synchronized (this.messageCacheLock) {
             if (this.idleState == 1 && this.protocol != null) {
                 this.protocol.idleAbort();
@@ -2207,8 +2097,7 @@ public class IMAPFolder extends Folder implements UIDFolder, ResponseHandler {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public SocketChannel getChannel() {
+    SocketChannel getChannel() {
         if (this.protocol != null) {
             return this.protocol.getChannel();
         }
@@ -2238,14 +2127,14 @@ public class IMAPFolder extends Folder implements UIDFolder, ResponseHandler {
                 long item = status != null ? status.getItem(str) : -1L;
                 releaseStoreProtocol(iMAPProtocol);
                 return item;
-            } catch (BadCommandException unused) {
-                releaseStoreProtocol(iMAPProtocol);
-                return -1L;
+            } catch (ConnectionException e) {
+                throw new StoreClosedException(this.store, e.getMessage());
+            } catch (ProtocolException e2) {
+                throw new MessagingException(e2.getMessage(), e2);
             }
-        } catch (ConnectionException e) {
-            throw new StoreClosedException(this.store, e.getMessage());
-        } catch (ProtocolException e2) {
-            throw new MessagingException(e2.getMessage(), e2);
+        } catch (BadCommandException unused) {
+            releaseStoreProtocol(iMAPProtocol);
+            return -1L;
         }
     }
 

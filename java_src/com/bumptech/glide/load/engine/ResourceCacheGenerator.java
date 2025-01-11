@@ -7,9 +7,9 @@ import com.bumptech.glide.load.engine.DataFetcherGenerator;
 import com.bumptech.glide.load.model.ModelLoader;
 import java.io.File;
 import java.util.List;
-/* JADX INFO: Access modifiers changed from: package-private */
+
 /* loaded from: classes.dex */
-public class ResourceCacheGenerator implements DataFetcherGenerator, DataFetcher.DataCallback<Object> {
+class ResourceCacheGenerator implements DataFetcherGenerator, DataFetcher.DataCallback<Object> {
     private File cacheFile;
     private final DataFetcherGenerator.FetcherReadyCallback cb;
     private ResourceCacheKey currentKey;
@@ -21,8 +21,7 @@ public class ResourceCacheGenerator implements DataFetcherGenerator, DataFetcher
     private int sourceIdIndex;
     private Key sourceKey;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ResourceCacheGenerator(DecodeHelper<?> decodeHelper, DataFetcherGenerator.FetcherReadyCallback fetcherReadyCallback) {
+    ResourceCacheGenerator(DecodeHelper<?> decodeHelper, DataFetcherGenerator.FetcherReadyCallback fetcherReadyCallback) {
         this.helper = decodeHelper;
         this.cb = fetcherReadyCallback;
     }

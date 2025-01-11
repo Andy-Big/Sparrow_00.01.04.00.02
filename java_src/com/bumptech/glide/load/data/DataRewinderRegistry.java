@@ -5,6 +5,7 @@ import com.bumptech.glide.util.Preconditions;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+
 /* loaded from: classes.dex */
 public class DataRewinderRegistry {
     private static final DataRewinder.Factory<?> DEFAULT_FACTORY = new DataRewinder.Factory<Object>() { // from class: com.bumptech.glide.load.data.DataRewinderRegistry.1

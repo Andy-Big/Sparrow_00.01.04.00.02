@@ -31,6 +31,7 @@ import androidx.appcompat.text.AllCapsTransformationMethod;
 import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.core.view.ViewCompat;
 import androidx.core.widget.TextViewCompat;
+
 /* loaded from: classes.dex */
 public class SwitchCompat extends CompoundButton {
     private static final String ACCESSIBILITY_EVENT_CLASS_NAME = "android.widget.Switch";
@@ -81,11 +82,13 @@ public class SwitchCompat extends CompoundButton {
     private PorterDuff.Mode mTrackTintMode;
     private VelocityTracker mVelocityTracker;
     private static final Property<SwitchCompat, Float> THUMB_POS = new Property<SwitchCompat, Float>(Float.class, "thumbPos") { // from class: androidx.appcompat.widget.SwitchCompat.1
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // android.util.Property
         public Float get(SwitchCompat switchCompat) {
             return Float.valueOf(switchCompat.mThumbPosition);
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // android.util.Property
         public void set(SwitchCompat switchCompat, Float f) {
             switchCompat.setThumbPosition(f.floatValue());
@@ -516,112 +519,58 @@ public class SwitchCompat extends CompoundButton {
     @Override // android.widget.TextView, android.view.View
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    public boolean onTouchEvent(android.view.MotionEvent r7) {
-        /*
-            r6 = this;
-            android.view.VelocityTracker r0 = r6.mVelocityTracker
-            r0.addMovement(r7)
-            int r0 = r7.getActionMasked()
-            r1 = 1
-            if (r0 == 0) goto L9d
-            r2 = 2
-            if (r0 == r1) goto L89
-            if (r0 == r2) goto L16
-            r3 = 3
-            if (r0 == r3) goto L89
-            goto Lb7
-        L16:
-            int r0 = r6.mTouchMode
-            if (r0 == r1) goto L55
-            if (r0 == r2) goto L1e
-            goto Lb7
-        L1e:
-            float r7 = r7.getX()
-            int r0 = r6.getThumbScrollRange()
-            float r2 = r6.mTouchX
-            float r2 = r7 - r2
-            r3 = 1065353216(0x3f800000, float:1.0)
-            r4 = 0
-            if (r0 == 0) goto L32
-            float r0 = (float) r0
-            float r2 = r2 / r0
-            goto L3b
-        L32:
-            int r0 = (r2 > r4 ? 1 : (r2 == r4 ? 0 : -1))
-            if (r0 <= 0) goto L38
-            r2 = r3
-            goto L3b
-        L38:
-            r0 = -1082130432(0xffffffffbf800000, float:-1.0)
-            r2 = r0
-        L3b:
-            boolean r0 = androidx.appcompat.widget.ViewUtils.isLayoutRtl(r6)
-            if (r0 == 0) goto L42
-            float r2 = -r2
-        L42:
-            float r0 = r6.mThumbPosition
-            float r0 = r0 + r2
-            float r0 = constrain(r0, r4, r3)
-            float r2 = r6.mThumbPosition
-            int r2 = (r0 > r2 ? 1 : (r0 == r2 ? 0 : -1))
-            if (r2 == 0) goto L54
-            r6.mTouchX = r7
-            r6.setThumbPosition(r0)
-        L54:
-            return r1
-        L55:
-            float r0 = r7.getX()
-            float r3 = r7.getY()
-            float r4 = r6.mTouchX
-            float r4 = r0 - r4
-            float r4 = java.lang.Math.abs(r4)
-            int r5 = r6.mTouchSlop
-            float r5 = (float) r5
-            int r4 = (r4 > r5 ? 1 : (r4 == r5 ? 0 : -1))
-            if (r4 > 0) goto L7b
-            float r4 = r6.mTouchY
-            float r4 = r3 - r4
-            float r4 = java.lang.Math.abs(r4)
-            int r5 = r6.mTouchSlop
-            float r5 = (float) r5
-            int r4 = (r4 > r5 ? 1 : (r4 == r5 ? 0 : -1))
-            if (r4 <= 0) goto Lb7
-        L7b:
-            r6.mTouchMode = r2
-            android.view.ViewParent r7 = r6.getParent()
-            r7.requestDisallowInterceptTouchEvent(r1)
-            r6.mTouchX = r0
-            r6.mTouchY = r3
-            return r1
-        L89:
-            int r0 = r6.mTouchMode
-            if (r0 != r2) goto L94
-            r6.stopDrag(r7)
-            super.onTouchEvent(r7)
-            return r1
-        L94:
-            r0 = 0
-            r6.mTouchMode = r0
-            android.view.VelocityTracker r0 = r6.mVelocityTracker
-            r0.clear()
-            goto Lb7
-        L9d:
-            float r0 = r7.getX()
-            float r2 = r7.getY()
-            boolean r3 = r6.isEnabled()
-            if (r3 == 0) goto Lb7
-            boolean r3 = r6.hitThumb(r0, r2)
-            if (r3 == 0) goto Lb7
-            r6.mTouchMode = r1
-            r6.mTouchX = r0
-            r6.mTouchY = r2
-        Lb7:
-            boolean r7 = super.onTouchEvent(r7)
-            return r7
-        */
-        throw new UnsupportedOperationException("Method not decompiled: androidx.appcompat.widget.SwitchCompat.onTouchEvent(android.view.MotionEvent):boolean");
+    public boolean onTouchEvent(MotionEvent motionEvent) {
+        this.mVelocityTracker.addMovement(motionEvent);
+        int actionMasked = motionEvent.getActionMasked();
+        if (actionMasked == 0) {
+            float x = motionEvent.getX();
+            float y = motionEvent.getY();
+            if (isEnabled() && hitThumb(x, y)) {
+                this.mTouchMode = 1;
+                this.mTouchX = x;
+                this.mTouchY = y;
+            }
+        } else {
+            if (actionMasked != 1) {
+                if (actionMasked == 2) {
+                    int i = this.mTouchMode;
+                    if (i == 1) {
+                        float x2 = motionEvent.getX();
+                        float y2 = motionEvent.getY();
+                        if (Math.abs(x2 - this.mTouchX) > this.mTouchSlop || Math.abs(y2 - this.mTouchY) > this.mTouchSlop) {
+                            this.mTouchMode = 2;
+                            getParent().requestDisallowInterceptTouchEvent(true);
+                            this.mTouchX = x2;
+                            this.mTouchY = y2;
+                            return true;
+                        }
+                    } else if (i == 2) {
+                        float x3 = motionEvent.getX();
+                        int thumbScrollRange = getThumbScrollRange();
+                        float f = x3 - this.mTouchX;
+                        float f2 = thumbScrollRange != 0 ? f / thumbScrollRange : f > 0.0f ? 1.0f : -1.0f;
+                        if (ViewUtils.isLayoutRtl(this)) {
+                            f2 = -f2;
+                        }
+                        float constrain = constrain(this.mThumbPosition + f2, 0.0f, 1.0f);
+                        if (constrain != this.mThumbPosition) {
+                            this.mTouchX = x3;
+                            setThumbPosition(constrain);
+                        }
+                        return true;
+                    }
+                }
+            }
+            if (this.mTouchMode == 2) {
+                stopDrag(motionEvent);
+                super.onTouchEvent(motionEvent);
+                return true;
+            }
+            this.mTouchMode = 0;
+            this.mVelocityTracker.clear();
+        }
+        return super.onTouchEvent(motionEvent);
     }
 
     private void cancelSuperTouch(MotionEvent motionEvent) {

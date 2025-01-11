@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 /* loaded from: classes.dex */
 class ClassesInfoCache {
     private static final int CALL_TYPE_NO_ARG = 0;
@@ -19,8 +20,7 @@ class ClassesInfoCache {
     ClassesInfoCache() {
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean hasLifecycleMethods(Class<?> cls) {
+    boolean hasLifecycleMethods(Class<?> cls) {
         Boolean bool = this.mHasLifecycleMethods.get(cls);
         if (bool != null) {
             return bool.booleanValue();
@@ -44,8 +44,7 @@ class ClassesInfoCache {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public CallbackInfo getInfo(Class<?> cls) {
+    CallbackInfo getInfo(Class<?> cls) {
         CallbackInfo callbackInfo = this.mCallbackMap.get(cls);
         return callbackInfo != null ? callbackInfo : createInfo(cls, null);
     }
@@ -114,9 +113,8 @@ class ClassesInfoCache {
         return callbackInfo;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static class CallbackInfo {
+    static class CallbackInfo {
         final Map<Lifecycle.Event, List<MethodReference>> mEventToHandlers = new HashMap();
         final Map<MethodReference, Lifecycle.Event> mHandlerToEvent;
 
@@ -133,8 +131,7 @@ class ClassesInfoCache {
             }
         }
 
-        /* JADX INFO: Access modifiers changed from: package-private */
-        public void invokeCallbacks(LifecycleOwner lifecycleOwner, Lifecycle.Event event, Object obj) {
+        void invokeCallbacks(LifecycleOwner lifecycleOwner, Lifecycle.Event event, Object obj) {
             invokeMethodsForEvent(this.mEventToHandlers.get(event), lifecycleOwner, event, obj);
             invokeMethodsForEvent(this.mEventToHandlers.get(Lifecycle.Event.ON_ANY), lifecycleOwner, event, obj);
         }
@@ -148,9 +145,8 @@ class ClassesInfoCache {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static class MethodReference {
+    static class MethodReference {
         final int mCallType;
         final Method mMethod;
 

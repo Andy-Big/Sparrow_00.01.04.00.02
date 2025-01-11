@@ -14,6 +14,7 @@ import androidx.core.graphics.drawable.IconCompat;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
+
 /* loaded from: classes.dex */
 public class ShortcutInfoCompat {
     private static final String EXTRA_LONG_LIVED = "extraLongLived";
@@ -93,8 +94,7 @@ public class ShortcutInfoCompat {
         return persistableBundle;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public Intent addToIntent(Intent intent) {
+    Intent addToIntent(Intent intent) {
         Intent[] intentArr = this.mIntents;
         intent.putExtra("android.intent.extra.shortcut.INTENT", intentArr[intentArr.length - 1]).putExtra("android.intent.extra.shortcut.NAME", this.mLabel.toString());
         if (this.mIcon != null) {

@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.PowerManager;
 import android.util.Log;
 import android.util.SparseArray;
+
 @Deprecated
 /* loaded from: classes.dex */
 public abstract class WakefulBroadcastReceiver extends BroadcastReceiver {

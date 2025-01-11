@@ -88,10 +88,11 @@ public class DiskManagePopupView extends BasePopupView implements View.OnClickLi
         void onFolderSelected(String str);
     }
 
-    /* renamed from: com.rigol.scope.views.diskManage.DiskManagePopupView$2  reason: invalid class name */
+    /* renamed from: com.rigol.scope.views.diskManage.DiskManagePopupView$2 */
     /* loaded from: classes2.dex */
     class AnonymousClass2 implements Handler.Callback {
         AnonymousClass2() {
+            DiskManagePopupView.this = r1;
         }
 
         @Override // android.os.Handler.Callback
@@ -139,6 +140,10 @@ public class DiskManagePopupView extends BasePopupView implements View.OnClickLi
         this.isStartCopy = true;
         this.MSG_COPY = 100;
         this.refreshListRunnable = new Runnable() { // from class: com.rigol.scope.views.diskManage.DiskManagePopupView.1
+            {
+                DiskManagePopupView.this = this;
+            }
+
             @Override // java.lang.Runnable
             public void run() {
                 DiskManagePopupView.this.mFileList.clear();
@@ -203,10 +208,11 @@ public class DiskManagePopupView extends BasePopupView implements View.OnClickLi
         this.param.setCallback(new AnonymousClass3());
     }
 
-    /* renamed from: com.rigol.scope.views.diskManage.DiskManagePopupView$3  reason: invalid class name */
+    /* renamed from: com.rigol.scope.views.diskManage.DiskManagePopupView$3 */
     /* loaded from: classes2.dex */
     class AnonymousClass3 implements DiskManageParam.Callback {
         AnonymousClass3() {
+            DiskManagePopupView.this = r1;
         }
 
         @Override // com.rigol.scope.data.DiskManageParam.Callback
@@ -466,6 +472,10 @@ public class DiskManagePopupView extends BasePopupView implements View.OnClickLi
                 final PopupSpinner popupSpinner = new PopupSpinner();
                 final List<DiskParam> diskList = UtilityUtil.getDiskList();
                 BaseAdapter<List<DiskParam>> baseAdapter = new BaseAdapter<List<DiskParam>>(this.context, diskList, R.layout.adapter_item_spinner) { // from class: com.rigol.scope.views.diskManage.DiskManagePopupView.5
+                    {
+                        DiskManagePopupView.this = this;
+                    }
+
                     @Override // com.rigol.scope.adapters.BaseAdapter
                     protected void convert(BaseViewHolder<? extends ViewDataBinding> baseViewHolder, List<DiskParam> list, int i2) {
                         AdapterItemSpinnerBinding adapterItemSpinnerBinding = (AdapterItemSpinnerBinding) baseViewHolder.getBinding();
@@ -475,7 +485,6 @@ public class DiskManagePopupView extends BasePopupView implements View.OnClickLi
                         }
                     }
 
-                    /* JADX DEBUG: Method merged with bridge method */
                     @Override // com.rigol.scope.adapters.MultiItemTypeAdapter, androidx.recyclerview.widget.RecyclerView.Adapter
                     public BaseViewHolder<? extends ViewDataBinding> onCreateViewHolder(ViewGroup viewGroup, int i2) {
                         BaseViewHolder<? extends ViewDataBinding> onCreateViewHolder = super.onCreateViewHolder(viewGroup, i2);
@@ -531,13 +540,13 @@ public class DiskManagePopupView extends BasePopupView implements View.OnClickLi
         ThreadUtils.executeByIo(anonymousClass4);
     }
 
-    /* renamed from: com.rigol.scope.views.diskManage.DiskManagePopupView$4  reason: invalid class name */
+    /* renamed from: com.rigol.scope.views.diskManage.DiskManagePopupView$4 */
     /* loaded from: classes2.dex */
     class AnonymousClass4 extends ThreadUtils.SimpleTask<Boolean> {
         AnonymousClass4() {
+            DiskManagePopupView.this = r1;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
         @Override // com.blankj.utilcode.util.ThreadUtils.Task
         public Boolean doInBackground() throws Throwable {
             StorageSaveParam value;
@@ -557,7 +566,6 @@ public class DiskManagePopupView extends BasePopupView implements View.OnClickLi
             return Boolean.valueOf(z);
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
         @Override // com.blankj.utilcode.util.ThreadUtils.Task
         public void onSuccess(Boolean bool) {
             if (bool.booleanValue()) {
@@ -565,10 +573,15 @@ public class DiskManagePopupView extends BasePopupView implements View.OnClickLi
                 ShellUtils.execCmdAsync("sync", true, (Utils.Consumer<ShellUtils.CommandResult>) new Utils.Consumer() { // from class: com.rigol.scope.views.diskManage.-$$Lambda$DiskManagePopupView$4$xclv0mTyvQ9FDrasubt_WgkdNZQ
                     @Override // com.blankj.utilcode.util.Utils.Consumer
                     public final void accept(Object obj) {
-                        Timber.d(((ShellUtils.CommandResult) obj).toString(), new Object[0]);
+                        DiskManagePopupView.AnonymousClass4.lambda$onSuccess$0((ShellUtils.CommandResult) obj);
                     }
                 });
             }
+        }
+
+        /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.views.diskManage.-$$Lambda$DiskManagePopupView$4$xclv0mTyvQ9FDrasubt_WgkdNZQ.accept(java.lang.Object):void] */
+        static /* synthetic */ void lambda$onSuccess$0(ShellUtils.CommandResult commandResult) {
+            Timber.d(commandResult.toString(), new Object[0]);
         }
 
         @Override // com.blankj.utilcode.util.ThreadUtils.Task
@@ -601,12 +614,17 @@ public class DiskManagePopupView extends BasePopupView implements View.OnClickLi
             ShellUtils.execCmdAsync("sync", true, (Utils.Consumer<ShellUtils.CommandResult>) new Utils.Consumer() { // from class: com.rigol.scope.views.diskManage.-$$Lambda$DiskManagePopupView$b06ZlE-ZKXiOOaizNDMoAbFUmLI
                 @Override // com.blankj.utilcode.util.Utils.Consumer
                 public final void accept(Object obj) {
-                    Timber.d(((ShellUtils.CommandResult) obj).toString(), new Object[0]);
+                    DiskManagePopupView.lambda$onClick$6((ShellUtils.CommandResult) obj);
                 }
             });
             return;
         }
         ToastUtils.showShort(this.context.getResources().getString(R.string.msg_storage_err_null_exist));
+    }
+
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.views.diskManage.-$$Lambda$DiskManagePopupView$b06ZlE-ZKXiOOaizNDMoAbFUmLI.accept(java.lang.Object):void] */
+    static /* synthetic */ void lambda$onClick$6(ShellUtils.CommandResult commandResult) {
+        Timber.d(commandResult.toString(), new Object[0]);
     }
 
     public /* synthetic */ void lambda$onClick$9$DiskManagePopupView(int i, String str) {
@@ -626,11 +644,16 @@ public class DiskManagePopupView extends BasePopupView implements View.OnClickLi
             ShellUtils.execCmdAsync("sync", true, (Utils.Consumer<ShellUtils.CommandResult>) new Utils.Consumer() { // from class: com.rigol.scope.views.diskManage.-$$Lambda$DiskManagePopupView$vFA2W_Cu9qK0W5E4285pesNgHrc
                 @Override // com.blankj.utilcode.util.Utils.Consumer
                 public final void accept(Object obj) {
-                    Timber.d(((ShellUtils.CommandResult) obj).toString(), new Object[0]);
+                    DiskManagePopupView.lambda$onClick$8((ShellUtils.CommandResult) obj);
                 }
             });
         }
         this.param.loadFiles();
+    }
+
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.views.diskManage.-$$Lambda$DiskManagePopupView$vFA2W_Cu9qK0W5E4285pesNgHrc.accept(java.lang.Object):void] */
+    static /* synthetic */ void lambda$onClick$8(ShellUtils.CommandResult commandResult) {
+        Timber.d(commandResult.toString(), new Object[0]);
     }
 
     static /* synthetic */ void lambda$onClick$10(View view) {
@@ -661,7 +684,6 @@ public class DiskManagePopupView extends BasePopupView implements View.OnClickLi
         ((LoadingPopupView) basePopupView).isShowWrning().set(false);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public void onCopy() {
         final List<FileParam> selectedFiles;
         if (this.param.getSelectedCount() <= 0 || (selectedFiles = this.param.getSelectedFiles()) == null || selectedFiles.isEmpty()) {
@@ -691,7 +713,10 @@ public class DiskManagePopupView extends BasePopupView implements View.OnClickLi
             String curFilePath;
             long srcFileSize;
 
-            /* JADX DEBUG: Method merged with bridge method */
+            {
+                DiskManagePopupView.this = this;
+            }
+
             @Override // com.blankj.utilcode.util.ThreadUtils.Task
             public Boolean doInBackground() throws Throwable {
                 boolean z = false;
@@ -735,7 +760,6 @@ public class DiskManagePopupView extends BasePopupView implements View.OnClickLi
                 return Boolean.valueOf(z);
             }
 
-            /* JADX DEBUG: Method merged with bridge method */
             @Override // com.blankj.utilcode.util.ThreadUtils.Task
             public void onSuccess(Boolean bool) {
                 if (bool.booleanValue()) {

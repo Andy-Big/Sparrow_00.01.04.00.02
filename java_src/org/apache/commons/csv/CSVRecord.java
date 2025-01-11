@@ -7,6 +7,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+
 /* loaded from: classes2.dex */
 public final class CSVRecord implements Serializable, Iterable<String> {
     private static final String[] EMPTY_STRING_ARRAY = new String[0];
@@ -17,8 +18,7 @@ public final class CSVRecord implements Serializable, Iterable<String> {
     private final long recordNumber;
     private final String[] values;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public CSVRecord(CSVParser cSVParser, String[] strArr, String str, long j, long j2) {
+    CSVRecord(CSVParser cSVParser, String[] strArr, String str, long j, long j2) {
         this.recordNumber = j;
         this.values = strArr == null ? EMPTY_STRING_ARRAY : strArr;
         this.parser = cSVParser;
@@ -130,8 +130,7 @@ public final class CSVRecord implements Serializable, Iterable<String> {
         return "CSVRecord [comment='" + this.comment + "', recordNumber=" + this.recordNumber + ", values=" + Arrays.toString(this.values) + "]";
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public String[] values() {
+    String[] values() {
         return this.values;
     }
 }

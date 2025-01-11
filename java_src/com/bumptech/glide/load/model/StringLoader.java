@@ -8,10 +8,12 @@ import com.bumptech.glide.load.Options;
 import com.bumptech.glide.load.model.ModelLoader;
 import java.io.File;
 import java.io.InputStream;
+
 /* loaded from: classes.dex */
 public class StringLoader<Data> implements ModelLoader<String, Data> {
     private final ModelLoader<Uri, Data> uriLoader;
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.model.ModelLoader
     public boolean handles(String str) {
         return true;
@@ -21,6 +23,7 @@ public class StringLoader<Data> implements ModelLoader<String, Data> {
         this.uriLoader = modelLoader;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.model.ModelLoader
     public ModelLoader.LoadData<Data> buildLoadData(String str, int i, int i2, Options options) {
         Uri parseUri = parseUri(str);

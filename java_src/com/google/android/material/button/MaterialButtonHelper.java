@@ -19,9 +19,9 @@ import com.google.android.material.ripple.RippleUtils;
 import com.google.android.material.shape.MaterialShapeDrawable;
 import com.google.android.material.shape.ShapeAppearanceModel;
 import com.google.android.material.shape.Shapeable;
-/* JADX INFO: Access modifiers changed from: package-private */
+
 /* loaded from: classes.dex */
-public class MaterialButtonHelper {
+class MaterialButtonHelper {
     private static final boolean IS_LOLLIPOP;
     private ColorStateList backgroundTint;
     private PorterDuff.Mode backgroundTintMode;
@@ -46,14 +46,12 @@ public class MaterialButtonHelper {
         IS_LOLLIPOP = Build.VERSION.SDK_INT >= 21;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public MaterialButtonHelper(MaterialButton materialButton, ShapeAppearanceModel shapeAppearanceModel) {
+    MaterialButtonHelper(MaterialButton materialButton, ShapeAppearanceModel shapeAppearanceModel) {
         this.materialButton = materialButton;
         this.shapeAppearanceModel = shapeAppearanceModel;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void loadFromAttributes(TypedArray typedArray) {
+    void loadFromAttributes(TypedArray typedArray) {
         this.insetLeft = typedArray.getDimensionPixelOffset(R.styleable.MaterialButton_android_insetLeft, 0);
         this.insetRight = typedArray.getDimensionPixelOffset(R.styleable.MaterialButton_android_insetRight, 0);
         this.insetTop = typedArray.getDimensionPixelOffset(R.styleable.MaterialButton_android_insetTop, 0);
@@ -87,15 +85,13 @@ public class MaterialButtonHelper {
         ViewCompat.setPaddingRelative(this.materialButton, paddingStart + this.insetLeft, paddingTop + this.insetTop, paddingEnd + this.insetRight, paddingBottom + this.insetBottom);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setBackgroundOverwritten() {
+    void setBackgroundOverwritten() {
         this.backgroundOverwritten = true;
         this.materialButton.setSupportBackgroundTintList(this.backgroundTint);
         this.materialButton.setSupportBackgroundTintMode(this.backgroundTintMode);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean isBackgroundOverwritten() {
+    boolean isBackgroundOverwritten() {
         return this.backgroundOverwritten;
     }
 
@@ -103,8 +99,7 @@ public class MaterialButtonHelper {
         return new InsetDrawable(drawable, this.insetLeft, this.insetTop, this.insetRight, this.insetBottom);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setSupportBackgroundTintList(ColorStateList colorStateList) {
+    void setSupportBackgroundTintList(ColorStateList colorStateList) {
         if (this.backgroundTint != colorStateList) {
             this.backgroundTint = colorStateList;
             if (getMaterialShapeDrawable() != null) {
@@ -113,13 +108,11 @@ public class MaterialButtonHelper {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ColorStateList getSupportBackgroundTintList() {
+    ColorStateList getSupportBackgroundTintList() {
         return this.backgroundTint;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setSupportBackgroundTintMode(PorterDuff.Mode mode) {
+    void setSupportBackgroundTintMode(PorterDuff.Mode mode) {
         if (this.backgroundTintMode != mode) {
             this.backgroundTintMode = mode;
             if (getMaterialShapeDrawable() == null || this.backgroundTintMode == null) {
@@ -129,13 +122,11 @@ public class MaterialButtonHelper {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public PorterDuff.Mode getSupportBackgroundTintMode() {
+    PorterDuff.Mode getSupportBackgroundTintMode() {
         return this.backgroundTintMode;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setShouldDrawSurfaceColorStroke(boolean z) {
+    void setShouldDrawSurfaceColorStroke(boolean z) {
         this.shouldDrawSurfaceColorStroke = z;
         updateStroke();
     }
@@ -168,23 +159,20 @@ public class MaterialButtonHelper {
         return wrapDrawableWithInset(layerDrawable);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void updateMaskBounds(int i, int i2) {
+    void updateMaskBounds(int i, int i2) {
         Drawable drawable = this.maskDrawable;
         if (drawable != null) {
             drawable.setBounds(this.insetLeft, this.insetTop, i2 - this.insetRight, i - this.insetBottom);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setBackgroundColor(int i) {
+    void setBackgroundColor(int i) {
         if (getMaterialShapeDrawable() != null) {
             getMaterialShapeDrawable().setTint(i);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setRippleColor(ColorStateList colorStateList) {
+    void setRippleColor(ColorStateList colorStateList) {
         if (this.rippleColor != colorStateList) {
             this.rippleColor = colorStateList;
             if (IS_LOLLIPOP && (this.materialButton.getBackground() instanceof RippleDrawable)) {
@@ -196,34 +184,29 @@ public class MaterialButtonHelper {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ColorStateList getRippleColor() {
+    ColorStateList getRippleColor() {
         return this.rippleColor;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setStrokeColor(ColorStateList colorStateList) {
+    void setStrokeColor(ColorStateList colorStateList) {
         if (this.strokeColor != colorStateList) {
             this.strokeColor = colorStateList;
             updateStroke();
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ColorStateList getStrokeColor() {
+    ColorStateList getStrokeColor() {
         return this.strokeColor;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setStrokeWidth(int i) {
+    void setStrokeWidth(int i) {
         if (this.strokeWidth != i) {
             this.strokeWidth = i;
             updateStroke();
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public int getStrokeWidth() {
+    int getStrokeWidth() {
         return this.strokeWidth;
     }
 
@@ -238,8 +221,7 @@ public class MaterialButtonHelper {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setCornerRadius(int i) {
+    void setCornerRadius(int i) {
         if (this.cornerRadiusSet && this.cornerRadius == i) {
             return;
         }
@@ -248,8 +230,7 @@ public class MaterialButtonHelper {
         setShapeAppearanceModel(this.shapeAppearanceModel.withCornerSize(i));
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public int getCornerRadius() {
+    int getCornerRadius() {
         return this.cornerRadius;
     }
 
@@ -264,18 +245,15 @@ public class MaterialButtonHelper {
         return (MaterialShapeDrawable) this.rippleDrawable.getDrawable(!z ? 1 : 0);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public MaterialShapeDrawable getMaterialShapeDrawable() {
+    MaterialShapeDrawable getMaterialShapeDrawable() {
         return getMaterialShapeDrawable(false);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setCheckable(boolean z) {
+    void setCheckable(boolean z) {
         this.checkable = z;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean isCheckable() {
+    boolean isCheckable() {
         return this.checkable;
     }
 
@@ -306,14 +284,12 @@ public class MaterialButtonHelper {
         return (Shapeable) this.rippleDrawable.getDrawable(1);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setShapeAppearanceModel(ShapeAppearanceModel shapeAppearanceModel) {
+    void setShapeAppearanceModel(ShapeAppearanceModel shapeAppearanceModel) {
         this.shapeAppearanceModel = shapeAppearanceModel;
         updateButtonShape(shapeAppearanceModel);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ShapeAppearanceModel getShapeAppearanceModel() {
+    ShapeAppearanceModel getShapeAppearanceModel() {
         return this.shapeAppearanceModel;
     }
 }

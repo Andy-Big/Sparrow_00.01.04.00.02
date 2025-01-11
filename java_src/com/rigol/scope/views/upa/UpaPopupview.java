@@ -59,6 +59,12 @@ public class UpaPopupview extends BasePopupView implements View.OnClickListener,
     private UpaViewModel upaViewModel;
     private UpaViewRippleModel upaViewRippleModel;
 
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.views.upa.-$$Lambda$UpaPopupview$DrCpVZszRZI-VFs6E2JenUCprY4.onCall(int, com.rigol.scope.data.MappingObject):void] */
+    /* renamed from: lambda$DrCpVZszRZI-VFs6E2JenUCprY4 */
+    public static /* synthetic */ void m15lambda$DrCpVZszRZIVFs6E2JenUCprY4(UpaPopupview upaPopupview, int i, MappingObject mappingObject) {
+        upaPopupview.selectAdapter(i, mappingObject);
+    }
+
     @Override // com.rigol.scope.utilities.AorBManager.OnTextReset
     public void onResetDefault(int i) {
     }
@@ -107,6 +113,10 @@ public class UpaPopupview extends BasePopupView implements View.OnClickListener,
 
             @Override // com.rigol.scope.utilities.AorBManager
             protected void setrecovery_num(int i) {
+            }
+
+            {
+                UpaPopupview.this = this;
             }
         };
         if (this.panelKeyViewModel == null) {
@@ -178,7 +188,7 @@ public class UpaPopupview extends BasePopupView implements View.OnClickListener,
         this.panelKeyViewModel.abSwitch(keyEvent, this.clickedView, this.popupSpinner, list, this.spinnerAdapter, this.aorBManager, null, null, new AorBManager.OnSpinnerItemChangeListener() { // from class: com.rigol.scope.views.upa.-$$Lambda$UpaPopupview$DrCpVZszRZI-VFs6E2JenUCprY4
             @Override // com.rigol.scope.utilities.AorBManager.OnSpinnerItemChangeListener
             public final void onCall(int i, MappingObject mappingObject) {
-                UpaPopupview.this.selectAdapter(i, mappingObject);
+                UpaPopupview.m15lambda$DrCpVZszRZIVFs6E2JenUCprY4(UpaPopupview.this, i, mappingObject);
             }
         });
     }
@@ -200,7 +210,6 @@ public class UpaPopupview extends BasePopupView implements View.OnClickListener,
         selectAdapter1(this.upaParam.getDisposeType(), ViewUtil.getList((int) R.array.msg_upa_type).get(this.upaParam.getDisposeType()));
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public void selectAdapter(int i, MappingObject mappingObject) {
         setSpinnerAdapterNew();
         this.upaParam.disposeType(mappingObject.getValue());

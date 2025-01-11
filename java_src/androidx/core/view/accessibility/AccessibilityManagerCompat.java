@@ -4,6 +4,7 @@ import android.accessibilityservice.AccessibilityServiceInfo;
 import android.os.Build;
 import android.view.accessibility.AccessibilityManager;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public final class AccessibilityManagerCompat {
 

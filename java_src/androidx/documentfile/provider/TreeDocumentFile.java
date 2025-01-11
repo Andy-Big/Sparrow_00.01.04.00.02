@@ -7,13 +7,13 @@ import android.net.Uri;
 import android.provider.DocumentsContract;
 import android.util.Log;
 import java.util.ArrayList;
+
 /* loaded from: classes.dex */
 class TreeDocumentFile extends DocumentFile {
     private Context mContext;
     private Uri mUri;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public TreeDocumentFile(DocumentFile documentFile, Context context, Uri uri) {
+    TreeDocumentFile(DocumentFile documentFile, Context context, Uri uri) {
         super(documentFile);
         this.mContext = context;
         this.mUri = uri;

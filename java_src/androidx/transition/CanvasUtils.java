@@ -4,14 +4,14 @@ import android.graphics.Canvas;
 import android.os.Build;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+
 /* loaded from: classes.dex */
 class CanvasUtils {
     private static Method sInorderBarrierMethod;
     private static boolean sOrderMethodsFetched;
     private static Method sReorderBarrierMethod;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static void enableZ(Canvas canvas, boolean z) {
+    static void enableZ(Canvas canvas, boolean z) {
         if (Build.VERSION.SDK_INT < 21) {
             return;
         }

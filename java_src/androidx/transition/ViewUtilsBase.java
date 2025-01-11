@@ -7,6 +7,7 @@ import android.view.ViewParent;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+
 /* loaded from: classes.dex */
 class ViewUtilsBase {
     private static final String TAG = "ViewUtilsBase";
@@ -16,6 +17,9 @@ class ViewUtilsBase {
     private static Field sViewFlagsField;
     private static boolean sViewFlagsFieldFetched;
     private float[] mMatrixValues;
+
+    ViewUtilsBase() {
+    }
 
     public void setTransitionAlpha(View view, float f) {
         Float f2 = (Float) view.getTag(R.id.save_non_transition_alpha);

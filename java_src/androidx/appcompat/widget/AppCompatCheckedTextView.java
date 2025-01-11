@@ -8,6 +8,7 @@ import android.view.inputmethod.InputConnection;
 import android.widget.CheckedTextView;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.core.widget.TextViewCompat;
+
 /* loaded from: classes.dex */
 public class AppCompatCheckedTextView extends CheckedTextView {
     private static final int[] TINT_ATTRS = {16843016};

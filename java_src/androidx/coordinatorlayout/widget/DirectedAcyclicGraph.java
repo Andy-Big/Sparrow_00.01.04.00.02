@@ -5,6 +5,7 @@ import androidx.core.util.Pools;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public final class DirectedAcyclicGraph<T> {
     private final Pools.Pool<ArrayList<T>> mListPool = new Pools.SimplePool(10);

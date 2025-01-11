@@ -1,4 +1,5 @@
 package androidx.constraintlayout.core;
+
 /* loaded from: classes.dex */
 final class Pools {
     private static final boolean DEBUG = false;
@@ -20,8 +21,7 @@ final class Pools {
         private final Object[] mPool;
         private int mPoolSize;
 
-        /* JADX INFO: Access modifiers changed from: package-private */
-        public SimplePool(int i) {
+        SimplePool(int i) {
             if (i <= 0) {
                 throw new IllegalArgumentException("The max pool size must be > 0");
             }

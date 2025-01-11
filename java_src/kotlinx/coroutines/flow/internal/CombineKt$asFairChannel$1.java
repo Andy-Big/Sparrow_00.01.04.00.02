@@ -15,12 +15,12 @@ import kotlinx.coroutines.channels.ProducerScope;
 import kotlinx.coroutines.channels.SendChannel;
 import kotlinx.coroutines.flow.Flow;
 import kotlinx.coroutines.flow.FlowCollector;
-/* JADX INFO: Access modifiers changed from: package-private */
+
 /* compiled from: Combine.kt */
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0012\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\u0010\u0000\u001a\u00020\u0001*\b\u0012\u0004\u0012\u00020\u00030\u0002H\u008a@¢\u0006\u0004\b\u0004\u0010\u0005"}, d2 = {"<anonymous>", "", "Lkotlinx/coroutines/channels/ProducerScope;", "", "invoke", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;"}, k = 3, mv = {1, 1, 15})
 @DebugMetadata(c = "kotlinx.coroutines.flow.internal.CombineKt$asFairChannel$1", f = "Combine.kt", i = {0, 0, 0}, l = {144}, m = "invokeSuspend", n = {"$this$produce", "channel", "$this$collect$iv"}, s = {"L$0", "L$1", "L$2"})
 /* loaded from: classes2.dex */
-public final class CombineKt$asFairChannel$1 extends SuspendLambda implements Function2<ProducerScope<? super Object>, Continuation<? super Unit>, Object> {
+final class CombineKt$asFairChannel$1 extends SuspendLambda implements Function2<ProducerScope<? super Object>, Continuation<? super Unit>, Object> {
     final /* synthetic */ Flow $flow;
     Object L$0;
     Object L$1;
@@ -28,9 +28,8 @@ public final class CombineKt$asFairChannel$1 extends SuspendLambda implements Fu
     int label;
     private ProducerScope p$;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CombineKt$asFairChannel$1(Flow flow, Continuation continuation) {
+    CombineKt$asFairChannel$1(Flow flow, Continuation continuation) {
         super(2, continuation);
         this.$flow = flow;
     }
@@ -43,6 +42,7 @@ public final class CombineKt$asFairChannel$1 extends SuspendLambda implements Fu
         return combineKt$asFairChannel$1;
     }
 
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
     @Override // kotlin.jvm.functions.Function2
     public final Object invoke(ProducerScope<? super Object> producerScope, Continuation<? super Unit> continuation) {
         return ((CombineKt$asFairChannel$1) create(producerScope, continuation)).invokeSuspend(Unit.INSTANCE);

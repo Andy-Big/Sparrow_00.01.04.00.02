@@ -3,14 +3,14 @@ package androidx.core.view.animation;
 import android.graphics.Path;
 import android.graphics.PathMeasure;
 import android.view.animation.Interpolator;
+
 /* loaded from: classes.dex */
 class PathInterpolatorApi14 implements Interpolator {
     private static final float PRECISION = 0.002f;
     private final float[] mX;
     private final float[] mY;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public PathInterpolatorApi14(Path path) {
+    PathInterpolatorApi14(Path path) {
         PathMeasure pathMeasure = new PathMeasure(path, false);
         float length = pathMeasure.getLength();
         int i = ((int) (length / PRECISION)) + 1;
@@ -24,13 +24,11 @@ class PathInterpolatorApi14 implements Interpolator {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public PathInterpolatorApi14(float f, float f2) {
+    PathInterpolatorApi14(float f, float f2) {
         this(createQuad(f, f2));
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public PathInterpolatorApi14(float f, float f2, float f3, float f4) {
+    PathInterpolatorApi14(float f, float f2, float f3, float f4) {
         this(createCubic(f, f2, f3, f4));
     }
 

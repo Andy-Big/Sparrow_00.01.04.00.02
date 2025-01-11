@@ -9,13 +9,13 @@ import android.util.Log;
 import androidx.core.graphics.BitmapCompat;
 import androidx.core.view.GravityCompat;
 import java.io.InputStream;
+
 /* loaded from: classes.dex */
 public final class RoundedBitmapDrawableFactory {
     private static final String TAG = "RoundedBitmapDrawableFa";
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static class DefaultRoundedBitmapDrawable extends RoundedBitmapDrawable {
+    private static class DefaultRoundedBitmapDrawable extends RoundedBitmapDrawable {
         DefaultRoundedBitmapDrawable(Resources resources, Bitmap bitmap) {
             super(resources, bitmap);
         }

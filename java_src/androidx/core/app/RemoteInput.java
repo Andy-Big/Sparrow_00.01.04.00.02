@@ -13,6 +13,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
+
 /* loaded from: classes.dex */
 public final class RemoteInput {
     public static final int EDIT_CHOICES_BEFORE_SENDING_AUTO = 0;
@@ -43,8 +44,7 @@ public final class RemoteInput {
     public @interface Source {
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public RemoteInput(String str, CharSequence charSequence, CharSequence[] charSequenceArr, boolean z, int i, Bundle bundle, Set<String> set) {
+    RemoteInput(String str, CharSequence charSequence, CharSequence[] charSequenceArr, boolean z, int i, Bundle bundle, Set<String> set) {
         this.mResultKey = str;
         this.mLabel = charSequence;
         this.mChoices = charSequenceArr;
@@ -278,8 +278,7 @@ public final class RemoteInput {
         return EXTRA_DATA_TYPE_RESULTS_DATA + str;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static android.app.RemoteInput[] fromCompat(RemoteInput[] remoteInputArr) {
+    static android.app.RemoteInput[] fromCompat(RemoteInput[] remoteInputArr) {
         if (remoteInputArr == null) {
             return null;
         }

@@ -2,6 +2,7 @@ package com.github.barteksc.pdfviewer.util;
 
 import com.shockwave.pdfium.util.Size;
 import com.shockwave.pdfium.util.SizeF;
+
 /* loaded from: classes.dex */
 public class PageSizeCalculator {
     private boolean fitEachPage;
@@ -39,10 +40,9 @@ public class PageSizeCalculator {
         return fitHeight(size, height);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.github.barteksc.pdfviewer.util.PageSizeCalculator$1  reason: invalid class name */
     /* loaded from: classes.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    static /* synthetic */ class AnonymousClass1 {
         static final /* synthetic */ int[] $SwitchMap$com$github$barteksc$pdfviewer$util$FitPolicy;
 
         static {

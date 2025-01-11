@@ -8,12 +8,14 @@ import android.util.Log;
 import com.bumptech.glide.load.Options;
 import com.bumptech.glide.load.model.ModelLoader;
 import java.io.InputStream;
+
 /* loaded from: classes.dex */
 public class ResourceLoader<Data> implements ModelLoader<Integer, Data> {
     private static final String TAG = "ResourceLoader";
     private final Resources resources;
     private final ModelLoader<Uri, Data> uriLoader;
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.model.ModelLoader
     public boolean handles(Integer num) {
         return true;
@@ -24,6 +26,7 @@ public class ResourceLoader<Data> implements ModelLoader<Integer, Data> {
         this.uriLoader = modelLoader;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.model.ModelLoader
     public ModelLoader.LoadData<Data> buildLoadData(Integer num, int i, int i2, Options options) {
         Uri resourceUri = getResourceUri(num);

@@ -16,6 +16,7 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public abstract class CustomViewTarget<T extends View, Z> implements Target<Z> {
     private static final String TAG = "CustomViewTarget";
@@ -285,9 +286,8 @@ public abstract class CustomViewTarget<T extends View, Z> implements Target<Z> {
             return getMaxDisplayLength(this.view.getContext());
         }
 
-        /* JADX INFO: Access modifiers changed from: private */
         /* loaded from: classes.dex */
-        public static final class SizeDeterminerLayoutListener implements ViewTreeObserver.OnPreDrawListener {
+        private static final class SizeDeterminerLayoutListener implements ViewTreeObserver.OnPreDrawListener {
             private final WeakReference<SizeDeterminer> sizeDeterminerRef;
 
             SizeDeterminerLayoutListener(SizeDeterminer sizeDeterminer) {

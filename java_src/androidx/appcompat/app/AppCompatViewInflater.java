@@ -30,6 +30,7 @@ import androidx.core.view.ViewCompat;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+
 /* loaded from: classes.dex */
 public class AppCompatViewInflater {
     private static final String LOG_TAG = "AppCompatViewInflater";
@@ -43,8 +44,7 @@ public class AppCompatViewInflater {
         return null;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public final View createView(View view, String str, Context context, AttributeSet attributeSet, boolean z, boolean z2, boolean z3, boolean z4) {
+    final View createView(View view, String str, Context context, AttributeSet attributeSet, boolean z, boolean z2, boolean z3, boolean z4) {
         View createTextView;
         Context context2 = (!z || view == null) ? context : view.getContext();
         if (z2 || z3) {
@@ -273,6 +273,7 @@ public class AppCompatViewInflater {
         throw new IllegalStateException(getClass().getName() + " asked to inflate view for <" + str + ">, but returned null");
     }
 
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [302=5, 303=5] */
     private View createViewFromTag(Context context, String str, AttributeSet attributeSet) {
         if (str.equals("view")) {
             str = attributeSet.getAttributeValue(null, "class");
@@ -343,9 +344,8 @@ public class AppCompatViewInflater {
         return resourceId != 0 ? ((context instanceof ContextThemeWrapper) && ((ContextThemeWrapper) context).getThemeResId() == resourceId) ? context : new ContextThemeWrapper(context, resourceId) : context;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static class DeclaredOnClickListener implements View.OnClickListener {
+    private static class DeclaredOnClickListener implements View.OnClickListener {
         private final View mHostView;
         private final String mMethodName;
         private Context mResolvedContext;

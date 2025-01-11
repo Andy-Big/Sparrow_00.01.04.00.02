@@ -20,6 +20,7 @@ import com.scwang.smartrefresh.layout.internal.InternalAbstract;
 import com.scwang.smartrefresh.layout.util.DensityUtil;
 import java.util.ArrayList;
 import java.util.List;
+
 /* loaded from: classes2.dex */
 public class StoreHouseHeader extends InternalAbstract implements RefreshHeader {
     protected static final float mBarDarkAlpha = 0.4f;

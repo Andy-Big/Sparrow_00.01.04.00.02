@@ -2,6 +2,7 @@ package com.sun.mail.pop3;
 
 import java.io.File;
 import java.io.IOException;
+
 /* loaded from: classes2.dex */
 class TempFile {
     private File file;

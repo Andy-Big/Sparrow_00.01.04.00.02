@@ -11,6 +11,7 @@ import com.google.android.material.R;
 import com.google.android.material.shape.MaterialShapeDrawable;
 import com.google.android.material.shape.MaterialShapeUtils;
 import com.google.android.material.theme.overlay.MaterialThemeOverlay;
+
 /* loaded from: classes.dex */
 public class MaterialToolbar extends Toolbar {
     private static final int DEF_STYLE_RES = R.style.Widget_MaterialComponents_Toolbar;

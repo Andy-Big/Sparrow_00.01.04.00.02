@@ -2,6 +2,7 @@ package androidx.constraintlayout.core.widgets;
 
 import androidx.constraintlayout.core.LinearSystem;
 import androidx.constraintlayout.core.widgets.ConstraintWidget;
+
 /* loaded from: classes.dex */
 public class Optimizer {
     static final int FLAG_CHAIN_DANGLING = 1;
@@ -26,8 +27,7 @@ public class Optimizer {
         return (i & i2) == i2;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static void checkMatchParent(ConstraintWidgetContainer constraintWidgetContainer, LinearSystem linearSystem, ConstraintWidget constraintWidget) {
+    static void checkMatchParent(ConstraintWidgetContainer constraintWidgetContainer, LinearSystem linearSystem, ConstraintWidget constraintWidget) {
         constraintWidget.mHorizontalResolution = -1;
         constraintWidget.mVerticalResolution = -1;
         if (constraintWidgetContainer.mListDimensionBehaviors[0] != ConstraintWidget.DimensionBehaviour.WRAP_CONTENT && constraintWidget.mListDimensionBehaviors[0] == ConstraintWidget.DimensionBehaviour.MATCH_PARENT) {

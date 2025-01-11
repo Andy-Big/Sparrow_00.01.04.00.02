@@ -10,6 +10,7 @@ import javax.jmdns.ServiceListener;
 import javax.jmdns.ServiceTypeListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 /* loaded from: classes2.dex */
 public class ListenerStatus<T extends EventListener> {
     public static final boolean ASYNCHRONOUS = false;
@@ -27,8 +28,7 @@ public class ListenerStatus<T extends EventListener> {
             this._addedServices = new ConcurrentHashMap(32);
         }
 
-        /* JADX INFO: Access modifiers changed from: package-private */
-        public void serviceAdded(ServiceEvent serviceEvent) {
+        void serviceAdded(ServiceEvent serviceEvent) {
             if (this._addedServices.putIfAbsent(serviceEvent.getName() + "." + serviceEvent.getType(), serviceEvent.getInfo().clone()) == null) {
                 getListener().serviceAdded(serviceEvent);
                 ServiceInfo info = serviceEvent.getInfo();
@@ -41,8 +41,7 @@ public class ListenerStatus<T extends EventListener> {
             logger.debug("Service Added called for a service already added: {}", serviceEvent);
         }
 
-        /* JADX INFO: Access modifiers changed from: package-private */
-        public void serviceRemoved(ServiceEvent serviceEvent) {
+        void serviceRemoved(ServiceEvent serviceEvent) {
             String str = serviceEvent.getName() + "." + serviceEvent.getType();
             ConcurrentMap<String, ServiceInfo> concurrentMap = this._addedServices;
             if (concurrentMap.remove(str, concurrentMap.get(str))) {
@@ -52,8 +51,7 @@ public class ListenerStatus<T extends EventListener> {
             }
         }
 
-        /* JADX INFO: Access modifiers changed from: package-private */
-        public synchronized void serviceResolved(ServiceEvent serviceEvent) {
+        synchronized void serviceResolved(ServiceEvent serviceEvent) {
             ServiceInfo info = serviceEvent.getInfo();
             if (info != null && info.hasData()) {
                 String str = serviceEvent.getName() + "." + serviceEvent.getType();
@@ -119,8 +117,7 @@ public class ListenerStatus<T extends EventListener> {
             this._addedTypes = new ConcurrentHashMap(32);
         }
 
-        /* JADX INFO: Access modifiers changed from: package-private */
-        public void serviceTypeAdded(ServiceEvent serviceEvent) {
+        void serviceTypeAdded(ServiceEvent serviceEvent) {
             if (this._addedTypes.putIfAbsent(serviceEvent.getType(), serviceEvent.getType()) == null) {
                 getListener().serviceTypeAdded(serviceEvent);
             } else {
@@ -128,8 +125,7 @@ public class ListenerStatus<T extends EventListener> {
             }
         }
 
-        /* JADX INFO: Access modifiers changed from: package-private */
-        public void subTypeForServiceTypeAdded(ServiceEvent serviceEvent) {
+        void subTypeForServiceTypeAdded(ServiceEvent serviceEvent) {
             if (this._addedTypes.putIfAbsent(serviceEvent.getType(), serviceEvent.getType()) == null) {
                 getListener().subTypeForServiceTypeAdded(serviceEvent);
             } else {

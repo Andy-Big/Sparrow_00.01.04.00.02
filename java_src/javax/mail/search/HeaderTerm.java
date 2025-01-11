@@ -2,6 +2,7 @@ package javax.mail.search;
 
 import java.util.Locale;
 import javax.mail.Message;
+
 /* loaded from: classes2.dex */
 public final class HeaderTerm extends StringTerm {
     private static final long serialVersionUID = 8342514650333389122L;

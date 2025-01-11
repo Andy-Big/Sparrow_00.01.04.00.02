@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+
 /* loaded from: classes.dex */
 class AudioAttributesImplApi21 implements AudioAttributesImpl {
     private static final String TAG = "AudioAttributesCompat21";
@@ -13,18 +14,15 @@ class AudioAttributesImplApi21 implements AudioAttributesImpl {
     AudioAttributes mAudioAttributes;
     int mLegacyStreamType;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public AudioAttributesImplApi21() {
+    AudioAttributesImplApi21() {
         this.mLegacyStreamType = -1;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public AudioAttributesImplApi21(AudioAttributes audioAttributes) {
+    AudioAttributesImplApi21(AudioAttributes audioAttributes) {
         this(audioAttributes, -1);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public AudioAttributesImplApi21(AudioAttributes audioAttributes, int i) {
+    AudioAttributesImplApi21(AudioAttributes audioAttributes, int i) {
         this.mLegacyStreamType = -1;
         this.mAudioAttributes = audioAttributes;
         this.mLegacyStreamType = i;

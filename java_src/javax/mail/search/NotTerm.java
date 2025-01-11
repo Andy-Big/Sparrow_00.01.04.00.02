@@ -1,6 +1,7 @@
 package javax.mail.search;
 
 import javax.mail.Message;
+
 /* loaded from: classes2.dex */
 public final class NotTerm extends SearchTerm {
     private static final long serialVersionUID = 7152293214217310216L;

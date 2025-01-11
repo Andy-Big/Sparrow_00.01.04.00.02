@@ -16,6 +16,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.lang.reflect.Type;
+
 /* loaded from: classes.dex */
 public final class TreeTypeAdapter<T> extends TypeAdapter<T> {
     private final TreeTypeAdapter<T>.GsonContextImpl context = new GsonContextImpl();
@@ -80,9 +81,8 @@ public final class TreeTypeAdapter<T> extends TypeAdapter<T> {
         return new SingleTypeFactory(obj, null, false, cls);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static final class SingleTypeFactory implements TypeAdapterFactory {
+    private static final class SingleTypeFactory implements TypeAdapterFactory {
         private final JsonDeserializer<?> deserializer;
         private final TypeToken<?> exactType;
         private final Class<?> hierarchyType;

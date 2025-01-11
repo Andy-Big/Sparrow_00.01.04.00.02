@@ -19,6 +19,7 @@ import androidx.core.view.accessibility.AccessibilityRecordCompat;
 import androidx.customview.widget.FocusStrategy;
 import java.util.ArrayList;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public abstract class ExploreByTouchHelper extends AccessibilityDelegateCompat {
     private static final String DEFAULT_CLASS_NAME = "android.view.View";
@@ -26,17 +27,20 @@ public abstract class ExploreByTouchHelper extends AccessibilityDelegateCompat {
     public static final int INVALID_ID = Integer.MIN_VALUE;
     private static final Rect INVALID_PARENT_BOUNDS = new Rect(Integer.MAX_VALUE, Integer.MAX_VALUE, Integer.MIN_VALUE, Integer.MIN_VALUE);
     private static final FocusStrategy.BoundsAdapter<AccessibilityNodeInfoCompat> NODE_ADAPTER = new FocusStrategy.BoundsAdapter<AccessibilityNodeInfoCompat>() { // from class: androidx.customview.widget.ExploreByTouchHelper.1
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.customview.widget.FocusStrategy.BoundsAdapter
         public void obtainBounds(AccessibilityNodeInfoCompat accessibilityNodeInfoCompat, Rect rect) {
             accessibilityNodeInfoCompat.getBoundsInParent(rect);
         }
     };
     private static final FocusStrategy.CollectionAdapter<SparseArrayCompat<AccessibilityNodeInfoCompat>, AccessibilityNodeInfoCompat> SPARSE_VALUES_ADAPTER = new FocusStrategy.CollectionAdapter<SparseArrayCompat<AccessibilityNodeInfoCompat>, AccessibilityNodeInfoCompat>() { // from class: androidx.customview.widget.ExploreByTouchHelper.2
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.customview.widget.FocusStrategy.CollectionAdapter
         public AccessibilityNodeInfoCompat get(SparseArrayCompat<AccessibilityNodeInfoCompat> sparseArrayCompat, int i) {
             return sparseArrayCompat.valueAt(i);
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.customview.widget.FocusStrategy.CollectionAdapter
         public int size(SparseArrayCompat<AccessibilityNodeInfoCompat> sparseArrayCompat) {
             return sparseArrayCompat.size();

@@ -5,12 +5,12 @@ import android.app.Application;
 import android.content.Context;
 import android.os.Bundle;
 import java.util.concurrent.atomic.AtomicBoolean;
+
 /* loaded from: classes.dex */
 class LifecycleDispatcher {
     private static AtomicBoolean sInitialized = new AtomicBoolean(false);
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static void init(Context context) {
+    static void init(Context context) {
         if (sInitialized.getAndSet(true)) {
             return;
         }

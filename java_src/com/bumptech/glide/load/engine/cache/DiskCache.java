@@ -2,6 +2,7 @@ package com.bumptech.glide.load.engine.cache;
 
 import com.bumptech.glide.load.Key;
 import java.io.File;
+
 /* loaded from: classes.dex */
 public interface DiskCache {
 

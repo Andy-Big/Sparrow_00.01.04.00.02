@@ -13,6 +13,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+
 /* loaded from: classes.dex */
 public class FileLoader<Data> implements ModelLoader<File, Data> {
     private static final String TAG = "FileLoader";
@@ -27,6 +28,7 @@ public class FileLoader<Data> implements ModelLoader<File, Data> {
         Data open(File file) throws FileNotFoundException;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.model.ModelLoader
     public boolean handles(File file) {
         return true;
@@ -36,14 +38,14 @@ public class FileLoader<Data> implements ModelLoader<File, Data> {
         this.fileOpener = fileOpener;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.model.ModelLoader
     public ModelLoader.LoadData<Data> buildLoadData(File file, int i, int i2, Options options) {
         return new ModelLoader.LoadData<>(new ObjectKey(file), new FileFetcher(file, this.fileOpener));
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static final class FileFetcher<Data> implements DataFetcher<Data> {
+    private static final class FileFetcher<Data> implements DataFetcher<Data> {
         private Data data;
         private final File file;
         private final FileOpener<Data> opener;
@@ -116,12 +118,14 @@ public class FileLoader<Data> implements ModelLoader<File, Data> {
     public static class StreamFactory extends Factory<InputStream> {
         public StreamFactory() {
             super(new FileOpener<InputStream>() { // from class: com.bumptech.glide.load.model.FileLoader.StreamFactory.1
+                /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
                 @Override // com.bumptech.glide.load.model.FileLoader.FileOpener
                 public InputStream open(File file) throws FileNotFoundException {
                     return new FileInputStream(file);
                 }
 
+                /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.bumptech.glide.load.model.FileLoader.FileOpener
                 public void close(InputStream inputStream) throws IOException {
                     inputStream.close();
@@ -139,12 +143,14 @@ public class FileLoader<Data> implements ModelLoader<File, Data> {
     public static class FileDescriptorFactory extends Factory<ParcelFileDescriptor> {
         public FileDescriptorFactory() {
             super(new FileOpener<ParcelFileDescriptor>() { // from class: com.bumptech.glide.load.model.FileLoader.FileDescriptorFactory.1
+                /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
                 @Override // com.bumptech.glide.load.model.FileLoader.FileOpener
                 public ParcelFileDescriptor open(File file) throws FileNotFoundException {
                     return ParcelFileDescriptor.open(file, 268435456);
                 }
 
+                /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.bumptech.glide.load.model.FileLoader.FileOpener
                 public void close(ParcelFileDescriptor parcelFileDescriptor) throws IOException {
                     parcelFileDescriptor.close();

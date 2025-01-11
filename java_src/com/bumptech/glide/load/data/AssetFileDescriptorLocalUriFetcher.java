@@ -5,12 +5,14 @@ import android.content.res.AssetFileDescriptor;
 import android.net.Uri;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+
 /* loaded from: classes.dex */
 public final class AssetFileDescriptorLocalUriFetcher extends LocalUriFetcher<AssetFileDescriptor> {
     public AssetFileDescriptorLocalUriFetcher(ContentResolver contentResolver, Uri uri) {
         super(contentResolver, uri);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.bumptech.glide.load.data.LocalUriFetcher
@@ -22,6 +24,7 @@ public final class AssetFileDescriptorLocalUriFetcher extends LocalUriFetcher<As
         throw new FileNotFoundException("FileDescriptor is null for: " + uri);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.bumptech.glide.load.data.LocalUriFetcher
     public void close(AssetFileDescriptor assetFileDescriptor) throws IOException {

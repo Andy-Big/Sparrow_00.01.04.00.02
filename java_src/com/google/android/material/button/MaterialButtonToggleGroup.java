@@ -28,6 +28,7 @@ import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.TreeMap;
+
 /* loaded from: classes.dex */
 public class MaterialButtonToggleGroup extends LinearLayout {
     private int checkedId;
@@ -63,6 +64,7 @@ public class MaterialButtonToggleGroup extends LinearLayout {
         this.pressedStateTracker = new PressedStateTracker();
         this.onButtonCheckedListeners = new LinkedHashSet<>();
         this.childOrderComparator = new Comparator<MaterialButton>() { // from class: com.google.android.material.button.MaterialButtonToggleGroup.1
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.Comparator
             public int compare(MaterialButton materialButton, MaterialButton materialButton2) {
                 int compareTo = Boolean.valueOf(materialButton.isChecked()).compareTo(Boolean.valueOf(materialButton2.isChecked()));
@@ -452,9 +454,8 @@ public class MaterialButtonToggleGroup extends LinearLayout {
         this.childOrder = (Integer[]) treeMap.values().toArray(new Integer[0]);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public class CheckedStateTracker implements MaterialButton.OnCheckedChangeListener {
+    private class CheckedStateTracker implements MaterialButton.OnCheckedChangeListener {
         private CheckedStateTracker() {
         }
 
@@ -473,9 +474,8 @@ public class MaterialButtonToggleGroup extends LinearLayout {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public class PressedStateTracker implements MaterialButton.OnPressedChangeListener {
+    private class PressedStateTracker implements MaterialButton.OnPressedChangeListener {
         private PressedStateTracker() {
         }
 
@@ -485,9 +485,8 @@ public class MaterialButtonToggleGroup extends LinearLayout {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static class CornerData {
+    private static class CornerData {
         private static final CornerSize noCorner = new AbsoluteCornerSize(0.0f);
         CornerSize bottomLeft;
         CornerSize bottomRight;

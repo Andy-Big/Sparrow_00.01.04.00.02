@@ -9,6 +9,7 @@ import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.view.View;
 import androidx.constraintlayout.widget.R;
+
 /* loaded from: classes.dex */
 public class MockView extends View {
     private int mDiagonalsColor;

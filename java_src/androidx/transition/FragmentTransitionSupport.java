@@ -7,6 +7,7 @@ import androidx.fragment.app.FragmentTransitionImpl;
 import androidx.transition.Transition;
 import java.util.ArrayList;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public class FragmentTransitionSupport extends FragmentTransitionImpl {
     @Override // androidx.fragment.app.FragmentTransitionImpl

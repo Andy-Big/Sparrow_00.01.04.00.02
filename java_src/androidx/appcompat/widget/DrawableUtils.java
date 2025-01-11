@@ -15,6 +15,7 @@ import androidx.appcompat.graphics.drawable.DrawableWrapper;
 import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.core.graphics.drawable.WrappedDrawable;
 import java.lang.reflect.Field;
+
 /* loaded from: classes.dex */
 public class DrawableUtils {
     private static final int[] CHECKED_STATE_SET = {16842912};
@@ -101,8 +102,7 @@ public class DrawableUtils {
         return INSETS_NONE;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static void fixDrawable(Drawable drawable) {
+    static void fixDrawable(Drawable drawable) {
         if (Build.VERSION.SDK_INT == 21 && VECTOR_DRAWABLE_CLAZZ_NAME.equals(drawable.getClass().getName())) {
             fixVectorDrawableTinting(drawable);
         }

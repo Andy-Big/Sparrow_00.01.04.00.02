@@ -11,6 +11,7 @@ import com.bumptech.glide.util.ExceptionCatchingInputStream;
 import com.bumptech.glide.util.MarkEnforcingInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+
 /* loaded from: classes.dex */
 public class StreamBitmapDecoder implements ResourceDecoder<InputStream, Bitmap> {
     private final ArrayPool byteArrayPool;
@@ -21,11 +22,13 @@ public class StreamBitmapDecoder implements ResourceDecoder<InputStream, Bitmap>
         this.byteArrayPool = arrayPool;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.ResourceDecoder
     public boolean handles(InputStream inputStream, Options options) {
         return this.downsampler.handles(inputStream);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.ResourceDecoder
     public Resource<Bitmap> decode(InputStream inputStream, int i, int i2, Options options) throws IOException {
         boolean z;
@@ -48,9 +51,8 @@ public class StreamBitmapDecoder implements ResourceDecoder<InputStream, Bitmap>
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static class UntrustedCallbacks implements Downsampler.DecodeCallbacks {
+    static class UntrustedCallbacks implements Downsampler.DecodeCallbacks {
         private final RecyclableBufferedInputStream bufferedStream;
         private final ExceptionCatchingInputStream exceptionStream;
 

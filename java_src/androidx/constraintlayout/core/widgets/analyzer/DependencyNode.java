@@ -2,6 +2,7 @@ package androidx.constraintlayout.core.widgets.analyzer;
 
 import java.util.ArrayList;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public class DependencyNode implements Dependency {
     int margin;

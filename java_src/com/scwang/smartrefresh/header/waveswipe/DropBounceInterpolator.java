@@ -1,6 +1,7 @@
 package com.scwang.smartrefresh.header.waveswipe;
 
 import android.view.animation.Interpolator;
+
 /* loaded from: classes2.dex */
 public class DropBounceInterpolator implements Interpolator {
     @Override // android.animation.TimeInterpolator

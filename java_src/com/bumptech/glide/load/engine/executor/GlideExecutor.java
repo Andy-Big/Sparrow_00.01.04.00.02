@@ -16,6 +16,7 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
+
 /* loaded from: classes.dex */
 public final class GlideExecutor implements ExecutorService {
     private static final String DEFAULT_ANIMATION_EXECUTOR_NAME = "animation";
@@ -191,9 +192,8 @@ public final class GlideExecutor implements ExecutorService {
         return bestThreadCount;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static final class DefaultThreadFactory implements ThreadFactory {
+    private static final class DefaultThreadFactory implements ThreadFactory {
         private static final int DEFAULT_PRIORITY = 9;
         private final String name;
         final boolean preventNetworkOperations;

@@ -3,6 +3,7 @@ package androidx.databinding.adapters;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.widget.ImageView;
+
 /* loaded from: classes.dex */
 public class ImageViewBindingAdapter {
     public static void setImageUri(ImageView imageView, String str) {

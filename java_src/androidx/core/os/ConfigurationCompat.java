@@ -2,6 +2,7 @@ package androidx.core.os;
 
 import android.content.res.Configuration;
 import android.os.Build;
+
 /* loaded from: classes.dex */
 public final class ConfigurationCompat {
     private ConfigurationCompat() {

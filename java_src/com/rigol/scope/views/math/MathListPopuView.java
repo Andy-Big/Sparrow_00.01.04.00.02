@@ -50,6 +50,10 @@ public class MathListPopuView extends BasePopupView {
 
     private void loadMathInfo() {
         final BaseAdapter<List<MathParam>> baseAdapter = new BaseAdapter<List<MathParam>>(this.context, R.layout.adapter_item_math) { // from class: com.rigol.scope.views.math.MathListPopuView.1
+            {
+                MathListPopuView.this = this;
+            }
+
             @Override // com.rigol.scope.adapters.BaseAdapter
             protected void convert(BaseViewHolder<? extends ViewDataBinding> baseViewHolder, List<MathParam> list, int i) {
                 AdapterItemMathBinding adapterItemMathBinding = (AdapterItemMathBinding) baseViewHolder.getBinding();
@@ -61,7 +65,6 @@ public class MathListPopuView extends BasePopupView {
                 adapterItemMathBinding.getRoot().setTag(MathListPopuView.class.getSimpleName());
             }
 
-            /* JADX DEBUG: Method merged with bridge method */
             @Override // com.rigol.scope.adapters.MultiItemTypeAdapter, androidx.recyclerview.widget.RecyclerView.Adapter
             public BaseViewHolder<? extends ViewDataBinding> onCreateViewHolder(ViewGroup viewGroup, int i) {
                 BaseViewHolder<? extends ViewDataBinding> onCreateViewHolder = super.onCreateViewHolder(viewGroup, i);
@@ -76,6 +79,10 @@ public class MathListPopuView extends BasePopupView {
             @Override // com.rigol.scope.adapters.OnItemGestureDetectorListener
             public boolean onDoubleTap(MotionEvent motionEvent, View view, RecyclerView.ViewHolder viewHolder, int i) {
                 return true;
+            }
+
+            {
+                MathListPopuView.this = this;
             }
 
             /* JADX WARN: Type inference failed for: r1v2, types: [java.util.List] */
@@ -115,6 +122,10 @@ public class MathListPopuView extends BasePopupView {
             }
         });
         new ItemTouchHelper(new BaseSimpleCallback(0, 2) { // from class: com.rigol.scope.views.math.MathListPopuView.3
+            {
+                MathListPopuView.this = this;
+            }
+
             /* JADX WARN: Type inference failed for: r3v4, types: [java.util.List] */
             @Override // com.rigol.scope.views.baseview.BaseSimpleCallback, androidx.recyclerview.widget.ItemTouchHelper.Callback
             public void onSwiped(RecyclerView.ViewHolder viewHolder, int i) {
@@ -145,7 +156,6 @@ public class MathListPopuView extends BasePopupView {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public void showMathPopupView(int i) {
         BasePopupView basePopupView = PopupViewManager.getInstance().get(MathPopupView.class);
         if (basePopupView instanceof MathPopupView) {
@@ -154,7 +164,6 @@ public class MathListPopuView extends BasePopupView {
         basePopupView.show();
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public int getMathCurrentItem() {
         BasePopupView basePopupView = PopupViewManager.getInstance().get(MathPopupView.class);
         if (basePopupView instanceof MathPopupView) {
@@ -163,7 +172,6 @@ public class MathListPopuView extends BasePopupView {
         return 0;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public void setMathCurrentItem(int i) {
         BasePopupView basePopupView = PopupViewManager.getInstance().get(MathPopupView.class);
         if (basePopupView instanceof MathPopupView) {

@@ -15,14 +15,13 @@ import androidx.core.os.CancellationSignal;
 import androidx.core.view.OneShotPreDrawListener;
 import androidx.fragment.R;
 import androidx.fragment.app.FragmentTransition;
-/* JADX INFO: Access modifiers changed from: package-private */
+
 /* loaded from: classes.dex */
-public class FragmentAnim {
+class FragmentAnim {
     private FragmentAnim() {
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static AnimationOrAnimator loadAnimation(Context context, FragmentContainer fragmentContainer, Fragment fragment, boolean z) {
+    static AnimationOrAnimator loadAnimation(Context context, FragmentContainer fragmentContainer, Fragment fragment, boolean z) {
         int transitToAnimResourceId;
         int nextTransition = fragment.getNextTransition();
         int nextAnim = fragment.getNextAnim();
@@ -80,8 +79,7 @@ public class FragmentAnim {
         return null;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static void animateRemoveFragment(final Fragment fragment, AnimationOrAnimator animationOrAnimator, final FragmentTransition.Callback callback) {
+    static void animateRemoveFragment(final Fragment fragment, AnimationOrAnimator animationOrAnimator, final FragmentTransition.Callback callback) {
         final View view = fragment.mView;
         final ViewGroup viewGroup = fragment.mContainer;
         viewGroup.startViewTransition(view);
@@ -156,9 +154,8 @@ public class FragmentAnim {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static class AnimationOrAnimator {
+    static class AnimationOrAnimator {
         public final Animation animation;
         public final Animator animator;
 
@@ -179,9 +176,8 @@ public class FragmentAnim {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static class EndViewTransitionAnimation extends AnimationSet implements Runnable {
+    private static class EndViewTransitionAnimation extends AnimationSet implements Runnable {
         private boolean mAnimating;
         private final View mChild;
         private boolean mEnded;

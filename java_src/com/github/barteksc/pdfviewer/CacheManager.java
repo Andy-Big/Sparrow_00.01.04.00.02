@@ -9,6 +9,7 @@ import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 import java.util.PriorityQueue;
+
 /* loaded from: classes.dex */
 class CacheManager {
     private final Object passiveActiveLock = new Object();
@@ -145,6 +146,7 @@ class CacheManager {
         PagePartComparator() {
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
         public int compare(PagePart pagePart, PagePart pagePart2) {
             if (pagePart.getCacheOrder() == pagePart2.getCacheOrder()) {

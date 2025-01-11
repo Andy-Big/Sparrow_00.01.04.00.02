@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 /* loaded from: classes2.dex */
 public class FetchResponse extends IMAPResponse {
     private static final char[] HEADER = {'.', 'H', 'E', 'A', 'D', 'E', 'R'};
@@ -61,55 +62,27 @@ public class FetchResponse extends IMAPResponse {
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    public static <T extends com.sun.mail.imap.protocol.Item> T getItem(com.sun.mail.iap.Response[] r7, int r8, java.lang.Class<T> r9) {
-        /*
-            r0 = 0
-            if (r7 != 0) goto L4
-            return r0
-        L4:
-            r1 = 0
-            r2 = r1
-        L6:
-            int r3 = r7.length
-            if (r2 >= r3) goto L41
-            r3 = r7[r2]
-            if (r3 == 0) goto L3e
-            r3 = r7[r2]
-            boolean r3 = r3 instanceof com.sun.mail.imap.protocol.FetchResponse
-            if (r3 == 0) goto L3e
-            r3 = r7[r2]
-            com.sun.mail.imap.protocol.FetchResponse r3 = (com.sun.mail.imap.protocol.FetchResponse) r3
-            int r3 = r3.getNumber()
-            if (r3 == r8) goto L1e
-            goto L3e
-        L1e:
-            r3 = r7[r2]
-            com.sun.mail.imap.protocol.FetchResponse r3 = (com.sun.mail.imap.protocol.FetchResponse) r3
-            r4 = r1
-        L23:
-            com.sun.mail.imap.protocol.Item[] r5 = r3.items
-            int r6 = r5.length
-            if (r4 >= r6) goto L3e
-            r5 = r5[r4]
-            boolean r5 = r9.isInstance(r5)
-            if (r5 == 0) goto L3b
-            com.sun.mail.imap.protocol.Item[] r7 = r3.items
-            r7 = r7[r4]
-            java.lang.Object r7 = r9.cast(r7)
-            com.sun.mail.imap.protocol.Item r7 = (com.sun.mail.imap.protocol.Item) r7
-            return r7
-        L3b:
-            int r4 = r4 + 1
-            goto L23
-        L3e:
-            int r2 = r2 + 1
-            goto L6
-        L41:
-            return r0
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.sun.mail.imap.protocol.FetchResponse.getItem(com.sun.mail.iap.Response[], int, java.lang.Class):com.sun.mail.imap.protocol.Item");
+    public static <T extends Item> T getItem(Response[] responseArr, int i, Class<T> cls) {
+        if (responseArr == null) {
+            return null;
+        }
+        for (int i2 = 0; i2 < responseArr.length; i2++) {
+            if (responseArr[i2] != null && (responseArr[i2] instanceof FetchResponse) && ((FetchResponse) responseArr[i2]).getNumber() == i) {
+                FetchResponse fetchResponse = (FetchResponse) responseArr[i2];
+                int i3 = 0;
+                while (true) {
+                    Item[] itemArr = fetchResponse.items;
+                    if (i3 < itemArr.length) {
+                        if (cls.isInstance(itemArr[i3])) {
+                            return cls.cast(fetchResponse.items[i3]);
+                        }
+                        i3++;
+                    }
+                }
+            }
+        }
+        return null;
     }
 
     public static <T extends Item> List<T> getItems(Response[] responseArr, int i, Class<T> cls) {

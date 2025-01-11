@@ -18,6 +18,7 @@ import androidx.appcompat.view.menu.MenuAdapter;
 import androidx.appcompat.view.menu.MenuBuilder;
 import androidx.appcompat.view.menu.MenuItemImpl;
 import java.lang.reflect.Method;
+
 /* loaded from: classes.dex */
 public class MenuPopupWindow extends ListPopupWindow implements MenuItemHoverListener {
     private static final String TAG = "MenuPopupWindow";

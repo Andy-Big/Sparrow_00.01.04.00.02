@@ -6,6 +6,7 @@ import android.os.Looper;
 import android.os.Message;
 import android.util.Log;
 import java.lang.reflect.InvocationTargetException;
+
 /* loaded from: classes.dex */
 public final class HandlerCompat {
     private static final String TAG = "HandlerCompat";

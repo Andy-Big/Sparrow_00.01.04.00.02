@@ -1,6 +1,7 @@
 package com.google.android.material.slider;
 
 import java.util.Locale;
+
 /* loaded from: classes.dex */
 public final class BasicLabelFormatter implements LabelFormatter {
     private static final int BILLION = 1000000000;

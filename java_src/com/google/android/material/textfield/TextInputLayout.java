@@ -59,6 +59,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
+
 /* loaded from: classes.dex */
 public class TextInputLayout extends LinearLayout {
     public static final int BOX_BACKGROUND_FILLED = 1;
@@ -451,8 +452,7 @@ public class TextInputLayout extends LinearLayout {
         super.addView(view, i, layoutParams);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public MaterialShapeDrawable getBoxBackground() {
+    MaterialShapeDrawable getBoxBackground() {
         int i = this.boxBackgroundMode;
         if (i == 1 || i == 2) {
             return this.boxBackground;
@@ -752,8 +752,7 @@ public class TextInputLayout extends LinearLayout {
         return super.getBaseline();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void updateLabelState(boolean z) {
+    void updateLabelState(boolean z) {
         updateLabelState(z, false);
     }
 
@@ -1353,42 +1352,25 @@ public class TextInputLayout extends LinearLayout {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: Code restructure failed: missing block: B:7:0x0015, code lost:
         if (r3.getTextColors().getDefaultColor() == (-65281)) goto L8;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    public void setTextAppearanceCompatWithErrorFallback(android.widget.TextView r3, int r4) {
-        /*
-            r2 = this;
-            r0 = 1
-            androidx.core.widget.TextViewCompat.setTextAppearance(r3, r4)     // Catch: java.lang.Exception -> L1a
-            int r4 = android.os.Build.VERSION.SDK_INT     // Catch: java.lang.Exception -> L1a
-            r1 = 23
-            if (r4 < r1) goto L18
-            android.content.res.ColorStateList r4 = r3.getTextColors()     // Catch: java.lang.Exception -> L1a
-            int r4 = r4.getDefaultColor()     // Catch: java.lang.Exception -> L1a
-            r1 = -65281(0xffffffffffff00ff, float:NaN)
-            if (r4 != r1) goto L18
-            goto L1a
-        L18:
-            r4 = 0
-            r0 = r4
-        L1a:
-            if (r0 == 0) goto L2e
-            int r4 = com.google.android.material.R.style.TextAppearance_AppCompat_Caption
-            androidx.core.widget.TextViewCompat.setTextAppearance(r3, r4)
-            android.content.Context r4 = r2.getContext()
-            int r0 = com.google.android.material.R.color.design_error
-            int r4 = androidx.core.content.ContextCompat.getColor(r4, r0)
-            r3.setTextColor(r4)
-        L2e:
-            return
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.google.android.material.textfield.TextInputLayout.setTextAppearanceCompatWithErrorFallback(android.widget.TextView, int):void");
+    void setTextAppearanceCompatWithErrorFallback(TextView textView, int i) {
+        boolean z = true;
+        try {
+            TextViewCompat.setTextAppearance(textView, i);
+            if (Build.VERSION.SDK_INT >= 23) {
+            }
+            z = false;
+        } catch (Exception unused) {
+        }
+        if (z) {
+            TextViewCompat.setTextAppearance(textView, R.style.TextAppearance_AppCompat_Caption);
+            textView.setTextColor(ContextCompat.getColor(getContext(), R.color.design_error));
+        }
     }
 
     private int calculateLabelMarginTop() {
@@ -1515,8 +1497,7 @@ public class TextInputLayout extends LinearLayout {
         return this.boxStrokeWidthPx > -1 && this.boxStrokeColor != 0;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void updateEditTextBackground() {
+    void updateEditTextBackground() {
         Drawable background;
         TextView textView;
         EditText editText = this.editText;
@@ -1536,21 +1517,23 @@ public class TextInputLayout extends LinearLayout {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static class SavedState extends AbsSavedState {
+    static class SavedState extends AbsSavedState {
         public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.ClassLoaderCreator<SavedState>() { // from class: com.google.android.material.textfield.TextInputLayout.SavedState.1
+            /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.ClassLoaderCreator
             public SavedState createFromParcel(Parcel parcel, ClassLoader classLoader) {
                 return new SavedState(parcel, classLoader);
             }
 
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // android.os.Parcelable.Creator
             public SavedState createFromParcel(Parcel parcel) {
                 return new SavedState(parcel, null);
             }
 
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // android.os.Parcelable.Creator
             public SavedState[] newArray(int i) {
                 return new SavedState[i];
@@ -1961,8 +1944,7 @@ public class TextInputLayout extends LinearLayout {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public CheckableImageButton getEndIconView() {
+    CheckableImageButton getEndIconView() {
         return this.endIconView;
     }
 
@@ -2265,8 +2247,7 @@ public class TextInputLayout extends LinearLayout {
         this.inDrawableStateChanged = false;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void updateTextInputBoxState() {
+    void updateTextInputBoxState() {
         TextView textView;
         EditText editText;
         EditText editText2;

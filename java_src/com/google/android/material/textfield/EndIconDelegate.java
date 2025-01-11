@@ -2,31 +2,27 @@ package com.google.android.material.textfield;
 
 import android.content.Context;
 import com.google.android.material.internal.CheckableImageButton;
+
 /* loaded from: classes.dex */
 abstract class EndIconDelegate {
     Context context;
     CheckableImageButton endIconView;
     TextInputLayout textInputLayout;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public abstract void initialize();
+    abstract void initialize();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean isBoxBackgroundModeSupported(int i) {
+    boolean isBoxBackgroundModeSupported(int i) {
         return true;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void onSuffixVisibilityChanged(boolean z) {
+    void onSuffixVisibilityChanged(boolean z) {
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean shouldTintIconOnError() {
+    boolean shouldTintIconOnError() {
         return false;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public EndIconDelegate(TextInputLayout textInputLayout) {
+    EndIconDelegate(TextInputLayout textInputLayout) {
         this.textInputLayout = textInputLayout;
         this.context = textInputLayout.getContext();
         this.endIconView = textInputLayout.getEndIconView();

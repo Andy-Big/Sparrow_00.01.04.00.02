@@ -4,6 +4,7 @@ import android.app.Service;
 import android.os.Build;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
+
 /* loaded from: classes.dex */
 public final class ServiceCompat {
     public static final int START_STICKY = 1;

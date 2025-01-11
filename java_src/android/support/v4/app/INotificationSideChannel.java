@@ -6,6 +6,7 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
+
 /* loaded from: classes.dex */
 public interface INotificationSideChannel extends IInterface {
 
@@ -84,9 +85,8 @@ public interface INotificationSideChannel extends IInterface {
             }
         }
 
-        /* JADX INFO: Access modifiers changed from: private */
         /* loaded from: classes.dex */
-        public static class Proxy implements INotificationSideChannel {
+        private static class Proxy implements INotificationSideChannel {
             public static INotificationSideChannel sDefaultImpl;
             private IBinder mRemote;
 

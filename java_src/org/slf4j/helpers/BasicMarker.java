@@ -4,6 +4,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 import org.slf4j.Marker;
+
 /* loaded from: classes2.dex */
 public class BasicMarker implements Marker {
     private static String CLOSE = " ]";
@@ -13,8 +14,7 @@ public class BasicMarker implements Marker {
     private final String name;
     private List<Marker> referenceList = new CopyOnWriteArrayList();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public BasicMarker(String str) {
+    BasicMarker(String str) {
         if (str == null) {
             throw new IllegalArgumentException("A marker name cannot be null");
         }

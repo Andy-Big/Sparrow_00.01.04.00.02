@@ -10,6 +10,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
 /* loaded from: classes2.dex */
 public final class Timber {
     private static final Tree[] TREE_ARRAY_EMPTY = new Tree[0];

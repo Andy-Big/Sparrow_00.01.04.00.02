@@ -8,6 +8,7 @@ import androidx.savedstate.SavedStateRegistryOwner;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Arrays;
+
 /* loaded from: classes.dex */
 public final class SavedStateViewModelFactory extends ViewModelProvider.KeyedFactory {
     private static final Class<?>[] ANDROID_VIEWMODEL_SIGNATURE = {Application.class, SavedStateHandle.class};

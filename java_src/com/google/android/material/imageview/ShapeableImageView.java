@@ -24,6 +24,7 @@ import com.google.android.material.shape.ShapeAppearanceModel;
 import com.google.android.material.shape.ShapeAppearancePathProvider;
 import com.google.android.material.shape.Shapeable;
 import com.google.android.material.theme.overlay.MaterialThemeOverlay;
+
 /* loaded from: classes.dex */
 public class ShapeableImageView extends AppCompatImageView implements Shapeable {
     private static final int DEF_STYLE_RES = R.style.Widget_MaterialComponents_ShapeableImageView;

@@ -6,6 +6,7 @@ import android.util.TypedValue;
 import android.view.View;
 import androidx.core.graphics.ColorUtils;
 import com.google.android.material.resources.MaterialAttributes;
+
 /* loaded from: classes.dex */
 public class MaterialColors {
     public static final float ALPHA_DISABLED = 0.38f;

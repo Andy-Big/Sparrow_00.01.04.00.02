@@ -15,6 +15,7 @@ import android.widget.EditText;
 import androidx.appcompat.R;
 import androidx.core.view.TintableBackgroundView;
 import androidx.core.widget.TextViewCompat;
+
 /* loaded from: classes.dex */
 public class AppCompatEditText extends EditText implements TintableBackgroundView {
     private final AppCompatBackgroundHelper mBackgroundTintHelper;
@@ -42,6 +43,7 @@ public class AppCompatEditText extends EditText implements TintableBackgroundVie
         this.mTextClassifierHelper = new AppCompatTextClassifierHelper(this);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.EditText, android.widget.TextView
     public Editable getText() {
         if (Build.VERSION.SDK_INT >= 28) {

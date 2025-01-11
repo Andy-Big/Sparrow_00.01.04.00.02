@@ -43,6 +43,7 @@ import javax.xml.transform.stream.StreamSource;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
 /* loaded from: classes.dex */
 public final class LogUtils {
     public static final int A = 7;
@@ -971,9 +972,8 @@ public final class LogUtils {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static final class TagHead {
+    private static final class TagHead {
         String[] consoleHead;
         String fileHead;
         String tag;
@@ -985,9 +985,8 @@ public final class LogUtils {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static final class LogFormatter {
+    private static final class LogFormatter {
         private LogFormatter() {
         }
 

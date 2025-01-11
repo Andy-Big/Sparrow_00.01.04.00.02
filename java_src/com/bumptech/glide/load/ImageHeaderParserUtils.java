@@ -9,19 +9,18 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.ByteBuffer;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public final class ImageHeaderParserUtils {
     private static final int MARK_READ_LIMIT = 5242880;
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public interface OrientationReader {
+    private interface OrientationReader {
         int getOrientation(ImageHeaderParser imageHeaderParser) throws IOException;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public interface TypeReader {
+    private interface TypeReader {
         ImageHeaderParser.ImageType getType(ImageHeaderParser imageHeaderParser) throws IOException;
     }
 
@@ -64,31 +63,32 @@ public final class ImageHeaderParserUtils {
         return getTypeInternal(list, new TypeReader() { // from class: com.bumptech.glide.load.ImageHeaderParserUtils.3
             @Override // com.bumptech.glide.load.ImageHeaderParserUtils.TypeReader
             public ImageHeaderParser.ImageType getType(ImageHeaderParser imageHeaderParser) throws IOException {
-                RecyclableBufferedInputStream recyclableBufferedInputStream = null;
+                RecyclableBufferedInputStream recyclableBufferedInputStream;
+                RecyclableBufferedInputStream recyclableBufferedInputStream2 = null;
                 try {
-                    RecyclableBufferedInputStream recyclableBufferedInputStream2 = new RecyclableBufferedInputStream(new FileInputStream(ParcelFileDescriptorRewinder.this.rewindAndGet().getFileDescriptor()), arrayPool);
+                    recyclableBufferedInputStream = new RecyclableBufferedInputStream(new FileInputStream(ParcelFileDescriptorRewinder.this.rewindAndGet().getFileDescriptor()), arrayPool);
+                } catch (Throwable th) {
+                    th = th;
+                }
+                try {
+                    ImageHeaderParser.ImageType type = imageHeaderParser.getType(recyclableBufferedInputStream);
                     try {
-                        ImageHeaderParser.ImageType type = imageHeaderParser.getType(recyclableBufferedInputStream2);
-                        try {
-                            recyclableBufferedInputStream2.close();
-                        } catch (IOException unused) {
-                        }
-                        ParcelFileDescriptorRewinder.this.rewindAndGet();
-                        return type;
-                    } catch (Throwable th) {
-                        th = th;
-                        recyclableBufferedInputStream = recyclableBufferedInputStream2;
-                        if (recyclableBufferedInputStream != null) {
-                            try {
-                                recyclableBufferedInputStream.close();
-                            } catch (IOException unused2) {
-                            }
-                        }
-                        ParcelFileDescriptorRewinder.this.rewindAndGet();
-                        throw th;
+                        recyclableBufferedInputStream.close();
+                    } catch (IOException unused) {
                     }
+                    ParcelFileDescriptorRewinder.this.rewindAndGet();
+                    return type;
                 } catch (Throwable th2) {
                     th = th2;
+                    recyclableBufferedInputStream2 = recyclableBufferedInputStream;
+                    if (recyclableBufferedInputStream2 != null) {
+                        try {
+                            recyclableBufferedInputStream2.close();
+                        } catch (IOException unused2) {
+                        }
+                    }
+                    ParcelFileDescriptorRewinder.this.rewindAndGet();
+                    throw th;
                 }
             }
         });
@@ -129,31 +129,32 @@ public final class ImageHeaderParserUtils {
         return getOrientationInternal(list, new OrientationReader() { // from class: com.bumptech.glide.load.ImageHeaderParserUtils.5
             @Override // com.bumptech.glide.load.ImageHeaderParserUtils.OrientationReader
             public int getOrientation(ImageHeaderParser imageHeaderParser) throws IOException {
-                RecyclableBufferedInputStream recyclableBufferedInputStream = null;
+                RecyclableBufferedInputStream recyclableBufferedInputStream;
+                RecyclableBufferedInputStream recyclableBufferedInputStream2 = null;
                 try {
-                    RecyclableBufferedInputStream recyclableBufferedInputStream2 = new RecyclableBufferedInputStream(new FileInputStream(ParcelFileDescriptorRewinder.this.rewindAndGet().getFileDescriptor()), arrayPool);
+                    recyclableBufferedInputStream = new RecyclableBufferedInputStream(new FileInputStream(ParcelFileDescriptorRewinder.this.rewindAndGet().getFileDescriptor()), arrayPool);
+                } catch (Throwable th) {
+                    th = th;
+                }
+                try {
+                    int orientation = imageHeaderParser.getOrientation(recyclableBufferedInputStream, arrayPool);
                     try {
-                        int orientation = imageHeaderParser.getOrientation(recyclableBufferedInputStream2, arrayPool);
-                        try {
-                            recyclableBufferedInputStream2.close();
-                        } catch (IOException unused) {
-                        }
-                        ParcelFileDescriptorRewinder.this.rewindAndGet();
-                        return orientation;
-                    } catch (Throwable th) {
-                        th = th;
-                        recyclableBufferedInputStream = recyclableBufferedInputStream2;
-                        if (recyclableBufferedInputStream != null) {
-                            try {
-                                recyclableBufferedInputStream.close();
-                            } catch (IOException unused2) {
-                            }
-                        }
-                        ParcelFileDescriptorRewinder.this.rewindAndGet();
-                        throw th;
+                        recyclableBufferedInputStream.close();
+                    } catch (IOException unused) {
                     }
+                    ParcelFileDescriptorRewinder.this.rewindAndGet();
+                    return orientation;
                 } catch (Throwable th2) {
                     th = th2;
+                    recyclableBufferedInputStream2 = recyclableBufferedInputStream;
+                    if (recyclableBufferedInputStream2 != null) {
+                        try {
+                            recyclableBufferedInputStream2.close();
+                        } catch (IOException unused2) {
+                        }
+                    }
+                    ParcelFileDescriptorRewinder.this.rewindAndGet();
+                    throw th;
                 }
             }
         });

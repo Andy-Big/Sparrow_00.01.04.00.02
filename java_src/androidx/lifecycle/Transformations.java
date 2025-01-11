@@ -1,6 +1,7 @@
 package androidx.lifecycle;
 
 import androidx.arch.core.util.Function;
+
 /* loaded from: classes.dex */
 public class Transformations {
     private Transformations() {

@@ -9,6 +9,7 @@ import android.view.WindowManager;
 import androidx.appcompat.R;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.view.menu.MenuPresenter;
+
 /* loaded from: classes.dex */
 class MenuDialogHelper implements DialogInterface.OnKeyListener, DialogInterface.OnClickListener, DialogInterface.OnDismissListener, MenuPresenter.Callback {
     private AlertDialog mDialog;

@@ -7,6 +7,7 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.ViewGroup;
 import androidx.constraintlayout.widget.ConstraintLayout;
+
 /* loaded from: classes.dex */
 public class Constraints extends ViewGroup {
     public static final String TAG = "Constraints";
@@ -33,6 +34,7 @@ public class Constraints extends ViewGroup {
         super.setVisibility(8);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // android.view.ViewGroup
     public LayoutParams generateLayoutParams(AttributeSet attributeSet) {
         return new LayoutParams(getContext(), attributeSet);
@@ -140,6 +142,7 @@ public class Constraints extends ViewGroup {
         }
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.view.ViewGroup
     public LayoutParams generateDefaultLayoutParams() {

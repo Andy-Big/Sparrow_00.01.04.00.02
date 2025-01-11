@@ -19,6 +19,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+
 /* loaded from: classes.dex */
 public class AccessibilityNodeInfoCompat {
     public static final int ACTION_ACCESSIBILITY_FOCUS = 64;
@@ -272,26 +273,25 @@ public class AccessibilityNodeInfoCompat {
         }
 
         public boolean perform(View view, Bundle bundle) {
-            AccessibilityViewCommand.CommandArguments newInstance;
             if (this.mCommand != null) {
                 AccessibilityViewCommand.CommandArguments commandArguments = null;
                 Class<? extends AccessibilityViewCommand.CommandArguments> cls = this.mViewCommandArgumentClass;
                 if (cls != null) {
                     try {
-                        newInstance = cls.getDeclaredConstructor(new Class[0]).newInstance(new Object[0]);
-                    } catch (Exception e) {
-                        e = e;
-                    }
-                    try {
-                        newInstance.setBundle(bundle);
-                        commandArguments = newInstance;
+                        AccessibilityViewCommand.CommandArguments newInstance = cls.getDeclaredConstructor(new Class[0]).newInstance(new Object[0]);
+                        try {
+                            newInstance.setBundle(bundle);
+                            commandArguments = newInstance;
+                        } catch (Exception e) {
+                            e = e;
+                            commandArguments = newInstance;
+                            Class<? extends AccessibilityViewCommand.CommandArguments> cls2 = this.mViewCommandArgumentClass;
+                            String name = cls2 == null ? "null" : cls2.getName();
+                            Log.e(TAG, "Failed to execute command with argument class ViewCommandArgument: " + name, e);
+                            return this.mCommand.perform(view, commandArguments);
+                        }
                     } catch (Exception e2) {
                         e = e2;
-                        commandArguments = newInstance;
-                        Class<? extends AccessibilityViewCommand.CommandArguments> cls2 = this.mViewCommandArgumentClass;
-                        String name = cls2 == null ? "null" : cls2.getName();
-                        Log.e(TAG, "Failed to execute command with argument class ViewCommandArgument: " + name, e);
-                        return this.mCommand.perform(view, commandArguments);
                     }
                 }
                 return this.mCommand.perform(view, commandArguments);
@@ -533,8 +533,7 @@ public class AccessibilityNodeInfoCompat {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static AccessibilityNodeInfoCompat wrapNonNullInstance(Object obj) {
+    static AccessibilityNodeInfoCompat wrapNonNullInstance(Object obj) {
         if (obj != null) {
             return new AccessibilityNodeInfoCompat(obj);
         }

@@ -4,9 +4,9 @@ import android.os.Bundle;
 import androidx.lifecycle.Lifecycle;
 import androidx.savedstate.SavedStateRegistry;
 import androidx.savedstate.SavedStateRegistryOwner;
-/* JADX INFO: Access modifiers changed from: package-private */
+
 /* loaded from: classes.dex */
-public final class SavedStateHandleController implements LifecycleEventObserver {
+final class SavedStateHandleController implements LifecycleEventObserver {
     static final String TAG_SAVED_STATE_HANDLE_CONTROLLER = "androidx.lifecycle.savedstate.vm.tag";
     private final SavedStateHandle mHandle;
     private boolean mIsAttached = false;
@@ -38,22 +38,19 @@ public final class SavedStateHandleController implements LifecycleEventObserver 
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public SavedStateHandle getHandle() {
+    SavedStateHandle getHandle() {
         return this.mHandle;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static SavedStateHandleController create(SavedStateRegistry savedStateRegistry, Lifecycle lifecycle, String str, Bundle bundle) {
+    static SavedStateHandleController create(SavedStateRegistry savedStateRegistry, Lifecycle lifecycle, String str, Bundle bundle) {
         SavedStateHandleController savedStateHandleController = new SavedStateHandleController(str, SavedStateHandle.createHandle(savedStateRegistry.consumeRestoredStateForKey(str), bundle));
         savedStateHandleController.attachToLifecycle(savedStateRegistry, lifecycle);
         tryToAddRecreator(savedStateRegistry, lifecycle);
         return savedStateHandleController;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static final class OnRecreation implements SavedStateRegistry.AutoRecreated {
+    static final class OnRecreation implements SavedStateRegistry.AutoRecreated {
         OnRecreation() {
         }
 
@@ -74,8 +71,7 @@ public final class SavedStateHandleController implements LifecycleEventObserver 
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static void attachHandleIfNeeded(ViewModel viewModel, SavedStateRegistry savedStateRegistry, Lifecycle lifecycle) {
+    static void attachHandleIfNeeded(ViewModel viewModel, SavedStateRegistry savedStateRegistry, Lifecycle lifecycle) {
         SavedStateHandleController savedStateHandleController = (SavedStateHandleController) viewModel.getTag(TAG_SAVED_STATE_HANDLE_CONTROLLER);
         if (savedStateHandleController == null || savedStateHandleController.isAttached()) {
             return;

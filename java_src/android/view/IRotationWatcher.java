@@ -5,6 +5,7 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
+
 /* loaded from: classes.dex */
 public interface IRotationWatcher extends IInterface {
 
@@ -62,9 +63,8 @@ public interface IRotationWatcher extends IInterface {
             return true;
         }
 
-        /* JADX INFO: Access modifiers changed from: private */
         /* loaded from: classes.dex */
-        public static class Proxy implements IRotationWatcher {
+        private static class Proxy implements IRotationWatcher {
             public static IRotationWatcher sDefaultImpl;
             private IBinder mRemote;
 

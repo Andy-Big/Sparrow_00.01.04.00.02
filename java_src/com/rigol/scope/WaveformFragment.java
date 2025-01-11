@@ -9,6 +9,7 @@ import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.Observer;
 import com.blankj.utilcode.util.ActivityUtils;
 import com.blankj.utilcode.util.ThreadUtils;
+import com.rigol.scope.WaveformFragment;
 import com.rigol.scope.cil.API;
 import com.rigol.scope.cil.MessageID;
 import com.rigol.scope.cil.ServiceEnum;
@@ -784,7 +785,7 @@ public class WaveformFragment extends BaseFragment {
         }
     }
 
-    /* renamed from: com.rigol.scope.WaveformFragment$2  reason: invalid class name */
+    /* renamed from: com.rigol.scope.WaveformFragment$2 */
     /* loaded from: classes.dex */
     static /* synthetic */ class AnonymousClass2 {
         static final /* synthetic */ int[] $SwitchMap$com$rigol$scope$cil$ServiceEnum$WindowType;
@@ -886,12 +887,13 @@ public class WaveformFragment extends BaseFragment {
         return this.binding.getRoot();
     }
 
-    /* renamed from: com.rigol.scope.WaveformFragment$1  reason: invalid class name */
+    /* renamed from: com.rigol.scope.WaveformFragment$1 */
     /* loaded from: classes.dex */
     class AnonymousClass1 implements MultiWindow.Callback {
         final /* synthetic */ WindowParam val$waveformWindowParam;
 
         AnonymousClass1(WindowParam windowParam) {
+            WaveformFragment.this = r1;
             this.val$waveformWindowParam = windowParam;
         }
 
@@ -950,9 +952,14 @@ public class WaveformFragment extends BaseFragment {
             ThreadUtils.runOnUiThreadDelayed(new Runnable() { // from class: com.rigol.scope.-$$Lambda$WaveformFragment$1$eqhUdykRE62xK2sFb9Z4nlP-obw
                 @Override // java.lang.Runnable
                 public final void run() {
-                    MessageBus.getInstance().onSyncData(MessageBus.getKey(60, MessageID.MSG_LA_ENABLE), true);
+                    WaveformFragment.AnonymousClass1.lambda$onAdded$0();
                 }
             }, 200L);
+        }
+
+        /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.-$$Lambda$WaveformFragment$1$eqhUdykRE62xK2sFb9Z4nlP-obw.run():void] */
+        static /* synthetic */ void lambda$onAdded$0() {
+            MessageBus.getInstance().onSyncData(MessageBus.getKey(60, MessageID.MSG_LA_ENABLE), true);
         }
     }
 

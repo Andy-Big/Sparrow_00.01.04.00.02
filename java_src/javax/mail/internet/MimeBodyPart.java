@@ -30,6 +30,7 @@ import javax.mail.MessagingException;
 import javax.mail.Multipart;
 import javax.mail.Part;
 import javax.mail.internet.HeaderTokenizer;
+
 /* loaded from: classes2.dex */
 public class MimeBodyPart extends BodyPart implements MimePart {
     protected Object cachedContent;
@@ -181,8 +182,7 @@ public class MimeBodyPart extends BodyPart implements MimePart {
         return getDataHandler().getInputStream();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public InputStream getContentStream() throws MessagingException {
+    protected InputStream getContentStream() throws MessagingException {
         InputStream inputStream = this.contentStream;
         if (inputStream != null) {
             return ((SharedInputStream) inputStream).newStream(0L, -1L);
@@ -286,9 +286,8 @@ public class MimeBodyPart extends BodyPart implements MimePart {
         attachFile(new File(str), str2, str3);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
-    public static class EncodedFileDataSource extends FileDataSource implements EncodingAware {
+    private static class EncodedFileDataSource extends FileDataSource implements EncodingAware {
         private String contentType;
         private String encoding;
 
@@ -315,45 +314,45 @@ public class MimeBodyPart extends BodyPart implements MimePart {
         InputStream inputStream = null;
         try {
             bufferedOutputStream = new BufferedOutputStream(new FileOutputStream(file));
-            try {
-                inputStream = getInputStream();
-                byte[] bArr = new byte[8192];
-                while (true) {
-                    int read = inputStream.read(bArr);
-                    if (read <= 0) {
-                        break;
-                    }
-                    bufferedOutputStream.write(bArr, 0, read);
+        } catch (Throwable th) {
+            th = th;
+            bufferedOutputStream = null;
+        }
+        try {
+            inputStream = getInputStream();
+            byte[] bArr = new byte[8192];
+            while (true) {
+                int read = inputStream.read(bArr);
+                if (read <= 0) {
+                    break;
                 }
-                if (inputStream != null) {
-                    try {
-                        inputStream.close();
-                    } catch (IOException unused) {
-                    }
-                }
+                bufferedOutputStream.write(bArr, 0, read);
+            }
+            if (inputStream != null) {
                 try {
-                    bufferedOutputStream.close();
-                } catch (IOException unused2) {
+                    inputStream.close();
+                } catch (IOException unused) {
                 }
-            } catch (Throwable th) {
-                th = th;
-                if (inputStream != null) {
-                    try {
-                        inputStream.close();
-                    } catch (IOException unused3) {
-                    }
-                }
-                if (bufferedOutputStream != null) {
-                    try {
-                        bufferedOutputStream.close();
-                    } catch (IOException unused4) {
-                    }
-                }
-                throw th;
+            }
+            try {
+                bufferedOutputStream.close();
+            } catch (IOException unused2) {
             }
         } catch (Throwable th2) {
             th = th2;
-            bufferedOutputStream = null;
+            if (inputStream != null) {
+                try {
+                    inputStream.close();
+                } catch (IOException unused3) {
+                }
+            }
+            if (bufferedOutputStream != null) {
+                try {
+                    bufferedOutputStream.close();
+                } catch (IOException unused4) {
+                }
+            }
+            throw th;
         }
     }
 
@@ -422,8 +421,7 @@ public class MimeBodyPart extends BodyPart implements MimePart {
         return this.headers.getNonMatchingHeaderLines(strArr);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void updateHeaders() throws MessagingException {
+    protected void updateHeaders() throws MessagingException {
         updateHeaders(this);
         if (this.cachedContent != null) {
             this.dh = new DataHandler(this.cachedContent, getContentType());
@@ -440,8 +438,7 @@ public class MimeBodyPart extends BodyPart implements MimePart {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static boolean isMimeType(MimePart mimePart, String str) throws MessagingException {
+    static boolean isMimeType(MimePart mimePart, String str) throws MessagingException {
         String contentType = mimePart.getContentType();
         try {
             return new ContentType(contentType).match(str);
@@ -457,16 +454,14 @@ public class MimeBodyPart extends BodyPart implements MimePart {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static void setText(MimePart mimePart, String str, String str2, String str3) throws MessagingException {
+    static void setText(MimePart mimePart, String str, String str2, String str3) throws MessagingException {
         if (str2 == null) {
             str2 = MimeUtility.checkAscii(str) != 1 ? MimeUtility.getDefaultMIMECharset() : "us-ascii";
         }
         mimePart.setContent(str, "text/" + str3 + "; charset=" + MimeUtility.quote(str2, HeaderTokenizer.MIME));
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static String getDisposition(MimePart mimePart) throws MessagingException {
+    static String getDisposition(MimePart mimePart) throws MessagingException {
         String header = mimePart.getHeader("Content-Disposition", null);
         if (header == null) {
             return null;
@@ -474,8 +469,7 @@ public class MimeBodyPart extends BodyPart implements MimePart {
         return new ContentDisposition(header).getDisposition();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static void setDisposition(MimePart mimePart, String str) throws MessagingException {
+    static void setDisposition(MimePart mimePart, String str) throws MessagingException {
         if (str == null) {
             mimePart.removeHeader("Content-Disposition");
             return;
@@ -489,8 +483,7 @@ public class MimeBodyPart extends BodyPart implements MimePart {
         mimePart.setHeader("Content-Disposition", str);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static String getDescription(MimePart mimePart) throws MessagingException {
+    static String getDescription(MimePart mimePart) throws MessagingException {
         String header = mimePart.getHeader("Content-Description", null);
         if (header == null) {
             return null;
@@ -502,8 +495,7 @@ public class MimeBodyPart extends BodyPart implements MimePart {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static void setDescription(MimePart mimePart, String str, String str2) throws MessagingException {
+    static void setDescription(MimePart mimePart, String str, String str2) throws MessagingException {
         if (str == null) {
             mimePart.removeHeader("Content-Description");
             return;
@@ -515,8 +507,7 @@ public class MimeBodyPart extends BodyPart implements MimePart {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static String getFileName(MimePart mimePart) throws MessagingException {
+    static String getFileName(MimePart mimePart) throws MessagingException {
         String cleanContentType;
         String header = mimePart.getHeader("Content-Disposition", null);
         String parameter = header != null ? new ContentDisposition(header).getParameter("filename") : null;
@@ -536,8 +527,7 @@ public class MimeBodyPart extends BodyPart implements MimePart {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static void setFileName(MimePart mimePart, String str) throws MessagingException {
+    static void setFileName(MimePart mimePart, String str) throws MessagingException {
         String cleanContentType;
         if (encodeFileName && str != null) {
             try {
@@ -583,8 +573,7 @@ public class MimeBodyPart extends BodyPart implements MimePart {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static String[] getContentLanguage(MimePart mimePart) throws MessagingException {
+    static String[] getContentLanguage(MimePart mimePart) throws MessagingException {
         String header = mimePart.getHeader("Content-Language", null);
         if (header == null) {
             return null;
@@ -608,8 +597,7 @@ public class MimeBodyPart extends BodyPart implements MimePart {
         return strArr;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static void setContentLanguage(MimePart mimePart, String[] strArr) throws MessagingException {
+    static void setContentLanguage(MimePart mimePart, String[] strArr) throws MessagingException {
         StringBuilder sb = new StringBuilder(strArr[0]);
         int length = 18 + strArr[0].length();
         for (int i = 1; i < strArr.length; i++) {
@@ -625,8 +613,7 @@ public class MimeBodyPart extends BodyPart implements MimePart {
         mimePart.setHeader("Content-Language", sb.toString());
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static String getEncoding(MimePart mimePart) throws MessagingException {
+    static String getEncoding(MimePart mimePart) throws MessagingException {
         HeaderTokenizer.Token next;
         int type;
         String header = mimePart.getHeader("Content-Transfer-Encoding", null);
@@ -651,13 +638,11 @@ public class MimeBodyPart extends BodyPart implements MimePart {
         return next.getValue();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static void setEncoding(MimePart mimePart, String str) throws MessagingException {
+    static void setEncoding(MimePart mimePart, String str) throws MessagingException {
         mimePart.setHeader("Content-Transfer-Encoding", str);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static String restrictEncoding(MimePart mimePart, String str) throws MessagingException {
+    static String restrictEncoding(MimePart mimePart, String str) throws MessagingException {
         String contentType;
         ContentType contentType2;
         if (!ignoreMultipartEncoding || str == null || str.equalsIgnoreCase("7bit") || str.equalsIgnoreCase("8bit") || str.equalsIgnoreCase("binary") || (contentType = mimePart.getContentType()) == null) {
@@ -678,30 +663,93 @@ public class MimeBodyPart extends BodyPart implements MimePart {
         return str;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: Code restructure failed: missing block: B:30:0x008d, code lost:
         if (r7.match("message/rfc822") != false) goto L19;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    public static void updateHeaders(javax.mail.internet.MimePart r9) throws javax.mail.MessagingException {
-        /*
-            Method dump skipped, instructions count: 321
-            To view this dump add '--comments-level debug' option
-        */
-        throw new UnsupportedOperationException("Method not decompiled: javax.mail.internet.MimeBodyPart.updateHeaders(javax.mail.internet.MimePart):void");
+    static void updateHeaders(MimePart mimePart) throws MessagingException {
+        String header;
+        String parameter;
+        Object content;
+        DataHandler dataHandler = mimePart.getDataHandler();
+        if (dataHandler == null) {
+            return;
+        }
+        try {
+            String contentType = dataHandler.getContentType();
+            boolean z = false;
+            boolean z2 = mimePart.getHeader("Content-Type") == null;
+            ContentType contentType2 = new ContentType(contentType);
+            if (contentType2.match("multipart/*")) {
+                if (mimePart instanceof MimeBodyPart) {
+                    MimeBodyPart mimeBodyPart = (MimeBodyPart) mimePart;
+                    content = mimeBodyPart.cachedContent != null ? mimeBodyPart.cachedContent : dataHandler.getContent();
+                } else if (mimePart instanceof MimeMessage) {
+                    MimeMessage mimeMessage = (MimeMessage) mimePart;
+                    content = mimeMessage.cachedContent != null ? mimeMessage.cachedContent : dataHandler.getContent();
+                } else {
+                    content = dataHandler.getContent();
+                }
+                if (content instanceof MimeMultipart) {
+                    ((MimeMultipart) content).updateHeaders();
+                } else {
+                    throw new MessagingException("MIME part of type \"" + contentType + "\" contains object of type " + content.getClass().getName() + " instead of MimeMultipart");
+                }
+            }
+            z = true;
+            if (dataHandler instanceof MimePartDataHandler) {
+                MimePart part = ((MimePartDataHandler) dataHandler).getPart();
+                if (part == mimePart) {
+                    return;
+                }
+                if (z2) {
+                    mimePart.setHeader("Content-Type", part.getContentType());
+                }
+                String encoding = part.getEncoding();
+                if (encoding != null) {
+                    setEncoding(mimePart, encoding);
+                    return;
+                }
+            }
+            if (!z) {
+                if (mimePart.getHeader("Content-Transfer-Encoding") == null) {
+                    setEncoding(mimePart, MimeUtility.getEncoding(dataHandler));
+                }
+                if (z2 && setDefaultTextCharset && contentType2.match("text/*") && contentType2.getParameter("charset") == null) {
+                    String encoding2 = mimePart.getEncoding();
+                    contentType2.setParameter("charset", (encoding2 == null || !encoding2.equalsIgnoreCase("7bit")) ? MimeUtility.getDefaultMIMECharset() : "us-ascii");
+                    contentType = contentType2.toString();
+                }
+            }
+            if (z2) {
+                if (setContentTypeFileName && (header = mimePart.getHeader("Content-Disposition", null)) != null && (parameter = new ContentDisposition(header).getParameter("filename")) != null) {
+                    ParameterList parameterList = contentType2.getParameterList();
+                    if (parameterList == null) {
+                        parameterList = new ParameterList();
+                        contentType2.setParameterList(parameterList);
+                    }
+                    if (encodeFileName) {
+                        parameterList.setLiteral(IMAPStore.ID_NAME, MimeUtility.encodeText(parameter));
+                    } else {
+                        parameterList.set(IMAPStore.ID_NAME, parameter, MimeUtility.getDefaultMIMECharset());
+                    }
+                    contentType = contentType2.toString();
+                }
+                mimePart.setHeader("Content-Type", contentType);
+            }
+        } catch (IOException e) {
+            throw new MessagingException("IOException updating headers", e);
+        }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static void invalidateContentHeaders(MimePart mimePart) throws MessagingException {
+    static void invalidateContentHeaders(MimePart mimePart) throws MessagingException {
         mimePart.removeHeader("Content-Type");
         mimePart.removeHeader("Content-Transfer-Encoding");
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static void writeTo(MimePart mimePart, OutputStream outputStream, String[] strArr) throws IOException, MessagingException {
+    static void writeTo(MimePart mimePart, OutputStream outputStream, String[] strArr) throws IOException, MessagingException {
         LineOutputStream lineOutputStream;
         if (outputStream instanceof LineOutputStream) {
             lineOutputStream = (LineOutputStream) outputStream;
@@ -743,9 +791,8 @@ public class MimeBodyPart extends BodyPart implements MimePart {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
-    public static class MimePartDataHandler extends DataHandler {
+    static class MimePartDataHandler extends DataHandler {
         MimePart part;
 
         public MimePartDataHandler(MimePart mimePart) {

@@ -10,6 +10,7 @@ import androidx.collection.LruCache;
 import androidx.core.content.res.FontResourcesParserCompat;
 import androidx.core.content.res.ResourcesCompat;
 import androidx.core.provider.FontsContractCompat;
+
 /* loaded from: classes.dex */
 public class TypefaceCompat {
     private static final LruCache<String, Typeface> sTypefaceCache;

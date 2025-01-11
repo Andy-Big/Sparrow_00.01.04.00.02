@@ -5,6 +5,7 @@ import androidx.constraintlayout.core.widgets.ConstraintWidget;
 import androidx.constraintlayout.core.widgets.Helper;
 import androidx.constraintlayout.core.widgets.analyzer.DependencyNode;
 import androidx.constraintlayout.core.widgets.analyzer.WidgetRun;
+
 /* loaded from: classes.dex */
 public class VerticalWidgetRun extends WidgetRun {
     public DependencyNode baseline;
@@ -24,9 +25,8 @@ public class VerticalWidgetRun extends WidgetRun {
         return "VerticalRun " + this.widget.getDebugName();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     @Override // androidx.constraintlayout.core.widgets.analyzer.WidgetRun
-    public void clear() {
+    void clear() {
         this.runGroup = null;
         this.start.clear();
         this.end.clear();
@@ -35,9 +35,8 @@ public class VerticalWidgetRun extends WidgetRun {
         this.resolved = false;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     @Override // androidx.constraintlayout.core.widgets.analyzer.WidgetRun
-    public void reset() {
+    void reset() {
         this.resolved = false;
         this.start.clear();
         this.start.resolved = false;

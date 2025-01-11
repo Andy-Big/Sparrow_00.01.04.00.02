@@ -6,6 +6,7 @@ import android.util.Log;
 import java.io.File;
 import java.io.FilenameFilter;
 import java.util.regex.Pattern;
+
 /* loaded from: classes.dex */
 final class RuntimeCompat {
     private static final String CPU_LOCATION = "/sys/devices/system/cpu/";
@@ -15,8 +16,7 @@ final class RuntimeCompat {
     private RuntimeCompat() {
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static int availableProcessors() {
+    static int availableProcessors() {
         int availableProcessors = Runtime.getRuntime().availableProcessors();
         return Build.VERSION.SDK_INT < 17 ? Math.max(getCoreCountPre17(), availableProcessors) : availableProcessors;
     }

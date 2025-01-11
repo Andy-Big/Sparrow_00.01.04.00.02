@@ -1,6 +1,7 @@
 package com.blankj.utilcode.util;
 
 import java.lang.reflect.Type;
+
 /* loaded from: classes.dex */
 public final class CloneUtils {
     private CloneUtils() {

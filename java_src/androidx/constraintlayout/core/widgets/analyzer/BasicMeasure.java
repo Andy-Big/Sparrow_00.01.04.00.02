@@ -1,6 +1,7 @@
 package androidx.constraintlayout.core.widgets.analyzer;
 
 import androidx.constraintlayout.core.LinearSystem;
+import androidx.constraintlayout.core.widgets.Barrier;
 import androidx.constraintlayout.core.widgets.ConstraintAnchor;
 import androidx.constraintlayout.core.widgets.ConstraintWidget;
 import androidx.constraintlayout.core.widgets.ConstraintWidgetContainer;
@@ -9,6 +10,7 @@ import androidx.constraintlayout.core.widgets.Helper;
 import androidx.constraintlayout.core.widgets.Optimizer;
 import androidx.constraintlayout.core.widgets.VirtualLayout;
 import java.util.ArrayList;
+
 /* loaded from: classes.dex */
 public class BasicMeasure {
     public static final int AT_MOST = Integer.MIN_VALUE;
@@ -71,124 +73,38 @@ public class BasicMeasure {
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    private void measureChildren(androidx.constraintlayout.core.widgets.ConstraintWidgetContainer r12) {
-        /*
-            r11 = this;
-            java.util.ArrayList<androidx.constraintlayout.core.widgets.ConstraintWidget> r0 = r12.mChildren
-            int r0 = r0.size()
-            r1 = 64
-            boolean r1 = r12.optimizeFor(r1)
-            androidx.constraintlayout.core.widgets.analyzer.BasicMeasure$Measurer r2 = r12.getMeasurer()
-            r3 = 0
-            r4 = r3
-        L12:
-            if (r4 >= r0) goto Lc4
-            java.util.ArrayList<androidx.constraintlayout.core.widgets.ConstraintWidget> r5 = r12.mChildren
-            java.lang.Object r5 = r5.get(r4)
-            androidx.constraintlayout.core.widgets.ConstraintWidget r5 = (androidx.constraintlayout.core.widgets.ConstraintWidget) r5
-            boolean r6 = r5 instanceof androidx.constraintlayout.core.widgets.Guideline
-            if (r6 == 0) goto L22
-            goto Lc0
-        L22:
-            boolean r6 = r5 instanceof androidx.constraintlayout.core.widgets.Barrier
-            if (r6 == 0) goto L28
-            goto Lc0
-        L28:
-            boolean r6 = r5.isInVirtualLayout()
-            if (r6 == 0) goto L30
-            goto Lc0
-        L30:
-            if (r1 == 0) goto L4c
-            androidx.constraintlayout.core.widgets.analyzer.HorizontalWidgetRun r6 = r5.horizontalRun
-            if (r6 == 0) goto L4c
-            androidx.constraintlayout.core.widgets.analyzer.VerticalWidgetRun r6 = r5.verticalRun
-            if (r6 == 0) goto L4c
-            androidx.constraintlayout.core.widgets.analyzer.HorizontalWidgetRun r6 = r5.horizontalRun
-            androidx.constraintlayout.core.widgets.analyzer.DimensionDependency r6 = r6.dimension
-            boolean r6 = r6.resolved
-            if (r6 == 0) goto L4c
-            androidx.constraintlayout.core.widgets.analyzer.VerticalWidgetRun r6 = r5.verticalRun
-            androidx.constraintlayout.core.widgets.analyzer.DimensionDependency r6 = r6.dimension
-            boolean r6 = r6.resolved
-            if (r6 == 0) goto L4c
-            goto Lc0
-        L4c:
-            androidx.constraintlayout.core.widgets.ConstraintWidget$DimensionBehaviour r6 = r5.getDimensionBehaviour(r3)
-            r7 = 1
-            androidx.constraintlayout.core.widgets.ConstraintWidget$DimensionBehaviour r8 = r5.getDimensionBehaviour(r7)
-            androidx.constraintlayout.core.widgets.ConstraintWidget$DimensionBehaviour r9 = androidx.constraintlayout.core.widgets.ConstraintWidget.DimensionBehaviour.MATCH_CONSTRAINT
-            if (r6 != r9) goto L67
-            int r9 = r5.mMatchConstraintDefaultWidth
-            if (r9 == r7) goto L67
-            androidx.constraintlayout.core.widgets.ConstraintWidget$DimensionBehaviour r9 = androidx.constraintlayout.core.widgets.ConstraintWidget.DimensionBehaviour.MATCH_CONSTRAINT
-            if (r8 != r9) goto L67
-            int r9 = r5.mMatchConstraintDefaultHeight
-            if (r9 == r7) goto L67
-            r9 = r7
-            goto L68
-        L67:
-            r9 = r3
-        L68:
-            if (r9 != 0) goto Laa
-            boolean r10 = r12.optimizeFor(r7)
-            if (r10 == 0) goto Laa
-            boolean r10 = r5 instanceof androidx.constraintlayout.core.widgets.VirtualLayout
-            if (r10 != 0) goto Laa
-            androidx.constraintlayout.core.widgets.ConstraintWidget$DimensionBehaviour r10 = androidx.constraintlayout.core.widgets.ConstraintWidget.DimensionBehaviour.MATCH_CONSTRAINT
-            if (r6 != r10) goto L87
-            int r10 = r5.mMatchConstraintDefaultWidth
-            if (r10 != 0) goto L87
-            androidx.constraintlayout.core.widgets.ConstraintWidget$DimensionBehaviour r10 = androidx.constraintlayout.core.widgets.ConstraintWidget.DimensionBehaviour.MATCH_CONSTRAINT
-            if (r8 == r10) goto L87
-            boolean r10 = r5.isInHorizontalChain()
-            if (r10 != 0) goto L87
-            r9 = r7
-        L87:
-            androidx.constraintlayout.core.widgets.ConstraintWidget$DimensionBehaviour r10 = androidx.constraintlayout.core.widgets.ConstraintWidget.DimensionBehaviour.MATCH_CONSTRAINT
-            if (r8 != r10) goto L9a
-            int r10 = r5.mMatchConstraintDefaultHeight
-            if (r10 != 0) goto L9a
-            androidx.constraintlayout.core.widgets.ConstraintWidget$DimensionBehaviour r10 = androidx.constraintlayout.core.widgets.ConstraintWidget.DimensionBehaviour.MATCH_CONSTRAINT
-            if (r6 == r10) goto L9a
-            boolean r10 = r5.isInHorizontalChain()
-            if (r10 != 0) goto L9a
-            r9 = r7
-        L9a:
-            androidx.constraintlayout.core.widgets.ConstraintWidget$DimensionBehaviour r10 = androidx.constraintlayout.core.widgets.ConstraintWidget.DimensionBehaviour.MATCH_CONSTRAINT
-            if (r6 == r10) goto La2
-            androidx.constraintlayout.core.widgets.ConstraintWidget$DimensionBehaviour r6 = androidx.constraintlayout.core.widgets.ConstraintWidget.DimensionBehaviour.MATCH_CONSTRAINT
-            if (r8 != r6) goto Laa
-        La2:
-            float r6 = r5.mDimensionRatio
-            r8 = 0
-            int r6 = (r6 > r8 ? 1 : (r6 == r8 ? 0 : -1))
-            if (r6 <= 0) goto Laa
-            goto Lab
-        Laa:
-            r7 = r9
-        Lab:
-            if (r7 == 0) goto Lae
-            goto Lc0
-        Lae:
-            int r6 = androidx.constraintlayout.core.widgets.analyzer.BasicMeasure.Measure.SELF_DIMENSIONS
-            r11.measure(r2, r5, r6)
-            androidx.constraintlayout.core.Metrics r5 = r12.mMetrics
-            if (r5 == 0) goto Lc0
-            androidx.constraintlayout.core.Metrics r5 = r12.mMetrics
-            long r6 = r5.measuredWidgets
-            r8 = 1
-            long r6 = r6 + r8
-            r5.measuredWidgets = r6
-        Lc0:
-            int r4 = r4 + 1
-            goto L12
-        Lc4:
-            r2.didMeasures()
-            return
-        */
-        throw new UnsupportedOperationException("Method not decompiled: androidx.constraintlayout.core.widgets.analyzer.BasicMeasure.measureChildren(androidx.constraintlayout.core.widgets.ConstraintWidgetContainer):void");
+    private void measureChildren(ConstraintWidgetContainer constraintWidgetContainer) {
+        int size = constraintWidgetContainer.mChildren.size();
+        boolean optimizeFor = constraintWidgetContainer.optimizeFor(64);
+        Measurer measurer = constraintWidgetContainer.getMeasurer();
+        for (int i = 0; i < size; i++) {
+            ConstraintWidget constraintWidget = constraintWidgetContainer.mChildren.get(i);
+            if (!(constraintWidget instanceof Guideline) && !(constraintWidget instanceof Barrier) && !constraintWidget.isInVirtualLayout() && (!optimizeFor || constraintWidget.horizontalRun == null || constraintWidget.verticalRun == null || !constraintWidget.horizontalRun.dimension.resolved || !constraintWidget.verticalRun.dimension.resolved)) {
+                ConstraintWidget.DimensionBehaviour dimensionBehaviour = constraintWidget.getDimensionBehaviour(0);
+                boolean z = true;
+                ConstraintWidget.DimensionBehaviour dimensionBehaviour2 = constraintWidget.getDimensionBehaviour(1);
+                boolean z2 = dimensionBehaviour == ConstraintWidget.DimensionBehaviour.MATCH_CONSTRAINT && constraintWidget.mMatchConstraintDefaultWidth != 1 && dimensionBehaviour2 == ConstraintWidget.DimensionBehaviour.MATCH_CONSTRAINT && constraintWidget.mMatchConstraintDefaultHeight != 1;
+                if (!z2 && constraintWidgetContainer.optimizeFor(1) && !(constraintWidget instanceof VirtualLayout)) {
+                    if (dimensionBehaviour == ConstraintWidget.DimensionBehaviour.MATCH_CONSTRAINT && constraintWidget.mMatchConstraintDefaultWidth == 0 && dimensionBehaviour2 != ConstraintWidget.DimensionBehaviour.MATCH_CONSTRAINT && !constraintWidget.isInHorizontalChain()) {
+                        z2 = true;
+                    }
+                    if (dimensionBehaviour2 == ConstraintWidget.DimensionBehaviour.MATCH_CONSTRAINT && constraintWidget.mMatchConstraintDefaultHeight == 0 && dimensionBehaviour != ConstraintWidget.DimensionBehaviour.MATCH_CONSTRAINT && !constraintWidget.isInHorizontalChain()) {
+                        z2 = true;
+                    }
+                    if (dimensionBehaviour != ConstraintWidget.DimensionBehaviour.MATCH_CONSTRAINT) {
+                    }
+                }
+                z = z2;
+                if (!z) {
+                    measure(measurer, constraintWidget, Measure.SELF_DIMENSIONS);
+                    if (constraintWidgetContainer.mMetrics != null) {
+                        constraintWidgetContainer.mMetrics.measuredWidgets++;
+                    }
+                }
+            }
+        }
+        measurer.didMeasures();
     }
 
     private void solveLinearSystem(ConstraintWidgetContainer constraintWidgetContainer, String str, int i, int i2) {

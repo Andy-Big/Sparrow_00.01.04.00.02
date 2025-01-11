@@ -14,6 +14,7 @@ import com.bumptech.glide.load.resource.bitmap.DownsampleStrategy;
 import com.bumptech.glide.load.resource.bitmap.Downsampler;
 import com.bumptech.glide.load.resource.bitmap.HardwareConfigState;
 import java.io.IOException;
+
 /* loaded from: classes.dex */
 public abstract class ImageDecoderResourceDecoder<T> implements ResourceDecoder<ImageDecoder.Source, T> {
     private static final String TAG = "ImageDecoder";
@@ -21,11 +22,13 @@ public abstract class ImageDecoderResourceDecoder<T> implements ResourceDecoder<
 
     protected abstract Resource<T> decode(ImageDecoder.Source source, int i, int i2, ImageDecoder.OnHeaderDecodedListener onHeaderDecodedListener) throws IOException;
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.ResourceDecoder
     public final boolean handles(ImageDecoder.Source source, Options options) {
         return true;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.ResourceDecoder
     public final Resource<T> decode(ImageDecoder.Source source, final int i, final int i2, Options options) throws IOException {
         final DecodeFormat decodeFormat = (DecodeFormat) options.get(Downsampler.DECODE_FORMAT);

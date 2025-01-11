@@ -14,6 +14,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
+
 /* loaded from: classes.dex */
 public final class SavedStateHandle {
     private static final Class[] ACCEPTABLE_CLASSES;
@@ -65,8 +66,7 @@ public final class SavedStateHandle {
         this.mRegular = new HashMap();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static SavedStateHandle createHandle(Bundle bundle, Bundle bundle2) {
+    static SavedStateHandle createHandle(Bundle bundle, Bundle bundle2) {
         if (bundle == null && bundle2 == null) {
             return new SavedStateHandle();
         }
@@ -90,8 +90,7 @@ public final class SavedStateHandle {
         return new SavedStateHandle(hashMap);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public SavedStateRegistry.SavedStateProvider savedStateProvider() {
+    SavedStateRegistry.SavedStateProvider savedStateProvider() {
         return this.mSavedStateProvider;
     }
 
@@ -163,9 +162,8 @@ public final class SavedStateHandle {
         return t;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static class SavingStateLiveData<T> extends MutableLiveData<T> {
+    static class SavingStateLiveData<T> extends MutableLiveData<T> {
         private SavedStateHandle mHandle;
         private String mKey;
 

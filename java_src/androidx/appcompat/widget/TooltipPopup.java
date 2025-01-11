@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.TextView;
 import androidx.appcompat.R;
+
 /* loaded from: classes.dex */
 class TooltipPopup {
     private static final String TAG = "TooltipPopup";
@@ -24,8 +25,7 @@ class TooltipPopup {
     private final int[] mTmpAnchorPos = new int[2];
     private final int[] mTmpAppPos = new int[2];
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public TooltipPopup(Context context) {
+    TooltipPopup(Context context) {
         this.mContext = context;
         View inflate = LayoutInflater.from(context).inflate(R.layout.abc_tooltip, (ViewGroup) null);
         this.mContentView = inflate;
@@ -40,8 +40,7 @@ class TooltipPopup {
         this.mLayoutParams.flags = 24;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void show(View view, int i, int i2, boolean z, CharSequence charSequence) {
+    void show(View view, int i, int i2, boolean z, CharSequence charSequence) {
         if (isShowing()) {
             hide();
         }
@@ -50,8 +49,7 @@ class TooltipPopup {
         ((WindowManager) this.mContext.getSystemService("window")).addView(this.mContentView, this.mLayoutParams);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void hide() {
+    void hide() {
         if (isShowing()) {
             ((WindowManager) this.mContext.getSystemService("window")).removeView(this.mContentView);
         }

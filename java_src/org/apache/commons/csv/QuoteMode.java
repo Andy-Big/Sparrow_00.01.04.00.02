@@ -1,4 +1,5 @@
 package org.apache.commons.csv;
+
 /* loaded from: classes2.dex */
 public enum QuoteMode {
     ALL,

@@ -3,6 +3,7 @@ package androidx.core.util;
 import android.os.Build;
 import java.util.Arrays;
 import java.util.Objects;
+
 /* loaded from: classes.dex */
 public class ObjectsCompat {
     private ObjectsCompat() {

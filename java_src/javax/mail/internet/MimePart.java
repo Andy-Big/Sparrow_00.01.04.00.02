@@ -3,6 +3,7 @@ package javax.mail.internet;
 import java.util.Enumeration;
 import javax.mail.MessagingException;
 import javax.mail.Part;
+
 /* loaded from: classes2.dex */
 public interface MimePart extends Part {
     void addHeaderLine(String str) throws MessagingException;

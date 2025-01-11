@@ -3,6 +3,7 @@ package com.sun.mail.imap.protocol;
 import com.sun.mail.iap.ByteArray;
 import com.sun.mail.iap.ParsingException;
 import java.io.ByteArrayInputStream;
+
 /* loaded from: classes2.dex */
 public class BODY implements Item {
     static final char[] name = {'B', 'O', 'D', 'Y'};

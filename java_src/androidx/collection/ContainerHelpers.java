@@ -1,4 +1,5 @@
 package androidx.collection;
+
 /* loaded from: classes.dex */
 class ContainerHelpers {
     static final int[] EMPTY_INTS = new int[0];
@@ -27,8 +28,7 @@ class ContainerHelpers {
         return obj == obj2 || (obj != null && obj.equals(obj2));
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static int binarySearch(int[] iArr, int i, int i2) {
+    static int binarySearch(int[] iArr, int i, int i2) {
         int i3 = i - 1;
         int i4 = 0;
         while (i4 <= i3) {
@@ -45,8 +45,7 @@ class ContainerHelpers {
         return ~i4;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static int binarySearch(long[] jArr, int i, long j) {
+    static int binarySearch(long[] jArr, int i, long j) {
         int i2 = i - 1;
         int i3 = 0;
         while (i3 <= i2) {

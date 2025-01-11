@@ -37,6 +37,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
+
 /* loaded from: classes.dex */
 public abstract class FragmentManager {
     private static boolean DEBUG = false;
@@ -171,14 +172,12 @@ public abstract class FragmentManager {
         void onBackStackChanged();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public interface OpGenerator {
+    interface OpGenerator {
         boolean generateOps(ArrayList<BackStackRecord> arrayList, ArrayList<Boolean> arrayList2);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static int reverseTransit(int i) {
+    static int reverseTransit(int i) {
         if (i != 4097) {
             if (i != 4099) {
                 if (i != 8194) {
@@ -196,8 +195,7 @@ public abstract class FragmentManager {
         DEBUG = z;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static boolean isLoggingEnabled(int i) {
+    static boolean isLoggingEnabled(int i) {
         return DEBUG || Log.isLoggable(TAG, i);
     }
 
@@ -248,8 +246,7 @@ public abstract class FragmentManager {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean isPrimaryNavigation(Fragment fragment) {
+    boolean isPrimaryNavigation(Fragment fragment) {
         if (fragment == null) {
             return true;
         }
@@ -401,8 +398,7 @@ public abstract class FragmentManager {
         return null;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static Fragment getViewFragment(View view) {
+    static Fragment getViewFragment(View view) {
         Object tag = view.getTag(R.id.fragment_container_view_tag);
         if (tag instanceof Fragment) {
             return (Fragment) tag;
@@ -437,8 +433,7 @@ public abstract class FragmentManager {
         return this.mFragmentStore.getFragments();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ViewModelStore getViewModelStore(Fragment fragment) {
+    ViewModelStore getViewModelStore(Fragment fragment) {
         return this.mNonConfig.getViewModelStore(fragment);
     }
 
@@ -446,8 +441,7 @@ public abstract class FragmentManager {
         return this.mNonConfig.getChildNonConfig(fragment);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void addRetainedFragment(Fragment fragment) {
+    void addRetainedFragment(Fragment fragment) {
         if (isStateSaved()) {
             if (isLoggingEnabled(2)) {
                 Log.v(TAG, "Ignoring addRetainedFragment as the state is already saved");
@@ -457,8 +451,7 @@ public abstract class FragmentManager {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void removeRetainedFragment(Fragment fragment) {
+    void removeRetainedFragment(Fragment fragment) {
         if (isStateSaved()) {
             if (isLoggingEnabled(2)) {
                 Log.v(TAG, "Ignoring removeRetainedFragment as the state is already saved");
@@ -468,13 +461,11 @@ public abstract class FragmentManager {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public List<Fragment> getActiveFragments() {
+    List<Fragment> getActiveFragments() {
         return this.mFragmentStore.getActiveFragments();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public int getActiveFragmentCount() {
+    int getActiveFragmentCount() {
         return this.mFragmentStore.getActiveFragmentCount();
     }
 
@@ -587,8 +578,7 @@ public abstract class FragmentManager {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void performPendingDeferredStart(Fragment fragment) {
+    void performPendingDeferredStart(Fragment fragment) {
         if (fragment.mDeferStart) {
             if (this.mExecutingActions) {
                 this.mHavePendingDeferredStart = true;
@@ -599,12 +589,10 @@ public abstract class FragmentManager {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean isStateAtLeast(int i) {
+    boolean isStateAtLeast(int i) {
         return this.mCurState >= i;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: Code restructure failed: missing block: B:17:0x0040, code lost:
         if (r2 != 3) goto L19;
      */
@@ -615,14 +603,164 @@ public abstract class FragmentManager {
     /* JADX WARN: Removed duplicated region for block: B:52:0x0107  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    public void moveToState(androidx.fragment.app.Fragment r13, int r14) {
-        /*
-            Method dump skipped, instructions count: 572
-            To view this dump add '--comments-level debug' option
-        */
-        throw new UnsupportedOperationException("Method not decompiled: androidx.fragment.app.FragmentManager.moveToState(androidx.fragment.app.Fragment, int):void");
+    void moveToState(Fragment fragment, int i) {
+        Fragment findActiveFragment;
+        FragmentStateManager fragmentStateManager = this.mFragmentStore.getFragmentStateManager(fragment.mWho);
+        int i2 = 1;
+        if (fragmentStateManager == null) {
+            fragmentStateManager = new FragmentStateManager(this.mLifecycleCallbacksDispatcher, fragment);
+            fragmentStateManager.setFragmentManagerState(1);
+        }
+        int min = Math.min(i, fragmentStateManager.computeMaxState());
+        FragmentAnim.AnimationOrAnimator animationOrAnimator = null;
+        if (fragment.mState <= min) {
+            if (fragment.mState < min && !this.mExitAnimationCancellationSignals.isEmpty()) {
+                cancelExitAnimation(fragment);
+            }
+            int i3 = fragment.mState;
+            if (i3 != -1) {
+                if (i3 != 0) {
+                    if (i3 != 1) {
+                        if (i3 != 2) {
+                        }
+                        if (min > 2) {
+                            fragmentStateManager.start();
+                        }
+                        if (min > 3) {
+                            fragmentStateManager.resume();
+                        }
+                    }
+                    if (min > -1) {
+                        fragmentStateManager.ensureInflatedView();
+                    }
+                    if (min > 1) {
+                        fragmentStateManager.createView(this.mContainer);
+                        fragmentStateManager.activityCreated();
+                        fragmentStateManager.restoreViewState();
+                    }
+                    if (min > 2) {
+                    }
+                    if (min > 3) {
+                    }
+                }
+            } else if (min > -1) {
+                if (isLoggingEnabled(3)) {
+                    Log.d(TAG, "moveto ATTACHED: " + fragment);
+                }
+                if (fragment.mTarget != null) {
+                    if (!fragment.mTarget.equals(findActiveFragment(fragment.mTarget.mWho))) {
+                        throw new IllegalStateException("Fragment " + fragment + " declared target fragment " + fragment.mTarget + " that does not belong to this FragmentManager!");
+                    }
+                    if (fragment.mTarget.mState < 1) {
+                        moveToState(fragment.mTarget, 1);
+                    }
+                    fragment.mTargetWho = fragment.mTarget.mWho;
+                    fragment.mTarget = null;
+                }
+                if (fragment.mTargetWho != null) {
+                    Fragment findActiveFragment2 = findActiveFragment(fragment.mTargetWho);
+                    if (findActiveFragment2 == null) {
+                        throw new IllegalStateException("Fragment " + fragment + " declared target fragment " + fragment.mTargetWho + " that does not belong to this FragmentManager!");
+                    } else if (findActiveFragment2.mState < 1) {
+                        moveToState(findActiveFragment2, 1);
+                    }
+                }
+                fragmentStateManager.attach(this.mHost, this, this.mParent);
+            }
+            if (min > 0) {
+                fragmentStateManager.create();
+            }
+            if (min > -1) {
+            }
+            if (min > 1) {
+            }
+            if (min > 2) {
+            }
+            if (min > 3) {
+            }
+        } else if (fragment.mState > min) {
+            int i4 = fragment.mState;
+            if (i4 != 0) {
+                boolean z = false;
+                if (i4 != 1) {
+                    if (i4 != 2) {
+                        if (i4 != 3) {
+                            if (i4 == 4) {
+                                if (min < 4) {
+                                    fragmentStateManager.pause();
+                                }
+                            }
+                        }
+                        if (min < 3) {
+                            fragmentStateManager.stop();
+                        }
+                    }
+                    if (min < 2) {
+                        if (isLoggingEnabled(3)) {
+                            Log.d(TAG, "movefrom ACTIVITY_CREATED: " + fragment);
+                        }
+                        if (fragment.mView != null && this.mHost.onShouldSaveFragmentState(fragment) && fragment.mSavedViewState == null) {
+                            fragmentStateManager.saveViewState();
+                        }
+                        if (fragment.mView != null && fragment.mContainer != null) {
+                            fragment.mContainer.endViewTransition(fragment.mView);
+                            fragment.mView.clearAnimation();
+                            if (!fragment.isRemovingParent()) {
+                                if (this.mCurState > -1 && !this.mDestroyed && fragment.mView.getVisibility() == 0 && fragment.mPostponedAlpha >= 0.0f) {
+                                    animationOrAnimator = FragmentAnim.loadAnimation(this.mHost.getContext(), this.mContainer, fragment, false);
+                                }
+                                fragment.mPostponedAlpha = 0.0f;
+                                ViewGroup viewGroup = fragment.mContainer;
+                                View view = fragment.mView;
+                                if (animationOrAnimator != null) {
+                                    fragment.setStateAfterAnimating(min);
+                                    FragmentAnim.animateRemoveFragment(fragment, animationOrAnimator, this.mFragmentTransitionCallback);
+                                }
+                                viewGroup.removeView(view);
+                                if (viewGroup != fragment.mContainer) {
+                                    return;
+                                }
+                            }
+                        }
+                        if (this.mExitAnimationCancellationSignals.get(fragment) == null) {
+                            destroyFragmentView(fragment);
+                        } else {
+                            fragment.setStateAfterAnimating(min);
+                        }
+                    }
+                }
+                if (min < 1) {
+                    if (fragment.mRemoving && !fragment.isInBackStack()) {
+                        z = true;
+                    }
+                    if (z || this.mNonConfig.shouldDestroy(fragment)) {
+                        makeInactive(fragmentStateManager);
+                    } else if (fragment.mTargetWho != null && (findActiveFragment = findActiveFragment(fragment.mTargetWho)) != null && findActiveFragment.getRetainInstance()) {
+                        fragment.mTarget = findActiveFragment;
+                    }
+                    if (this.mExitAnimationCancellationSignals.get(fragment) != null) {
+                        fragment.setStateAfterAnimating(min);
+                        if (i2 < 0) {
+                            fragmentStateManager.detach(this.mNonConfig);
+                        }
+                        min = i2;
+                    } else {
+                        fragmentStateManager.destroy(this.mHost, this.mNonConfig);
+                    }
+                }
+            }
+            i2 = min;
+            if (i2 < 0) {
+            }
+            min = i2;
+        }
+        if (fragment.mState != min) {
+            if (isLoggingEnabled(3)) {
+                Log.d(TAG, "moveToState: Fragment state for " + fragment + " not updated inline; expected state " + min + " found " + fragment.mState);
+            }
+            fragment.mState = min;
+        }
     }
 
     private void cancelExitAnimation(Fragment fragment) {
@@ -638,8 +776,7 @@ public abstract class FragmentManager {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setExitAnimationOrder(Fragment fragment, boolean z) {
+    void setExitAnimationOrder(Fragment fragment, boolean z) {
         ViewGroup fragmentContainer = getFragmentContainer(fragment);
         if (fragmentContainer == null || !(fragmentContainer instanceof FragmentContainerView)) {
             return;
@@ -657,8 +794,7 @@ public abstract class FragmentManager {
         fragment.mInLayout = false;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void moveToState(Fragment fragment) {
+    void moveToState(Fragment fragment) {
         moveToState(fragment, this.mCurState);
     }
 
@@ -708,8 +844,7 @@ public abstract class FragmentManager {
         fragment.onHiddenChanged(fragment.mHidden);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void moveFragmentToExpectedState(Fragment fragment) {
+    void moveFragmentToExpectedState(Fragment fragment) {
         if (!this.mFragmentStore.containsActiveFragment(fragment.mWho)) {
             if (isLoggingEnabled(3)) {
                 Log.d(TAG, "Ignoring moving " + fragment + " to state " + this.mCurState + "since it is not added to " + this);
@@ -752,8 +887,7 @@ public abstract class FragmentManager {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void moveToState(int i, boolean z) {
+    void moveToState(int i, boolean z) {
         FragmentHostCallback<?> fragmentHostCallback;
         if (this.mHost == null && i != -1) {
             throw new IllegalStateException("No activity");
@@ -784,8 +918,7 @@ public abstract class FragmentManager {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void makeActive(Fragment fragment) {
+    void makeActive(Fragment fragment) {
         if (this.mFragmentStore.containsActiveFragment(fragment.mWho)) {
             return;
         }
@@ -817,8 +950,7 @@ public abstract class FragmentManager {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void addFragment(Fragment fragment) {
+    void addFragment(Fragment fragment) {
         if (isLoggingEnabled(2)) {
             Log.v(TAG, "add: " + fragment);
         }
@@ -836,8 +968,7 @@ public abstract class FragmentManager {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void removeFragment(Fragment fragment) {
+    void removeFragment(Fragment fragment) {
         if (isLoggingEnabled(2)) {
             Log.v(TAG, "remove: " + fragment + " nesting=" + fragment.mBackStackNesting);
         }
@@ -852,8 +983,7 @@ public abstract class FragmentManager {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void hideFragment(Fragment fragment) {
+    void hideFragment(Fragment fragment) {
         if (isLoggingEnabled(2)) {
             Log.v(TAG, "hide: " + fragment);
         }
@@ -865,8 +995,7 @@ public abstract class FragmentManager {
         setVisibleRemovingFragment(fragment);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void showFragment(Fragment fragment) {
+    void showFragment(Fragment fragment) {
         if (isLoggingEnabled(2)) {
             Log.v(TAG, "show: " + fragment);
         }
@@ -876,8 +1005,7 @@ public abstract class FragmentManager {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void detachFragment(Fragment fragment) {
+    void detachFragment(Fragment fragment) {
         if (isLoggingEnabled(2)) {
             Log.v(TAG, "detach: " + fragment);
         }
@@ -897,8 +1025,7 @@ public abstract class FragmentManager {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void attachFragment(Fragment fragment) {
+    void attachFragment(Fragment fragment) {
         if (isLoggingEnabled(2)) {
             Log.v(TAG, "attach: " + fragment);
         }
@@ -925,13 +1052,11 @@ public abstract class FragmentManager {
         return this.mFragmentStore.findFragmentByTag(str);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public Fragment findFragmentByWho(String str) {
+    Fragment findFragmentByWho(String str) {
         return this.mFragmentStore.findFragmentByWho(str);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public Fragment findActiveFragment(String str) {
+    Fragment findActiveFragment(String str) {
         return this.mFragmentStore.findActiveFragment(str);
     }
 
@@ -945,8 +1070,7 @@ public abstract class FragmentManager {
         return this.mStateSaved || this.mStopped;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void enqueueAction(OpGenerator opGenerator, boolean z) {
+    void enqueueAction(OpGenerator opGenerator, boolean z) {
         if (!z) {
             if (this.mHost == null) {
                 if (this.mDestroyed) {
@@ -980,8 +1104,7 @@ public abstract class FragmentManager {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public int allocBackStackIndex() {
+    int allocBackStackIndex() {
         return this.mBackStackIndex.getAndIncrement();
     }
 
@@ -1013,8 +1136,7 @@ public abstract class FragmentManager {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void execSingleAction(OpGenerator opGenerator, boolean z) {
+    void execSingleAction(OpGenerator opGenerator, boolean z) {
         if (z && (this.mHost == null || this.mDestroyed)) {
             return;
         }
@@ -1038,8 +1160,7 @@ public abstract class FragmentManager {
         this.mTmpRecords.clear();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean execPendingActions(boolean z) {
+    boolean execPendingActions(boolean z) {
         ensureExecReady(z);
         boolean z2 = false;
         while (generateOpsForPendingActions(this.mTmpRecords, this.mTmpIsPop)) {
@@ -1341,8 +1462,7 @@ public abstract class FragmentManager {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void addBackStackState(BackStackRecord backStackRecord) {
+    void addBackStackState(BackStackRecord backStackRecord) {
         if (this.mBackStack == null) {
             this.mBackStack = new ArrayList<>();
         }
@@ -1404,17 +1524,15 @@ public abstract class FragmentManager {
         return true;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     @Deprecated
-    public FragmentManagerNonConfig retainNonConfig() {
+    FragmentManagerNonConfig retainNonConfig() {
         if (this.mHost instanceof ViewModelStoreOwner) {
             throwException(new IllegalStateException("You cannot use retainNonConfig when your FragmentHostCallback implements ViewModelStoreOwner."));
         }
         return this.mNonConfig.getSnapshot();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public Parcelable saveAllState() {
+    Parcelable saveAllState() {
         int size;
         forcePostponedTransactions();
         endAnimatingAwayFragments();
@@ -1451,8 +1569,7 @@ public abstract class FragmentManager {
         return fragmentManagerState;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void restoreAllState(Parcelable parcelable, FragmentManagerNonConfig fragmentManagerNonConfig) {
+    void restoreAllState(Parcelable parcelable, FragmentManagerNonConfig fragmentManagerNonConfig) {
         if (this.mHost instanceof ViewModelStoreOwner) {
             throwException(new IllegalStateException("You must use restoreSaveState when your FragmentHostCallback implements ViewModelStoreOwner"));
         }
@@ -1460,8 +1577,7 @@ public abstract class FragmentManager {
         restoreSaveState(parcelable);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void restoreSaveState(Parcelable parcelable) {
+    void restoreSaveState(Parcelable parcelable) {
         FragmentStateManager fragmentStateManager;
         if (parcelable == null) {
             return;
@@ -1528,14 +1644,13 @@ public abstract class FragmentManager {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public Fragment getParent() {
+    Fragment getParent() {
         return this.mParent;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX DEBUG: Multi-variable search result rejected for r4v6, resolved type: androidx.activity.OnBackPressedDispatcherOwner */
     /* JADX WARN: Multi-variable type inference failed */
-    public void attachController(FragmentHostCallback<?> fragmentHostCallback, FragmentContainer fragmentContainer, Fragment fragment) {
+    void attachController(FragmentHostCallback<?> fragmentHostCallback, FragmentContainer fragmentContainer, Fragment fragment) {
         if (this.mHost != null) {
             throw new IllegalStateException("Already attached");
         }
@@ -1563,8 +1678,7 @@ public abstract class FragmentManager {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void noteStateNotSaved() {
+    void noteStateNotSaved() {
         this.mStateSaved = false;
         this.mStopped = false;
         for (Fragment fragment : this.mFragmentStore.getFragments()) {
@@ -1574,52 +1688,44 @@ public abstract class FragmentManager {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void dispatchCreate() {
+    void dispatchCreate() {
         this.mStateSaved = false;
         this.mStopped = false;
         dispatchStateChange(1);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void dispatchActivityCreated() {
+    void dispatchActivityCreated() {
         this.mStateSaved = false;
         this.mStopped = false;
         dispatchStateChange(2);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void dispatchStart() {
+    void dispatchStart() {
         this.mStateSaved = false;
         this.mStopped = false;
         dispatchStateChange(3);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void dispatchResume() {
+    void dispatchResume() {
         this.mStateSaved = false;
         this.mStopped = false;
         dispatchStateChange(4);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void dispatchPause() {
+    void dispatchPause() {
         dispatchStateChange(3);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void dispatchStop() {
+    void dispatchStop() {
         this.mStopped = true;
         dispatchStateChange(2);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void dispatchDestroyView() {
+    void dispatchDestroyView() {
         dispatchStateChange(1);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void dispatchDestroy() {
+    void dispatchDestroy() {
         this.mDestroyed = true;
         execPendingActions(true);
         endAnimatingAwayFragments();
@@ -1646,8 +1752,7 @@ public abstract class FragmentManager {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void dispatchMultiWindowModeChanged(boolean z) {
+    void dispatchMultiWindowModeChanged(boolean z) {
         for (Fragment fragment : this.mFragmentStore.getFragments()) {
             if (fragment != null) {
                 fragment.performMultiWindowModeChanged(z);
@@ -1655,8 +1760,7 @@ public abstract class FragmentManager {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void dispatchPictureInPictureModeChanged(boolean z) {
+    void dispatchPictureInPictureModeChanged(boolean z) {
         for (Fragment fragment : this.mFragmentStore.getFragments()) {
             if (fragment != null) {
                 fragment.performPictureInPictureModeChanged(z);
@@ -1664,8 +1768,7 @@ public abstract class FragmentManager {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void dispatchConfigurationChanged(Configuration configuration) {
+    void dispatchConfigurationChanged(Configuration configuration) {
         for (Fragment fragment : this.mFragmentStore.getFragments()) {
             if (fragment != null) {
                 fragment.performConfigurationChanged(configuration);
@@ -1673,8 +1776,7 @@ public abstract class FragmentManager {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void dispatchLowMemory() {
+    void dispatchLowMemory() {
         for (Fragment fragment : this.mFragmentStore.getFragments()) {
             if (fragment != null) {
                 fragment.performLowMemory();
@@ -1682,8 +1784,7 @@ public abstract class FragmentManager {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean dispatchCreateOptionsMenu(Menu menu, MenuInflater menuInflater) {
+    boolean dispatchCreateOptionsMenu(Menu menu, MenuInflater menuInflater) {
         if (this.mCurState < 1) {
             return false;
         }
@@ -1710,8 +1811,7 @@ public abstract class FragmentManager {
         return z;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean dispatchPrepareOptionsMenu(Menu menu) {
+    boolean dispatchPrepareOptionsMenu(Menu menu) {
         boolean z = false;
         if (this.mCurState < 1) {
             return false;
@@ -1724,8 +1824,7 @@ public abstract class FragmentManager {
         return z;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean dispatchOptionsItemSelected(MenuItem menuItem) {
+    boolean dispatchOptionsItemSelected(MenuItem menuItem) {
         if (this.mCurState < 1) {
             return false;
         }
@@ -1737,8 +1836,7 @@ public abstract class FragmentManager {
         return false;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean dispatchContextItemSelected(MenuItem menuItem) {
+    boolean dispatchContextItemSelected(MenuItem menuItem) {
         if (this.mCurState < 1) {
             return false;
         }
@@ -1750,8 +1848,7 @@ public abstract class FragmentManager {
         return false;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void dispatchOptionsMenuClosed(Menu menu) {
+    void dispatchOptionsMenuClosed(Menu menu) {
         if (this.mCurState < 1) {
             return;
         }
@@ -1762,8 +1859,7 @@ public abstract class FragmentManager {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setPrimaryNavigationFragment(Fragment fragment) {
+    void setPrimaryNavigationFragment(Fragment fragment) {
         if (fragment != null && (!fragment.equals(findActiveFragment(fragment.mWho)) || (fragment.mHost != null && fragment.mFragmentManager != this))) {
             throw new IllegalArgumentException("Fragment " + fragment + " is not an active fragment of FragmentManager " + this);
         }
@@ -1780,8 +1876,7 @@ public abstract class FragmentManager {
         fragment.performPrimaryNavigationFragmentChanged();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void dispatchPrimaryNavigationFragmentChanged() {
+    void dispatchPrimaryNavigationFragmentChanged() {
         updateOnBackPressedCallbackEnabled();
         dispatchParentPrimaryNavigationFragmentChanged(this.mPrimaryNav);
     }
@@ -1790,8 +1885,7 @@ public abstract class FragmentManager {
         return this.mPrimaryNav;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setMaxLifecycle(Fragment fragment, Lifecycle.State state) {
+    void setMaxLifecycle(Fragment fragment, Lifecycle.State state) {
         if (!fragment.equals(findActiveFragment(fragment.mWho)) || (fragment.mHost != null && fragment.mFragmentManager != this)) {
             throw new IllegalArgumentException("Fragment " + fragment + " is not an active fragment of FragmentManager " + this);
         }
@@ -1814,8 +1908,7 @@ public abstract class FragmentManager {
         return this.mHostFragmentFactory;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public FragmentLifecycleCallbacksDispatcher getLifecycleCallbacksDispatcher() {
+    FragmentLifecycleCallbacksDispatcher getLifecycleCallbacksDispatcher() {
         return this.mLifecycleCallbacksDispatcher;
     }
 
@@ -1845,8 +1938,7 @@ public abstract class FragmentManager {
         return (fragment.mHasMenu && fragment.mMenuVisible) || fragment.mChildFragmentManager.checkForMenus();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public LayoutInflater.Factory2 getLayoutInflaterFactory() {
+    LayoutInflater.Factory2 getLayoutInflaterFactory() {
         return this.mLayoutInflaterFactory;
     }
 
@@ -1871,9 +1963,8 @@ public abstract class FragmentManager {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static class StartEnterTransitionListener implements Fragment.OnStartEnterTransitionListener {
+    static class StartEnterTransitionListener implements Fragment.OnStartEnterTransitionListener {
         final boolean mIsBack;
         private int mNumPostponed;
         final BackStackRecord mRecord;

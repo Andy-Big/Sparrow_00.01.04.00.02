@@ -6,6 +6,7 @@ import androidx.appcompat.view.menu.MenuBuilder;
 import androidx.appcompat.view.menu.MenuView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
 /* loaded from: classes.dex */
 public class NavigationMenuView extends RecyclerView implements MenuView {
     @Override // androidx.appcompat.view.menu.MenuView

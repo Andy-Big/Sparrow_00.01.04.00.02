@@ -47,6 +47,7 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public class MediaSessionCompat {
     public static final String ACTION_ARGUMENT_CAPTIONING_ENABLED = "android.support.v4.media.session.action.ARGUMENT_CAPTIONING_ENABLED";
@@ -92,9 +93,8 @@ public class MediaSessionCompat {
     private final MediaControllerCompat mController;
     private final MediaSessionImpl mImpl;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public interface MediaSessionImpl {
+    interface MediaSessionImpl {
         String getCallingPackage();
 
         MediaSessionManager.RemoteUserInfo getCurrentControllerInfo();
@@ -553,9 +553,8 @@ public class MediaSessionCompat {
             }
         }
 
-        /* JADX INFO: Access modifiers changed from: private */
         /* loaded from: classes.dex */
-        public class CallbackHandler extends Handler {
+        private class CallbackHandler extends Handler {
             private static final int MSG_MEDIA_PLAY_PAUSE_KEY_DOUBLE_TAP_TIMEOUT = 1;
 
             CallbackHandler(Looper looper) {
@@ -760,6 +759,7 @@ public class MediaSessionCompat {
     /* loaded from: classes.dex */
     public static final class Token implements Parcelable {
         public static final Parcelable.Creator<Token> CREATOR = new Parcelable.Creator<Token>() { // from class: android.support.v4.media.session.MediaSessionCompat.Token.1
+            /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public Token createFromParcel(Parcel parcel) {
@@ -772,6 +772,7 @@ public class MediaSessionCompat {
                 return new Token(readStrongBinder);
             }
 
+            /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public Token[] newArray(int i) {
@@ -899,12 +900,14 @@ public class MediaSessionCompat {
     /* loaded from: classes.dex */
     public static final class QueueItem implements Parcelable {
         public static final Parcelable.Creator<QueueItem> CREATOR = new Parcelable.Creator<QueueItem>() { // from class: android.support.v4.media.session.MediaSessionCompat.QueueItem.1
+            /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public QueueItem createFromParcel(Parcel parcel) {
                 return new QueueItem(parcel);
             }
 
+            /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public QueueItem[] newArray(int i) {
@@ -992,12 +995,14 @@ public class MediaSessionCompat {
     /* loaded from: classes.dex */
     public static final class ResultReceiverWrapper implements Parcelable {
         public static final Parcelable.Creator<ResultReceiverWrapper> CREATOR = new Parcelable.Creator<ResultReceiverWrapper>() { // from class: android.support.v4.media.session.MediaSessionCompat.ResultReceiverWrapper.1
+            /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public ResultReceiverWrapper createFromParcel(Parcel parcel) {
                 return new ResultReceiverWrapper(parcel);
             }
 
+            /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public ResultReceiverWrapper[] newArray(int i) {
@@ -1025,9 +1030,8 @@ public class MediaSessionCompat {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static class MediaSessionImplBase implements MediaSessionImpl {
+    static class MediaSessionImplBase implements MediaSessionImpl {
         static final int RCC_PLAYSTATE_NONE = 0;
         final AudioManager mAudioManager;
         volatile Callback mCallback;
@@ -1952,9 +1956,8 @@ public class MediaSessionCompat {
             }
         }
 
-        /* JADX INFO: Access modifiers changed from: package-private */
         /* loaded from: classes.dex */
-        public class MessageHandler extends Handler {
+        class MessageHandler extends Handler {
             private static final int KEYCODE_MEDIA_PAUSE = 127;
             private static final int KEYCODE_MEDIA_PLAY = 126;
             private static final int MSG_ADD_QUEUE_ITEM = 25;

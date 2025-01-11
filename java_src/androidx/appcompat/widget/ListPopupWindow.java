@@ -25,6 +25,7 @@ import androidx.appcompat.view.menu.ShowableListMenu;
 import androidx.core.view.ViewCompat;
 import androidx.core.widget.PopupWindowCompat;
 import java.lang.reflect.Method;
+
 /* loaded from: classes.dex */
 public class ListPopupWindow implements ShowableListMenu {
     private static final boolean DEBUG = false;
@@ -594,6 +595,7 @@ public class ListPopupWindow implements ShowableListMenu {
 
     public View.OnTouchListener createDragToOpenListener(View view) {
         return new ForwardingListener(view) { // from class: androidx.appcompat.widget.ListPopupWindow.1
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // androidx.appcompat.widget.ForwardingListener
             public ListPopupWindow getPopup() {
                 return ListPopupWindow.this;
@@ -601,6 +603,7 @@ public class ListPopupWindow implements ShowableListMenu {
         };
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r7v2, resolved type: android.widget.LinearLayout */
     /* JADX WARN: Multi-variable type inference failed */
     private int buildDropDown() {
         int i;
@@ -742,9 +745,8 @@ public class ListPopupWindow implements ShowableListMenu {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public class ListSelectorHider implements Runnable {
+    private class ListSelectorHider implements Runnable {
         ListSelectorHider() {
         }
 
@@ -754,9 +756,8 @@ public class ListPopupWindow implements ShowableListMenu {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public class ResizePopupRunnable implements Runnable {
+    private class ResizePopupRunnable implements Runnable {
         ResizePopupRunnable() {
         }
 
@@ -770,9 +771,8 @@ public class ListPopupWindow implements ShowableListMenu {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public class PopupTouchInterceptor implements View.OnTouchListener {
+    private class PopupTouchInterceptor implements View.OnTouchListener {
         PopupTouchInterceptor() {
         }
 
@@ -793,9 +793,8 @@ public class ListPopupWindow implements ShowableListMenu {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public class PopupScrollListener implements AbsListView.OnScrollListener {
+    private class PopupScrollListener implements AbsListView.OnScrollListener {
         @Override // android.widget.AbsListView.OnScrollListener
         public void onScroll(AbsListView absListView, int i, int i2, int i3) {
         }

@@ -5,6 +5,7 @@ import androidx.databinding.Bindable;
 import com.blankj.utilcode.util.ConvertUtils;
 import com.blankj.utilcode.util.FileUtils;
 import com.blankj.utilcode.util.ThreadUtils;
+import com.rigol.scope.data.DiskManageParam;
 import com.rigol.scope.utilities.UtilityUtil;
 import com.rigol.scope.utilities.ViewUtil;
 import java.io.File;
@@ -71,10 +72,11 @@ public class DiskManageParam extends BaseParam {
         this.loadFilesRunnable = new AnonymousClass1();
     }
 
-    /* renamed from: com.rigol.scope.data.DiskManageParam$1  reason: invalid class name */
+    /* renamed from: com.rigol.scope.data.DiskManageParam$1 */
     /* loaded from: classes2.dex */
     class AnonymousClass1 implements Runnable {
         AnonymousClass1() {
+            DiskManageParam.this = r1;
         }
 
         @Override // java.lang.Runnable
@@ -117,15 +119,18 @@ public class DiskManageParam extends BaseParam {
                 DiskManageParam.this.files.sort(new Comparator() { // from class: com.rigol.scope.data.-$$Lambda$DiskManageParam$1$fu68hn1EAca6ErWjS7TH-QJBro4
                     @Override // java.util.Comparator
                     public final int compare(Object obj, Object obj2) {
-                        int compareTo;
-                        compareTo = ((FileParam) obj).compareTo((File) ((FileParam) obj2));
-                        return compareTo;
+                        return DiskManageParam.AnonymousClass1.lambda$run$0((FileParam) obj, (FileParam) obj2);
                     }
                 });
                 if (DiskManageParam.this.callback != null) {
                     DiskManageParam.this.callback.onFilesLoaded();
                 }
             }
+        }
+
+        /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.data.-$$Lambda$DiskManageParam$1$fu68hn1EAca6ErWjS7TH-QJBro4.compare(java.lang.Object, java.lang.Object):int] */
+        static /* synthetic */ int lambda$run$0(FileParam fileParam, FileParam fileParam2) {
+            return fileParam.compareTo((File) fileParam2);
         }
     }
 
@@ -269,7 +274,6 @@ public class DiskManageParam extends BaseParam {
         ThreadUtils.getIoPool().submit(this.loadFilesRunnable);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public void addItem(File file, List<FileParam> list) {
         if (file == null || file.getPath().isEmpty()) {
             return;

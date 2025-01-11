@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import com.blankj.utilcode.util.Utils;
 import com.blankj.utilcode.util.UtilsTransActivity;
+
 /* loaded from: classes.dex */
 public class UtilsTransActivity4MainProcess extends UtilsTransActivity {
     public static void start(UtilsTransActivity.TransActivityDelegate transActivityDelegate) {

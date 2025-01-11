@@ -1,4 +1,5 @@
 package javax.activation;
+
 /* loaded from: classes2.dex */
 public class ActivationDataFlavor {
     private String humanPresentableName;

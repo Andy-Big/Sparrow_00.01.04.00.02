@@ -2,6 +2,7 @@ package com.github.chrisbanes.photoview;
 
 import android.os.Build;
 import android.view.View;
+
 /* loaded from: classes.dex */
 class Compat {
     private static final int SIXTY_FPS_INTERVAL = 16;

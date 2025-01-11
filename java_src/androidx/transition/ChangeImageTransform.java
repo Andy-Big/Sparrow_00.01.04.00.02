@@ -14,23 +14,27 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import androidx.transition.TransitionUtils;
 import java.util.Map;
+
 /* loaded from: classes.dex */
 public class ChangeImageTransform extends Transition {
     private static final String PROPNAME_MATRIX = "android:changeImageTransform:matrix";
     private static final String PROPNAME_BOUNDS = "android:changeImageTransform:bounds";
     private static final String[] sTransitionProperties = {PROPNAME_MATRIX, PROPNAME_BOUNDS};
     private static final TypeEvaluator<Matrix> NULL_MATRIX_EVALUATOR = new TypeEvaluator<Matrix>() { // from class: androidx.transition.ChangeImageTransform.1
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // android.animation.TypeEvaluator
         public Matrix evaluate(float f, Matrix matrix, Matrix matrix2) {
             return null;
         }
     };
     private static final Property<ImageView, Matrix> ANIMATED_TRANSFORM_PROPERTY = new Property<ImageView, Matrix>(Matrix.class, "animatedTransform") { // from class: androidx.transition.ChangeImageTransform.2
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // android.util.Property
         public Matrix get(ImageView imageView) {
             return null;
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // android.util.Property
         public void set(ImageView imageView, Matrix matrix) {
             ImageViewUtils.animateTransform(imageView, matrix);
@@ -127,10 +131,9 @@ public class ChangeImageTransform extends Transition {
         return new Matrix(imageView.getImageMatrix());
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: androidx.transition.ChangeImageTransform$3  reason: invalid class name */
     /* loaded from: classes.dex */
-    public static /* synthetic */ class AnonymousClass3 {
+    static /* synthetic */ class AnonymousClass3 {
         static final /* synthetic */ int[] $SwitchMap$android$widget$ImageView$ScaleType;
 
         static {

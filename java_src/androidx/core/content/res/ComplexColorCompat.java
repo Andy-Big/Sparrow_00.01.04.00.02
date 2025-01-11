@@ -9,6 +9,7 @@ import android.util.Log;
 import android.util.Xml;
 import java.io.IOException;
 import org.xmlpull.v1.XmlPullParserException;
+
 /* loaded from: classes.dex */
 public final class ComplexColorCompat {
     private static final String LOG_TAG = "ComplexColorCompat";
@@ -30,8 +31,7 @@ public final class ComplexColorCompat {
         return new ComplexColorCompat(null, colorStateList, colorStateList.getDefaultColor());
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static ComplexColorCompat from(int i) {
+    static ComplexColorCompat from(int i) {
         return new ComplexColorCompat(null, null, i);
     }
 

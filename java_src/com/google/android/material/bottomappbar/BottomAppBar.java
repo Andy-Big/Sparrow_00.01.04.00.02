@@ -26,6 +26,7 @@ import androidx.customview.view.AbsSavedState;
 import com.google.android.material.R;
 import com.google.android.material.animation.TransformationCallback;
 import com.google.android.material.behavior.HideBottomViewOnScrollBehavior;
+import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.internal.ThemeEnforcement;
 import com.google.android.material.internal.ViewUtils;
@@ -40,6 +41,7 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedBehavior {
     private static final long ANIMATION_DURATION = 300;
@@ -68,9 +70,8 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
     private final boolean paddingRightSystemWindowInsets;
     private int rightInset;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public interface AnimationListener {
+    interface AnimationListener {
         void onAnimationEnd(BottomAppBar bottomAppBar);
 
         void onAnimationStart(BottomAppBar bottomAppBar);
@@ -115,11 +116,13 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
             }
         };
         this.fabTransformationCallback = new TransformationCallback<FloatingActionButton>() { // from class: com.google.android.material.bottomappbar.BottomAppBar.2
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.android.material.animation.TransformationCallback
             public void onScaleChanged(FloatingActionButton floatingActionButton) {
                 BottomAppBar.this.materialShapeDrawable.setInterpolation(floatingActionButton.getVisibility() == 0 ? floatingActionButton.getScaleY() : 0.0f);
             }
 
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.android.material.animation.TransformationCallback
             public void onTranslationChanged(FloatingActionButton floatingActionButton) {
                 float translationX = floatingActionButton.getTranslationX();
@@ -367,36 +370,19 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
     /* JADX WARN: Removed duplicated region for block: B:8:0x001e  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    public android.view.View findDependentView() {
-        /*
-            r4 = this;
-            android.view.ViewParent r0 = r4.getParent()
-            boolean r0 = r0 instanceof androidx.coordinatorlayout.widget.CoordinatorLayout
-            r1 = 0
-            if (r0 != 0) goto La
-            return r1
-        La:
-            android.view.ViewParent r0 = r4.getParent()
-            androidx.coordinatorlayout.widget.CoordinatorLayout r0 = (androidx.coordinatorlayout.widget.CoordinatorLayout) r0
-            java.util.List r0 = r0.getDependents(r4)
-            java.util.Iterator r0 = r0.iterator()
-        L18:
-            boolean r2 = r0.hasNext()
-            if (r2 == 0) goto L2d
-            java.lang.Object r2 = r0.next()
-            android.view.View r2 = (android.view.View) r2
-            boolean r3 = r2 instanceof com.google.android.material.floatingactionbutton.FloatingActionButton
-            if (r3 != 0) goto L2c
-            boolean r3 = r2 instanceof com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-            if (r3 == 0) goto L18
-        L2c:
-            return r2
-        L2d:
-            return r1
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.google.android.material.bottomappbar.BottomAppBar.findDependentView():android.view.View");
+    public View findDependentView() {
+        if (getParent() instanceof CoordinatorLayout) {
+            for (View view : ((CoordinatorLayout) getParent()).getDependents(this)) {
+                if ((view instanceof FloatingActionButton) || (view instanceof ExtendedFloatingActionButton)) {
+                    return view;
+                }
+                while (r0.hasNext()) {
+                }
+            }
+            return null;
+        }
+        return null;
     }
 
     private boolean isFabVisibleOrWillBeShown() {
@@ -559,9 +545,8 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // androidx.appcompat.widget.Toolbar, android.view.ViewGroup, android.view.View
-    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
+    protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
         if (z) {
             cancelAnimations();
@@ -630,6 +615,7 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
         return this.leftInset;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.AttachedBehavior
     public Behavior getBehavior() {
         if (this.behavior == null) {
@@ -713,6 +699,7 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
             this.fabContentRect = new Rect();
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.android.material.behavior.HideBottomViewOnScrollBehavior, androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
         public boolean onLayoutChild(CoordinatorLayout coordinatorLayout, BottomAppBar bottomAppBar, int i) {
             this.viewRef = new WeakReference<>(bottomAppBar);
@@ -732,24 +719,23 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
             return super.onLayoutChild(coordinatorLayout, (CoordinatorLayout) bottomAppBar, i);
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.android.material.behavior.HideBottomViewOnScrollBehavior, androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
         public boolean onStartNestedScroll(CoordinatorLayout coordinatorLayout, BottomAppBar bottomAppBar, View view, View view2, int i, int i2) {
             return bottomAppBar.getHideOnScroll() && super.onStartNestedScroll(coordinatorLayout, (CoordinatorLayout) bottomAppBar, view, view2, i, i2);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // androidx.appcompat.widget.Toolbar, android.view.View
-    public Parcelable onSaveInstanceState() {
+    protected Parcelable onSaveInstanceState() {
         SavedState savedState = new SavedState(super.onSaveInstanceState());
         savedState.fabAlignmentMode = this.fabAlignmentMode;
         savedState.fabAttached = this.fabAttached;
         return savedState;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // androidx.appcompat.widget.Toolbar, android.view.View
-    public void onRestoreInstanceState(Parcelable parcelable) {
+    protected void onRestoreInstanceState(Parcelable parcelable) {
         if (!(parcelable instanceof SavedState)) {
             super.onRestoreInstanceState(parcelable);
             return;
@@ -760,21 +746,23 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
         this.fabAttached = savedState.fabAttached;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static class SavedState extends AbsSavedState {
+    static class SavedState extends AbsSavedState {
         public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.ClassLoaderCreator<SavedState>() { // from class: com.google.android.material.bottomappbar.BottomAppBar.SavedState.1
+            /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.ClassLoaderCreator
             public SavedState createFromParcel(Parcel parcel, ClassLoader classLoader) {
                 return new SavedState(parcel, classLoader);
             }
 
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // android.os.Parcelable.Creator
             public SavedState createFromParcel(Parcel parcel) {
                 return new SavedState(parcel, null);
             }
 
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // android.os.Parcelable.Creator
             public SavedState[] newArray(int i) {
                 return new SavedState[i];

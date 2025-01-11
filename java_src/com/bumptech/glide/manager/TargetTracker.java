@@ -6,6 +6,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 import java.util.WeakHashMap;
+
 /* loaded from: classes.dex */
 public final class TargetTracker implements LifecycleListener {
     private final Set<Target<?>> targets = Collections.newSetFromMap(new WeakHashMap());

@@ -15,6 +15,7 @@ import kotlin.jvm.internal.Intrinsics;
 import kotlinx.coroutines.channels.ReceiveChannel;
 import kotlinx.coroutines.flow.FlowCollector;
 import kotlinx.coroutines.internal.Symbol;
+
 /* compiled from: Combine.kt */
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u001e\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\b\u0003\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002\"\u0004\b\u0001\u0010\u00032\u0006\u0010\u0004\u001a\u00020\u0005H\u008a@¢\u0006\u0004\b\u0006\u0010\u0007¨\u0006\b"}, d2 = {"<anonymous>", "", "R", ExifInterface.GPS_DIRECTION_TRUE, "value", "", "invoke", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "kotlinx/coroutines/flow/internal/CombineKt$combineInternal$2$2$2"}, k = 3, mv = {1, 1, 15})
 /* loaded from: classes2.dex */
@@ -30,9 +31,8 @@ final class CombineKt$combineInternal$2$invokeSuspend$$inlined$select$lambda$1 e
     private Object p$0;
     final /* synthetic */ CombineKt$combineInternal$2 this$0;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CombineKt$combineInternal$2$invokeSuspend$$inlined$select$lambda$1(int i, Continuation continuation, CombineKt$combineInternal$2 combineKt$combineInternal$2, int i2, Boolean[] boolArr, ReceiveChannel[] receiveChannelArr, Object[] objArr) {
+    CombineKt$combineInternal$2$invokeSuspend$$inlined$select$lambda$1(int i, Continuation continuation, CombineKt$combineInternal$2 combineKt$combineInternal$2, int i2, Boolean[] boolArr, ReceiveChannel[] receiveChannelArr, Object[] objArr) {
         super(2, continuation);
         this.$i = i;
         this.this$0 = combineKt$combineInternal$2;
@@ -50,6 +50,7 @@ final class CombineKt$combineInternal$2$invokeSuspend$$inlined$select$lambda$1 e
         return combineKt$combineInternal$2$invokeSuspend$$inlined$select$lambda$1;
     }
 
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
     @Override // kotlin.jvm.functions.Function2
     public final Object invoke(Object obj, Continuation<? super Unit> continuation) {
         return ((CombineKt$combineInternal$2$invokeSuspend$$inlined$select$lambda$1) create(obj, continuation)).invokeSuspend(Unit.INSTANCE);

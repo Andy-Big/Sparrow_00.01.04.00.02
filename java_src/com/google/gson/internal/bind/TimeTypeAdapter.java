@@ -14,6 +14,7 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
 /* loaded from: classes.dex */
 public final class TimeTypeAdapter extends TypeAdapter<Time> {
     public static final TypeAdapterFactory FACTORY = new TypeAdapterFactory() { // from class: com.google.gson.internal.bind.TimeTypeAdapter.1
@@ -27,6 +28,7 @@ public final class TimeTypeAdapter extends TypeAdapter<Time> {
     };
     private final DateFormat format = new SimpleDateFormat("hh:mm:ss a");
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.gson.TypeAdapter
     public synchronized Time read(JsonReader jsonReader) throws IOException {
         if (jsonReader.peek() == JsonToken.NULL) {
@@ -40,6 +42,7 @@ public final class TimeTypeAdapter extends TypeAdapter<Time> {
         }
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.gson.TypeAdapter
     public synchronized void write(JsonWriter jsonWriter, Time time) throws IOException {
         jsonWriter.value(time == null ? null : this.format.format((Date) time));

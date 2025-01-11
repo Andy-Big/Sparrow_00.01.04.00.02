@@ -3,15 +3,18 @@ package androidx.databinding;
 import android.os.Parcel;
 import android.os.Parcelable;
 import java.io.Serializable;
+
 /* loaded from: classes.dex */
 public class ObservableDouble extends BaseObservableField implements Parcelable, Serializable {
     public static final Parcelable.Creator<ObservableDouble> CREATOR = new Parcelable.Creator<ObservableDouble>() { // from class: androidx.databinding.ObservableDouble.1
+        /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
         public ObservableDouble createFromParcel(Parcel parcel) {
             return new ObservableDouble(parcel.readDouble());
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
         public ObservableDouble[] newArray(int i) {

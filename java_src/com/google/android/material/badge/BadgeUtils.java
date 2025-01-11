@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.FrameLayout;
 import com.google.android.material.badge.BadgeDrawable;
 import com.google.android.material.internal.ParcelableSparseArray;
+
 /* loaded from: classes.dex */
 public class BadgeUtils {
     public static final boolean USE_COMPAT_PARENT;

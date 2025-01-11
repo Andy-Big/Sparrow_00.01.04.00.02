@@ -13,6 +13,7 @@ import java.lang.reflect.Array;
 import java.lang.reflect.GenericArrayType;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+
 /* loaded from: classes.dex */
 public final class ArrayTypeAdapter<E> extends TypeAdapter<Object> {
     public static final TypeAdapterFactory FACTORY = new TypeAdapterFactory() { // from class: com.google.gson.internal.bind.ArrayTypeAdapter.1
@@ -54,6 +55,7 @@ public final class ArrayTypeAdapter<E> extends TypeAdapter<Object> {
         return newInstance;
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r3v0, resolved type: com.google.gson.TypeAdapter<E> */
     /* JADX WARN: Multi-variable type inference failed */
     @Override // com.google.gson.TypeAdapter
     public void write(JsonWriter jsonWriter, Object obj) throws IOException {

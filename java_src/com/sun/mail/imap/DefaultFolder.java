@@ -9,6 +9,7 @@ import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.MethodNotSupportedException;
 import kotlin.jvm.internal.CharCompanionObject;
+
 /* loaded from: classes2.dex */
 public class DefaultFolder extends IMAPFolder {
     @Override // com.sun.mail.imap.IMAPFolder, javax.mail.Folder
@@ -21,8 +22,7 @@ public class DefaultFolder extends IMAPFolder {
         return false;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public DefaultFolder(IMAPStore iMAPStore) {
+    protected DefaultFolder(IMAPStore iMAPStore) {
         super("", CharCompanionObject.MAX_VALUE, iMAPStore, null);
         this.exists = true;
         this.type = 2;

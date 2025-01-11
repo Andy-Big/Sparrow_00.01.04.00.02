@@ -4,12 +4,12 @@ import android.content.Context;
 import android.media.session.MediaSessionManager;
 import androidx.core.util.ObjectsCompat;
 import androidx.media.MediaSessionManager;
+
 /* loaded from: classes.dex */
 class MediaSessionManagerImplApi28 extends MediaSessionManagerImplApi21 {
     android.media.session.MediaSessionManager mObject;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public MediaSessionManagerImplApi28(Context context) {
+    MediaSessionManagerImplApi28(Context context) {
         super(context);
         this.mObject = (android.media.session.MediaSessionManager) context.getSystemService("media_session");
     }
@@ -26,13 +26,11 @@ class MediaSessionManagerImplApi28 extends MediaSessionManagerImplApi21 {
     static final class RemoteUserInfoImplApi28 implements MediaSessionManager.RemoteUserInfoImpl {
         final MediaSessionManager.RemoteUserInfo mObject;
 
-        /* JADX INFO: Access modifiers changed from: package-private */
-        public RemoteUserInfoImplApi28(String str, int i, int i2) {
+        RemoteUserInfoImplApi28(String str, int i, int i2) {
             this.mObject = new MediaSessionManager.RemoteUserInfo(str, i, i2);
         }
 
-        /* JADX INFO: Access modifiers changed from: package-private */
-        public RemoteUserInfoImplApi28(MediaSessionManager.RemoteUserInfo remoteUserInfo) {
+        RemoteUserInfoImplApi28(MediaSessionManager.RemoteUserInfo remoteUserInfo) {
             this.mObject = remoteUserInfo;
         }
 

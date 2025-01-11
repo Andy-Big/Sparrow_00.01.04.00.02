@@ -2,6 +2,7 @@ package com.bumptech.glide.load;
 
 import com.bumptech.glide.util.Preconditions;
 import java.security.MessageDigest;
+
 /* loaded from: classes.dex */
 public final class Option<T> {
     private static final CacheKeyUpdater<Object> EMPTY_UPDATER = new CacheKeyUpdater<Object>() { // from class: com.bumptech.glide.load.Option.1

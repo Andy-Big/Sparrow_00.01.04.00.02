@@ -3,6 +3,7 @@ package com.sun.mail.imap.protocol;
 import com.sun.mail.iap.ByteArray;
 import com.sun.mail.iap.ParsingException;
 import java.io.ByteArrayInputStream;
+
 /* loaded from: classes2.dex */
 public class RFC822DATA implements Item {
     static final char[] name = {'R', 'F', 'C', '8', '2', '2'};

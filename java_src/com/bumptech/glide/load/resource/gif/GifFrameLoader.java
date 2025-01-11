@@ -24,9 +24,9 @@ import com.bumptech.glide.util.Util;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
-/* JADX INFO: Access modifiers changed from: package-private */
+
 /* loaded from: classes.dex */
-public class GifFrameLoader {
+class GifFrameLoader {
     private final BitmapPool bitmapPool;
     private final List<FrameCallback> callbacks;
     private DelayTarget current;
@@ -52,14 +52,12 @@ public class GifFrameLoader {
         void onFrameReady();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public interface OnEveryFrameListener {
+    interface OnEveryFrameListener {
         void onFrameReady();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public GifFrameLoader(Glide glide, GifDecoder gifDecoder, int i, int i2, Transformation<Bitmap> transformation, Bitmap bitmap) {
+    GifFrameLoader(Glide glide, GifDecoder gifDecoder, int i, int i2, Transformation<Bitmap> transformation, Bitmap bitmap) {
         this(glide.getBitmapPool(), Glide.with(glide.getContext()), gifDecoder, null, getRequestBuilder(Glide.with(glide.getContext()), i, i2), transformation, bitmap);
     }
 
@@ -74,8 +72,7 @@ public class GifFrameLoader {
         setFrameTransformation(transformation, bitmap);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setFrameTransformation(Transformation<Bitmap> transformation, Bitmap bitmap) {
+    void setFrameTransformation(Transformation<Bitmap> transformation, Bitmap bitmap) {
         this.transformation = (Transformation) Preconditions.checkNotNull(transformation);
         this.firstFrame = (Bitmap) Preconditions.checkNotNull(bitmap);
         this.requestBuilder = this.requestBuilder.apply((BaseRequestOptions<?>) new RequestOptions().transform(transformation));
@@ -84,18 +81,15 @@ public class GifFrameLoader {
         this.height = bitmap.getHeight();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public Transformation<Bitmap> getFrameTransformation() {
+    Transformation<Bitmap> getFrameTransformation() {
         return this.transformation;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public Bitmap getFirstFrame() {
+    Bitmap getFirstFrame() {
         return this.firstFrame;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void subscribe(FrameCallback frameCallback) {
+    void subscribe(FrameCallback frameCallback) {
         if (this.isCleared) {
             throw new IllegalStateException("Cannot subscribe to a cleared frame loader");
         }
@@ -109,31 +103,26 @@ public class GifFrameLoader {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void unsubscribe(FrameCallback frameCallback) {
+    void unsubscribe(FrameCallback frameCallback) {
         this.callbacks.remove(frameCallback);
         if (this.callbacks.isEmpty()) {
             stop();
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public int getWidth() {
+    int getWidth() {
         return this.width;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public int getHeight() {
+    int getHeight() {
         return this.height;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public int getSize() {
+    int getSize() {
         return this.gifDecoder.getByteSize() + this.firstFrameSize;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public int getCurrentIndex() {
+    int getCurrentIndex() {
         DelayTarget delayTarget = this.current;
         if (delayTarget != null) {
             return delayTarget.index;
@@ -141,18 +130,15 @@ public class GifFrameLoader {
         return -1;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ByteBuffer getBuffer() {
+    ByteBuffer getBuffer() {
         return this.gifDecoder.getData().asReadOnlyBuffer();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public int getFrameCount() {
+    int getFrameCount() {
         return this.gifDecoder.getFrameCount();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public int getLoopCount() {
+    int getLoopCount() {
         return this.gifDecoder.getTotalIterationCount();
     }
 
@@ -169,8 +155,7 @@ public class GifFrameLoader {
         this.isRunning = false;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void clear() {
+    void clear() {
         this.callbacks.clear();
         recycleFirstFrame();
         stop();
@@ -193,8 +178,7 @@ public class GifFrameLoader {
         this.isCleared = true;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public Bitmap getCurrentFrame() {
+    Bitmap getCurrentFrame() {
         DelayTarget delayTarget = this.current;
         return delayTarget != null ? delayTarget.getResource() : this.firstFrame;
     }
@@ -229,8 +213,7 @@ public class GifFrameLoader {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setNextStartFromFirstFrame() {
+    void setNextStartFromFirstFrame() {
         Preconditions.checkArgument(!this.isRunning, "Can't restart a running animation");
         this.startFromFirstFrame = true;
         DelayTarget delayTarget = this.pendingTarget;
@@ -292,9 +275,8 @@ public class GifFrameLoader {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static class DelayTarget extends CustomTarget<Bitmap> {
+    static class DelayTarget extends CustomTarget<Bitmap> {
         private final Handler handler;
         final int index;
         private Bitmap resource;

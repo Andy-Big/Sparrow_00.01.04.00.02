@@ -19,6 +19,7 @@ import android.util.StateSet;
 import android.view.View;
 import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.core.view.ViewCompat;
+
 /* loaded from: classes.dex */
 public class ShadowUtils {
     private static final int SHADOW_TAG = -16;
@@ -619,9 +620,8 @@ public class ShadowUtils {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static class DrawableWrapper extends Drawable implements Drawable.Callback {
+    static class DrawableWrapper extends Drawable implements Drawable.Callback {
         private Drawable mDrawable;
 
         public DrawableWrapper(Drawable drawable) {

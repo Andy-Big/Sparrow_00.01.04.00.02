@@ -16,6 +16,7 @@ import android.support.v4.media.session.MediaSessionCompat;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public interface IMediaSession extends IInterface {
     void addQueueItem(MediaDescriptionCompat mediaDescriptionCompat) throws RemoteException;
@@ -494,9 +495,8 @@ public interface IMediaSession extends IInterface {
             }
         }
 
-        /* JADX INFO: Access modifiers changed from: private */
         /* loaded from: classes.dex */
-        public static class Proxy implements IMediaSession {
+        private static class Proxy implements IMediaSession {
             private IBinder mRemote;
 
             public String getInterfaceDescriptor() {

@@ -4,6 +4,7 @@ import android.view.View;
 import androidx.viewpager2.widget.ViewPager2;
 import java.util.ArrayList;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public final class CompositePageTransformer implements ViewPager2.PageTransformer {
     private final List<ViewPager2.PageTransformer> mTransformers = new ArrayList();

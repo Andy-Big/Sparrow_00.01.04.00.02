@@ -1,11 +1,11 @@
 package com.google.android.material.shape;
+
 /* loaded from: classes.dex */
 public final class MarkerEdgeTreatment extends EdgeTreatment {
     private final float radius;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.google.android.material.shape.EdgeTreatment
-    public boolean forceIntersection() {
+    boolean forceIntersection() {
         return true;
     }
 

@@ -4,6 +4,7 @@ import android.content.Context;
 import androidx.appcompat.view.menu.MenuBuilder;
 import androidx.appcompat.view.menu.MenuItemImpl;
 import androidx.appcompat.view.menu.SubMenuBuilder;
+
 /* loaded from: classes.dex */
 public class NavigationSubMenu extends SubMenuBuilder {
     public NavigationSubMenu(Context context, NavigationMenu navigationMenu, MenuItemImpl menuItemImpl) {

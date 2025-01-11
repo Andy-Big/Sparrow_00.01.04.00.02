@@ -5,6 +5,7 @@ import android.content.res.Configuration;
 import android.os.Build;
 import android.util.AttributeSet;
 import android.webkit.WebView;
+
 /* loaded from: classes.dex */
 public class LollipopFixedWebView extends WebView {
     public LollipopFixedWebView(Context context) {

@@ -10,6 +10,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
+
 /* loaded from: classes.dex */
 public class MultiModelLoaderFactory {
     private static final Factory DEFAULT_FACTORY = new Factory();
@@ -30,13 +31,11 @@ public class MultiModelLoaderFactory {
         this.factory = factory;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public synchronized <Model, Data> void append(Class<Model> cls, Class<Data> cls2, ModelLoaderFactory<? extends Model, ? extends Data> modelLoaderFactory) {
+    synchronized <Model, Data> void append(Class<Model> cls, Class<Data> cls2, ModelLoaderFactory<? extends Model, ? extends Data> modelLoaderFactory) {
         add(cls, cls2, modelLoaderFactory, true);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public synchronized <Model, Data> void prepend(Class<Model> cls, Class<Data> cls2, ModelLoaderFactory<? extends Model, ? extends Data> modelLoaderFactory) {
+    synchronized <Model, Data> void prepend(Class<Model> cls, Class<Data> cls2, ModelLoaderFactory<? extends Model, ? extends Data> modelLoaderFactory) {
         add(cls, cls2, modelLoaderFactory, false);
     }
 
@@ -46,16 +45,14 @@ public class MultiModelLoaderFactory {
         list.add(z ? list.size() : 0, entry);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public synchronized <Model, Data> List<ModelLoaderFactory<? extends Model, ? extends Data>> replace(Class<Model> cls, Class<Data> cls2, ModelLoaderFactory<? extends Model, ? extends Data> modelLoaderFactory) {
+    synchronized <Model, Data> List<ModelLoaderFactory<? extends Model, ? extends Data>> replace(Class<Model> cls, Class<Data> cls2, ModelLoaderFactory<? extends Model, ? extends Data> modelLoaderFactory) {
         List<ModelLoaderFactory<? extends Model, ? extends Data>> remove;
         remove = remove(cls, cls2);
         append(cls, cls2, modelLoaderFactory);
         return remove;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public synchronized <Model, Data> List<ModelLoaderFactory<? extends Model, ? extends Data>> remove(Class<Model> cls, Class<Data> cls2) {
+    synchronized <Model, Data> List<ModelLoaderFactory<? extends Model, ? extends Data>> remove(Class<Model> cls, Class<Data> cls2) {
         ArrayList arrayList;
         arrayList = new ArrayList();
         Iterator<Entry<?, ?>> it = this.entries.iterator();
@@ -69,8 +66,8 @@ public class MultiModelLoaderFactory {
         return arrayList;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public synchronized <Model> List<ModelLoader<Model, ?>> build(Class<Model> cls) {
+    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
+    synchronized <Model> List<ModelLoader<Model, ?>> build(Class<Model> cls) {
         ArrayList arrayList;
         try {
             arrayList = new ArrayList();
@@ -88,8 +85,7 @@ public class MultiModelLoaderFactory {
         return arrayList;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public synchronized List<Class<?>> getDataClasses(Class<?> cls) {
+    synchronized List<Class<?>> getDataClasses(Class<?> cls) {
         ArrayList arrayList;
         arrayList = new ArrayList();
         for (Entry<?, ?> entry : this.entries) {
@@ -100,6 +96,7 @@ public class MultiModelLoaderFactory {
         return arrayList;
     }
 
+    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
     public synchronized <Model, Data> ModelLoader<Model, Data> build(Class<Model> cls, Class<Data> cls2) {
         try {
             ArrayList arrayList = new ArrayList();
@@ -140,9 +137,8 @@ public class MultiModelLoaderFactory {
         return (ModelLoader<Model, Data>) EMPTY_MODEL_LOADER;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static class Entry<Model, Data> {
+    private static class Entry<Model, Data> {
         final Class<Data> dataClass;
         final ModelLoaderFactory<? extends Model, ? extends Data> factory;
         private final Class<Model> modelClass;

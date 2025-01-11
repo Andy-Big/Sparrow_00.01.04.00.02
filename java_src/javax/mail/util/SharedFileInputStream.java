@@ -7,6 +7,7 @@ import java.io.InputStream;
 import java.io.RandomAccessFile;
 import javax.mail.internet.SharedInputStream;
 import kotlin.UByte;
+
 /* loaded from: classes2.dex */
 public class SharedFileInputStream extends BufferedInputStream implements SharedInputStream {
     private static int defaultBufferSize = 2048;
@@ -23,9 +24,8 @@ public class SharedFileInputStream extends BufferedInputStream implements Shared
         return true;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
-    public static class SharedFile {
+    static class SharedFile {
         private int cnt;
         private RandomAccessFile in;
 
@@ -274,7 +274,7 @@ public class SharedFileInputStream extends BufferedInputStream implements Shared
         this.pos = this.markpos;
     }
 
-    /* JADX WARN: Type inference failed for: r0v1, types: [byte[], javax.mail.util.SharedFileInputStream$SharedFile, java.io.RandomAccessFile] */
+    /* JADX WARN: Type inference failed for: r0v1, types: [javax.mail.util.SharedFileInputStream$SharedFile, java.io.RandomAccessFile, byte[]] */
     @Override // java.io.BufferedInputStream, java.io.FilterInputStream, java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
         if (this.in == null) {

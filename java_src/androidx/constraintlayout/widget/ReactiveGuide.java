@@ -8,6 +8,7 @@ import android.view.View;
 import androidx.constraintlayout.motion.widget.MotionLayout;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.SharedValues;
+
 /* loaded from: classes.dex */
 public class ReactiveGuide extends View implements SharedValues.SharedValuesListener {
     private boolean mAnimateChange;

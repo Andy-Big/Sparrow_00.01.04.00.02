@@ -32,6 +32,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public final class MediaControllerCompat {
     public static final String COMMAND_ADD_QUEUE_ITEM = "android.support.v4.media.session.command.ADD_QUEUE_ITEM";
@@ -46,9 +47,8 @@ public final class MediaControllerCompat {
     private final HashSet<Callback> mRegisteredCallbacks = new HashSet<>();
     private final MediaSessionCompat.Token mToken;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public interface MediaControllerImpl {
+    interface MediaControllerImpl {
         void addQueueItem(MediaDescriptionCompat mediaDescriptionCompat);
 
         void addQueueItem(MediaDescriptionCompat mediaDescriptionCompat, int i);
@@ -618,9 +618,8 @@ public final class MediaControllerCompat {
             }
         }
 
-        /* JADX INFO: Access modifiers changed from: private */
         /* loaded from: classes.dex */
-        public class MessageHandler extends Handler {
+        private class MessageHandler extends Handler {
             private static final int MSG_DESTROYED = 8;
             private static final int MSG_EVENT = 1;
             private static final int MSG_SESSION_READY = 13;
@@ -1535,9 +1534,8 @@ public final class MediaControllerCompat {
             this.mPendingCallbacks.clear();
         }
 
-        /* JADX INFO: Access modifiers changed from: private */
         /* loaded from: classes.dex */
-        public static class ExtraBinderRequestResultReceiver extends ResultReceiver {
+        private static class ExtraBinderRequestResultReceiver extends ResultReceiver {
             private WeakReference<MediaControllerImplApi21> mMediaControllerImpl;
 
             ExtraBinderRequestResultReceiver(MediaControllerImplApi21 mediaControllerImplApi21) {
@@ -1559,9 +1557,8 @@ public final class MediaControllerCompat {
             }
         }
 
-        /* JADX INFO: Access modifiers changed from: private */
         /* loaded from: classes.dex */
-        public static class ExtraCallback extends Callback.StubCompat {
+        private static class ExtraCallback extends Callback.StubCompat {
             ExtraCallback(Callback callback) {
                 super(callback);
             }

@@ -13,6 +13,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Random;
+
 /* loaded from: classes2.dex */
 public class FunGameBattleCityHeader extends FunGameView {
     protected static final int DEFAULT_BULLET_NUM_SPACING = 360;

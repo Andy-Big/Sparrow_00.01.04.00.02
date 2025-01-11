@@ -135,7 +135,7 @@ public class LoadPopupView extends BasePopupView implements View.OnClickListener
         return arrayList;
     }
 
-    /* renamed from: com.rigol.scope.views.load.LoadPopupView$1  reason: invalid class name */
+    /* renamed from: com.rigol.scope.views.load.LoadPopupView$1 */
     /* loaded from: classes2.dex */
     static /* synthetic */ class AnonymousClass1 {
         static final /* synthetic */ int[] $SwitchMap$com$rigol$scope$cil$ServiceEnum$StorageFunc;

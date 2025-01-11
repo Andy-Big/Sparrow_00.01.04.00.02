@@ -5,6 +5,7 @@ import java.io.InputStream;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.nio.ByteBuffer;
+
 /* loaded from: classes.dex */
 public interface GifDecoder {
     public static final int STATUS_FORMAT_ERROR = 1;

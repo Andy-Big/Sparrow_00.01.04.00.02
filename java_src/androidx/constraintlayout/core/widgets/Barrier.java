@@ -5,6 +5,7 @@ import androidx.constraintlayout.core.SolverVariable;
 import androidx.constraintlayout.core.widgets.ConstraintAnchor;
 import androidx.constraintlayout.core.widgets.ConstraintWidget;
 import java.util.HashMap;
+
 /* loaded from: classes.dex */
 public class Barrier extends HelperWidget {
     public static final int BOTTOM = 3;
@@ -78,8 +79,7 @@ public class Barrier extends HelperWidget {
         return str + "}";
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void markWidgets() {
+    protected void markWidgets() {
         for (int i = 0; i < this.mWidgetsCount; i++) {
             ConstraintWidget constraintWidget = this.mWidgets[i];
             int i2 = this.mBarrierType;

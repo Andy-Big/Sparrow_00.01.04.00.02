@@ -9,6 +9,7 @@ import android.view.MotionEvent;
 import com.google.android.material.R;
 import java.util.ArrayList;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public class RangeSlider extends BaseSlider<RangeSlider, OnChangeListener, OnSliderTouchListener> {
 

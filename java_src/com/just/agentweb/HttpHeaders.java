@@ -4,6 +4,7 @@ import android.net.Uri;
 import android.text.TextUtils;
 import androidx.collection.ArrayMap;
 import java.util.Map;
+
 /* loaded from: classes.dex */
 public class HttpHeaders {
     private final Map<String, Map<String, String>> mHeaders = new ArrayMap();

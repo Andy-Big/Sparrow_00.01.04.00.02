@@ -3,6 +3,7 @@ package androidx.core.provider;
 import android.util.Base64;
 import androidx.core.util.Preconditions;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public final class FontRequest {
     private final List<List<byte[]>> mCertificates;

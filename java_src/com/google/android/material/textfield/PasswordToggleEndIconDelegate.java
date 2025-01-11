@@ -8,15 +8,14 @@ import android.widget.EditText;
 import androidx.appcompat.content.res.AppCompatResources;
 import com.google.android.material.R;
 import com.google.android.material.textfield.TextInputLayout;
-/* JADX INFO: Access modifiers changed from: package-private */
+
 /* loaded from: classes.dex */
-public class PasswordToggleEndIconDelegate extends EndIconDelegate {
+class PasswordToggleEndIconDelegate extends EndIconDelegate {
     private final TextInputLayout.OnEditTextAttachedListener onEditTextAttachedListener;
     private final TextInputLayout.OnEndIconChangedListener onEndIconChangedListener;
     private final TextWatcher textWatcher;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public PasswordToggleEndIconDelegate(TextInputLayout textInputLayout) {
+    PasswordToggleEndIconDelegate(TextInputLayout textInputLayout) {
         super(textInputLayout);
         this.textWatcher = new TextWatcher() { // from class: com.google.android.material.textfield.PasswordToggleEndIconDelegate.1
             @Override // android.text.TextWatcher
@@ -56,9 +55,8 @@ public class PasswordToggleEndIconDelegate extends EndIconDelegate {
         };
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.google.android.material.textfield.EndIconDelegate
-    public void initialize() {
+    void initialize() {
         this.textInputLayout.setEndIconDrawable(AppCompatResources.getDrawable(this.context, R.drawable.design_password_eye));
         this.textInputLayout.setEndIconContentDescription(this.textInputLayout.getResources().getText(R.string.password_toggle_content_description));
         this.textInputLayout.setEndIconOnClickListener(new View.OnClickListener() { // from class: com.google.android.material.textfield.PasswordToggleEndIconDelegate.4

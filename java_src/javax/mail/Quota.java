@@ -1,4 +1,5 @@
 package javax.mail;
+
 /* loaded from: classes2.dex */
 public class Quota {
     public String quotaRoot;

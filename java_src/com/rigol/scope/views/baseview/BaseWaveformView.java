@@ -913,6 +913,10 @@ public class BaseWaveformView extends WindowContent {
 
     public /* synthetic */ void lambda$init$43$BaseWaveformView(final SharedParam sharedParam) {
         sharedParam.addOnPropertyChangedCallback(new Observable.OnPropertyChangedCallback() { // from class: com.rigol.scope.views.baseview.BaseWaveformView.1
+            {
+                BaseWaveformView.this = this;
+            }
+
             @Override // androidx.databinding.Observable.OnPropertyChangedCallback
             public void onPropertyChanged(Observable observable, int i) {
                 if (i == 833) {
@@ -991,12 +995,15 @@ public class BaseWaveformView extends WindowContent {
             tagView.postDelayed(new Runnable() { // from class: com.rigol.scope.views.baseview.-$$Lambda$BaseWaveformView$HFZA_DbDnugbMkjEnUn-VAhh2Cg
                 @Override // java.lang.Runnable
                 public final void run() {
-                    TagView tagView2 = TagView.this;
-                    DecodeParam decodeParam2 = decodeParam;
-                    tagView2.setVisibility(r1.isOnOff() ? 0 : 8);
+                    BaseWaveformView.lambda$updateDecodeVisibility$44(TagView.this, decodeParam);
                 }
             }, 100L);
         }
+    }
+
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.views.baseview.-$$Lambda$BaseWaveformView$HFZA_DbDnugbMkjEnUn-VAhh2Cg.run():void] */
+    static /* synthetic */ void lambda$updateDecodeVisibility$44(TagView tagView, DecodeParam decodeParam) {
+        tagView.setVisibility(decodeParam.isOnOff() ? 0 : 8);
     }
 
     private void setDecodeViewVisibility(DecodeParam decodeParam, boolean z) {
@@ -1062,6 +1069,10 @@ public class BaseWaveformView extends WindowContent {
                 public void onStart() {
                 }
 
+                {
+                    BaseWaveformView.this = this;
+                }
+
                 @Override // com.rigol.scope.views.TagView.Callback
                 public void onMove(int i2, int i3, int i4, int i5) {
                     if (BaseWaveformView.this.getHeight() != 0) {
@@ -1085,7 +1096,6 @@ public class BaseWaveformView extends WindowContent {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public void setDecodeLinePercent(int i, Guideline guideline) {
         if (guideline != null) {
             ViewGroup.LayoutParams layoutParams = guideline.getLayoutParams();
@@ -1124,6 +1134,10 @@ public class BaseWaveformView extends WindowContent {
                 public void onStart() {
                 }
 
+                {
+                    BaseWaveformView.this = this;
+                }
+
                 @Override // com.rigol.scope.views.TagView.Callback
                 public void onMove(int i2, int i3, int i4, int i5) {
                     VerticalParam verticalParam2 = verticalParam;
@@ -1133,7 +1147,7 @@ public class BaseWaveformView extends WindowContent {
             channelTag.setOnClickListener(new View.OnClickListener() { // from class: com.rigol.scope.views.baseview.-$$Lambda$BaseWaveformView$DLXUHrd8vbhOjcdzN9ObNTxCXq8
                 @Override // android.view.View.OnClickListener
                 public final void onClick(View view) {
-                    VerticalParam.this.turnActive();
+                    BaseWaveformView.lambda$addChannelTags$45(VerticalParam.this, view);
                 }
             });
             SimpleArrayMap<String, Object> tagViews = getTagViews();
@@ -1141,6 +1155,11 @@ public class BaseWaveformView extends WindowContent {
             SimpleArrayMap<String, Object> tagViews2 = getTagViews();
             tagViews2.put(verticalParam.getServiceId() + getClass().getSimpleName() + "-Label", channelLabel);
         }
+    }
+
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.views.baseview.-$$Lambda$BaseWaveformView$DLXUHrd8vbhOjcdzN9ObNTxCXq8.onClick(android.view.View):void] */
+    static /* synthetic */ void lambda$addChannelTags$45(VerticalParam verticalParam, View view) {
+        verticalParam.turnActive();
     }
 
     public void addDecodeThresLine() {
@@ -1218,6 +1237,10 @@ public class BaseWaveformView extends WindowContent {
             public void onStart() {
             }
 
+            {
+                BaseWaveformView.this = this;
+            }
+
             @Override // com.rigol.scope.views.TagView.Callback
             public void onMove(int i, int i2, int i3, int i4) {
                 VerticalParam verticalItem;
@@ -1252,6 +1275,10 @@ public class BaseWaveformView extends WindowContent {
 
             @Override // com.rigol.scope.views.TagView.Callback
             public void onStart() {
+            }
+
+            {
+                BaseWaveformView.this = this;
             }
 
             @Override // com.rigol.scope.views.TagView.Callback
@@ -1291,6 +1318,10 @@ public class BaseWaveformView extends WindowContent {
 
             @Override // com.rigol.scope.views.TagView.Callback
             public void onStart() {
+            }
+
+            {
+                BaseWaveformView.this = this;
             }
 
             @Override // com.rigol.scope.views.TagView.Callback
@@ -1536,7 +1567,6 @@ public class BaseWaveformView extends WindowContent {
         return (int) ((((float) (this.horizontalParam.getExpandGnd() - (-500))) / 1000) * i);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: updateTriggerPointTagPosition */
     public void lambda$addTriggerPointTag$46$BaseWaveformView(boolean z) {
         HorizontalParam horizontalParam = this.horizontalParam;

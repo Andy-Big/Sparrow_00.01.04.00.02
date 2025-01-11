@@ -17,6 +17,7 @@ import com.google.android.material.internal.ThemeEnforcement;
 import com.google.android.material.theme.overlay.MaterialThemeOverlay;
 import java.util.ArrayList;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public class ChipGroup extends FlowLayout {
     private static final int DEF_STYLE_RES = R.style.Widget_MaterialComponents_ChipGroup;
@@ -250,8 +251,7 @@ public class ChipGroup extends FlowLayout {
         return i;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public int getIndexOfChip(View view) {
+    int getIndexOfChip(View view) {
         if (view instanceof Chip) {
             int i = 0;
             for (int i2 = 0; i2 < getChildCount(); i2++) {

@@ -12,6 +12,7 @@ import androidx.fragment.app.FragmentActivity;
 import com.just.agentweb.DefaultWebClient;
 import java.lang.ref.WeakReference;
 import java.util.Map;
+
 /* loaded from: classes.dex */
 public final class AgentWeb {
     private static final int ACTIVITY_TAG = 0;
@@ -647,8 +648,7 @@ public final class AgentWeb {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public Activity getActivity() {
+    Activity getActivity() {
         return this.mActivity;
     }
 

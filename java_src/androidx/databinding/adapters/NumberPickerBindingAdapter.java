@@ -2,6 +2,7 @@ package androidx.databinding.adapters;
 
 import android.widget.NumberPicker;
 import androidx.databinding.InverseBindingListener;
+
 /* loaded from: classes.dex */
 public class NumberPickerBindingAdapter {
     public static void setValue(NumberPicker numberPicker, int i) {

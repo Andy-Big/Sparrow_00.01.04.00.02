@@ -12,6 +12,7 @@ import androidx.core.util.Pair;
 import androidx.core.view.ViewCompat;
 import java.util.HashSet;
 import java.util.Set;
+
 /* loaded from: classes.dex */
 public class VideoImpl implements IVideo, EventInterceptor {
     private static final String TAG = VideoImpl.class.getSimpleName();

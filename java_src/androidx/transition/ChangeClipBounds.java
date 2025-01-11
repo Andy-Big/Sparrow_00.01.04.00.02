@@ -11,6 +11,7 @@ import android.util.Property;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.core.view.ViewCompat;
+
 /* loaded from: classes.dex */
 public class ChangeClipBounds extends Transition {
     private static final String PROPNAME_BOUNDS = "android:clipBounds:bounds";

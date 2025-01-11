@@ -1,4 +1,5 @@
 package javax.mail.event;
+
 /* loaded from: classes2.dex */
 public class ConnectionEvent extends MailEvent {
     public static final int CLOSED = 3;

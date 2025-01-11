@@ -3,6 +3,7 @@ package androidx.databinding.adapters;
 import android.widget.DatePicker;
 import androidx.databinding.InverseBindingListener;
 import androidx.databinding.library.baseAdapters.R;
+
 /* loaded from: classes.dex */
 public class DatePickerBindingAdapter {
     public static void setListeners(DatePicker datePicker, int i, int i2, int i3, DatePicker.OnDateChangedListener onDateChangedListener, InverseBindingListener inverseBindingListener, InverseBindingListener inverseBindingListener2, InverseBindingListener inverseBindingListener3) {

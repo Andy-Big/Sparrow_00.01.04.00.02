@@ -9,6 +9,7 @@ import android.util.AttributeSet;
 import android.view.ViewParent;
 import androidx.constraintlayout.motion.widget.MotionLayout;
 import androidx.constraintlayout.widget.R;
+
 /* loaded from: classes.dex */
 public class MotionTelltales extends MockView {
     private static final String TAG = "MotionTelltales";

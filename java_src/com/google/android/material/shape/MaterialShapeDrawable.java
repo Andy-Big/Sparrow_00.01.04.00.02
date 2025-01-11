@@ -31,6 +31,7 @@ import com.google.android.material.shape.ShapePath;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.BitSet;
+
 /* loaded from: classes.dex */
 public class MaterialShapeDrawable extends Drawable implements TintAwareDrawable, Shapeable {
     public static final int SHADOW_COMPAT_MODE_ALWAYS = 2;
@@ -285,8 +286,7 @@ public class MaterialShapeDrawable extends Drawable implements TintAwareDrawable
         return this.transparentRegion;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public RectF getBoundsAsRectF() {
+    protected RectF getBoundsAsRectF() {
         this.rectF.set(getBounds());
         return this.rectF;
     }
@@ -527,9 +527,8 @@ public class MaterialShapeDrawable extends Drawable implements TintAwareDrawable
         return (this.drawableState.paintStyle == Paint.Style.FILL_AND_STROKE || this.drawableState.paintStyle == Paint.Style.STROKE) && this.strokePaint.getStrokeWidth() > 0.0f;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.graphics.drawable.Drawable
-    public void onBoundsChange(Rect rect) {
+    protected void onBoundsChange(Rect rect) {
         this.pathDirty = true;
         super.onBoundsChange(rect);
     }
@@ -585,8 +584,7 @@ public class MaterialShapeDrawable extends Drawable implements TintAwareDrawable
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void drawShape(Canvas canvas, Paint paint, Path path, RectF rectF) {
+    protected void drawShape(Canvas canvas, Paint paint, Path path, RectF rectF) {
         drawShape(canvas, paint, path, this.drawableState.shapeAppearanceModel, rectF);
     }
 
@@ -652,8 +650,7 @@ public class MaterialShapeDrawable extends Drawable implements TintAwareDrawable
         calculatePathForSize(new RectF(0.0f, 0.0f, i, i2), path);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public final void calculatePathForSize(RectF rectF, Path path) {
+    protected final void calculatePathForSize(RectF rectF, Path path) {
         this.pathProvider.calculatePath(this.drawableState.shapeAppearanceModel, this.drawableState.interpolation, rectF, this.pathShadowListener, path);
     }
 
@@ -737,9 +734,8 @@ public class MaterialShapeDrawable extends Drawable implements TintAwareDrawable
         return super.isStateful() || (this.drawableState.tintList != null && this.drawableState.tintList.isStateful()) || ((this.drawableState.strokeTintList != null && this.drawableState.strokeTintList.isStateful()) || ((this.drawableState.strokeColor != null && this.drawableState.strokeColor.isStateful()) || (this.drawableState.fillColor != null && this.drawableState.fillColor.isStateful())));
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.graphics.drawable.Drawable, com.google.android.material.internal.TextDrawableHelper.TextDrawableDelegate
-    public boolean onStateChange(int[] iArr) {
+    protected boolean onStateChange(int[] iArr) {
         boolean z = updateColorsForState(iArr) || updateTintFilter();
         if (z) {
             invalidateSelf();
@@ -800,9 +796,8 @@ public class MaterialShapeDrawable extends Drawable implements TintAwareDrawable
         return this.drawableState.shapeAppearanceModel.isRoundRect(getBoundsAsRectF());
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static final class MaterialShapeDrawableState extends Drawable.ConstantState {
+    static final class MaterialShapeDrawableState extends Drawable.ConstantState {
         public int alpha;
         public ColorFilter colorFilter;
         public float elevation;

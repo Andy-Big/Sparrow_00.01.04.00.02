@@ -5,6 +5,7 @@ import android.content.res.Resources;
 import android.view.LayoutInflater;
 import android.widget.SpinnerAdapter;
 import androidx.appcompat.view.ContextThemeWrapper;
+
 /* loaded from: classes.dex */
 public interface ThemedSpinnerAdapter extends SpinnerAdapter {
     Resources.Theme getDropDownViewTheme();

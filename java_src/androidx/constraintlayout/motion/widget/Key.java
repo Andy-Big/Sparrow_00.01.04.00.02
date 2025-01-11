@@ -5,6 +5,7 @@ import android.util.AttributeSet;
 import androidx.constraintlayout.widget.ConstraintAttribute;
 import java.util.HashMap;
 import java.util.HashSet;
+
 /* loaded from: classes.dex */
 public abstract class Key {
     public static final String ALPHA = "alpha";
@@ -39,15 +40,14 @@ public abstract class Key {
 
     public abstract void addValues(HashMap<String, SplineSet> hashMap);
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // 
     /* renamed from: clone */
     public abstract Key mo2clone();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public abstract void getAttributeNames(HashSet<String> hashSet);
+    abstract void getAttributeNames(HashSet<String> hashSet);
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public abstract void load(Context context, AttributeSet attributeSet);
+    abstract void load(Context context, AttributeSet attributeSet);
 
     public void setInterpolation(HashMap<String, Integer> hashMap) {
     }
@@ -61,8 +61,7 @@ public abstract class Key {
         this.mTargetString = null;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean matches(String str) {
+    boolean matches(String str) {
         String str2 = this.mTargetString;
         if (str2 == null || str == null) {
             return false;
@@ -70,18 +69,15 @@ public abstract class Key {
         return str.matches(str2);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public float toFloat(Object obj) {
+    float toFloat(Object obj) {
         return obj instanceof Float ? ((Float) obj).floatValue() : Float.parseFloat(obj.toString());
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public int toInt(Object obj) {
+    int toInt(Object obj) {
         return obj instanceof Integer ? ((Integer) obj).intValue() : Integer.parseInt(obj.toString());
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean toBoolean(Object obj) {
+    boolean toBoolean(Object obj) {
         return obj instanceof Boolean ? ((Boolean) obj).booleanValue() : Boolean.parseBoolean(obj.toString());
     }
 

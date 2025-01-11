@@ -1,6 +1,7 @@
 package androidx.databinding;
 
 import java.util.Map;
+
 /* loaded from: classes.dex */
 public interface ObservableMap<K, V> extends Map<K, V> {
 

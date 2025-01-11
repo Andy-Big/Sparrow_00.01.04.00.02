@@ -2,6 +2,7 @@ package javax.mail.internet;
 
 import com.sun.mail.util.PropUtil;
 import javax.mail.internet.HeaderTokenizer;
+
 /* loaded from: classes2.dex */
 public class ContentDisposition {
     private static final boolean contentDispositionStrict = PropUtil.getBooleanSystemProperty("mail.mime.contentdisposition.strict", true);

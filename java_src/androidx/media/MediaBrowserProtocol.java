@@ -1,4 +1,5 @@
 package androidx.media;
+
 /* loaded from: classes.dex */
 public class MediaBrowserProtocol {
     public static final int CLIENT_MSG_ADD_SUBSCRIPTION = 3;

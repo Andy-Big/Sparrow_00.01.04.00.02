@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import java.util.Locale;
+
 /* loaded from: classes.dex */
 public class ViewUtils {
     public static void setViewEnabled(View view, boolean z) {

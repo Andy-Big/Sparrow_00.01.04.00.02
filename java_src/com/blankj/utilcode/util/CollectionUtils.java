@@ -16,6 +16,7 @@ import java.util.ListIterator;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
+
 /* loaded from: classes.dex */
 public final class CollectionUtils {
 
@@ -394,6 +395,7 @@ public final class CollectionUtils {
         return arrayList;
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: com.blankj.utilcode.util.CollectionUtils$Transformer<E1, E2> */
     /* JADX WARN: Multi-variable type inference failed */
     public static <E1, E2> void transform(Collection<E1> collection, Transformer<E1, E2> transformer) {
         if (collection == null || transformer == 0) {

@@ -7,16 +7,15 @@ import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.Executor;
 import java.util.concurrent.LinkedBlockingQueue;
 import javax.mail.event.MailEvent;
-/* JADX INFO: Access modifiers changed from: package-private */
+
 /* loaded from: classes2.dex */
-public class EventQueue implements Runnable {
+class EventQueue implements Runnable {
     private static WeakHashMap<ClassLoader, EventQueue> appq;
     private Executor executor;
     private volatile BlockingQueue<QueueElement> q;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
-    public static class TerminatorEvent extends MailEvent {
+    static class TerminatorEvent extends MailEvent {
         private static final long serialVersionUID = -2481895000841664111L;
 
         TerminatorEvent() {
@@ -29,9 +28,8 @@ public class EventQueue implements Runnable {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
-    public static class QueueElement {
+    static class QueueElement {
         MailEvent event;
         Vector<? extends EventListener> vector;
 
@@ -43,13 +41,11 @@ public class EventQueue implements Runnable {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public EventQueue(Executor executor) {
+    EventQueue(Executor executor) {
         this.executor = executor;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public synchronized void enqueue(MailEvent mailEvent, Vector<? extends EventListener> vector) {
+    synchronized void enqueue(MailEvent mailEvent, Vector<? extends EventListener> vector) {
         if (this.q == null) {
             this.q = new LinkedBlockingQueue();
             if (this.executor != null) {
@@ -63,8 +59,7 @@ public class EventQueue implements Runnable {
         this.q.add(new QueueElement(mailEvent, vector));
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public synchronized void terminateQueue() {
+    synchronized void terminateQueue() {
         if (this.q != null) {
             Vector vector = new Vector();
             vector.setSize(1);
@@ -73,8 +68,7 @@ public class EventQueue implements Runnable {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static synchronized EventQueue getApplicationEventQueue(Executor executor) {
+    static synchronized EventQueue getApplicationEventQueue(Executor executor) {
         EventQueue eventQueue;
         synchronized (EventQueue.class) {
             ClassLoader contextClassLoader = Session.getContextClassLoader();
@@ -100,9 +94,27 @@ public class EventQueue implements Runnable {
     @Override // java.lang.Runnable
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
     public void run() {
+        /*  JADX ERROR: JadxOverflowException in pass: RegionMakerVisitor
+            jadx.core.utils.exceptions.JadxOverflowException: Regions count limit reached
+            	at jadx.core.utils.ErrorsCounter.addError(ErrorsCounter.java:56)
+            	at jadx.core.utils.ErrorsCounter.error(ErrorsCounter.java:30)
+            */
+        /*  JADX ERROR: Method code generation error
+            java.lang.NullPointerException: Cannot invoke "jadx.core.dex.nodes.IContainer.get(jadx.api.plugins.input.data.attributes.IJadxAttrType)" because "cont" is null
+            	at jadx.core.codegen.RegionGen.declareVars(RegionGen.java:67)
+            	at jadx.core.codegen.RegionGen.makeRegion(RegionGen.java:62)
+            	at jadx.core.codegen.MethodGen.addRegionInsns(MethodGen.java:296)
+            	at jadx.core.codegen.MethodGen.addInstructions(MethodGen.java:280)
+            	at jadx.core.codegen.ClassGen.addMethodCode(ClassGen.java:377)
+            	at jadx.core.codegen.ClassGen.addMethod(ClassGen.java:306)
+            	at jadx.core.codegen.ClassGen.lambda$addInnerClsAndMethods$3(ClassGen.java:272)
+            	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(Unknown Source)
+            	at java.base/java.util.ArrayList.forEach(Unknown Source)
+            	at java.base/java.util.stream.SortedOps$RefSortingSink.end(Unknown Source)
+            	at java.base/java.util.stream.Sink$ChainedReference.end(Unknown Source)
+            */
         /*
             r5 = this;
             java.util.concurrent.BlockingQueue<javax.mail.EventQueue$QueueElement> r0 = r5.q

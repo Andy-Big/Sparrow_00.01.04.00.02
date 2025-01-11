@@ -6,6 +6,7 @@ import android.os.Handler;
 import androidx.core.util.DebugUtils;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
+
 /* loaded from: classes.dex */
 public class Loader<D> {
     Context mContext;
@@ -35,12 +36,10 @@ public class Loader<D> {
         return false;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void onForceLoad() {
+    protected void onForceLoad() {
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void onReset() {
+    protected void onReset() {
     }
 
     protected void onStartLoading() {

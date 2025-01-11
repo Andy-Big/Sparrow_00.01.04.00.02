@@ -9,11 +9,13 @@ import java.io.InputStreamReader;
 import java.io.StringReader;
 import java.util.Hashtable;
 import java.util.StringTokenizer;
+
 /* loaded from: classes2.dex */
 public class MimeTypeFile {
     private String fname;
     private Hashtable type_hash;
 
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE] complete} */
     public MimeTypeFile(String str) throws IOException {
         this.fname = null;
         this.type_hash = new Hashtable();

@@ -12,6 +12,7 @@ import kotlin.reflect.KParameter;
 import kotlin.reflect.KType;
 import kotlin.reflect.KTypeParameter;
 import kotlin.reflect.KVisibility;
+
 /* loaded from: classes2.dex */
 public abstract class CallableReference implements KCallable, Serializable {
     public static final Object NO_RECEIVER = NoReceiver.INSTANCE;
@@ -40,13 +41,11 @@ public abstract class CallableReference implements KCallable, Serializable {
         this(NO_RECEIVER);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public CallableReference(Object obj) {
+    protected CallableReference(Object obj) {
         this(obj, null, null, null, false);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public CallableReference(Object obj, Class cls, String str, String str2, boolean z) {
+    protected CallableReference(Object obj, Class cls, String str, String str2, boolean z) {
         this.receiver = obj;
         this.owner = cls;
         this.name = str;
@@ -68,8 +67,7 @@ public abstract class CallableReference implements KCallable, Serializable {
         return kCallable;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public KCallable getReflected() {
+    protected KCallable getReflected() {
         KCallable compute = compute();
         if (compute != this) {
             return compute;

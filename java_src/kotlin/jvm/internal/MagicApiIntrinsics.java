@@ -1,4 +1,5 @@
 package kotlin.jvm.internal;
+
 /* loaded from: classes2.dex */
 public class MagicApiIntrinsics {
     public static <T> T anyMagicApiCall(int i) {

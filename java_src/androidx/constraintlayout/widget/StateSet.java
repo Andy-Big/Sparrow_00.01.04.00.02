@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
+
 /* loaded from: classes.dex */
 public class StateSet {
     private static final boolean DEBUG = false;
@@ -171,9 +172,8 @@ public class StateSet {
         return ((this.mCurrentConstraintNumber == -1 || !state.mVariants.get(i).match(f, f2)) && i != (findMatch = state.findMatch(f, f2))) ? findMatch == -1 ? state.mConstraintID : state.mVariants.get(findMatch).mConstraintID : i;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static class State {
+    static class State {
         int mConstraintID;
         int mId;
         boolean mIsLayout;
@@ -214,9 +214,8 @@ public class StateSet {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static class Variant {
+    static class Variant {
         int mConstraintID;
         int mId;
         boolean mIsLayout;

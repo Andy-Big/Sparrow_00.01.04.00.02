@@ -11,6 +11,7 @@ import kotlin.coroutines.jvm.internal.SuspendLambda;
 import kotlin.jvm.functions.Function2;
 import kotlin.jvm.internal.Intrinsics;
 import kotlinx.coroutines.flow.FlowCollector;
+
 /* JADX INFO: Add missing generic type declarations: [T] */
 /* compiled from: ChannelFlow.kt */
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0004\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u00022\u0006\u0010\u0003\u001a\u0002H\u0002H\u008a@¢\u0006\u0004\b\u0004\u0010\u0005"}, d2 = {"<anonymous>", "", ExifInterface.GPS_DIRECTION_TRUE, "it", "invoke", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;"}, k = 3, mv = {1, 1, 15})
@@ -22,9 +23,8 @@ final class UndispatchedContextCollector$emitRef$1<T> extends SuspendLambda impl
     int label;
     private Object p$0;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public UndispatchedContextCollector$emitRef$1(FlowCollector flowCollector, Continuation continuation) {
+    UndispatchedContextCollector$emitRef$1(FlowCollector flowCollector, Continuation continuation) {
         super(2, continuation);
         this.$downstream = flowCollector;
     }
@@ -37,11 +37,13 @@ final class UndispatchedContextCollector$emitRef$1<T> extends SuspendLambda impl
         return undispatchedContextCollector$emitRef$1;
     }
 
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
     @Override // kotlin.jvm.functions.Function2
     public final Object invoke(Object obj, Continuation<? super Unit> continuation) {
         return ((UndispatchedContextCollector$emitRef$1) create(obj, continuation)).invokeSuspend(Unit.INSTANCE);
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: kotlinx.coroutines.flow.FlowCollector */
     /* JADX WARN: Multi-variable type inference failed */
     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
     public final Object invokeSuspend(Object obj) {

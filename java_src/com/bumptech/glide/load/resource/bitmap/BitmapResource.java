@@ -6,6 +6,7 @@ import com.bumptech.glide.load.engine.Resource;
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
 import com.bumptech.glide.util.Preconditions;
 import com.bumptech.glide.util.Util;
+
 /* loaded from: classes.dex */
 public class BitmapResource implements Resource<Bitmap>, Initializable {
     private final Bitmap bitmap;
@@ -28,6 +29,7 @@ public class BitmapResource implements Resource<Bitmap>, Initializable {
         return Bitmap.class;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.bumptech.glide.load.engine.Resource
     public Bitmap get() {

@@ -28,9 +28,9 @@ import com.google.android.material.shape.MaterialShapeDrawable;
 import com.google.android.material.shape.ShapeAppearanceModel;
 import com.google.android.material.textfield.TextInputLayout;
 import kotlin.jvm.internal.LongCompanionObject;
-/* JADX INFO: Access modifiers changed from: package-private */
+
 /* loaded from: classes.dex */
-public class DropdownMenuEndIconDelegate extends EndIconDelegate {
+class DropdownMenuEndIconDelegate extends EndIconDelegate {
     private static final int ANIMATION_FADE_IN_DURATION = 67;
     private static final int ANIMATION_FADE_OUT_DURATION = 50;
     private static final boolean IS_LOLLIPOP;
@@ -48,15 +48,13 @@ public class DropdownMenuEndIconDelegate extends EndIconDelegate {
     private final View.OnFocusChangeListener onFocusChangeListener;
     private MaterialShapeDrawable outlinedPopupBackground;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.google.android.material.textfield.EndIconDelegate
-    public boolean isBoxBackgroundModeSupported(int i) {
+    boolean isBoxBackgroundModeSupported(int i) {
         return i != 0;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.google.android.material.textfield.EndIconDelegate
-    public boolean shouldTintIconOnError() {
+    boolean shouldTintIconOnError() {
         return true;
     }
 
@@ -64,8 +62,7 @@ public class DropdownMenuEndIconDelegate extends EndIconDelegate {
         IS_LOLLIPOP = Build.VERSION.SDK_INT >= 21;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public DropdownMenuEndIconDelegate(TextInputLayout textInputLayout) {
+    DropdownMenuEndIconDelegate(TextInputLayout textInputLayout) {
         super(textInputLayout);
         this.exposedDropdownEndIconTextWatcher = new TextWatcher() { // from class: com.google.android.material.textfield.DropdownMenuEndIconDelegate.1
             @Override // android.text.TextWatcher
@@ -161,9 +158,8 @@ public class DropdownMenuEndIconDelegate extends EndIconDelegate {
         this.dropdownPopupActivatedAt = LongCompanionObject.MAX_VALUE;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.google.android.material.textfield.EndIconDelegate
-    public void initialize() {
+    void initialize() {
         float dimensionPixelOffset = this.context.getResources().getDimensionPixelOffset(R.dimen.mtrl_shape_corner_size_small_component);
         float dimensionPixelOffset2 = this.context.getResources().getDimensionPixelOffset(R.dimen.mtrl_exposed_dropdown_menu_popup_elevation);
         int dimensionPixelOffset3 = this.context.getResources().getDimensionPixelOffset(R.dimen.mtrl_exposed_dropdown_menu_popup_vertical_padding);

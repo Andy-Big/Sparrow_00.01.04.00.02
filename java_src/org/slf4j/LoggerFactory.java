@@ -15,6 +15,7 @@ import org.slf4j.helpers.SubstituteLogger;
 import org.slf4j.helpers.SubstituteLoggerFactory;
 import org.slf4j.helpers.Util;
 import org.slf4j.impl.StaticLoggerBinder;
+
 /* loaded from: classes2.dex */
 public final class LoggerFactory {
     static final String CODES_PREFIX = "http://www.slf4j.org/codes.html";

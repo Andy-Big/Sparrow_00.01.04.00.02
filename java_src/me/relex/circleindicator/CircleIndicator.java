@@ -6,6 +6,7 @@ import android.util.AttributeSet;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 import me.relex.circleindicator.BaseCircleIndicator;
+
 /* loaded from: classes2.dex */
 public class CircleIndicator extends BaseCircleIndicator {
     private final DataSetObserver mInternalDataSetObserver;

@@ -1,4 +1,5 @@
 package org.apache.commons.csv;
+
 /* loaded from: classes2.dex */
 final class Token {
     private static final int INITIAL_TOKEN_LENGTH = 50;
@@ -15,8 +16,10 @@ final class Token {
         COMMENT
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void reset() {
+    Token() {
+    }
+
+    void reset() {
         this.content.setLength(0);
         this.type = Type.INVALID;
         this.isReady = false;

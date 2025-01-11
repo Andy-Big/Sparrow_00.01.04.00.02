@@ -4,6 +4,7 @@ import android.util.Log;
 import androidx.core.util.Pools;
 import java.util.ArrayList;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public final class FactoryPools {
     private static final int DEFAULT_POOL_SIZE = 20;
@@ -46,6 +47,7 @@ public final class FactoryPools {
 
     public static <T> Pools.Pool<List<T>> threadSafeList(int i) {
         return build(new Pools.SynchronizedPool(i), new Factory<List<T>>() { // from class: com.bumptech.glide.util.pool.FactoryPools.2
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // com.bumptech.glide.util.pool.FactoryPools.Factory
             public List<T> create() {
                 return new ArrayList();
@@ -74,9 +76,8 @@ public final class FactoryPools {
         return (Resetter<T>) EMPTY_RESETTER;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static final class FactoryPool<T> implements Pools.Pool<T> {
+    private static final class FactoryPool<T> implements Pools.Pool<T> {
         private final Factory<T> factory;
         private final Pools.Pool<T> pool;
         private final Resetter<T> resetter;

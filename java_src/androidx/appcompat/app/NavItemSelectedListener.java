@@ -3,6 +3,7 @@ package androidx.appcompat.app;
 import android.view.View;
 import android.widget.AdapterView;
 import androidx.appcompat.app.ActionBar;
+
 /* loaded from: classes.dex */
 class NavItemSelectedListener implements AdapterView.OnItemSelectedListener {
     private final ActionBar.OnNavigationListener mListener;

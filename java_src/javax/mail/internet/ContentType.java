@@ -2,6 +2,7 @@ package javax.mail.internet;
 
 import javax.mail.internet.HeaderTokenizer;
 import org.slf4j.Marker;
+
 /* loaded from: classes2.dex */
 public class ContentType {
     private ParameterList list;

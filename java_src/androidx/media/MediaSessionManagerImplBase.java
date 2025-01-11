@@ -9,9 +9,9 @@ import android.text.TextUtils;
 import android.util.Log;
 import androidx.core.util.ObjectsCompat;
 import androidx.media.MediaSessionManager;
-/* JADX INFO: Access modifiers changed from: package-private */
+
 /* loaded from: classes.dex */
-public class MediaSessionManagerImplBase implements MediaSessionManager.MediaSessionManagerImpl {
+class MediaSessionManagerImplBase implements MediaSessionManager.MediaSessionManagerImpl {
     private static final boolean DEBUG = MediaSessionManager.DEBUG;
     private static final String ENABLED_NOTIFICATION_LISTENERS = "enabled_notification_listeners";
     private static final String PERMISSION_MEDIA_CONTENT_CONTROL = "android.permission.MEDIA_CONTENT_CONTROL";
@@ -20,8 +20,7 @@ public class MediaSessionManagerImplBase implements MediaSessionManager.MediaSes
     ContentResolver mContentResolver;
     Context mContext;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public MediaSessionManagerImplBase(Context context) {
+    MediaSessionManagerImplBase(Context context) {
         this.mContext = context;
         this.mContentResolver = context.getContentResolver();
     }
@@ -72,8 +71,7 @@ public class MediaSessionManagerImplBase implements MediaSessionManager.MediaSes
         private int mPid;
         private int mUid;
 
-        /* JADX INFO: Access modifiers changed from: package-private */
-        public RemoteUserInfoImplBase(String str, int i, int i2) {
+        RemoteUserInfoImplBase(String str, int i, int i2) {
             this.mPackageName = str;
             this.mPid = i;
             this.mUid = i2;

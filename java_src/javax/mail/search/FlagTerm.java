@@ -3,6 +3,7 @@ package javax.mail.search;
 import javax.mail.Flags;
 import javax.mail.Message;
 import javax.mail.MessagingException;
+
 /* loaded from: classes2.dex */
 public final class FlagTerm extends SearchTerm {
     private static final long serialVersionUID = -142991500302030647L;

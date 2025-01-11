@@ -5,6 +5,7 @@ import android.database.DataSetObserver;
 import android.os.Parcelable;
 import android.view.View;
 import android.view.ViewGroup;
+
 /* loaded from: classes.dex */
 public abstract class PagerAdapter {
     public static final int POSITION_NONE = -2;
@@ -94,8 +95,7 @@ public abstract class PagerAdapter {
         this.mObservable.unregisterObserver(dataSetObserver);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setViewPagerObserver(DataSetObserver dataSetObserver) {
+    void setViewPagerObserver(DataSetObserver dataSetObserver) {
         synchronized (this) {
             this.mViewPagerObserver = dataSetObserver;
         }

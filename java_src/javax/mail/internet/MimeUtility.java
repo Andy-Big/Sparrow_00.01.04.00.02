@@ -34,6 +34,7 @@ import javax.mail.EncodingAware;
 import javax.mail.MessagingException;
 import kotlin.UByte;
 import kotlin.text.Typography;
+
 /* loaded from: classes2.dex */
 public class MimeUtility {
     static final /* synthetic */ boolean $assertionsDisabled = false;
@@ -53,8 +54,7 @@ public class MimeUtility {
     private static Map<String, String> java2mime = new HashMap(40);
     private static Map<String, String> mime2java = new HashMap(14);
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static final boolean nonascii(int i) {
+    static final boolean nonascii(int i) {
         return i >= 127 || !(i >= 32 || i == 13 || i == 10 || i == 9);
     }
 
@@ -69,21 +69,21 @@ public class MimeUtility {
             if (resourceAsStream != null) {
                 try {
                     lineInputStream = new LineInputStream(resourceAsStream);
-                } catch (Throwable th2) {
-                    lineInputStream = resourceAsStream;
-                    th = th2;
-                }
-                try {
-                    loadMappings(lineInputStream, java2mime);
-                    loadMappings(lineInputStream, mime2java);
-                    lineInputStream.close();
-                } catch (Throwable th3) {
-                    th = th3;
                     try {
+                        loadMappings(lineInputStream, java2mime);
+                        loadMappings(lineInputStream, mime2java);
                         lineInputStream.close();
-                    } catch (Exception unused) {
+                    } catch (Throwable th2) {
+                        th = th2;
+                        try {
+                            lineInputStream.close();
+                        } catch (Exception unused) {
+                        }
+                        throw th;
                     }
-                    throw th;
+                } catch (Throwable th3) {
+                    lineInputStream = resourceAsStream;
+                    th = th3;
                 }
             }
         } catch (Exception unused2) {
@@ -514,55 +514,34 @@ public class MimeUtility {
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    private static java.lang.String decodeInnerWords(java.lang.String r5) throws java.io.UnsupportedEncodingException {
-        /*
-            java.lang.StringBuilder r0 = new java.lang.StringBuilder
-            r0.<init>()
-            r1 = 0
-        L6:
-            java.lang.String r2 = "=?"
-            int r2 = r5.indexOf(r2, r1)
-            if (r2 < 0) goto L42
-            java.lang.String r3 = r5.substring(r1, r2)
-            r0.append(r3)
-            int r3 = r2 + 2
-            r4 = 63
-            int r3 = r5.indexOf(r4, r3)
-            if (r3 >= 0) goto L20
-            goto L42
-        L20:
-            int r3 = r3 + 1
-            int r3 = r5.indexOf(r4, r3)
-            if (r3 >= 0) goto L29
-            goto L42
-        L29:
-            int r3 = r3 + 1
-            java.lang.String r4 = "?="
-            int r3 = r5.indexOf(r4, r3)
-            if (r3 >= 0) goto L34
-            goto L42
-        L34:
-            int r1 = r3 + 2
-            java.lang.String r2 = r5.substring(r2, r1)
-            java.lang.String r2 = decodeWord(r2)     // Catch: javax.mail.internet.ParseException -> L3e
-        L3e:
-            r0.append(r2)
-            goto L6
-        L42:
-            if (r1 != 0) goto L45
-            return r5
-        L45:
-            int r2 = r5.length()
-            if (r1 >= r2) goto L52
-            java.lang.String r5 = r5.substring(r1)
-            r0.append(r5)
-        L52:
-            java.lang.String r5 = r0.toString()
-            return r5
-        */
-        throw new UnsupportedOperationException("Method not decompiled: javax.mail.internet.MimeUtility.decodeInnerWords(java.lang.String):java.lang.String");
+    private static String decodeInnerWords(String str) throws UnsupportedEncodingException {
+        int indexOf;
+        int indexOf2;
+        StringBuilder sb = new StringBuilder();
+        int i = 0;
+        while (true) {
+            int indexOf3 = str.indexOf("=?", i);
+            if (indexOf3 < 0) {
+                break;
+            }
+            sb.append(str.substring(i, indexOf3));
+            int indexOf4 = str.indexOf(63, indexOf3 + 2);
+            if (indexOf4 < 0 || (indexOf = str.indexOf(63, indexOf4 + 1)) < 0 || (indexOf2 = str.indexOf("?=", indexOf + 1)) < 0) {
+                break;
+            }
+            i = indexOf2 + 2;
+            String substring = str.substring(indexOf3, i);
+            try {
+                substring = decodeWord(substring);
+            } catch (ParseException unused) {
+            }
+            sb.append(substring);
+        }
+        if (i < str.length()) {
+            sb.append(str.substring(i));
+        }
+        return sb.toString();
     }
 
     public static String quote(String str, String str2) {
@@ -692,84 +671,50 @@ public class MimeUtility {
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    public static java.lang.String unfold(java.lang.String r8) {
-        /*
-            boolean r0 = javax.mail.internet.MimeUtility.foldText
-            if (r0 != 0) goto L5
-            return r8
-        L5:
-            r0 = 0
-        L6:
-            java.lang.String r1 = "\r\n"
-            int r1 = indexOfAny(r8, r1)
-            if (r1 < 0) goto L93
-            int r2 = r8.length()
-            int r3 = r1 + 1
-            if (r3 >= r2) goto L2a
-            int r4 = r3 + (-1)
-            char r4 = r8.charAt(r4)
-            r5 = 13
-            if (r4 != r5) goto L2a
-            char r4 = r8.charAt(r3)
-            r5 = 10
-            if (r4 != r5) goto L2a
-            int r3 = r3 + 1
-        L2a:
-            r4 = 0
-            if (r1 <= 0) goto L55
-            int r5 = r1 + (-1)
-            char r6 = r8.charAt(r5)
-            r7 = 92
-            if (r6 != r7) goto L55
-            if (r0 != 0) goto L42
-            java.lang.StringBuilder r0 = new java.lang.StringBuilder
-            int r2 = r8.length()
-            r0.<init>(r2)
-        L42:
-            java.lang.String r2 = r8.substring(r4, r5)
-            r0.append(r2)
-            java.lang.String r1 = r8.substring(r1, r3)
-            r0.append(r1)
-            java.lang.String r8 = r8.substring(r3)
-            goto L6
-        L55:
-            if (r3 >= r2) goto L7b
-            char r2 = r8.charAt(r3)
-            r5 = 32
-            if (r2 == r5) goto L7b
-            r5 = 9
-            if (r2 != r5) goto L64
-            goto L7b
-        L64:
-            if (r0 != 0) goto L6f
-            java.lang.StringBuilder r0 = new java.lang.StringBuilder
-            int r1 = r8.length()
-            r0.<init>(r1)
-        L6f:
-            java.lang.String r1 = r8.substring(r4, r3)
-            r0.append(r1)
-            java.lang.String r8 = r8.substring(r3)
-            goto L6
-        L7b:
-            if (r0 != 0) goto L86
-            java.lang.StringBuilder r0 = new java.lang.StringBuilder
-            int r2 = r8.length()
-            r0.<init>(r2)
-        L86:
-            java.lang.String r1 = r8.substring(r4, r1)
-            r0.append(r1)
-            java.lang.String r8 = r8.substring(r3)
-            goto L6
-        L93:
-            if (r0 == 0) goto L9c
-            r0.append(r8)
-            java.lang.String r8 = r0.toString()
-        L9c:
-            return r8
-        */
-        throw new UnsupportedOperationException("Method not decompiled: javax.mail.internet.MimeUtility.unfold(java.lang.String):java.lang.String");
+    public static String unfold(String str) {
+        char charAt;
+        if (foldText) {
+            StringBuilder sb = null;
+            while (true) {
+                int indexOfAny = indexOfAny(str, "\r\n");
+                if (indexOfAny < 0) {
+                    break;
+                }
+                int length = str.length();
+                int i = indexOfAny + 1;
+                if (i < length && str.charAt(i - 1) == '\r' && str.charAt(i) == '\n') {
+                    i++;
+                }
+                if (indexOfAny > 0) {
+                    int i2 = indexOfAny - 1;
+                    if (str.charAt(i2) == '\\') {
+                        if (sb == null) {
+                            sb = new StringBuilder(str.length());
+                        }
+                        sb.append(str.substring(0, i2));
+                        sb.append(str.substring(indexOfAny, i));
+                        str = str.substring(i);
+                    }
+                }
+                if (i >= length || (charAt = str.charAt(i)) == ' ' || charAt == '\t') {
+                    sb.append(str.substring(0, indexOfAny));
+                    str = str.substring(i);
+                } else {
+                    if (sb == null) {
+                        sb = new StringBuilder(str.length());
+                    }
+                    sb.append(str.substring(0, i));
+                    str = str.substring(i);
+                }
+            }
+            if (sb != null) {
+                sb.append(str);
+                return sb.toString();
+            }
+            return str;
+        }
+        return str;
     }
 
     private static int indexOfAny(String str, String str2) {
@@ -842,8 +787,7 @@ public class MimeUtility {
         return defaultJavaCharset;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static String getDefaultMIMECharset() {
+    static String getDefaultMIMECharset() {
         if (defaultMIMECharset == null) {
             try {
                 defaultMIMECharset = System.getProperty("mail.mime.charset");
@@ -880,8 +824,7 @@ public class MimeUtility {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static int checkAscii(String str) {
+    static int checkAscii(String str) {
         int length = str.length();
         int i = 0;
         int i2 = 0;
@@ -918,118 +861,75 @@ public class MimeUtility {
     /* JADX WARN: Removed duplicated region for block: B:41:0x005d  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    static int checkAscii(java.io.InputStream r16, int r17, boolean r18) {
-        /*
-            r0 = r17
-            boolean r1 = javax.mail.internet.MimeUtility.encodeEolStrict
-            r3 = 0
-            if (r1 == 0) goto Lb
-            if (r18 == 0) goto Lb
-            r1 = 1
-            goto Lc
-        Lb:
-            r1 = r3
-        Lc:
-            r4 = 0
-            r5 = -1
-            r6 = 4096(0x1000, float:5.74E-42)
-            if (r0 == 0) goto L1c
-            if (r0 != r5) goto L15
-            goto L1a
-        L15:
-            int r4 = java.lang.Math.min(r0, r6)
-            r6 = r4
-        L1a:
-            byte[] r4 = new byte[r6]
-        L1c:
-            r7 = r3
-            r8 = r7
-            r9 = r8
-            r10 = r9
-            r11 = r10
-        L21:
-            if (r0 == 0) goto L6b
-            r13 = r16
-            int r14 = r13.read(r4, r3, r6)     // Catch: java.io.IOException -> L6b
-            if (r14 != r5) goto L2c
-            goto L6b
-        L2c:
-            r15 = r3
-        L2d:
-            if (r15 >= r14) goto L64
-            r2 = r4[r15]     // Catch: java.io.IOException -> L6b
-            r2 = r2 & 255(0xff, float:3.57E-43)
-            r5 = 10
-            r12 = 13
-            if (r1 == 0) goto L42
-            if (r3 != r12) goto L3d
-            if (r2 != r5) goto L41
-        L3d:
-            if (r3 == r12) goto L42
-            if (r2 != r5) goto L42
-        L41:
-            r9 = 1
-        L42:
-            if (r2 == r12) goto L4f
-            if (r2 != r5) goto L47
-            goto L4f
-        L47:
-            int r11 = r11 + 1
-            r3 = 998(0x3e6, float:1.398E-42)
-            if (r11 <= r3) goto L50
-            r10 = 1
-            goto L50
-        L4f:
-            r11 = 0
-        L50:
-            boolean r3 = nonascii(r2)     // Catch: java.io.IOException -> L6b
-            if (r3 == 0) goto L5d
-            if (r18 == 0) goto L5a
-            r3 = 3
-            return r3
-        L5a:
-            int r8 = r8 + 1
-            goto L5f
-        L5d:
-            int r7 = r7 + 1
-        L5f:
-            int r15 = r15 + 1
-            r3 = r2
-            r5 = -1
-            goto L2d
-        L64:
-            r2 = r5
-            if (r0 == r2) goto L68
-            int r0 = r0 - r14
-        L68:
-            r5 = r2
-            r3 = 0
-            goto L21
-        L6b:
-            if (r0 != 0) goto L71
-            if (r18 == 0) goto L71
-            r0 = 3
-            return r0
-        L71:
-            r0 = 3
-            r1 = 2
-            if (r8 != 0) goto L7d
-            if (r9 == 0) goto L78
-            return r0
-        L78:
-            if (r10 == 0) goto L7b
-            return r1
-        L7b:
-            r0 = 1
-            return r0
-        L7d:
-            if (r7 <= r8) goto L80
-            return r1
-        L80:
-            return r0
-        */
-        throw new UnsupportedOperationException("Method not decompiled: javax.mail.internet.MimeUtility.checkAscii(java.io.InputStream, int, boolean):int");
+    static int checkAscii(InputStream inputStream, int i, boolean z) {
+        int i2 = i;
+        int i3 = 0;
+        boolean z2 = encodeEolStrict && z;
+        byte[] bArr = null;
+        int i4 = -1;
+        if (i2 != 0) {
+            r6 = i2 != -1 ? Math.min(i2, 4096) : 4096;
+            bArr = new byte[r6];
+        }
+        int i5 = 0;
+        int i6 = 0;
+        boolean z3 = false;
+        boolean z4 = false;
+        int i7 = 0;
+        while (i2 != 0) {
+            try {
+                int read = inputStream.read(bArr, i3, r6);
+                if (read == i4) {
+                    break;
+                }
+                int i8 = i3;
+                while (i8 < read) {
+                    int i9 = bArr[i8] & UByte.MAX_VALUE;
+                    if (z2 && ((i3 == 13 && i9 != 10) || (i3 != 13 && i9 == 10))) {
+                        z3 = true;
+                    }
+                    if (i9 != 13 && i9 != 10) {
+                        i7++;
+                        if (i7 > 998) {
+                            z4 = true;
+                        }
+                        if (nonascii(i9)) {
+                            i5++;
+                        } else if (z) {
+                            return 3;
+                        } else {
+                            i6++;
+                        }
+                        i8++;
+                        i3 = i9;
+                        i4 = -1;
+                    }
+                    i7 = 0;
+                    if (nonascii(i9)) {
+                    }
+                    i8++;
+                    i3 = i9;
+                    i4 = -1;
+                }
+                int i10 = i4;
+                if (i2 != i10) {
+                    i2 -= read;
+                }
+                i4 = i10;
+                i3 = 0;
+            } catch (IOException unused) {
+            }
+        }
+        if (i2 == 0 && z) {
+            return 3;
+        }
+        if (i6 != 0) {
+            return i5 > i6 ? 2 : 3;
+        } else if (z3) {
+            return 3;
+        } else {
+            return z4 ? 2 : 1;
+        }
     }
 }

@@ -4,6 +4,7 @@ import android.graphics.PointF;
 import android.view.View;
 import com.scwang.smartrefresh.layout.api.ScrollBoundaryDecider;
 import com.scwang.smartrefresh.layout.util.ScrollBoundaryUtil;
+
 /* loaded from: classes2.dex */
 public class ScrollBoundaryDeciderAdapter implements ScrollBoundaryDecider {
     public ScrollBoundaryDecider boundary;

@@ -3,6 +3,7 @@ package androidx.recyclerview.widget;
 import android.graphics.PointF;
 import android.view.View;
 import androidx.recyclerview.widget.RecyclerView;
+
 /* loaded from: classes.dex */
 public class LinearSnapHelper extends SnapHelper {
     private static final float INVALID_DISTANCE = 1.0f;

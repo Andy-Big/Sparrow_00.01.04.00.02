@@ -15,6 +15,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Iterator;
+
 /* loaded from: classes.dex */
 public abstract class KeyCycleOscillator {
     private static final String TAG = "KeyCycleOscillator";
@@ -33,9 +34,8 @@ public abstract class KeyCycleOscillator {
         return this.mVariesBy == 1;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static class WavePoint {
+    static class WavePoint {
         float mOffset;
         float mPeriod;
         float mPhase;
@@ -78,8 +78,7 @@ public abstract class KeyCycleOscillator {
         return this.mCurveFit;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static KeyCycleOscillator makeSpline(String str) {
+    static KeyCycleOscillator makeSpline(String str) {
         if (str.startsWith(Key.CUSTOM)) {
             return new CustomSet();
         }
@@ -229,6 +228,7 @@ public abstract class KeyCycleOscillator {
             return;
         }
         Collections.sort(this.mWavePoints, new Comparator<WavePoint>() { // from class: androidx.constraintlayout.motion.widget.KeyCycleOscillator.1
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.Comparator
             public int compare(WavePoint wavePoint, WavePoint wavePoint2) {
                 return Integer.compare(wavePoint.mPosition, wavePoint2.mPosition);
@@ -309,9 +309,8 @@ public abstract class KeyCycleOscillator {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static class PathRotateSet extends KeyCycleOscillator {
+    static class PathRotateSet extends KeyCycleOscillator {
         @Override // androidx.constraintlayout.motion.widget.KeyCycleOscillator
         public void setProperty(View view, float f) {
         }
@@ -536,9 +535,8 @@ public abstract class KeyCycleOscillator {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static class CycleOscillator {
+    static class CycleOscillator {
         private static final String TAG = "CycleOscillator";
         static final int UNSET = -1;
         CurveFit mCurveFit;

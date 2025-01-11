@@ -30,6 +30,7 @@ import javax.mail.search.SentDateTerm;
 import javax.mail.search.SizeTerm;
 import javax.mail.search.StringTerm;
 import javax.mail.search.SubjectTerm;
+
 /* loaded from: classes2.dex */
 public class SearchSequence {
     private static String[] monthTable = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};

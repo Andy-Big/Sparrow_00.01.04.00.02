@@ -2,6 +2,7 @@ package ch.obermuhlner.math.big.internal;
 
 import java.math.BigDecimal;
 import java.math.MathContext;
+
 /* loaded from: classes.dex */
 public class PowerTwoNIterator implements PowerIterator {
     private final MathContext mathContext;

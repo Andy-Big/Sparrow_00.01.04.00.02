@@ -4,6 +4,7 @@ import android.util.SparseArray;
 import android.util.SparseIntArray;
 import java.util.ArrayList;
 import java.util.List;
+
 /* loaded from: classes.dex */
 interface ViewTypeStorage {
 

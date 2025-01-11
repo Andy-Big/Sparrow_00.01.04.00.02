@@ -17,6 +17,7 @@ import android.widget.FrameLayout;
 import androidx.core.internal.view.SupportMenuItem;
 import androidx.core.view.ActionProvider;
 import java.lang.reflect.Method;
+
 /* loaded from: classes.dex */
 public class MenuItemWrapperICS extends BaseMenuWrapper implements MenuItem {
     static final String LOG_TAG = "MenuItemWrapper";

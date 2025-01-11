@@ -2,6 +2,7 @@ package com.bumptech.glide.request.transition;
 
 import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.request.transition.Transition;
+
 /* loaded from: classes.dex */
 public class NoTransition<R> implements Transition<R> {
     static final NoTransition<?> NO_ANIMATION = new NoTransition<>();

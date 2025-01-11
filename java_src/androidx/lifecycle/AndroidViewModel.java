@@ -1,6 +1,7 @@
 package androidx.lifecycle;
 
 import android.app.Application;
+
 /* loaded from: classes.dex */
 public class AndroidViewModel extends ViewModel {
     private Application mApplication;

@@ -5,9 +5,9 @@ import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
 import android.view.VelocityTracker;
 import android.view.ViewConfiguration;
-/* JADX INFO: Access modifiers changed from: package-private */
+
 /* loaded from: classes.dex */
-public class CustomGestureDetector {
+class CustomGestureDetector {
     private static final int INVALID_POINTER_ID = -1;
     private int mActivePointerId = -1;
     private int mActivePointerIndex = 0;
@@ -20,8 +20,7 @@ public class CustomGestureDetector {
     private final float mTouchSlop;
     private VelocityTracker mVelocityTracker;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public CustomGestureDetector(Context context, OnGestureListener onGestureListener) {
+    CustomGestureDetector(Context context, OnGestureListener onGestureListener) {
         ViewConfiguration viewConfiguration = ViewConfiguration.get(context);
         this.mMinimumVelocity = viewConfiguration.getScaledMinimumFlingVelocity();
         this.mTouchSlop = viewConfiguration.getScaledTouchSlop();

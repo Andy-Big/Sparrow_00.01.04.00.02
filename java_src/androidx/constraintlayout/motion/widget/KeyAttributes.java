@@ -6,10 +6,13 @@ import android.os.Build;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.util.SparseIntArray;
+import androidx.constraintlayout.motion.widget.SplineSet;
+import androidx.constraintlayout.widget.ConstraintAttribute;
 import androidx.constraintlayout.widget.R;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
+
 /* loaded from: classes.dex */
 public class KeyAttributes extends Key {
     public static final int KEY_TYPE = 1;
@@ -161,14 +164,222 @@ public class KeyAttributes extends Key {
     @Override // androidx.constraintlayout.motion.widget.Key
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    public void addValues(java.util.HashMap<java.lang.String, androidx.constraintlayout.motion.widget.SplineSet> r7) {
-        /*
-            Method dump skipped, instructions count: 580
-            To view this dump add '--comments-level debug' option
-        */
-        throw new UnsupportedOperationException("Method not decompiled: androidx.constraintlayout.motion.widget.KeyAttributes.addValues(java.util.HashMap):void");
+    public void addValues(HashMap<String, SplineSet> hashMap) {
+        Iterator<String> it = hashMap.keySet().iterator();
+        while (it.hasNext()) {
+            String next = it.next();
+            SplineSet splineSet = hashMap.get(next);
+            char c = 7;
+            if (next.startsWith(Key.CUSTOM)) {
+                ConstraintAttribute constraintAttribute = this.mCustomConstraints.get(next.substring(7));
+                if (constraintAttribute != null) {
+                    ((SplineSet.CustomSet) splineSet).setPoint(this.mFramePosition, constraintAttribute);
+                }
+            } else {
+                switch (next.hashCode()) {
+                    case -1249320806:
+                        if (next.equals(Key.ROTATION_X)) {
+                            c = 3;
+                            break;
+                        }
+                        c = 65535;
+                        break;
+                    case -1249320805:
+                        if (next.equals(Key.ROTATION_Y)) {
+                            c = 4;
+                            break;
+                        }
+                        c = 65535;
+                        break;
+                    case -1225497657:
+                        if (next.equals(Key.TRANSLATION_X)) {
+                            c = '\n';
+                            break;
+                        }
+                        c = 65535;
+                        break;
+                    case -1225497656:
+                        if (next.equals(Key.TRANSLATION_Y)) {
+                            c = 11;
+                            break;
+                        }
+                        c = 65535;
+                        break;
+                    case -1225497655:
+                        if (next.equals(Key.TRANSLATION_Z)) {
+                            c = '\f';
+                            break;
+                        }
+                        c = 65535;
+                        break;
+                    case -1001078227:
+                        if (next.equals("progress")) {
+                            c = '\r';
+                            break;
+                        }
+                        c = 65535;
+                        break;
+                    case -908189618:
+                        if (next.equals(Key.SCALE_X)) {
+                            c = '\b';
+                            break;
+                        }
+                        c = 65535;
+                        break;
+                    case -908189617:
+                        if (next.equals(Key.SCALE_Y)) {
+                            c = '\t';
+                            break;
+                        }
+                        c = 65535;
+                        break;
+                    case -760884510:
+                        if (next.equals(Key.PIVOT_X)) {
+                            c = 5;
+                            break;
+                        }
+                        c = 65535;
+                        break;
+                    case -760884509:
+                        if (next.equals(Key.PIVOT_Y)) {
+                            c = 6;
+                            break;
+                        }
+                        c = 65535;
+                        break;
+                    case -40300674:
+                        if (next.equals(Key.ROTATION)) {
+                            c = 2;
+                            break;
+                        }
+                        c = 65535;
+                        break;
+                    case -4379043:
+                        if (next.equals(Key.ELEVATION)) {
+                            c = 1;
+                            break;
+                        }
+                        c = 65535;
+                        break;
+                    case 37232917:
+                        break;
+                    case 92909918:
+                        if (next.equals(Key.ALPHA)) {
+                            c = 0;
+                            break;
+                        }
+                        c = 65535;
+                        break;
+                    default:
+                        c = 65535;
+                        break;
+                }
+                switch (c) {
+                    case 0:
+                        if (!Float.isNaN(this.mAlpha)) {
+                            splineSet.setPoint(this.mFramePosition, this.mAlpha);
+                            break;
+                        } else {
+                            continue;
+                        }
+                    case 1:
+                        if (!Float.isNaN(this.mElevation)) {
+                            splineSet.setPoint(this.mFramePosition, this.mElevation);
+                            break;
+                        } else {
+                            continue;
+                        }
+                    case 2:
+                        if (!Float.isNaN(this.mRotation)) {
+                            splineSet.setPoint(this.mFramePosition, this.mRotation);
+                            break;
+                        } else {
+                            continue;
+                        }
+                    case 3:
+                        if (!Float.isNaN(this.mRotationX)) {
+                            splineSet.setPoint(this.mFramePosition, this.mRotationX);
+                            break;
+                        } else {
+                            continue;
+                        }
+                    case 4:
+                        if (!Float.isNaN(this.mRotationY)) {
+                            splineSet.setPoint(this.mFramePosition, this.mRotationY);
+                            break;
+                        } else {
+                            continue;
+                        }
+                    case 5:
+                        if (!Float.isNaN(this.mRotationX)) {
+                            splineSet.setPoint(this.mFramePosition, this.mPivotX);
+                            break;
+                        } else {
+                            continue;
+                        }
+                    case 6:
+                        if (!Float.isNaN(this.mRotationY)) {
+                            splineSet.setPoint(this.mFramePosition, this.mPivotY);
+                            break;
+                        } else {
+                            continue;
+                        }
+                    case 7:
+                        if (!Float.isNaN(this.mTransitionPathRotate)) {
+                            splineSet.setPoint(this.mFramePosition, this.mTransitionPathRotate);
+                            break;
+                        } else {
+                            continue;
+                        }
+                    case '\b':
+                        if (!Float.isNaN(this.mScaleX)) {
+                            splineSet.setPoint(this.mFramePosition, this.mScaleX);
+                            break;
+                        } else {
+                            continue;
+                        }
+                    case '\t':
+                        if (!Float.isNaN(this.mScaleY)) {
+                            splineSet.setPoint(this.mFramePosition, this.mScaleY);
+                            break;
+                        } else {
+                            continue;
+                        }
+                    case '\n':
+                        if (!Float.isNaN(this.mTranslationX)) {
+                            splineSet.setPoint(this.mFramePosition, this.mTranslationX);
+                            break;
+                        } else {
+                            continue;
+                        }
+                    case 11:
+                        if (!Float.isNaN(this.mTranslationY)) {
+                            splineSet.setPoint(this.mFramePosition, this.mTranslationY);
+                            break;
+                        } else {
+                            continue;
+                        }
+                    case '\f':
+                        if (!Float.isNaN(this.mTranslationZ)) {
+                            splineSet.setPoint(this.mFramePosition, this.mTranslationZ);
+                            break;
+                        } else {
+                            continue;
+                        }
+                    case '\r':
+                        if (!Float.isNaN(this.mProgress)) {
+                            splineSet.setPoint(this.mFramePosition, this.mProgress);
+                            break;
+                        } else {
+                            continue;
+                        }
+                    default:
+                        Log.v("KeyAttributes", "UNKNOWN addValues \"" + next + "\"");
+                        continue;
+                }
+            }
+        }
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
@@ -513,6 +724,7 @@ public class KeyAttributes extends Key {
         return this;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.constraintlayout.motion.widget.Key
     /* renamed from: clone */
     public Key mo2clone() {

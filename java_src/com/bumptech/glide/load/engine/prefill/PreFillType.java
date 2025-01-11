@@ -2,6 +2,7 @@ package com.bumptech.glide.load.engine.prefill;
 
 import android.graphics.Bitmap;
 import com.bumptech.glide.util.Preconditions;
+
 /* loaded from: classes.dex */
 public final class PreFillType {
     static final Bitmap.Config DEFAULT_CONFIG = Bitmap.Config.RGB_565;
@@ -17,23 +18,19 @@ public final class PreFillType {
         this.weight = i3;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public int getWidth() {
+    int getWidth() {
         return this.width;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public int getHeight() {
+    int getHeight() {
         return this.height;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public Bitmap.Config getConfig() {
+    Bitmap.Config getConfig() {
         return this.config;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public int getWeight() {
+    int getWeight() {
         return this.weight;
     }
 
@@ -81,8 +78,7 @@ public final class PreFillType {
             return this;
         }
 
-        /* JADX INFO: Access modifiers changed from: package-private */
-        public Bitmap.Config getConfig() {
+        Bitmap.Config getConfig() {
             return this.config;
         }
 
@@ -94,8 +90,7 @@ public final class PreFillType {
             return this;
         }
 
-        /* JADX INFO: Access modifiers changed from: package-private */
-        public PreFillType build() {
+        PreFillType build() {
             return new PreFillType(this.width, this.height, this.config, this.weight);
         }
     }

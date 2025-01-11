@@ -7,6 +7,7 @@ import javax.activation.DataSource;
 import javax.mail.MessagingException;
 import javax.mail.Multipart;
 import javax.mail.internet.MimeMultipart;
+
 /* loaded from: classes2.dex */
 public class multipart_mixed extends handler_base {
     private static ActivationDataFlavor[] myDF = {new ActivationDataFlavor(Multipart.class, "multipart/mixed", "Multipart")};

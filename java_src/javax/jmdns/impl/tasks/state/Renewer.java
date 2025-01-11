@@ -10,6 +10,7 @@ import javax.jmdns.impl.ServiceInfoImpl;
 import javax.jmdns.impl.constants.DNSConstants;
 import javax.jmdns.impl.constants.DNSRecordClass;
 import javax.jmdns.impl.constants.DNSState;
+
 /* loaded from: classes2.dex */
 public class Renewer extends DNSStateTask {
     @Override // javax.jmdns.impl.tasks.state.DNSStateTask

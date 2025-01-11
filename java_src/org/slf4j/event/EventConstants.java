@@ -1,4 +1,5 @@
 package org.slf4j.event;
+
 /* loaded from: classes2.dex */
 public class EventConstants {
     public static final int DEBUG_INT = 10;

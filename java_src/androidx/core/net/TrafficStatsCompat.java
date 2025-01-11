@@ -6,6 +6,7 @@ import android.os.ParcelFileDescriptor;
 import java.net.DatagramSocket;
 import java.net.Socket;
 import java.net.SocketException;
+
 /* loaded from: classes.dex */
 public final class TrafficStatsCompat {
     @Deprecated

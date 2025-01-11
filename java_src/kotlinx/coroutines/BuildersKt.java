@@ -5,6 +5,7 @@ import kotlin.Unit;
 import kotlin.coroutines.Continuation;
 import kotlin.coroutines.CoroutineContext;
 import kotlin.jvm.functions.Function2;
+
 @Metadata(bv = {1, 0, 3}, d1 = {"kotlinx/coroutines/BuildersKt__BuildersKt", "kotlinx/coroutines/BuildersKt__Builders_commonKt"}, k = 4, mv = {1, 1, 15})
 /* loaded from: classes2.dex */
 public final class BuildersKt {
@@ -20,6 +21,7 @@ public final class BuildersKt {
         return BuildersKt__Builders_commonKt.launch(coroutineScope, coroutineContext, coroutineStart, function2);
     }
 
+    /* JADX DEBUG: Method not inlined, still used in: [androidx.lifecycle.LifecycleCoroutineScopeImpl.register():void] */
     public static /* synthetic */ Job launch$default(CoroutineScope coroutineScope, CoroutineContext coroutineContext, CoroutineStart coroutineStart, Function2 function2, int i, Object obj) {
         return BuildersKt__Builders_commonKt.launch$default(coroutineScope, coroutineContext, coroutineStart, function2, i, obj);
     }
@@ -28,6 +30,7 @@ public final class BuildersKt {
         return (T) BuildersKt__BuildersKt.runBlocking(coroutineContext, function2);
     }
 
+    /* JADX DEBUG: Method not inlined, still used in: [kotlinx.coroutines.channels.ChannelsKt__ChannelsKt.sendBlocking(kotlinx.coroutines.channels.SendChannel<? super E>, E):void] */
     public static /* synthetic */ Object runBlocking$default(CoroutineContext coroutineContext, Function2 function2, int i, Object obj) throws InterruptedException {
         return BuildersKt__BuildersKt.runBlocking$default(coroutineContext, function2, i, obj);
     }

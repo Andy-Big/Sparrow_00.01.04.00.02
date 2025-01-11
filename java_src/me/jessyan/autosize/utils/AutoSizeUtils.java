@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Context;
 import android.util.TypedValue;
 import java.lang.reflect.InvocationTargetException;
+
 /* loaded from: classes2.dex */
 public class AutoSizeUtils {
     private AutoSizeUtils() {

@@ -1,4 +1,5 @@
 package javax.jmdns.impl.constants;
+
 /* loaded from: classes2.dex */
 public enum DNSOperationCode {
     Query("Query", 0),

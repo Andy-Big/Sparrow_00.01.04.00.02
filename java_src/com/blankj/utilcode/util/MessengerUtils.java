@@ -18,6 +18,7 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+
 /* loaded from: classes.dex */
 public class MessengerUtils {
     private static final String KEY_STRING = "MESSENGER_UTILS";

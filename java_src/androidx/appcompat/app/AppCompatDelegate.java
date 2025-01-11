@@ -20,6 +20,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.ref.WeakReference;
 import java.util.Iterator;
+
 /* loaded from: classes.dex */
 public abstract class AppCompatDelegate {
     static final boolean DEBUG = false;
@@ -128,6 +129,9 @@ public abstract class AppCompatDelegate {
         return new AppCompatDelegateImpl(context, activity, appCompatCallback);
     }
 
+    AppCompatDelegate() {
+    }
+
     public Context attachBaseContext2(Context context) {
         attachBaseContext(context);
         return context;
@@ -157,16 +161,14 @@ public abstract class AppCompatDelegate {
         return VectorEnabledTintResources.isCompatVectorFromResourcesEnabled();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static void addActiveDelegate(AppCompatDelegate appCompatDelegate) {
+    static void addActiveDelegate(AppCompatDelegate appCompatDelegate) {
         synchronized (sActivityDelegatesLock) {
             removeDelegateFromActives(appCompatDelegate);
             sActivityDelegates.add(new WeakReference<>(appCompatDelegate));
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static void removeActivityDelegate(AppCompatDelegate appCompatDelegate) {
+    static void removeActivityDelegate(AppCompatDelegate appCompatDelegate) {
         synchronized (sActivityDelegatesLock) {
             removeDelegateFromActives(appCompatDelegate);
         }

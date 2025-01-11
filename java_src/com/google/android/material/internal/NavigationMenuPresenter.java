@@ -24,6 +24,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.RecyclerViewAccessibilityDelegate;
 import com.google.android.material.R;
 import java.util.ArrayList;
+
 /* loaded from: classes.dex */
 public class NavigationMenuPresenter implements MenuPresenter {
     private static final String STATE_ADAPTER = "android:menu:adapter";
@@ -69,9 +70,8 @@ public class NavigationMenuPresenter implements MenuPresenter {
         }
     };
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public interface NavigationMenuItem {
+    private interface NavigationMenuItem {
     }
 
     @Override // androidx.appcompat.view.menu.MenuPresenter
@@ -343,42 +343,37 @@ public class NavigationMenuPresenter implements MenuPresenter {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static class NormalViewHolder extends ViewHolder {
+    private static class NormalViewHolder extends ViewHolder {
         public NormalViewHolder(LayoutInflater layoutInflater, ViewGroup viewGroup, View.OnClickListener onClickListener) {
             super(layoutInflater.inflate(R.layout.design_navigation_item, viewGroup, false));
             this.itemView.setOnClickListener(onClickListener);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static class SubheaderViewHolder extends ViewHolder {
+    private static class SubheaderViewHolder extends ViewHolder {
         public SubheaderViewHolder(LayoutInflater layoutInflater, ViewGroup viewGroup) {
             super(layoutInflater.inflate(R.layout.design_navigation_item_subheader, viewGroup, false));
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static class SeparatorViewHolder extends ViewHolder {
+    private static class SeparatorViewHolder extends ViewHolder {
         public SeparatorViewHolder(LayoutInflater layoutInflater, ViewGroup viewGroup) {
             super(layoutInflater.inflate(R.layout.design_navigation_item_separator, viewGroup, false));
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static class HeaderViewHolder extends ViewHolder {
+    private static class HeaderViewHolder extends ViewHolder {
         public HeaderViewHolder(View view) {
             super(view);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public class NavigationMenuAdapter extends RecyclerView.Adapter<ViewHolder> {
+    private class NavigationMenuAdapter extends RecyclerView.Adapter<ViewHolder> {
         private static final String STATE_ACTION_VIEWS = "android:menu:action_views";
         private static final String STATE_CHECKED_ITEM = "android:menu:checked";
         private static final int VIEW_TYPE_HEADER = 3;
@@ -418,6 +413,7 @@ public class NavigationMenuPresenter implements MenuPresenter {
             throw new RuntimeException("Unknown item type.");
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
         public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
             if (i != 0) {
@@ -435,6 +431,7 @@ public class NavigationMenuPresenter implements MenuPresenter {
             return new NormalViewHolder(NavigationMenuPresenter.this.layoutInflater, viewGroup, NavigationMenuPresenter.this.onClickListener);
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
         public void onBindViewHolder(ViewHolder viewHolder, int i) {
             int itemViewType = getItemViewType(i);
@@ -470,6 +467,7 @@ public class NavigationMenuPresenter implements MenuPresenter {
             navigationMenuItemView.initialize(navigationMenuTextItem.getMenuItem(), 0);
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
         public void onViewRecycled(ViewHolder viewHolder) {
             if (viewHolder instanceof NormalViewHolder) {
@@ -657,9 +655,8 @@ public class NavigationMenuPresenter implements MenuPresenter {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static class NavigationMenuTextItem implements NavigationMenuItem {
+    private static class NavigationMenuTextItem implements NavigationMenuItem {
         private final MenuItemImpl menuItem;
         boolean needsEmptyIcon;
 
@@ -672,9 +669,8 @@ public class NavigationMenuPresenter implements MenuPresenter {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static class NavigationMenuSeparatorItem implements NavigationMenuItem {
+    private static class NavigationMenuSeparatorItem implements NavigationMenuItem {
         private final int paddingBottom;
         private final int paddingTop;
 
@@ -692,9 +688,8 @@ public class NavigationMenuPresenter implements MenuPresenter {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static class NavigationMenuHeaderItem implements NavigationMenuItem {
+    private static class NavigationMenuHeaderItem implements NavigationMenuItem {
         NavigationMenuHeaderItem() {
         }
     }

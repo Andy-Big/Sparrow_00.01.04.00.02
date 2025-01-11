@@ -2,13 +2,13 @@ package androidx.constraintlayout.motion.utils;
 
 import java.lang.reflect.Array;
 import java.util.Arrays;
+
 /* loaded from: classes.dex */
 public class StepCurve extends Easing {
     private static final boolean DEBUG = false;
     MonotonicCurveFit mCurveFit;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public StepCurve(String str) {
+    StepCurve(String str) {
         this.str = str;
         double[] dArr = new double[this.str.length() / 2];
         int indexOf = str.indexOf(40) + 1;

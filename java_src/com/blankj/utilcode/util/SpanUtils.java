@@ -46,6 +46,7 @@ import java.io.Serializable;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.ref.WeakReference;
+
 /* loaded from: classes.dex */
 public final class SpanUtils {
     public static final int ALIGN_BASELINE = 1;
@@ -638,9 +639,8 @@ public final class SpanUtils {
         this.mBuilder.setSpan(new SpaceSpan(this.spaceSize, this.spaceColor), length, this.mBuilder.length(), this.flag);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static class VerticalAlignSpan extends ReplacementSpan {
+    static class VerticalAlignSpan extends ReplacementSpan {
         static final int ALIGN_CENTER = 2;
         static final int ALIGN_TOP = 3;
         final int mVerticalAlignment;
@@ -671,9 +671,8 @@ public final class SpanUtils {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static class CustomLineHeightSpan implements LineHeightSpan {
+    static class CustomLineHeightSpan implements LineHeightSpan {
         static final int ALIGN_CENTER = 2;
         static final int ALIGN_TOP = 3;
         static Paint.FontMetricsInt sfm;
@@ -735,9 +734,8 @@ public final class SpanUtils {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static class SpaceSpan extends ReplacementSpan {
+    static class SpaceSpan extends ReplacementSpan {
         private final Paint paint;
         private final int width;
 
@@ -773,9 +771,8 @@ public final class SpanUtils {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static class CustomQuoteSpan implements LeadingMarginSpan {
+    static class CustomQuoteSpan implements LeadingMarginSpan {
         private final int color;
         private final int gapWidth;
         private final int stripeWidth;
@@ -803,9 +800,8 @@ public final class SpanUtils {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static class CustomBulletSpan implements LeadingMarginSpan {
+    static class CustomBulletSpan implements LeadingMarginSpan {
         private final int color;
         private final int gapWidth;
         private final int radius;
@@ -850,9 +846,8 @@ public final class SpanUtils {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static class CustomTypefaceSpan extends TypefaceSpan {
+    static class CustomTypefaceSpan extends TypefaceSpan {
         private final Typeface newType;
 
         private CustomTypefaceSpan(Typeface typeface) {
@@ -884,9 +879,8 @@ public final class SpanUtils {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static class CustomImageSpan extends CustomDynamicDrawableSpan {
+    static class CustomImageSpan extends CustomDynamicDrawableSpan {
         private Uri mContentUri;
         private Drawable mDrawable;
         private int mResourceId;
@@ -917,43 +911,44 @@ public final class SpanUtils {
         @Override // com.blankj.utilcode.util.SpanUtils.CustomDynamicDrawableSpan
         public Drawable getDrawable() {
             Drawable drawable;
+            InputStream openInputStream;
+            BitmapDrawable bitmapDrawable;
             Drawable drawable2 = this.mDrawable;
             if (drawable2 != null) {
                 return drawable2;
             }
-            BitmapDrawable bitmapDrawable = null;
+            BitmapDrawable bitmapDrawable2 = null;
             if (this.mContentUri != null) {
                 try {
-                    InputStream openInputStream = Utils.getApp().getContentResolver().openInputStream(this.mContentUri);
-                    BitmapDrawable bitmapDrawable2 = new BitmapDrawable(Utils.getApp().getResources(), BitmapFactory.decodeStream(openInputStream));
-                    try {
-                        bitmapDrawable2.setBounds(0, 0, bitmapDrawable2.getIntrinsicWidth(), bitmapDrawable2.getIntrinsicHeight());
-                        if (openInputStream != null) {
-                            openInputStream.close();
-                        }
-                        return bitmapDrawable2;
-                    } catch (Exception e) {
-                        e = e;
-                        bitmapDrawable = bitmapDrawable2;
-                        Log.e("sms", "Failed to loaded content " + this.mContentUri, e);
-                        return bitmapDrawable;
+                    openInputStream = Utils.getApp().getContentResolver().openInputStream(this.mContentUri);
+                    bitmapDrawable = new BitmapDrawable(Utils.getApp().getResources(), BitmapFactory.decodeStream(openInputStream));
+                } catch (Exception e) {
+                    e = e;
+                }
+                try {
+                    bitmapDrawable.setBounds(0, 0, bitmapDrawable.getIntrinsicWidth(), bitmapDrawable.getIntrinsicHeight());
+                    if (openInputStream != null) {
+                        openInputStream.close();
                     }
+                    return bitmapDrawable;
                 } catch (Exception e2) {
                     e = e2;
+                    bitmapDrawable2 = bitmapDrawable;
+                    Log.e("sms", "Failed to loaded content " + this.mContentUri, e);
+                    return bitmapDrawable2;
                 }
-            } else {
-                try {
-                    drawable = ContextCompat.getDrawable(Utils.getApp(), this.mResourceId);
-                    try {
-                        drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
-                        return drawable;
-                    } catch (Exception unused) {
-                        Log.e("sms", "Unable to find resource: " + this.mResourceId);
-                        return drawable;
-                    }
-                } catch (Exception unused2) {
-                    drawable = null;
-                }
+            }
+            try {
+                drawable = ContextCompat.getDrawable(Utils.getApp(), this.mResourceId);
+            } catch (Exception unused) {
+                drawable = null;
+            }
+            try {
+                drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
+                return drawable;
+            } catch (Exception unused2) {
+                Log.e("sms", "Unable to find resource: " + this.mResourceId);
+                return drawable;
             }
         }
     }
@@ -1050,9 +1045,8 @@ public final class SpanUtils {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static class ShaderSpan extends CharacterStyle implements UpdateAppearance {
+    static class ShaderSpan extends CharacterStyle implements UpdateAppearance {
         private Shader mShader;
 
         private ShaderSpan(Shader shader) {
@@ -1065,9 +1059,8 @@ public final class SpanUtils {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static class ShadowSpan extends CharacterStyle implements UpdateAppearance {
+    static class ShadowSpan extends CharacterStyle implements UpdateAppearance {
         private float dx;
         private float dy;
         private float radius;
@@ -1086,9 +1079,8 @@ public final class SpanUtils {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static class SerializableSpannableStringBuilder extends SpannableStringBuilder implements Serializable {
+    private static class SerializableSpannableStringBuilder extends SpannableStringBuilder implements Serializable {
         private static final long serialVersionUID = 4909567650765875771L;
 
         private SerializableSpannableStringBuilder() {

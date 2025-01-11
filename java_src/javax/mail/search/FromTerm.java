@@ -2,6 +2,7 @@ package javax.mail.search;
 
 import javax.mail.Address;
 import javax.mail.Message;
+
 /* loaded from: classes2.dex */
 public final class FromTerm extends AddressTerm {
     private static final long serialVersionUID = 5214730291502658665L;

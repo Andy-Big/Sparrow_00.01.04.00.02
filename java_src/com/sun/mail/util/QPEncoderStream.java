@@ -3,6 +3,7 @@ package com.sun.mail.util;
 import java.io.FilterOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+
 /* loaded from: classes2.dex */
 public class QPEncoderStream extends FilterOutputStream {
     private static final char[] hex = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
@@ -86,8 +87,7 @@ public class QPEncoderStream extends FilterOutputStream {
         this.count = 0;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void output(int i, boolean z) throws IOException {
+    protected void output(int i, boolean z) throws IOException {
         if (z) {
             int i2 = this.count + 3;
             this.count = i2;

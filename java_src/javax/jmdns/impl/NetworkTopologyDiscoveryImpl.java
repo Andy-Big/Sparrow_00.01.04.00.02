@@ -8,6 +8,7 @@ import java.util.HashSet;
 import javax.jmdns.NetworkTopologyDiscovery;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 /* loaded from: classes2.dex */
 public class NetworkTopologyDiscoveryImpl implements NetworkTopologyDiscovery {
     private static final Logger logger = LoggerFactory.getLogger(NetworkTopologyDiscoveryImpl.class.getName());

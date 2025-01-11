@@ -3,6 +3,7 @@ package com.just.agentweb;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
+
 /* loaded from: classes.dex */
 public abstract class BaseIndicatorView extends FrameLayout implements BaseIndicatorSpec, LayoutParamsOffer {
     @Override // com.just.agentweb.BaseIndicatorSpec

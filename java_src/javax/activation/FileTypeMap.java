@@ -3,6 +3,7 @@ package javax.activation;
 import java.io.File;
 import java.util.Map;
 import java.util.WeakHashMap;
+
 /* loaded from: classes2.dex */
 public abstract class FileTypeMap {
     private static FileTypeMap defaultMap;

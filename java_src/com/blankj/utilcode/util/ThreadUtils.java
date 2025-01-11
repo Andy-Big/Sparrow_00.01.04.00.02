@@ -21,6 +21,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
+
 /* loaded from: classes.dex */
 public final class ThreadUtils {
     private static final byte TYPE_CACHED = -2;
@@ -383,9 +384,8 @@ public final class ThreadUtils {
         return executorService;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static final class ThreadPoolExecutor4Util extends ThreadPoolExecutor {
+    static final class ThreadPoolExecutor4Util extends ThreadPoolExecutor {
         private final AtomicInteger mSubmittedCount;
         private LinkedBlockingQueue4Util mWorkQueue;
 
@@ -445,9 +445,8 @@ public final class ThreadUtils {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static final class LinkedBlockingQueue4Util extends LinkedBlockingQueue<Runnable> {
+    private static final class LinkedBlockingQueue4Util extends LinkedBlockingQueue<Runnable> {
         private int mCapacity;
         private volatile ThreadPoolExecutor4Util mPool;
 
@@ -467,6 +466,7 @@ public final class ThreadUtils {
             this.mCapacity = i;
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.concurrent.LinkedBlockingQueue, java.util.Queue, java.util.concurrent.BlockingQueue
         public boolean offer(Runnable runnable) {
             if (runnable == null) {
@@ -479,9 +479,8 @@ public final class ThreadUtils {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static final class UtilsThreadFactory extends AtomicLong implements ThreadFactory {
+    static final class UtilsThreadFactory extends AtomicLong implements ThreadFactory {
         private static final AtomicInteger POOL_NUMBER = new AtomicInteger(1);
         private static final long serialVersionUID = -9209200509960368598L;
         private final boolean isDaemon;
@@ -608,6 +607,7 @@ public final class ThreadUtils {
                         return;
                     }
                     getDeliver().execute(new Runnable() { // from class: com.blankj.utilcode.util.ThreadUtils.Task.2
+                        /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.blankj.utilcode.util.ThreadUtils$Task */
                         /* JADX WARN: Multi-variable type inference failed */
                         @Override // java.lang.Runnable
                         public void run() {
@@ -616,6 +616,7 @@ public final class ThreadUtils {
                     });
                 } else if (this.state.compareAndSet(1, 3)) {
                     getDeliver().execute(new Runnable() { // from class: com.blankj.utilcode.util.ThreadUtils.Task.3
+                        /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.blankj.utilcode.util.ThreadUtils$Task */
                         /* JADX WARN: Multi-variable type inference failed */
                         @Override // java.lang.Runnable
                         public void run() {
@@ -705,8 +706,7 @@ public final class ThreadUtils {
             return executor == null ? ThreadUtils.access$600() : executor;
         }
 
-        /* JADX INFO: Access modifiers changed from: protected */
-        public void onDone() {
+        protected void onDone() {
             ThreadUtils.TASK_POOL_MAP.remove(this);
             Timer timer = this.mTimer;
             if (timer != null) {

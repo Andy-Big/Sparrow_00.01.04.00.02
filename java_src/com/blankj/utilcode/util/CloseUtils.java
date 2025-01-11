@@ -2,6 +2,7 @@ package com.blankj.utilcode.util;
 
 import java.io.Closeable;
 import java.io.IOException;
+
 /* loaded from: classes.dex */
 public final class CloseUtils {
     private CloseUtils() {

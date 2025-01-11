@@ -2,6 +2,7 @@ package com.github.barteksc.pdfviewer.model;
 
 import android.graphics.Bitmap;
 import android.graphics.RectF;
+
 /* loaded from: classes.dex */
 public class PagePart {
     private int cacheOrder;

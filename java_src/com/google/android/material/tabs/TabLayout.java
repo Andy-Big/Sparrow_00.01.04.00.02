@@ -60,6 +60,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Iterator;
+
 @ViewPager.DecorView
 /* loaded from: classes.dex */
 public class TabLayout extends HorizontalScrollView {
@@ -823,91 +824,39 @@ public class TabLayout extends HorizontalScrollView {
     @Override // android.widget.HorizontalScrollView, android.widget.FrameLayout, android.view.View
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    protected void onMeasure(int r7, int r8) {
-        /*
-            r6 = this;
-            android.content.Context r0 = r6.getContext()
-            int r1 = r6.getDefaultHeight()
-            float r0 = com.google.android.material.internal.ViewUtils.dpToPx(r0, r1)
-            int r0 = java.lang.Math.round(r0)
-            int r1 = android.view.View.MeasureSpec.getMode(r8)
-            r2 = -2147483648(0xffffffff80000000, float:-0.0)
-            r3 = 1073741824(0x40000000, float:2.0)
-            r4 = 0
-            r5 = 1
-            if (r1 == r2) goto L2e
-            if (r1 == 0) goto L1f
-            goto L41
-        L1f:
-            int r8 = r6.getPaddingTop()
-            int r0 = r0 + r8
-            int r8 = r6.getPaddingBottom()
-            int r0 = r0 + r8
-            int r8 = android.view.View.MeasureSpec.makeMeasureSpec(r0, r3)
-            goto L41
-        L2e:
-            int r1 = r6.getChildCount()
-            if (r1 != r5) goto L41
-            int r1 = android.view.View.MeasureSpec.getSize(r8)
-            if (r1 < r0) goto L41
-            android.view.View r1 = r6.getChildAt(r4)
-            r1.setMinimumHeight(r0)
-        L41:
-            int r0 = android.view.View.MeasureSpec.getSize(r7)
-            int r1 = android.view.View.MeasureSpec.getMode(r7)
-            if (r1 == 0) goto L5f
-            int r1 = r6.requestedTabMaxWidth
-            if (r1 <= 0) goto L50
-            goto L5d
-        L50:
-            float r0 = (float) r0
-            android.content.Context r1 = r6.getContext()
-            r2 = 56
-            float r1 = com.google.android.material.internal.ViewUtils.dpToPx(r1, r2)
-            float r0 = r0 - r1
-            int r1 = (int) r0
-        L5d:
-            r6.tabMaxWidth = r1
-        L5f:
-            super.onMeasure(r7, r8)
-            int r7 = r6.getChildCount()
-            if (r7 != r5) goto Lad
-            android.view.View r7 = r6.getChildAt(r4)
-            int r0 = r6.mode
-            if (r0 == 0) goto L82
-            if (r0 == r5) goto L76
-            r1 = 2
-            if (r0 == r1) goto L82
-            goto L8d
-        L76:
-            int r0 = r7.getMeasuredWidth()
-            int r1 = r6.getMeasuredWidth()
-            if (r0 == r1) goto L8d
-        L80:
-            r4 = r5
-            goto L8d
-        L82:
-            int r0 = r7.getMeasuredWidth()
-            int r1 = r6.getMeasuredWidth()
-            if (r0 >= r1) goto L8d
-            goto L80
-        L8d:
-            if (r4 == 0) goto Lad
-            int r0 = r6.getPaddingTop()
-            int r1 = r6.getPaddingBottom()
-            int r0 = r0 + r1
-            android.view.ViewGroup$LayoutParams r1 = r7.getLayoutParams()
-            int r1 = r1.height
-            int r8 = getChildMeasureSpec(r8, r0, r1)
-            int r0 = r6.getMeasuredWidth()
-            int r0 = android.view.View.MeasureSpec.makeMeasureSpec(r0, r3)
-            r7.measure(r0, r8)
-        Lad:
-            return
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.google.android.material.tabs.TabLayout.onMeasure(int, int):void");
+    protected void onMeasure(int i, int i2) {
+        int round = Math.round(ViewUtils.dpToPx(getContext(), getDefaultHeight()));
+        int mode = View.MeasureSpec.getMode(i2);
+        boolean z = false;
+        if (mode != Integer.MIN_VALUE) {
+            if (mode == 0) {
+                i2 = View.MeasureSpec.makeMeasureSpec(round + getPaddingTop() + getPaddingBottom(), 1073741824);
+            }
+        } else if (getChildCount() == 1 && View.MeasureSpec.getSize(i2) >= round) {
+            getChildAt(0).setMinimumHeight(round);
+        }
+        int size = View.MeasureSpec.getSize(i);
+        if (View.MeasureSpec.getMode(i) != 0) {
+            int i3 = this.requestedTabMaxWidth;
+            if (i3 <= 0) {
+                i3 = (int) (size - ViewUtils.dpToPx(getContext(), 56));
+            }
+            this.tabMaxWidth = i3;
+        }
+        super.onMeasure(i, i2);
+        if (getChildCount() != 1) {
+            return;
+        }
+        View childAt = getChildAt(0);
+        int i4 = this.mode;
+        if (i4 != 0) {
+            if (i4 != 1) {
+            }
+            if (z) {
+                childAt.measure(View.MeasureSpec.makeMeasureSpec(getMeasuredWidth(), 1073741824), getChildMeasureSpec(i2, getPaddingTop() + getPaddingBottom(), childAt.getLayoutParams().height));
+            }
+        }
     }
 
     private void removeTabViewAt(int i) {
@@ -1509,6 +1458,7 @@ public class TabLayout extends HorizontalScrollView {
             setSelected(tab != null && tab.isSelected());
         }
 
+        /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: com.google.android.material.tabs.TabLayout$TabView */
         /* JADX WARN: Multi-variable type inference failed */
         private void inflateAndAddDefaultIconView() {
             FrameLayout frameLayout;
@@ -1523,6 +1473,7 @@ public class TabLayout extends HorizontalScrollView {
             frameLayout.addView(imageView, 0);
         }
 
+        /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: com.google.android.material.tabs.TabLayout$TabView */
         /* JADX WARN: Multi-variable type inference failed */
         private void inflateAndAddDefaultTextView() {
             FrameLayout frameLayout;
@@ -1747,9 +1698,8 @@ public class TabLayout extends HorizontalScrollView {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public class SlidingTabIndicator extends LinearLayout {
+    class SlidingTabIndicator extends LinearLayout {
         private int animationStartLeft;
         private int animationStartRight;
         private final GradientDrawable defaultSelectionIndicator;
@@ -2060,6 +2010,7 @@ public class TabLayout extends HorizontalScrollView {
         return 0;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.FrameLayout, android.view.ViewGroup
     public FrameLayout.LayoutParams generateLayoutParams(AttributeSet attributeSet) {
         return generateDefaultLayoutParams();
@@ -2136,9 +2087,8 @@ public class TabLayout extends HorizontalScrollView {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public class PagerAdapterObserver extends DataSetObserver {
+    private class PagerAdapterObserver extends DataSetObserver {
         PagerAdapterObserver() {
         }
 
@@ -2153,9 +2103,8 @@ public class TabLayout extends HorizontalScrollView {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public class AdapterChangeListener implements ViewPager.OnAdapterChangeListener {
+    private class AdapterChangeListener implements ViewPager.OnAdapterChangeListener {
         private boolean autoRefresh;
 
         AdapterChangeListener() {

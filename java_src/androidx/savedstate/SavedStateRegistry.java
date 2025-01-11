@@ -7,6 +7,7 @@ import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.savedstate.Recreator;
 import java.util.Map;
+
 /* loaded from: classes.dex */
 public final class SavedStateRegistry {
     private static final String SAVED_COMPONENTS_KEY = "androidx.lifecycle.BundlableSavedStateRegistry.key";
@@ -24,6 +25,9 @@ public final class SavedStateRegistry {
     /* loaded from: classes.dex */
     public interface SavedStateProvider {
         Bundle saveState();
+    }
+
+    SavedStateRegistry() {
     }
 
     public Bundle consumeRestoredStateForKey(String str) {
@@ -71,8 +75,7 @@ public final class SavedStateRegistry {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void performRestore(Lifecycle lifecycle, Bundle bundle) {
+    void performRestore(Lifecycle lifecycle, Bundle bundle) {
         if (this.mRestored) {
             throw new IllegalStateException("SavedStateRegistry was already restored.");
         }
@@ -92,8 +95,7 @@ public final class SavedStateRegistry {
         this.mRestored = true;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void performSave(Bundle bundle) {
+    void performSave(Bundle bundle) {
         Bundle bundle2 = new Bundle();
         Bundle bundle3 = this.mRestoredState;
         if (bundle3 != null) {

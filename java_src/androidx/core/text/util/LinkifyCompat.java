@@ -21,10 +21,12 @@ import java.util.Iterator;
 import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
 /* loaded from: classes.dex */
 public final class LinkifyCompat {
     private static final String[] EMPTY_STRING = new String[0];
     private static final Comparator<LinkSpec> COMPARATOR = new Comparator<LinkSpec>() { // from class: androidx.core.text.util.LinkifyCompat.1
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
         public int compare(LinkSpec linkSpec, LinkSpec linkSpec2) {
             if (linkSpec.start < linkSpec2.start) {
@@ -307,9 +309,8 @@ public final class LinkifyCompat {
     private LinkifyCompat() {
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static class LinkSpec {
+    private static class LinkSpec {
         int end;
         URLSpan frameworkAddedSpan;
         int start;

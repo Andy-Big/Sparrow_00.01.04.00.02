@@ -4,6 +4,7 @@ import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.RetentionPolicy;
 import kotlin.Metadata;
+
 /* compiled from: Annotations.kt */
 @java.lang.annotation.Target({ElementType.ANNOTATION_TYPE})
 @MustBeDocumented

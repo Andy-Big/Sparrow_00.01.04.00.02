@@ -8,12 +8,14 @@ import com.bumptech.glide.load.engine.Resource;
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
 import com.bumptech.glide.load.resource.bitmap.BitmapResource;
 import com.bumptech.glide.load.resource.gif.GifDrawable;
+
 /* loaded from: classes.dex */
 public final class DrawableBytesTranscoder implements ResourceTranscoder<Drawable, byte[]> {
     private final ResourceTranscoder<Bitmap, byte[]> bitmapBytesTranscoder;
     private final BitmapPool bitmapPool;
     private final ResourceTranscoder<GifDrawable, byte[]> gifDrawableBytesTranscoder;
 
+    /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.bumptech.glide.load.engine.Resource<android.graphics.drawable.Drawable> */
     /* JADX WARN: Multi-variable type inference failed */
     private static Resource<GifDrawable> toGifDrawableResource(Resource<Drawable> resource) {
         return resource;

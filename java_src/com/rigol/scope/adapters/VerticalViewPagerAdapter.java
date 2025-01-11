@@ -65,6 +65,17 @@ public class VerticalViewPagerAdapter extends BaseAdapter<List<VerticalParam>> i
     private SpinnerAdapter spinnerAdapter;
     private TriggerViewModel triggerViewModel;
 
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.adapters.-$$Lambda$VerticalViewPagerAdapter$UMZdDLvGppZtdkON2RLqzxOqz-E.onCheckedChanged(android.widget.CompoundButton, boolean):void] */
+    /* renamed from: lambda$UMZdDLvGppZtdkON2RLqzxOqz-E */
+    public static /* synthetic */ void m12lambda$UMZdDLvGppZtdkON2RLqzxOqzE(VerticalViewPagerAdapter verticalViewPagerAdapter, View view, boolean z) {
+        verticalViewPagerAdapter.change(view, z);
+    }
+
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.adapters.-$$Lambda$VerticalViewPagerAdapter$zIg4P3V2IRbbezmAAUaKkxdGw08.onClick(android.view.View):void] */
+    public static /* synthetic */ void lambda$zIg4P3V2IRbbezmAAUaKkxdGw08(VerticalViewPagerAdapter verticalViewPagerAdapter, View view) {
+        verticalViewPagerAdapter.click(view);
+    }
+
     public AorBManager getAorBManager() {
         boolean[] zArr = this.adapterInitArr;
         int i = this.currentItem;
@@ -161,7 +172,6 @@ public class VerticalViewPagerAdapter extends BaseAdapter<List<VerticalParam>> i
         adapterItemPopupviewVerticalBinding.setHorizontalParam(value);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.rigol.scope.adapters.MultiItemTypeAdapter, androidx.recyclerview.widget.RecyclerView.Adapter
     public BaseViewHolder<? extends ViewDataBinding> onCreateViewHolder(ViewGroup viewGroup, int i) {
         BaseViewHolder<? extends ViewDataBinding> onCreateViewHolder = super.onCreateViewHolder(viewGroup, i);
@@ -169,43 +179,42 @@ public class VerticalViewPagerAdapter extends BaseAdapter<List<VerticalParam>> i
         adapterItemPopupviewVerticalBinding.displaySwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() { // from class: com.rigol.scope.adapters.-$$Lambda$VerticalViewPagerAdapter$UMZdDLvGppZtdkON2RLqzxOqz-E
             @Override // android.widget.CompoundButton.OnCheckedChangeListener
             public final void onCheckedChanged(CompoundButton compoundButton, boolean z) {
-                VerticalViewPagerAdapter.this.change(compoundButton, z);
+                VerticalViewPagerAdapter.m12lambda$UMZdDLvGppZtdkON2RLqzxOqzE(VerticalViewPagerAdapter.this, compoundButton, z);
             }
         });
         adapterItemPopupviewVerticalBinding.invertSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() { // from class: com.rigol.scope.adapters.-$$Lambda$VerticalViewPagerAdapter$UMZdDLvGppZtdkON2RLqzxOqz-E
             @Override // android.widget.CompoundButton.OnCheckedChangeListener
             public final void onCheckedChanged(CompoundButton compoundButton, boolean z) {
-                VerticalViewPagerAdapter.this.change(compoundButton, z);
+                VerticalViewPagerAdapter.m12lambda$UMZdDLvGppZtdkON2RLqzxOqzE(VerticalViewPagerAdapter.this, compoundButton, z);
             }
         });
         adapterItemPopupviewVerticalBinding.impedanceSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() { // from class: com.rigol.scope.adapters.-$$Lambda$VerticalViewPagerAdapter$UMZdDLvGppZtdkON2RLqzxOqz-E
             @Override // android.widget.CompoundButton.OnCheckedChangeListener
             public final void onCheckedChanged(CompoundButton compoundButton, boolean z) {
-                VerticalViewPagerAdapter.this.change(compoundButton, z);
+                VerticalViewPagerAdapter.m12lambda$UMZdDLvGppZtdkON2RLqzxOqzE(VerticalViewPagerAdapter.this, compoundButton, z);
             }
         });
         adapterItemPopupviewVerticalBinding.fineSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() { // from class: com.rigol.scope.adapters.-$$Lambda$VerticalViewPagerAdapter$UMZdDLvGppZtdkON2RLqzxOqz-E
             @Override // android.widget.CompoundButton.OnCheckedChangeListener
             public final void onCheckedChanged(CompoundButton compoundButton, boolean z) {
-                VerticalViewPagerAdapter.this.change(compoundButton, z);
+                VerticalViewPagerAdapter.m12lambda$UMZdDLvGppZtdkON2RLqzxOqzE(VerticalViewPagerAdapter.this, compoundButton, z);
             }
         });
         adapterItemPopupviewVerticalBinding.labelSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() { // from class: com.rigol.scope.adapters.-$$Lambda$VerticalViewPagerAdapter$UMZdDLvGppZtdkON2RLqzxOqz-E
             @Override // android.widget.CompoundButton.OnCheckedChangeListener
             public final void onCheckedChanged(CompoundButton compoundButton, boolean z) {
-                VerticalViewPagerAdapter.this.change(compoundButton, z);
+                VerticalViewPagerAdapter.m12lambda$UMZdDLvGppZtdkON2RLqzxOqzE(VerticalViewPagerAdapter.this, compoundButton, z);
             }
         });
         adapterItemPopupviewVerticalBinding.setOnClickListener(new View.OnClickListener() { // from class: com.rigol.scope.adapters.-$$Lambda$VerticalViewPagerAdapter$zIg4P3V2IRbbezmAAUaKkxdGw08
             @Override // android.view.View.OnClickListener
             public final void onClick(View view) {
-                VerticalViewPagerAdapter.this.click(view);
+                VerticalViewPagerAdapter.lambda$zIg4P3V2IRbbezmAAUaKkxdGw08(VerticalViewPagerAdapter.this, view);
             }
         });
         return onCreateViewHolder;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* JADX WARN: Type inference failed for: r0v0, types: [java.util.List] */
     public void click(View view) {
         List filter;
@@ -218,6 +227,10 @@ public class VerticalViewPagerAdapter extends BaseAdapter<List<VerticalParam>> i
         if (id == R.id.scale_edit_text) {
             if (this.aorBManager.setClick_showab(id)) {
                 ViewUtil.showKeyboard(this.anchor, view, this.param.getUnit(), this.param.getScaleAttr().getMaxLongValue(), this.param.getScaleAttr().getMinLongValue(), this.param.getScaleAttr().getDefLongValue(), this.param.getScale(), new KeyboardListener() { // from class: com.rigol.scope.adapters.VerticalViewPagerAdapter.1
+                    {
+                        VerticalViewPagerAdapter.this = this;
+                    }
+
                     @Override // com.rigol.scope.views.keyboard.KeyboardListener
                     public <T> void resultMinUnitValueListener(T t) {
                         VerticalViewPagerAdapter.this.param.saveScale(((Long) t).longValue());
@@ -232,6 +245,10 @@ public class VerticalViewPagerAdapter extends BaseAdapter<List<VerticalParam>> i
         } else if (id == R.id.offset_edit_text) {
             if (this.aorBManager.setClick_showab(id)) {
                 ViewUtil.showKeyboard(this.anchor, view, this.param.getUnit(), this.param.getOffsetAttr().getMaxLongValue(), this.param.getOffsetAttr().getMinLongValue(), this.param.getOffsetAttr().getDefLongValue(), this.param.getOffset(), new KeyboardListener() { // from class: com.rigol.scope.adapters.VerticalViewPagerAdapter.2
+                    {
+                        VerticalViewPagerAdapter.this = this;
+                    }
+
                     @Override // com.rigol.scope.views.keyboard.KeyboardListener
                     public <T> void resultMinUnitValueListener(T t) {
                         VerticalViewPagerAdapter.this.param.moveOffset(((Long) t).longValue());
@@ -246,6 +263,10 @@ public class VerticalViewPagerAdapter extends BaseAdapter<List<VerticalParam>> i
         } else if (id == R.id.position_edit_text) {
             if (this.aorBManager.setClick_showab(id)) {
                 ViewUtil.showKeyboard(this.anchor, view, this.param.getUnit(), this.param.getPositionAttr().getMaxLongValue(), this.param.getPositionAttr().getMinLongValue(), this.param.getPositionAttr().getDefLongValue(), this.param.getPosition(), new KeyboardListener() { // from class: com.rigol.scope.adapters.VerticalViewPagerAdapter.3
+                    {
+                        VerticalViewPagerAdapter.this = this;
+                    }
+
                     @Override // com.rigol.scope.views.keyboard.KeyboardListener
                     public <T> void resultMinUnitValueListener(T t) {
                         VerticalViewPagerAdapter.this.param.savePosition(((Long) t).longValue());
@@ -260,6 +281,10 @@ public class VerticalViewPagerAdapter extends BaseAdapter<List<VerticalParam>> i
         } else if (id == R.id.delay_edit_text) {
             if (this.aorBManager.setClick_showab(id)) {
                 ViewUtil.showKeyboard(this.anchor, view, ServiceEnum.Unit.Unit_s, 100000000L, -100000000L, 0L, this.param.getChanDelay(), new KeyboardListener() { // from class: com.rigol.scope.adapters.VerticalViewPagerAdapter.4
+                    {
+                        VerticalViewPagerAdapter.this = this;
+                    }
+
                     @Override // com.rigol.scope.views.keyboard.KeyboardListener
                     public <T> void resultMinUnitValueListener(T t) {
                         VerticalViewPagerAdapter.this.param.saveChanDelay(((Long) t).longValue());
@@ -291,10 +316,7 @@ public class VerticalViewPagerAdapter extends BaseAdapter<List<VerticalParam>> i
                 filter = KtUtilKt.filter(list, new Function1() { // from class: com.rigol.scope.adapters.-$$Lambda$VerticalViewPagerAdapter$b-Ghyfd4LQhSQHnMvr6Z-tL7wRM
                     @Override // kotlin.jvm.functions.Function1
                     public final Object invoke(Object obj) {
-                        Boolean valueOf;
-                        MappingObject mappingObject = (MappingObject) obj;
-                        valueOf = Boolean.valueOf(r1 == null || r1.getValue() == ServiceEnum.Bandwidth.BW_20M.value1);
-                        return valueOf;
+                        return VerticalViewPagerAdapter.lambda$click$6((MappingObject) obj);
                     }
                 });
             } else if (scaleValue <= 500000) {
@@ -302,20 +324,14 @@ public class VerticalViewPagerAdapter extends BaseAdapter<List<VerticalParam>> i
                     filter = KtUtilKt.filter(list, new Function1() { // from class: com.rigol.scope.adapters.-$$Lambda$VerticalViewPagerAdapter$fZp4EEKuNQp9QeeGT8Q7MhoToVw
                         @Override // kotlin.jvm.functions.Function1
                         public final Object invoke(Object obj) {
-                            Boolean valueOf;
-                            MappingObject mappingObject = (MappingObject) obj;
-                            valueOf = Boolean.valueOf(r1.getValue() <= ServiceEnum.Bandwidth.BW_250M.value1);
-                            return valueOf;
+                            return VerticalViewPagerAdapter.lambda$click$7((MappingObject) obj);
                         }
                     });
                 } else {
                     filter = KtUtilKt.filter(list, new Function1() { // from class: com.rigol.scope.adapters.-$$Lambda$VerticalViewPagerAdapter$W-T7wSn5s9V4BrZx-bO9T9ves4I
                         @Override // kotlin.jvm.functions.Function1
                         public final Object invoke(Object obj) {
-                            Boolean valueOf;
-                            MappingObject mappingObject = (MappingObject) obj;
-                            valueOf = Boolean.valueOf(r1.getValue() <= ServiceEnum.Bandwidth.BW_20M.value1);
-                            return valueOf;
+                            return VerticalViewPagerAdapter.lambda$click$8((MappingObject) obj);
                         }
                     });
                 }
@@ -323,20 +339,14 @@ public class VerticalViewPagerAdapter extends BaseAdapter<List<VerticalParam>> i
                 filter = KtUtilKt.filter(list, new Function1() { // from class: com.rigol.scope.adapters.-$$Lambda$VerticalViewPagerAdapter$5BwQxUzu2N0hy24JsCV_ASWh_y4
                     @Override // kotlin.jvm.functions.Function1
                     public final Object invoke(Object obj) {
-                        Boolean valueOf;
-                        MappingObject mappingObject = (MappingObject) obj;
-                        valueOf = Boolean.valueOf(r1.getValue() <= ServiceEnum.Bandwidth.BW_250M.value1);
-                        return valueOf;
+                        return VerticalViewPagerAdapter.lambda$click$9((MappingObject) obj);
                     }
                 });
             } else {
                 filter = KtUtilKt.filter(list, new Function1() { // from class: com.rigol.scope.adapters.-$$Lambda$VerticalViewPagerAdapter$ezx9eEo24XyUW1bvZ_570af-n_Q
                     @Override // kotlin.jvm.functions.Function1
                     public final Object invoke(Object obj) {
-                        Boolean valueOf;
-                        MappingObject mappingObject = (MappingObject) obj;
-                        valueOf = Boolean.valueOf(r1.getValue() <= ServiceEnum.Bandwidth.BW_20M.value1);
-                        return valueOf;
+                        return VerticalViewPagerAdapter.lambda$click$10((MappingObject) obj);
                     }
                 });
             }
@@ -456,6 +466,31 @@ public class VerticalViewPagerAdapter extends BaseAdapter<List<VerticalParam>> i
         selectCoupling(mappingObject);
     }
 
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.adapters.-$$Lambda$VerticalViewPagerAdapter$b-Ghyfd4LQhSQHnMvr6Z-tL7wRM.invoke(java.lang.Object):java.lang.Object] */
+    static /* synthetic */ Boolean lambda$click$6(MappingObject mappingObject) {
+        return Boolean.valueOf(mappingObject == null || mappingObject.getValue() == ServiceEnum.Bandwidth.BW_20M.value1);
+    }
+
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.adapters.-$$Lambda$VerticalViewPagerAdapter$fZp4EEKuNQp9QeeGT8Q7MhoToVw.invoke(java.lang.Object):java.lang.Object] */
+    static /* synthetic */ Boolean lambda$click$7(MappingObject mappingObject) {
+        return Boolean.valueOf(mappingObject.getValue() <= ServiceEnum.Bandwidth.BW_250M.value1);
+    }
+
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.adapters.-$$Lambda$VerticalViewPagerAdapter$W-T7wSn5s9V4BrZx-bO9T9ves4I.invoke(java.lang.Object):java.lang.Object] */
+    static /* synthetic */ Boolean lambda$click$8(MappingObject mappingObject) {
+        return Boolean.valueOf(mappingObject.getValue() <= ServiceEnum.Bandwidth.BW_20M.value1);
+    }
+
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.adapters.-$$Lambda$VerticalViewPagerAdapter$5BwQxUzu2N0hy24JsCV_ASWh_y4.invoke(java.lang.Object):java.lang.Object] */
+    static /* synthetic */ Boolean lambda$click$9(MappingObject mappingObject) {
+        return Boolean.valueOf(mappingObject.getValue() <= ServiceEnum.Bandwidth.BW_250M.value1);
+    }
+
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.adapters.-$$Lambda$VerticalViewPagerAdapter$ezx9eEo24XyUW1bvZ_570af-n_Q.invoke(java.lang.Object):java.lang.Object] */
+    static /* synthetic */ Boolean lambda$click$10(MappingObject mappingObject) {
+        return Boolean.valueOf(mappingObject.getValue() <= ServiceEnum.Bandwidth.BW_20M.value1);
+    }
+
     public /* synthetic */ void lambda$click$11$VerticalViewPagerAdapter(PopupSpinner popupSpinner, SpinnerAdapter spinnerAdapter, List list, View view) {
         this.popupSpinner = popupSpinner;
         this.spinnerAdapter = spinnerAdapter;
@@ -528,7 +563,6 @@ public class VerticalViewPagerAdapter extends BaseAdapter<List<VerticalParam>> i
         this.param.saveCoupling(couplingFromValue1);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* JADX WARN: Type inference failed for: r0v1, types: [java.util.List] */
     public void change(View view, boolean z) {
         if (view.isPressed()) {
@@ -571,6 +605,10 @@ public class VerticalViewPagerAdapter extends BaseAdapter<List<VerticalParam>> i
         arrayList.add(new AorBParam(adapterItemPopupviewVerticalBinding.bandwidthLimitSpinner, 0, false, "", 2));
         this.mapList.put(Integer.valueOf(i), arrayList);
         AorBManager aorBManager = new AorBManager(this.context, arrayList, this, this) { // from class: com.rigol.scope.adapters.VerticalViewPagerAdapter.5
+            {
+                VerticalViewPagerAdapter.this = this;
+            }
+
             @Override // com.rigol.scope.utilities.AorBManager
             protected void setSwitch_num(int i2) {
                 List list = (List) Objects.requireNonNull((List) VerticalViewPagerAdapter.this.mapList.get(Integer.valueOf(i)));

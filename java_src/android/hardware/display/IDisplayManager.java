@@ -6,6 +6,7 @@ import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
 import android.view.DisplayInfo;
+
 /* loaded from: classes.dex */
 public interface IDisplayManager extends IInterface {
 
@@ -70,9 +71,8 @@ public interface IDisplayManager extends IInterface {
             return true;
         }
 
-        /* JADX INFO: Access modifiers changed from: private */
         /* loaded from: classes.dex */
-        public static class Proxy implements IDisplayManager {
+        private static class Proxy implements IDisplayManager {
             public static IDisplayManager sDefaultImpl;
             private IBinder mRemote;
 

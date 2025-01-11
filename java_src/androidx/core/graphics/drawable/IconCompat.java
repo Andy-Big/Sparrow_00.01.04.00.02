@@ -39,6 +39,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.reflect.InvocationTargetException;
 import java.nio.charset.Charset;
+
 /* loaded from: classes.dex */
 public class IconCompat extends CustomVersionedParcelable {
     private static final float ADAPTIVE_ICON_INSET_FACTOR = 0.25f;

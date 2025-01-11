@@ -6,6 +6,7 @@ import java.net.InetSocketAddress;
 import java.util.HashMap;
 import java.util.Map;
 import javax.jmdns.impl.constants.DNSConstants;
+
 /* loaded from: classes2.dex */
 public final class DNSOutgoing extends DNSMessage {
     private static final int HEADER_SIZE = 12;
@@ -33,8 +34,7 @@ public final class DNSOutgoing extends DNSMessage {
             this._offset = i2;
         }
 
-        /* JADX INFO: Access modifiers changed from: package-private */
-        public void writeByte(int i) {
+        void writeByte(int i) {
             write(i & 255);
         }
 
@@ -50,15 +50,13 @@ public final class DNSOutgoing extends DNSMessage {
             }
         }
 
-        /* JADX INFO: Access modifiers changed from: package-private */
-        public void writeBytes(byte[] bArr, int i, int i2) {
+        void writeBytes(byte[] bArr, int i, int i2) {
             for (int i3 = 0; i3 < i2; i3++) {
                 writeByte(bArr[i + i3]);
             }
         }
 
-        /* JADX INFO: Access modifiers changed from: package-private */
-        public void writeShort(int i) {
+        void writeShort(int i) {
             writeByte(i >> 8);
             writeByte(i);
         }
@@ -68,8 +66,7 @@ public final class DNSOutgoing extends DNSMessage {
             writeShort(i);
         }
 
-        /* JADX INFO: Access modifiers changed from: package-private */
-        public void writeUTF(String str, int i, int i2) {
+        void writeUTF(String str, int i, int i2) {
             int i3 = 0;
             for (int i4 = 0; i4 < i2; i4++) {
                 char charAt = str.charAt(i + i4);
@@ -91,8 +88,7 @@ public final class DNSOutgoing extends DNSMessage {
             }
         }
 
-        /* JADX INFO: Access modifiers changed from: package-private */
-        public void writeName(String str) {
+        void writeName(String str) {
             writeName(str, true);
         }
 

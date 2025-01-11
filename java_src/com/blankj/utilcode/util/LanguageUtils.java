@@ -9,6 +9,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import com.blankj.utilcode.util.Utils;
 import java.util.Locale;
+
 /* loaded from: classes.dex */
 public class LanguageUtils {
     private static final String KEY_LOCALE = "KEY_LOCALE";
@@ -50,6 +51,7 @@ public class LanguageUtils {
             locale = getLocal(Resources.getSystem().getConfiguration());
         }
         updateAppContextLanguage(locale, new Utils.Consumer<Boolean>() { // from class: com.blankj.utilcode.util.LanguageUtils.1
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // com.blankj.utilcode.util.Utils.Consumer
             public void accept(Boolean bool) {
                 if (bool.booleanValue()) {
@@ -154,8 +156,7 @@ public class LanguageUtils {
         return context;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static void applyLanguage(Activity activity) {
+    static void applyLanguage(Activity activity) {
         Locale string2Locale;
         String string = UtilsBridge.getSpUtils4Utils().getString(KEY_LOCALE);
         if (TextUtils.isEmpty(string)) {

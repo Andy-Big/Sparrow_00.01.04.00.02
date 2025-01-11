@@ -28,6 +28,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Executor;
+
 /* loaded from: classes.dex */
 public class RequestBuilder<TranscodeType> extends BaseRequestOptions<RequestBuilder<TranscodeType>> implements Cloneable, ModelTypes<RequestBuilder<TranscodeType>> {
     protected static final RequestOptions DOWNLOAD_ONLY_OPTIONS = new RequestOptions().diskCacheStrategy(DiskCacheStrategy.DATA).priority(Priority.LOW).skipMemoryCache(true);
@@ -51,8 +52,7 @@ public class RequestBuilder<TranscodeType> extends BaseRequestOptions<RequestBui
         return apply((BaseRequestOptions<?>) baseRequestOptions);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public RequestBuilder(Glide glide, RequestManager requestManager, Class<TranscodeType> cls, Context context) {
+    protected RequestBuilder(Glide glide, RequestManager requestManager, Class<TranscodeType> cls, Context context) {
         this.isDefaultTransitionOptionsSet = true;
         this.glide = glide;
         this.requestManager = requestManager;
@@ -136,6 +136,7 @@ public class RequestBuilder<TranscodeType> extends BaseRequestOptions<RequestBui
         return this;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.ModelTypes
     public RequestBuilder<TranscodeType> load(Object obj) {
         return loadGeneric(obj);
@@ -147,42 +148,50 @@ public class RequestBuilder<TranscodeType> extends BaseRequestOptions<RequestBui
         return this;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.ModelTypes
     public RequestBuilder<TranscodeType> load(Bitmap bitmap) {
         return loadGeneric(bitmap).apply((BaseRequestOptions<?>) RequestOptions.diskCacheStrategyOf(DiskCacheStrategy.NONE));
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.ModelTypes
     public RequestBuilder<TranscodeType> load(Drawable drawable) {
         return loadGeneric(drawable).apply((BaseRequestOptions<?>) RequestOptions.diskCacheStrategyOf(DiskCacheStrategy.NONE));
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.ModelTypes
     public RequestBuilder<TranscodeType> load(String str) {
         return loadGeneric(str);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.ModelTypes
     public RequestBuilder<TranscodeType> load(Uri uri) {
         return loadGeneric(uri);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.ModelTypes
     public RequestBuilder<TranscodeType> load(File file) {
         return loadGeneric(file);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.ModelTypes
     public RequestBuilder<TranscodeType> load(Integer num) {
         return loadGeneric(num).apply((BaseRequestOptions<?>) RequestOptions.signatureOf(AndroidResourceSignature.obtain(this.context)));
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.ModelTypes
     @Deprecated
     public RequestBuilder<TranscodeType> load(URL url) {
         return loadGeneric(url);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.ModelTypes
     public RequestBuilder<TranscodeType> load(byte[] bArr) {
         RequestBuilder<TranscodeType> loadGeneric = loadGeneric(bArr);
@@ -192,6 +201,7 @@ public class RequestBuilder<TranscodeType> extends BaseRequestOptions<RequestBui
         return !loadGeneric.isSkipMemoryCacheSet() ? loadGeneric.apply((BaseRequestOptions<?>) RequestOptions.skipMemoryCacheOf(true)) : loadGeneric;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.request.BaseRequestOptions
     /* renamed from: clone */
     public RequestBuilder<TranscodeType> mo8clone() {
@@ -294,10 +304,9 @@ public class RequestBuilder<TranscodeType> extends BaseRequestOptions<RequestBui
         return new RequestBuilder(File.class, this).apply((BaseRequestOptions<?>) DOWNLOAD_ONLY_OPTIONS);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.bumptech.glide.RequestBuilder$1  reason: invalid class name */
     /* loaded from: classes.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    static /* synthetic */ class AnonymousClass1 {
         static final /* synthetic */ int[] $SwitchMap$android$widget$ImageView$ScaleType;
         static final /* synthetic */ int[] $SwitchMap$com$bumptech$glide$Priority;
 

@@ -15,6 +15,7 @@ import kotlin.jvm.internal.InlineMarker;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.Lambda;
 import kotlinx.coroutines.flow.internal.CombineKt;
+
 /* JADX INFO: Add missing generic type declarations: [R] */
 /* compiled from: Zip.kt */
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0012\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\u0010\u0000\u001a\u00020\u0001\"\u0006\b\u0000\u0010\u0002\u0018\u0001\"\u0004\b\u0001\u0010\u0003*\b\u0012\u0004\u0012\u0002H\u00030\u0004H\u008a@¢\u0006\u0004\b\u0005\u0010\u0006"}, d2 = {"<anonymous>", "", ExifInterface.GPS_DIRECTION_TRUE, "R", "Lkotlinx/coroutines/flow/FlowCollector;", "invoke", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;"}, k = 3, mv = {1, 1, 15})
@@ -42,6 +43,7 @@ public final class FlowKt__ZipKt$combineTransform$6<R> extends SuspendLambda imp
         return flowKt__ZipKt$combineTransform$6;
     }
 
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
     @Override // kotlin.jvm.functions.Function2
     public final Object invoke(Object obj, Continuation<? super Unit> continuation) {
         return ((FlowKt__ZipKt$combineTransform$6) create(obj, continuation)).invokeSuspend(Unit.INSTANCE);
@@ -57,6 +59,7 @@ public final class FlowKt__ZipKt$combineTransform$6<R> extends SuspendLambda imp
             super(0);
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // kotlin.jvm.functions.Function0
         public final T[] invoke() {
             int length = FlowKt__ZipKt$combineTransform$6.this.$flowArray.length;
@@ -92,6 +95,8 @@ public final class FlowKt__ZipKt$combineTransform$6<R> extends SuspendLambda imp
             return anonymousClass2;
         }
 
+        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object, java.lang.Object] */
+        /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: kotlinx.coroutines.flow.FlowKt__ZipKt$combineTransform$6$2<T> */
         /* JADX WARN: Multi-variable type inference failed */
         @Override // kotlin.jvm.functions.Function3
         public final Object invoke(Object obj, Object obj2, Continuation<? super Unit> continuation) {

@@ -2,6 +2,7 @@ package androidx.recyclerview.widget;
 
 import android.view.View;
 import androidx.recyclerview.widget.RecyclerView;
+
 /* loaded from: classes.dex */
 class LayoutState {
     static final int INVALID_LAYOUT = Integer.MIN_VALUE;
@@ -19,14 +20,15 @@ class LayoutState {
     int mStartLine = 0;
     int mEndLine = 0;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean hasMore(RecyclerView.State state) {
+    LayoutState() {
+    }
+
+    boolean hasMore(RecyclerView.State state) {
         int i = this.mCurrentPosition;
         return i >= 0 && i < state.getItemCount();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public View next(RecyclerView.Recycler recycler) {
+    View next(RecyclerView.Recycler recycler) {
         View viewForPosition = recycler.getViewForPosition(this.mCurrentPosition);
         this.mCurrentPosition += this.mItemDirection;
         return viewForPosition;

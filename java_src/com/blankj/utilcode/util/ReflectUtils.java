@@ -14,6 +14,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
+
 /* loaded from: classes.dex */
 public final class ReflectUtils {
     private final Object object;
@@ -98,6 +99,7 @@ public final class ReflectUtils {
 
     private void sortConstructors(List<Constructor<?>> list) {
         Collections.sort(list, new Comparator<Constructor<?>>() { // from class: com.blankj.utilcode.util.ReflectUtils.1
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.Comparator
             public int compare(Constructor<?> constructor, Constructor<?> constructor2) {
                 Class<?>[] parameterTypes = constructor.getParameterTypes();
@@ -185,11 +187,11 @@ public final class ReflectUtils {
         try {
             try {
                 return method(exactMethod(str, argsType), this.object, objArr);
-            } catch (NoSuchMethodException e) {
-                throw new ReflectException(e);
+            } catch (NoSuchMethodException unused) {
+                return method(similarMethod(str, argsType), this.object, objArr);
             }
-        } catch (NoSuchMethodException unused) {
-            return method(similarMethod(str, argsType), this.object, objArr);
+        } catch (NoSuchMethodException e) {
+            throw new ReflectException(e);
         }
     }
 
@@ -256,6 +258,7 @@ public final class ReflectUtils {
 
     private void sortMethods(List<Method> list) {
         Collections.sort(list, new Comparator<Method>() { // from class: com.blankj.utilcode.util.ReflectUtils.2
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.Comparator
             public int compare(Method method, Method method2) {
                 Class<?>[] parameterTypes = method.getParameterTypes();
@@ -399,9 +402,8 @@ public final class ReflectUtils {
         return this.object.toString();
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static class NULL {
+    private static class NULL {
         private NULL() {
         }
     }

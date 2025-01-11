@@ -29,6 +29,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.ArrayList;
 import java.util.List;
+
 /* loaded from: classes.dex */
 final class CascadingMenuPopup extends MenuPopup implements MenuPresenter, View.OnKeyListener, PopupWindow.OnDismissListener {
     static final int HORIZ_POSITION_LEFT = 0;
@@ -546,9 +547,8 @@ final class CascadingMenuPopup extends MenuPopup implements MenuPresenter, View.
         this.mShowTitle = z;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static class CascadingMenuInfo {
+    private static class CascadingMenuInfo {
         public final MenuBuilder menu;
         public final int position;
         public final MenuPopupWindow window;

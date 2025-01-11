@@ -3,6 +3,7 @@ package androidx.core.text;
 import android.os.Build;
 import android.text.Html;
 import android.text.Spanned;
+
 /* loaded from: classes.dex */
 public final class HtmlCompat {
     public static final int FROM_HTML_MODE_COMPACT = 63;

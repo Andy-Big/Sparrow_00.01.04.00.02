@@ -78,6 +78,10 @@ public class MiniScreenPresentation extends BasePresentation {
         this.viewPagerAdapter = new AnonymousClass2(getContext(), lists, R.layout.adapter_item_recyclerview, context, lists, utilityViewModel);
         this.binding.content.setAdapter(this.viewPagerAdapter);
         this.binding.content.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() { // from class: com.rigol.scope.views.presentation.MiniScreenPresentation.3
+            {
+                MiniScreenPresentation.this = this;
+            }
+
             @Override // androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
             public void onPageScrolled(int i, float f, int i2) {
                 super.onPageScrolled(i, f, i2);
@@ -97,7 +101,7 @@ public class MiniScreenPresentation extends BasePresentation {
         this.binding.panelSwitch.setOnClickListener(new View.OnClickListener() { // from class: com.rigol.scope.views.presentation.-$$Lambda$MiniScreenPresentation$KLwLtSPyngvplRjuYqnQuCGZSQY
             @Override // android.view.View.OnClickListener
             public final void onClick(View view) {
-                Timber.d("panelSwitch click", new Object[0]);
+                MiniScreenPresentation.lambda$init$1(view);
             }
         });
         this.binding.panelSwitch.setOnTouchListener(new VibrationTouchListener());
@@ -122,6 +126,10 @@ public class MiniScreenPresentation extends BasePresentation {
     public /* synthetic */ void lambda$init$0$MiniScreenPresentation(CursorResultParam cursorResultParam) {
         if (cursorResultParam != null) {
             cursorResultParam.addOnPropertyChangedCallback(new Observable.OnPropertyChangedCallback() { // from class: com.rigol.scope.views.presentation.MiniScreenPresentation.1
+                {
+                    MiniScreenPresentation.this = this;
+                }
+
                 @Override // androidx.databinding.Observable.OnPropertyChangedCallback
                 public void onPropertyChanged(Observable observable, int i) {
                     if (i == 1032 && MiniScreenPresentation.this.param != null && MiniScreenPresentation.this.param.getFunction() == ServiceEnum.Function.FUN_CURSOR) {
@@ -132,7 +140,7 @@ public class MiniScreenPresentation extends BasePresentation {
         }
     }
 
-    /* renamed from: com.rigol.scope.views.presentation.MiniScreenPresentation$2  reason: invalid class name */
+    /* renamed from: com.rigol.scope.views.presentation.MiniScreenPresentation$2 */
     /* loaded from: classes2.dex */
     class AnonymousClass2 extends MiniScreenViewAdapter {
         final /* synthetic */ ArrayList val$lists;
@@ -142,6 +150,7 @@ public class MiniScreenPresentation extends BasePresentation {
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         AnonymousClass2(Context context, List list, int i, Context context2, ArrayList arrayList, UtilityViewModel utilityViewModel) {
             super(context, list, i);
+            MiniScreenPresentation.this = r1;
             this.val$outerContext = context2;
             this.val$lists = arrayList;
             this.val$utilityViewModel = utilityViewModel;
@@ -160,7 +169,6 @@ public class MiniScreenPresentation extends BasePresentation {
             }
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
         @Override // com.rigol.scope.adapters.MultiItemTypeAdapter, androidx.recyclerview.widget.RecyclerView.Adapter
         public BaseViewHolder<? extends ViewDataBinding> onCreateViewHolder(ViewGroup viewGroup, int i) {
             final BaseViewHolder<? extends ViewDataBinding> onCreateViewHolder = super.onCreateViewHolder(viewGroup, i);
@@ -208,7 +216,7 @@ public class MiniScreenPresentation extends BasePresentation {
             return true;
         }
 
-        /* renamed from: com.rigol.scope.views.presentation.MiniScreenPresentation$2$1  reason: invalid class name */
+        /* renamed from: com.rigol.scope.views.presentation.MiniScreenPresentation$2$1 */
         /* loaded from: classes2.dex */
         class AnonymousClass1 implements RecyclerView.OnItemTouchListener {
             @Override // androidx.recyclerview.widget.RecyclerView.OnItemTouchListener
@@ -220,6 +228,7 @@ public class MiniScreenPresentation extends BasePresentation {
             }
 
             AnonymousClass1() {
+                AnonymousClass2.this = r1;
             }
 
             @Override // androidx.recyclerview.widget.RecyclerView.OnItemTouchListener
@@ -243,6 +252,11 @@ public class MiniScreenPresentation extends BasePresentation {
                 }
             }
         }
+    }
+
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.views.presentation.-$$Lambda$MiniScreenPresentation$KLwLtSPyngvplRjuYqnQuCGZSQY.onClick(android.view.View):void] */
+    static /* synthetic */ void lambda$init$1(View view) {
+        Timber.d("panelSwitch click", new Object[0]);
     }
 
     public /* synthetic */ void lambda$init$2$MiniScreenPresentation(Object obj) {
@@ -270,7 +284,7 @@ public class MiniScreenPresentation extends BasePresentation {
         return arrayList;
     }
 
-    /* renamed from: com.rigol.scope.views.presentation.MiniScreenPresentation$4  reason: invalid class name */
+    /* renamed from: com.rigol.scope.views.presentation.MiniScreenPresentation$4 */
     /* loaded from: classes2.dex */
     static /* synthetic */ class AnonymousClass4 {
         static final /* synthetic */ int[] $SwitchMap$com$rigol$scope$cil$ServiceEnum$Function;
@@ -289,7 +303,6 @@ public class MiniScreenPresentation extends BasePresentation {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public void handleItemClick(ServiceEnum.Function function) {
         HorizontalParam value;
         if (function == null) {
@@ -325,7 +338,6 @@ public class MiniScreenPresentation extends BasePresentation {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public void handleItemLongClick(ServiceEnum.Function function) {
         if (function == null) {
             return;

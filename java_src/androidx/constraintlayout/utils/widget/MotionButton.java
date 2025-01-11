@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewOutlineProvider;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.constraintlayout.widget.R;
+
 /* loaded from: classes.dex */
 public class MotionButton extends AppCompatButton {
     private Path mPath;

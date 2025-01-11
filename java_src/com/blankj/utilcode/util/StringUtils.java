@@ -2,6 +2,7 @@ package com.blankj.utilcode.util;
 
 import android.content.res.Resources;
 import java.util.IllegalFormatException;
+
 /* loaded from: classes.dex */
 public final class StringUtils {
     public static String null2Length0(String str) {

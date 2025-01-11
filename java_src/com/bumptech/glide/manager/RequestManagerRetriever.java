@@ -22,6 +22,7 @@ import com.bumptech.glide.util.Util;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
+
 /* loaded from: classes.dex */
 public class RequestManagerRetriever implements Handler.Callback {
     private static final RequestManagerFactory DEFAULT_FACTORY = new RequestManagerFactory() { // from class: com.bumptech.glide.manager.RequestManagerRetriever.1
@@ -234,9 +235,8 @@ public class RequestManagerRetriever implements Handler.Callback {
         return fragmentGet(fragment.getActivity(), fragment.getChildFragmentManager(), fragment, fragment.isVisible());
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     @Deprecated
-    public RequestManagerFragment getRequestManagerFragment(Activity activity) {
+    RequestManagerFragment getRequestManagerFragment(Activity activity) {
         return getRequestManagerFragment(activity.getFragmentManager(), null, isActivityVisible(activity));
     }
 
@@ -267,8 +267,7 @@ public class RequestManagerRetriever implements Handler.Callback {
         return requestManager;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public SupportRequestManagerFragment getSupportRequestManagerFragment(Context context, androidx.fragment.app.FragmentManager fragmentManager) {
+    SupportRequestManagerFragment getSupportRequestManagerFragment(Context context, androidx.fragment.app.FragmentManager fragmentManager) {
         return getSupportRequestManagerFragment(fragmentManager, null, isActivityVisible(context));
     }
 

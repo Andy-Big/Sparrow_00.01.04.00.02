@@ -16,9 +16,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
-/* JADX INFO: Access modifiers changed from: package-private */
+
 /* loaded from: classes.dex */
-public final class DefaultDateTypeAdapter extends TypeAdapter<Date> {
+final class DefaultDateTypeAdapter extends TypeAdapter<Date> {
     private static final String SIMPLE_NAME = "DefaultDateTypeAdapter";
     private final List<DateFormat> dateFormats;
     private final Class<? extends Date> dateType;
@@ -35,8 +35,7 @@ public final class DefaultDateTypeAdapter extends TypeAdapter<Date> {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public DefaultDateTypeAdapter(Class<? extends Date> cls, String str) {
+    DefaultDateTypeAdapter(Class<? extends Date> cls, String str) {
         this.dateFormats = new ArrayList();
         this.dateType = verifyDateType(cls);
         this.dateFormats.add(new SimpleDateFormat(str, Locale.US));
@@ -81,6 +80,7 @@ public final class DefaultDateTypeAdapter extends TypeAdapter<Date> {
         throw new IllegalArgumentException("Date type must be one of " + Date.class + ", " + Timestamp.class + ", or " + java.sql.Date.class + " but was " + cls);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.gson.TypeAdapter
     public void write(JsonWriter jsonWriter, Date date) throws IOException {
         if (date == null) {
@@ -92,6 +92,7 @@ public final class DefaultDateTypeAdapter extends TypeAdapter<Date> {
         }
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.gson.TypeAdapter
     public Date read(JsonReader jsonReader) throws IOException {
         if (jsonReader.peek() == JsonToken.NULL) {

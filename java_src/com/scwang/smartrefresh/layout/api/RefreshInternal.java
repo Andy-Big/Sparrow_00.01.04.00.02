@@ -3,6 +3,7 @@ package com.scwang.smartrefresh.layout.api;
 import android.view.View;
 import com.scwang.smartrefresh.layout.constant.SpinnerStyle;
 import com.scwang.smartrefresh.layout.listener.OnStateChangedListener;
+
 /* loaded from: classes2.dex */
 public interface RefreshInternal extends OnStateChangedListener {
     SpinnerStyle getSpinnerStyle();

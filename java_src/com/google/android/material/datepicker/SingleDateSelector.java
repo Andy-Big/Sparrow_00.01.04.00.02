@@ -18,9 +18,11 @@ import com.google.android.material.textfield.TextInputLayout;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
+
 /* loaded from: classes.dex */
 public class SingleDateSelector implements DateSelector<Long> {
     public static final Parcelable.Creator<SingleDateSelector> CREATOR = new Parcelable.Creator<SingleDateSelector>() { // from class: com.google.android.material.datepicker.SingleDateSelector.2
+        /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
         public SingleDateSelector createFromParcel(Parcel parcel) {
@@ -29,6 +31,7 @@ public class SingleDateSelector implements DateSelector<Long> {
             return singleDateSelector;
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
         public SingleDateSelector[] newArray(int i) {
@@ -52,6 +55,7 @@ public class SingleDateSelector implements DateSelector<Long> {
         this.selectedItem = null;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.android.material.datepicker.DateSelector
     public void setSelection(Long l) {
         this.selectedItem = l == null ? null : Long.valueOf(UtcDates.canonicalYearMonthDay(l.longValue()));
@@ -77,6 +81,7 @@ public class SingleDateSelector implements DateSelector<Long> {
         return arrayList;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.google.android.material.datepicker.DateSelector
     public Long getSelection() {

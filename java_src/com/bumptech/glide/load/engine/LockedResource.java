@@ -4,10 +4,11 @@ import androidx.core.util.Pools;
 import com.bumptech.glide.util.Preconditions;
 import com.bumptech.glide.util.pool.FactoryPools;
 import com.bumptech.glide.util.pool.StateVerifier;
-/* JADX INFO: Access modifiers changed from: package-private */
+
 /* loaded from: classes.dex */
-public final class LockedResource<Z> implements Resource<Z>, FactoryPools.Poolable {
+final class LockedResource<Z> implements Resource<Z>, FactoryPools.Poolable {
     private static final Pools.Pool<LockedResource<?>> POOL = FactoryPools.threadSafe(20, new FactoryPools.Factory<LockedResource<?>>() { // from class: com.bumptech.glide.load.engine.LockedResource.1
+        /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // com.bumptech.glide.util.pool.FactoryPools.Factory
         public LockedResource<?> create() {
@@ -19,8 +20,7 @@ public final class LockedResource<Z> implements Resource<Z>, FactoryPools.Poolab
     private final StateVerifier stateVerifier = StateVerifier.newInstance();
     private Resource<Z> toWrap;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static <Z> LockedResource<Z> obtain(Resource<Z> resource) {
+    static <Z> LockedResource<Z> obtain(Resource<Z> resource) {
         LockedResource<Z> lockedResource = (LockedResource) Preconditions.checkNotNull(POOL.acquire());
         lockedResource.init(resource);
         return lockedResource;
@@ -40,8 +40,7 @@ public final class LockedResource<Z> implements Resource<Z>, FactoryPools.Poolab
         POOL.release(this);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public synchronized void unlock() {
+    synchronized void unlock() {
         this.stateVerifier.throwIfRecycled();
         if (!this.isLocked) {
             throw new IllegalStateException("Already unlocked");

@@ -2,6 +2,7 @@ package com.blankj.utilcode.util;
 
 import java.util.Map;
 import java.util.Set;
+
 /* loaded from: classes.dex */
 public final class SPStaticUtils {
     private static SPUtils sDefaultSPUtils;

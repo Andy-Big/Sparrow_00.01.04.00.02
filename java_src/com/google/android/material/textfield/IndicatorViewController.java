@@ -22,9 +22,9 @@ import com.google.android.material.animation.AnimationUtils;
 import com.google.android.material.animation.AnimatorSetCompat;
 import java.util.ArrayList;
 import java.util.List;
-/* JADX INFO: Access modifiers changed from: package-private */
+
 /* loaded from: classes.dex */
-public final class IndicatorViewController {
+final class IndicatorViewController {
     private static final int CAPTION_OPACITY_FADE_ANIMATION_DURATION = 167;
     private static final int CAPTION_STATE_ERROR = 1;
     private static final int CAPTION_STATE_HELPER_TEXT = 2;
@@ -67,8 +67,7 @@ public final class IndicatorViewController {
         this.captionTranslationYPx = context.getResources().getDimensionPixelSize(R.dimen.design_textinput_caption_translate_y);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void showHelper(CharSequence charSequence) {
+    void showHelper(CharSequence charSequence) {
         cancelCaptionAnimator();
         this.helperText = charSequence;
         this.helperTextView.setText(charSequence);
@@ -86,8 +85,7 @@ public final class IndicatorViewController {
         updateCaptionViewsVisibility(this.captionDisplayed, this.captionToShow, shouldAnimateCaptionView(this.helperTextView, null));
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void showError(CharSequence charSequence) {
+    void showError(CharSequence charSequence) {
         cancelCaptionAnimator();
         this.errorText = charSequence;
         this.errorView.setText(charSequence);
@@ -97,8 +95,7 @@ public final class IndicatorViewController {
         updateCaptionViewsVisibility(this.captionDisplayed, this.captionToShow, shouldAnimateCaptionView(this.errorView, charSequence));
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void hideError() {
+    void hideError() {
         this.errorText = null;
         cancelCaptionAnimator();
         if (this.captionDisplayed == 1) {
@@ -226,8 +223,7 @@ public final class IndicatorViewController {
         return this.errorView;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void adjustIndicatorPadding() {
+    void adjustIndicatorPadding() {
         if (canAdjustIndicatorPadding()) {
             ViewCompat.setPaddingRelative(this.indicatorArea, ViewCompat.getPaddingStart(this.textInputView.getEditText()), 0, ViewCompat.getPaddingEnd(this.textInputView.getEditText()), 0);
         }
@@ -237,8 +233,7 @@ public final class IndicatorViewController {
         return (this.indicatorArea == null || this.textInputView.getEditText() == null) ? false : true;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void addIndicator(TextView textView, int i) {
+    void addIndicator(TextView textView, int i) {
         if (this.indicatorArea == null && this.captionArea == null) {
             LinearLayout linearLayout = new LinearLayout(this.context);
             this.indicatorArea = linearLayout;
@@ -261,8 +256,7 @@ public final class IndicatorViewController {
         this.indicatorsAdded++;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void removeIndicator(TextView textView, int i) {
+    void removeIndicator(TextView textView, int i) {
         FrameLayout frameLayout;
         if (this.indicatorArea == null) {
             return;
@@ -286,8 +280,7 @@ public final class IndicatorViewController {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setErrorEnabled(boolean z) {
+    void setErrorEnabled(boolean z) {
         if (this.errorEnabled == z) {
             return;
         }
@@ -319,18 +312,15 @@ public final class IndicatorViewController {
         this.errorEnabled = z;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean isErrorEnabled() {
+    boolean isErrorEnabled() {
         return this.errorEnabled;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean isHelperTextEnabled() {
+    boolean isHelperTextEnabled() {
         return this.helperTextEnabled;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setHelperTextEnabled(boolean z) {
+    void setHelperTextEnabled(boolean z) {
         if (this.helperTextEnabled == z) {
             return;
         }
@@ -365,8 +355,7 @@ public final class IndicatorViewController {
         return isCaptionStateError(this.captionDisplayed);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean errorShouldBeShown() {
+    boolean errorShouldBeShown() {
         return isCaptionStateError(this.captionToShow);
     }
 
@@ -374,8 +363,7 @@ public final class IndicatorViewController {
         return (i != 1 || this.errorView == null || TextUtils.isEmpty(this.errorText)) ? false : true;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean helperTextIsDisplayed() {
+    boolean helperTextIsDisplayed() {
         return isCaptionStateHelperText(this.captionDisplayed);
     }
 
@@ -387,18 +375,15 @@ public final class IndicatorViewController {
         return (i != 2 || this.helperTextView == null || TextUtils.isEmpty(this.helperText)) ? false : true;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public CharSequence getErrorText() {
+    CharSequence getErrorText() {
         return this.errorText;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public CharSequence getHelperText() {
+    CharSequence getHelperText() {
         return this.helperText;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setTypefaces(Typeface typeface) {
+    void setTypefaces(Typeface typeface) {
         if (typeface != this.typeface) {
             this.typeface = typeface;
             setTextViewTypeface(this.errorView, typeface);
@@ -412,8 +397,7 @@ public final class IndicatorViewController {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public int getErrorViewCurrentTextColor() {
+    int getErrorViewCurrentTextColor() {
         TextView textView = this.errorView;
         if (textView != null) {
             return textView.getCurrentTextColor();
@@ -421,8 +405,7 @@ public final class IndicatorViewController {
         return -1;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ColorStateList getErrorViewTextColors() {
+    ColorStateList getErrorViewTextColors() {
         TextView textView = this.errorView;
         if (textView != null) {
             return textView.getTextColors();
@@ -430,8 +413,7 @@ public final class IndicatorViewController {
         return null;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setErrorViewTextColor(ColorStateList colorStateList) {
+    void setErrorViewTextColor(ColorStateList colorStateList) {
         this.errorViewTextColor = colorStateList;
         TextView textView = this.errorView;
         if (textView == null || colorStateList == null) {
@@ -440,8 +422,7 @@ public final class IndicatorViewController {
         textView.setTextColor(colorStateList);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setErrorTextAppearance(int i) {
+    void setErrorTextAppearance(int i) {
         this.errorTextAppearance = i;
         TextView textView = this.errorView;
         if (textView != null) {
@@ -449,8 +430,7 @@ public final class IndicatorViewController {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setErrorContentDescription(CharSequence charSequence) {
+    void setErrorContentDescription(CharSequence charSequence) {
         this.errorViewContentDescription = charSequence;
         TextView textView = this.errorView;
         if (textView != null) {
@@ -458,13 +438,11 @@ public final class IndicatorViewController {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public CharSequence getErrorContentDescription() {
+    CharSequence getErrorContentDescription() {
         return this.errorViewContentDescription;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public int getHelperTextViewCurrentTextColor() {
+    int getHelperTextViewCurrentTextColor() {
         TextView textView = this.helperTextView;
         if (textView != null) {
             return textView.getCurrentTextColor();
@@ -480,8 +458,7 @@ public final class IndicatorViewController {
         return null;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setHelperTextViewTextColor(ColorStateList colorStateList) {
+    void setHelperTextViewTextColor(ColorStateList colorStateList) {
         this.helperTextViewTextColor = colorStateList;
         TextView textView = this.helperTextView;
         if (textView == null || colorStateList == null) {
@@ -490,8 +467,7 @@ public final class IndicatorViewController {
         textView.setTextColor(colorStateList);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setHelperTextAppearance(int i) {
+    void setHelperTextAppearance(int i) {
         this.helperTextTextAppearance = i;
         TextView textView = this.helperTextView;
         if (textView != null) {

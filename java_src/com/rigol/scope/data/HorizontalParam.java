@@ -169,7 +169,10 @@ public final class HorizontalParam extends BaseParam {
             Activity topActivity = ActivityUtils.getTopActivity();
             if (topActivity != null) {
                 liveData2.observe((LifecycleOwner) topActivity, new Observer<JitterParam>() { // from class: com.rigol.scope.data.HorizontalParam.1
-                    /* JADX DEBUG: Method merged with bridge method */
+                    {
+                        HorizontalParam.this = this;
+                    }
+
                     @Override // androidx.lifecycle.Observer
                     public final void onChanged(JitterParam jitterParam) {
                         HorizontalParam.this.jitterParam = jitterParam;
@@ -186,7 +189,10 @@ public final class HorizontalParam extends BaseParam {
         Activity topActivity2 = ActivityUtils.getTopActivity();
         if (topActivity2 != null) {
             liveData.observe((LifecycleOwner) topActivity2, new Observer<EyeParam>() { // from class: com.rigol.scope.data.HorizontalParam.2
-                /* JADX DEBUG: Method merged with bridge method */
+                {
+                    HorizontalParam.this = this;
+                }
+
                 @Override // androidx.lifecycle.Observer
                 public final void onChanged(EyeParam eyeParam) {
                     HorizontalParam.this.eyeParam = eyeParam;
@@ -195,6 +201,11 @@ public final class HorizontalParam extends BaseParam {
             return;
         }
         throw new NullPointerException("null cannot be cast to non-null type androidx.lifecycle.LifecycleOwner");
+    }
+
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.data.HorizontalParam$offsetLarger$1.run():void, com.rigol.scope.data.HorizontalParam$offsetSmaller$1.run():void] */
+    public static final /* synthetic */ void access$setEnableToSetOffset$p(HorizontalParam horizontalParam, boolean z) {
+        horizontalParam.enableToSetOffset = z;
     }
 
     public final AorBManager getAorBManager() {
@@ -1393,7 +1404,7 @@ public final class HorizontalParam extends BaseParam {
                 ThreadUtils.runOnUiThreadDelayed(new Runnable() { // from class: com.rigol.scope.data.HorizontalParam$offsetLarger$1
                     @Override // java.lang.Runnable
                     public final void run() {
-                        HorizontalParam.this.enableToSetOffset = true;
+                        HorizontalParam.access$setEnableToSetOffset$p(HorizontalParam.this, true);
                     }
                 }, 550L);
                 return 0L;
@@ -1411,7 +1422,7 @@ public final class HorizontalParam extends BaseParam {
                 ThreadUtils.runOnUiThreadDelayed(new Runnable() { // from class: com.rigol.scope.data.HorizontalParam$offsetSmaller$1
                     @Override // java.lang.Runnable
                     public final void run() {
-                        HorizontalParam.this.enableToSetOffset = true;
+                        HorizontalParam.access$setEnableToSetOffset$p(HorizontalParam.this, true);
                     }
                 }, 550L);
                 return 0L;

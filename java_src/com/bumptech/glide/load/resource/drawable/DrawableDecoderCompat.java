@@ -7,6 +7,7 @@ import androidx.appcompat.content.res.AppCompatResources;
 import androidx.appcompat.view.ContextThemeWrapper;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.res.ResourcesCompat;
+
 /* loaded from: classes.dex */
 public final class DrawableDecoderCompat {
     private static volatile boolean shouldCallAppCompatResources = true;

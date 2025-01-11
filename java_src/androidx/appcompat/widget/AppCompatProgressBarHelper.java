@@ -14,19 +14,18 @@ import android.graphics.drawable.shapes.Shape;
 import android.util.AttributeSet;
 import android.widget.ProgressBar;
 import androidx.core.graphics.drawable.WrappedDrawable;
+
 /* loaded from: classes.dex */
 class AppCompatProgressBarHelper {
     private static final int[] TINT_ATTRS = {16843067, 16843068};
     private Bitmap mSampleTile;
     private final ProgressBar mView;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public AppCompatProgressBarHelper(ProgressBar progressBar) {
+    AppCompatProgressBarHelper(ProgressBar progressBar) {
         this.mView = progressBar;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void loadFromAttributes(AttributeSet attributeSet, int i) {
+    void loadFromAttributes(AttributeSet attributeSet, int i) {
         TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(this.mView.getContext(), attributeSet, TINT_ATTRS, i, 0);
         Drawable drawableIfKnown = obtainStyledAttributes.getDrawableIfKnown(0);
         if (drawableIfKnown != null) {
@@ -94,8 +93,7 @@ class AppCompatProgressBarHelper {
         return new RoundRectShape(new float[]{5.0f, 5.0f, 5.0f, 5.0f, 5.0f, 5.0f, 5.0f, 5.0f}, null, null);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public Bitmap getSampleTile() {
+    Bitmap getSampleTile() {
         return this.mSampleTile;
     }
 }

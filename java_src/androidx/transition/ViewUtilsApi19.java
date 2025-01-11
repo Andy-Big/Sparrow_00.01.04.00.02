@@ -1,6 +1,7 @@
 package androidx.transition;
 
 import android.view.View;
+
 /* loaded from: classes.dex */
 class ViewUtilsApi19 extends ViewUtilsBase {
     private static boolean sTryHiddenTransitionAlpha = true;
@@ -11,6 +12,9 @@ class ViewUtilsApi19 extends ViewUtilsBase {
 
     @Override // androidx.transition.ViewUtilsBase
     public void saveNonTransitionAlpha(View view) {
+    }
+
+    ViewUtilsApi19() {
     }
 
     @Override // androidx.transition.ViewUtilsBase

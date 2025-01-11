@@ -19,6 +19,7 @@ import com.google.android.material.shape.Shapeable;
 import java.lang.ref.WeakReference;
 import java.util.List;
 import java.util.Map;
+
 /* loaded from: classes.dex */
 public class MaterialContainerTransformSharedElementCallback extends SharedElementCallback {
     private static WeakReference<View> capturedSharedElement;

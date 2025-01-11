@@ -19,6 +19,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+
 /* loaded from: classes.dex */
 public final class DateTypeAdapter extends TypeAdapter<Date> {
     public static final TypeAdapterFactory FACTORY = new TypeAdapterFactory() { // from class: com.google.gson.internal.bind.DateTypeAdapter.1
@@ -44,6 +45,7 @@ public final class DateTypeAdapter extends TypeAdapter<Date> {
         }
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.gson.TypeAdapter
     public Date read(JsonReader jsonReader) throws IOException {
         if (jsonReader.peek() == JsonToken.NULL) {
@@ -67,6 +69,7 @@ public final class DateTypeAdapter extends TypeAdapter<Date> {
         }
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.gson.TypeAdapter
     public synchronized void write(JsonWriter jsonWriter, Date date) throws IOException {
         if (date == null) {

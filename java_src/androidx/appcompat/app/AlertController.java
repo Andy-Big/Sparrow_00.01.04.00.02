@@ -36,9 +36,9 @@ import androidx.appcompat.widget.LinearLayoutCompat;
 import androidx.core.view.ViewCompat;
 import androidx.core.widget.NestedScrollView;
 import java.lang.ref.WeakReference;
-/* JADX INFO: Access modifiers changed from: package-private */
+
 /* loaded from: classes.dex */
-public class AlertController {
+class AlertController {
     ListAdapter mAdapter;
     private int mAlertDialogLayout;
     private final int mButtonIconDimen;
@@ -324,6 +324,9 @@ public class AlertController {
         return (ViewGroup) view;
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r7v0, resolved type: boolean */
+    /* JADX DEBUG: Multi-variable search result rejected for r7v1, resolved type: boolean */
+    /* JADX DEBUG: Multi-variable search result rejected for r7v3, resolved type: boolean */
     /* JADX WARN: Multi-variable type inference failed */
     private void setupView() {
         View findViewById;
@@ -851,9 +854,8 @@ public class AlertController {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static class CheckedItemAdapter extends ArrayAdapter<CharSequence> {
+    private static class CheckedItemAdapter extends ArrayAdapter<CharSequence> {
         @Override // android.widget.ArrayAdapter, android.widget.Adapter
         public long getItemId(int i) {
             return i;

@@ -6,9 +6,9 @@ import android.animation.ValueAnimator;
 import android.graphics.PointF;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.OverScroller;
-/* JADX INFO: Access modifiers changed from: package-private */
+
 /* loaded from: classes.dex */
-public class AnimationManager {
+class AnimationManager {
     private ValueAnimator animation;
     private boolean flinging = false;
     private boolean pageFlinging = false;
@@ -69,8 +69,7 @@ public class AnimationManager {
         this.pageFlinging = true;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void computeFling() {
+    void computeFling() {
         if (this.scroller.computeScrollOffset()) {
             this.pdfView.moveTo(this.scroller.getCurrX(), this.scroller.getCurrY());
             this.pdfView.loadPageByOffset();
@@ -100,9 +99,8 @@ public class AnimationManager {
         return this.flinging || this.pageFlinging;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public class XAnimation extends AnimatorListenerAdapter implements ValueAnimator.AnimatorUpdateListener {
+    class XAnimation extends AnimatorListenerAdapter implements ValueAnimator.AnimatorUpdateListener {
         XAnimation() {
         }
 
@@ -127,9 +125,8 @@ public class AnimationManager {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public class YAnimation extends AnimatorListenerAdapter implements ValueAnimator.AnimatorUpdateListener {
+    class YAnimation extends AnimatorListenerAdapter implements ValueAnimator.AnimatorUpdateListener {
         YAnimation() {
         }
 

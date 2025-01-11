@@ -2,6 +2,7 @@ package kotlin.time;
 
 import java.util.concurrent.TimeUnit;
 import kotlin.Metadata;
+
 @Metadata(bv = {1, 0, 3}, d1 = {"kotlin/time/DurationUnitKt__DurationUnitJvmKt", "kotlin/time/DurationUnitKt__DurationUnitKt"}, k = 4, mv = {1, 4, 0}, xi = 1)
 /* loaded from: classes2.dex */
 public final class DurationUnitKt extends DurationUnitKt__DurationUnitKt {

@@ -8,6 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.NavigableMap;
 import java.util.TreeMap;
+
 /* loaded from: classes.dex */
 public class SizeConfigStrategy implements LruPoolStrategy {
     private static final Bitmap.Config[] ALPHA_8_IN_CONFIGS;
@@ -139,9 +140,8 @@ public class SizeConfigStrategy implements LruPoolStrategy {
         return sb.toString();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static class KeyPool extends BaseKeyPool<Key> {
+    static class KeyPool extends BaseKeyPool<Key> {
         KeyPool() {
         }
 
@@ -151,6 +151,7 @@ public class SizeConfigStrategy implements LruPoolStrategy {
             return key;
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.bumptech.glide.load.engine.bitmap_recycle.BaseKeyPool
         public Key create() {
@@ -158,9 +159,8 @@ public class SizeConfigStrategy implements LruPoolStrategy {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static final class Key implements Poolable {
+    static final class Key implements Poolable {
         private Bitmap.Config config;
         private final KeyPool pool;
         int size;
@@ -224,10 +224,9 @@ public class SizeConfigStrategy implements LruPoolStrategy {
         return ARGB_8888_IN_CONFIGS;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.bumptech.glide.load.engine.bitmap_recycle.SizeConfigStrategy$1  reason: invalid class name */
     /* loaded from: classes.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    static /* synthetic */ class AnonymousClass1 {
         static final /* synthetic */ int[] $SwitchMap$android$graphics$Bitmap$Config;
 
         static {

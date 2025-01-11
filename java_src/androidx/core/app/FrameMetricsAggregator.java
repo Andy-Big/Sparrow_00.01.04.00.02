@@ -12,6 +12,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Iterator;
+
 /* loaded from: classes.dex */
 public class FrameMetricsAggregator {
     public static final int ANIMATION_DURATION = 256;

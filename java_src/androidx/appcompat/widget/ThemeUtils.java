@@ -10,6 +10,7 @@ import android.util.TypedValue;
 import android.view.View;
 import androidx.appcompat.R;
 import androidx.core.graphics.ColorUtils;
+
 /* loaded from: classes.dex */
 public class ThemeUtils {
     private static final String TAG = "ThemeUtils";

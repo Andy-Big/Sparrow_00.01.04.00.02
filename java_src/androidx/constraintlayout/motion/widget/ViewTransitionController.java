@@ -11,6 +11,7 @@ import androidx.constraintlayout.widget.SharedValues;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
+
 /* loaded from: classes.dex */
 public class ViewTransitionController {
     ArrayList<ViewTransition.Animate> animations;
@@ -68,8 +69,7 @@ public class ViewTransitionController {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void enableViewTransition(int i, boolean z) {
+    void enableViewTransition(int i, boolean z) {
         Iterator<ViewTransition> it = this.viewTransitions.iterator();
         while (it.hasNext()) {
             ViewTransition next = it.next();
@@ -80,8 +80,7 @@ public class ViewTransitionController {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean isViewTransitionEnabled(int i) {
+    boolean isViewTransitionEnabled(int i) {
         Iterator<ViewTransition> it = this.viewTransitions.iterator();
         while (it.hasNext()) {
             ViewTransition next = it.next();
@@ -92,8 +91,7 @@ public class ViewTransitionController {
         return false;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void viewTransition(int i, View... viewArr) {
+    void viewTransition(int i, View... viewArr) {
         ArrayList arrayList = new ArrayList();
         Iterator<ViewTransition> it = this.viewTransitions.iterator();
         ViewTransition viewTransition = null;
@@ -117,8 +115,7 @@ public class ViewTransitionController {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void touchEvent(MotionEvent motionEvent) {
+    void touchEvent(MotionEvent motionEvent) {
         ViewTransition viewTransition;
         int currentState = this.mMotionLayout.getCurrentState();
         if (currentState == -1) {
@@ -168,21 +165,18 @@ public class ViewTransitionController {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void addAnimation(ViewTransition.Animate animate) {
+    void addAnimation(ViewTransition.Animate animate) {
         if (this.animations == null) {
             this.animations = new ArrayList<>();
         }
         this.animations.add(animate);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void removeAnimation(ViewTransition.Animate animate) {
+    void removeAnimation(ViewTransition.Animate animate) {
         this.removeList.add(animate);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void animate() {
+    void animate() {
         ArrayList<ViewTransition.Animate> arrayList = this.animations;
         if (arrayList == null) {
             return;
@@ -198,13 +192,11 @@ public class ViewTransitionController {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void invalidate() {
+    void invalidate() {
         this.mMotionLayout.invalidate();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean applyViewTransition(int i, MotionController motionController) {
+    boolean applyViewTransition(int i, MotionController motionController) {
         Iterator<ViewTransition> it = this.viewTransitions.iterator();
         while (it.hasNext()) {
             ViewTransition next = it.next();

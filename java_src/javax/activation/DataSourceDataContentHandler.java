@@ -2,6 +2,7 @@ package javax.activation;
 
 import java.io.IOException;
 import java.io.OutputStream;
+
 /* compiled from: DataHandler.java */
 /* loaded from: classes2.dex */
 class DataSourceDataContentHandler implements DataContentHandler {

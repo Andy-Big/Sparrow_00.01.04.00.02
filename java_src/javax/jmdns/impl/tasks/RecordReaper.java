@@ -4,6 +4,7 @@ import java.util.Timer;
 import javax.jmdns.impl.JmDNSImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 /* loaded from: classes2.dex */
 public class RecordReaper extends DNSTask {
     static Logger logger = LoggerFactory.getLogger(RecordReaper.class.getName());

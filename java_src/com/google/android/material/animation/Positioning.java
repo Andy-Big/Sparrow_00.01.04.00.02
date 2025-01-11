@@ -1,4 +1,5 @@
 package com.google.android.material.animation;
+
 /* loaded from: classes.dex */
 public class Positioning {
     public final int gravity;

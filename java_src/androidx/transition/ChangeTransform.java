@@ -16,6 +16,7 @@ import android.view.ViewGroup;
 import androidx.core.content.res.TypedArrayUtils;
 import androidx.core.view.ViewCompat;
 import org.xmlpull.v1.XmlPullParser;
+
 /* loaded from: classes.dex */
 public class ChangeTransform extends Transition {
     private static final String PROPNAME_INTERMEDIATE_MATRIX = "android:changeTransform:intermediateMatrix";
@@ -30,22 +31,26 @@ public class ChangeTransform extends Transition {
     private static final String PROPNAME_PARENT_MATRIX = "android:changeTransform:parentMatrix";
     private static final String[] sTransitionProperties = {PROPNAME_MATRIX, PROPNAME_TRANSFORMS, PROPNAME_PARENT_MATRIX};
     private static final Property<PathAnimatorMatrix, float[]> NON_TRANSLATIONS_PROPERTY = new Property<PathAnimatorMatrix, float[]>(float[].class, "nonTranslations") { // from class: androidx.transition.ChangeTransform.1
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // android.util.Property
         public float[] get(PathAnimatorMatrix pathAnimatorMatrix) {
             return null;
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // android.util.Property
         public void set(PathAnimatorMatrix pathAnimatorMatrix, float[] fArr) {
             pathAnimatorMatrix.setValues(fArr);
         }
     };
     private static final Property<PathAnimatorMatrix, PointF> TRANSLATIONS_PROPERTY = new Property<PathAnimatorMatrix, PointF>(PointF.class, "translations") { // from class: androidx.transition.ChangeTransform.2
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // android.util.Property
         public PointF get(PathAnimatorMatrix pathAnimatorMatrix) {
             return null;
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // android.util.Property
         public void set(PathAnimatorMatrix pathAnimatorMatrix, PointF pointF) {
             pathAnimatorMatrix.setTranslation(pointF);
@@ -236,35 +241,15 @@ public class ChangeTransform extends Transition {
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    private boolean parentsMatch(android.view.ViewGroup r4, android.view.ViewGroup r5) {
-        /*
-            r3 = this;
-            boolean r0 = r3.isValidTarget(r4)
-            r1 = 1
-            r2 = 0
-            if (r0 == 0) goto L1a
-            boolean r0 = r3.isValidTarget(r5)
-            if (r0 != 0) goto Lf
-            goto L1a
-        Lf:
-            androidx.transition.TransitionValues r4 = r3.getMatchedTransitionValues(r4, r1)
-            if (r4 == 0) goto L1f
-            android.view.View r4 = r4.view
-            if (r5 != r4) goto L1d
-            goto L1e
-        L1a:
-            if (r4 != r5) goto L1d
-            goto L1e
-        L1d:
-            r1 = r2
-        L1e:
-            r2 = r1
-        L1f:
-            return r2
-        */
-        throw new UnsupportedOperationException("Method not decompiled: androidx.transition.ChangeTransform.parentsMatch(android.view.ViewGroup, android.view.ViewGroup):boolean");
+    private boolean parentsMatch(ViewGroup viewGroup, ViewGroup viewGroup2) {
+        boolean z = true;
+        if (isValidTarget(viewGroup) && isValidTarget(viewGroup2)) {
+            TransitionValues matchedTransitionValues = getMatchedTransitionValues(viewGroup, true);
+            if (matchedTransitionValues == null) {
+                return false;
+            }
+        }
     }
 
     private void createGhostView(ViewGroup viewGroup, TransitionValues transitionValues, TransitionValues transitionValues2) {
@@ -319,9 +304,8 @@ public class ChangeTransform extends Transition {
         view.setRotation(f8);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static class Transforms {
+    private static class Transforms {
         final float mRotationX;
         final float mRotationY;
         final float mRotationZ;
@@ -374,9 +358,8 @@ public class ChangeTransform extends Transition {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static class GhostListener extends TransitionListenerAdapter {
+    private static class GhostListener extends TransitionListenerAdapter {
         private GhostView mGhostView;
         private View mView;
 
@@ -404,9 +387,8 @@ public class ChangeTransform extends Transition {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static class PathAnimatorMatrix {
+    private static class PathAnimatorMatrix {
         private final Matrix mMatrix = new Matrix();
         private float mTranslationX;
         private float mTranslationY;

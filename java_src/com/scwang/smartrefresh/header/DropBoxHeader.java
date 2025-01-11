@@ -21,6 +21,7 @@ import com.scwang.smartrefresh.layout.constant.RefreshState;
 import com.scwang.smartrefresh.layout.constant.SpinnerStyle;
 import com.scwang.smartrefresh.layout.internal.InternalAbstract;
 import com.scwang.smartrefresh.layout.util.DensityUtil;
+
 /* loaded from: classes2.dex */
 public class DropBoxHeader extends InternalAbstract implements RefreshHeader {
     protected int mAccentColor;
@@ -331,9 +332,8 @@ public class DropBoxHeader extends InternalAbstract implements RefreshHeader {
         return 0;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
-    public static class BoxBody {
+    private static class BoxBody {
         int boxBottom;
         int boxCenterBottom;
         int boxCenterTop;

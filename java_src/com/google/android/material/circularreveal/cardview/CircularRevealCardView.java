@@ -7,6 +7,7 @@ import android.util.AttributeSet;
 import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.circularreveal.CircularRevealHelper;
 import com.google.android.material.circularreveal.CircularRevealWidget;
+
 /* loaded from: classes.dex */
 public class CircularRevealCardView extends MaterialCardView implements CircularRevealWidget {
     private final CircularRevealHelper helper;

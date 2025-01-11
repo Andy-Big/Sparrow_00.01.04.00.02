@@ -1,6 +1,7 @@
 package androidx.lifecycle;
 
 import java.util.concurrent.atomic.AtomicReference;
+
 /* loaded from: classes.dex */
 public abstract class Lifecycle {
     AtomicReference<Object> mInternalScopeRef = new AtomicReference<>();

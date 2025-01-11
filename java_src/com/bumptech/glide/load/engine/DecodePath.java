@@ -10,6 +10,7 @@ import com.bumptech.glide.util.Preconditions;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public class DecodePath<DataType, ResourceType, Transcode> {
     private static final String TAG = "DecodePath";
@@ -19,9 +20,8 @@ public class DecodePath<DataType, ResourceType, Transcode> {
     private final Pools.Pool<List<Throwable>> listPool;
     private final ResourceTranscoder<ResourceType, Transcode> transcoder;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public interface DecodeCallback<ResourceType> {
+    interface DecodeCallback<ResourceType> {
         Resource<ResourceType> onResourceDecoded(Resource<ResourceType> resource);
     }
 

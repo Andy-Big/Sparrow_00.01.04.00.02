@@ -4,6 +4,7 @@ import java.util.Enumeration;
 import java.util.Hashtable;
 import java.util.Locale;
 import kotlin.text.Typography;
+
 /* loaded from: classes2.dex */
 public class MimeTypeParameterList {
     private static final String TSPECIALS = "()<>@,;:/[]?=\\\"";

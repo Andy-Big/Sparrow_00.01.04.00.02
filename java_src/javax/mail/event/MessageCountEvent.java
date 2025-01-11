@@ -2,6 +2,7 @@ package javax.mail.event;
 
 import javax.mail.Folder;
 import javax.mail.Message;
+
 /* loaded from: classes2.dex */
 public class MessageCountEvent extends MailEvent {
     public static final int ADDED = 1;

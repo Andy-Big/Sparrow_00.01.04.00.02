@@ -45,6 +45,7 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentTransaction;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
+
 /* loaded from: classes.dex */
 public class WindowDecorActionBar extends ActionBar implements ActionBarOverlayLayout.ActionBarVisibilityCallback {
     private static final long FADE_IN_DURATION_MS = 200;

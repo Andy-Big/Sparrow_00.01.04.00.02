@@ -1,14 +1,17 @@
 package kotlinx.coroutines.flow.internal;
 
 import kotlin.Metadata;
+import kotlin.ResultKt;
 import kotlin.Unit;
 import kotlin.coroutines.Continuation;
+import kotlin.coroutines.intrinsics.IntrinsicsKt;
 import kotlin.coroutines.jvm.internal.DebugMetadata;
 import kotlin.coroutines.jvm.internal.SuspendLambda;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.functions.Function2;
 import kotlin.jvm.internal.InlineMarker;
 import kotlin.jvm.internal.Intrinsics;
+
 /* compiled from: Combine.kt */
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0010\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0010\u0000\n\u0002\b\u0002\u0010\u0000\u001a\u00020\u00012\b\u0010\u0002\u001a\u0004\u0018\u00010\u0003H\u008a@¢\u0006\u0004\b\u0004\u0010\u0005"}, d2 = {"<anonymous>", "", "it", "", "invoke", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;"}, k = 3, mv = {1, 1, 15})
 @DebugMetadata(c = "kotlinx.coroutines.flow.internal.CombineKt$onReceive$1", f = "Combine.kt", i = {0, 1}, l = {90, 90}, m = "invokeSuspend", n = {"it", "it"}, s = {"L$0", "L$0"})
@@ -35,6 +38,7 @@ public final class CombineKt$onReceive$1 extends SuspendLambda implements Functi
         return combineKt$onReceive$1;
     }
 
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
     @Override // kotlin.jvm.functions.Function2
     public final Object invoke(Object obj, Continuation<? super Unit> continuation) {
         return ((CombineKt$onReceive$1) create(obj, continuation)).invokeSuspend(Unit.INSTANCE);
@@ -44,52 +48,39 @@ public final class CombineKt$onReceive$1 extends SuspendLambda implements Functi
     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    public final java.lang.Object invokeSuspend(java.lang.Object r5) {
-        /*
-            r4 = this;
-            java.lang.Object r0 = kotlin.coroutines.intrinsics.IntrinsicsKt.getCOROUTINE_SUSPENDED()
-            int r1 = r4.label
-            r2 = 2
-            r3 = 1
-            if (r1 == 0) goto L1e
-            if (r1 == r3) goto L1a
-            if (r1 != r2) goto L12
-            kotlin.ResultKt.throwOnFailure(r5)
-            goto L3f
-        L12:
-            java.lang.IllegalStateException r5 = new java.lang.IllegalStateException
-            java.lang.String r0 = "call to 'resume' before 'invoke' with coroutine"
-            r5.<init>(r0)
-            throw r5
-        L1a:
-            kotlin.ResultKt.throwOnFailure(r5)
-            goto L3c
-        L1e:
-            kotlin.ResultKt.throwOnFailure(r5)
-            java.lang.Object r5 = r4.p$0
-            if (r5 != 0) goto L2b
-            kotlin.jvm.functions.Function0 r5 = r4.$onClosed
-            r5.invoke()
-            goto L3f
-        L2b:
-            kotlin.jvm.functions.Function2 r1 = r4.$onReceive
-            r4.L$0 = r5
-            r4.label = r2
-            r4.L$0 = r5
-            r4.label = r3
-            java.lang.Object r5 = r1.invoke(r5, r4)
-            if (r5 != r0) goto L3c
-            return r0
-        L3c:
-            if (r5 != r0) goto L3f
-            return r0
-        L3f:
-            kotlin.Unit r5 = kotlin.Unit.INSTANCE
-            return r5
-        */
-        throw new UnsupportedOperationException("Method not decompiled: kotlinx.coroutines.flow.internal.CombineKt$onReceive$1.invokeSuspend(java.lang.Object):java.lang.Object");
+    public final Object invokeSuspend(Object obj) {
+        Object coroutine_suspended = IntrinsicsKt.getCOROUTINE_SUSPENDED();
+        int i = this.label;
+        if (i == 0) {
+            ResultKt.throwOnFailure(obj);
+            Object obj2 = this.p$0;
+            if (obj2 == null) {
+                this.$onClosed.invoke();
+            } else {
+                Function2 function2 = this.$onReceive;
+                this.L$0 = obj2;
+                this.label = 2;
+                this.L$0 = obj2;
+                this.label = 1;
+                obj = function2.invoke(obj2, this);
+                if (obj == coroutine_suspended) {
+                    return coroutine_suspended;
+                }
+                if (obj == coroutine_suspended) {
+                }
+            }
+        } else if (i == 1) {
+            ResultKt.throwOnFailure(obj);
+            if (obj == coroutine_suspended) {
+                return coroutine_suspended;
+            }
+        } else if (i != 2) {
+            throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
+        } else {
+            ResultKt.throwOnFailure(obj);
+        }
+        return Unit.INSTANCE;
     }
 
     public final Object invokeSuspend$$forInline(Object obj) {

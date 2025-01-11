@@ -1,6 +1,7 @@
 package javax.jmdns.impl.constants;
 
 import com.blankj.utilcode.constant.CacheConstants;
+
 /* loaded from: classes2.dex */
 public final class DNSConstants {
     public static final int ANNOUNCED_RENEWAL_TTL_INTERVAL;

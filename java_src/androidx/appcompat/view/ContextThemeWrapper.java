@@ -8,6 +8,7 @@ import android.content.res.Resources;
 import android.os.Build;
 import android.view.LayoutInflater;
 import androidx.appcompat.R;
+
 /* loaded from: classes.dex */
 public class ContextThemeWrapper extends ContextWrapper {
     private LayoutInflater mInflater;

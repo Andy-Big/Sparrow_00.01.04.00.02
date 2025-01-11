@@ -20,6 +20,7 @@ import javax.mail.MessagingException;
 import javax.mail.internet.InternetHeaders;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.SharedInputStream;
+
 /* loaded from: classes2.dex */
 public class POP3Message extends MimeMessage implements ReadableMime {
     static final /* synthetic */ boolean $assertionsDisabled = false;
@@ -137,9 +138,8 @@ public class POP3Message extends MimeMessage implements ReadableMime {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // javax.mail.internet.MimeMessage
-    public synchronized InputStream getContentStream() throws MessagingException {
+    protected synchronized InputStream getContentStream() throws MessagingException {
         if (this.contentStream != null) {
             return ((SharedInputStream) this.contentStream).newStream(0L, -1L);
         }

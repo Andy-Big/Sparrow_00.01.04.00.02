@@ -48,6 +48,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.WeakHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
+
 /* loaded from: classes.dex */
 public class ViewCompat {
     public static final int ACCESSIBILITY_LIVE_REGION_ASSERTIVE = 2;
@@ -1531,16 +1532,14 @@ public class ViewCompat {
     protected ViewCompat() {
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static boolean dispatchUnhandledKeyEventBeforeHierarchy(View view, KeyEvent keyEvent) {
+    static boolean dispatchUnhandledKeyEventBeforeHierarchy(View view, KeyEvent keyEvent) {
         if (Build.VERSION.SDK_INT >= 28) {
             return false;
         }
         return UnhandledKeyEventManager.at(view).preDispatch(keyEvent);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static boolean dispatchUnhandledKeyEventBeforeCallback(View view, KeyEvent keyEvent) {
+    static boolean dispatchUnhandledKeyEventBeforeCallback(View view, KeyEvent keyEvent) {
         if (Build.VERSION.SDK_INT >= 28) {
             return false;
         }
@@ -1561,6 +1560,7 @@ public class ViewCompat {
 
     private static AccessibilityViewProperty<Boolean> screenReaderFocusableProperty() {
         return new AccessibilityViewProperty<Boolean>(R.id.tag_screen_reader_focusable, Boolean.class, 28) { // from class: androidx.core.view.ViewCompat.3
+            /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: package-private */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // androidx.core.view.ViewCompat.AccessibilityViewProperty
@@ -1568,12 +1568,14 @@ public class ViewCompat {
                 return Boolean.valueOf(view.isScreenReaderFocusable());
             }
 
+            /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: package-private */
             @Override // androidx.core.view.ViewCompat.AccessibilityViewProperty
             public void frameworkSet(View view, Boolean bool) {
                 view.setScreenReaderFocusable(bool.booleanValue());
             }
 
+            /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: package-private */
             @Override // androidx.core.view.ViewCompat.AccessibilityViewProperty
             public boolean shouldUpdate(Boolean bool, Boolean bool2) {
@@ -1599,6 +1601,7 @@ public class ViewCompat {
 
     private static AccessibilityViewProperty<CharSequence> paneTitleProperty() {
         return new AccessibilityViewProperty<CharSequence>(R.id.tag_accessibility_pane_title, CharSequence.class, 8, 28) { // from class: androidx.core.view.ViewCompat.4
+            /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: package-private */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // androidx.core.view.ViewCompat.AccessibilityViewProperty
@@ -1606,12 +1609,14 @@ public class ViewCompat {
                 return view.getAccessibilityPaneTitle();
             }
 
+            /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: package-private */
             @Override // androidx.core.view.ViewCompat.AccessibilityViewProperty
             public void frameworkSet(View view, CharSequence charSequence) {
                 view.setAccessibilityPaneTitle(charSequence);
             }
 
+            /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: package-private */
             @Override // androidx.core.view.ViewCompat.AccessibilityViewProperty
             public boolean shouldUpdate(CharSequence charSequence, CharSequence charSequence2) {
@@ -1634,6 +1639,7 @@ public class ViewCompat {
 
     private static AccessibilityViewProperty<Boolean> accessibilityHeadingProperty() {
         return new AccessibilityViewProperty<Boolean>(R.id.tag_accessibility_heading, Boolean.class, 28) { // from class: androidx.core.view.ViewCompat.5
+            /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: package-private */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // androidx.core.view.ViewCompat.AccessibilityViewProperty
@@ -1641,12 +1647,14 @@ public class ViewCompat {
                 return Boolean.valueOf(view.isAccessibilityHeading());
             }
 
+            /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: package-private */
             @Override // androidx.core.view.ViewCompat.AccessibilityViewProperty
             public void frameworkSet(View view, Boolean bool) {
                 view.setAccessibilityHeading(bool.booleanValue());
             }
 
+            /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: package-private */
             @Override // androidx.core.view.ViewCompat.AccessibilityViewProperty
             public boolean shouldUpdate(Boolean bool, Boolean bool2) {
@@ -1655,9 +1663,8 @@ public class ViewCompat {
         };
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static abstract class AccessibilityViewProperty<T> {
+    static abstract class AccessibilityViewProperty<T> {
         private final int mFrameworkMinimumSdk;
         private final int mTagKey;
         private final Class<T> mType;

@@ -5,6 +5,7 @@ import android.os.Handler;
 import android.webkit.JsPromptResult;
 import android.webkit.JsResult;
 import android.webkit.WebView;
+
 /* loaded from: classes.dex */
 public class AgentWebUIControllerImplBase extends AbsAgentWebUIController {
     public static AbsAgentWebUIController build() {
@@ -71,9 +72,8 @@ public class AgentWebUIControllerImplBase extends AbsAgentWebUIController {
         getDelegate().onPermissionsDeny(strArr, str, str2);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.just.agentweb.AbsAgentWebUIController
-    public void bindSupportWebParent(WebParentLayout webParentLayout, Activity activity) {
+    protected void bindSupportWebParent(WebParentLayout webParentLayout, Activity activity) {
         getDelegate().bindSupportWebParent(webParentLayout, activity);
     }
 }

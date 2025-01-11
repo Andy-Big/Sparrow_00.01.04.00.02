@@ -4,6 +4,7 @@ import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.util.concurrent.atomic.AtomicReference;
 import javax.jmdns.impl.NetworkTopologyDiscoveryImpl;
+
 /* loaded from: classes2.dex */
 public interface NetworkTopologyDiscovery {
     InetAddress[] getInetAddresses();

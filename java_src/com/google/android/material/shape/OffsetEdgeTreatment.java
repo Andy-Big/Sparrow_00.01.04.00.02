@@ -1,4 +1,5 @@
 package com.google.android.material.shape;
+
 /* loaded from: classes.dex */
 public final class OffsetEdgeTreatment extends EdgeTreatment {
     private final float offset;
@@ -14,9 +15,8 @@ public final class OffsetEdgeTreatment extends EdgeTreatment {
         this.other.getEdgePath(f, f2 - this.offset, f3, shapePath);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.google.android.material.shape.EdgeTreatment
-    public boolean forceIntersection() {
+    boolean forceIntersection() {
         return this.other.forceIntersection();
     }
 }

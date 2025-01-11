@@ -9,9 +9,11 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public class DiffUtil {
     private static final Comparator<Diagonal> DIAGONAL_COMPARATOR = new Comparator<Diagonal>() { // from class: androidx.recyclerview.widget.DiffUtil.1
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
         public int compare(Diagonal diagonal, Diagonal diagonal2) {
             return diagonal.x - diagonal2.x;
@@ -176,9 +178,8 @@ public class DiffUtil {
         return null;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static class Diagonal {
+    static class Diagonal {
         public final int size;
         public final int x;
         public final int y;
@@ -198,9 +199,8 @@ public class DiffUtil {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static class Snake {
+    static class Snake {
         public int endX;
         public int endY;
         public boolean reverse;
@@ -237,9 +237,8 @@ public class DiffUtil {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static class Range {
+    static class Range {
         int newListEnd;
         int newListStart;
         int oldListEnd;
@@ -475,9 +474,8 @@ public class DiffUtil {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static class PostponedUpdate {
+    private static class PostponedUpdate {
         int currentPos;
         int posInOwnerList;
         boolean removal;
@@ -489,9 +487,8 @@ public class DiffUtil {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static class CenteredArray {
+    static class CenteredArray {
         private final int[] mData;
         private final int mMid;
 

@@ -1,6 +1,7 @@
 package kotlinx.coroutines.internal;
 
 import kotlin.Metadata;
+
 @Metadata(bv = {1, 0, 3}, d1 = {"kotlinx/coroutines/internal/SystemPropsKt__SystemPropsKt", "kotlinx/coroutines/internal/SystemPropsKt__SystemProps_commonKt"}, k = 4, mv = {1, 1, 15})
 /* loaded from: classes2.dex */
 public final class SystemPropsKt {

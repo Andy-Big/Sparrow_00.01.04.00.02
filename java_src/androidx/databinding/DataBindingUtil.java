@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewParent;
+
 /* loaded from: classes.dex */
 public class DataBindingUtil {
     private static DataBinderMapper sMapper = new DataBinderMapperImpl();
@@ -54,13 +56,11 @@ public class DataBindingUtil {
         return (T) sMapper.getDataBinder(dataBindingComponent, view, layoutId);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static <T extends ViewDataBinding> T bind(DataBindingComponent dataBindingComponent, View[] viewArr, int i) {
+    static <T extends ViewDataBinding> T bind(DataBindingComponent dataBindingComponent, View[] viewArr, int i) {
         return (T) sMapper.getDataBinder(dataBindingComponent, viewArr, i);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static <T extends ViewDataBinding> T bind(DataBindingComponent dataBindingComponent, View view, int i) {
+    static <T extends ViewDataBinding> T bind(DataBindingComponent dataBindingComponent, View view, int i) {
         return (T) sMapper.getDataBinder(dataBindingComponent, view, i);
     }
 
@@ -78,67 +78,34 @@ public class DataBindingUtil {
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    public static <T extends androidx.databinding.ViewDataBinding> T findBinding(android.view.View r9) {
-        /*
-        L0:
-            r0 = 0
-            if (r9 == 0) goto L5a
-            androidx.databinding.ViewDataBinding r1 = androidx.databinding.ViewDataBinding.getBinding(r9)
-            if (r1 == 0) goto La
-            return r1
-        La:
-            java.lang.Object r1 = r9.getTag()
-            boolean r2 = r1 instanceof java.lang.String
-            if (r2 == 0) goto L4d
-            java.lang.String r1 = (java.lang.String) r1
-            java.lang.String r2 = "layout"
-            boolean r2 = r1.startsWith(r2)
-            if (r2 == 0) goto L4d
-            java.lang.String r2 = "_0"
-            boolean r2 = r1.endsWith(r2)
-            if (r2 == 0) goto L4d
-            r2 = 6
-            char r2 = r1.charAt(r2)
-            r3 = 7
-            r4 = 47
-            int r3 = r1.indexOf(r4, r3)
-            r5 = 1
-            r6 = -1
-            r7 = 0
-            if (r2 != r4) goto L3b
-            if (r3 != r6) goto L38
-            goto L39
-        L38:
-            r5 = r7
-        L39:
-            r7 = r5
-            goto L4a
-        L3b:
-            r8 = 45
-            if (r2 != r8) goto L4a
-            if (r3 == r6) goto L4a
-            int r3 = r3 + 1
-            int r1 = r1.indexOf(r4, r3)
-            if (r1 != r6) goto L38
-            goto L39
-        L4a:
-            if (r7 == 0) goto L4d
-            return r0
-        L4d:
-            android.view.ViewParent r9 = r9.getParent()
-            boolean r1 = r9 instanceof android.view.View
-            if (r1 == 0) goto L58
-            android.view.View r9 = (android.view.View) r9
-            goto L0
-        L58:
-            r9 = r0
-            goto L0
-        L5a:
-            return r0
-        */
-        throw new UnsupportedOperationException("Method not decompiled: androidx.databinding.DataBindingUtil.findBinding(android.view.View):androidx.databinding.ViewDataBinding");
+    public static <T extends ViewDataBinding> T findBinding(View view) {
+        while (view != null) {
+            T t = (T) ViewDataBinding.getBinding(view);
+            if (t != null) {
+                return t;
+            }
+            Object tag = view.getTag();
+            if (tag instanceof String) {
+                String str = (String) tag;
+                if (str.startsWith("layout") && str.endsWith("_0")) {
+                    char charAt = str.charAt(6);
+                    int indexOf = str.indexOf(47, 7);
+                    boolean z = true;
+                    boolean z2 = false;
+                    if (charAt != '/') {
+                        if (charAt == '-' && indexOf != -1) {
+                        }
+                    }
+                    if (z2) {
+                        return null;
+                    }
+                }
+            }
+            ViewParent parent = view.getParent();
+            view = parent instanceof View ? (View) parent : null;
+        }
+        return null;
     }
 
     public static <T extends ViewDataBinding> T getBinding(View view) {

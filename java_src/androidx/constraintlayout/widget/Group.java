@@ -3,6 +3,7 @@ package androidx.constraintlayout.widget;
 import android.content.Context;
 import android.util.AttributeSet;
 import androidx.constraintlayout.widget.ConstraintLayout;
+
 /* loaded from: classes.dex */
 public class Group extends ConstraintHelper {
     public Group(Context context) {
@@ -17,9 +18,8 @@ public class Group extends ConstraintHelper {
         super(context, attributeSet, i);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // androidx.constraintlayout.widget.ConstraintHelper
-    public void init(AttributeSet attributeSet) {
+    protected void init(AttributeSet attributeSet) {
         super.init(attributeSet);
         this.mUseViewMeasure = false;
     }

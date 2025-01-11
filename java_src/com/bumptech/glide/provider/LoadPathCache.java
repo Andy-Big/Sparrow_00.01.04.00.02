@@ -7,6 +7,7 @@ import com.bumptech.glide.load.resource.transcode.UnitTranscoder;
 import com.bumptech.glide.util.MultiClassKey;
 import java.util.Collections;
 import java.util.concurrent.atomic.AtomicReference;
+
 /* loaded from: classes.dex */
 public class LoadPathCache {
     private static final LoadPath<?, ?, ?> NO_PATHS_SIGNAL = new LoadPath<>(Object.class, Object.class, Object.class, Collections.singletonList(new DecodePath(Object.class, Object.class, Object.class, Collections.emptyList(), new UnitTranscoder(), null)), null);

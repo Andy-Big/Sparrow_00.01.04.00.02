@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import java.lang.ref.WeakReference;
+
 /* loaded from: classes.dex */
 class TintResources extends ResourcesWrapper {
     private final WeakReference<Context> mContextRef;

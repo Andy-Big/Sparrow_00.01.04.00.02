@@ -10,9 +10,11 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
+
 /* loaded from: classes.dex */
 public final class TimeUtils {
     private static final ThreadLocal<Map<String, SimpleDateFormat>> SDF_THREAD_LOCAL = new ThreadLocal<Map<String, SimpleDateFormat>>() { // from class: com.blankj.utilcode.util.TimeUtils.1
+        /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // java.lang.ThreadLocal
         public Map<String, SimpleDateFormat> initialValue() {
@@ -578,8 +580,7 @@ public final class TimeUtils {
         return j / i;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static String millis2FitTimeSpan(long j, int i) {
+    static String millis2FitTimeSpan(long j, int i) {
         if (i <= 0) {
             return null;
         }

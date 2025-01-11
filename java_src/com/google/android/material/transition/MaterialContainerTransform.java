@@ -36,6 +36,7 @@ import com.google.android.material.shape.Shapeable;
 import com.google.android.material.transition.TransitionUtils;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
+
 /* loaded from: classes.dex */
 public final class MaterialContainerTransform extends Transition {
     private static final float ELEVATION_NOT_SET = -1.0f;
@@ -757,9 +758,8 @@ public final class MaterialContainerTransform extends Transition {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static class ProgressThresholdsGroup {
+    private static class ProgressThresholdsGroup {
         private final ProgressThresholds fade;
         private final ProgressThresholds scale;
         private final ProgressThresholds scaleMask;

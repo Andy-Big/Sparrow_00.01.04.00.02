@@ -1,6 +1,7 @@
 package com.sun.mail.imap.protocol;
 
 import com.sun.mail.iap.ParsingException;
+
 /* loaded from: classes2.dex */
 public class MODSEQ implements Item {
     static final char[] name = {'M', 'O', 'D', 'S', 'E', 'Q'};

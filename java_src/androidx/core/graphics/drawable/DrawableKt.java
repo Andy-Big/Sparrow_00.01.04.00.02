@@ -1,9 +1,13 @@
 package androidx.core.graphics.drawable;
 
 import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Rect;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
+
 /* compiled from: Drawable.kt */
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\"\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0005\u001a*\u0010\u0000\u001a\u00020\u0001*\u00020\u00022\b\b\u0003\u0010\u0003\u001a\u00020\u00042\b\b\u0003\u0010\u0005\u001a\u00020\u00042\n\b\u0002\u0010\u0006\u001a\u0004\u0018\u00010\u0007\u001a2\u0010\b\u001a\u00020\t*\u00020\u00022\b\b\u0003\u0010\n\u001a\u00020\u00042\b\b\u0003\u0010\u000b\u001a\u00020\u00042\b\b\u0003\u0010\f\u001a\u00020\u00042\b\b\u0003\u0010\r\u001a\u00020\u0004¨\u0006\u000e"}, d2 = {"toBitmap", "Landroid/graphics/Bitmap;", "Landroid/graphics/drawable/Drawable;", "width", "", "height", "config", "Landroid/graphics/Bitmap$Config;", "updateBounds", "", "left", "top", "right", "bottom", "core-ktx_release"}, k = 2, mv = {1, 1, 16})
 /* loaded from: classes.dex */
@@ -26,60 +30,38 @@ public final class DrawableKt {
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    public static final android.graphics.Bitmap toBitmap(android.graphics.drawable.Drawable r6, int r7, int r8, android.graphics.Bitmap.Config r9) {
-        /*
-            java.lang.String r0 = "$this$toBitmap"
-            kotlin.jvm.internal.Intrinsics.checkParameterIsNotNull(r6, r0)
-            boolean r0 = r6 instanceof android.graphics.drawable.BitmapDrawable
-            java.lang.String r1 = "bitmap"
-            if (r0 == 0) goto L42
-            if (r9 == 0) goto L1d
-            r0 = r6
-            android.graphics.drawable.BitmapDrawable r0 = (android.graphics.drawable.BitmapDrawable) r0
-            android.graphics.Bitmap r0 = r0.getBitmap()
-            kotlin.jvm.internal.Intrinsics.checkExpressionValueIsNotNull(r0, r1)
-            android.graphics.Bitmap$Config r0 = r0.getConfig()
-            if (r0 != r9) goto L42
-        L1d:
-            android.graphics.drawable.BitmapDrawable r6 = (android.graphics.drawable.BitmapDrawable) r6
-            int r9 = r6.getIntrinsicWidth()
-            if (r7 != r9) goto L33
-            int r9 = r6.getIntrinsicHeight()
-            if (r8 != r9) goto L33
-            android.graphics.Bitmap r6 = r6.getBitmap()
-            kotlin.jvm.internal.Intrinsics.checkExpressionValueIsNotNull(r6, r1)
-            return r6
-        L33:
-            android.graphics.Bitmap r6 = r6.getBitmap()
-            r9 = 1
-            android.graphics.Bitmap r6 = android.graphics.Bitmap.createScaledBitmap(r6, r7, r8, r9)
-            java.lang.String r7 = "Bitmap.createScaledBitma…map, width, height, true)"
-            kotlin.jvm.internal.Intrinsics.checkExpressionValueIsNotNull(r6, r7)
-            return r6
-        L42:
-            android.graphics.Rect r0 = r6.getBounds()
-            int r2 = r0.left
-            int r3 = r0.top
-            int r4 = r0.right
-            int r0 = r0.bottom
-            if (r9 == 0) goto L51
-            goto L53
-        L51:
-            android.graphics.Bitmap$Config r9 = android.graphics.Bitmap.Config.ARGB_8888
-        L53:
-            android.graphics.Bitmap r9 = android.graphics.Bitmap.createBitmap(r7, r8, r9)
-            r5 = 0
-            r6.setBounds(r5, r5, r7, r8)
-            android.graphics.Canvas r7 = new android.graphics.Canvas
-            r7.<init>(r9)
-            r6.draw(r7)
-            r6.setBounds(r2, r3, r4, r0)
-            kotlin.jvm.internal.Intrinsics.checkExpressionValueIsNotNull(r9, r1)
-            return r9
-        */
-        throw new UnsupportedOperationException("Method not decompiled: androidx.core.graphics.drawable.DrawableKt.toBitmap(android.graphics.drawable.Drawable, int, int, android.graphics.Bitmap$Config):android.graphics.Bitmap");
+    public static final Bitmap toBitmap(Drawable toBitmap, int i, int i2, Bitmap.Config config) {
+        Intrinsics.checkParameterIsNotNull(toBitmap, "$this$toBitmap");
+        if (toBitmap instanceof BitmapDrawable) {
+            if (config != null) {
+                Bitmap bitmap = ((BitmapDrawable) toBitmap).getBitmap();
+                Intrinsics.checkExpressionValueIsNotNull(bitmap, "bitmap");
+            }
+            BitmapDrawable bitmapDrawable = (BitmapDrawable) toBitmap;
+            if (i == bitmapDrawable.getIntrinsicWidth() && i2 == bitmapDrawable.getIntrinsicHeight()) {
+                Bitmap bitmap2 = bitmapDrawable.getBitmap();
+                Intrinsics.checkExpressionValueIsNotNull(bitmap2, "bitmap");
+                return bitmap2;
+            }
+            Bitmap createScaledBitmap = Bitmap.createScaledBitmap(bitmapDrawable.getBitmap(), i, i2, true);
+            Intrinsics.checkExpressionValueIsNotNull(createScaledBitmap, "Bitmap.createScaledBitma…map, width, height, true)");
+            return createScaledBitmap;
+        }
+        Rect bounds = toBitmap.getBounds();
+        int i3 = bounds.left;
+        int i4 = bounds.top;
+        int i5 = bounds.right;
+        int i6 = bounds.bottom;
+        if (config == null) {
+            config = Bitmap.Config.ARGB_8888;
+        }
+        Bitmap bitmap3 = Bitmap.createBitmap(i, i2, config);
+        toBitmap.setBounds(0, 0, i, i2);
+        toBitmap.draw(new Canvas(bitmap3));
+        toBitmap.setBounds(i3, i4, i5, i6);
+        Intrinsics.checkExpressionValueIsNotNull(bitmap3, "bitmap");
+        return bitmap3;
     }
 
     public static /* synthetic */ void updateBounds$default(Drawable drawable, int i, int i2, int i3, int i4, int i5, Object obj) {

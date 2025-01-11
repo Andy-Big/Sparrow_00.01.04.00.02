@@ -6,6 +6,7 @@ import android.view.View;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import com.google.android.material.snackbar.Snackbar;
 import java.util.List;
+
 /* loaded from: classes2.dex */
 public class SnackbarBehavior extends CoordinatorLayout.Behavior<BaseCircleIndicator> {
     public SnackbarBehavior() {
@@ -15,11 +16,13 @@ public class SnackbarBehavior extends CoordinatorLayout.Behavior<BaseCircleIndic
         super(context, attributeSet);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
     public boolean layoutDependsOn(CoordinatorLayout coordinatorLayout, BaseCircleIndicator baseCircleIndicator, View view) {
         return view instanceof Snackbar.SnackbarLayout;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
     public boolean onDependentViewChanged(CoordinatorLayout coordinatorLayout, BaseCircleIndicator baseCircleIndicator, View view) {
         baseCircleIndicator.setTranslationY(getTranslationYForSnackbar(coordinatorLayout, baseCircleIndicator));

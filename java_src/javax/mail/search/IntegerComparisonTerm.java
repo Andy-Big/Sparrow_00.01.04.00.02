@@ -1,11 +1,11 @@
 package javax.mail.search;
+
 /* loaded from: classes2.dex */
 public abstract class IntegerComparisonTerm extends ComparisonTerm {
     private static final long serialVersionUID = -6963571240154302484L;
     protected int number;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public IntegerComparisonTerm(int i, int i2) {
+    protected IntegerComparisonTerm(int i, int i2) {
         this.comparison = i;
         this.number = i2;
     }
@@ -18,8 +18,7 @@ public abstract class IntegerComparisonTerm extends ComparisonTerm {
         return this.comparison;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public boolean match(int i) {
+    protected boolean match(int i) {
         switch (this.comparison) {
             case 1:
                 return i <= this.number;

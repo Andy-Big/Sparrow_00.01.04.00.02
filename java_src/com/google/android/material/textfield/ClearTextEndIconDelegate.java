@@ -13,9 +13,9 @@ import androidx.appcompat.content.res.AppCompatResources;
 import com.google.android.material.R;
 import com.google.android.material.animation.AnimationUtils;
 import com.google.android.material.textfield.TextInputLayout;
-/* JADX INFO: Access modifiers changed from: package-private */
+
 /* loaded from: classes.dex */
-public class ClearTextEndIconDelegate extends EndIconDelegate {
+class ClearTextEndIconDelegate extends EndIconDelegate {
     private static final int ANIMATION_FADE_DURATION = 100;
     private static final int ANIMATION_SCALE_DURATION = 150;
     private static final float ANIMATION_SCALE_FROM_VALUE = 0.8f;
@@ -26,8 +26,7 @@ public class ClearTextEndIconDelegate extends EndIconDelegate {
     private ValueAnimator iconOutAnim;
     private final View.OnFocusChangeListener onFocusChangeListener;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ClearTextEndIconDelegate(TextInputLayout textInputLayout) {
+    ClearTextEndIconDelegate(TextInputLayout textInputLayout) {
         super(textInputLayout);
         this.clearTextEndIconTextWatcher = new TextWatcher() { // from class: com.google.android.material.textfield.ClearTextEndIconDelegate.1
             @Override // android.text.TextWatcher
@@ -79,9 +78,8 @@ public class ClearTextEndIconDelegate extends EndIconDelegate {
         };
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.google.android.material.textfield.EndIconDelegate
-    public void initialize() {
+    void initialize() {
         this.textInputLayout.setEndIconDrawable(AppCompatResources.getDrawable(this.context, R.drawable.mtrl_ic_cancel));
         this.textInputLayout.setEndIconContentDescription(this.textInputLayout.getResources().getText(R.string.clear_text_end_icon_content_description));
         this.textInputLayout.setEndIconOnClickListener(new View.OnClickListener() { // from class: com.google.android.material.textfield.ClearTextEndIconDelegate.5
@@ -98,9 +96,8 @@ public class ClearTextEndIconDelegate extends EndIconDelegate {
         initAnimators();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.google.android.material.textfield.EndIconDelegate
-    public void onSuffixVisibilityChanged(boolean z) {
+    void onSuffixVisibilityChanged(boolean z) {
         if (this.textInputLayout.getSuffixText() == null) {
             return;
         }

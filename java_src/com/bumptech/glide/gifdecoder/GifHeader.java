@@ -2,6 +2,7 @@ package com.bumptech.glide.gifdecoder;
 
 import java.util.ArrayList;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public class GifHeader {
     public static final int NETSCAPE_LOOP_COUNT_DOES_NOT_EXIST = -1;

@@ -24,6 +24,7 @@ import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
+
 /* loaded from: classes.dex */
 public final class DiskLruCache implements Closeable {
     static final long ANY_SEQUENCE_NUMBER = -1;
@@ -50,6 +51,7 @@ public final class DiskLruCache implements Closeable {
     private long nextSequenceNumber = 0;
     final ThreadPoolExecutor executorService = new ThreadPoolExecutor(0, 1, 60, TimeUnit.SECONDS, new LinkedBlockingQueue(), new DiskLruCacheThreadFactory());
     private final Callable<Void> cleanupCallable = new Callable<Void>() { // from class: com.bumptech.glide.disklrucache.DiskLruCache.1
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.concurrent.Callable
         public Void call() throws Exception {
             synchronized (DiskLruCache.this) {
@@ -571,20 +573,21 @@ public final class DiskLruCache implements Closeable {
         }
 
         public void set(int i, String str) throws IOException {
-            OutputStreamWriter outputStreamWriter = null;
+            OutputStreamWriter outputStreamWriter;
+            OutputStreamWriter outputStreamWriter2 = null;
             try {
-                OutputStreamWriter outputStreamWriter2 = new OutputStreamWriter(new FileOutputStream(getFile(i)), Util.UTF_8);
-                try {
-                    outputStreamWriter2.write(str);
-                    Util.closeQuietly(outputStreamWriter2);
-                } catch (Throwable th) {
-                    th = th;
-                    outputStreamWriter = outputStreamWriter2;
-                    Util.closeQuietly(outputStreamWriter);
-                    throw th;
-                }
+                outputStreamWriter = new OutputStreamWriter(new FileOutputStream(getFile(i)), Util.UTF_8);
+            } catch (Throwable th) {
+                th = th;
+            }
+            try {
+                outputStreamWriter.write(str);
+                Util.closeQuietly(outputStreamWriter);
             } catch (Throwable th2) {
                 th = th2;
+                outputStreamWriter2 = outputStreamWriter;
+                Util.closeQuietly(outputStreamWriter2);
+                throw th;
             }
         }
 
@@ -608,9 +611,8 @@ public final class DiskLruCache implements Closeable {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public final class Entry {
+    private final class Entry {
         File[] cleanFiles;
         private Editor currentEditor;
         File[] dirtyFiles;

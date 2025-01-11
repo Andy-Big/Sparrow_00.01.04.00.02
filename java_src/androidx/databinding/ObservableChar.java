@@ -3,15 +3,18 @@ package androidx.databinding;
 import android.os.Parcel;
 import android.os.Parcelable;
 import java.io.Serializable;
+
 /* loaded from: classes.dex */
 public class ObservableChar extends BaseObservableField implements Parcelable, Serializable {
     public static final Parcelable.Creator<ObservableChar> CREATOR = new Parcelable.Creator<ObservableChar>() { // from class: androidx.databinding.ObservableChar.1
+        /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
         public ObservableChar createFromParcel(Parcel parcel) {
             return new ObservableChar((char) parcel.readInt());
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
         public ObservableChar[] newArray(int i) {

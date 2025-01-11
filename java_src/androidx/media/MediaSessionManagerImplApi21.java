@@ -2,10 +2,10 @@ package androidx.media;
 
 import android.content.Context;
 import androidx.media.MediaSessionManager;
+
 /* loaded from: classes.dex */
 class MediaSessionManagerImplApi21 extends MediaSessionManagerImplBase {
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public MediaSessionManagerImplApi21(Context context) {
+    MediaSessionManagerImplApi21(Context context) {
         super(context);
         this.mContext = context;
     }

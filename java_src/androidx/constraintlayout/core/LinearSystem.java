@@ -6,6 +6,7 @@ import androidx.constraintlayout.core.widgets.ConstraintWidget;
 import java.io.PrintStream;
 import java.util.Arrays;
 import java.util.HashMap;
+
 /* loaded from: classes.dex */
 public class LinearSystem {
     public static long ARRAY_ROW_CREATION = 0;
@@ -40,9 +41,8 @@ public class LinearSystem {
     private SolverVariable[] mPoolVariables = new SolverVariable[POOL_SIZE];
     private int mPoolVariablesCount = 0;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public interface Row {
+    interface Row {
         void addError(SolverVariable solverVariable);
 
         void clear();
@@ -66,9 +66,8 @@ public class LinearSystem {
         return i == 1 ? "LOW" : i == 2 ? "MEDIUM" : i == 3 ? "HIGH" : i == 4 ? "HIGHEST" : i == 5 ? "EQUALITY" : i == 8 ? "FIXED" : i == 6 ? "BARRIER" : "NONE";
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public class ValuesRow extends ArrayRow {
+    class ValuesRow extends ArrayRow {
         public ValuesRow(Cache cache) {
             this.variables = new SolverVariableValues(this, cache);
         }
@@ -456,111 +455,70 @@ public class LinearSystem {
     /* JADX WARN: Removed duplicated region for block: B:45:0x00a2  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    public void addConstraint(androidx.constraintlayout.core.ArrayRow r8) {
-        /*
-            r7 = this;
-            if (r8 != 0) goto L3
-            return
-        L3:
-            androidx.constraintlayout.core.Metrics r0 = androidx.constraintlayout.core.LinearSystem.sMetrics
-            r1 = 1
-            if (r0 == 0) goto L19
-            long r3 = r0.constraints
-            long r3 = r3 + r1
-            r0.constraints = r3
-            boolean r0 = r8.isSimpleDefinition
-            if (r0 == 0) goto L19
-            androidx.constraintlayout.core.Metrics r0 = androidx.constraintlayout.core.LinearSystem.sMetrics
-            long r3 = r0.simpleconstraints
-            long r3 = r3 + r1
-            r0.simpleconstraints = r3
-        L19:
-            int r0 = r7.mNumRows
-            r3 = 1
-            int r0 = r0 + r3
-            int r4 = r7.mMaxRows
-            if (r0 >= r4) goto L28
-            int r0 = r7.mNumColumns
-            int r0 = r0 + r3
-            int r4 = r7.mMaxColumns
-            if (r0 < r4) goto L2b
-        L28:
-            r7.increaseTableSize()
-        L2b:
-            r0 = 0
-            boolean r4 = r8.isSimpleDefinition
-            if (r4 != 0) goto La3
-            r8.updateFromSystem(r7)
-            boolean r4 = r8.isEmpty()
-            if (r4 == 0) goto L3a
-            return
-        L3a:
-            r8.ensurePositiveConstant()
-            boolean r4 = r8.chooseSubject(r7)
-            if (r4 == 0) goto L9a
-            androidx.constraintlayout.core.SolverVariable r4 = r7.createExtraVariable()
-            r8.variable = r4
-            int r5 = r7.mNumRows
-            r7.addRow(r8)
-            int r6 = r7.mNumRows
-            int r5 = r5 + r3
-            if (r6 != r5) goto L9a
-            androidx.constraintlayout.core.LinearSystem$Row r0 = r7.mTempGoal
-            r0.initFromRow(r8)
-            androidx.constraintlayout.core.LinearSystem$Row r0 = r7.mTempGoal
-            r7.optimize(r0, r3)
-            int r0 = r4.definitionId
-            r5 = -1
-            if (r0 != r5) goto L9b
-            androidx.constraintlayout.core.SolverVariable r0 = r8.variable
-            if (r0 != r4) goto L78
-            androidx.constraintlayout.core.SolverVariable r0 = r8.pickPivot(r4)
-            if (r0 == 0) goto L78
-            androidx.constraintlayout.core.Metrics r4 = androidx.constraintlayout.core.LinearSystem.sMetrics
-            if (r4 == 0) goto L75
-            long r5 = r4.pivots
-            long r5 = r5 + r1
-            r4.pivots = r5
-        L75:
-            r8.pivot(r0)
-        L78:
-            boolean r0 = r8.isSimpleDefinition
-            if (r0 != 0) goto L81
-            androidx.constraintlayout.core.SolverVariable r0 = r8.variable
-            r0.updateReferencesWithNewDefinition(r7, r8)
-        L81:
-            boolean r0 = androidx.constraintlayout.core.LinearSystem.OPTIMIZED_ENGINE
-            if (r0 == 0) goto L8d
-            androidx.constraintlayout.core.Cache r0 = r7.mCache
-            androidx.constraintlayout.core.Pools$Pool<androidx.constraintlayout.core.ArrayRow> r0 = r0.optimizedArrayRowPool
-            r0.release(r8)
-            goto L94
-        L8d:
-            androidx.constraintlayout.core.Cache r0 = r7.mCache
-            androidx.constraintlayout.core.Pools$Pool<androidx.constraintlayout.core.ArrayRow> r0 = r0.arrayRowPool
-            r0.release(r8)
-        L94:
-            int r0 = r7.mNumRows
-            int r0 = r0 - r3
-            r7.mNumRows = r0
-            goto L9b
-        L9a:
-            r3 = r0
-        L9b:
-            boolean r0 = r8.hasKeyVariable()
-            if (r0 != 0) goto La2
-            return
-        La2:
-            r0 = r3
-        La3:
-            if (r0 != 0) goto La8
-            r7.addRow(r8)
-        La8:
-            return
-        */
-        throw new UnsupportedOperationException("Method not decompiled: androidx.constraintlayout.core.LinearSystem.addConstraint(androidx.constraintlayout.core.ArrayRow):void");
+    public void addConstraint(ArrayRow arrayRow) {
+        SolverVariable pickPivot;
+        if (arrayRow == null) {
+            return;
+        }
+        Metrics metrics = sMetrics;
+        if (metrics != null) {
+            metrics.constraints++;
+            if (arrayRow.isSimpleDefinition) {
+                sMetrics.simpleconstraints++;
+            }
+        }
+        boolean z = true;
+        if (this.mNumRows + 1 >= this.mMaxRows || this.mNumColumns + 1 >= this.mMaxColumns) {
+            increaseTableSize();
+        }
+        boolean z2 = false;
+        if (!arrayRow.isSimpleDefinition) {
+            arrayRow.updateFromSystem(this);
+            if (arrayRow.isEmpty()) {
+                return;
+            }
+            arrayRow.ensurePositiveConstant();
+            if (arrayRow.chooseSubject(this)) {
+                SolverVariable createExtraVariable = createExtraVariable();
+                arrayRow.variable = createExtraVariable;
+                int i = this.mNumRows;
+                addRow(arrayRow);
+                if (this.mNumRows == i + 1) {
+                    this.mTempGoal.initFromRow(arrayRow);
+                    optimize(this.mTempGoal, true);
+                    if (createExtraVariable.definitionId == -1) {
+                        if (arrayRow.variable == createExtraVariable && (pickPivot = arrayRow.pickPivot(createExtraVariable)) != null) {
+                            Metrics metrics2 = sMetrics;
+                            if (metrics2 != null) {
+                                metrics2.pivots++;
+                            }
+                            arrayRow.pivot(pickPivot);
+                        }
+                        if (!arrayRow.isSimpleDefinition) {
+                            arrayRow.variable.updateReferencesWithNewDefinition(this, arrayRow);
+                        }
+                        if (OPTIMIZED_ENGINE) {
+                            this.mCache.optimizedArrayRowPool.release(arrayRow);
+                        } else {
+                            this.mCache.arrayRowPool.release(arrayRow);
+                        }
+                        this.mNumRows--;
+                    }
+                    if (arrayRow.hasKeyVariable()) {
+                        return;
+                    }
+                    z2 = z;
+                }
+            }
+            z = false;
+            if (arrayRow.hasKeyVariable()) {
+            }
+        }
+        if (z2) {
+            return;
+        }
+        addRow(arrayRow);
     }
 
     private final void addRow(ArrayRow arrayRow) {

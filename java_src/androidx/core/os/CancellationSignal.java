@@ -1,6 +1,7 @@
 package androidx.core.os;
 
 import android.os.Build;
+
 /* loaded from: classes.dex */
 public final class CancellationSignal {
     private boolean mCancelInProgress;
@@ -27,6 +28,7 @@ public final class CancellationSignal {
         }
     }
 
+    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
     public void cancel() {
         synchronized (this) {
             if (this.mIsCanceled) {

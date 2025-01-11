@@ -2,6 +2,7 @@ package androidx.constraintlayout.core.widgets;
 
 import androidx.constraintlayout.core.Cache;
 import java.util.ArrayList;
+
 /* loaded from: classes.dex */
 public class WidgetContainer extends ConstraintWidget {
     public ArrayList<ConstraintWidget> mChildren;

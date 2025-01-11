@@ -6,6 +6,7 @@ import android.app.Service;
 import android.content.BroadcastReceiver;
 import android.content.ContentProvider;
 import android.content.Intent;
+
 /* loaded from: classes.dex */
 public class CoreComponentFactory extends android.app.AppComponentFactory {
 
@@ -39,8 +40,7 @@ public class CoreComponentFactory extends android.app.AppComponentFactory {
         return (Service) checkCompatWrapper(super.instantiateService(classLoader, str, intent));
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static <T> T checkCompatWrapper(T t) {
+    static <T> T checkCompatWrapper(T t) {
         T t2;
         return (!(t instanceof CompatWrapped) || (t2 = (T) ((CompatWrapped) t).getWrapper()) == null) ? t : t2;
     }

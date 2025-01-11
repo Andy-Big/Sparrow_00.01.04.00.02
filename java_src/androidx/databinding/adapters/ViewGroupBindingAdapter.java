@@ -4,6 +4,7 @@ import android.animation.LayoutTransition;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
+
 /* loaded from: classes.dex */
 public class ViewGroupBindingAdapter {
 

@@ -1,4 +1,5 @@
 package com.just.agentweb;
+
 /* loaded from: classes.dex */
 public class AgentWebPermissions {
     public static final String ACTION_CAMERA = "Camera";

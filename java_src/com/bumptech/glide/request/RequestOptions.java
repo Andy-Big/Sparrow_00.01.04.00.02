@@ -9,6 +9,7 @@ import com.bumptech.glide.load.Option;
 import com.bumptech.glide.load.Transformation;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.load.resource.bitmap.DownsampleStrategy;
+
 /* loaded from: classes.dex */
 public class RequestOptions extends BaseRequestOptions<RequestOptions> {
     private static RequestOptions centerCropOptions;

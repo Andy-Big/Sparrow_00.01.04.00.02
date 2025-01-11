@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.core.content.res.TypedArrayUtils;
 import androidx.core.view.ViewCompat;
+
 /* loaded from: classes.dex */
 public class Fade extends Visibility {
     public static final int IN = 1;
@@ -73,9 +74,8 @@ public class Fade extends Visibility {
         return (transitionValues == null || (f2 = (Float) transitionValues.values.get(PROPNAME_TRANSITION_ALPHA)) == null) ? f : f2.floatValue();
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static class FadeAnimatorListener extends AnimatorListenerAdapter {
+    private static class FadeAnimatorListener extends AnimatorListenerAdapter {
         private boolean mLayerTypeChanged = false;
         private final View mView;
 

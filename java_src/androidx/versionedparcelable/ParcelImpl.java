@@ -2,15 +2,18 @@ package androidx.versionedparcelable;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+
 /* loaded from: classes.dex */
 public class ParcelImpl implements Parcelable {
     public static final Parcelable.Creator<ParcelImpl> CREATOR = new Parcelable.Creator<ParcelImpl>() { // from class: androidx.versionedparcelable.ParcelImpl.1
+        /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
         public ParcelImpl createFromParcel(Parcel parcel) {
             return new ParcelImpl(parcel);
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
         public ParcelImpl[] newArray(int i) {

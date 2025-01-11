@@ -8,6 +8,7 @@ import javax.jmdns.impl.DNSOutgoing;
 import javax.jmdns.impl.DNSQuestion;
 import javax.jmdns.impl.DNSRecord;
 import javax.jmdns.impl.JmDNSImpl;
+
 /* loaded from: classes2.dex */
 public abstract class DNSTask extends TimerTask {
     private final JmDNSImpl _jmDNSImpl;
@@ -16,8 +17,7 @@ public abstract class DNSTask extends TimerTask {
 
     public abstract void start(Timer timer);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public DNSTask(JmDNSImpl jmDNSImpl) {
+    protected DNSTask(JmDNSImpl jmDNSImpl) {
         this._jmDNSImpl = jmDNSImpl;
     }
 

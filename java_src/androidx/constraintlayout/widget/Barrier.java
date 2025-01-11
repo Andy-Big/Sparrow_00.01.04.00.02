@@ -10,6 +10,7 @@ import androidx.constraintlayout.core.widgets.ConstraintWidgetContainer;
 import androidx.constraintlayout.core.widgets.HelperWidget;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.ConstraintSet;
+
 /* loaded from: classes.dex */
 public class Barrier extends ConstraintHelper {
     public static final int BOTTOM = 3;

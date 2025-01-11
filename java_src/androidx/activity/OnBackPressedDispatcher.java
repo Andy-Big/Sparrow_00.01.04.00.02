@@ -5,6 +5,7 @@ import androidx.lifecycle.LifecycleEventObserver;
 import androidx.lifecycle.LifecycleOwner;
 import java.util.ArrayDeque;
 import java.util.Iterator;
+
 /* loaded from: classes.dex */
 public final class OnBackPressedDispatcher {
     private final Runnable mFallbackOnBackPressed;
@@ -63,9 +64,8 @@ public final class OnBackPressedDispatcher {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public class OnBackPressedCancellable implements Cancellable {
+    private class OnBackPressedCancellable implements Cancellable {
         private final OnBackPressedCallback mOnBackPressedCallback;
 
         OnBackPressedCancellable(OnBackPressedCallback onBackPressedCallback) {

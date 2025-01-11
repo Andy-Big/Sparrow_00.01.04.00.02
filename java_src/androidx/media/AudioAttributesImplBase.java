@@ -2,6 +2,7 @@ package androidx.media;
 
 import android.os.Bundle;
 import java.util.Arrays;
+
 /* loaded from: classes.dex */
 class AudioAttributesImplBase implements AudioAttributesImpl {
     int mContentType;
@@ -14,16 +15,14 @@ class AudioAttributesImplBase implements AudioAttributesImpl {
         return null;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public AudioAttributesImplBase() {
+    AudioAttributesImplBase() {
         this.mUsage = 0;
         this.mContentType = 0;
         this.mFlags = 0;
         this.mLegacyStream = -1;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public AudioAttributesImplBase(int i, int i2, int i3, int i4) {
+    AudioAttributesImplBase(int i, int i2, int i3, int i4) {
         this.mUsage = 0;
         this.mContentType = 0;
         this.mFlags = 0;

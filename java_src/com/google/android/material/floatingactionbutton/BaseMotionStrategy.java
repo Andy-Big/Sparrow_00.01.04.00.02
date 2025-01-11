@@ -9,6 +9,7 @@ import com.google.android.material.animation.AnimatorSetCompat;
 import com.google.android.material.animation.MotionSpec;
 import java.util.ArrayList;
 import java.util.List;
+
 /* loaded from: classes.dex */
 abstract class BaseMotionStrategy implements MotionStrategy {
     private final Context context;
@@ -18,8 +19,7 @@ abstract class BaseMotionStrategy implements MotionStrategy {
     private MotionSpec motionSpec;
     private final AnimatorTracker tracker;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public BaseMotionStrategy(ExtendedFloatingActionButton extendedFloatingActionButton, AnimatorTracker animatorTracker) {
+    BaseMotionStrategy(ExtendedFloatingActionButton extendedFloatingActionButton, AnimatorTracker animatorTracker) {
         this.fab = extendedFloatingActionButton;
         this.context = extendedFloatingActionButton.getContext();
         this.tracker = animatorTracker;
@@ -82,8 +82,7 @@ abstract class BaseMotionStrategy implements MotionStrategy {
         return createAnimator(getCurrentMotionSpec());
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public AnimatorSet createAnimator(MotionSpec motionSpec) {
+    AnimatorSet createAnimator(MotionSpec motionSpec) {
         ArrayList arrayList = new ArrayList();
         if (motionSpec.hasPropertyValues("opacity")) {
             arrayList.add(motionSpec.getAnimator("opacity", this.fab, View.ALPHA));

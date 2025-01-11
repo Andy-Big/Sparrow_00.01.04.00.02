@@ -3,6 +3,7 @@ package com.google.android.material.animation;
 import android.util.Property;
 import android.view.ViewGroup;
 import com.google.android.material.R;
+
 /* loaded from: classes.dex */
 public class ChildrenAlphaProperty extends Property<ViewGroup, Float> {
     public static final Property<ViewGroup, Float> CHILDREN_ALPHA = new ChildrenAlphaProperty("childrenAlpha");
@@ -11,12 +12,14 @@ public class ChildrenAlphaProperty extends Property<ViewGroup, Float> {
         super(Float.class, str);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // android.util.Property
     public Float get(ViewGroup viewGroup) {
         Float f = (Float) viewGroup.getTag(R.id.mtrl_internal_children_alpha_tag);
         return f != null ? f : Float.valueOf(1.0f);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // android.util.Property
     public void set(ViewGroup viewGroup, Float f) {
         float floatValue = f.floatValue();

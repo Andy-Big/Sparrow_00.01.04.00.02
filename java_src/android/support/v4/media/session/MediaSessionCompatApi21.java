@@ -19,14 +19,13 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* JADX INFO: Access modifiers changed from: package-private */
+
 /* loaded from: classes.dex */
-public class MediaSessionCompatApi21 {
+class MediaSessionCompatApi21 {
     static final String TAG = "MediaSessionCompatApi21";
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public interface Callback {
+    interface Callback {
         void onCommand(String str, Bundle bundle, ResultReceiver resultReceiver);
 
         void onCustomAction(String str, Bundle bundle);
@@ -170,9 +169,8 @@ public class MediaSessionCompatApi21 {
         return false;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static class CallbackProxy<T extends Callback> extends MediaSession.Callback {
+    static class CallbackProxy<T extends Callback> extends MediaSession.Callback {
         protected final T mCallback;
 
         public CallbackProxy(T t) {
@@ -259,9 +257,8 @@ public class MediaSessionCompatApi21 {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static class QueueItem {
+    static class QueueItem {
         public static Object createItem(Object obj, long j) {
             return new MediaSession.QueueItem((MediaDescription) obj, j);
         }

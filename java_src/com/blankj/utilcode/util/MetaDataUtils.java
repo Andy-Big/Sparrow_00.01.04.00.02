@@ -5,6 +5,7 @@ import android.app.Service;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.pm.PackageManager;
+
 /* loaded from: classes.dex */
 public final class MetaDataUtils {
     private MetaDataUtils() {

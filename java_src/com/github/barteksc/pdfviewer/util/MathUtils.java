@@ -1,4 +1,5 @@
 package com.github.barteksc.pdfviewer.util;
+
 /* loaded from: classes.dex */
 public class MathUtils {
     private static final double BIG_ENOUGH_CEIL = 16384.999999999996d;

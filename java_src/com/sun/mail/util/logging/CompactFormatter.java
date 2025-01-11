@@ -8,6 +8,7 @@ import java.util.ResourceBundle;
 import java.util.logging.Formatter;
 import java.util.logging.LogRecord;
 import javax.mail.UIDFolder;
+
 /* loaded from: classes2.dex */
 public class CompactFormatter extends Formatter {
     private final String fmt;
@@ -312,59 +313,37 @@ public class CompactFormatter extends Formatter {
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    private static java.lang.String simpleClassName(java.lang.String r7) {
-        /*
-            if (r7 == 0) goto L47
-            r0 = 0
-            r1 = -1
-            r2 = r1
-            r3 = r2
-            r4 = r3
-        L7:
-            int r5 = r7.length()
-            if (r0 >= r5) goto L36
-            int r5 = r7.codePointAt(r0)
-            boolean r6 = java.lang.Character.isJavaIdentifierPart(r5)
-            if (r6 != 0) goto L2b
-            r6 = 46
-            if (r5 != r6) goto L25
-            int r3 = r2 + 1
-            if (r3 == r0) goto L24
-            if (r3 == r4) goto L24
-            r3 = r2
-            r2 = r0
-            goto L30
-        L24:
-            return r7
-        L25:
-            int r5 = r2 + 1
-            if (r5 != r0) goto L36
-            r2 = r3
-            goto L36
-        L2b:
-            r6 = 36
-            if (r5 != r6) goto L30
-            r4 = r0
-        L30:
-            int r5 = java.lang.Character.charCount(r5)
-            int r0 = r0 + r5
-            goto L7
-        L36:
-            if (r2 <= r1) goto L47
-            int r2 = r2 + 1
-            if (r2 >= r0) goto L47
-            int r4 = r4 + 1
-            if (r4 >= r0) goto L47
-            if (r4 <= r2) goto L43
-            r2 = r4
-        L43:
-            java.lang.String r7 = r7.substring(r2)
-        L47:
-            return r7
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.sun.mail.util.logging.CompactFormatter.simpleClassName(java.lang.String):java.lang.String");
+    private static String simpleClassName(String str) {
+        if (str != null) {
+            int i = 0;
+            int i2 = -1;
+            int i3 = -1;
+            int i4 = -1;
+            while (true) {
+                if (i >= str.length()) {
+                    break;
+                }
+                int codePointAt = str.codePointAt(i);
+                if (Character.isJavaIdentifierPart(codePointAt)) {
+                    if (codePointAt == 36) {
+                        i4 = i;
+                    }
+                } else if (codePointAt == 46) {
+                    int i5 = i2 + 1;
+                    if (i5 == i || i5 == i4) {
+                        break;
+                    }
+                    i3 = i2;
+                    i2 = i;
+                } else if (i2 + 1 == i) {
+                    i2 = i3;
+                }
+                i += Character.charCount(codePointAt);
+            }
+            return str;
+        }
+        return str;
     }
 
     private static String simpleFileName(String str) {
@@ -376,9 +355,8 @@ public class CompactFormatter extends Formatter {
         return str == null || str.trim().length() == 0;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
-    public class Alternate implements Formattable {
+    private class Alternate implements Formattable {
         private final String left;
         private final String right;
 

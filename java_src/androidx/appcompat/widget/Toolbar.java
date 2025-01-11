@@ -37,6 +37,7 @@ import androidx.core.view.ViewCompat;
 import androidx.customview.view.AbsSavedState;
 import java.util.ArrayList;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public class Toolbar extends ViewGroup {
     private static final String TAG = "Toolbar";
@@ -848,9 +849,8 @@ public class Toolbar extends ViewGroup {
         addView(view, layoutParams);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.view.View
-    public Parcelable onSaveInstanceState() {
+    protected Parcelable onSaveInstanceState() {
         SavedState savedState = new SavedState(super.onSaveInstanceState());
         ExpandedActionViewMenuPresenter expandedActionViewMenuPresenter = this.mExpandedMenuPresenter;
         if (expandedActionViewMenuPresenter != null && expandedActionViewMenuPresenter.mCurrentExpandedItem != null) {
@@ -860,9 +860,8 @@ public class Toolbar extends ViewGroup {
         return savedState;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.view.View
-    public void onRestoreInstanceState(Parcelable parcelable) {
+    protected void onRestoreInstanceState(Parcelable parcelable) {
         MenuItem findItem;
         if (!(parcelable instanceof SavedState)) {
             super.onRestoreInstanceState(parcelable);
@@ -1055,7 +1054,6 @@ public class Toolbar extends ViewGroup {
         setMeasuredDimension(View.resolveSizeAndState(Math.max(max2 + i9 + getPaddingLeft() + getPaddingRight(), getSuggestedMinimumWidth()), i, (-16777216) & i8), shouldCollapse() ? 0 : View.resolveSizeAndState(Math.max(Math.max(i4, i7) + getPaddingTop() + getPaddingBottom(), getSuggestedMinimumHeight()), i2, i8 << 16));
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     /* JADX WARN: Removed duplicated region for block: B:104:0x029f A[LOOP:0: B:103:0x029d->B:104:0x029f, LOOP_END] */
     /* JADX WARN: Removed duplicated region for block: B:107:0x02c1 A[LOOP:1: B:106:0x02bf->B:107:0x02c1, LOOP_END] */
     /* JADX WARN: Removed duplicated region for block: B:111:0x02eb  */
@@ -1079,14 +1077,276 @@ public class Toolbar extends ViewGroup {
     @Override // android.view.ViewGroup, android.view.View
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    public void onLayout(boolean r20, int r21, int r22, int r23, int r24) {
-        /*
-            Method dump skipped, instructions count: 783
-            To view this dump add '--comments-level debug' option
-        */
-        throw new UnsupportedOperationException("Method not decompiled: androidx.appcompat.widget.Toolbar.onLayout(boolean, int, int, int, int):void");
+    protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
+        int i5;
+        int i6;
+        boolean shouldLayout;
+        boolean shouldLayout2;
+        int i7;
+        int i8;
+        int i9;
+        int i10;
+        int i11;
+        int i12;
+        int paddingTop;
+        int i13;
+        int i14;
+        int i15;
+        int i16;
+        int i17;
+        int i18;
+        int size;
+        int i19;
+        int size2;
+        int i20;
+        int i21;
+        int size3;
+        boolean z2 = ViewCompat.getLayoutDirection(this) == 1;
+        int width = getWidth();
+        int height = getHeight();
+        int paddingLeft = getPaddingLeft();
+        int paddingRight = getPaddingRight();
+        int paddingTop2 = getPaddingTop();
+        int paddingBottom = getPaddingBottom();
+        int i22 = width - paddingRight;
+        int[] iArr = this.mTempMargins;
+        iArr[1] = 0;
+        iArr[0] = 0;
+        int minimumHeight = ViewCompat.getMinimumHeight(this);
+        int min = minimumHeight >= 0 ? Math.min(minimumHeight, i4 - i2) : 0;
+        if (!shouldLayout(this.mNavButtonView)) {
+            i5 = paddingLeft;
+        } else if (z2) {
+            i6 = layoutChildRight(this.mNavButtonView, i22, iArr, min);
+            i5 = paddingLeft;
+            if (shouldLayout(this.mCollapseButtonView)) {
+                if (z2) {
+                    i6 = layoutChildRight(this.mCollapseButtonView, i6, iArr, min);
+                } else {
+                    i5 = layoutChildLeft(this.mCollapseButtonView, i5, iArr, min);
+                }
+            }
+            if (shouldLayout(this.mMenuView)) {
+                if (z2) {
+                    i5 = layoutChildLeft(this.mMenuView, i5, iArr, min);
+                } else {
+                    i6 = layoutChildRight(this.mMenuView, i6, iArr, min);
+                }
+            }
+            int currentContentInsetLeft = getCurrentContentInsetLeft();
+            int currentContentInsetRight = getCurrentContentInsetRight();
+            iArr[0] = Math.max(0, currentContentInsetLeft - i5);
+            iArr[1] = Math.max(0, currentContentInsetRight - (i22 - i6));
+            int max = Math.max(i5, currentContentInsetLeft);
+            int min2 = Math.min(i6, i22 - currentContentInsetRight);
+            if (shouldLayout(this.mExpandedActionView)) {
+                if (z2) {
+                    min2 = layoutChildRight(this.mExpandedActionView, min2, iArr, min);
+                } else {
+                    max = layoutChildLeft(this.mExpandedActionView, max, iArr, min);
+                }
+            }
+            if (shouldLayout(this.mLogoView)) {
+                if (z2) {
+                    min2 = layoutChildRight(this.mLogoView, min2, iArr, min);
+                } else {
+                    max = layoutChildLeft(this.mLogoView, max, iArr, min);
+                }
+            }
+            shouldLayout = shouldLayout(this.mTitleTextView);
+            shouldLayout2 = shouldLayout(this.mSubtitleTextView);
+            if (shouldLayout) {
+                i7 = paddingRight;
+                i8 = 0;
+            } else {
+                LayoutParams layoutParams = (LayoutParams) this.mTitleTextView.getLayoutParams();
+                i7 = paddingRight;
+                i8 = layoutParams.topMargin + this.mTitleTextView.getMeasuredHeight() + layoutParams.bottomMargin + 0;
+            }
+            if (shouldLayout2) {
+                i9 = width;
+            } else {
+                LayoutParams layoutParams2 = (LayoutParams) this.mSubtitleTextView.getLayoutParams();
+                i9 = width;
+                i8 += layoutParams2.topMargin + this.mSubtitleTextView.getMeasuredHeight() + layoutParams2.bottomMargin;
+            }
+            if (!shouldLayout || shouldLayout2) {
+                TextView textView = !shouldLayout ? this.mTitleTextView : this.mSubtitleTextView;
+                TextView textView2 = !shouldLayout2 ? this.mSubtitleTextView : this.mTitleTextView;
+                LayoutParams layoutParams3 = (LayoutParams) textView.getLayoutParams();
+                LayoutParams layoutParams4 = (LayoutParams) textView2.getLayoutParams();
+                boolean z3 = (!shouldLayout && this.mTitleTextView.getMeasuredWidth() > 0) || (shouldLayout2 && this.mSubtitleTextView.getMeasuredWidth() > 0);
+                i10 = this.mGravity & 112;
+                i11 = paddingLeft;
+                if (i10 != 48) {
+                    i12 = min;
+                    paddingTop = getPaddingTop() + layoutParams3.topMargin + this.mTitleMarginTop;
+                } else if (i10 != 80) {
+                    int i23 = (((height - paddingTop2) - paddingBottom) - i8) / 2;
+                    i12 = min;
+                    if (i23 < layoutParams3.topMargin + this.mTitleMarginTop) {
+                        i23 = layoutParams3.topMargin + this.mTitleMarginTop;
+                    } else {
+                        int i24 = (((height - paddingBottom) - i8) - i23) - paddingTop2;
+                        if (i24 < layoutParams3.bottomMargin + this.mTitleMarginBottom) {
+                            i23 = Math.max(0, i23 - ((layoutParams4.bottomMargin + this.mTitleMarginBottom) - i24));
+                        }
+                    }
+                    paddingTop = paddingTop2 + i23;
+                } else {
+                    i12 = min;
+                    paddingTop = (((height - paddingBottom) - layoutParams4.bottomMargin) - this.mTitleMarginBottom) - i8;
+                }
+                if (!z2) {
+                    int i25 = (z3 ? this.mTitleMarginStart : 0) - iArr[1];
+                    min2 -= Math.max(0, i25);
+                    iArr[1] = Math.max(0, -i25);
+                    if (shouldLayout) {
+                        int measuredWidth = min2 - this.mTitleTextView.getMeasuredWidth();
+                        int measuredHeight = this.mTitleTextView.getMeasuredHeight() + paddingTop;
+                        this.mTitleTextView.layout(measuredWidth, paddingTop, min2, measuredHeight);
+                        i17 = measuredWidth - this.mTitleMarginEnd;
+                        paddingTop = measuredHeight + ((LayoutParams) this.mTitleTextView.getLayoutParams()).bottomMargin;
+                    } else {
+                        i17 = min2;
+                    }
+                    if (shouldLayout2) {
+                        LayoutParams layoutParams5 = (LayoutParams) this.mSubtitleTextView.getLayoutParams();
+                        int i26 = paddingTop + layoutParams5.topMargin;
+                        this.mSubtitleTextView.layout(min2 - this.mSubtitleTextView.getMeasuredWidth(), i26, min2, this.mSubtitleTextView.getMeasuredHeight() + i26);
+                        i18 = min2 - this.mTitleMarginEnd;
+                        int i27 = layoutParams5.bottomMargin;
+                    } else {
+                        i18 = min2;
+                    }
+                    if (z3) {
+                        min2 = Math.min(i17, i18);
+                    }
+                } else {
+                    if (z3) {
+                        i14 = this.mTitleMarginStart;
+                        i13 = 0;
+                    } else {
+                        i13 = 0;
+                        i14 = 0;
+                    }
+                    int i28 = i14 - iArr[i13];
+                    max += Math.max(i13, i28);
+                    iArr[i13] = Math.max(i13, -i28);
+                    if (shouldLayout) {
+                        int measuredWidth2 = this.mTitleTextView.getMeasuredWidth() + max;
+                        int measuredHeight2 = this.mTitleTextView.getMeasuredHeight() + paddingTop;
+                        this.mTitleTextView.layout(max, paddingTop, measuredWidth2, measuredHeight2);
+                        i15 = measuredWidth2 + this.mTitleMarginEnd;
+                        paddingTop = measuredHeight2 + ((LayoutParams) this.mTitleTextView.getLayoutParams()).bottomMargin;
+                    } else {
+                        i15 = max;
+                    }
+                    if (shouldLayout2) {
+                        LayoutParams layoutParams6 = (LayoutParams) this.mSubtitleTextView.getLayoutParams();
+                        int i29 = paddingTop + layoutParams6.topMargin;
+                        int measuredWidth3 = this.mSubtitleTextView.getMeasuredWidth() + max;
+                        this.mSubtitleTextView.layout(max, i29, measuredWidth3, this.mSubtitleTextView.getMeasuredHeight() + i29);
+                        i16 = measuredWidth3 + this.mTitleMarginEnd;
+                        int i30 = layoutParams6.bottomMargin;
+                    } else {
+                        i16 = max;
+                    }
+                    if (z3) {
+                        max = Math.max(i15, i16);
+                    }
+                    addCustomViewsWithGravity(this.mTempViews, 3);
+                    size = this.mTempViews.size();
+                    for (i19 = i13; i19 < size; i19++) {
+                        max = layoutChildLeft(this.mTempViews.get(i19), max, iArr, i12);
+                    }
+                    int i31 = i12;
+                    addCustomViewsWithGravity(this.mTempViews, 5);
+                    size2 = this.mTempViews.size();
+                    for (i20 = i13; i20 < size2; i20++) {
+                        min2 = layoutChildRight(this.mTempViews.get(i20), min2, iArr, i31);
+                    }
+                    addCustomViewsWithGravity(this.mTempViews, 1);
+                    int viewListMeasuredWidth = getViewListMeasuredWidth(this.mTempViews, iArr);
+                    i21 = (i11 + (((i9 - i11) - i7) / 2)) - (viewListMeasuredWidth / 2);
+                    int i32 = viewListMeasuredWidth + i21;
+                    if (i21 >= max) {
+                        max = i32 > min2 ? i21 - (i32 - min2) : i21;
+                    }
+                    size3 = this.mTempViews.size();
+                    while (i13 < size3) {
+                        max = layoutChildLeft(this.mTempViews.get(i13), max, iArr, i31);
+                        i13++;
+                    }
+                    this.mTempViews.clear();
+                    return;
+                }
+            } else {
+                i11 = paddingLeft;
+                i12 = min;
+            }
+            i13 = 0;
+            addCustomViewsWithGravity(this.mTempViews, 3);
+            size = this.mTempViews.size();
+            while (i19 < size) {
+            }
+            int i312 = i12;
+            addCustomViewsWithGravity(this.mTempViews, 5);
+            size2 = this.mTempViews.size();
+            while (i20 < size2) {
+            }
+            addCustomViewsWithGravity(this.mTempViews, 1);
+            int viewListMeasuredWidth2 = getViewListMeasuredWidth(this.mTempViews, iArr);
+            i21 = (i11 + (((i9 - i11) - i7) / 2)) - (viewListMeasuredWidth2 / 2);
+            int i322 = viewListMeasuredWidth2 + i21;
+            if (i21 >= max) {
+            }
+            size3 = this.mTempViews.size();
+            while (i13 < size3) {
+            }
+            this.mTempViews.clear();
+            return;
+        } else {
+            i5 = layoutChildLeft(this.mNavButtonView, paddingLeft, iArr, min);
+        }
+        i6 = i22;
+        if (shouldLayout(this.mCollapseButtonView)) {
+        }
+        if (shouldLayout(this.mMenuView)) {
+        }
+        int currentContentInsetLeft2 = getCurrentContentInsetLeft();
+        int currentContentInsetRight2 = getCurrentContentInsetRight();
+        iArr[0] = Math.max(0, currentContentInsetLeft2 - i5);
+        iArr[1] = Math.max(0, currentContentInsetRight2 - (i22 - i6));
+        int max2 = Math.max(i5, currentContentInsetLeft2);
+        int min22 = Math.min(i6, i22 - currentContentInsetRight2);
+        if (shouldLayout(this.mExpandedActionView)) {
+        }
+        if (shouldLayout(this.mLogoView)) {
+        }
+        shouldLayout = shouldLayout(this.mTitleTextView);
+        shouldLayout2 = shouldLayout(this.mSubtitleTextView);
+        if (shouldLayout) {
+        }
+        if (shouldLayout2) {
+        }
+        if (shouldLayout) {
+        }
+        if (!shouldLayout) {
+        }
+        if (!shouldLayout2) {
+        }
+        LayoutParams layoutParams32 = (LayoutParams) textView.getLayoutParams();
+        LayoutParams layoutParams42 = (LayoutParams) textView2.getLayoutParams();
+        if (shouldLayout) {
+        }
+        i10 = this.mGravity & 112;
+        i11 = paddingLeft;
+        if (i10 != 48) {
+        }
+        if (!z2) {
+        }
     }
 
     private int getViewListMeasuredWidth(List<View> list, int[] iArr) {
@@ -1209,11 +1469,13 @@ public class Toolbar extends ViewGroup {
         return marginLayoutParams.topMargin + marginLayoutParams.bottomMargin;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // android.view.ViewGroup
     public LayoutParams generateLayoutParams(AttributeSet attributeSet) {
         return new LayoutParams(getContext(), attributeSet);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.view.ViewGroup
     public LayoutParams generateLayoutParams(ViewGroup.LayoutParams layoutParams) {
@@ -1229,6 +1491,7 @@ public class Toolbar extends ViewGroup {
         return new LayoutParams(layoutParams);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.view.ViewGroup
     public LayoutParams generateDefaultLayoutParams() {
@@ -1365,17 +1628,20 @@ public class Toolbar extends ViewGroup {
     /* loaded from: classes.dex */
     public static class SavedState extends AbsSavedState {
         public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.ClassLoaderCreator<SavedState>() { // from class: androidx.appcompat.widget.Toolbar.SavedState.1
+            /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.ClassLoaderCreator
             public SavedState createFromParcel(Parcel parcel, ClassLoader classLoader) {
                 return new SavedState(parcel, classLoader);
             }
 
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // android.os.Parcelable.Creator
             public SavedState createFromParcel(Parcel parcel) {
                 return new SavedState(parcel, null);
             }
 
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // android.os.Parcelable.Creator
             public SavedState[] newArray(int i) {
                 return new SavedState[i];
@@ -1406,9 +1672,8 @@ public class Toolbar extends ViewGroup {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public class ExpandedActionViewMenuPresenter implements MenuPresenter {
+    private class ExpandedActionViewMenuPresenter implements MenuPresenter {
         MenuItemImpl mCurrentExpandedItem;
         MenuBuilder mMenu;
 

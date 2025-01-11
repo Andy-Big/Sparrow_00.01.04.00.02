@@ -2,6 +2,7 @@ package kotlin.jvm.internal;
 
 import kotlin.reflect.KClass;
 import kotlin.reflect.KDeclarationContainer;
+
 /* loaded from: classes2.dex */
 public class MutablePropertyReference2Impl extends MutablePropertyReference2 {
     public MutablePropertyReference2Impl(KDeclarationContainer kDeclarationContainer, String str, String str2) {

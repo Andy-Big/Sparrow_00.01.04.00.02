@@ -6,6 +6,7 @@ import me.jessyan.autosize.external.ExternalAdaptInfo;
 import me.jessyan.autosize.internal.CancelAdapt;
 import me.jessyan.autosize.internal.CustomAdapt;
 import me.jessyan.autosize.utils.AutoSizeLog;
+
 /* loaded from: classes2.dex */
 public class DefaultAutoAdaptStrategy implements AutoAdaptStrategy {
     @Override // me.jessyan.autosize.AutoAdaptStrategy

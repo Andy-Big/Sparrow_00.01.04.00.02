@@ -1,13 +1,13 @@
 package javax.mail.search;
 
 import java.util.Date;
+
 /* loaded from: classes2.dex */
 public abstract class DateTerm extends ComparisonTerm {
     private static final long serialVersionUID = 4818873430063720043L;
     protected Date date;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public DateTerm(int i, Date date) {
+    protected DateTerm(int i, Date date) {
         this.comparison = i;
         this.date = date;
     }
@@ -20,8 +20,7 @@ public abstract class DateTerm extends ComparisonTerm {
         return this.comparison;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public boolean match(Date date) {
+    protected boolean match(Date date) {
         switch (this.comparison) {
             case 1:
                 return date.before(this.date) || date.equals(this.date);

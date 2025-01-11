@@ -2,6 +2,7 @@ package androidx.databinding;
 
 import java.util.ArrayList;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public class CallbackRegistry<C, T, A> implements Cloneable {
     private static final String TAG = "CallbackRegistry";
@@ -188,31 +189,32 @@ public class CallbackRegistry<C, T, A> implements Cloneable {
         }
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
     public synchronized CallbackRegistry<C, T, A> m6clone() {
         CallbackRegistry<C, T, A> callbackRegistry;
         CloneNotSupportedException e;
         try {
             callbackRegistry = (CallbackRegistry) super.clone();
-            try {
-                callbackRegistry.mFirst64Removed = 0L;
-                callbackRegistry.mRemainderRemoved = null;
-                callbackRegistry.mNotificationLevel = 0;
-                callbackRegistry.mCallbacks = new ArrayList();
-                int size = this.mCallbacks.size();
-                for (int i = 0; i < size; i++) {
-                    if (!isRemoved(i)) {
-                        callbackRegistry.mCallbacks.add(this.mCallbacks.get(i));
-                    }
+        } catch (CloneNotSupportedException e2) {
+            callbackRegistry = null;
+            e = e2;
+        }
+        try {
+            callbackRegistry.mFirst64Removed = 0L;
+            callbackRegistry.mRemainderRemoved = null;
+            callbackRegistry.mNotificationLevel = 0;
+            callbackRegistry.mCallbacks = new ArrayList();
+            int size = this.mCallbacks.size();
+            for (int i = 0; i < size; i++) {
+                if (!isRemoved(i)) {
+                    callbackRegistry.mCallbacks.add(this.mCallbacks.get(i));
                 }
-            } catch (CloneNotSupportedException e2) {
-                e = e2;
-                e.printStackTrace();
-                return callbackRegistry;
             }
         } catch (CloneNotSupportedException e3) {
-            callbackRegistry = null;
             e = e3;
+            e.printStackTrace();
+            return callbackRegistry;
         }
         return callbackRegistry;
     }

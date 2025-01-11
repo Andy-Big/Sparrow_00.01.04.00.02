@@ -4,6 +4,7 @@ import java.io.FilterOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.nio.charset.StandardCharsets;
+
 /* loaded from: classes2.dex */
 public class LineOutputStream extends FilterOutputStream {
     private static byte[] newline;

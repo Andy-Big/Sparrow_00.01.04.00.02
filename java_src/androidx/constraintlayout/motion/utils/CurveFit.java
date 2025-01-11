@@ -1,4 +1,5 @@
 package androidx.constraintlayout.motion.utils;
+
 /* loaded from: classes.dex */
 public abstract class CurveFit {
     public static final int CONSTANT = 2;

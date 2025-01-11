@@ -26,6 +26,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public class Registry {
     private static final String BUCKET_APPEND_ALL = "legacy_append";

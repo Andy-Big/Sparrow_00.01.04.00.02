@@ -13,6 +13,7 @@ import androidx.appcompat.R;
 import androidx.appcompat.view.menu.MenuPresenter;
 import androidx.core.view.GravityCompat;
 import androidx.core.view.ViewCompat;
+
 /* loaded from: classes.dex */
 public class MenuPopupHelper implements MenuHelper {
     private static final int TOUCH_EPICENTER_SIZE_DP = 48;
@@ -167,8 +168,7 @@ public class MenuPopupHelper implements MenuHelper {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void onDismiss() {
+    protected void onDismiss() {
         this.mPopup = null;
         PopupWindow.OnDismissListener onDismissListener = this.mOnDismissListener;
         if (onDismissListener != null) {

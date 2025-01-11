@@ -2,6 +2,7 @@ package com.sun.mail.imap;
 
 import javax.mail.Message;
 import javax.mail.search.SearchTerm;
+
 /* loaded from: classes2.dex */
 public final class ModifiedSinceTerm extends SearchTerm {
     private static final long serialVersionUID = 5151457469634727992L;

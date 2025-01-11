@@ -25,6 +25,7 @@ import javax.mail.internet.ContentType;
 import javax.mail.internet.InternetHeaders;
 import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeUtility;
+
 /* loaded from: classes2.dex */
 public class IMAPBodyPart extends MimeBodyPart implements ReadableMime {
     private static final boolean decodeFileName = PropUtil.getBooleanSystemProperty("mail.mime.decodefilename", false);
@@ -35,13 +36,11 @@ public class IMAPBodyPart extends MimeBodyPart implements ReadableMime {
     private String sectionId;
     private String type;
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // javax.mail.internet.MimeBodyPart
-    public void updateHeaders() {
+    protected void updateHeaders() {
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public IMAPBodyPart(BODYSTRUCTURE bodystructure, String str, IMAPMessage iMAPMessage) {
+    protected IMAPBodyPart(BODYSTRUCTURE bodystructure, String str, IMAPMessage iMAPMessage) {
         this.bs = bodystructure;
         this.sectionId = str;
         this.message = iMAPMessage;
@@ -136,9 +135,8 @@ public class IMAPBodyPart extends MimeBodyPart implements ReadableMime {
         throw new IllegalWriteException("IMAPBodyPart is read-only");
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // javax.mail.internet.MimeBodyPart
-    public InputStream getContentStream() throws MessagingException {
+    protected InputStream getContentStream() throws MessagingException {
         BODY fetchBody;
         boolean peek = this.message.getPeek();
         synchronized (this.message.getMessageCacheLock()) {
@@ -219,12 +217,12 @@ public class IMAPBodyPart extends MimeBodyPart implements ReadableMime {
                             return sharedByteArrayOutputStream.toStream();
                         }
                     }
-                } finally {
+                } catch (ConnectionException e) {
+                    throw new FolderClosedException(this.message.getFolder(), e.getMessage());
+                } catch (ProtocolException e2) {
+                    throw new MessagingException(e2.getMessage(), e2);
                 }
-            } catch (ConnectionException e) {
-                throw new FolderClosedException(this.message.getFolder(), e.getMessage());
-            } catch (ProtocolException e2) {
-                throw new MessagingException(e2.getMessage(), e2);
+            } finally {
             }
         }
         return byteArrayInputStream;
@@ -360,11 +358,11 @@ public class IMAPBodyPart extends MimeBodyPart implements ReadableMime {
                             this.headers.addHeader("Content-MD5", this.bs.md5);
                         }
                     }
-                } catch (ConnectionException e) {
-                    throw new FolderClosedException(this.message.getFolder(), e.getMessage());
+                } catch (ProtocolException e) {
+                    throw new MessagingException(e.getMessage(), e);
                 }
-            } catch (ProtocolException e2) {
-                throw new MessagingException(e2.getMessage(), e2);
+            } catch (ConnectionException e2) {
+                throw new FolderClosedException(this.message.getFolder(), e2.getMessage());
             }
         }
         this.headersLoaded = true;

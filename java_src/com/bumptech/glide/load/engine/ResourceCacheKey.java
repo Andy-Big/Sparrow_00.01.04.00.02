@@ -8,6 +8,7 @@ import com.bumptech.glide.util.LruCache;
 import com.bumptech.glide.util.Util;
 import java.nio.ByteBuffer;
 import java.security.MessageDigest;
+
 /* loaded from: classes.dex */
 final class ResourceCacheKey implements Key {
     private static final LruCache<Class<?>, byte[]> RESOURCE_CLASS_BYTES = new LruCache<>(50);
@@ -20,8 +21,7 @@ final class ResourceCacheKey implements Key {
     private final Transformation<?> transformation;
     private final int width;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ResourceCacheKey(ArrayPool arrayPool, Key key, Key key2, int i, int i2, Transformation<?> transformation, Class<?> cls, Options options) {
+    ResourceCacheKey(ArrayPool arrayPool, Key key, Key key2, int i, int i2, Transformation<?> transformation, Class<?> cls, Options options) {
         this.arrayPool = arrayPool;
         this.sourceKey = key;
         this.signature = key2;

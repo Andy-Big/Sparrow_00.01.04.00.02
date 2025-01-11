@@ -29,6 +29,12 @@ public class UtilityEmailAdapter extends RecyclerView.Adapter<EmailViewHolder> i
     private boolean hidePassword;
     private MailContext mailContext;
 
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.adapters.-$$Lambda$UtilityEmailAdapter$W_1QDHFwQXt56TB-2R3opg3crPw.resultShow(java.lang.String):void] */
+    /* renamed from: lambda$W_1QDHFwQXt56TB-2R3opg3crPw */
+    public static /* synthetic */ void m11lambda$W_1QDHFwQXt56TB2R3opg3crPw(EditText editText, CharSequence charSequence) {
+        editText.setText(charSequence);
+    }
+
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemCount() {
         return 1;
@@ -39,7 +45,6 @@ public class UtilityEmailAdapter extends RecyclerView.Adapter<EmailViewHolder> i
         this.baseView = view;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public EmailViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         this.binding = AdapterUtilityEmailBinding.inflate(LayoutInflater.from(viewGroup.getContext()), viewGroup, false);
@@ -47,7 +52,6 @@ public class UtilityEmailAdapter extends RecyclerView.Adapter<EmailViewHolder> i
         return new EmailViewHolder(this.binding);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(final EmailViewHolder emailViewHolder, int i) {
         ViewUtil.setSwitchButton(this.binding.switchButtonSecurityProtocol);
@@ -62,7 +66,7 @@ public class UtilityEmailAdapter extends RecyclerView.Adapter<EmailViewHolder> i
         emailViewHolder.binding.imgPasswodEye.setOnClickListener(new View.OnClickListener() { // from class: com.rigol.scope.adapters.-$$Lambda$UtilityEmailAdapter$3m-RKGwNu5-4xCmAc29j6JAJJw4
             @Override // android.view.View.OnClickListener
             public final void onClick(View view) {
-                UtilityEmailAdapter.EmailViewHolder.this.binding.switchButtonSecurityProtocol.toggle();
+                UtilityEmailAdapter.lambda$onBindViewHolder$3(UtilityEmailAdapter.EmailViewHolder.this, view);
             }
         });
         emailViewHolder.binding.switchButtonSecurityProtocol.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() { // from class: com.rigol.scope.adapters.-$$Lambda$UtilityEmailAdapter$u2Xw9cBDX6lbkSeqVtSR7A_fhVo
@@ -121,6 +125,11 @@ public class UtilityEmailAdapter extends RecyclerView.Adapter<EmailViewHolder> i
         } else {
             ToastUtils.showShort("邮件发送失败");
         }
+    }
+
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.adapters.-$$Lambda$UtilityEmailAdapter$3m-RKGwNu5-4xCmAc29j6JAJJw4.onClick(android.view.View):void] */
+    static /* synthetic */ void lambda$onBindViewHolder$3(EmailViewHolder emailViewHolder, View view) {
+        emailViewHolder.binding.switchButtonSecurityProtocol.toggle();
     }
 
     public /* synthetic */ void lambda$onBindViewHolder$4$UtilityEmailAdapter(EmailViewHolder emailViewHolder, CompoundButton compoundButton, boolean z) {
@@ -193,7 +202,7 @@ public class UtilityEmailAdapter extends RecyclerView.Adapter<EmailViewHolder> i
         ViewUtil.showPinyinKeyboard(context, view, editText, new ExternalInterface() { // from class: com.rigol.scope.adapters.-$$Lambda$UtilityEmailAdapter$W_1QDHFwQXt56TB-2R3opg3crPw
             @Override // com.rigol.pinyinkeyboard.ExternalInterface
             public final void resultShow(String str) {
-                editText.setText(str);
+                UtilityEmailAdapter.m11lambda$W_1QDHFwQXt56TB2R3opg3crPw(editText, str);
             }
         });
     }
@@ -202,8 +211,10 @@ public class UtilityEmailAdapter extends RecyclerView.Adapter<EmailViewHolder> i
     public class EmailViewHolder extends RecyclerView.ViewHolder {
         private AdapterUtilityEmailBinding binding;
 
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public EmailViewHolder(AdapterUtilityEmailBinding adapterUtilityEmailBinding) {
             super(adapterUtilityEmailBinding.getRoot());
+            UtilityEmailAdapter.this = r1;
             this.binding = adapterUtilityEmailBinding;
         }
     }

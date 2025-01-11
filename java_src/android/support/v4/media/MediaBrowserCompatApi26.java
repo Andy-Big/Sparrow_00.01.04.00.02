@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v4.media.MediaBrowserCompatApi21;
 import android.support.v4.media.session.MediaSessionCompat;
 import java.util.List;
+
 /* loaded from: classes.dex */
 class MediaBrowserCompatApi26 {
 
@@ -15,8 +16,7 @@ class MediaBrowserCompatApi26 {
         void onError(String str, Bundle bundle);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static Object createSubscriptionCallback(SubscriptionCallback subscriptionCallback) {
+    static Object createSubscriptionCallback(SubscriptionCallback subscriptionCallback) {
         return new SubscriptionCallbackProxy(subscriptionCallback);
     }
 

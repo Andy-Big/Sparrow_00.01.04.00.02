@@ -157,11 +157,20 @@ public class TagView extends OrientationView {
             return;
         }
         mutableLiveData.observe((LifecycleOwner) context, new Observer<Object>() { // from class: com.rigol.scope.views.TagView.1
+            {
+                TagView.this = this;
+            }
+
             @Override // androidx.lifecycle.Observer
             public final void onChanged(Object obj) {
                 TagView.this.invalidate();
             }
         });
+    }
+
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.views.TagView$position$1.run():void] */
+    public static final /* synthetic */ void access$calAndSetPosition(TagView tagView) {
+        tagView.calAndSetPosition();
     }
 
     public final Bitmap getBitmapKeyA() {
@@ -200,7 +209,7 @@ public class TagView extends OrientationView {
             post(new Runnable() { // from class: com.rigol.scope.views.TagView$position$1
                 @Override // java.lang.Runnable
                 public final void run() {
-                    TagView.this.calAndSetPosition();
+                    TagView.access$calAndSetPosition(TagView.this);
                 }
             });
         } else {
@@ -329,7 +338,6 @@ public class TagView extends OrientationView {
         return (float) Math.cos((i * 3.141592653589793d) / 180);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public final void calAndSetPosition() {
         int calculateOffset = calculateOffset();
         ViewGroup.LayoutParams layoutParams = getLayoutParams();
@@ -617,8 +625,8 @@ public class TagView extends OrientationView {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:35:0x00a9  */
-    /* JADX WARN: Removed duplicated region for block: B:36:0x00c1  */
+    /* JADX WARN: Removed duplicated region for block: B:81:0x00a9  */
+    /* JADX WARN: Removed duplicated region for block: B:82:0x00c1  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -694,8 +702,8 @@ public class TagView extends OrientationView {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:33:0x00aa  */
-    /* JADX WARN: Removed duplicated region for block: B:45:0x0101  */
+    /* JADX WARN: Removed duplicated region for block: B:85:0x00aa  */
+    /* JADX WARN: Removed duplicated region for block: B:97:0x0101  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

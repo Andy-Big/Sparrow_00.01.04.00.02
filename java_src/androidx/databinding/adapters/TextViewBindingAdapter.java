@@ -15,6 +15,7 @@ import android.util.Log;
 import android.widget.TextView;
 import androidx.databinding.InverseBindingListener;
 import androidx.databinding.library.baseAdapters.R;
+
 /* loaded from: classes.dex */
 public class TextViewBindingAdapter {
     public static final int DECIMAL = 5;

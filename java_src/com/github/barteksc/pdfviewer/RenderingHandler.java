@@ -10,9 +10,9 @@ import android.os.Message;
 import android.util.Log;
 import com.github.barteksc.pdfviewer.exception.PageRenderingException;
 import com.github.barteksc.pdfviewer.model.PagePart;
-/* JADX INFO: Access modifiers changed from: package-private */
+
 /* loaded from: classes.dex */
-public class RenderingHandler extends Handler {
+class RenderingHandler extends Handler {
     static final int MSG_RENDER_TASK = 1;
     private static final String TAG = RenderingHandler.class.getName();
     private PDFView pdfView;
@@ -21,8 +21,7 @@ public class RenderingHandler extends Handler {
     private Rect roundedRenderBounds;
     private boolean running;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public RenderingHandler(Looper looper, PDFView pDFView) {
+    RenderingHandler(Looper looper, PDFView pDFView) {
         super(looper);
         this.renderBounds = new RectF();
         this.roundedRenderBounds = new Rect();
@@ -31,8 +30,7 @@ public class RenderingHandler extends Handler {
         this.pdfView = pDFView;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void addRenderingTask(int i, float f, float f2, RectF rectF, boolean z, int i2, boolean z2, boolean z3) {
+    void addRenderingTask(int i, float f, float f2, RectF rectF, boolean z, int i2, boolean z2, boolean z3) {
         sendMessage(obtainMessage(1, new RenderingTask(f, f2, rectF, i, z, i2, z2, z3)));
     }
 
@@ -91,19 +89,16 @@ public class RenderingHandler extends Handler {
         this.renderBounds.round(this.roundedRenderBounds);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void stop() {
+    void stop() {
         this.running = false;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void start() {
+    void start() {
         this.running = true;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public class RenderingTask {
+    private class RenderingTask {
         boolean annotationRendering;
         boolean bestQuality;
         RectF bounds;

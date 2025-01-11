@@ -1,6 +1,7 @@
 package javax.mail.search;
 
 import javax.mail.Message;
+
 /* loaded from: classes2.dex */
 public final class MessageIDTerm extends StringTerm {
     private static final long serialVersionUID = -2121096296454691963L;

@@ -3,6 +3,7 @@ package com.bumptech.glide.provider;
 import com.bumptech.glide.load.ResourceEncoder;
 import java.util.ArrayList;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public class ResourceEncoderRegistry {
     private final List<Entry<?>> encoders = new ArrayList();

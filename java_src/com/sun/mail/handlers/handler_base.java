@@ -5,6 +5,7 @@ import java.io.IOException;
 import javax.activation.ActivationDataFlavor;
 import javax.activation.DataContentHandler;
 import javax.activation.DataSource;
+
 /* loaded from: classes2.dex */
 public abstract class handler_base implements DataContentHandler {
     protected abstract ActivationDataFlavor[] getDataFlavors();
@@ -13,6 +14,7 @@ public abstract class handler_base implements DataContentHandler {
         return getContent(dataSource);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // javax.activation.DataContentHandler
     public ActivationDataFlavor[] getTransferDataFlavors() {
         return (ActivationDataFlavor[]) getDataFlavors().clone();

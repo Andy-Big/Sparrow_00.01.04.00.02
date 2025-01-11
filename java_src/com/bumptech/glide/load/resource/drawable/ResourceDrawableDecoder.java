@@ -9,6 +9,7 @@ import com.bumptech.glide.load.Options;
 import com.bumptech.glide.load.ResourceDecoder;
 import com.bumptech.glide.load.engine.Resource;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public class ResourceDrawableDecoder implements ResourceDecoder<Uri, Drawable> {
     private static final String ANDROID_PACKAGE_NAME = "android";
@@ -24,11 +25,13 @@ public class ResourceDrawableDecoder implements ResourceDecoder<Uri, Drawable> {
         this.context = context.getApplicationContext();
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.ResourceDecoder
     public boolean handles(Uri uri, Options options) {
         return uri.getScheme().equals("android.resource");
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.ResourceDecoder
     public Resource<Drawable> decode(Uri uri, int i, int i2, Options options) {
         Context findContextForPackage = findContextForPackage(uri, uri.getAuthority());

@@ -3,6 +3,7 @@ package com.sun.mail.util;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.logging.Level;
+
 /* loaded from: classes2.dex */
 public class LogOutputStream extends OutputStream {
     protected MailLogger logger;

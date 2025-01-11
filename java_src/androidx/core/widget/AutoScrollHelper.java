@@ -10,6 +10,7 @@ import android.view.animation.AccelerateInterpolator;
 import android.view.animation.AnimationUtils;
 import android.view.animation.Interpolator;
 import androidx.core.view.ViewCompat;
+
 /* loaded from: classes.dex */
 public abstract class AutoScrollHelper implements View.OnTouchListener {
     private static final int DEFAULT_ACTIVATION_DELAY = ViewConfiguration.getTapTimeout();
@@ -159,63 +160,30 @@ public abstract class AutoScrollHelper implements View.OnTouchListener {
     @Override // android.view.View.OnTouchListener
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    public boolean onTouch(android.view.View r6, android.view.MotionEvent r7) {
-        /*
-            r5 = this;
-            boolean r0 = r5.mEnabled
-            r1 = 0
-            if (r0 != 0) goto L6
-            return r1
-        L6:
-            int r0 = r7.getActionMasked()
-            r2 = 1
-            if (r0 == 0) goto L1a
-            if (r0 == r2) goto L16
-            r3 = 2
-            if (r0 == r3) goto L1e
-            r6 = 3
-            if (r0 == r6) goto L16
-            goto L58
-        L16:
-            r5.requestStop()
-            goto L58
-        L1a:
-            r5.mNeedsCancel = r2
-            r5.mAlreadyDelayed = r1
-        L1e:
-            float r0 = r7.getX()
-            int r3 = r6.getWidth()
-            float r3 = (float) r3
-            android.view.View r4 = r5.mTarget
-            int r4 = r4.getWidth()
-            float r4 = (float) r4
-            float r0 = r5.computeTargetVelocity(r1, r0, r3, r4)
-            float r7 = r7.getY()
-            int r6 = r6.getHeight()
-            float r6 = (float) r6
-            android.view.View r3 = r5.mTarget
-            int r3 = r3.getHeight()
-            float r3 = (float) r3
-            float r6 = r5.computeTargetVelocity(r2, r7, r6, r3)
-            androidx.core.widget.AutoScrollHelper$ClampedScroller r7 = r5.mScroller
-            r7.setTargetVelocity(r0, r6)
-            boolean r6 = r5.mAnimating
-            if (r6 != 0) goto L58
-            boolean r6 = r5.shouldAnimate()
-            if (r6 == 0) goto L58
-            r5.startAnimating()
-        L58:
-            boolean r6 = r5.mExclusive
-            if (r6 == 0) goto L61
-            boolean r6 = r5.mAnimating
-            if (r6 == 0) goto L61
-            r1 = r2
-        L61:
-            return r1
-        */
-        throw new UnsupportedOperationException("Method not decompiled: androidx.core.widget.AutoScrollHelper.onTouch(android.view.View, android.view.MotionEvent):boolean");
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        if (!this.mEnabled) {
+            return false;
+        }
+        int actionMasked = motionEvent.getActionMasked();
+        if (actionMasked == 0) {
+            this.mNeedsCancel = true;
+            this.mAlreadyDelayed = false;
+        } else {
+            if (actionMasked != 1) {
+                if (actionMasked != 2) {
+                }
+            }
+            requestStop();
+            return this.mExclusive && this.mAnimating;
+        }
+        this.mScroller.setTargetVelocity(computeTargetVelocity(0, motionEvent.getX(), view.getWidth(), this.mTarget.getWidth()), computeTargetVelocity(1, motionEvent.getY(), view.getHeight(), this.mTarget.getHeight()));
+        if (!this.mAnimating && shouldAnimate()) {
+            startAnimating();
+        }
+        if (this.mExclusive) {
+            return false;
+        }
     }
 
     boolean shouldAnimate() {
@@ -305,9 +273,8 @@ public abstract class AutoScrollHelper implements View.OnTouchListener {
         obtain.recycle();
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public class ScrollAnimationRunnable implements Runnable {
+    private class ScrollAnimationRunnable implements Runnable {
         ScrollAnimationRunnable() {
         }
 
@@ -334,9 +301,8 @@ public abstract class AutoScrollHelper implements View.OnTouchListener {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static class ClampedScroller {
+    private static class ClampedScroller {
         private int mEffectiveRampDown;
         private int mRampDownDuration;
         private int mRampUpDuration;

@@ -12,6 +12,7 @@ import com.google.android.material.dialog.InsetDialogOnTouchListener;
 import com.google.android.material.dialog.MaterialDialogs;
 import com.google.android.material.resources.MaterialAttributes;
 import com.google.android.material.shape.MaterialShapeDrawable;
+
 /* loaded from: classes.dex */
 public class MaterialStyledDatePickerDialog extends DatePickerDialog {
     private static final int DEF_STYLE_ATTR = 16843612;

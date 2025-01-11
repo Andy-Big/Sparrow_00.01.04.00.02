@@ -7,6 +7,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
 /* loaded from: classes.dex */
 public final class RegexUtils {
     private static final SimpleArrayMap<String, String> CITY_MAP = new SimpleArrayMap<>();

@@ -3,6 +3,7 @@ package androidx.lifecycle;
 import androidx.arch.core.internal.SafeIterableMap;
 import java.util.Iterator;
 import java.util.Map;
+
 /* loaded from: classes.dex */
 public class MediatorLiveData<T> extends MutableLiveData<T> {
     private SafeIterableMap<LiveData<?>, Source<?>> mSources = new SafeIterableMap<>();
@@ -25,18 +26,16 @@ public class MediatorLiveData<T> extends MutableLiveData<T> {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // androidx.lifecycle.LiveData
-    public void onActive() {
+    protected void onActive() {
         Iterator<Map.Entry<LiveData<?>, Source<?>>> it = this.mSources.iterator();
         while (it.hasNext()) {
             it.next().getValue().plug();
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // androidx.lifecycle.LiveData
-    public void onInactive() {
+    protected void onInactive() {
         Iterator<Map.Entry<LiveData<?>, Source<?>>> it = this.mSources.iterator();
         while (it.hasNext()) {
             it.next().getValue().unplug();

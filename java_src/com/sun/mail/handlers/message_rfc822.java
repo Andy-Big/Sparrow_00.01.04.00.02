@@ -10,6 +10,7 @@ import javax.mail.MessageAware;
 import javax.mail.MessagingException;
 import javax.mail.Session;
 import javax.mail.internet.MimeMessage;
+
 /* loaded from: classes2.dex */
 public class message_rfc822 extends handler_base {
     private static ActivationDataFlavor[] ourDataFlavor = {new ActivationDataFlavor(Message.class, "message/rfc822", "Message")};

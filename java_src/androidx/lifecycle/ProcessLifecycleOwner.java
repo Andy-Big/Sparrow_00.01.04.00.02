@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.ReportFragment;
+
 /* loaded from: classes.dex */
 public class ProcessLifecycleOwner implements LifecycleOwner {
     static final long TIMEOUT_MS = 700;
@@ -45,8 +46,7 @@ public class ProcessLifecycleOwner implements LifecycleOwner {
         return sInstance;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static void init(Context context) {
+    static void init(Context context) {
         sInstance.attach(context);
     }
 

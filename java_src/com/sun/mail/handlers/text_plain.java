@@ -10,6 +10,7 @@ import javax.activation.ActivationDataFlavor;
 import javax.activation.DataSource;
 import javax.mail.internet.ContentType;
 import javax.mail.internet.MimeUtility;
+
 /* loaded from: classes2.dex */
 public class text_plain extends handler_base {
     private static ActivationDataFlavor[] myDF = {new ActivationDataFlavor(String.class, "text/plain", "Text String")};
@@ -30,6 +31,7 @@ public class text_plain extends handler_base {
         return myDF;
     }
 
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE] complete} */
     @Override // javax.activation.DataContentHandler
     public Object getContent(DataSource dataSource) throws IOException {
         String str = null;

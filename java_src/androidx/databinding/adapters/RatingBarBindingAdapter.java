@@ -2,6 +2,7 @@ package androidx.databinding.adapters;
 
 import android.widget.RatingBar;
 import androidx.databinding.InverseBindingListener;
+
 /* loaded from: classes.dex */
 public class RatingBarBindingAdapter {
     public static void setRating(RatingBar ratingBar, float f) {

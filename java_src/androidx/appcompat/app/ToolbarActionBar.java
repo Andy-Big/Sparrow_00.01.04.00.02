@@ -21,6 +21,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.appcompat.widget.ToolbarWidgetWrapper;
 import androidx.core.view.ViewCompat;
 import java.util.ArrayList;
+
 /* loaded from: classes.dex */
 class ToolbarActionBar extends ActionBar {
     DecorToolbar mDecorToolbar;
@@ -82,8 +83,7 @@ class ToolbarActionBar extends ActionBar {
     public void setStackedBackgroundDrawable(Drawable drawable) {
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ToolbarActionBar(Toolbar toolbar, CharSequence charSequence, Window.Callback callback) {
+    ToolbarActionBar(Toolbar toolbar, CharSequence charSequence, Window.Callback callback) {
         this.mDecorToolbar = new ToolbarWidgetWrapper(toolbar, false);
         ToolbarCallbackWrapper toolbarCallbackWrapper = new ToolbarCallbackWrapper(callback);
         this.mWindowCallback = toolbarCallbackWrapper;
@@ -435,9 +435,8 @@ class ToolbarActionBar extends ActionBar {
         return false;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     @Override // androidx.appcompat.app.ActionBar
-    public void onDestroy() {
+    void onDestroy() {
         this.mDecorToolbar.getViewGroup().removeCallbacks(this.mMenuInvalidator);
     }
 
@@ -496,9 +495,8 @@ class ToolbarActionBar extends ActionBar {
         return this.mDecorToolbar.getMenu();
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public final class ActionMenuPresenterCallback implements MenuPresenter.Callback {
+    private final class ActionMenuPresenterCallback implements MenuPresenter.Callback {
         private boolean mClosingActionMenu;
 
         ActionMenuPresenterCallback() {
@@ -527,9 +525,8 @@ class ToolbarActionBar extends ActionBar {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public final class MenuBuilderCallback implements MenuBuilder.Callback {
+    private final class MenuBuilderCallback implements MenuBuilder.Callback {
         @Override // androidx.appcompat.view.menu.MenuBuilder.Callback
         public boolean onMenuItemSelected(MenuBuilder menuBuilder, MenuItem menuItem) {
             return false;

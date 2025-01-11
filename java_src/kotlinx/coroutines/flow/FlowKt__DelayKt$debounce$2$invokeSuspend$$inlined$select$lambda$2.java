@@ -14,6 +14,7 @@ import kotlinx.coroutines.channels.ReceiveChannel;
 import kotlinx.coroutines.flow.internal.NullSurrogateKt;
 import kotlinx.coroutines.internal.Symbol;
 import kotlinx.coroutines.selects.SelectBuilder;
+
 /* compiled from: Delay.kt */
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000.\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0005\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002H\u008a@¢\u0006\u0004\b\u0003\u0010\u0004¨\u0006\u0006"}, d2 = {"<anonymous>", "", ExifInterface.GPS_DIRECTION_TRUE, "invoke", "(Ljava/lang/Object;)Ljava/lang/Object;", "kotlinx/coroutines/flow/FlowKt__DelayKt$debounce$2$1$2$1", "kotlinx/coroutines/flow/FlowKt__DelayKt$debounce$2$$special$$inlined$let$lambda$1"}, k = 3, mv = {1, 1, 15})
 /* loaded from: classes2.dex */
@@ -26,9 +27,8 @@ final class FlowKt__DelayKt$debounce$2$invokeSuspend$$inlined$select$lambda$2 ex
     int label;
     final /* synthetic */ FlowKt__DelayKt$debounce$2 this$0;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowKt__DelayKt$debounce$2$invokeSuspend$$inlined$select$lambda$2(Object obj, Continuation continuation, SelectBuilder selectBuilder, FlowKt__DelayKt$debounce$2 flowKt__DelayKt$debounce$2, ReceiveChannel receiveChannel, Ref.ObjectRef objectRef, FlowCollector flowCollector) {
+    FlowKt__DelayKt$debounce$2$invokeSuspend$$inlined$select$lambda$2(Object obj, Continuation continuation, SelectBuilder selectBuilder, FlowKt__DelayKt$debounce$2 flowKt__DelayKt$debounce$2, ReceiveChannel receiveChannel, Ref.ObjectRef objectRef, FlowCollector flowCollector) {
         super(1, continuation);
         this.$value = obj;
         this.$this_select$inlined = selectBuilder;
@@ -44,6 +44,7 @@ final class FlowKt__DelayKt$debounce$2$invokeSuspend$$inlined$select$lambda$2 ex
         return new FlowKt__DelayKt$debounce$2$invokeSuspend$$inlined$select$lambda$2(this.$value, completion, this.$this_select$inlined, this.this$0, this.$values$inlined, this.$lastValue$inlined, this.$downstream$inlined);
     }
 
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
     @Override // kotlin.jvm.functions.Function1
     public final Object invoke(Continuation<? super Unit> continuation) {
         return ((FlowKt__DelayKt$debounce$2$invokeSuspend$$inlined$select$lambda$2) create(continuation)).invokeSuspend(Unit.INSTANCE);

@@ -9,6 +9,7 @@ import android.text.TextUtils;
 import android.util.SparseIntArray;
 import androidx.collection.ArrayMap;
 import java.lang.reflect.Method;
+
 /* loaded from: classes.dex */
 class VersionedParcelParcel extends VersionedParcel {
     private static final boolean DEBUG = false;
@@ -22,8 +23,7 @@ class VersionedParcelParcel extends VersionedParcel {
     private final SparseIntArray mPositionLookup;
     private final String mPrefix;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public VersionedParcelParcel(Parcel parcel) {
+    VersionedParcelParcel(Parcel parcel) {
         this(parcel, parcel.dataPosition(), parcel.dataSize(), "", new ArrayMap(), new ArrayMap(), new ArrayMap());
     }
 

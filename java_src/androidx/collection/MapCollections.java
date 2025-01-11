@@ -6,9 +6,9 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.NoSuchElementException;
 import java.util.Set;
-/* JADX INFO: Access modifiers changed from: package-private */
+
 /* loaded from: classes.dex */
-public abstract class MapCollections<K, V> {
+abstract class MapCollections<K, V> {
     MapCollections<K, V>.EntrySet mEntrySet;
     MapCollections<K, V>.KeySet mKeySet;
     MapCollections<K, V>.ValuesCollection mValues;
@@ -30,6 +30,9 @@ public abstract class MapCollections<K, V> {
     protected abstract void colRemoveAt(int i);
 
     protected abstract V colSetValue(int i, V v);
+
+    MapCollections() {
+    }
 
     /* loaded from: classes.dex */
     final class ArrayIterator<T> implements Iterator<T> {
@@ -87,6 +90,7 @@ public abstract class MapCollections<K, V> {
             return this.mIndex < this.mEnd;
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Iterator
         public Map.Entry<K, V> next() {
             if (!hasNext()) {
@@ -504,6 +508,7 @@ public abstract class MapCollections<K, V> {
         return objArr;
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r4v10, resolved type: T[] */
     /* JADX WARN: Multi-variable type inference failed */
     public <T> T[] toArrayHelper(T[] tArr, int i) {
         int colGetSize = colGetSize();

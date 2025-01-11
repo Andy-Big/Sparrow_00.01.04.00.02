@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import java.util.Iterator;
+
 /* loaded from: classes.dex */
 public final class MaterialTextInputPicker<S> extends PickerFragment<S> {
     private static final String CALENDAR_CONSTRAINTS_KEY = "CALENDAR_CONSTRAINTS_KEY";
@@ -12,8 +13,7 @@ public final class MaterialTextInputPicker<S> extends PickerFragment<S> {
     private CalendarConstraints calendarConstraints;
     private DateSelector<S> dateSelector;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static <T> MaterialTextInputPicker<T> newInstance(DateSelector<T> dateSelector, CalendarConstraints calendarConstraints) {
+    static <T> MaterialTextInputPicker<T> newInstance(DateSelector<T> dateSelector, CalendarConstraints calendarConstraints) {
         MaterialTextInputPicker<T> materialTextInputPicker = new MaterialTextInputPicker<>();
         Bundle bundle = new Bundle();
         bundle.putParcelable(DATE_SELECTOR_KEY, dateSelector);
@@ -50,9 +50,8 @@ public final class MaterialTextInputPicker<S> extends PickerFragment<S> {
                 }
             }
 
-            /* JADX INFO: Access modifiers changed from: package-private */
             @Override // com.google.android.material.datepicker.OnSelectionChangedListener
-            public void onIncompleteSelectionChanged() {
+            void onIncompleteSelectionChanged() {
                 Iterator<OnSelectionChangedListener<S>> it = MaterialTextInputPicker.this.onSelectionChangedListeners.iterator();
                 while (it.hasNext()) {
                     it.next().onIncompleteSelectionChanged();

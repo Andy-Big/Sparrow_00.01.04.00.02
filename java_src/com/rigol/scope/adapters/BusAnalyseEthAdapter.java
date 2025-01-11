@@ -34,7 +34,6 @@ public class BusAnalyseEthAdapter extends RecyclerView.Adapter<BusAnalyseEthHold
         this.basePopupView = basePopupView;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public BusAnalyseEthHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         AdapterBusEthAnalyseBinding inflate = AdapterBusEthAnalyseBinding.inflate(LayoutInflater.from(viewGroup.getContext()), viewGroup, false);
@@ -44,7 +43,6 @@ public class BusAnalyseEthAdapter extends RecyclerView.Adapter<BusAnalyseEthHold
         return new BusAnalyseEthHolder(this.binding);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(BusAnalyseEthHolder busAnalyseEthHolder, int i) {
         showBusAnalyseEthAdapter(this.param.getEth_type());

@@ -43,6 +43,108 @@ public final class HorizontalParamKt {
     private static final ServiceEnum.ControlStatus DEFAULT_TRIGGERSTATUS = ServiceEnum.ControlStatus.Status_Autoing;
     private static final ServiceEnum.HoriTimeMode DEFAULT_TIMEMODE = ServiceEnum.HoriTimeMode.Horizontal_YT;
 
+    /* JADX DEBUG: Marked for inline */
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.data.HorizontalParam.<init>():void, com.rigol.scope.data.HorizontalParam.reset():void] */
+    public static final /* synthetic */ ServiceEnum.AcquireMode access$getDEFAULT_ACQUIRE_MODE$p() {
+        return DEFAULT_ACQUIRE_MODE;
+    }
+
+    /* JADX DEBUG: Marked for inline */
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.data.HorizontalParam.<init>():void, com.rigol.scope.data.HorizontalParam.reset():void] */
+    public static final /* synthetic */ ServiceEnum.AcquireDepth access$getDEFAULT_DEPTH$p() {
+        return DEFAULT_DEPTH;
+    }
+
+    /* JADX DEBUG: Marked for inline */
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.data.HorizontalParam.<init>():void] */
+    public static final /* synthetic */ long access$getDEFAULT_DEPTH_MEM_END$p() {
+        return DEFAULT_DEPTH_MEM_END;
+    }
+
+    /* JADX DEBUG: Marked for inline */
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.data.HorizontalParam.<init>():void] */
+    public static final /* synthetic */ long access$getDEFAULT_DEPTH_MEM_START$p() {
+        return DEFAULT_DEPTH_MEM_START;
+    }
+
+    /* JADX DEBUG: Marked for inline */
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.data.HorizontalParam.<init>():void] */
+    public static final /* synthetic */ long access$getDEFAULT_DEPTH_SCR_END$p() {
+        return DEFAULT_DEPTH_SCR_END;
+    }
+
+    /* JADX DEBUG: Marked for inline */
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.data.HorizontalParam.<init>():void] */
+    public static final /* synthetic */ long access$getDEFAULT_DEPTH_SCR_START$p() {
+        return DEFAULT_DEPTH_SCR_START;
+    }
+
+    /* JADX DEBUG: Marked for inline */
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.data.HorizontalParam.<init>():void, com.rigol.scope.data.HorizontalParam.reset():void] */
+    public static final /* synthetic */ ServiceEnum.HorizontalExpand access$getDEFAULT_EXPANDMODE$p() {
+        return DEFAULT_EXPANDMODE;
+    }
+
+    /* JADX DEBUG: Marked for inline */
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.data.HorizontalParam.<init>():void, com.rigol.scope.data.HorizontalParam.reset():void] */
+    public static final /* synthetic */ ServiceEnum.HighResBit access$getDEFAULT_HIGHBIT$p() {
+        return DEFAULT_HIGHBIT;
+    }
+
+    /* JADX DEBUG: Marked for inline */
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.data.HorizontalParam.<init>():void, com.rigol.scope.data.HorizontalParam.reset():void] */
+    public static final /* synthetic */ float access$getDEFAULT_MAIN_SCALE$p() {
+        return DEFAULT_MAIN_SCALE;
+    }
+
+    /* JADX DEBUG: Marked for inline */
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.data.HorizontalParam.<init>():void, com.rigol.scope.data.HorizontalParam.reset():void] */
+    public static final /* synthetic */ int access$getDEFAULT_ROLL$p() {
+        return DEFAULT_ROLL;
+    }
+
+    /* JADX DEBUG: Marked for inline */
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.data.HorizontalParam.<init>():void, com.rigol.scope.data.HorizontalParam.reset():void] */
+    public static final /* synthetic */ ServiceEnum.ControlAction access$getDEFAULT_RUNSTOP$p() {
+        return DEFAULT_RUNSTOP;
+    }
+
+    /* JADX DEBUG: Marked for inline */
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.data.HorizontalParam.<init>():void, com.rigol.scope.data.HorizontalParam.reset():void] */
+    public static final /* synthetic */ ServiceEnum.HoriTimeMode access$getDEFAULT_TIMEMODE$p() {
+        return DEFAULT_TIMEMODE;
+    }
+
+    /* JADX DEBUG: Marked for inline */
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.data.HorizontalParam.<init>():void, com.rigol.scope.data.HorizontalParam.reset():void] */
+    public static final /* synthetic */ ServiceEnum.ControlStatus access$getDEFAULT_TRIGGERSTATUS$p() {
+        return DEFAULT_TRIGGERSTATUS;
+    }
+
+    /* JADX DEBUG: Marked for inline */
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.data.HorizontalParam.<init>():void, com.rigol.scope.data.HorizontalParam.reset():void] */
+    public static final /* synthetic */ boolean access$getDEFAULT_ULTRA_ENABLE$p() {
+        return DEFAULT_ULTRA_ENABLE;
+    }
+
+    /* JADX DEBUG: Marked for inline */
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.data.HorizontalParam.<init>():void, com.rigol.scope.data.HorizontalParam.reset():void] */
+    public static final /* synthetic */ boolean access$getDEFAULT_XY_CHECK$p() {
+        return DEFAULT_XY_CHECK;
+    }
+
+    /* JADX DEBUG: Marked for inline */
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.data.HorizontalParam.<init>():void, com.rigol.scope.data.HorizontalParam.reset():void] */
+    public static final /* synthetic */ boolean access$getDEFAULT_XY_CHECK_ENABLE$p() {
+        return DEFAULT_XY_CHECK_ENABLE;
+    }
+
+    /* JADX DEBUG: Marked for inline */
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.data.HorizontalParam.<init>():void, com.rigol.scope.data.HorizontalParam.reset():void] */
+    public static final /* synthetic */ float access$getDEFAULT_ZOOM_SCALE$p() {
+        return DEFAULT_ZOOM_SCALE;
+    }
+
     static {
         double d = 1000;
         DEFAULT_MAIN_SCALE = ((float) PackageUtilKt.ERROR_PACKAGE_FILE_DOWNLOAD) / ((float) Math.pow(d, UnitFormat.SI.FEMTO.scale - UnitFormat.SI.NANO.scale));

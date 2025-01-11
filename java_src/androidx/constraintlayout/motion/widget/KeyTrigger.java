@@ -7,10 +7,12 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.util.SparseIntArray;
 import android.view.View;
+import android.view.ViewGroup;
 import androidx.constraintlayout.widget.R;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.HashSet;
+
 /* loaded from: classes.dex */
 public class KeyTrigger extends Key {
     public static final String CROSS = "CROSS";
@@ -223,14 +225,133 @@ public class KeyTrigger extends Key {
     /* JADX WARN: Removed duplicated region for block: B:56:0x00ce  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    public void conditionallyFire(float r10, android.view.View r11) {
-        /*
-            Method dump skipped, instructions count: 354
-            To view this dump add '--comments-level debug' option
-        */
-        throw new UnsupportedOperationException("Method not decompiled: androidx.constraintlayout.motion.widget.KeyTrigger.conditionallyFire(float, android.view.View):void");
+    public void conditionallyFire(float f, View view) {
+        boolean z;
+        boolean z2;
+        boolean z3;
+        boolean z4;
+        boolean z5;
+        boolean z6;
+        if (this.mTriggerCollisionId != UNSET) {
+            if (this.mTriggerCollisionView == null) {
+                this.mTriggerCollisionView = ((ViewGroup) view.getParent()).findViewById(this.mTriggerCollisionId);
+            }
+            setUpRect(this.mCollisionRect, this.mTriggerCollisionView, this.mPostLayout);
+            setUpRect(this.mTargetRect, view, this.mPostLayout);
+            if (this.mCollisionRect.intersect(this.mTargetRect)) {
+                if (this.mFireCrossReset) {
+                    this.mFireCrossReset = false;
+                    z = true;
+                } else {
+                    z = false;
+                }
+                if (this.mFirePositiveReset) {
+                    this.mFirePositiveReset = false;
+                    z6 = true;
+                } else {
+                    z6 = false;
+                }
+                this.mFireNegativeReset = true;
+                z5 = z6;
+                z3 = false;
+            } else {
+                if (this.mFireCrossReset) {
+                    z = false;
+                } else {
+                    this.mFireCrossReset = true;
+                    z = true;
+                }
+                if (this.mFireNegativeReset) {
+                    this.mFireNegativeReset = false;
+                    z3 = true;
+                } else {
+                    z3 = false;
+                }
+                this.mFirePositiveReset = true;
+                z5 = false;
+            }
+        } else {
+            if (this.mFireCrossReset) {
+                float f2 = this.mFireThreshold;
+                if ((f - f2) * (this.mFireLastPos - f2) < 0.0f) {
+                    this.mFireCrossReset = false;
+                    z = true;
+                    if (!this.mFireNegativeReset) {
+                        float f3 = this.mFireThreshold;
+                        float f4 = f - f3;
+                        if ((this.mFireLastPos - f3) * f4 < 0.0f && f4 < 0.0f) {
+                            this.mFireNegativeReset = false;
+                            z2 = true;
+                            if (this.mFirePositiveReset) {
+                                float f5 = this.mFireThreshold;
+                                float f6 = f - f5;
+                                if ((this.mFireLastPos - f5) * f6 >= 0.0f || f6 <= 0.0f) {
+                                    z4 = false;
+                                } else {
+                                    this.mFirePositiveReset = false;
+                                    z4 = true;
+                                }
+                                boolean z7 = z2;
+                                z5 = z4;
+                                z3 = z7;
+                            } else {
+                                if (Math.abs(f - this.mFireThreshold) > this.mTriggerSlack) {
+                                    this.mFirePositiveReset = true;
+                                }
+                                z3 = z2;
+                                z5 = false;
+                            }
+                        }
+                    } else if (Math.abs(f - this.mFireThreshold) > this.mTriggerSlack) {
+                        this.mFireNegativeReset = true;
+                    }
+                    z2 = false;
+                    if (this.mFirePositiveReset) {
+                    }
+                }
+            } else if (Math.abs(f - this.mFireThreshold) > this.mTriggerSlack) {
+                this.mFireCrossReset = true;
+            }
+            z = false;
+            if (!this.mFireNegativeReset) {
+            }
+            z2 = false;
+            if (this.mFirePositiveReset) {
+            }
+        }
+        this.mFireLastPos = f;
+        if (z3 || z || z5) {
+            ((MotionLayout) view.getParent()).fireTrigger(this.mTriggerID, z5, f);
+        }
+        View findViewById = this.mTriggerReceiver == UNSET ? view : ((MotionLayout) view.getParent()).findViewById(this.mTriggerReceiver);
+        if (z3) {
+            String str = this.mNegativeCross;
+            if (str != null) {
+                fire(str, findViewById);
+            }
+            if (this.mViewTransitionOnNegativeCross != UNSET) {
+                ((MotionLayout) view.getParent()).viewTransition(this.mViewTransitionOnNegativeCross, findViewById);
+            }
+        }
+        if (z5) {
+            String str2 = this.mPositiveCross;
+            if (str2 != null) {
+                fire(str2, findViewById);
+            }
+            if (this.mViewTransitionOnPositiveCross != UNSET) {
+                ((MotionLayout) view.getParent()).viewTransition(this.mViewTransitionOnPositiveCross, findViewById);
+            }
+        }
+        if (z) {
+            String str3 = this.mCross;
+            if (str3 != null) {
+                fire(str3, findViewById);
+            }
+            if (this.mViewTransitionOnCross != UNSET) {
+                ((MotionLayout) view.getParent()).viewTransition(this.mViewTransitionOnCross, findViewById);
+            }
+        }
     }
 
     private void fire(String str, View view) {
@@ -410,6 +531,7 @@ public class KeyTrigger extends Key {
         return this;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.constraintlayout.motion.widget.Key
     /* renamed from: clone */
     public Key mo2clone() {

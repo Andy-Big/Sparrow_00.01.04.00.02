@@ -3,6 +3,7 @@ package ch.obermuhlner.math.big;
 import java.math.BigDecimal;
 import java.math.MathContext;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public class BigComplexMath {
     private static final BigDecimal TWO = BigDecimal.valueOf(2L);

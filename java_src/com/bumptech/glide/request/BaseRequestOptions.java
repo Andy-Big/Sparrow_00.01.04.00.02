@@ -31,6 +31,7 @@ import com.bumptech.glide.util.CachedHashCodeArrayMap;
 import com.bumptech.glide.util.Preconditions;
 import com.bumptech.glide.util.Util;
 import java.util.Map;
+
 /* loaded from: classes.dex */
 public abstract class BaseRequestOptions<T extends BaseRequestOptions<T>> implements Cloneable {
     private static final int DISK_CACHE_STRATEGY = 4;
@@ -259,6 +260,7 @@ public abstract class BaseRequestOptions<T extends BaseRequestOptions<T>> implem
         return selfOrThrowIfLocked();
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // 
     /* renamed from: clone */
     public T mo8clone() {
@@ -309,31 +311,38 @@ public abstract class BaseRequestOptions<T extends BaseRequestOptions<T>> implem
         return this.isLocked;
     }
 
+    /* JADX DEBUG: Type inference failed for r0v0. Raw type applied. Possible types: com.bumptech.glide.load.Option<android.graphics.Bitmap$CompressFormat>, com.bumptech.glide.load.Option<Y> */
     public T encodeFormat(Bitmap.CompressFormat compressFormat) {
         return set(BitmapEncoder.COMPRESSION_FORMAT, Preconditions.checkNotNull(compressFormat));
     }
 
+    /* JADX DEBUG: Type inference failed for r0v0. Raw type applied. Possible types: com.bumptech.glide.load.Option<java.lang.Integer>, com.bumptech.glide.load.Option<Y> */
     public T encodeQuality(int i) {
         return set(BitmapEncoder.COMPRESSION_QUALITY, Integer.valueOf(i));
     }
 
+    /* JADX DEBUG: Type inference failed for r0v0. Raw type applied. Possible types: com.bumptech.glide.load.Option<java.lang.Long>, com.bumptech.glide.load.Option<Y> */
     public T frame(long j) {
         return set(VideoDecoder.TARGET_FRAME, Long.valueOf(j));
     }
 
+    /* JADX DEBUG: Type inference failed for r0v0. Raw type applied. Possible types: com.bumptech.glide.load.Option<com.bumptech.glide.load.DecodeFormat>, com.bumptech.glide.load.Option<Y> */
     public T format(DecodeFormat decodeFormat) {
         Preconditions.checkNotNull(decodeFormat);
         return (T) set(Downsampler.DECODE_FORMAT, decodeFormat).set(GifOptions.DECODE_FORMAT, decodeFormat);
     }
 
+    /* JADX DEBUG: Type inference failed for r0v0. Raw type applied. Possible types: com.bumptech.glide.load.Option<java.lang.Boolean>, com.bumptech.glide.load.Option<Y> */
     public T disallowHardwareConfig() {
         return set(Downsampler.ALLOW_HARDWARE_CONFIG, false);
     }
 
+    /* JADX DEBUG: Type inference failed for r0v0. Raw type applied. Possible types: com.bumptech.glide.load.Option<com.bumptech.glide.load.resource.bitmap.DownsampleStrategy>, com.bumptech.glide.load.Option<Y> */
     public T downsample(DownsampleStrategy downsampleStrategy) {
         return set(DownsampleStrategy.OPTION, Preconditions.checkNotNull(downsampleStrategy));
     }
 
+    /* JADX DEBUG: Type inference failed for r0v0. Raw type applied. Possible types: com.bumptech.glide.load.Option<java.lang.Integer>, com.bumptech.glide.load.Option<Y> */
     public T timeout(int i) {
         return set(HttpGlideUrlLoader.TIMEOUT, Integer.valueOf(i));
     }
@@ -428,6 +437,8 @@ public abstract class BaseRequestOptions<T extends BaseRequestOptions<T>> implem
         return transform(transformation, false);
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r3v0, resolved type: com.bumptech.glide.load.Transformation<android.graphics.Bitmap> */
+    /* JADX DEBUG: Type inference failed for r0v2. Raw type applied. Possible types: com.bumptech.glide.load.Transformation<android.graphics.drawable.BitmapDrawable>, com.bumptech.glide.load.Transformation<Y> */
     /* JADX WARN: Multi-variable type inference failed */
     T transform(Transformation<Bitmap> transformation, boolean z) {
         if (this.isAutoCloneEnabled) {
@@ -485,6 +496,7 @@ public abstract class BaseRequestOptions<T extends BaseRequestOptions<T>> implem
         return selfOrThrowIfLocked();
     }
 
+    /* JADX DEBUG: Type inference failed for r0v0. Raw type applied. Possible types: com.bumptech.glide.load.Option<java.lang.Boolean>, com.bumptech.glide.load.Option<Y> */
     public T dontAnimate() {
         return set(GifOptions.DISABLE_ANIMATION, true);
     }
@@ -704,8 +716,7 @@ public abstract class BaseRequestOptions<T extends BaseRequestOptions<T>> implem
         return this.sizeMultiplier;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean isScaleOnlyOrNoTransform() {
+    boolean isScaleOnlyOrNoTransform() {
         return this.isScaleOnlyOrNoTransform;
     }
 

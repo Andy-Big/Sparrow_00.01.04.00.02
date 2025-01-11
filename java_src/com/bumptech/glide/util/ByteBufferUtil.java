@@ -11,6 +11,7 @@ import java.nio.MappedByteBuffer;
 import java.nio.channels.FileChannel;
 import java.util.concurrent.atomic.AtomicReference;
 import kotlin.UByte;
+
 /* loaded from: classes.dex */
 public final class ByteBufferUtil {
     private static final AtomicReference<byte[]> BUFFER_REF = new AtomicReference<>();
@@ -73,41 +74,41 @@ public final class ByteBufferUtil {
         FileChannel fileChannel = null;
         try {
             randomAccessFile = new RandomAccessFile(file, "rw");
-            try {
-                fileChannel = randomAccessFile.getChannel();
-                fileChannel.write(byteBuffer);
-                fileChannel.force(false);
-                fileChannel.close();
-                randomAccessFile.close();
-                if (fileChannel != null) {
-                    try {
-                        fileChannel.close();
-                    } catch (IOException unused) {
-                    }
-                }
+        } catch (Throwable th) {
+            th = th;
+            randomAccessFile = null;
+        }
+        try {
+            fileChannel = randomAccessFile.getChannel();
+            fileChannel.write(byteBuffer);
+            fileChannel.force(false);
+            fileChannel.close();
+            randomAccessFile.close();
+            if (fileChannel != null) {
                 try {
-                    randomAccessFile.close();
-                } catch (IOException unused2) {
+                    fileChannel.close();
+                } catch (IOException unused) {
                 }
-            } catch (Throwable th) {
-                th = th;
-                if (fileChannel != null) {
-                    try {
-                        fileChannel.close();
-                    } catch (IOException unused3) {
-                    }
-                }
-                if (randomAccessFile != null) {
-                    try {
-                        randomAccessFile.close();
-                    } catch (IOException unused4) {
-                    }
-                }
-                throw th;
+            }
+            try {
+                randomAccessFile.close();
+            } catch (IOException unused2) {
             }
         } catch (Throwable th2) {
             th = th2;
-            randomAccessFile = null;
+            if (fileChannel != null) {
+                try {
+                    fileChannel.close();
+                } catch (IOException unused3) {
+                }
+            }
+            if (randomAccessFile != null) {
+                try {
+                    randomAccessFile.close();
+                } catch (IOException unused4) {
+                }
+            }
+            throw th;
         }
     }
 
@@ -170,9 +171,8 @@ public final class ByteBufferUtil {
         return new SafeArray(byteBuffer.array(), byteBuffer.arrayOffset(), byteBuffer.limit());
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static final class SafeArray {
+    static final class SafeArray {
         final byte[] data;
         final int limit;
         final int offset;

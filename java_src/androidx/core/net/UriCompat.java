@@ -1,6 +1,7 @@
 package androidx.core.net;
 
 import android.net.Uri;
+
 /* loaded from: classes.dex */
 public final class UriCompat {
     private UriCompat() {

@@ -16,6 +16,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import java.lang.reflect.Field;
+
 /* loaded from: classes.dex */
 public final class KeyboardUtils {
     private static final int TAG_ON_GLOBAL_LAYOUT_LISTENER = -8;

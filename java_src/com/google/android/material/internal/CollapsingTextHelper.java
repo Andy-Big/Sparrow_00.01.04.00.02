@@ -25,6 +25,7 @@ import com.google.android.material.animation.AnimationUtils;
 import com.google.android.material.internal.StaticLayoutBuilderCompat;
 import com.google.android.material.resources.CancelableFontCallback;
 import com.google.android.material.resources.TextAppearance;
+
 /* loaded from: classes.dex */
 public final class CollapsingTextHelper {
     private static final boolean DEBUG_DRAW = false;

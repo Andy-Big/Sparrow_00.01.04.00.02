@@ -10,6 +10,7 @@ import androidx.core.view.ViewCompat;
 import com.google.android.material.R;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
+
 /* loaded from: classes.dex */
 public final class SlideDistanceProvider implements VisibilityAnimatorProvider {
     private static final int DEFAULT_DISTANCE = -1;

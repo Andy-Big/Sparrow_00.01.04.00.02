@@ -1,6 +1,7 @@
 package me.jessyan.autosize.utils;
 
 import android.util.Log;
+
 /* loaded from: classes2.dex */
 public class AutoSizeLog {
     private static final String TAG = "AndroidAutoSize";

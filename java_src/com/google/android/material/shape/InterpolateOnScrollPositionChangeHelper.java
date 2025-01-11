@@ -3,6 +3,7 @@ package com.google.android.material.shape;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.ScrollView;
+
 /* loaded from: classes.dex */
 public class InterpolateOnScrollPositionChangeHelper {
     private ScrollView containingScrollView;

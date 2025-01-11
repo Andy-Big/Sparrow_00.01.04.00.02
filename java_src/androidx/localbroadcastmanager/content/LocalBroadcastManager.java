@@ -11,6 +11,7 @@ import android.util.Log;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Set;
+
 /* loaded from: classes.dex */
 public final class LocalBroadcastManager {
     private static final boolean DEBUG = false;
@@ -24,9 +25,8 @@ public final class LocalBroadcastManager {
     private final HashMap<String, ArrayList<ReceiverRecord>> mActions = new HashMap<>();
     private final ArrayList<BroadcastRecord> mPendingBroadcasts = new ArrayList<>();
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static final class ReceiverRecord {
+    private static final class ReceiverRecord {
         boolean broadcasting;
         boolean dead;
         final IntentFilter filter;
@@ -51,9 +51,8 @@ public final class LocalBroadcastManager {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static final class BroadcastRecord {
+    private static final class BroadcastRecord {
         final Intent intent;
         final ArrayList<ReceiverRecord> receivers;
 

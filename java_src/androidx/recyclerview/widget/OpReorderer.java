@@ -2,25 +2,23 @@ package androidx.recyclerview.widget;
 
 import androidx.recyclerview.widget.AdapterHelper;
 import java.util.List;
+
 /* loaded from: classes.dex */
 class OpReorderer {
     final Callback mCallback;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public interface Callback {
+    interface Callback {
         AdapterHelper.UpdateOp obtainUpdateOp(int i, int i2, int i3, Object obj);
 
         void recycleUpdateOp(AdapterHelper.UpdateOp updateOp);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public OpReorderer(Callback callback) {
+    OpReorderer(Callback callback) {
         this.mCallback = callback;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void reorderOps(List<AdapterHelper.UpdateOp> list) {
+    void reorderOps(List<AdapterHelper.UpdateOp> list) {
         while (true) {
             int lastMoveOutOfOrder = getLastMoveOutOfOrder(list);
             if (lastMoveOutOfOrder == -1) {
@@ -153,84 +151,48 @@ class OpReorderer {
     /* JADX WARN: Removed duplicated region for block: B:24:? A[RETURN, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    void swapMoveUpdate(java.util.List<androidx.recyclerview.widget.AdapterHelper.UpdateOp> r8, int r9, androidx.recyclerview.widget.AdapterHelper.UpdateOp r10, int r11, androidx.recyclerview.widget.AdapterHelper.UpdateOp r12) {
-        /*
-            r7 = this;
-            int r0 = r10.itemCount
-            int r1 = r12.positionStart
-            r2 = 4
-            r3 = 0
-            r4 = 1
-            if (r0 >= r1) goto Lf
-            int r0 = r12.positionStart
-            int r0 = r0 - r4
-            r12.positionStart = r0
-            goto L28
-        Lf:
-            int r0 = r10.itemCount
-            int r1 = r12.positionStart
-            int r5 = r12.itemCount
-            int r1 = r1 + r5
-            if (r0 >= r1) goto L28
-            int r0 = r12.itemCount
-            int r0 = r0 - r4
-            r12.itemCount = r0
-            androidx.recyclerview.widget.OpReorderer$Callback r0 = r7.mCallback
-            int r1 = r10.positionStart
-            java.lang.Object r5 = r12.payload
-            androidx.recyclerview.widget.AdapterHelper$UpdateOp r0 = r0.obtainUpdateOp(r2, r1, r4, r5)
-            goto L29
-        L28:
-            r0 = r3
-        L29:
-            int r1 = r10.positionStart
-            int r5 = r12.positionStart
-            if (r1 > r5) goto L35
-            int r1 = r12.positionStart
-            int r1 = r1 + r4
-            r12.positionStart = r1
-            goto L56
-        L35:
-            int r1 = r10.positionStart
-            int r5 = r12.positionStart
-            int r6 = r12.itemCount
-            int r5 = r5 + r6
-            if (r1 >= r5) goto L56
-            int r1 = r12.positionStart
-            int r3 = r12.itemCount
-            int r1 = r1 + r3
-            int r3 = r10.positionStart
-            int r1 = r1 - r3
-            androidx.recyclerview.widget.OpReorderer$Callback r3 = r7.mCallback
-            int r5 = r10.positionStart
-            int r5 = r5 + r4
-            java.lang.Object r4 = r12.payload
-            androidx.recyclerview.widget.AdapterHelper$UpdateOp r3 = r3.obtainUpdateOp(r2, r5, r1, r4)
-            int r2 = r12.itemCount
-            int r2 = r2 - r1
-            r12.itemCount = r2
-        L56:
-            r8.set(r11, r10)
-            int r10 = r12.itemCount
-            if (r10 <= 0) goto L61
-            r8.set(r9, r12)
-            goto L69
-        L61:
-            r8.remove(r9)
-            androidx.recyclerview.widget.OpReorderer$Callback r10 = r7.mCallback
-            r10.recycleUpdateOp(r12)
-        L69:
-            if (r0 == 0) goto L6e
-            r8.add(r9, r0)
-        L6e:
-            if (r3 == 0) goto L73
-            r8.add(r9, r3)
-        L73:
-            return
-        */
-        throw new UnsupportedOperationException("Method not decompiled: androidx.recyclerview.widget.OpReorderer.swapMoveUpdate(java.util.List, int, androidx.recyclerview.widget.AdapterHelper$UpdateOp, int, androidx.recyclerview.widget.AdapterHelper$UpdateOp):void");
+    void swapMoveUpdate(List<AdapterHelper.UpdateOp> list, int i, AdapterHelper.UpdateOp updateOp, int i2, AdapterHelper.UpdateOp updateOp2) {
+        AdapterHelper.UpdateOp obtainUpdateOp;
+        AdapterHelper.UpdateOp updateOp3 = null;
+        if (updateOp.itemCount < updateOp2.positionStart) {
+            updateOp2.positionStart--;
+        } else if (updateOp.itemCount < updateOp2.positionStart + updateOp2.itemCount) {
+            updateOp2.itemCount--;
+            obtainUpdateOp = this.mCallback.obtainUpdateOp(4, updateOp.positionStart, 1, updateOp2.payload);
+            if (updateOp.positionStart > updateOp2.positionStart) {
+                updateOp2.positionStart++;
+            } else if (updateOp.positionStart < updateOp2.positionStart + updateOp2.itemCount) {
+                int i3 = (updateOp2.positionStart + updateOp2.itemCount) - updateOp.positionStart;
+                updateOp3 = this.mCallback.obtainUpdateOp(4, updateOp.positionStart + 1, i3, updateOp2.payload);
+                updateOp2.itemCount -= i3;
+            }
+            list.set(i2, updateOp);
+            if (updateOp2.itemCount <= 0) {
+                list.set(i, updateOp2);
+            } else {
+                list.remove(i);
+                this.mCallback.recycleUpdateOp(updateOp2);
+            }
+            if (obtainUpdateOp != null) {
+                list.add(i, obtainUpdateOp);
+            }
+            if (updateOp3 == null) {
+                list.add(i, updateOp3);
+                return;
+            }
+            return;
+        }
+        obtainUpdateOp = null;
+        if (updateOp.positionStart > updateOp2.positionStart) {
+        }
+        list.set(i2, updateOp);
+        if (updateOp2.itemCount <= 0) {
+        }
+        if (obtainUpdateOp != null) {
+        }
+        if (updateOp3 == null) {
+        }
     }
 
     private int getLastMoveOutOfOrder(List<AdapterHelper.UpdateOp> list) {

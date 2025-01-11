@@ -7,6 +7,7 @@ import androidx.core.view.ViewCompat;
 import androidx.lifecycle.Lifecycle;
 import java.lang.reflect.Modifier;
 import java.util.ArrayList;
+
 /* loaded from: classes.dex */
 public abstract class FragmentTransaction {
     static final int OP_ADD = 1;
@@ -60,9 +61,8 @@ public abstract class FragmentTransaction {
         return this;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static final class Op {
+    static final class Op {
         int mCmd;
         Lifecycle.State mCurrentMaxState;
         int mEnterAnim;
@@ -72,12 +72,10 @@ public abstract class FragmentTransaction {
         int mPopEnterAnim;
         int mPopExitAnim;
 
-        /* JADX INFO: Access modifiers changed from: package-private */
-        public Op() {
+        Op() {
         }
 
-        /* JADX INFO: Access modifiers changed from: package-private */
-        public Op(int i, Fragment fragment) {
+        Op(int i, Fragment fragment) {
             this.mCmd = i;
             this.mFragment = fragment;
             this.mOldMaxState = Lifecycle.State.RESUMED;
@@ -101,8 +99,7 @@ public abstract class FragmentTransaction {
         this.mClassLoader = null;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public FragmentTransaction(FragmentFactory fragmentFactory, ClassLoader classLoader) {
+    FragmentTransaction(FragmentFactory fragmentFactory, ClassLoader classLoader) {
         this.mOps = new ArrayList<>();
         this.mAllowAddToBackStack = true;
         this.mReorderingAllowed = false;
@@ -110,8 +107,7 @@ public abstract class FragmentTransaction {
         this.mClassLoader = classLoader;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void addOp(Op op) {
+    void addOp(Op op) {
         this.mOps.add(op);
         op.mEnterAnim = this.mEnterAnim;
         op.mExitAnim = this.mExitAnim;
@@ -162,14 +158,12 @@ public abstract class FragmentTransaction {
         return this;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public FragmentTransaction add(ViewGroup viewGroup, Fragment fragment, String str) {
+    FragmentTransaction add(ViewGroup viewGroup, Fragment fragment, String str) {
         fragment.mContainer = viewGroup;
         return add(viewGroup.getId(), fragment, str);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void doAddOp(int i, Fragment fragment, String str, int i2) {
+    void doAddOp(int i, Fragment fragment, String str, int i2) {
         Class<?> cls = fragment.getClass();
         int modifiers = cls.getModifiers();
         if (cls.isAnonymousClass() || !Modifier.isPublic(modifiers) || (cls.isMemberClass() && !Modifier.isStatic(modifiers))) {

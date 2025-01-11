@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import kotlin.UByte;
+
 /* loaded from: classes2.dex */
 public class Response {
     private static String ASTRING_CHAR_DELIM = " (){%*\"\\";

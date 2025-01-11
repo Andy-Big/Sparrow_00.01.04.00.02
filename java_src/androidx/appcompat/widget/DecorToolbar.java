@@ -13,6 +13,7 @@ import android.widget.SpinnerAdapter;
 import androidx.appcompat.view.menu.MenuBuilder;
 import androidx.appcompat.view.menu.MenuPresenter;
 import androidx.core.view.ViewPropertyAnimatorCompat;
+
 /* loaded from: classes.dex */
 public interface DecorToolbar {
     void animateToVisibility(int i);

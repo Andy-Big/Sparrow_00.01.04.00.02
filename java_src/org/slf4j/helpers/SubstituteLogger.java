@@ -8,6 +8,7 @@ import org.slf4j.Marker;
 import org.slf4j.event.EventRecodingLogger;
 import org.slf4j.event.LoggingEvent;
 import org.slf4j.event.SubstituteLoggingEvent;
+
 /* loaded from: classes2.dex */
 public class SubstituteLogger implements Logger {
     private volatile Logger _delegate;

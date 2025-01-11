@@ -2,12 +2,12 @@ package com.just.agentweb;
 
 import android.os.Build;
 import android.webkit.WebView;
+
 /* loaded from: classes.dex */
 public class DefaultWebLifeCycleImpl implements WebLifeCycle {
     private WebView mWebView;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public DefaultWebLifeCycleImpl(WebView webView) {
+    DefaultWebLifeCycleImpl(WebView webView) {
         this.mWebView = webView;
     }
 

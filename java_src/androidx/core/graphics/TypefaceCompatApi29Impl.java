@@ -13,17 +13,16 @@ import androidx.core.content.res.FontResourcesParserCompat;
 import androidx.core.provider.FontsContractCompat;
 import java.io.IOException;
 import java.io.InputStream;
+
 /* loaded from: classes.dex */
 public class TypefaceCompatApi29Impl extends TypefaceCompatBaseImpl {
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // androidx.core.graphics.TypefaceCompatBaseImpl
-    public FontsContractCompat.FontInfo findBestInfo(FontsContractCompat.FontInfo[] fontInfoArr, int i) {
+    protected FontsContractCompat.FontInfo findBestInfo(FontsContractCompat.FontInfo[] fontInfoArr, int i) {
         throw new RuntimeException("Do not use this function in API 29 or later.");
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // androidx.core.graphics.TypefaceCompatBaseImpl
-    public Typeface createFromInputStream(Context context, InputStream inputStream) {
+    protected Typeface createFromInputStream(Context context, InputStream inputStream) {
         throw new RuntimeException("Do not use this function in API 29 or later.");
     }
 

@@ -8,12 +8,12 @@ import javax.mail.MessagingException;
 import javax.mail.MultipartDataSource;
 import javax.mail.internet.MimePart;
 import javax.mail.internet.MimePartDataSource;
+
 /* loaded from: classes2.dex */
 public class IMAPMultipartDataSource extends MimePartDataSource implements MultipartDataSource {
     private List<IMAPBodyPart> parts;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public IMAPMultipartDataSource(MimePart mimePart, BODYSTRUCTURE[] bodystructureArr, String str, IMAPMessage iMAPMessage) {
+    protected IMAPMultipartDataSource(MimePart mimePart, BODYSTRUCTURE[] bodystructureArr, String str, IMAPMessage iMAPMessage) {
         super(mimePart);
         this.parts = new ArrayList(bodystructureArr.length);
         for (int i = 0; i < bodystructureArr.length; i++) {

@@ -21,6 +21,7 @@ import com.scwang.smartrefresh.layout.constant.RefreshState;
 import com.scwang.smartrefresh.layout.constant.SpinnerStyle;
 import com.scwang.smartrefresh.layout.internal.InternalAbstract;
 import com.scwang.smartrefresh.layout.util.DensityUtil;
+
 /* loaded from: classes2.dex */
 public class WaveSwipeHeader extends InternalAbstract implements RefreshHeader {
     protected static final float MAX_PROGRESS_ROTATION_RATE = 0.8f;
@@ -30,9 +31,8 @@ public class WaveSwipeHeader extends InternalAbstract implements RefreshHeader {
     protected RefreshState mState;
     protected WaveView mWaveView;
 
-    /* JADX INFO: Access modifiers changed from: protected */
     /* loaded from: classes2.dex */
-    public enum VERTICAL_DRAG_THRESHOLD {
+    protected enum VERTICAL_DRAG_THRESHOLD {
         FIRST(0.1f),
         SECOND(FIRST.val + 0.16f),
         THIRD(FIRST.val + 0.5f);
@@ -275,9 +275,8 @@ public class WaveSwipeHeader extends InternalAbstract implements RefreshHeader {
         return ((float) displayMetrics.widthPixels) / displayMetrics.density >= 600.0f;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     /* loaded from: classes2.dex */
-    public class ProgressAnimationImageView extends ImageView {
+    protected class ProgressAnimationImageView extends ImageView {
         protected Animation.AnimationListener mListener;
 
         public void setAnimationListener(Animation.AnimationListener animationListener) {

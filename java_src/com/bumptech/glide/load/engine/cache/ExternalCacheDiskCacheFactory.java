@@ -4,6 +4,7 @@ import android.content.Context;
 import com.bumptech.glide.load.engine.cache.DiskCache;
 import com.bumptech.glide.load.engine.cache.DiskLruCacheFactory;
 import java.io.File;
+
 @Deprecated
 /* loaded from: classes.dex */
 public final class ExternalCacheDiskCacheFactory extends DiskLruCacheFactory {

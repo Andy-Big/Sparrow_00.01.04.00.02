@@ -268,6 +268,141 @@ public class WindowContent extends ConstraintLayout {
         }
     }
 
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.views.window.WindowContent$bindRef$2.onChanged(java.lang.Boolean):void, com.rigol.scope.views.window.WindowContent$bindRef$6.onChanged(java.lang.Boolean):void, com.rigol.scope.views.window.WindowContent$bindRef$7.onChanged(java.lang.Float):void, com.rigol.scope.views.window.WindowContent$onSizeChanged$1.run():void] */
+    public static final /* synthetic */ CursorTag access$getCursorAx$p(WindowContent windowContent) {
+        return windowContent.cursorAx;
+    }
+
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.views.window.WindowContent$$special$$inlined$apply$lambda$1.onStart():void, com.rigol.scope.views.window.WindowContent$$special$$inlined$apply$lambda$15.onStart():void, com.rigol.scope.views.window.WindowContent$$special$$inlined$apply$lambda$8.onStart():void, com.rigol.scope.views.window.WindowContent$onSizeChanged$1.run():void] */
+    public static final /* synthetic */ void access$getCursorAxRange(WindowContent windowContent, CursorTag cursorTag) {
+        windowContent.getCursorAxRange(cursorTag);
+    }
+
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.views.window.WindowContent$bindRef$3.onChanged(java.lang.Boolean):void, com.rigol.scope.views.window.WindowContent$bindRef$6.onChanged(java.lang.Boolean):void, com.rigol.scope.views.window.WindowContent$bindRef$7.onChanged(java.lang.Float):void, com.rigol.scope.views.window.WindowContent$onSizeChanged$1.run():void] */
+    public static final /* synthetic */ CursorTag access$getCursorAy$p(WindowContent windowContent) {
+        return windowContent.cursorAy;
+    }
+
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.views.window.WindowContent$$special$$inlined$apply$lambda$16.onStart():void, com.rigol.scope.views.window.WindowContent$$special$$inlined$apply$lambda$2.onStart():void, com.rigol.scope.views.window.WindowContent$$special$$inlined$apply$lambda$9.onStart():void, com.rigol.scope.views.window.WindowContent$onSizeChanged$1.run():void] */
+    public static final /* synthetic */ void access$getCursorAyRange(WindowContent windowContent, CursorTag cursorTag) {
+        windowContent.getCursorAyRange(cursorTag);
+    }
+
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.views.window.WindowContent$bindRef$4.onChanged(java.lang.Boolean):void, com.rigol.scope.views.window.WindowContent$bindRef$6.onChanged(java.lang.Boolean):void, com.rigol.scope.views.window.WindowContent$bindRef$7.onChanged(java.lang.Float):void, com.rigol.scope.views.window.WindowContent$onSizeChanged$1.run():void] */
+    public static final /* synthetic */ CursorTag access$getCursorBx$p(WindowContent windowContent) {
+        return windowContent.cursorBx;
+    }
+
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.views.window.WindowContent$$special$$inlined$apply$lambda$10.onStart():void, com.rigol.scope.views.window.WindowContent$$special$$inlined$apply$lambda$17.onStart():void, com.rigol.scope.views.window.WindowContent$$special$$inlined$apply$lambda$3.onStart():void, com.rigol.scope.views.window.WindowContent$onSizeChanged$1.run():void] */
+    public static final /* synthetic */ void access$getCursorBxRange(WindowContent windowContent, CursorTag cursorTag) {
+        windowContent.getCursorBxRange(cursorTag);
+    }
+
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.views.window.WindowContent$bindRef$5.onChanged(java.lang.Boolean):void, com.rigol.scope.views.window.WindowContent$bindRef$6.onChanged(java.lang.Boolean):void, com.rigol.scope.views.window.WindowContent$bindRef$7.onChanged(java.lang.Float):void, com.rigol.scope.views.window.WindowContent$onSizeChanged$1.run():void] */
+    public static final /* synthetic */ CursorTag access$getCursorBy$p(WindowContent windowContent) {
+        return windowContent.cursorBy;
+    }
+
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.views.window.WindowContent$$special$$inlined$apply$lambda$11.onStart():void, com.rigol.scope.views.window.WindowContent$$special$$inlined$apply$lambda$18.onStart():void, com.rigol.scope.views.window.WindowContent$$special$$inlined$apply$lambda$4.onStart():void, com.rigol.scope.views.window.WindowContent$onSizeChanged$1.run():void] */
+    public static final /* synthetic */ void access$getCursorByRange(WindowContent windowContent, CursorTag cursorTag) {
+        windowContent.getCursorByRange(cursorTag);
+    }
+
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.views.window.WindowContent$bindHistogram$1.onPropertyChanged(androidx.databinding.Observable, int):void] */
+    public static final /* synthetic */ HistogramRectView access$getHistogramRect$p(WindowContent windowContent) {
+        return windowContent.histogramRect;
+    }
+
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.views.window.WindowContent$$special$$inlined$apply$lambda$13.onStart():void, com.rigol.scope.views.window.WindowContent$$special$$inlined$apply$lambda$20.onStart():void, com.rigol.scope.views.window.WindowContent$$special$$inlined$apply$lambda$6.onStart():void] */
+    public static final /* synthetic */ void access$getMeasureCursorARange(WindowContent windowContent, CursorTag cursorTag) {
+        windowContent.getMeasureCursorARange(cursorTag);
+    }
+
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.views.window.WindowContent$$special$$inlined$apply$lambda$14.onStart():void, com.rigol.scope.views.window.WindowContent$$special$$inlined$apply$lambda$21.onStart():void, com.rigol.scope.views.window.WindowContent$$special$$inlined$apply$lambda$7.onStart():void] */
+    public static final /* synthetic */ void access$getMeasureCursorBRange(WindowContent windowContent, CursorTag cursorTag) {
+        windowContent.getMeasureCursorBRange(cursorTag);
+    }
+
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.views.window.WindowContent$bindMeasureCursor$1.1.onPropertyChanged(androidx.databinding.Observable, int):void] */
+    public static final /* synthetic */ CursorTag access$getMessureCusorA$p(WindowContent windowContent) {
+        return windowContent.messureCusorA;
+    }
+
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.views.window.WindowContent$bindMeasureCursor$1.1.onPropertyChanged(androidx.databinding.Observable, int):void] */
+    public static final /* synthetic */ CursorTag access$getMessureCusorB$p(WindowContent windowContent) {
+        return windowContent.messureCusorB;
+    }
+
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.views.window.WindowContent$onSizeChanged$1.run():void] */
+    public static final /* synthetic */ Observer access$getRefObserver$p(WindowContent windowContent) {
+        return windowContent.refObserver;
+    }
+
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.views.window.WindowContent$bindRef$1.onChanged(java.lang.Object):void, com.rigol.scope.views.window.WindowContent$onSizeChanged$1.run():void] */
+    public static final /* synthetic */ TagView access$getRefTag(WindowContent windowContent, int i) {
+        return windowContent.getRefTag(i);
+    }
+
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.views.window.WindowContent$cursorObserver$1.onChanged(java.lang.Object):void] */
+    public static final /* synthetic */ void access$hideABxyCursor(WindowContent windowContent) {
+        windowContent.hideABxyCursor();
+    }
+
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.views.window.WindowContent$cursorObserver$1.onChanged(java.lang.Object):void] */
+    public static final /* synthetic */ void access$showABxyCursor(WindowContent windowContent) {
+        windowContent.showABxyCursor();
+    }
+
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.views.window.WindowContent$$special$$inlined$apply$lambda$1.onMove(int, int, int, int):void, com.rigol.scope.views.window.WindowContent$$special$$inlined$apply$lambda$10.onMove(int, int, int, int):void, com.rigol.scope.views.window.WindowContent$$special$$inlined$apply$lambda$15.onMove(int, int, int, int):void, com.rigol.scope.views.window.WindowContent$$special$$inlined$apply$lambda$16.onMove(int, int, int, int):void, com.rigol.scope.views.window.WindowContent$$special$$inlined$apply$lambda$17.onMove(int, int, int, int):void, com.rigol.scope.views.window.WindowContent$$special$$inlined$apply$lambda$2.onMove(int, int, int, int):void, com.rigol.scope.views.window.WindowContent$$special$$inlined$apply$lambda$3.onMove(int, int, int, int):void, com.rigol.scope.views.window.WindowContent$$special$$inlined$apply$lambda$8.onMove(int, int, int, int):void, com.rigol.scope.views.window.WindowContent$$special$$inlined$apply$lambda$9.onMove(int, int, int, int):void] */
+    public static final /* synthetic */ void access$showABxyCursorShadow(WindowContent windowContent) {
+        windowContent.showABxyCursorShadow();
+    }
+
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.views.window.WindowContent$indicatorObserver$1.onChanged(java.lang.Object):void] */
+    public static final /* synthetic */ void access$showABxyIndicator(WindowContent windowContent, ResultParam resultParam, String[][] strArr) {
+        windowContent.showABxyIndicator(resultParam, strArr);
+    }
+
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.views.window.WindowContent$cursorObserver$1.onChanged(java.lang.Object):void] */
+    public static final /* synthetic */ void access$showAxyCursor(WindowContent windowContent) {
+        windowContent.showAxyCursor();
+    }
+
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.views.window.WindowContent$indicatorObserver$1.onChanged(java.lang.Object):void] */
+    public static final /* synthetic */ void access$showAxyIndicator(WindowContent windowContent, ResultParam resultParam, String[][] strArr) {
+        windowContent.showAxyIndicator(resultParam, strArr);
+    }
+
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.views.window.WindowContent$cursorObserver$1.onChanged(java.lang.Object):void] */
+    public static final /* synthetic */ void access$showBxyCursor(WindowContent windowContent) {
+        windowContent.showBxyCursor();
+    }
+
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.views.window.WindowContent$indicatorObserver$1.onChanged(java.lang.Object):void] */
+    public static final /* synthetic */ void access$showBxyIndicator(WindowContent windowContent, ResultParam resultParam, String[][] strArr) {
+        windowContent.showBxyIndicator(resultParam, strArr);
+    }
+
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.views.window.WindowContent$onSizeChanged$1.run():void] */
+    public static final /* synthetic */ void access$updateCursorAxPosition(WindowContent windowContent, CursorTag cursorTag) {
+        windowContent.updateCursorAxPosition(cursorTag);
+    }
+
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.views.window.WindowContent$onSizeChanged$1.run():void] */
+    public static final /* synthetic */ void access$updateCursorAyPosition(WindowContent windowContent, CursorTag cursorTag) {
+        windowContent.updateCursorAyPosition(cursorTag);
+    }
+
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.views.window.WindowContent$onSizeChanged$1.run():void] */
+    public static final /* synthetic */ void access$updateCursorBxPosition(WindowContent windowContent, CursorTag cursorTag) {
+        windowContent.updateCursorBxPosition(cursorTag);
+    }
+
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.views.window.WindowContent$onSizeChanged$1.run():void] */
+    public static final /* synthetic */ void access$updateCursorByPosition(WindowContent windowContent, CursorTag cursorTag) {
+        windowContent.updateCursorByPosition(cursorTag);
+    }
+
     public final WindowParam getWindowParam() {
         WindowParam windowParam = this.windowParam;
         if (windowParam == null) {
@@ -356,7 +491,7 @@ public class WindowContent extends ConstraintLayout {
                 CursorResultParam cursorResultParam = this.getCursorResultParam();
                 if (cursorResultParam != null) {
                     cursorResultParam.saveAx((long) (CursorTag.this.getValue() + ((i3 / this.getWidth()) * (CursorTag.this.getEndX() - CursorTag.this.getStartX()))));
-                    this.showABxyCursorShadow();
+                    WindowContent.access$showABxyCursorShadow(this);
                 }
             }
 
@@ -367,7 +502,7 @@ public class WindowContent extends ConstraintLayout {
                     CursorTag.this.setValue(cursorResultParam.getAx());
                     CursorTag.this.setOtherValue(cursorResultParam.getBx());
                 }
-                this.getCursorAxRange(CursorTag.this);
+                WindowContent.access$getCursorAxRange(this, CursorTag.this);
             }
         });
         Unit unit5 = Unit.INSTANCE;
@@ -390,7 +525,7 @@ public class WindowContent extends ConstraintLayout {
                 CursorResultParam cursorResultParam = this.getCursorResultParam();
                 if (cursorResultParam != null) {
                     cursorResultParam.saveAy((long) (CursorTag.this.getValue() - ((i4 / this.getHeight()) * (CursorTag.this.getStartY() - CursorTag.this.getEndY()))));
-                    this.showABxyCursorShadow();
+                    WindowContent.access$showABxyCursorShadow(this);
                 }
             }
 
@@ -401,7 +536,7 @@ public class WindowContent extends ConstraintLayout {
                     CursorTag.this.setValue(cursorResultParam.getAy());
                     CursorTag.this.setOtherValue(cursorResultParam.getBy());
                 }
-                this.getCursorAyRange(CursorTag.this);
+                WindowContent.access$getCursorAyRange(this, CursorTag.this);
             }
         });
         Unit unit6 = Unit.INSTANCE;
@@ -423,7 +558,7 @@ public class WindowContent extends ConstraintLayout {
                 CursorResultParam cursorResultParam = this.getCursorResultParam();
                 if (cursorResultParam != null) {
                     cursorResultParam.saveBx((long) (CursorTag.this.getValue() + ((i3 / this.getWidth()) * (CursorTag.this.getEndX() - CursorTag.this.getStartX()))));
-                    this.showABxyCursorShadow();
+                    WindowContent.access$showABxyCursorShadow(this);
                 }
             }
 
@@ -434,7 +569,7 @@ public class WindowContent extends ConstraintLayout {
                     CursorTag.this.setValue(cursorResultParam.getBx());
                     CursorTag.this.setOtherValue(cursorResultParam.getAx());
                 }
-                this.getCursorBxRange(CursorTag.this);
+                WindowContent.access$getCursorBxRange(this, CursorTag.this);
             }
         });
         Unit unit7 = Unit.INSTANCE;
@@ -467,7 +602,7 @@ public class WindowContent extends ConstraintLayout {
                     CursorTag.this.setValue(cursorResultParam.getBy());
                     CursorTag.this.setOtherValue(cursorResultParam.getAy());
                 }
-                this.getCursorByRange(CursorTag.this);
+                WindowContent.access$getCursorByRange(this, CursorTag.this);
             }
         });
         Unit unit8 = Unit.INSTANCE;
@@ -562,7 +697,10 @@ public class WindowContent extends ConstraintLayout {
             Activity topActivity = ActivityUtils.getTopActivity();
             if (topActivity != null) {
                 liveData9.observe((LifecycleOwner) topActivity, new Observer<CursorResultParam>() { // from class: com.rigol.scope.views.window.WindowContent.1
-                    /* JADX DEBUG: Method merged with bridge method */
+                    {
+                        WindowContent.this = this;
+                    }
+
                     @Override // androidx.lifecycle.Observer
                     public final void onChanged(CursorResultParam cursorResultParam) {
                         Timber.d("Horizontal:UI:WindowContent:HorizontalParam:" + cursorResultParam, new Object[0]);
@@ -578,7 +716,10 @@ public class WindowContent extends ConstraintLayout {
             Activity topActivity2 = ActivityUtils.getTopActivity();
             if (topActivity2 != null) {
                 liveData8.observe((LifecycleOwner) topActivity2, new Observer<HorizontalParam>() { // from class: com.rigol.scope.views.window.WindowContent.2
-                    /* JADX DEBUG: Method merged with bridge method */
+                    {
+                        WindowContent.this = this;
+                    }
+
                     @Override // androidx.lifecycle.Observer
                     public final void onChanged(HorizontalParam horizontalParam) {
                         WindowContent.this.setHorizontalParam(horizontalParam);
@@ -593,7 +734,10 @@ public class WindowContent extends ConstraintLayout {
             Activity topActivity3 = ActivityUtils.getTopActivity();
             if (topActivity3 != null) {
                 liveData7.observe((LifecycleOwner) topActivity3, new Observer<ArrayList<VerticalParam>>() { // from class: com.rigol.scope.views.window.WindowContent.3
-                    /* JADX DEBUG: Method merged with bridge method */
+                    {
+                        WindowContent.this = this;
+                    }
+
                     @Override // androidx.lifecycle.Observer
                     public final void onChanged(ArrayList<VerticalParam> arrayList) {
                         WindowContent.this.setVerticalParams(arrayList);
@@ -608,7 +752,10 @@ public class WindowContent extends ConstraintLayout {
             Activity topActivity4 = ActivityUtils.getTopActivity();
             if (topActivity4 != null) {
                 liveData6.observe((LifecycleOwner) topActivity4, new Observer<ArrayList<MathParam>>() { // from class: com.rigol.scope.views.window.WindowContent.4
-                    /* JADX DEBUG: Method merged with bridge method */
+                    {
+                        WindowContent.this = this;
+                    }
+
                     @Override // androidx.lifecycle.Observer
                     public final void onChanged(ArrayList<MathParam> arrayList) {
                         WindowContent.this.setMathParams(arrayList);
@@ -623,7 +770,10 @@ public class WindowContent extends ConstraintLayout {
             Activity topActivity5 = ActivityUtils.getTopActivity();
             if (topActivity5 != null) {
                 liveData5.observe((LifecycleOwner) topActivity5, new Observer<List<? extends ResultParam>>() { // from class: com.rigol.scope.views.window.WindowContent.5
-                    /* JADX DEBUG: Method merged with bridge method */
+                    {
+                        WindowContent.this = this;
+                    }
+
                     @Override // androidx.lifecycle.Observer
                     public final void onChanged(List<? extends ResultParam> list) {
                         WindowContent.this.setResultParams(list);
@@ -638,7 +788,10 @@ public class WindowContent extends ConstraintLayout {
             Activity topActivity6 = ActivityUtils.getTopActivity();
             if (topActivity6 != null) {
                 liveData4.observe((LifecycleOwner) topActivity6, new Observer<SharedParam>() { // from class: com.rigol.scope.views.window.WindowContent.6
-                    /* JADX DEBUG: Method merged with bridge method */
+                    {
+                        WindowContent.this = this;
+                    }
+
                     @Override // androidx.lifecycle.Observer
                     public final void onChanged(SharedParam sharedParam) {
                         WindowContent.this.setSharedParam(sharedParam);
@@ -653,7 +806,10 @@ public class WindowContent extends ConstraintLayout {
             Activity topActivity7 = ActivityUtils.getTopActivity();
             if (topActivity7 != null) {
                 liveData3.observe((LifecycleOwner) topActivity7, new Observer<MeasureSettingParam>() { // from class: com.rigol.scope.views.window.WindowContent.7
-                    /* JADX DEBUG: Method merged with bridge method */
+                    {
+                        WindowContent.this = this;
+                    }
+
                     @Override // androidx.lifecycle.Observer
                     public final void onChanged(MeasureSettingParam measureSettingParam) {
                         WindowContent.this.setMeasureSettingParam(measureSettingParam);
@@ -668,7 +824,10 @@ public class WindowContent extends ConstraintLayout {
             Activity topActivity8 = ActivityUtils.getTopActivity();
             if (topActivity8 != null) {
                 liveData2.observe((LifecycleOwner) topActivity8, new Observer<RefParam>() { // from class: com.rigol.scope.views.window.WindowContent.8
-                    /* JADX DEBUG: Method merged with bridge method */
+                    {
+                        WindowContent.this = this;
+                    }
+
                     @Override // androidx.lifecycle.Observer
                     public final void onChanged(RefParam refParam) {
                         WindowContent.this.setRefParam(refParam);
@@ -685,6 +844,10 @@ public class WindowContent extends ConstraintLayout {
                 throw new NullPointerException("null cannot be cast to non-null type androidx.lifecycle.LifecycleOwner");
             }
             mutableLiveData.observe((LifecycleOwner) topActivity9, new Observer<Object>() { // from class: com.rigol.scope.views.window.WindowContent.9
+                {
+                    WindowContent.this = this;
+                }
+
                 @Override // androidx.lifecycle.Observer
                 public final void onChanged(Object obj) {
                     WindowContent.this.hideABxyIndicator();
@@ -696,7 +859,10 @@ public class WindowContent extends ConstraintLayout {
             Activity topActivity10 = ActivityUtils.getTopActivity();
             if (topActivity10 != null) {
                 liveData.observe((LifecycleOwner) topActivity10, new Observer<HistogramResultParam>() { // from class: com.rigol.scope.views.window.WindowContent.10
-                    /* JADX DEBUG: Method merged with bridge method */
+                    {
+                        WindowContent.this = this;
+                    }
+
                     @Override // androidx.lifecycle.Observer
                     public final void onChanged(HistogramResultParam histogramResultParam) {
                         Timber.d("Histogram:UI:WindowContent:HistogramGram:" + histogramResultParam, new Object[0]);
@@ -767,7 +933,7 @@ public class WindowContent extends ConstraintLayout {
                     CursorTag.this.setValue(measureSettingParam.getCursorA());
                     CursorTag.this.setOtherValue(measureSettingParam.getCursorB());
                 }
-                this.getMeasureCursorARange(CursorTag.this);
+                WindowContent.access$getMeasureCursorARange(this, CursorTag.this);
             }
 
             @Override // com.rigol.scope.views.TagView.Callback
@@ -837,7 +1003,7 @@ public class WindowContent extends ConstraintLayout {
                     CursorTag.this.setValue(measureSettingParam.getCursorB());
                     CursorTag.this.setOtherValue(measureSettingParam.getCursorA());
                 }
-                this.getMeasureCursorBRange(CursorTag.this);
+                WindowContent.access$getMeasureCursorBRange(this, CursorTag.this);
             }
 
             @Override // com.rigol.scope.views.TagView.Callback
@@ -906,29 +1072,29 @@ public class WindowContent extends ConstraintLayout {
                         if (measType.value1 > ServiceEnum.MeasType.Meas_VER_TYPE_END.value1) {
                             if (WindowContent.this.getWindowParam().getType() == ServiceEnum.WindowType.WIN_MAIN_WAVEFORM || WindowContent.this.getWindowParam().getType() == ServiceEnum.WindowType.WIN_ZOOM_WAVEFORM) {
                                 if (resultParam.getSourceA().value1 >= ServiceEnum.Chan.chan1.value1 && resultParam.getSourceA().value1 <= ServiceEnum.Chan.chan4.value1) {
-                                    WindowContent.this.showAxyIndicator(resultParam, strArr);
+                                    WindowContent.access$showAxyIndicator(WindowContent.this, resultParam, strArr);
                                 }
                                 if (resultParam.getSourceB().value1 < ServiceEnum.Chan.chan1.value1 || resultParam.getSourceB().value1 > ServiceEnum.Chan.chan4.value1) {
                                     return;
                                 }
-                                WindowContent.this.showBxyIndicator(resultParam, strArr);
+                                WindowContent.access$showBxyIndicator(WindowContent.this, resultParam, strArr);
                             } else if (WindowContent.this.getWindowParam().getType() == ServiceEnum.WindowType.WIN_MATH) {
                                 if (resultParam.getSourceA().value1 >= ServiceEnum.Chan.m1.value1 && resultParam.getSourceA().value1 <= ServiceEnum.Chan.m4.value1 && resultParam.getSourceA().value1 - ServiceEnum.Chan.m1.value1 == WindowContent.this.getWindowParam().getServiceID() - 17) {
-                                    WindowContent.this.showAxyIndicator(resultParam, strArr);
+                                    WindowContent.access$showAxyIndicator(WindowContent.this, resultParam, strArr);
                                 }
                                 if (resultParam.getSourceB().value1 < ServiceEnum.Chan.m1.value1 || resultParam.getSourceB().value1 > ServiceEnum.Chan.m4.value1 || resultParam.getSourceB().value1 - ServiceEnum.Chan.m1.value1 != WindowContent.this.getWindowParam().getServiceID() - 17) {
                                     return;
                                 }
-                                WindowContent.this.showBxyIndicator(resultParam, strArr);
+                                WindowContent.access$showBxyIndicator(WindowContent.this, resultParam, strArr);
                             }
                         } else if (WindowContent.this.getWindowParam().getType() == ServiceEnum.WindowType.WIN_MAIN_WAVEFORM || WindowContent.this.getWindowParam().getType() == ServiceEnum.WindowType.WIN_ZOOM_WAVEFORM) {
                             if (resultParam.getSourceA().value1 < ServiceEnum.Chan.chan1.value1 || resultParam.getSourceA().value1 > ServiceEnum.Chan.chan4.value1) {
                                 return;
                             }
-                            WindowContent.this.showABxyIndicator(resultParam, strArr);
+                            WindowContent.access$showABxyIndicator(WindowContent.this, resultParam, strArr);
                         } else if (WindowContent.this.getWindowParam().getType() != ServiceEnum.WindowType.WIN_MATH || resultParam.getSourceA().value1 < ServiceEnum.Chan.m1.value1 || resultParam.getSourceA().value1 > ServiceEnum.Chan.m4.value1 || resultParam.getSourceA().value1 - ServiceEnum.Chan.m1.value1 != WindowContent.this.getWindowParam().getServiceID() - 17) {
                         } else {
-                            WindowContent.this.showABxyIndicator(resultParam, strArr);
+                            WindowContent.access$showABxyIndicator(WindowContent.this, resultParam, strArr);
                         }
                     }
                 }
@@ -938,7 +1104,7 @@ public class WindowContent extends ConstraintLayout {
             @Override // androidx.lifecycle.Observer
             public final void onChanged(Object obj) {
                 CursorResultParam cursorResultParam;
-                WindowContent.this.hideABxyCursor();
+                WindowContent.access$hideABxyCursor(WindowContent.this);
                 if (WindowContent.this.getCursorResultParam() == null || (cursorResultParam = WindowContent.this.getCursorResultParam()) == null) {
                     return;
                 }
@@ -948,29 +1114,29 @@ public class WindowContent extends ConstraintLayout {
                         if (cursorResultParam.getSourceA().value1 < ServiceEnum.Chan.chan1.value1 || cursorResultParam.getSourceA().value1 > ServiceEnum.Chan.chan4.value1) {
                             return;
                         }
-                        WindowContent.this.showABxyCursor();
+                        WindowContent.access$showABxyCursor(WindowContent.this);
                     } else if (WindowContent.this.getWindowParam().getType() == ServiceEnum.WindowType.WIN_MATH && cursorResultParam.getSourceA().value1 - ServiceEnum.Chan.m1.value1 == WindowContent.this.getWindowParam().getServiceID() - 17) {
-                        WindowContent.this.showABxyCursor();
+                        WindowContent.access$showABxyCursor(WindowContent.this);
                     }
                 } else if (i == 2) {
                     if (WindowContent.this.getWindowParam().getType() == ServiceEnum.WindowType.WIN_MAIN_WAVEFORM || WindowContent.this.getWindowParam().getType() == ServiceEnum.WindowType.WIN_ZOOM_WAVEFORM) {
                         if (cursorResultParam.getSourceA().value1 >= ServiceEnum.Chan.chan1.value1 && cursorResultParam.getSourceA().value1 <= ServiceEnum.Chan.chan4.value1) {
-                            WindowContent.this.showAxyCursor();
+                            WindowContent.access$showAxyCursor(WindowContent.this);
                         }
                         if (cursorResultParam.getSourceB().value1 < ServiceEnum.Chan.chan1.value1 || cursorResultParam.getSourceB().value1 > ServiceEnum.Chan.chan4.value1) {
                             return;
                         }
-                        WindowContent.this.showBxyCursor();
+                        WindowContent.access$showBxyCursor(WindowContent.this);
                     } else if (WindowContent.this.getWindowParam().getType() == ServiceEnum.WindowType.WIN_MATH) {
                         if (cursorResultParam.getSourceA().value1 - ServiceEnum.Chan.m1.value1 == WindowContent.this.getWindowParam().getServiceID() - 17) {
-                            WindowContent.this.showAxyCursor();
+                            WindowContent.access$showAxyCursor(WindowContent.this);
                         }
                         if (cursorResultParam.getSourceB().value1 - ServiceEnum.Chan.m1.value1 == WindowContent.this.getWindowParam().getServiceID() - 17) {
-                            WindowContent.this.showBxyCursor();
+                            WindowContent.access$showBxyCursor(WindowContent.this);
                         }
                     }
                 } else if (i == 3 && WindowContent.this.getWindowParam().getType() == ServiceEnum.WindowType.WIN_XY) {
-                    WindowContent.this.showABxyCursor();
+                    WindowContent.access$showABxyCursor(WindowContent.this);
                 }
             }
         };
@@ -1083,7 +1249,7 @@ public class WindowContent extends ConstraintLayout {
                 CursorResultParam cursorResultParam = this.getCursorResultParam();
                 if (cursorResultParam != null) {
                     cursorResultParam.saveAx((long) (CursorTag.this.getValue() + ((i3 / this.getWidth()) * (CursorTag.this.getEndX() - CursorTag.this.getStartX()))));
-                    this.showABxyCursorShadow();
+                    WindowContent.access$showABxyCursorShadow(this);
                 }
             }
 
@@ -1094,7 +1260,7 @@ public class WindowContent extends ConstraintLayout {
                     CursorTag.this.setValue(cursorResultParam.getAx());
                     CursorTag.this.setOtherValue(cursorResultParam.getBx());
                 }
-                this.getCursorAxRange(CursorTag.this);
+                WindowContent.access$getCursorAxRange(this, CursorTag.this);
             }
         });
         Unit unit5 = Unit.INSTANCE;
@@ -1117,7 +1283,7 @@ public class WindowContent extends ConstraintLayout {
                 CursorResultParam cursorResultParam = this.getCursorResultParam();
                 if (cursorResultParam != null) {
                     cursorResultParam.saveAy((long) (CursorTag.this.getValue() - ((i4 / this.getHeight()) * (CursorTag.this.getStartY() - CursorTag.this.getEndY()))));
-                    this.showABxyCursorShadow();
+                    WindowContent.access$showABxyCursorShadow(this);
                 }
             }
 
@@ -1128,7 +1294,7 @@ public class WindowContent extends ConstraintLayout {
                     CursorTag.this.setValue(cursorResultParam.getAy());
                     CursorTag.this.setOtherValue(cursorResultParam.getBy());
                 }
-                this.getCursorAyRange(CursorTag.this);
+                WindowContent.access$getCursorAyRange(this, CursorTag.this);
             }
         });
         Unit unit6 = Unit.INSTANCE;
@@ -1150,7 +1316,7 @@ public class WindowContent extends ConstraintLayout {
                 CursorResultParam cursorResultParam = this.getCursorResultParam();
                 if (cursorResultParam != null) {
                     cursorResultParam.saveBx((long) (CursorTag.this.getValue() + ((i3 / this.getWidth()) * (CursorTag.this.getEndX() - CursorTag.this.getStartX()))));
-                    this.showABxyCursorShadow();
+                    WindowContent.access$showABxyCursorShadow(this);
                 }
             }
 
@@ -1161,7 +1327,7 @@ public class WindowContent extends ConstraintLayout {
                     CursorTag.this.setValue(cursorResultParam.getBx());
                     CursorTag.this.setOtherValue(cursorResultParam.getAx());
                 }
-                this.getCursorBxRange(CursorTag.this);
+                WindowContent.access$getCursorBxRange(this, CursorTag.this);
             }
         });
         Unit unit7 = Unit.INSTANCE;
@@ -1194,7 +1360,7 @@ public class WindowContent extends ConstraintLayout {
                     CursorTag.this.setValue(cursorResultParam.getBy());
                     CursorTag.this.setOtherValue(cursorResultParam.getAy());
                 }
-                this.getCursorByRange(CursorTag.this);
+                WindowContent.access$getCursorByRange(this, CursorTag.this);
             }
         });
         Unit unit8 = Unit.INSTANCE;
@@ -1289,7 +1455,10 @@ public class WindowContent extends ConstraintLayout {
             Activity topActivity = ActivityUtils.getTopActivity();
             if (topActivity != null) {
                 liveData9.observe((LifecycleOwner) topActivity, new Observer<CursorResultParam>() { // from class: com.rigol.scope.views.window.WindowContent.1
-                    /* JADX DEBUG: Method merged with bridge method */
+                    {
+                        WindowContent.this = this;
+                    }
+
                     @Override // androidx.lifecycle.Observer
                     public final void onChanged(CursorResultParam cursorResultParam) {
                         Timber.d("Horizontal:UI:WindowContent:HorizontalParam:" + cursorResultParam, new Object[0]);
@@ -1305,7 +1474,10 @@ public class WindowContent extends ConstraintLayout {
             Activity topActivity2 = ActivityUtils.getTopActivity();
             if (topActivity2 != null) {
                 liveData8.observe((LifecycleOwner) topActivity2, new Observer<HorizontalParam>() { // from class: com.rigol.scope.views.window.WindowContent.2
-                    /* JADX DEBUG: Method merged with bridge method */
+                    {
+                        WindowContent.this = this;
+                    }
+
                     @Override // androidx.lifecycle.Observer
                     public final void onChanged(HorizontalParam horizontalParam) {
                         WindowContent.this.setHorizontalParam(horizontalParam);
@@ -1320,7 +1492,10 @@ public class WindowContent extends ConstraintLayout {
             Activity topActivity3 = ActivityUtils.getTopActivity();
             if (topActivity3 != null) {
                 liveData7.observe((LifecycleOwner) topActivity3, new Observer<ArrayList<VerticalParam>>() { // from class: com.rigol.scope.views.window.WindowContent.3
-                    /* JADX DEBUG: Method merged with bridge method */
+                    {
+                        WindowContent.this = this;
+                    }
+
                     @Override // androidx.lifecycle.Observer
                     public final void onChanged(ArrayList<VerticalParam> arrayList) {
                         WindowContent.this.setVerticalParams(arrayList);
@@ -1335,7 +1510,10 @@ public class WindowContent extends ConstraintLayout {
             Activity topActivity4 = ActivityUtils.getTopActivity();
             if (topActivity4 != null) {
                 liveData6.observe((LifecycleOwner) topActivity4, new Observer<ArrayList<MathParam>>() { // from class: com.rigol.scope.views.window.WindowContent.4
-                    /* JADX DEBUG: Method merged with bridge method */
+                    {
+                        WindowContent.this = this;
+                    }
+
                     @Override // androidx.lifecycle.Observer
                     public final void onChanged(ArrayList<MathParam> arrayList) {
                         WindowContent.this.setMathParams(arrayList);
@@ -1350,7 +1528,10 @@ public class WindowContent extends ConstraintLayout {
             Activity topActivity5 = ActivityUtils.getTopActivity();
             if (topActivity5 != null) {
                 liveData5.observe((LifecycleOwner) topActivity5, new Observer<List<? extends ResultParam>>() { // from class: com.rigol.scope.views.window.WindowContent.5
-                    /* JADX DEBUG: Method merged with bridge method */
+                    {
+                        WindowContent.this = this;
+                    }
+
                     @Override // androidx.lifecycle.Observer
                     public final void onChanged(List<? extends ResultParam> list) {
                         WindowContent.this.setResultParams(list);
@@ -1365,7 +1546,10 @@ public class WindowContent extends ConstraintLayout {
             Activity topActivity6 = ActivityUtils.getTopActivity();
             if (topActivity6 != null) {
                 liveData4.observe((LifecycleOwner) topActivity6, new Observer<SharedParam>() { // from class: com.rigol.scope.views.window.WindowContent.6
-                    /* JADX DEBUG: Method merged with bridge method */
+                    {
+                        WindowContent.this = this;
+                    }
+
                     @Override // androidx.lifecycle.Observer
                     public final void onChanged(SharedParam sharedParam) {
                         WindowContent.this.setSharedParam(sharedParam);
@@ -1380,7 +1564,10 @@ public class WindowContent extends ConstraintLayout {
             Activity topActivity7 = ActivityUtils.getTopActivity();
             if (topActivity7 != null) {
                 liveData3.observe((LifecycleOwner) topActivity7, new Observer<MeasureSettingParam>() { // from class: com.rigol.scope.views.window.WindowContent.7
-                    /* JADX DEBUG: Method merged with bridge method */
+                    {
+                        WindowContent.this = this;
+                    }
+
                     @Override // androidx.lifecycle.Observer
                     public final void onChanged(MeasureSettingParam measureSettingParam) {
                         WindowContent.this.setMeasureSettingParam(measureSettingParam);
@@ -1395,7 +1582,10 @@ public class WindowContent extends ConstraintLayout {
             Activity topActivity8 = ActivityUtils.getTopActivity();
             if (topActivity8 != null) {
                 liveData2.observe((LifecycleOwner) topActivity8, new Observer<RefParam>() { // from class: com.rigol.scope.views.window.WindowContent.8
-                    /* JADX DEBUG: Method merged with bridge method */
+                    {
+                        WindowContent.this = this;
+                    }
+
                     @Override // androidx.lifecycle.Observer
                     public final void onChanged(RefParam refParam) {
                         WindowContent.this.setRefParam(refParam);
@@ -1412,6 +1602,10 @@ public class WindowContent extends ConstraintLayout {
                 throw new NullPointerException("null cannot be cast to non-null type androidx.lifecycle.LifecycleOwner");
             }
             mutableLiveData.observe((LifecycleOwner) topActivity9, new Observer<Object>() { // from class: com.rigol.scope.views.window.WindowContent.9
+                {
+                    WindowContent.this = this;
+                }
+
                 @Override // androidx.lifecycle.Observer
                 public final void onChanged(Object obj) {
                     WindowContent.this.hideABxyIndicator();
@@ -1423,7 +1617,10 @@ public class WindowContent extends ConstraintLayout {
             Activity topActivity10 = ActivityUtils.getTopActivity();
             if (topActivity10 != null) {
                 liveData.observe((LifecycleOwner) topActivity10, new Observer<HistogramResultParam>() { // from class: com.rigol.scope.views.window.WindowContent.10
-                    /* JADX DEBUG: Method merged with bridge method */
+                    {
+                        WindowContent.this = this;
+                    }
+
                     @Override // androidx.lifecycle.Observer
                     public final void onChanged(HistogramResultParam histogramResultParam) {
                         Timber.d("Histogram:UI:WindowContent:HistogramGram:" + histogramResultParam, new Object[0]);
@@ -1494,7 +1691,7 @@ public class WindowContent extends ConstraintLayout {
                     CursorTag.this.setValue(measureSettingParam.getCursorA());
                     CursorTag.this.setOtherValue(measureSettingParam.getCursorB());
                 }
-                this.getMeasureCursorARange(CursorTag.this);
+                WindowContent.access$getMeasureCursorARange(this, CursorTag.this);
             }
 
             @Override // com.rigol.scope.views.TagView.Callback
@@ -1564,7 +1761,7 @@ public class WindowContent extends ConstraintLayout {
                     CursorTag.this.setValue(measureSettingParam.getCursorB());
                     CursorTag.this.setOtherValue(measureSettingParam.getCursorA());
                 }
-                this.getMeasureCursorBRange(CursorTag.this);
+                WindowContent.access$getMeasureCursorBRange(this, CursorTag.this);
             }
 
             @Override // com.rigol.scope.views.TagView.Callback
@@ -1633,29 +1830,29 @@ public class WindowContent extends ConstraintLayout {
                         if (measType.value1 > ServiceEnum.MeasType.Meas_VER_TYPE_END.value1) {
                             if (WindowContent.this.getWindowParam().getType() == ServiceEnum.WindowType.WIN_MAIN_WAVEFORM || WindowContent.this.getWindowParam().getType() == ServiceEnum.WindowType.WIN_ZOOM_WAVEFORM) {
                                 if (resultParam.getSourceA().value1 >= ServiceEnum.Chan.chan1.value1 && resultParam.getSourceA().value1 <= ServiceEnum.Chan.chan4.value1) {
-                                    WindowContent.this.showAxyIndicator(resultParam, strArr);
+                                    WindowContent.access$showAxyIndicator(WindowContent.this, resultParam, strArr);
                                 }
                                 if (resultParam.getSourceB().value1 < ServiceEnum.Chan.chan1.value1 || resultParam.getSourceB().value1 > ServiceEnum.Chan.chan4.value1) {
                                     return;
                                 }
-                                WindowContent.this.showBxyIndicator(resultParam, strArr);
+                                WindowContent.access$showBxyIndicator(WindowContent.this, resultParam, strArr);
                             } else if (WindowContent.this.getWindowParam().getType() == ServiceEnum.WindowType.WIN_MATH) {
                                 if (resultParam.getSourceA().value1 >= ServiceEnum.Chan.m1.value1 && resultParam.getSourceA().value1 <= ServiceEnum.Chan.m4.value1 && resultParam.getSourceA().value1 - ServiceEnum.Chan.m1.value1 == WindowContent.this.getWindowParam().getServiceID() - 17) {
-                                    WindowContent.this.showAxyIndicator(resultParam, strArr);
+                                    WindowContent.access$showAxyIndicator(WindowContent.this, resultParam, strArr);
                                 }
                                 if (resultParam.getSourceB().value1 < ServiceEnum.Chan.m1.value1 || resultParam.getSourceB().value1 > ServiceEnum.Chan.m4.value1 || resultParam.getSourceB().value1 - ServiceEnum.Chan.m1.value1 != WindowContent.this.getWindowParam().getServiceID() - 17) {
                                     return;
                                 }
-                                WindowContent.this.showBxyIndicator(resultParam, strArr);
+                                WindowContent.access$showBxyIndicator(WindowContent.this, resultParam, strArr);
                             }
                         } else if (WindowContent.this.getWindowParam().getType() == ServiceEnum.WindowType.WIN_MAIN_WAVEFORM || WindowContent.this.getWindowParam().getType() == ServiceEnum.WindowType.WIN_ZOOM_WAVEFORM) {
                             if (resultParam.getSourceA().value1 < ServiceEnum.Chan.chan1.value1 || resultParam.getSourceA().value1 > ServiceEnum.Chan.chan4.value1) {
                                 return;
                             }
-                            WindowContent.this.showABxyIndicator(resultParam, strArr);
+                            WindowContent.access$showABxyIndicator(WindowContent.this, resultParam, strArr);
                         } else if (WindowContent.this.getWindowParam().getType() != ServiceEnum.WindowType.WIN_MATH || resultParam.getSourceA().value1 < ServiceEnum.Chan.m1.value1 || resultParam.getSourceA().value1 > ServiceEnum.Chan.m4.value1 || resultParam.getSourceA().value1 - ServiceEnum.Chan.m1.value1 != WindowContent.this.getWindowParam().getServiceID() - 17) {
                         } else {
-                            WindowContent.this.showABxyIndicator(resultParam, strArr);
+                            WindowContent.access$showABxyIndicator(WindowContent.this, resultParam, strArr);
                         }
                     }
                 }
@@ -1665,7 +1862,7 @@ public class WindowContent extends ConstraintLayout {
             @Override // androidx.lifecycle.Observer
             public final void onChanged(Object obj) {
                 CursorResultParam cursorResultParam;
-                WindowContent.this.hideABxyCursor();
+                WindowContent.access$hideABxyCursor(WindowContent.this);
                 if (WindowContent.this.getCursorResultParam() == null || (cursorResultParam = WindowContent.this.getCursorResultParam()) == null) {
                     return;
                 }
@@ -1675,29 +1872,29 @@ public class WindowContent extends ConstraintLayout {
                         if (cursorResultParam.getSourceA().value1 < ServiceEnum.Chan.chan1.value1 || cursorResultParam.getSourceA().value1 > ServiceEnum.Chan.chan4.value1) {
                             return;
                         }
-                        WindowContent.this.showABxyCursor();
+                        WindowContent.access$showABxyCursor(WindowContent.this);
                     } else if (WindowContent.this.getWindowParam().getType() == ServiceEnum.WindowType.WIN_MATH && cursorResultParam.getSourceA().value1 - ServiceEnum.Chan.m1.value1 == WindowContent.this.getWindowParam().getServiceID() - 17) {
-                        WindowContent.this.showABxyCursor();
+                        WindowContent.access$showABxyCursor(WindowContent.this);
                     }
                 } else if (i == 2) {
                     if (WindowContent.this.getWindowParam().getType() == ServiceEnum.WindowType.WIN_MAIN_WAVEFORM || WindowContent.this.getWindowParam().getType() == ServiceEnum.WindowType.WIN_ZOOM_WAVEFORM) {
                         if (cursorResultParam.getSourceA().value1 >= ServiceEnum.Chan.chan1.value1 && cursorResultParam.getSourceA().value1 <= ServiceEnum.Chan.chan4.value1) {
-                            WindowContent.this.showAxyCursor();
+                            WindowContent.access$showAxyCursor(WindowContent.this);
                         }
                         if (cursorResultParam.getSourceB().value1 < ServiceEnum.Chan.chan1.value1 || cursorResultParam.getSourceB().value1 > ServiceEnum.Chan.chan4.value1) {
                             return;
                         }
-                        WindowContent.this.showBxyCursor();
+                        WindowContent.access$showBxyCursor(WindowContent.this);
                     } else if (WindowContent.this.getWindowParam().getType() == ServiceEnum.WindowType.WIN_MATH) {
                         if (cursorResultParam.getSourceA().value1 - ServiceEnum.Chan.m1.value1 == WindowContent.this.getWindowParam().getServiceID() - 17) {
-                            WindowContent.this.showAxyCursor();
+                            WindowContent.access$showAxyCursor(WindowContent.this);
                         }
                         if (cursorResultParam.getSourceB().value1 - ServiceEnum.Chan.m1.value1 == WindowContent.this.getWindowParam().getServiceID() - 17) {
-                            WindowContent.this.showBxyCursor();
+                            WindowContent.access$showBxyCursor(WindowContent.this);
                         }
                     }
                 } else if (i == 3 && WindowContent.this.getWindowParam().getType() == ServiceEnum.WindowType.WIN_XY) {
-                    WindowContent.this.showABxyCursor();
+                    WindowContent.access$showABxyCursor(WindowContent.this);
                 }
             }
         };
@@ -1810,7 +2007,7 @@ public class WindowContent extends ConstraintLayout {
                 CursorResultParam cursorResultParam = this.getCursorResultParam();
                 if (cursorResultParam != null) {
                     cursorResultParam.saveAx((long) (CursorTag.this.getValue() + ((i4 / this.getWidth()) * (CursorTag.this.getEndX() - CursorTag.this.getStartX()))));
-                    this.showABxyCursorShadow();
+                    WindowContent.access$showABxyCursorShadow(this);
                 }
             }
 
@@ -1821,7 +2018,7 @@ public class WindowContent extends ConstraintLayout {
                     CursorTag.this.setValue(cursorResultParam.getAx());
                     CursorTag.this.setOtherValue(cursorResultParam.getBx());
                 }
-                this.getCursorAxRange(CursorTag.this);
+                WindowContent.access$getCursorAxRange(this, CursorTag.this);
             }
         });
         Unit unit5 = Unit.INSTANCE;
@@ -1844,7 +2041,7 @@ public class WindowContent extends ConstraintLayout {
                 CursorResultParam cursorResultParam = this.getCursorResultParam();
                 if (cursorResultParam != null) {
                     cursorResultParam.saveAy((long) (CursorTag.this.getValue() - ((i5 / this.getHeight()) * (CursorTag.this.getStartY() - CursorTag.this.getEndY()))));
-                    this.showABxyCursorShadow();
+                    WindowContent.access$showABxyCursorShadow(this);
                 }
             }
 
@@ -1855,7 +2052,7 @@ public class WindowContent extends ConstraintLayout {
                     CursorTag.this.setValue(cursorResultParam.getAy());
                     CursorTag.this.setOtherValue(cursorResultParam.getBy());
                 }
-                this.getCursorAyRange(CursorTag.this);
+                WindowContent.access$getCursorAyRange(this, CursorTag.this);
             }
         });
         Unit unit6 = Unit.INSTANCE;
@@ -1877,7 +2074,7 @@ public class WindowContent extends ConstraintLayout {
                 CursorResultParam cursorResultParam = this.getCursorResultParam();
                 if (cursorResultParam != null) {
                     cursorResultParam.saveBx((long) (CursorTag.this.getValue() + ((i4 / this.getWidth()) * (CursorTag.this.getEndX() - CursorTag.this.getStartX()))));
-                    this.showABxyCursorShadow();
+                    WindowContent.access$showABxyCursorShadow(this);
                 }
             }
 
@@ -1888,7 +2085,7 @@ public class WindowContent extends ConstraintLayout {
                     CursorTag.this.setValue(cursorResultParam.getBx());
                     CursorTag.this.setOtherValue(cursorResultParam.getAx());
                 }
-                this.getCursorBxRange(CursorTag.this);
+                WindowContent.access$getCursorBxRange(this, CursorTag.this);
             }
         });
         Unit unit7 = Unit.INSTANCE;
@@ -1921,7 +2118,7 @@ public class WindowContent extends ConstraintLayout {
                     CursorTag.this.setValue(cursorResultParam.getBy());
                     CursorTag.this.setOtherValue(cursorResultParam.getAy());
                 }
-                this.getCursorByRange(CursorTag.this);
+                WindowContent.access$getCursorByRange(this, CursorTag.this);
             }
         });
         Unit unit8 = Unit.INSTANCE;
@@ -2016,7 +2213,10 @@ public class WindowContent extends ConstraintLayout {
             Activity topActivity = ActivityUtils.getTopActivity();
             if (topActivity != null) {
                 liveData9.observe((LifecycleOwner) topActivity, new Observer<CursorResultParam>() { // from class: com.rigol.scope.views.window.WindowContent.1
-                    /* JADX DEBUG: Method merged with bridge method */
+                    {
+                        WindowContent.this = this;
+                    }
+
                     @Override // androidx.lifecycle.Observer
                     public final void onChanged(CursorResultParam cursorResultParam) {
                         Timber.d("Horizontal:UI:WindowContent:HorizontalParam:" + cursorResultParam, new Object[0]);
@@ -2032,7 +2232,10 @@ public class WindowContent extends ConstraintLayout {
             Activity topActivity2 = ActivityUtils.getTopActivity();
             if (topActivity2 != null) {
                 liveData8.observe((LifecycleOwner) topActivity2, new Observer<HorizontalParam>() { // from class: com.rigol.scope.views.window.WindowContent.2
-                    /* JADX DEBUG: Method merged with bridge method */
+                    {
+                        WindowContent.this = this;
+                    }
+
                     @Override // androidx.lifecycle.Observer
                     public final void onChanged(HorizontalParam horizontalParam) {
                         WindowContent.this.setHorizontalParam(horizontalParam);
@@ -2047,7 +2250,10 @@ public class WindowContent extends ConstraintLayout {
             Activity topActivity3 = ActivityUtils.getTopActivity();
             if (topActivity3 != null) {
                 liveData7.observe((LifecycleOwner) topActivity3, new Observer<ArrayList<VerticalParam>>() { // from class: com.rigol.scope.views.window.WindowContent.3
-                    /* JADX DEBUG: Method merged with bridge method */
+                    {
+                        WindowContent.this = this;
+                    }
+
                     @Override // androidx.lifecycle.Observer
                     public final void onChanged(ArrayList<VerticalParam> arrayList) {
                         WindowContent.this.setVerticalParams(arrayList);
@@ -2062,7 +2268,10 @@ public class WindowContent extends ConstraintLayout {
             Activity topActivity4 = ActivityUtils.getTopActivity();
             if (topActivity4 != null) {
                 liveData6.observe((LifecycleOwner) topActivity4, new Observer<ArrayList<MathParam>>() { // from class: com.rigol.scope.views.window.WindowContent.4
-                    /* JADX DEBUG: Method merged with bridge method */
+                    {
+                        WindowContent.this = this;
+                    }
+
                     @Override // androidx.lifecycle.Observer
                     public final void onChanged(ArrayList<MathParam> arrayList) {
                         WindowContent.this.setMathParams(arrayList);
@@ -2077,7 +2286,10 @@ public class WindowContent extends ConstraintLayout {
             Activity topActivity5 = ActivityUtils.getTopActivity();
             if (topActivity5 != null) {
                 liveData5.observe((LifecycleOwner) topActivity5, new Observer<List<? extends ResultParam>>() { // from class: com.rigol.scope.views.window.WindowContent.5
-                    /* JADX DEBUG: Method merged with bridge method */
+                    {
+                        WindowContent.this = this;
+                    }
+
                     @Override // androidx.lifecycle.Observer
                     public final void onChanged(List<? extends ResultParam> list) {
                         WindowContent.this.setResultParams(list);
@@ -2092,7 +2304,10 @@ public class WindowContent extends ConstraintLayout {
             Activity topActivity6 = ActivityUtils.getTopActivity();
             if (topActivity6 != null) {
                 liveData4.observe((LifecycleOwner) topActivity6, new Observer<SharedParam>() { // from class: com.rigol.scope.views.window.WindowContent.6
-                    /* JADX DEBUG: Method merged with bridge method */
+                    {
+                        WindowContent.this = this;
+                    }
+
                     @Override // androidx.lifecycle.Observer
                     public final void onChanged(SharedParam sharedParam) {
                         WindowContent.this.setSharedParam(sharedParam);
@@ -2107,7 +2322,10 @@ public class WindowContent extends ConstraintLayout {
             Activity topActivity7 = ActivityUtils.getTopActivity();
             if (topActivity7 != null) {
                 liveData3.observe((LifecycleOwner) topActivity7, new Observer<MeasureSettingParam>() { // from class: com.rigol.scope.views.window.WindowContent.7
-                    /* JADX DEBUG: Method merged with bridge method */
+                    {
+                        WindowContent.this = this;
+                    }
+
                     @Override // androidx.lifecycle.Observer
                     public final void onChanged(MeasureSettingParam measureSettingParam) {
                         WindowContent.this.setMeasureSettingParam(measureSettingParam);
@@ -2122,7 +2340,10 @@ public class WindowContent extends ConstraintLayout {
             Activity topActivity8 = ActivityUtils.getTopActivity();
             if (topActivity8 != null) {
                 liveData2.observe((LifecycleOwner) topActivity8, new Observer<RefParam>() { // from class: com.rigol.scope.views.window.WindowContent.8
-                    /* JADX DEBUG: Method merged with bridge method */
+                    {
+                        WindowContent.this = this;
+                    }
+
                     @Override // androidx.lifecycle.Observer
                     public final void onChanged(RefParam refParam) {
                         WindowContent.this.setRefParam(refParam);
@@ -2139,6 +2360,10 @@ public class WindowContent extends ConstraintLayout {
                 throw new NullPointerException("null cannot be cast to non-null type androidx.lifecycle.LifecycleOwner");
             }
             mutableLiveData.observe((LifecycleOwner) topActivity9, new Observer<Object>() { // from class: com.rigol.scope.views.window.WindowContent.9
+                {
+                    WindowContent.this = this;
+                }
+
                 @Override // androidx.lifecycle.Observer
                 public final void onChanged(Object obj) {
                     WindowContent.this.hideABxyIndicator();
@@ -2150,7 +2375,10 @@ public class WindowContent extends ConstraintLayout {
             Activity topActivity10 = ActivityUtils.getTopActivity();
             if (topActivity10 != null) {
                 liveData.observe((LifecycleOwner) topActivity10, new Observer<HistogramResultParam>() { // from class: com.rigol.scope.views.window.WindowContent.10
-                    /* JADX DEBUG: Method merged with bridge method */
+                    {
+                        WindowContent.this = this;
+                    }
+
                     @Override // androidx.lifecycle.Observer
                     public final void onChanged(HistogramResultParam histogramResultParam) {
                         Timber.d("Histogram:UI:WindowContent:HistogramGram:" + histogramResultParam, new Object[0]);
@@ -2221,7 +2449,7 @@ public class WindowContent extends ConstraintLayout {
                     CursorTag.this.setValue(measureSettingParam.getCursorA());
                     CursorTag.this.setOtherValue(measureSettingParam.getCursorB());
                 }
-                this.getMeasureCursorARange(CursorTag.this);
+                WindowContent.access$getMeasureCursorARange(this, CursorTag.this);
             }
 
             @Override // com.rigol.scope.views.TagView.Callback
@@ -2291,7 +2519,7 @@ public class WindowContent extends ConstraintLayout {
                     CursorTag.this.setValue(measureSettingParam.getCursorB());
                     CursorTag.this.setOtherValue(measureSettingParam.getCursorA());
                 }
-                this.getMeasureCursorBRange(CursorTag.this);
+                WindowContent.access$getMeasureCursorBRange(this, CursorTag.this);
             }
 
             @Override // com.rigol.scope.views.TagView.Callback
@@ -2360,29 +2588,29 @@ public class WindowContent extends ConstraintLayout {
                         if (measType.value1 > ServiceEnum.MeasType.Meas_VER_TYPE_END.value1) {
                             if (WindowContent.this.getWindowParam().getType() == ServiceEnum.WindowType.WIN_MAIN_WAVEFORM || WindowContent.this.getWindowParam().getType() == ServiceEnum.WindowType.WIN_ZOOM_WAVEFORM) {
                                 if (resultParam.getSourceA().value1 >= ServiceEnum.Chan.chan1.value1 && resultParam.getSourceA().value1 <= ServiceEnum.Chan.chan4.value1) {
-                                    WindowContent.this.showAxyIndicator(resultParam, strArr);
+                                    WindowContent.access$showAxyIndicator(WindowContent.this, resultParam, strArr);
                                 }
                                 if (resultParam.getSourceB().value1 < ServiceEnum.Chan.chan1.value1 || resultParam.getSourceB().value1 > ServiceEnum.Chan.chan4.value1) {
                                     return;
                                 }
-                                WindowContent.this.showBxyIndicator(resultParam, strArr);
+                                WindowContent.access$showBxyIndicator(WindowContent.this, resultParam, strArr);
                             } else if (WindowContent.this.getWindowParam().getType() == ServiceEnum.WindowType.WIN_MATH) {
                                 if (resultParam.getSourceA().value1 >= ServiceEnum.Chan.m1.value1 && resultParam.getSourceA().value1 <= ServiceEnum.Chan.m4.value1 && resultParam.getSourceA().value1 - ServiceEnum.Chan.m1.value1 == WindowContent.this.getWindowParam().getServiceID() - 17) {
-                                    WindowContent.this.showAxyIndicator(resultParam, strArr);
+                                    WindowContent.access$showAxyIndicator(WindowContent.this, resultParam, strArr);
                                 }
                                 if (resultParam.getSourceB().value1 < ServiceEnum.Chan.m1.value1 || resultParam.getSourceB().value1 > ServiceEnum.Chan.m4.value1 || resultParam.getSourceB().value1 - ServiceEnum.Chan.m1.value1 != WindowContent.this.getWindowParam().getServiceID() - 17) {
                                     return;
                                 }
-                                WindowContent.this.showBxyIndicator(resultParam, strArr);
+                                WindowContent.access$showBxyIndicator(WindowContent.this, resultParam, strArr);
                             }
                         } else if (WindowContent.this.getWindowParam().getType() == ServiceEnum.WindowType.WIN_MAIN_WAVEFORM || WindowContent.this.getWindowParam().getType() == ServiceEnum.WindowType.WIN_ZOOM_WAVEFORM) {
                             if (resultParam.getSourceA().value1 < ServiceEnum.Chan.chan1.value1 || resultParam.getSourceA().value1 > ServiceEnum.Chan.chan4.value1) {
                                 return;
                             }
-                            WindowContent.this.showABxyIndicator(resultParam, strArr);
+                            WindowContent.access$showABxyIndicator(WindowContent.this, resultParam, strArr);
                         } else if (WindowContent.this.getWindowParam().getType() != ServiceEnum.WindowType.WIN_MATH || resultParam.getSourceA().value1 < ServiceEnum.Chan.m1.value1 || resultParam.getSourceA().value1 > ServiceEnum.Chan.m4.value1 || resultParam.getSourceA().value1 - ServiceEnum.Chan.m1.value1 != WindowContent.this.getWindowParam().getServiceID() - 17) {
                         } else {
-                            WindowContent.this.showABxyIndicator(resultParam, strArr);
+                            WindowContent.access$showABxyIndicator(WindowContent.this, resultParam, strArr);
                         }
                     }
                 }
@@ -2392,7 +2620,7 @@ public class WindowContent extends ConstraintLayout {
             @Override // androidx.lifecycle.Observer
             public final void onChanged(Object obj) {
                 CursorResultParam cursorResultParam;
-                WindowContent.this.hideABxyCursor();
+                WindowContent.access$hideABxyCursor(WindowContent.this);
                 if (WindowContent.this.getCursorResultParam() == null || (cursorResultParam = WindowContent.this.getCursorResultParam()) == null) {
                     return;
                 }
@@ -2402,29 +2630,29 @@ public class WindowContent extends ConstraintLayout {
                         if (cursorResultParam.getSourceA().value1 < ServiceEnum.Chan.chan1.value1 || cursorResultParam.getSourceA().value1 > ServiceEnum.Chan.chan4.value1) {
                             return;
                         }
-                        WindowContent.this.showABxyCursor();
+                        WindowContent.access$showABxyCursor(WindowContent.this);
                     } else if (WindowContent.this.getWindowParam().getType() == ServiceEnum.WindowType.WIN_MATH && cursorResultParam.getSourceA().value1 - ServiceEnum.Chan.m1.value1 == WindowContent.this.getWindowParam().getServiceID() - 17) {
-                        WindowContent.this.showABxyCursor();
+                        WindowContent.access$showABxyCursor(WindowContent.this);
                     }
                 } else if (i2 == 2) {
                     if (WindowContent.this.getWindowParam().getType() == ServiceEnum.WindowType.WIN_MAIN_WAVEFORM || WindowContent.this.getWindowParam().getType() == ServiceEnum.WindowType.WIN_ZOOM_WAVEFORM) {
                         if (cursorResultParam.getSourceA().value1 >= ServiceEnum.Chan.chan1.value1 && cursorResultParam.getSourceA().value1 <= ServiceEnum.Chan.chan4.value1) {
-                            WindowContent.this.showAxyCursor();
+                            WindowContent.access$showAxyCursor(WindowContent.this);
                         }
                         if (cursorResultParam.getSourceB().value1 < ServiceEnum.Chan.chan1.value1 || cursorResultParam.getSourceB().value1 > ServiceEnum.Chan.chan4.value1) {
                             return;
                         }
-                        WindowContent.this.showBxyCursor();
+                        WindowContent.access$showBxyCursor(WindowContent.this);
                     } else if (WindowContent.this.getWindowParam().getType() == ServiceEnum.WindowType.WIN_MATH) {
                         if (cursorResultParam.getSourceA().value1 - ServiceEnum.Chan.m1.value1 == WindowContent.this.getWindowParam().getServiceID() - 17) {
-                            WindowContent.this.showAxyCursor();
+                            WindowContent.access$showAxyCursor(WindowContent.this);
                         }
                         if (cursorResultParam.getSourceB().value1 - ServiceEnum.Chan.m1.value1 == WindowContent.this.getWindowParam().getServiceID() - 17) {
-                            WindowContent.this.showBxyCursor();
+                            WindowContent.access$showBxyCursor(WindowContent.this);
                         }
                     }
                 } else if (i2 == 3 && WindowContent.this.getWindowParam().getType() == ServiceEnum.WindowType.WIN_XY) {
-                    WindowContent.this.showABxyCursor();
+                    WindowContent.access$showABxyCursor(WindowContent.this);
                 }
             }
         };
@@ -2796,7 +3024,6 @@ public class WindowContent extends ConstraintLayout {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public final TagView getRefTag(int i) {
         Object tagView = getTagView("22_" + i, TagView.class);
         if (tagView instanceof TagView) {
@@ -2830,8 +3057,8 @@ public class WindowContent extends ConstraintLayout {
             return i;
         }
 
-        /* JADX DEBUG: Incorrect args count in method signature: ()V */
         public DragCallback2() {
+            WindowContent.this = r1;
         }
 
         @Override // androidx.customview.widget.ViewDragHelper.Callback
@@ -3008,10 +3235,8 @@ public class WindowContent extends ConstraintLayout {
             histogramResultParam.addOnPropertyChangedCallback(new Observable.OnPropertyChangedCallback() { // from class: com.rigol.scope.views.window.WindowContent$bindHistogram$1
                 @Override // androidx.databinding.Observable.OnPropertyChangedCallback
                 public void onPropertyChanged(Observable observable, int i) {
-                    HistogramRectView histogramRectView;
-                    HistogramRectView histogramRectView2;
                     if (i == 940 || i == 121 || i == 482 || i == 740) {
-                        histogramRectView = WindowContent.this.histogramRect;
+                        HistogramRectView access$getHistogramRect$p = WindowContent.access$getHistogramRect$p(WindowContent.this);
                         HistogramResultParam histogramParam = WindowContent.this.getHistogramParam();
                         Integer valueOf = histogramParam != null ? Integer.valueOf(histogramParam.getLeft()) : null;
                         HistogramResultParam histogramParam2 = WindowContent.this.getHistogramParam();
@@ -3019,12 +3244,12 @@ public class WindowContent extends ConstraintLayout {
                         HistogramResultParam histogramParam3 = WindowContent.this.getHistogramParam();
                         Integer valueOf3 = histogramParam3 != null ? Integer.valueOf(histogramParam3.getTop()) : null;
                         HistogramResultParam histogramParam4 = WindowContent.this.getHistogramParam();
-                        histogramRectView.setRectPosition(valueOf, valueOf2, valueOf3, histogramParam4 != null ? Integer.valueOf(histogramParam4.getBottom()) : null);
+                        access$getHistogramRect$p.setRectPosition(valueOf, valueOf2, valueOf3, histogramParam4 != null ? Integer.valueOf(histogramParam4.getBottom()) : null);
                     }
                     if (i == 271) {
-                        histogramRectView2 = WindowContent.this.histogramRect;
+                        HistogramRectView access$getHistogramRect$p2 = WindowContent.access$getHistogramRect$p(WindowContent.this);
                         HistogramResultParam histogramParam5 = WindowContent.this.getHistogramParam();
-                        histogramRectView2.setVisibility((histogramParam5 == null || !histogramParam5.getEnable()) ? 4 : 0);
+                        access$getHistogramRect$p2.setVisibility((histogramParam5 == null || !histogramParam5.getEnable()) ? 4 : 0);
                     }
                 }
             });
@@ -3070,7 +3295,6 @@ public class WindowContent extends ConstraintLayout {
         constraintSet.applyTo(windowContent);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public final void showAxyIndicator(ResultParam resultParam, String[][] strArr) {
         ViewUtil.setVisibility(this.indicatorAx, 0);
         ViewUtil.setVisibility(this.indicatorAy, 0);
@@ -3080,7 +3304,6 @@ public class WindowContent extends ConstraintLayout {
         updateIndicatorAyPosition(this.indicatorAy, strArr);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public final void showBxyIndicator(ResultParam resultParam, String[][] strArr) {
         ViewUtil.setVisibility(this.indicatorBx, 0);
         ViewUtil.setVisibility(this.indicatorBy, 0);
@@ -3090,7 +3313,6 @@ public class WindowContent extends ConstraintLayout {
         updateIndicatorByPosition(this.indicatorBy, strArr);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public final void showABxyIndicator(ResultParam resultParam, String[][] strArr) {
         ViewUtil.setVisibility(this.indicatorAx, 0);
         ViewUtil.setVisibility(this.indicatorAy, 0);
@@ -3113,7 +3335,6 @@ public class WindowContent extends ConstraintLayout {
         ViewUtil.setVisibility(this.indicatorBy, 8);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public final void showAxyCursor() {
         this.cursorAx.setShowHint(true);
         this.cursorAy.setShowHint(true);
@@ -3125,7 +3346,6 @@ public class WindowContent extends ConstraintLayout {
         updateCursorAyPosition(this.cursorAy);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public final void showBxyCursor() {
         this.cursorBx.setShowHint(true);
         this.cursorBy.setShowHint(true);
@@ -3137,7 +3357,6 @@ public class WindowContent extends ConstraintLayout {
         updateCursorByPosition(this.cursorBy);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public final void showABxyCursor() {
         this.cursorAx.setShowHint(true);
         this.cursorAy.setShowHint(true);
@@ -3165,7 +3384,6 @@ public class WindowContent extends ConstraintLayout {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public final void hideABxyCursor() {
         this.cursorAx.setShowHint(false);
         this.cursorAy.setShowHint(false);
@@ -3203,7 +3421,6 @@ public class WindowContent extends ConstraintLayout {
         updateCursorByShadowPosition(this.cursorByShadow);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public final void showABxyCursorShadow() {
         hideABxyCursorShadow();
     }
@@ -3362,8 +3579,6 @@ public class WindowContent extends ConstraintLayout {
                             measureSettingParam2.addOnPropertyChangedCallback(new Observable.OnPropertyChangedCallback() { // from class: com.rigol.scope.views.window.WindowContent$bindMeasureCursor$1.1
                                 @Override // androidx.databinding.Observable.OnPropertyChangedCallback
                                 public void onPropertyChanged(Observable observable, int i) {
-                                    CursorTag cursorTag;
-                                    CursorTag cursorTag2;
                                     MeasureSettingParam measureSettingParam3;
                                     MeasureSettingParam measureSettingParam4;
                                     if (i == 734) {
@@ -3383,12 +3598,12 @@ public class WindowContent extends ConstraintLayout {
                                         WindowContent.this.showMeasureCursor();
                                     }
                                     if (i == 735) {
-                                        cursorTag = WindowContent.this.messureCusorA;
+                                        CursorTag access$getMessureCusorA$p = WindowContent.access$getMessureCusorA$p(WindowContent.this);
                                         MeasureSettingParam measureSettingParam6 = WindowContent.this.getMeasureSettingParam();
-                                        cursorTag.setTagStyle((measureSettingParam6 == null || measureSettingParam6.getRegionSelect() != 1) ? Paint.Style.FILL : Paint.Style.STROKE);
-                                        cursorTag2 = WindowContent.this.messureCusorB;
+                                        access$getMessureCusorA$p.setTagStyle((measureSettingParam6 == null || measureSettingParam6.getRegionSelect() != 1) ? Paint.Style.FILL : Paint.Style.STROKE);
+                                        CursorTag access$getMessureCusorB$p = WindowContent.access$getMessureCusorB$p(WindowContent.this);
                                         MeasureSettingParam measureSettingParam7 = WindowContent.this.getMeasureSettingParam();
-                                        cursorTag2.setTagStyle((measureSettingParam7 == null || measureSettingParam7.getRegionSelect() != 0) ? Paint.Style.FILL : Paint.Style.STROKE);
+                                        access$getMessureCusorB$p.setTagStyle((measureSettingParam7 == null || measureSettingParam7.getRegionSelect() != 0) ? Paint.Style.FILL : Paint.Style.STROKE);
                                         WindowContent.this.showMeasureCursor();
                                     }
                                 }
@@ -3421,7 +3636,6 @@ public class WindowContent extends ConstraintLayout {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public final void updateRefTag(boolean z, RefParam.Param param, int i) {
         TagView refTag = getRefTag(i);
         if (!z) {
@@ -3515,16 +3729,15 @@ public class WindowContent extends ConstraintLayout {
             mutableLiveData.observe((LifecycleOwner) topActivity7, new Observer<Object>() { // from class: com.rigol.scope.views.window.WindowContent$bindRef$1
                 @Override // androidx.lifecycle.Observer
                 public final void onChanged(Object obj) {
-                    TagView refTag;
                     if (obj instanceof Boolean) {
                         int i2 = (ServiceEnum.Chan.r10.value1 - ServiceEnum.Chan.r1.value1) + 1;
                         for (int i3 = 0; i3 < i2; i3++) {
-                            refTag = WindowContent.this.getRefTag(i3);
-                            if (refTag != null) {
-                                refTag.setShowLabel(((Boolean) obj).booleanValue());
+                            TagView access$getRefTag = WindowContent.access$getRefTag(WindowContent.this, i3);
+                            if (access$getRefTag != null) {
+                                access$getRefTag.setShowLabel(((Boolean) obj).booleanValue());
                             }
-                            if (refTag != null) {
-                                refTag.invalidate();
+                            if (access$getRefTag != null) {
+                                access$getRefTag.invalidate();
                             }
                         }
                     }
@@ -3540,13 +3753,10 @@ public class WindowContent extends ConstraintLayout {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // androidx.lifecycle.Observer
             public final void onChanged(Boolean it) {
-                CursorTag cursorTag;
-                CursorTag cursorTag2;
-                cursorTag = WindowContent.this.cursorAx;
+                CursorTag access$getCursorAx$p = WindowContent.access$getCursorAx$p(WindowContent.this);
                 Intrinsics.checkNotNullExpressionValue(it, "it");
-                cursorTag.setCousor_showLabel_now(it.booleanValue());
-                cursorTag2 = WindowContent.this.cursorAx;
-                cursorTag2.requestLayout();
+                access$getCursorAx$p.setCousor_showLabel_now(it.booleanValue());
+                WindowContent.access$getCursorAx$p(WindowContent.this).requestLayout();
             }
         });
         MutableLiveData<Boolean> mutableLiveData9 = ViewUtil.getViewABkeyViewModel().ay_boolean;
@@ -3558,13 +3768,10 @@ public class WindowContent extends ConstraintLayout {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // androidx.lifecycle.Observer
             public final void onChanged(Boolean it) {
-                CursorTag cursorTag;
-                CursorTag cursorTag2;
-                cursorTag = WindowContent.this.cursorAy;
+                CursorTag access$getCursorAy$p = WindowContent.access$getCursorAy$p(WindowContent.this);
                 Intrinsics.checkNotNullExpressionValue(it, "it");
-                cursorTag.setCousor_showLabel_now(it.booleanValue());
-                cursorTag2 = WindowContent.this.cursorAy;
-                cursorTag2.invalidate();
+                access$getCursorAy$p.setCousor_showLabel_now(it.booleanValue());
+                WindowContent.access$getCursorAy$p(WindowContent.this).invalidate();
             }
         });
         MutableLiveData<Boolean> mutableLiveData10 = ViewUtil.getViewABkeyViewModel().bx_boolean;
@@ -3576,13 +3783,10 @@ public class WindowContent extends ConstraintLayout {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // androidx.lifecycle.Observer
             public final void onChanged(Boolean it) {
-                CursorTag cursorTag;
-                CursorTag cursorTag2;
-                cursorTag = WindowContent.this.cursorBx;
+                CursorTag access$getCursorBx$p = WindowContent.access$getCursorBx$p(WindowContent.this);
                 Intrinsics.checkNotNullExpressionValue(it, "it");
-                cursorTag.setCousor_showLabel_now(it.booleanValue());
-                cursorTag2 = WindowContent.this.cursorBx;
-                cursorTag2.requestLayout();
+                access$getCursorBx$p.setCousor_showLabel_now(it.booleanValue());
+                WindowContent.access$getCursorBx$p(WindowContent.this).requestLayout();
             }
         });
         MutableLiveData<Boolean> mutableLiveData11 = ViewUtil.getViewABkeyViewModel().by_boolean;
@@ -3594,13 +3798,10 @@ public class WindowContent extends ConstraintLayout {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // androidx.lifecycle.Observer
             public final void onChanged(Boolean it) {
-                CursorTag cursorTag;
-                CursorTag cursorTag2;
-                cursorTag = WindowContent.this.cursorBy;
+                CursorTag access$getCursorBy$p = WindowContent.access$getCursorBy$p(WindowContent.this);
                 Intrinsics.checkNotNullExpressionValue(it, "it");
-                cursorTag.setCousor_showLabel_now(it.booleanValue());
-                cursorTag2 = WindowContent.this.cursorBy;
-                cursorTag2.invalidate();
+                access$getCursorBy$p.setCousor_showLabel_now(it.booleanValue());
+                WindowContent.access$getCursorBy$p(WindowContent.this).invalidate();
             }
         });
         MutableLiveData<Boolean> mutableLiveData12 = ViewUtil.getViewABkeyViewModel().popuwind_boolean;
@@ -3612,18 +3813,10 @@ public class WindowContent extends ConstraintLayout {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // androidx.lifecycle.Observer
             public final void onChanged(Boolean bool) {
-                CursorTag cursorTag;
-                CursorTag cursorTag2;
-                CursorTag cursorTag3;
-                CursorTag cursorTag4;
-                cursorTag = WindowContent.this.cursorAx;
-                cursorTag.invalidate();
-                cursorTag2 = WindowContent.this.cursorBx;
-                cursorTag2.invalidate();
-                cursorTag3 = WindowContent.this.cursorAy;
-                cursorTag3.invalidate();
-                cursorTag4 = WindowContent.this.cursorBy;
-                cursorTag4.invalidate();
+                WindowContent.access$getCursorAx$p(WindowContent.this).invalidate();
+                WindowContent.access$getCursorBx$p(WindowContent.this).invalidate();
+                WindowContent.access$getCursorAy$p(WindowContent.this).invalidate();
+                WindowContent.access$getCursorBy$p(WindowContent.this).invalidate();
             }
         });
         MutableLiveData<Float> mutableLiveData13 = ViewUtil.getViewABkeyViewModel().viewpager_postion;
@@ -3635,31 +3828,16 @@ public class WindowContent extends ConstraintLayout {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // androidx.lifecycle.Observer
             public final void onChanged(Float it) {
-                CursorTag cursorTag;
-                CursorTag cursorTag2;
-                CursorTag cursorTag3;
-                CursorTag cursorTag4;
-                CursorTag cursorTag5;
-                CursorTag cursorTag6;
-                CursorTag cursorTag7;
-                CursorTag cursorTag8;
-                cursorTag = WindowContent.this.cursorAx;
+                CursorTag access$getCursorAx$p = WindowContent.access$getCursorAx$p(WindowContent.this);
                 Intrinsics.checkNotNullExpressionValue(it, "it");
-                cursorTag.setTagAlphaLine(it.floatValue());
-                cursorTag2 = WindowContent.this.cursorBx;
-                cursorTag2.setTagAlphaLine(it.floatValue());
-                cursorTag3 = WindowContent.this.cursorAy;
-                cursorTag3.setTagAlphaLine(it.floatValue());
-                cursorTag4 = WindowContent.this.cursorBy;
-                cursorTag4.setTagAlphaLine(it.floatValue());
-                cursorTag5 = WindowContent.this.cursorAx;
-                cursorTag5.invalidate();
-                cursorTag6 = WindowContent.this.cursorBx;
-                cursorTag6.invalidate();
-                cursorTag7 = WindowContent.this.cursorAy;
-                cursorTag7.invalidate();
-                cursorTag8 = WindowContent.this.cursorBy;
-                cursorTag8.invalidate();
+                access$getCursorAx$p.setTagAlphaLine(it.floatValue());
+                WindowContent.access$getCursorBx$p(WindowContent.this).setTagAlphaLine(it.floatValue());
+                WindowContent.access$getCursorAy$p(WindowContent.this).setTagAlphaLine(it.floatValue());
+                WindowContent.access$getCursorBy$p(WindowContent.this).setTagAlphaLine(it.floatValue());
+                WindowContent.access$getCursorAx$p(WindowContent.this).invalidate();
+                WindowContent.access$getCursorBx$p(WindowContent.this).invalidate();
+                WindowContent.access$getCursorAy$p(WindowContent.this).invalidate();
+                WindowContent.access$getCursorBy$p(WindowContent.this).invalidate();
             }
         });
     }
@@ -3939,7 +4117,6 @@ public class WindowContent extends ConstraintLayout {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public final void updateCursorAxPosition(CursorTag cursorTag) {
         CursorResultParam cursorResultParam = this.cursorResultParam;
         if (cursorResultParam == null || cursorTag.isDragging() || cursorTag.getEndX() - cursorTag.getStartX() == 0) {
@@ -3948,7 +4125,6 @@ public class WindowContent extends ConstraintLayout {
         this.cursorAx.setPosition((int) ((((float) (cursorResultParam.getAx() - cursorTag.getStartX())) / ((float) (cursorTag.getEndX() - cursorTag.getStartX()))) * getWidth()));
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public final void updateCursorAyPosition(CursorTag cursorTag) {
         CursorResultParam cursorResultParam = this.cursorResultParam;
         if (cursorResultParam == null || cursorTag.isDragging() || cursorTag.getEndY() - cursorTag.getStartY() == 0) {
@@ -3957,7 +4133,6 @@ public class WindowContent extends ConstraintLayout {
         this.cursorAy.setPosition((int) ((((float) (cursorResultParam.getAy() - cursorTag.getStartY())) / ((float) (cursorTag.getEndY() - cursorTag.getStartY()))) * getHeight()));
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public final void updateCursorBxPosition(CursorTag cursorTag) {
         CursorResultParam cursorResultParam = this.cursorResultParam;
         if (cursorResultParam == null || cursorTag.isDragging() || cursorTag.getEndX() - cursorTag.getStartX() == 0) {
@@ -3966,7 +4141,6 @@ public class WindowContent extends ConstraintLayout {
         this.cursorBx.setPosition((int) ((((float) (cursorResultParam.getBx() - cursorTag.getStartX())) / ((float) (cursorTag.getEndX() - cursorTag.getStartX()))) * getWidth()));
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public final void updateCursorByPosition(CursorTag cursorTag) {
         CursorResultParam cursorResultParam = this.cursorResultParam;
         if (cursorResultParam == null || cursorTag.isDragging() || cursorTag.getEndY() - cursorTag.getStartY() == 0) {
@@ -3975,7 +4149,6 @@ public class WindowContent extends ConstraintLayout {
         this.cursorBy.setPosition((int) ((((float) (cursorResultParam.getBy() - cursorTag.getStartY())) / ((float) (cursorTag.getEndY() - cursorTag.getStartY()))) * getHeight()));
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public final void getCursorAxRange(CursorTag cursorTag) {
         List<? extends MathParam> list;
         WindowParam windowParam;
@@ -4049,7 +4222,6 @@ public class WindowContent extends ConstraintLayout {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public final void getCursorAyRange(CursorTag cursorTag) {
         List<? extends MathParam> list;
         WindowParam windowParam;
@@ -4113,7 +4285,6 @@ public class WindowContent extends ConstraintLayout {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public final void getCursorBxRange(CursorTag cursorTag) {
         List<? extends MathParam> list;
         WindowParam windowParam;
@@ -4187,7 +4358,6 @@ public class WindowContent extends ConstraintLayout {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public final void getCursorByRange(CursorTag cursorTag) {
         VerticalParam verticalItem;
         List<? extends MathParam> list;
@@ -4523,7 +4693,6 @@ public class WindowContent extends ConstraintLayout {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public final void getMeasureCursorARange(CursorTag cursorTag) {
         List<? extends MathParam> list;
         WindowParam windowParam;
@@ -4568,7 +4737,6 @@ public class WindowContent extends ConstraintLayout {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public final void getMeasureCursorBRange(CursorTag cursorTag) {
         List<? extends MathParam> list;
         WindowParam windowParam;
@@ -4635,48 +4803,29 @@ public class WindowContent extends ConstraintLayout {
         ThreadUtils.runOnUiThreadDelayed(new Runnable() { // from class: com.rigol.scope.views.window.WindowContent$onSizeChanged$1
             @Override // java.lang.Runnable
             public final void run() {
-                CursorTag cursorTag;
-                CursorTag cursorTag2;
-                CursorTag cursorTag3;
-                CursorTag cursorTag4;
-                CursorTag cursorTag5;
-                CursorTag cursorTag6;
-                CursorTag cursorTag7;
-                CursorTag cursorTag8;
-                TagView refTag;
-                Observer observer;
                 WindowContent windowContent = WindowContent.this;
-                cursorTag = windowContent.cursorAx;
-                windowContent.getCursorAxRange(cursorTag);
+                WindowContent.access$getCursorAxRange(windowContent, WindowContent.access$getCursorAx$p(windowContent));
                 WindowContent windowContent2 = WindowContent.this;
-                cursorTag2 = windowContent2.cursorAx;
-                windowContent2.updateCursorAxPosition(cursorTag2);
+                WindowContent.access$updateCursorAxPosition(windowContent2, WindowContent.access$getCursorAx$p(windowContent2));
                 WindowContent windowContent3 = WindowContent.this;
-                cursorTag3 = windowContent3.cursorAy;
-                windowContent3.getCursorAyRange(cursorTag3);
+                WindowContent.access$getCursorAyRange(windowContent3, WindowContent.access$getCursorAy$p(windowContent3));
                 WindowContent windowContent4 = WindowContent.this;
-                cursorTag4 = windowContent4.cursorAy;
-                windowContent4.updateCursorAyPosition(cursorTag4);
+                WindowContent.access$updateCursorAyPosition(windowContent4, WindowContent.access$getCursorAy$p(windowContent4));
                 WindowContent windowContent5 = WindowContent.this;
-                cursorTag5 = windowContent5.cursorBx;
-                windowContent5.getCursorBxRange(cursorTag5);
+                WindowContent.access$getCursorBxRange(windowContent5, WindowContent.access$getCursorBx$p(windowContent5));
                 WindowContent windowContent6 = WindowContent.this;
-                cursorTag6 = windowContent6.cursorBx;
-                windowContent6.updateCursorBxPosition(cursorTag6);
+                WindowContent.access$updateCursorBxPosition(windowContent6, WindowContent.access$getCursorBx$p(windowContent6));
                 WindowContent windowContent7 = WindowContent.this;
-                cursorTag7 = windowContent7.cursorBy;
-                windowContent7.getCursorByRange(cursorTag7);
+                WindowContent.access$getCursorByRange(windowContent7, WindowContent.access$getCursorBy$p(windowContent7));
                 WindowContent windowContent8 = WindowContent.this;
-                cursorTag8 = windowContent8.cursorBy;
-                windowContent8.updateCursorByPosition(cursorTag8);
+                WindowContent.access$updateCursorByPosition(windowContent8, WindowContent.access$getCursorBy$p(windowContent8));
                 int i5 = (ServiceEnum.Chan.r10.value1 - ServiceEnum.Chan.r1.value1) + 1;
                 for (int i6 = 0; i6 < i5; i6++) {
-                    refTag = WindowContent.this.getRefTag(i6);
-                    if (refTag != null) {
-                        refTag.initPositionEdge();
+                    TagView access$getRefTag = WindowContent.access$getRefTag(WindowContent.this, i6);
+                    if (access$getRefTag != null) {
+                        access$getRefTag.initPositionEdge();
                     }
-                    observer = WindowContent.this.refObserver;
-                    observer.onChanged(Integer.valueOf(i6));
+                    WindowContent.access$getRefObserver$p(WindowContent.this).onChanged(Integer.valueOf(i6));
                 }
             }
         }, 100L);

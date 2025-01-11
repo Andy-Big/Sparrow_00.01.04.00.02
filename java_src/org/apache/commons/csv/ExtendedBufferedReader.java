@@ -3,6 +3,7 @@ package org.apache.commons.csv;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.Reader;
+
 /* loaded from: classes2.dex */
 final class ExtendedBufferedReader extends BufferedReader {
     private boolean closed;
@@ -10,8 +11,7 @@ final class ExtendedBufferedReader extends BufferedReader {
     private int lastChar;
     private long position;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ExtendedBufferedReader(Reader reader) {
+    ExtendedBufferedReader(Reader reader) {
         super(reader);
         this.lastChar = -2;
     }
@@ -27,8 +27,7 @@ final class ExtendedBufferedReader extends BufferedReader {
         return read;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public int getLastChar() {
+    int getLastChar() {
         return this.lastChar;
     }
 
@@ -76,16 +75,14 @@ final class ExtendedBufferedReader extends BufferedReader {
         return readLine;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public int lookAhead() throws IOException {
+    int lookAhead() throws IOException {
         super.mark(1);
         int read = super.read();
         super.reset();
         return read;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public long getCurrentLineNumber() {
+    long getCurrentLineNumber() {
         int i = this.lastChar;
         if (i == 13 || i == 10 || i == -2 || i == -1) {
             return this.eolCounter;
@@ -93,8 +90,7 @@ final class ExtendedBufferedReader extends BufferedReader {
         return this.eolCounter + 1;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public long getPosition() {
+    long getPosition() {
         return this.position;
     }
 

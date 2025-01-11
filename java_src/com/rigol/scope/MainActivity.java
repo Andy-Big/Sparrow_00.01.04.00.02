@@ -101,6 +101,10 @@ public class MainActivity extends BaseActivity {
     private final int MSG_QUICK_POWER_ON = 0;
     private final int MSG_QUICK_POWER_OFF = 1;
     private final Runnable heartbeat = new Runnable() { // from class: com.rigol.scope.MainActivity.5
+        {
+            MainActivity.this = this;
+        }
+
         @Override // java.lang.Runnable
         public void run() {
             if (!MainActivity.this.bConnectLauncher) {
@@ -121,6 +125,10 @@ public class MainActivity extends BaseActivity {
         }
     };
     private final ServiceConnection mGuardConn = new ServiceConnection() { // from class: com.rigol.scope.MainActivity.6
+        {
+            MainActivity.this = this;
+        }
+
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
             MainActivity.this.mGuardService = IGuardService.Stub.asInterface(iBinder);
@@ -140,6 +148,10 @@ public class MainActivity extends BaseActivity {
 
                         @Override // com.blankj.utilcode.util.ThreadUtils.Task
                         public void onSuccess(Object obj) {
+                        }
+
+                        {
+                            AnonymousClass6.this = this;
                         }
 
                         @Override // com.blankj.utilcode.util.ThreadUtils.Task
@@ -165,11 +177,13 @@ public class MainActivity extends BaseActivity {
     };
     private final IGuardListener.Stub guardListener = new AnonymousClass7();
 
-    /* renamed from: com.rigol.scope.MainActivity$1  reason: invalid class name */
+    /* renamed from: com.rigol.scope.MainActivity$1 */
     /* loaded from: classes.dex */
     class AnonymousClass1 extends Handler {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         AnonymousClass1(Looper looper) {
             super(looper);
+            MainActivity.this = r1;
         }
 
         @Override // android.os.Handler
@@ -198,8 +212,6 @@ public class MainActivity extends BaseActivity {
             }
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: private */
         /* renamed from: handleCommandResult */
         public void lambda$handleMessage$1$MainActivity$1(ShellUtils.CommandResult commandResult, int i) {
             PrintStream printStream = System.out;
@@ -248,6 +260,10 @@ public class MainActivity extends BaseActivity {
             e.printStackTrace();
         }
         this.mHandler.postDelayed(new Runnable() { // from class: com.rigol.scope.MainActivity.3
+            {
+                MainActivity.this = this;
+            }
+
             @Override // java.lang.Runnable
             public void run() {
                 MainActivity mainActivity = MainActivity.this;
@@ -368,7 +384,7 @@ public class MainActivity extends BaseActivity {
         }, 300L);
     }
 
-    /* renamed from: com.rigol.scope.MainActivity$2  reason: invalid class name */
+    /* renamed from: com.rigol.scope.MainActivity$2 */
     /* loaded from: classes.dex */
     class AnonymousClass2 extends ThreadUtils.SimpleTask<Object> {
         @Override // com.blankj.utilcode.util.ThreadUtils.Task
@@ -376,6 +392,7 @@ public class MainActivity extends BaseActivity {
         }
 
         AnonymousClass2() {
+            MainActivity.this = r1;
         }
 
         @Override // com.blankj.utilcode.util.ThreadUtils.Task
@@ -526,6 +543,10 @@ public class MainActivity extends BaseActivity {
         this.sharedParam = sharedParam;
         this.binding.setSharedParam(sharedParam);
         sharedParam.addOnPropertyChangedCallback(new Observable.OnPropertyChangedCallback() { // from class: com.rigol.scope.MainActivity.4
+            {
+                MainActivity.this = this;
+            }
+
             @Override // androidx.databinding.Observable.OnPropertyChangedCallback
             public void onPropertyChanged(Observable observable, int i) {
                 FragmentWaveformBinding binding;
@@ -660,7 +681,6 @@ public class MainActivity extends BaseActivity {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public void setPackageName() {
         IGuardService iGuardService = this.mGuardService;
         if (iGuardService != null) {
@@ -704,7 +724,7 @@ public class MainActivity extends BaseActivity {
         }
     }
 
-    /* renamed from: com.rigol.scope.MainActivity$7  reason: invalid class name */
+    /* renamed from: com.rigol.scope.MainActivity$7 */
     /* loaded from: classes.dex */
     class AnonymousClass7 extends IGuardListener.Stub {
         @Override // com.rigol.iguardservice.IGuardListener
@@ -724,6 +744,7 @@ public class MainActivity extends BaseActivity {
         }
 
         AnonymousClass7() {
+            MainActivity.this = r1;
         }
 
         @Override // com.rigol.iguardservice.IGuardListener

@@ -2,6 +2,7 @@ package kotlin.jvm.internal;
 
 import kotlin.reflect.KCallable;
 import kotlin.reflect.KProperty;
+
 /* loaded from: classes2.dex */
 public abstract class PropertyReference extends CallableReference implements KProperty {
     public PropertyReference() {
@@ -15,6 +16,7 @@ public abstract class PropertyReference extends CallableReference implements KPr
         super(obj, cls, str, str2, (i & 1) == 1);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // kotlin.jvm.internal.CallableReference
     public KProperty getReflected() {

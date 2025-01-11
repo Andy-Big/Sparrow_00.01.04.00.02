@@ -7,6 +7,7 @@ import android.os.Bundle;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Iterator;
+
 /* loaded from: classes.dex */
 public final class ActionActivity extends Activity {
     public static final String KEY_ACTION = "KEY_ACTION";

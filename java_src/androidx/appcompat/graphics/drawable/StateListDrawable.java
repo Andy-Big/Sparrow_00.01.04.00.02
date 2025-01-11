@@ -14,9 +14,9 @@ import androidx.core.content.res.TypedArrayUtils;
 import java.io.IOException;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
-/* JADX INFO: Access modifiers changed from: package-private */
+
 /* loaded from: classes.dex */
-public class StateListDrawable extends DrawableContainer {
+class StateListDrawable extends DrawableContainer {
     private static final boolean DEBUG = false;
     private static final String TAG = "StateListDrawable";
     private boolean mMutated;
@@ -38,9 +38,8 @@ public class StateListDrawable extends DrawableContainer {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // androidx.appcompat.graphics.drawable.DrawableContainer, android.graphics.drawable.Drawable
-    public boolean onStateChange(int[] iArr) {
+    protected boolean onStateChange(int[] iArr) {
         boolean onStateChange = super.onStateChange(iArr);
         int indexOfStateSet = this.mStateListState.indexOfStateSet(iArr);
         if (indexOfStateSet < 0) {
@@ -107,8 +106,7 @@ public class StateListDrawable extends DrawableContainer {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public int[] extractStateSet(AttributeSet attributeSet) {
+    int[] extractStateSet(AttributeSet attributeSet) {
         int attributeCount = attributeSet.getAttributeCount();
         int[] iArr = new int[attributeCount];
         int i = 0;
@@ -155,26 +153,24 @@ public class StateListDrawable extends DrawableContainer {
         return this;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // androidx.appcompat.graphics.drawable.DrawableContainer
     public StateListState cloneConstantState() {
         return new StateListState(this.mStateListState, this, null);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     @Override // androidx.appcompat.graphics.drawable.DrawableContainer
-    public void clearMutated() {
+    void clearMutated() {
         super.clearMutated();
         this.mMutated = false;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static class StateListState extends DrawableContainer.DrawableContainerState {
+    static class StateListState extends DrawableContainer.DrawableContainerState {
         int[][] mStateSets;
 
-        /* JADX INFO: Access modifiers changed from: package-private */
-        public StateListState(StateListState stateListState, StateListDrawable stateListDrawable, Resources resources) {
+        StateListState(StateListState stateListState, StateListDrawable stateListDrawable, Resources resources) {
             super(stateListState, stateListDrawable, resources);
             if (stateListState != null) {
                 this.mStateSets = stateListState.mStateSets;
@@ -194,15 +190,13 @@ public class StateListDrawable extends DrawableContainer {
             this.mStateSets = iArr2;
         }
 
-        /* JADX INFO: Access modifiers changed from: package-private */
-        public int addStateSet(int[] iArr, Drawable drawable) {
+        int addStateSet(int[] iArr, Drawable drawable) {
             int addChild = addChild(drawable);
             this.mStateSets[addChild] = iArr;
             return addChild;
         }
 
-        /* JADX INFO: Access modifiers changed from: package-private */
-        public int indexOfStateSet(int[] iArr) {
+        int indexOfStateSet(int[] iArr) {
             int[][] iArr2 = this.mStateSets;
             int childCount = getChildCount();
             for (int i = 0; i < childCount; i++) {
@@ -238,9 +232,8 @@ public class StateListDrawable extends DrawableContainer {
         onStateChange(getState());
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     @Override // androidx.appcompat.graphics.drawable.DrawableContainer
-    public void setConstantState(DrawableContainer.DrawableContainerState drawableContainerState) {
+    void setConstantState(DrawableContainer.DrawableContainerState drawableContainerState) {
         super.setConstantState(drawableContainerState);
         if (drawableContainerState instanceof StateListState) {
             this.mStateListState = (StateListState) drawableContainerState;
@@ -252,8 +245,7 @@ public class StateListDrawable extends DrawableContainer {
         onStateChange(getState());
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public StateListDrawable(StateListState stateListState) {
+    StateListDrawable(StateListState stateListState) {
         if (stateListState != null) {
             setConstantState(stateListState);
         }

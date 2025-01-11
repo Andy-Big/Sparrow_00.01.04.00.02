@@ -5,6 +5,7 @@ import android.graphics.Rect;
 import android.text.method.TransformationMethod;
 import android.view.View;
 import java.util.Locale;
+
 /* loaded from: classes.dex */
 public class AllCapsTransformationMethod implements TransformationMethod {
     private Locale mLocale;

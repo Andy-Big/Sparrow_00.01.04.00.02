@@ -6,9 +6,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import androidx.core.view.ViewCompat;
-/* JADX INFO: Access modifiers changed from: package-private */
+
 /* loaded from: classes.dex */
-public class GhostViewPort extends ViewGroup implements GhostView {
+class GhostViewPort extends ViewGroup implements GhostView {
     private Matrix mMatrix;
     private final ViewTreeObserver.OnPreDrawListener mOnPreDrawListener;
     int mReferences;
@@ -112,8 +112,7 @@ public class GhostViewPort extends ViewGroup implements GhostView {
         ViewUtils.transformMatrixToLocal(viewGroup, matrix);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static GhostViewPort addGhost(View view, ViewGroup viewGroup, Matrix matrix) {
+    static GhostViewPort addGhost(View view, ViewGroup viewGroup, Matrix matrix) {
         GhostViewHolder ghostViewHolder;
         if (!(view.getParent() instanceof ViewGroup)) {
             throw new IllegalArgumentException("Ghosted views must be parented by a ViewGroup");
@@ -149,8 +148,7 @@ public class GhostViewPort extends ViewGroup implements GhostView {
         return ghostView;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static void removeGhost(View view) {
+    static void removeGhost(View view) {
         GhostViewPort ghostView = getGhostView(view);
         if (ghostView != null) {
             int i = ghostView.mReferences - 1;

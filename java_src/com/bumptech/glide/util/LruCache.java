@@ -3,6 +3,7 @@ package com.bumptech.glide.util;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
+
 /* loaded from: classes.dex */
 public class LruCache<T, Y> {
     private final Map<T, Y> cache = new LinkedHashMap(100, 0.75f, true);
@@ -10,8 +11,7 @@ public class LruCache<T, Y> {
     private final long initialMaxSize;
     private long maxSize;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public int getSize(Y y) {
+    protected int getSize(Y y) {
         return 1;
     }
 
@@ -84,8 +84,7 @@ public class LruCache<T, Y> {
         trimToSize(0L);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public synchronized void trimToSize(long j) {
+    protected synchronized void trimToSize(long j) {
         while (this.currentSize > j) {
             Iterator<Map.Entry<T, Y>> it = this.cache.entrySet().iterator();
             Map.Entry<T, Y> next = it.next();

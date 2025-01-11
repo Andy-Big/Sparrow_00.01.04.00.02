@@ -3,6 +3,7 @@ package com.google.android.material.canvas;
 import android.graphics.Canvas;
 import android.graphics.RectF;
 import android.os.Build;
+
 /* loaded from: classes.dex */
 public class CanvasCompat {
     private CanvasCompat() {

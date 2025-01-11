@@ -16,6 +16,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import androidx.drawerlayout.widget.DrawerLayout;
 import com.rigol.scope.cil.MessageID;
+
 /* loaded from: classes.dex */
 public final class BarUtils {
     private static final int KEY_OFFSET = -123;

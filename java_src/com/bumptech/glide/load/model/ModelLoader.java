@@ -6,6 +6,7 @@ import com.bumptech.glide.load.data.DataFetcher;
 import com.bumptech.glide.util.Preconditions;
 import java.util.Collections;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public interface ModelLoader<Model, Data> {
     LoadData<Data> buildLoadData(Model model, int i, int i2, Options options);

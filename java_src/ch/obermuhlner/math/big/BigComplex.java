@@ -3,6 +3,7 @@ package ch.obermuhlner.math.big;
 import java.math.BigDecimal;
 import java.math.MathContext;
 import java.util.Objects;
+
 /* loaded from: classes.dex */
 public final class BigComplex {
     public final BigDecimal im;

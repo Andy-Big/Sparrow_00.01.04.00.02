@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Handler;
+import android.view.MotionEvent;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.core.content.ContextCompat;
@@ -11,6 +12,7 @@ import androidx.core.view.ViewCompat;
 import com.github.barteksc.pdfviewer.PDFView;
 import com.github.barteksc.pdfviewer.R;
 import com.github.barteksc.pdfviewer.util.Util;
+
 /* loaded from: classes.dex */
 public class DefaultScrollHandle extends RelativeLayout implements ScrollHandle {
     private static final int DEFAULT_TEXT_SIZE = 16;
@@ -194,88 +196,45 @@ public class DefaultScrollHandle extends RelativeLayout implements ScrollHandle 
     @Override // android.view.View
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    public boolean onTouchEvent(android.view.MotionEvent r5) {
-        /*
-            r4 = this;
-            boolean r0 = r4.isPDFViewReady()
-            if (r0 != 0) goto Lb
-            boolean r5 = super.onTouchEvent(r5)
-            return r5
-        Lb:
-            int r0 = r5.getAction()
-            r1 = 1
-            if (r0 == 0) goto L2e
-            if (r0 == r1) goto L25
-            r2 = 2
-            if (r0 == r2) goto L59
-            r2 = 3
-            if (r0 == r2) goto L25
-            r2 = 5
-            if (r0 == r2) goto L2e
-            r2 = 6
-            if (r0 == r2) goto L25
-            boolean r5 = super.onTouchEvent(r5)
-            return r5
-        L25:
-            r4.hideDelayed()
-            com.github.barteksc.pdfviewer.PDFView r5 = r4.pdfView
-            r5.performPageSnap()
-            return r1
-        L2e:
-            com.github.barteksc.pdfviewer.PDFView r0 = r4.pdfView
-            r0.stopFling()
-            android.os.Handler r0 = r4.handler
-            java.lang.Runnable r2 = r4.hidePageScrollerRunnable
-            r0.removeCallbacks(r2)
-            com.github.barteksc.pdfviewer.PDFView r0 = r4.pdfView
-            boolean r0 = r0.isSwipeVertical()
-            if (r0 == 0) goto L4e
-            float r0 = r5.getRawY()
-            float r2 = r4.getY()
-            float r0 = r0 - r2
-            r4.currentPos = r0
-            goto L59
-        L4e:
-            float r0 = r5.getRawX()
-            float r2 = r4.getX()
-            float r0 = r0 - r2
-            r4.currentPos = r0
-        L59:
-            com.github.barteksc.pdfviewer.PDFView r0 = r4.pdfView
-            boolean r0 = r0.isSwipeVertical()
-            r2 = 0
-            if (r0 == 0) goto L7d
-            float r5 = r5.getRawY()
-            float r0 = r4.currentPos
-            float r5 = r5 - r0
-            float r0 = r4.relativeHandlerMiddle
-            float r5 = r5 + r0
-            r4.setPosition(r5)
-            com.github.barteksc.pdfviewer.PDFView r5 = r4.pdfView
-            float r0 = r4.relativeHandlerMiddle
-            int r3 = r4.getHeight()
-            float r3 = (float) r3
-            float r0 = r0 / r3
-            r5.setPositionOffset(r0, r2)
-            goto L97
-        L7d:
-            float r5 = r5.getRawX()
-            float r0 = r4.currentPos
-            float r5 = r5 - r0
-            float r0 = r4.relativeHandlerMiddle
-            float r5 = r5 + r0
-            r4.setPosition(r5)
-            com.github.barteksc.pdfviewer.PDFView r5 = r4.pdfView
-            float r0 = r4.relativeHandlerMiddle
-            int r3 = r4.getWidth()
-            float r3 = (float) r3
-            float r0 = r0 / r3
-            r5.setPositionOffset(r0, r2)
-        L97:
-            return r1
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.github.barteksc.pdfviewer.scroll.DefaultScrollHandle.onTouchEvent(android.view.MotionEvent):boolean");
+    public boolean onTouchEvent(MotionEvent motionEvent) {
+        if (!isPDFViewReady()) {
+            return super.onTouchEvent(motionEvent);
+        }
+        int action = motionEvent.getAction();
+        if (action != 0) {
+            if (action != 1) {
+                if (action != 2) {
+                    if (action != 3) {
+                        if (action != 5) {
+                            if (action != 6) {
+                                return super.onTouchEvent(motionEvent);
+                            }
+                        }
+                    }
+                }
+                if (!this.pdfView.isSwipeVertical()) {
+                    setPosition((motionEvent.getRawY() - this.currentPos) + this.relativeHandlerMiddle);
+                    this.pdfView.setPositionOffset(this.relativeHandlerMiddle / getHeight(), false);
+                } else {
+                    setPosition((motionEvent.getRawX() - this.currentPos) + this.relativeHandlerMiddle);
+                    this.pdfView.setPositionOffset(this.relativeHandlerMiddle / getWidth(), false);
+                }
+                return true;
+            }
+            hideDelayed();
+            this.pdfView.performPageSnap();
+            return true;
+        }
+        this.pdfView.stopFling();
+        this.handler.removeCallbacks(this.hidePageScrollerRunnable);
+        if (this.pdfView.isSwipeVertical()) {
+            this.currentPos = motionEvent.getRawY() - getY();
+        } else {
+            this.currentPos = motionEvent.getRawX() - getX();
+        }
+        if (!this.pdfView.isSwipeVertical()) {
+        }
+        return true;
     }
 }

@@ -5,6 +5,7 @@ import android.graphics.Path;
 import android.graphics.PointF;
 import android.graphics.RectF;
 import android.os.Build;
+
 /* loaded from: classes.dex */
 public class ShapeAppearancePathProvider {
     private final ShapePath[] cornerPaths = new ShapePath[4];
@@ -213,14 +214,12 @@ public class ShapeAppearancePathProvider {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setEdgeIntersectionCheckEnable(boolean z) {
+    void setEdgeIntersectionCheckEnable(boolean z) {
         this.edgeIntersectionCheckEnabled = z;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static final class ShapeAppearancePathSpec {
+    static final class ShapeAppearancePathSpec {
         public final RectF bounds;
         public final float interpolation;
         public final Path path;

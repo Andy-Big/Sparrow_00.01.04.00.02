@@ -12,6 +12,7 @@ import android.util.Log;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.List;
+
 /* loaded from: classes.dex */
 final class ActivityRecreator {
     private static final String LOG_TAG = "ActivityRecreator";
@@ -26,8 +27,7 @@ final class ActivityRecreator {
     private ActivityRecreator() {
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static boolean recreate(Activity activity) {
+    static boolean recreate(Activity activity) {
         Object obj;
         if (Build.VERSION.SDK_INT >= 28) {
             activity.recreate();

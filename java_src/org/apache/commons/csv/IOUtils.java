@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.Reader;
 import java.io.Writer;
 import java.nio.CharBuffer;
+
 /* loaded from: classes2.dex */
 class IOUtils {
     static final int DEFAULT_BUFFER_SIZE = 4096;
@@ -12,8 +13,7 @@ class IOUtils {
     IOUtils() {
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static long copy(Reader reader, Appendable appendable) throws IOException {
+    static long copy(Reader reader, Appendable appendable) throws IOException {
         return copy(reader, appendable, CharBuffer.allocate(4096));
     }
 
@@ -30,8 +30,7 @@ class IOUtils {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static long copyLarge(Reader reader, Writer writer) throws IOException {
+    static long copyLarge(Reader reader, Writer writer) throws IOException {
         return copyLarge(reader, writer, new char[4096]);
     }
 

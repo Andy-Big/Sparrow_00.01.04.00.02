@@ -7,6 +7,7 @@ import android.text.format.Formatter;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import com.bumptech.glide.util.Preconditions;
+
 /* loaded from: classes.dex */
 public final class MemorySizeCalculator {
     static final int BYTES_PER_ARGB_8888_PIXEL = 4;

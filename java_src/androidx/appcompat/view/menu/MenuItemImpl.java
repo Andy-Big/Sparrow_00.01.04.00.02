@@ -25,6 +25,7 @@ import androidx.appcompat.view.menu.MenuView;
 import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.core.internal.view.SupportMenuItem;
 import androidx.core.view.ActionProvider;
+
 /* loaded from: classes.dex */
 public final class MenuItemImpl implements SupportMenuItem {
     private static final int CHECKABLE = 1;
@@ -68,8 +69,7 @@ public final class MenuItemImpl implements SupportMenuItem {
     private int mFlags = 16;
     private boolean mIsActionViewExpanded = false;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public MenuItemImpl(MenuBuilder menuBuilder, int i, int i2, int i3, int i4, CharSequence charSequence, int i5) {
+    MenuItemImpl(MenuBuilder menuBuilder, int i, int i2, int i3, int i4, CharSequence charSequence, int i5) {
         this.mShowAsAction = 0;
         this.mMenu = menuBuilder;
         this.mId = i2;
@@ -242,13 +242,11 @@ public final class MenuItemImpl implements SupportMenuItem {
         return this;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public char getShortcut() {
+    char getShortcut() {
         return this.mMenu.isQwertyMode() ? this.mShortcutAlphabeticChar : this.mShortcutNumericChar;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public String getShortcutLabel() {
+    String getShortcutLabel() {
         char shortcut = getShortcut();
         if (shortcut == 0) {
             return "";
@@ -283,8 +281,7 @@ public final class MenuItemImpl implements SupportMenuItem {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean shouldShowShortcut() {
+    boolean shouldShowShortcut() {
         return this.mMenu.isShortcutsVisible() && getShortcut() != 0;
     }
 
@@ -309,8 +306,7 @@ public final class MenuItemImpl implements SupportMenuItem {
         return this.mTitle;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public CharSequence getTitleForItemView(MenuView.ItemView itemView) {
+    CharSequence getTitleForItemView(MenuView.ItemView itemView) {
         if (itemView != null && itemView.prefersCondensedTitle()) {
             return getTitleCondensed();
         }
@@ -463,8 +459,7 @@ public final class MenuItemImpl implements SupportMenuItem {
         return this;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setCheckedInt(boolean z) {
+    void setCheckedInt(boolean z) {
         int i = this.mFlags;
         int i2 = (z ? 2 : 0) | (i & (-3));
         this.mFlags = i2;
@@ -479,8 +474,7 @@ public final class MenuItemImpl implements SupportMenuItem {
         return (actionProvider == null || !actionProvider.overridesItemVisibility()) ? (this.mFlags & 8) == 0 : (this.mFlags & 8) == 0 && this.mActionProvider.isVisible();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean setVisibleInt(boolean z) {
+    boolean setVisibleInt(boolean z) {
         int i = this.mFlags;
         int i2 = (z ? 0 : 8) | (i & (-9));
         this.mFlags = i2;
@@ -509,8 +503,7 @@ public final class MenuItemImpl implements SupportMenuItem {
         return null;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setMenuInfo(ContextMenu.ContextMenuInfo contextMenuInfo) {
+    void setMenuInfo(ContextMenu.ContextMenuInfo contextMenuInfo) {
         this.mMenuInfo = contextMenuInfo;
     }
 
@@ -567,6 +560,7 @@ public final class MenuItemImpl implements SupportMenuItem {
         this.mMenu.onItemActionRequestChanged(this);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.core.internal.view.SupportMenuItem, android.view.MenuItem
     public SupportMenuItem setActionView(View view) {
         int i;
@@ -579,6 +573,7 @@ public final class MenuItemImpl implements SupportMenuItem {
         return this;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.core.internal.view.SupportMenuItem, android.view.MenuItem
     public SupportMenuItem setActionView(int i) {
         Context context = this.mMenu.getContext();
@@ -637,6 +632,7 @@ public final class MenuItemImpl implements SupportMenuItem {
         return this;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.core.internal.view.SupportMenuItem, android.view.MenuItem
     public SupportMenuItem setShowAsActionFlags(int i) {
         setShowAsAction(i);
@@ -697,6 +693,7 @@ public final class MenuItemImpl implements SupportMenuItem {
         return this;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // android.view.MenuItem
     public SupportMenuItem setContentDescription(CharSequence charSequence) {
         this.mContentDescription = charSequence;
@@ -709,6 +706,7 @@ public final class MenuItemImpl implements SupportMenuItem {
         return this.mContentDescription;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // android.view.MenuItem
     public SupportMenuItem setTooltipText(CharSequence charSequence) {
         this.mTooltipText = charSequence;

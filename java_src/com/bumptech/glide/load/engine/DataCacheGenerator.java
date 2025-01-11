@@ -7,9 +7,9 @@ import com.bumptech.glide.load.engine.DataFetcherGenerator;
 import com.bumptech.glide.load.model.ModelLoader;
 import java.io.File;
 import java.util.List;
-/* JADX INFO: Access modifiers changed from: package-private */
+
 /* loaded from: classes.dex */
-public class DataCacheGenerator implements DataFetcherGenerator, DataFetcher.DataCallback<Object> {
+class DataCacheGenerator implements DataFetcherGenerator, DataFetcher.DataCallback<Object> {
     private File cacheFile;
     private final List<Key> cacheKeys;
     private final DataFetcherGenerator.FetcherReadyCallback cb;
@@ -20,13 +20,11 @@ public class DataCacheGenerator implements DataFetcherGenerator, DataFetcher.Dat
     private int sourceIdIndex;
     private Key sourceKey;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public DataCacheGenerator(DecodeHelper<?> decodeHelper, DataFetcherGenerator.FetcherReadyCallback fetcherReadyCallback) {
+    DataCacheGenerator(DecodeHelper<?> decodeHelper, DataFetcherGenerator.FetcherReadyCallback fetcherReadyCallback) {
         this(decodeHelper.getCacheKeys(), decodeHelper, fetcherReadyCallback);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public DataCacheGenerator(List<Key> list, DecodeHelper<?> decodeHelper, DataFetcherGenerator.FetcherReadyCallback fetcherReadyCallback) {
+    DataCacheGenerator(List<Key> list, DecodeHelper<?> decodeHelper, DataFetcherGenerator.FetcherReadyCallback fetcherReadyCallback) {
         this.sourceIdIndex = -1;
         this.cacheKeys = list;
         this.helper = decodeHelper;

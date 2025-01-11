@@ -1,6 +1,7 @@
 package com.sun.activation.registries;
 
 import androidx.core.os.EnvironmentCompat;
+
 /* loaded from: classes2.dex */
 public class MailcapTokenizer {
     public static final int EOI_TOKEN = 5;

@@ -105,7 +105,10 @@ public final class HistogramSettingPopupView extends BaseDeletePopupView impleme
                 throw new NullPointerException("null cannot be cast to non-null type androidx.lifecycle.LifecycleOwner");
             }
             liveData2.observe((LifecycleOwner) topActivity, new Observer<HistogramResultParam>() { // from class: com.rigol.scope.views.histogram.HistogramSettingPopupView.2
-                /* JADX DEBUG: Method merged with bridge method */
+                {
+                    HistogramSettingPopupView.this = this;
+                }
+
                 @Override // androidx.lifecycle.Observer
                 public final void onChanged(HistogramResultParam histogramResultParam) {
                     HistogramSettingPopupView histogramSettingPopupView = HistogramSettingPopupView.this;
@@ -122,7 +125,10 @@ public final class HistogramSettingPopupView extends BaseDeletePopupView impleme
                 throw new NullPointerException("null cannot be cast to non-null type androidx.lifecycle.LifecycleOwner");
             }
             liveData.observe((LifecycleOwner) topActivity2, new Observer<HorizontalParam>() { // from class: com.rigol.scope.views.histogram.HistogramSettingPopupView.3
-                /* JADX DEBUG: Method merged with bridge method */
+                {
+                    HistogramSettingPopupView.this = this;
+                }
+
                 @Override // androidx.lifecycle.Observer
                 public final void onChanged(HorizontalParam horizontalParam) {
                     HistogramSettingPopupView.this.horizontalParam = horizontalParam;
@@ -155,6 +161,10 @@ public final class HistogramSettingPopupView extends BaseDeletePopupView impleme
                 throw new NullPointerException("null cannot be cast to non-null type androidx.lifecycle.LifecycleOwner");
             }
             mutableLiveData.observe((LifecycleOwner) context, new Observer<Object>() { // from class: com.rigol.scope.views.histogram.HistogramSettingPopupView.4
+                {
+                    HistogramSettingPopupView.this = this;
+                }
+
                 @Override // androidx.lifecycle.Observer
                 public final void onChanged(Object obj) {
                     int i2 = ServiceEnum.Chan.chan1.value1;
@@ -167,6 +177,10 @@ public final class HistogramSettingPopupView extends BaseDeletePopupView impleme
                 throw new NullPointerException("null cannot be cast to non-null type androidx.lifecycle.LifecycleOwner");
             }
             mutableLiveData2.observe((LifecycleOwner) context2, new Observer<Object>() { // from class: com.rigol.scope.views.histogram.HistogramSettingPopupView.5
+                {
+                    HistogramSettingPopupView.this = this;
+                }
+
                 @Override // androidx.lifecycle.Observer
                 public final void onChanged(Object obj) {
                     int i2 = ServiceEnum.Chan.chan1.value1;
@@ -179,6 +193,10 @@ public final class HistogramSettingPopupView extends BaseDeletePopupView impleme
                 throw new NullPointerException("null cannot be cast to non-null type androidx.lifecycle.LifecycleOwner");
             }
             mutableLiveData3.observe((LifecycleOwner) context3, new Observer<Object>() { // from class: com.rigol.scope.views.histogram.HistogramSettingPopupView.6
+                {
+                    HistogramSettingPopupView.this = this;
+                }
+
                 @Override // androidx.lifecycle.Observer
                 public final void onChanged(Object obj) {
                     if (1 - i == ServiceEnum.Chan.chan1.value1 - HistogramSettingPopupView.this.getParam().getSourceA().value1) {
@@ -213,6 +231,10 @@ public final class HistogramSettingPopupView extends BaseDeletePopupView impleme
             throw new NullPointerException("null cannot be cast to non-null type androidx.lifecycle.LifecycleOwner");
         }
         mutableLiveData6.observe((LifecycleOwner) context6, new Observer<Object>() { // from class: com.rigol.scope.views.histogram.HistogramSettingPopupView.9
+            {
+                HistogramSettingPopupView.this = this;
+            }
+
             @Override // androidx.lifecycle.Observer
             public final void onChanged(Object obj) {
                 HistogramSettingPopupView.this.getParam().readEnable();
@@ -227,6 +249,10 @@ public final class HistogramSettingPopupView extends BaseDeletePopupView impleme
         this.list_aorbParam.add(new AorBParam(this.binding.sourceSpinner, 0, true, ViewUtil.KEY_A, 3));
         this.list_aorbParam.add(new AorBParam(this.binding.histogramTypeSpinner, 0, true, ViewUtil.KEY_A, 3));
         AorBManager aorBManager = new AorBManager(this.context, this.list_aorbParam, new AorBManager.OnSetTextById() { // from class: com.rigol.scope.views.histogram.HistogramSettingPopupView.11
+            {
+                HistogramSettingPopupView.this = this;
+            }
+
             @Override // com.rigol.scope.utilities.AorBManager.OnSetTextById
             public void onViewIdCallback(KeyEvent keyEvent, int i2, boolean z) {
                 HistogramSettingPopupView.this.getParam().readHeightAttr();
@@ -251,6 +277,10 @@ public final class HistogramSettingPopupView extends BaseDeletePopupView impleme
                 }
             }
         }, new AorBManager.OnTextReset() { // from class: com.rigol.scope.views.histogram.HistogramSettingPopupView.12
+            {
+                HistogramSettingPopupView.this = this;
+            }
+
             @Override // com.rigol.scope.utilities.AorBManager.OnTextReset
             public void onResetDefault(int i2) {
                 HistogramSettingPopupView.this.getParam().readRealLeft();
@@ -278,6 +308,10 @@ public final class HistogramSettingPopupView extends BaseDeletePopupView impleme
                 }
             }
         }) { // from class: com.rigol.scope.views.histogram.HistogramSettingPopupView.10
+            {
+                HistogramSettingPopupView.this = this;
+            }
+
             @Override // com.rigol.scope.utilities.AorBManager
             protected void setSwitch_num(int i2) {
                 Context context7 = HistogramSettingPopupView.this.context;
@@ -318,13 +352,20 @@ public final class HistogramSettingPopupView extends BaseDeletePopupView impleme
                     throw new NullPointerException("null cannot be cast to non-null type androidx.lifecycle.LifecycleOwner");
                 }
                 onKeyUpData.observe((LifecycleOwner) topActivity3, new Observer<KeyEvent>() { // from class: com.rigol.scope.views.histogram.HistogramSettingPopupView.13
-                    /* JADX DEBUG: Method merged with bridge method */
+                    {
+                        HistogramSettingPopupView.this = this;
+                    }
+
                     @Override // androidx.lifecycle.Observer
                     public final void onChanged(KeyEvent keyEvent) {
                         if (PopupViewManager.getInstance().isShowing(HistogramSettingPopupView.class)) {
                             PanelKeyViewModel panelKeyViewModel2 = HistogramSettingPopupView.this.panelKeyViewModel;
                             Intrinsics.checkNotNull(panelKeyViewModel2);
                             panelKeyViewModel2.abSwitch(keyEvent, HistogramSettingPopupView.this.clickedView, HistogramSettingPopupView.this.popupSpinner, HistogramSettingPopupView.this.mappingObjects, HistogramSettingPopupView.this.spinnerAdapter, HistogramSettingPopupView.this.aorBManager, HistogramSettingPopupView.this.keyboardPopupView, new AorBManager.OnKeyboardItemChangeListener() { // from class: com.rigol.scope.views.histogram.HistogramSettingPopupView.13.1
+                                {
+                                    AnonymousClass13.this = this;
+                                }
+
                                 @Override // com.rigol.scope.utilities.AorBManager.OnKeyboardItemChangeListener
                                 public final void onCall(KeyboardPopupView keyboard) {
                                     Intrinsics.checkNotNullParameter(keyboard, "keyboard");
@@ -344,6 +385,11 @@ public final class HistogramSettingPopupView extends BaseDeletePopupView impleme
             return;
         }
         throw new NullPointerException("null cannot be cast to non-null type com.rigol.scope.utilities.AorBManager");
+    }
+
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.views.histogram.HistogramSettingPopupView$onClick$3.onCall(com.rigol.scope.views.keyboard.KeyboardPopupView):void, com.rigol.scope.views.histogram.HistogramSettingPopupView$onClick$4.onCall(com.rigol.scope.views.keyboard.KeyboardPopupView):void, com.rigol.scope.views.histogram.HistogramSettingPopupView$onClick$5.onCall(com.rigol.scope.views.keyboard.KeyboardPopupView):void, com.rigol.scope.views.histogram.HistogramSettingPopupView$onClick$6.onCall(com.rigol.scope.views.keyboard.KeyboardPopupView):void, com.rigol.scope.views.histogram.HistogramSettingPopupView$onClick$7.onCall(com.rigol.scope.views.keyboard.KeyboardPopupView):void] */
+    public static final /* synthetic */ void access$setKeyboardPopupView$p(HistogramSettingPopupView histogramSettingPopupView, KeyboardPopupView keyboardPopupView) {
+        histogramSettingPopupView.keyboardPopupView = keyboardPopupView;
     }
 
     public final HistogramResultParam getParam() {
@@ -449,7 +495,7 @@ public final class HistogramSettingPopupView extends BaseDeletePopupView impleme
                     @Override // com.rigol.scope.views.keyboard.KeyboardListener
                     public void onCall(KeyboardPopupView keyboard) {
                         Intrinsics.checkNotNullParameter(keyboard, "keyboard");
-                        HistogramSettingPopupView.this.keyboardPopupView = keyboard;
+                        HistogramSettingPopupView.access$setKeyboardPopupView$p(HistogramSettingPopupView.this, keyboard);
                     }
                 });
                 return;
@@ -496,7 +542,7 @@ public final class HistogramSettingPopupView extends BaseDeletePopupView impleme
                     @Override // com.rigol.scope.views.keyboard.KeyboardListener
                     public void onCall(KeyboardPopupView keyboard) {
                         Intrinsics.checkNotNullParameter(keyboard, "keyboard");
-                        HistogramSettingPopupView.this.keyboardPopupView = keyboard;
+                        HistogramSettingPopupView.access$setKeyboardPopupView$p(HistogramSettingPopupView.this, keyboard);
                     }
                 });
                 return;
@@ -561,7 +607,7 @@ public final class HistogramSettingPopupView extends BaseDeletePopupView impleme
                     @Override // com.rigol.scope.views.keyboard.KeyboardListener
                     public void onCall(KeyboardPopupView keyboard) {
                         Intrinsics.checkNotNullParameter(keyboard, "keyboard");
-                        HistogramSettingPopupView.this.keyboardPopupView = keyboard;
+                        HistogramSettingPopupView.access$setKeyboardPopupView$p(HistogramSettingPopupView.this, keyboard);
                     }
                 });
                 return;
@@ -608,7 +654,7 @@ public final class HistogramSettingPopupView extends BaseDeletePopupView impleme
                     @Override // com.rigol.scope.views.keyboard.KeyboardListener
                     public void onCall(KeyboardPopupView keyboard) {
                         Intrinsics.checkNotNullParameter(keyboard, "keyboard");
-                        HistogramSettingPopupView.this.keyboardPopupView = keyboard;
+                        HistogramSettingPopupView.access$setKeyboardPopupView$p(HistogramSettingPopupView.this, keyboard);
                     }
                 });
                 return;
@@ -651,7 +697,7 @@ public final class HistogramSettingPopupView extends BaseDeletePopupView impleme
                     @Override // com.rigol.scope.views.keyboard.KeyboardListener
                     public void onCall(KeyboardPopupView keyboard) {
                         Intrinsics.checkNotNullParameter(keyboard, "keyboard");
-                        HistogramSettingPopupView.this.keyboardPopupView = keyboard;
+                        HistogramSettingPopupView.access$setKeyboardPopupView$p(HistogramSettingPopupView.this, keyboard);
                     }
                 });
                 return;

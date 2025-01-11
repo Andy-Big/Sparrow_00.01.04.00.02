@@ -3,6 +3,7 @@ package com.sun.mail.imap;
 import java.util.Date;
 import javax.mail.Message;
 import javax.mail.search.SearchTerm;
+
 /* loaded from: classes2.dex */
 public final class YoungerTerm extends SearchTerm {
     private static final long serialVersionUID = 1592714210688163496L;

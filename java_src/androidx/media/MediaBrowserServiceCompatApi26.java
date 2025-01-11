@@ -11,6 +11,7 @@ import androidx.media.MediaBrowserServiceCompatApi23;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
+
 /* loaded from: classes.dex */
 class MediaBrowserServiceCompatApi26 {
     private static final String TAG = "MBSCompatApi26";

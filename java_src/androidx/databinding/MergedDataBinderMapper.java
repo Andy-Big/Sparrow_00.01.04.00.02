@@ -6,6 +6,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.CopyOnWriteArrayList;
+
 /* loaded from: classes.dex */
 public class MergedDataBinderMapper extends DataBinderMapper {
     private static final String TAG = "MergedDataBinderMapper";
@@ -13,6 +14,7 @@ public class MergedDataBinderMapper extends DataBinderMapper {
     private List<DataBinderMapper> mMappers = new CopyOnWriteArrayList();
     private List<String> mFeatureBindingMappers = new CopyOnWriteArrayList();
 
+    /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.util.Set<java.lang.Class<? extends androidx.databinding.DataBinderMapper>> */
     /* JADX WARN: Multi-variable type inference failed */
     public void addMapper(DataBinderMapper dataBinderMapper) {
         if (this.mExistingMappers.add(dataBinderMapper.getClass())) {

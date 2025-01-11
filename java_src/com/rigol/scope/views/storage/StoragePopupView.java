@@ -84,6 +84,10 @@ public class StoragePopupView extends BasePopupView implements StorageViewPagerA
             @Override // com.rigol.scope.utilities.AorBManager
             protected void setrecovery_num(int i) {
             }
+
+            {
+                StoragePopupView.this = this;
+            }
         };
         if (this.panelKeyViewModel == null) {
             PanelKeyViewModel panelKeyViewModel = (PanelKeyViewModel) ContextUtil.getAppViewModel(PanelKeyViewModel.class);
@@ -117,6 +121,10 @@ public class StoragePopupView extends BasePopupView implements StorageViewPagerA
         storageViewPagerAdapter.setOnItemClickCallback(this, this.aorBManager);
         this.binding.viewPager.setAdapter(this.adapter);
         this.binding.viewPager.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() { // from class: com.rigol.scope.views.storage.StoragePopupView.2
+            {
+                StoragePopupView.this = this;
+            }
+
             @Override // androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
             public void onPageSelected(int i) {
                 StorageViewModel storageViewModel;
@@ -647,12 +655,13 @@ public class StoragePopupView extends BasePopupView implements StorageViewPagerA
         }
     }
 
-    /* renamed from: com.rigol.scope.views.storage.StoragePopupView$3  reason: invalid class name */
+    /* renamed from: com.rigol.scope.views.storage.StoragePopupView$3 */
     /* loaded from: classes2.dex */
     class AnonymousClass3 extends Thread {
         final /* synthetic */ Object val$pathName;
 
         AnonymousClass3(Object obj) {
+            StoragePopupView.this = r1;
             this.val$pathName = obj;
         }
 

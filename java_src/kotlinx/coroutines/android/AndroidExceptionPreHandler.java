@@ -15,6 +15,7 @@ import kotlin.jvm.internal.PropertyReference1Impl;
 import kotlin.jvm.internal.Reflection;
 import kotlin.reflect.KProperty;
 import kotlinx.coroutines.CoroutineExceptionHandler;
+
 /* compiled from: AndroidExceptionPreHandler.kt */
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000,\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0003\n\u0002\b\u0002\b\u0001\u0018\u00002\u00020\u00012\u00020\u00022\n\u0012\u0006\u0012\u0004\u0018\u00010\u00040\u0003B\u0005¢\u0006\u0002\u0010\u0005J\u0018\u0010\u000b\u001a\u00020\f2\u0006\u0010\r\u001a\u00020\u000e2\u0006\u0010\u000f\u001a\u00020\u0010H\u0016J\u000b\u0010\u0011\u001a\u0004\u0018\u00010\u0004H\u0096\u0002R\u001d\u0010\u0006\u001a\u0004\u0018\u00010\u00048BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\t\u0010\n\u001a\u0004\b\u0007\u0010\b¨\u0006\u0012"}, d2 = {"Lkotlinx/coroutines/android/AndroidExceptionPreHandler;", "Lkotlin/coroutines/AbstractCoroutineContextElement;", "Lkotlinx/coroutines/CoroutineExceptionHandler;", "Lkotlin/Function0;", "Ljava/lang/reflect/Method;", "()V", "preHandler", "getPreHandler", "()Ljava/lang/reflect/Method;", "preHandler$delegate", "Lkotlin/Lazy;", "handleException", "", "context", "Lkotlin/coroutines/CoroutineContext;", "exception", "", "invoke", "kotlinx-coroutines-android"}, k = 1, mv = {1, 1, 15})
 /* loaded from: classes2.dex */
@@ -33,6 +34,7 @@ public final class AndroidExceptionPreHandler extends AbstractCoroutineContextEl
         this.preHandler$delegate = LazyKt.lazy(this);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // kotlin.jvm.functions.Function0
     public Method invoke() {
         try {

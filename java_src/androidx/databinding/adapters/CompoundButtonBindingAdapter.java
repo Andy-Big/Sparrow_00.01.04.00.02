@@ -2,6 +2,7 @@ package androidx.databinding.adapters;
 
 import android.widget.CompoundButton;
 import androidx.databinding.InverseBindingListener;
+
 /* loaded from: classes.dex */
 public class CompoundButtonBindingAdapter {
     public static void setChecked(CompoundButton compoundButton, boolean z) {

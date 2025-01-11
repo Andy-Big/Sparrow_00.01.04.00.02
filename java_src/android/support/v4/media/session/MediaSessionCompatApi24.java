@@ -6,9 +6,9 @@ import android.os.Bundle;
 import android.support.v4.media.session.MediaSessionCompatApi23;
 import android.util.Log;
 import java.lang.reflect.InvocationTargetException;
-/* JADX INFO: Access modifiers changed from: package-private */
+
 /* loaded from: classes.dex */
-public class MediaSessionCompatApi24 {
+class MediaSessionCompatApi24 {
     private static final String TAG = "MediaSessionCompatApi24";
 
     /* loaded from: classes.dex */
@@ -36,9 +36,8 @@ public class MediaSessionCompatApi24 {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static class CallbackProxy<T extends Callback> extends MediaSessionCompatApi23.CallbackProxy<T> {
+    static class CallbackProxy<T extends Callback> extends MediaSessionCompatApi23.CallbackProxy<T> {
         public CallbackProxy(T t) {
             super(t);
         }

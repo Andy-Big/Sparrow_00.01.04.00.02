@@ -10,10 +10,10 @@ import java.net.Socket;
 import java.net.SocketAddress;
 import java.net.SocketException;
 import java.net.SocketImpl;
+
 /* loaded from: classes.dex */
 class DatagramSocketWrapper extends Socket {
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public DatagramSocketWrapper(DatagramSocket datagramSocket, FileDescriptor fileDescriptor) throws SocketException {
+    DatagramSocketWrapper(DatagramSocket datagramSocket, FileDescriptor fileDescriptor) throws SocketException {
         super(new DatagramSocketImplWrapper(datagramSocket, fileDescriptor));
     }
 

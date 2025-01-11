@@ -13,6 +13,7 @@ import java.sql.Date;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+
 /* loaded from: classes.dex */
 public final class SqlDateTypeAdapter extends TypeAdapter<Date> {
     public static final TypeAdapterFactory FACTORY = new TypeAdapterFactory() { // from class: com.google.gson.internal.bind.SqlDateTypeAdapter.1
@@ -26,6 +27,7 @@ public final class SqlDateTypeAdapter extends TypeAdapter<Date> {
     };
     private final DateFormat format = new SimpleDateFormat("MMM d, yyyy");
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.gson.TypeAdapter
     public synchronized Date read(JsonReader jsonReader) throws IOException {
         if (jsonReader.peek() == JsonToken.NULL) {
@@ -39,6 +41,7 @@ public final class SqlDateTypeAdapter extends TypeAdapter<Date> {
         }
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.gson.TypeAdapter
     public synchronized void write(JsonWriter jsonWriter, Date date) throws IOException {
         jsonWriter.value(date == null ? null : this.format.format((java.util.Date) date));

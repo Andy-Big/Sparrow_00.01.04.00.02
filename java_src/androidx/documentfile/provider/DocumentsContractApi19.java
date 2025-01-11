@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.provider.DocumentsContract;
 import android.text.TextUtils;
 import android.util.Log;
+
 /* loaded from: classes.dex */
 class DocumentsContractApi19 {
     private static final int FLAG_VIRTUAL_DOCUMENT = 512;

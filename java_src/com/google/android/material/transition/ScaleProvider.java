@@ -5,6 +5,7 @@ import android.animation.ObjectAnimator;
 import android.animation.PropertyValuesHolder;
 import android.view.View;
 import android.view.ViewGroup;
+
 /* loaded from: classes.dex */
 public final class ScaleProvider implements VisibilityAnimatorProvider {
     private boolean growing;

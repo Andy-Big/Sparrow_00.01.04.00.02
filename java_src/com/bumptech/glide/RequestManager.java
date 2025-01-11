@@ -30,6 +30,7 @@ import java.io.File;
 import java.net.URL;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
+
 /* loaded from: classes.dex */
 public class RequestManager implements ComponentCallbacks2, LifecycleListener, ModelTypes<RequestBuilder<Drawable>> {
     private static final RequestOptions DECODE_TYPE_BITMAP = RequestOptions.decodeTypeOf(Bitmap.class).lock();
@@ -189,42 +190,49 @@ public class RequestManager implements ComponentCallbacks2, LifecycleListener, M
         return as(Drawable.class);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.bumptech.glide.ModelTypes
     public RequestBuilder<Drawable> load(Bitmap bitmap) {
         return asDrawable().load(bitmap);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.bumptech.glide.ModelTypes
     public RequestBuilder<Drawable> load(Drawable drawable) {
         return asDrawable().load(drawable);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.bumptech.glide.ModelTypes
     public RequestBuilder<Drawable> load(String str) {
         return asDrawable().load(str);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.bumptech.glide.ModelTypes
     public RequestBuilder<Drawable> load(Uri uri) {
         return asDrawable().load(uri);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.bumptech.glide.ModelTypes
     public RequestBuilder<Drawable> load(File file) {
         return asDrawable().load(file);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.bumptech.glide.ModelTypes
     public RequestBuilder<Drawable> load(Integer num) {
         return asDrawable().load(num);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.bumptech.glide.ModelTypes
     @Deprecated
@@ -232,12 +240,14 @@ public class RequestManager implements ComponentCallbacks2, LifecycleListener, M
         return asDrawable().load(url);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.bumptech.glide.ModelTypes
     public RequestBuilder<Drawable> load(byte[] bArr) {
         return asDrawable().load(bArr);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.bumptech.glide.ModelTypes
     public RequestBuilder<Drawable> load(Object obj) {
@@ -281,8 +291,7 @@ public class RequestManager implements ComponentCallbacks2, LifecycleListener, M
         request.clear();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public synchronized boolean untrack(Target<?> target) {
+    synchronized boolean untrack(Target<?> target) {
         Request request = target.getRequest();
         if (request == null) {
             return true;
@@ -295,24 +304,20 @@ public class RequestManager implements ComponentCallbacks2, LifecycleListener, M
         return false;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public synchronized void track(Target<?> target, Request request) {
+    synchronized void track(Target<?> target, Request request) {
         this.targetTracker.track(target);
         this.requestTracker.runRequest(request);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public List<RequestListener<Object>> getDefaultRequestListeners() {
+    List<RequestListener<Object>> getDefaultRequestListeners() {
         return this.defaultRequestListeners;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public synchronized RequestOptions getDefaultRequestOptions() {
+    synchronized RequestOptions getDefaultRequestOptions() {
         return this.requestOptions;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public <T> TransitionOptions<?, T> getDefaultTransitionOptions(Class<T> cls) {
+    <T> TransitionOptions<?, T> getDefaultTransitionOptions(Class<T> cls) {
         return this.glide.getGlideContext().getDefaultTransitionOptions(cls);
     }
 

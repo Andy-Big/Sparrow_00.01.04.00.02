@@ -2,6 +2,7 @@ package androidx.core.view.accessibility;
 
 import android.os.Bundle;
 import android.view.View;
+
 /* loaded from: classes.dex */
 public interface AccessibilityViewCommand {
     boolean perform(View view, CommandArguments commandArguments);

@@ -13,6 +13,7 @@ import androidx.appcompat.widget.ResourceManagerInternal;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.res.ColorStateListInflaterCompat;
 import java.util.WeakHashMap;
+
 /* loaded from: classes.dex */
 public final class AppCompatResources {
     private static final String LOG_TAG = "AppCompatResources";
@@ -98,9 +99,8 @@ public final class AppCompatResources {
         return typedValue;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static class ColorStateListCacheEntry {
+    private static class ColorStateListCacheEntry {
         final Configuration configuration;
         final ColorStateList value;
 

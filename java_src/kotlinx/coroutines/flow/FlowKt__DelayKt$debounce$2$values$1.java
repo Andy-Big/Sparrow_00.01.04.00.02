@@ -11,6 +11,7 @@ import kotlin.coroutines.jvm.internal.SuspendLambda;
 import kotlin.jvm.functions.Function2;
 import kotlin.jvm.internal.Intrinsics;
 import kotlinx.coroutines.channels.ProducerScope;
+
 /* compiled from: Delay.kt */
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0014\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002*\n\u0012\u0006\u0012\u0004\u0018\u00010\u00040\u0003H\u008a@¢\u0006\u0004\b\u0005\u0010\u0006"}, d2 = {"<anonymous>", "", ExifInterface.GPS_DIRECTION_TRUE, "Lkotlinx/coroutines/channels/ProducerScope;", "", "invoke", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;"}, k = 3, mv = {1, 1, 15})
 @DebugMetadata(c = "kotlinx.coroutines.flow.FlowKt__DelayKt$debounce$2$values$1", f = "Delay.kt", i = {0, 0}, l = {137}, m = "invokeSuspend", n = {"$this$produce", "$this$collect$iv"}, s = {"L$0", "L$1"})
@@ -22,9 +23,8 @@ final class FlowKt__DelayKt$debounce$2$values$1 extends SuspendLambda implements
     private ProducerScope p$;
     final /* synthetic */ FlowKt__DelayKt$debounce$2 this$0;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowKt__DelayKt$debounce$2$values$1(FlowKt__DelayKt$debounce$2 flowKt__DelayKt$debounce$2, Continuation continuation) {
+    FlowKt__DelayKt$debounce$2$values$1(FlowKt__DelayKt$debounce$2 flowKt__DelayKt$debounce$2, Continuation continuation) {
         super(2, continuation);
         this.this$0 = flowKt__DelayKt$debounce$2;
     }
@@ -37,6 +37,7 @@ final class FlowKt__DelayKt$debounce$2$values$1 extends SuspendLambda implements
         return flowKt__DelayKt$debounce$2$values$1;
     }
 
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
     @Override // kotlin.jvm.functions.Function2
     public final Object invoke(ProducerScope<? super Object> producerScope, Continuation<? super Unit> continuation) {
         return ((FlowKt__DelayKt$debounce$2$values$1) create(producerScope, continuation)).invokeSuspend(Unit.INSTANCE);

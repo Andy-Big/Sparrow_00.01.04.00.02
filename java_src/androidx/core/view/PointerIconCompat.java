@@ -5,6 +5,7 @@ import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.os.Build;
 import android.view.PointerIcon;
+
 /* loaded from: classes.dex */
 public final class PointerIconCompat {
     public static final int TYPE_ALIAS = 1010;

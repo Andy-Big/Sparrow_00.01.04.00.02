@@ -22,6 +22,7 @@ import javax.jmdns.impl.constants.DNSRecordType;
 import javax.jmdns.impl.util.ByteWrangler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 /* loaded from: classes2.dex */
 public abstract class DNSRecord extends DNSEntry {
     private static Logger logger = LoggerFactory.getLogger(DNSRecord.class.getName());
@@ -37,19 +38,15 @@ public abstract class DNSRecord extends DNSEntry {
 
     public abstract ServiceInfo getServiceInfo(boolean z);
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public abstract boolean handleQuery(JmDNSImpl jmDNSImpl, long j);
+    abstract boolean handleQuery(JmDNSImpl jmDNSImpl, long j);
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public abstract boolean handleResponse(JmDNSImpl jmDNSImpl);
+    abstract boolean handleResponse(JmDNSImpl jmDNSImpl);
 
     public abstract boolean isSingleValued();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public abstract boolean sameValue(DNSRecord dNSRecord);
+    abstract boolean sameValue(DNSRecord dNSRecord);
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public abstract void write(DNSOutgoing.MessageOutputStream messageOutputStream);
+    abstract void write(DNSOutgoing.MessageOutputStream messageOutputStream);
 
     DNSRecord(String str, DNSRecordType dNSRecordType, DNSRecordClass dNSRecordClass, boolean z, int i) {
         super(str, dNSRecordType, dNSRecordClass, z);
@@ -65,13 +62,11 @@ public abstract class DNSRecord extends DNSEntry {
         return (obj instanceof DNSRecord) && super.equals(obj) && sameValue((DNSRecord) obj);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean sameType(DNSRecord dNSRecord) {
+    boolean sameType(DNSRecord dNSRecord) {
         return getRecordType() == dNSRecord.getRecordType();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean suppressedBy(DNSIncoming dNSIncoming) {
+    boolean suppressedBy(DNSIncoming dNSIncoming) {
         try {
             for (DNSRecord dNSRecord : dNSIncoming.getAllAnswers()) {
                 if (suppressedBy(dNSRecord)) {
@@ -94,8 +89,7 @@ public abstract class DNSRecord extends DNSEntry {
         return this._created + (i * this._ttl * 10);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public int getRemainingTTL(long j) {
+    int getRemainingTTL(long j) {
         return (int) Math.max(0L, (getExpirationTime(100) - j) / 1000);
     }
 
@@ -121,28 +115,24 @@ public abstract class DNSRecord extends DNSEntry {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void resetTTL(DNSRecord dNSRecord) {
+    void resetTTL(DNSRecord dNSRecord) {
         this._created = dNSRecord._created;
         this._ttl = dNSRecord._ttl;
         this._isStaleAndShouldBeRefreshedPercentage = this._randomStaleRefreshOffset + 80;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setWillExpireSoon(long j) {
+    void setWillExpireSoon(long j) {
         this._created = j;
         this._ttl = 1;
     }
 
     /* loaded from: classes2.dex */
     public static class IPv4Address extends Address {
-        /* JADX INFO: Access modifiers changed from: package-private */
-        public IPv4Address(String str, DNSRecordClass dNSRecordClass, boolean z, int i, InetAddress inetAddress) {
+        IPv4Address(String str, DNSRecordClass dNSRecordClass, boolean z, int i, InetAddress inetAddress) {
             super(str, DNSRecordType.TYPE_A, dNSRecordClass, z, i, inetAddress);
         }
 
-        /* JADX INFO: Access modifiers changed from: package-private */
-        public IPv4Address(String str, DNSRecordClass dNSRecordClass, boolean z, int i, byte[] bArr) {
+        IPv4Address(String str, DNSRecordClass dNSRecordClass, boolean z, int i, byte[] bArr) {
             super(str, DNSRecordType.TYPE_A, dNSRecordClass, z, i, bArr);
         }
 
@@ -169,13 +159,11 @@ public abstract class DNSRecord extends DNSEntry {
 
     /* loaded from: classes2.dex */
     public static class IPv6Address extends Address {
-        /* JADX INFO: Access modifiers changed from: package-private */
-        public IPv6Address(String str, DNSRecordClass dNSRecordClass, boolean z, int i, InetAddress inetAddress) {
+        IPv6Address(String str, DNSRecordClass dNSRecordClass, boolean z, int i, InetAddress inetAddress) {
             super(str, DNSRecordType.TYPE_AAAA, dNSRecordClass, z, i, inetAddress);
         }
 
-        /* JADX INFO: Access modifiers changed from: package-private */
-        public IPv6Address(String str, DNSRecordClass dNSRecordClass, boolean z, int i, byte[] bArr) {
+        IPv6Address(String str, DNSRecordClass dNSRecordClass, boolean z, int i, byte[] bArr) {
             super(str, DNSRecordType.TYPE_AAAA, dNSRecordClass, z, i, bArr);
         }
 
@@ -239,14 +227,12 @@ public abstract class DNSRecord extends DNSEntry {
             return (dNSRecord instanceof Address) && sameName(dNSRecord) && sameValue(dNSRecord);
         }
 
-        /* JADX INFO: Access modifiers changed from: package-private */
-        public boolean sameName(DNSRecord dNSRecord) {
+        boolean sameName(DNSRecord dNSRecord) {
             return getName().equalsIgnoreCase(dNSRecord.getName());
         }
 
-        /* JADX INFO: Access modifiers changed from: package-private */
         @Override // javax.jmdns.impl.DNSRecord
-        public boolean sameValue(DNSRecord dNSRecord) {
+        boolean sameValue(DNSRecord dNSRecord) {
             try {
                 if (dNSRecord instanceof Address) {
                     Address address = (Address) dNSRecord;
@@ -262,14 +248,12 @@ public abstract class DNSRecord extends DNSEntry {
             }
         }
 
-        /* JADX INFO: Access modifiers changed from: package-private */
-        public InetAddress getAddress() {
+        InetAddress getAddress() {
             return this._addr;
         }
 
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // javax.jmdns.impl.DNSEntry
-        public void toByteArray(DataOutputStream dataOutputStream) throws IOException {
+        protected void toByteArray(DataOutputStream dataOutputStream) throws IOException {
             super.toByteArray(dataOutputStream);
             for (byte b : getAddress().getAddress()) {
                 dataOutputStream.writeByte(b);
@@ -390,8 +374,7 @@ public abstract class DNSRecord extends DNSEntry {
             return false;
         }
 
-        /* JADX INFO: Access modifiers changed from: package-private */
-        public String getAlias() {
+        String getAlias() {
             return this._alias;
         }
 
@@ -458,8 +441,7 @@ public abstract class DNSRecord extends DNSEntry {
             this._text = (bArr == null || bArr.length <= 0) ? ByteWrangler.EMPTY_TXT : bArr;
         }
 
-        /* JADX INFO: Access modifiers changed from: package-private */
-        public byte[] getText() {
+        byte[] getText() {
             return this._text;
         }
 
@@ -560,9 +542,8 @@ public abstract class DNSRecord extends DNSEntry {
             messageOutputStream.writeByte(0);
         }
 
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // javax.jmdns.impl.DNSEntry
-        public void toByteArray(DataOutputStream dataOutputStream) throws IOException {
+        protected void toByteArray(DataOutputStream dataOutputStream) throws IOException {
             super.toByteArray(dataOutputStream);
             dataOutputStream.writeShort(this._priority);
             dataOutputStream.writeShort(this._weight);
@@ -573,8 +554,7 @@ public abstract class DNSRecord extends DNSEntry {
             }
         }
 
-        /* JADX INFO: Access modifiers changed from: package-private */
-        public String getServer() {
+        String getServer() {
             return this._server;
         }
 
@@ -771,9 +751,8 @@ public abstract class DNSRecord extends DNSEntry {
         return this._source;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // javax.jmdns.impl.DNSEntry
-    public void toString(StringBuilder sb) {
+    protected void toString(StringBuilder sb) {
         super.toString(sb);
         int remainingTTL = getRemainingTTL(System.currentTimeMillis());
         sb.append(" ttl: '");

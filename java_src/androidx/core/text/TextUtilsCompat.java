@@ -3,6 +3,7 @@ package androidx.core.text;
 import android.os.Build;
 import android.text.TextUtils;
 import java.util.Locale;
+
 /* loaded from: classes.dex */
 public final class TextUtilsCompat {
     private static final String ARAB_SCRIPT_SUBTAG = "Arab";

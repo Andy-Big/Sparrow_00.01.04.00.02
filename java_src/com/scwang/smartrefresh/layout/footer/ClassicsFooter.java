@@ -14,6 +14,7 @@ import com.scwang.smartrefresh.layout.internal.ArrowDrawable;
 import com.scwang.smartrefresh.layout.internal.InternalClassics;
 import com.scwang.smartrefresh.layout.internal.ProgressDrawable;
 import com.scwang.smartrefresh.layout.util.DensityUtil;
+
 /* loaded from: classes2.dex */
 public class ClassicsFooter extends InternalClassics<ClassicsFooter> implements RefreshFooter {
     public static String REFRESH_FOOTER_FAILED;

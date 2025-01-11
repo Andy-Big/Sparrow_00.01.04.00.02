@@ -8,6 +8,7 @@ import javax.activation.DataSource;
 import javax.mail.internet.ContentType;
 import javax.mail.internet.MimeUtility;
 import javax.mail.internet.ParseException;
+
 /* loaded from: classes2.dex */
 public class ByteArrayDataSource implements DataSource {
     private byte[] data;

@@ -4,9 +4,9 @@ import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import javax.mail.util.SharedFileInputStream;
-/* JADX INFO: Access modifiers changed from: package-private */
+
 /* loaded from: classes2.dex */
-public class WritableSharedFile extends SharedFileInputStream {
+class WritableSharedFile extends SharedFileInputStream {
     private AppendStream af;
     private RandomAccessFile raf;
 
@@ -32,8 +32,7 @@ public class WritableSharedFile extends SharedFileInputStream {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public synchronized long updateLength() throws IOException {
+    synchronized long updateLength() throws IOException {
         this.datalen = this.in.length();
         this.af = null;
         return this.datalen;

@@ -15,6 +15,7 @@ import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.CopyOnWriteArraySet;
+
 /* loaded from: classes.dex */
 public final class BusUtils {
     private static final Object NULL = "nULl";
@@ -493,9 +494,8 @@ public final class BusUtils {
         getInstance().registerBus(str, str2, str3, str4, str5, z, str6, i);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static final class BusInfo {
+    private static final class BusInfo {
         String className;
         String funName;
         Method method;
@@ -538,9 +538,8 @@ public final class BusUtils {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static class LazyHolder {
+    private static class LazyHolder {
         private static final BusUtils INSTANCE = new BusUtils();
 
         private LazyHolder() {

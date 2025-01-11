@@ -11,6 +11,7 @@ import androidx.constraintlayout.core.widgets.ConstraintWidgetContainer;
 import androidx.constraintlayout.core.widgets.HelperWidget;
 import java.util.HashMap;
 import java.util.Iterator;
+
 /* loaded from: classes.dex */
 public class State {
     static final int CONSTRAINT_RATIO = 2;
@@ -113,8 +114,7 @@ public class State {
         return this;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public Reference reference(Object obj) {
+    Reference reference(Object obj) {
         return this.mReferences.get(obj);
     }
 
@@ -169,10 +169,9 @@ public class State {
         return helperReference;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: androidx.constraintlayout.core.state.State$1  reason: invalid class name */
     /* loaded from: classes.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    static /* synthetic */ class AnonymousClass1 {
         static final /* synthetic */ int[] $SwitchMap$androidx$constraintlayout$core$state$State$Helper;
 
         static {

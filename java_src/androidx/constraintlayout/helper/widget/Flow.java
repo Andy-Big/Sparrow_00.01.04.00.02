@@ -12,6 +12,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.ConstraintSet;
 import androidx.constraintlayout.widget.R;
 import androidx.constraintlayout.widget.VirtualLayout;
+
 /* loaded from: classes.dex */
 public class Flow extends VirtualLayout {
     public static final int CHAIN_PACKED = 2;
@@ -79,9 +80,8 @@ public class Flow extends VirtualLayout {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // androidx.constraintlayout.widget.VirtualLayout, androidx.constraintlayout.widget.ConstraintHelper
-    public void init(AttributeSet attributeSet) {
+    protected void init(AttributeSet attributeSet) {
         super.init(attributeSet);
         this.mFlow = new androidx.constraintlayout.core.widgets.Flow();
         if (attributeSet != null) {

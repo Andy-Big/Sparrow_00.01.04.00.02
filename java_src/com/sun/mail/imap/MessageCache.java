@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.logging.Level;
 import javax.mail.Message;
+
 /* loaded from: classes2.dex */
 public class MessageCache {
     static final /* synthetic */ boolean $assertionsDisabled = false;
@@ -15,8 +16,7 @@ public class MessageCache {
     private int[] seqnums;
     private int size;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public MessageCache(IMAPFolder iMAPFolder, IMAPStore iMAPStore, int i) {
+    MessageCache(IMAPFolder iMAPFolder, IMAPStore iMAPStore, int i) {
         this.folder = iMAPFolder;
         MailLogger subLogger = iMAPFolder.logger.getSubLogger("messagecache", "DEBUG IMAP MC", iMAPStore.getMessageCacheDebug());
         this.logger = subLogger;

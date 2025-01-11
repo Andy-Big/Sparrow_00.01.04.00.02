@@ -9,6 +9,7 @@ import java.nio.charset.CharacterCodingException;
 import java.nio.charset.CharsetDecoder;
 import java.nio.charset.CodingErrorAction;
 import java.nio.charset.StandardCharsets;
+
 /* loaded from: classes2.dex */
 public class LineInputStream extends FilterInputStream {
     private boolean allowutf8;

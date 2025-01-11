@@ -9,6 +9,7 @@ import java.security.PrivilegedActionException;
 import java.security.PrivilegedExceptionAction;
 import java.util.ArrayList;
 import java.util.Enumeration;
+
 /* loaded from: classes2.dex */
 class SecuritySupport {
     private SecuritySupport() {

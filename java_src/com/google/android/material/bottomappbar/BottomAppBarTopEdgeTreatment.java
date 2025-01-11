@@ -2,6 +2,7 @@ package com.google.android.material.bottomappbar;
 
 import com.google.android.material.shape.EdgeTreatment;
 import com.google.android.material.shape.ShapePath;
+
 /* loaded from: classes.dex */
 public class BottomAppBarTopEdgeTreatment extends EdgeTreatment implements Cloneable {
     private static final int ANGLE_LEFT = 180;
@@ -59,8 +60,7 @@ public class BottomAppBarTopEdgeTreatment extends EdgeTreatment implements Clone
         this.fabDiameter = f;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setHorizontalOffset(float f) {
+    void setHorizontalOffset(float f) {
         this.horizontalOffset = f;
     }
 
@@ -68,36 +68,30 @@ public class BottomAppBarTopEdgeTreatment extends EdgeTreatment implements Clone
         return this.horizontalOffset;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public float getCradleVerticalOffset() {
+    float getCradleVerticalOffset() {
         return this.cradleVerticalOffset;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setCradleVerticalOffset(float f) {
+    void setCradleVerticalOffset(float f) {
         if (f < 0.0f) {
             throw new IllegalArgumentException("cradleVerticalOffset must be positive.");
         }
         this.cradleVerticalOffset = f;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public float getFabCradleMargin() {
+    float getFabCradleMargin() {
         return this.fabMargin;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setFabCradleMargin(float f) {
+    void setFabCradleMargin(float f) {
         this.fabMargin = f;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public float getFabCradleRoundedCornerRadius() {
+    float getFabCradleRoundedCornerRadius() {
         return this.roundedCornerRadius;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setFabCradleRoundedCornerRadius(float f) {
+    void setFabCradleRoundedCornerRadius(float f) {
         this.roundedCornerRadius = f;
     }
 }

@@ -1,4 +1,5 @@
 package com.blankj.utilcode.constant;
+
 /* loaded from: classes.dex */
 public interface CacheConstants {
     public static final int DAY = 86400;

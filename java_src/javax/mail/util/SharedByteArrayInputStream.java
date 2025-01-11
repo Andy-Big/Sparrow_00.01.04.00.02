@@ -3,6 +3,7 @@ package javax.mail.util;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import javax.mail.internet.SharedInputStream;
+
 /* loaded from: classes2.dex */
 public class SharedByteArrayInputStream extends ByteArrayInputStream implements SharedInputStream {
     protected int start;

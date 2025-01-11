@@ -26,6 +26,7 @@ import androidx.viewpager2.adapter.StatefulAdapter;
 import com.google.android.material.badge.BadgeDrawable;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
+
 /* loaded from: classes.dex */
 public final class ViewPager2 extends ViewGroup {
     public static final int OFFSCREEN_PAGE_LIMIT_DEFAULT = -1;
@@ -334,10 +335,10 @@ public final class ViewPager2 extends ViewGroup {
         restorePendingState();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static class SavedState extends View.BaseSavedState {
+    static class SavedState extends View.BaseSavedState {
         public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.ClassLoaderCreator<SavedState>() { // from class: androidx.viewpager2.widget.ViewPager2.SavedState.1
+            /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.ClassLoaderCreator
             public SavedState createFromParcel(Parcel parcel, ClassLoader classLoader) {
@@ -347,11 +348,13 @@ public final class ViewPager2 extends ViewGroup {
                 return new SavedState(parcel);
             }
 
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // android.os.Parcelable.Creator
             public SavedState createFromParcel(Parcel parcel) {
                 return createFromParcel(parcel, (ClassLoader) null);
             }
 
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // android.os.Parcelable.Creator
             public SavedState[] newArray(int i) {
                 return new SavedState[i];
@@ -487,8 +490,7 @@ public final class ViewPager2 extends ViewGroup {
         return this.mLayoutManager.getOrientation();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean isRtl() {
+    boolean isRtl() {
         return this.mLayoutManager.getLayoutDirection() == 1;
     }
 
@@ -563,8 +565,7 @@ public final class ViewPager2 extends ViewGroup {
         return this.mFakeDragger.isFakeDragging();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void snapToPage() {
+    void snapToPage() {
         View findSnapView = this.mPagerSnapHelper.findSnapView(this.mLayoutManager);
         if (findSnapView == null) {
             return;
@@ -664,9 +665,8 @@ public final class ViewPager2 extends ViewGroup {
         return super.performAccessibilityAction(i, bundle);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public class RecyclerViewImpl extends RecyclerView {
+    private class RecyclerViewImpl extends RecyclerView {
         RecyclerViewImpl(Context context) {
             super(context);
         }
@@ -698,9 +698,8 @@ public final class ViewPager2 extends ViewGroup {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public class LinearLayoutManagerImpl extends LinearLayoutManager {
+    private class LinearLayoutManagerImpl extends LinearLayoutManager {
         @Override // androidx.recyclerview.widget.RecyclerView.LayoutManager
         public boolean requestChildRectangleOnScreen(RecyclerView recyclerView, View view, Rect rect, boolean z, boolean z2) {
             return false;
@@ -729,9 +728,8 @@ public final class ViewPager2 extends ViewGroup {
             ViewPager2.this.mAccessibilityProvider.onLmInitializeAccessibilityNodeInfoForItem(view, accessibilityNodeInfoCompat);
         }
 
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // androidx.recyclerview.widget.LinearLayoutManager
-        public void calculateExtraLayoutSpace(RecyclerView.State state, int[] iArr) {
+        protected void calculateExtraLayoutSpace(RecyclerView.State state, int[] iArr) {
             int offscreenPageLimit = ViewPager2.this.getOffscreenPageLimit();
             if (offscreenPageLimit == -1) {
                 super.calculateExtraLayoutSpace(state, iArr);
@@ -743,9 +741,8 @@ public final class ViewPager2 extends ViewGroup {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public class PagerSnapHelperImpl extends PagerSnapHelper {
+    private class PagerSnapHelperImpl extends PagerSnapHelper {
         PagerSnapHelperImpl() {
         }
 
@@ -758,9 +755,8 @@ public final class ViewPager2 extends ViewGroup {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static class SmoothScrollToPosition implements Runnable {
+    private static class SmoothScrollToPosition implements Runnable {
         private final int mPosition;
         private final RecyclerView mRecyclerView;
 
@@ -803,9 +799,8 @@ public final class ViewPager2 extends ViewGroup {
         this.mRecyclerView.removeItemDecoration(itemDecoration);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public abstract class AccessibilityProvider {
+    private abstract class AccessibilityProvider {
         boolean handlesGetAccessibilityClassName() {
             return false;
         }
@@ -878,9 +873,8 @@ public final class ViewPager2 extends ViewGroup {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public class BasicAccessibilityProvider extends AccessibilityProvider {
+    class BasicAccessibilityProvider extends AccessibilityProvider {
         @Override // androidx.viewpager2.widget.ViewPager2.AccessibilityProvider
         public boolean handlesRvGetAccessibilityClassName() {
             return true;
@@ -922,9 +916,8 @@ public final class ViewPager2 extends ViewGroup {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public class PageAwareAccessibilityProvider extends AccessibilityProvider {
+    class PageAwareAccessibilityProvider extends AccessibilityProvider {
         private final AccessibilityViewCommand mActionPageBackward;
         private final AccessibilityViewCommand mActionPageForward;
         private RecyclerView.AdapterDataObserver mAdapterDataObserver;

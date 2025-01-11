@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import me.jessyan.autosize.utils.Preconditions;
+
 /* loaded from: classes2.dex */
 public class ExternalAdaptManager {
     private boolean isRun;

@@ -129,10 +129,10 @@ public class ImageUtil {
         return false;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:33:0x006e */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:46:0x0077 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:47:0x004b */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:49:0x004b */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:102:0x0077 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:103:0x004b */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:105:0x004b */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:89:0x006e */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r3v0, types: [android.graphics.Bitmap] */
     /* JADX WARN: Type inference failed for: r4v10 */

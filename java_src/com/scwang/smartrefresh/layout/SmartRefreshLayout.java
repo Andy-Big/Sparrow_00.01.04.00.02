@@ -15,6 +15,7 @@ import android.view.VelocityTracker;
 import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.ViewGroup;
+import android.view.ViewParent;
 import android.view.animation.AnimationUtils;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.Interpolator;
@@ -40,6 +41,8 @@ import com.scwang.smartrefresh.layout.constant.SpinnerStyle;
 import com.scwang.smartrefresh.layout.footer.BallPulseFooter;
 import com.scwang.smartrefresh.layout.header.BezierRadarHeader;
 import com.scwang.smartrefresh.layout.impl.RefreshContentWrapper;
+import com.scwang.smartrefresh.layout.impl.RefreshFooterWrapper;
+import com.scwang.smartrefresh.layout.impl.RefreshHeaderWrapper;
 import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener;
 import com.scwang.smartrefresh.layout.listener.OnMultiPurposeListener;
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
@@ -51,6 +54,7 @@ import com.scwang.smartrefresh.layout.util.ViscousFluidInterpolator;
 import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
+
 /* loaded from: classes2.dex */
 public class SmartRefreshLayout extends ViewGroup implements RefreshLayout, NestedScrollingParent {
     protected static DefaultRefreshFooterCreator sFooterCreator;
@@ -142,6 +146,7 @@ public class SmartRefreshLayout extends ViewGroup implements RefreshLayout, Nest
     protected RefreshState mViceState;
     protected ValueAnimator reboundAnimator;
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.scwang.smartrefresh.layout.api.RefreshLayout
     public SmartRefreshLayout getLayout() {
         return this;
@@ -281,134 +286,56 @@ public class SmartRefreshLayout extends ViewGroup implements RefreshLayout, Nest
     @Override // android.view.View
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
     public void onFinishInflate() {
-        /*
-            r11 = this;
-            super.onFinishInflate()
-            int r0 = super.getChildCount()
-            r1 = 3
-            if (r0 > r1) goto L9e
-            r2 = -1
-            r3 = 0
-            r5 = r2
-            r4 = r3
-            r6 = r4
-        Lf:
-            r7 = 2
-            r8 = 1
-            if (r4 >= r0) goto L33
-            android.view.View r9 = super.getChildAt(r4)
-            boolean r10 = com.scwang.smartrefresh.layout.util.SmartUtil.isContentView(r9)
-            if (r10 == 0) goto L24
-            if (r6 < r7) goto L21
-            if (r4 != r8) goto L24
-        L21:
-            r5 = r4
-            r6 = r7
-            goto L30
-        L24:
-            boolean r7 = r9 instanceof com.scwang.smartrefresh.layout.api.RefreshInternal
-            if (r7 != 0) goto L30
-            if (r6 >= r8) goto L30
-            if (r4 <= 0) goto L2e
-            r6 = r8
-            goto L2f
-        L2e:
-            r6 = r3
-        L2f:
-            r5 = r4
-        L30:
-            int r4 = r4 + 1
-            goto Lf
-        L33:
-            if (r5 < 0) goto L4d
-            com.scwang.smartrefresh.layout.impl.RefreshContentWrapper r4 = new com.scwang.smartrefresh.layout.impl.RefreshContentWrapper
-            android.view.View r6 = super.getChildAt(r5)
-            r4.<init>(r6)
-            r11.mRefreshContent = r4
-            if (r5 != r8) goto L48
-            if (r0 != r1) goto L45
-            goto L46
-        L45:
-            r7 = r2
-        L46:
-            r1 = r3
-            goto L4f
-        L48:
-            if (r0 != r7) goto L4d
-            r1 = r2
-            r7 = r8
-            goto L4f
-        L4d:
-            r1 = r2
-            r7 = r1
-        L4f:
-            r4 = r3
-        L50:
-            if (r4 >= r0) goto L9d
-            android.view.View r5 = super.getChildAt(r4)
-            if (r4 == r1) goto L8b
-            if (r4 == r7) goto L65
-            if (r1 != r2) goto L65
-            com.scwang.smartrefresh.layout.api.RefreshInternal r6 = r11.mRefreshHeader
-            if (r6 != 0) goto L65
-            boolean r6 = r5 instanceof com.scwang.smartrefresh.layout.api.RefreshHeader
-            if (r6 == 0) goto L65
-            goto L8b
-        L65:
-            if (r4 == r7) goto L6d
-            if (r7 != r2) goto L9a
-            boolean r6 = r5 instanceof com.scwang.smartrefresh.layout.api.RefreshFooter
-            if (r6 == 0) goto L9a
-        L6d:
-            boolean r6 = r11.mEnableLoadMore
-            if (r6 != 0) goto L78
-            boolean r6 = r11.mManualLoadMore
-            if (r6 != 0) goto L76
-            goto L78
-        L76:
-            r6 = r3
-            goto L79
-        L78:
-            r6 = r8
-        L79:
-            r11.mEnableLoadMore = r6
-            boolean r6 = r5 instanceof com.scwang.smartrefresh.layout.api.RefreshFooter
-            if (r6 == 0) goto L82
-            com.scwang.smartrefresh.layout.api.RefreshFooter r5 = (com.scwang.smartrefresh.layout.api.RefreshFooter) r5
-            goto L88
-        L82:
-            com.scwang.smartrefresh.layout.impl.RefreshFooterWrapper r6 = new com.scwang.smartrefresh.layout.impl.RefreshFooterWrapper
-            r6.<init>(r5)
-            r5 = r6
-        L88:
-            r11.mRefreshFooter = r5
-            goto L9a
-        L8b:
-            boolean r6 = r5 instanceof com.scwang.smartrefresh.layout.api.RefreshHeader
-            if (r6 == 0) goto L92
-            com.scwang.smartrefresh.layout.api.RefreshHeader r5 = (com.scwang.smartrefresh.layout.api.RefreshHeader) r5
-            goto L98
-        L92:
-            com.scwang.smartrefresh.layout.impl.RefreshHeaderWrapper r6 = new com.scwang.smartrefresh.layout.impl.RefreshHeaderWrapper
-            r6.<init>(r5)
-            r5 = r6
-        L98:
-            r11.mRefreshHeader = r5
-        L9a:
-            int r4 = r4 + 1
-            goto L50
-        L9d:
-            return
-        L9e:
-            java.lang.RuntimeException r0 = new java.lang.RuntimeException
-            java.lang.String r1 = "最多只支持3个子View，Most only support three sub view"
-            r0.<init>(r1)
-            throw r0
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.scwang.smartrefresh.layout.SmartRefreshLayout.onFinishInflate():void");
+        int i;
+        int i2;
+        int i3;
+        super.onFinishInflate();
+        int childCount = super.getChildCount();
+        if (childCount > 3) {
+            throw new RuntimeException("最多只支持3个子View，Most only support three sub view");
+        }
+        int i4 = -1;
+        int i5 = 0;
+        char c = 0;
+        while (true) {
+            if (i5 >= childCount) {
+                break;
+            }
+            View childAt = super.getChildAt(i5);
+            if (SmartUtil.isContentView(childAt) && (c < 2 || i5 == 1)) {
+                i4 = i5;
+                c = 2;
+            } else if (!(childAt instanceof RefreshInternal) && c < 1) {
+                c = i5 > 0 ? (char) 1 : (char) 0;
+                i4 = i5;
+            }
+            i5++;
+        }
+        if (i4 >= 0) {
+            this.mRefreshContent = new RefreshContentWrapper(super.getChildAt(i4));
+            if (i4 == 1) {
+                i2 = childCount != 3 ? -1 : 2;
+                i = 0;
+            } else if (childCount == 2) {
+                i = -1;
+                i2 = 1;
+            }
+            for (i3 = 0; i3 < childCount; i3++) {
+                View childAt2 = super.getChildAt(i3);
+                if (i3 == i || (i3 != i2 && i == -1 && this.mRefreshHeader == null && (childAt2 instanceof RefreshHeader))) {
+                    this.mRefreshHeader = childAt2 instanceof RefreshHeader ? (RefreshHeader) childAt2 : new RefreshHeaderWrapper(childAt2);
+                } else if (i3 == i2 || (i2 == -1 && (childAt2 instanceof RefreshFooter))) {
+                    this.mEnableLoadMore = this.mEnableLoadMore || !this.mManualLoadMore;
+                    this.mRefreshFooter = childAt2 instanceof RefreshFooter ? (RefreshFooter) childAt2 : new RefreshFooterWrapper(childAt2);
+                }
+            }
+        }
+        i = -1;
+        i2 = -1;
+        while (i3 < childCount) {
+        }
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -803,14 +730,181 @@ public class SmartRefreshLayout extends ViewGroup implements RefreshLayout, Nest
     @Override // android.view.ViewGroup, android.view.View
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    public boolean dispatchTouchEvent(android.view.MotionEvent r23) {
-        /*
-            Method dump skipped, instructions count: 867
-            To view this dump add '--comments-level debug' option
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.scwang.smartrefresh.layout.SmartRefreshLayout.dispatchTouchEvent(android.view.MotionEvent):boolean");
+    public boolean dispatchTouchEvent(MotionEvent motionEvent) {
+        char c;
+        RefreshInternal refreshInternal;
+        RefreshInternal refreshInternal2;
+        int actionMasked = motionEvent.getActionMasked();
+        int i = 0;
+        boolean z = actionMasked == 6;
+        int actionIndex = z ? motionEvent.getActionIndex() : -1;
+        int pointerCount = motionEvent.getPointerCount();
+        float f = 0.0f;
+        float f2 = 0.0f;
+        for (int i2 = 0; i2 < pointerCount; i2++) {
+            if (actionIndex != i2) {
+                f += motionEvent.getX(i2);
+                f2 += motionEvent.getY(i2);
+            }
+        }
+        if (z) {
+            pointerCount--;
+        }
+        float f3 = pointerCount;
+        float f4 = f / f3;
+        float f5 = f2 / f3;
+        if ((actionMasked == 6 || actionMasked == 5) && this.mIsBeingDragged) {
+            this.mTouchY += f5 - this.mLastTouchY;
+        }
+        this.mLastTouchX = f4;
+        this.mLastTouchY = f5;
+        if (this.mNestedInProgress) {
+            int i3 = this.mTotalUnconsumed;
+            boolean dispatchTouchEvent = super.dispatchTouchEvent(motionEvent);
+            if (actionMasked == 2 && i3 == this.mTotalUnconsumed) {
+                int i4 = (int) this.mLastTouchX;
+                int width = getWidth();
+                float f6 = this.mLastTouchX / (width != 0 ? width : 1);
+                if (isEnableRefreshOrLoadMore(this.mEnableRefresh) && this.mSpinner > 0 && (refreshInternal2 = this.mRefreshHeader) != null && refreshInternal2.isSupportHorizontalDrag()) {
+                    this.mRefreshHeader.onHorizontalDrag(f6, i4, width);
+                } else if (isEnableRefreshOrLoadMore(this.mEnableLoadMore) && this.mSpinner < 0 && (refreshInternal = this.mRefreshFooter) != null && refreshInternal.isSupportHorizontalDrag()) {
+                    this.mRefreshFooter.onHorizontalDrag(f6, i4, width);
+                }
+            }
+            return dispatchTouchEvent;
+        } else if (!isEnabled() || ((!this.mEnableRefresh && !this.mEnableLoadMore) || ((this.mHeaderNeedTouchEventWhenRefreshing && ((this.mState.isOpening || this.mState.isFinishing) && this.mState.isHeader)) || (this.mFooterNeedTouchEventWhenLoading && ((this.mState.isOpening || this.mState.isFinishing) && this.mState.isFooter))))) {
+            return super.dispatchTouchEvent(motionEvent);
+        } else {
+            if (interceptAnimatorByAction(actionMasked) || this.mState.isFinishing || ((this.mState == RefreshState.Loading && this.mDisableContentWhenLoading) || (this.mState == RefreshState.Refreshing && this.mDisableContentWhenRefresh))) {
+                return false;
+            }
+            if (actionMasked == 0) {
+                this.mCurrentVelocity = 0;
+                this.mVelocityTracker.addMovement(motionEvent);
+                this.mScroller.forceFinished(true);
+                this.mTouchX = f4;
+                this.mTouchY = f5;
+                this.mLastSpinner = 0;
+                this.mTouchSpinner = this.mSpinner;
+                this.mIsBeingDragged = false;
+                this.mSuperDispatchTouchEvent = super.dispatchTouchEvent(motionEvent);
+                if (this.mState == RefreshState.TwoLevel && this.mTouchY < (getMeasuredHeight() * 5) / 6) {
+                    this.mDragDirection = 'h';
+                    return this.mSuperDispatchTouchEvent;
+                }
+                RefreshContent refreshContent = this.mRefreshContent;
+                if (refreshContent != null) {
+                    refreshContent.onActionDown(motionEvent);
+                }
+                return true;
+            }
+            if (actionMasked == 1) {
+                this.mVelocityTracker.addMovement(motionEvent);
+                this.mVelocityTracker.computeCurrentVelocity(1000, this.mMaximumVelocity);
+                this.mCurrentVelocity = (int) this.mVelocityTracker.getYVelocity();
+                startFlingIfNeed(null);
+            } else {
+                if (actionMasked == 2) {
+                    float f7 = f4 - this.mTouchX;
+                    float f8 = f5 - this.mTouchY;
+                    this.mVelocityTracker.addMovement(motionEvent);
+                    if (!this.mIsBeingDragged && (c = this.mDragDirection) != 'h' && this.mRefreshContent != null) {
+                        if (c == 'v' || (Math.abs(f8) >= this.mTouchSlop && Math.abs(f7) < Math.abs(f8))) {
+                            this.mDragDirection = 'v';
+                            if (f8 > 0.0f && (this.mSpinner < 0 || ((this.mEnableOverScrollDrag || this.mEnableRefresh) && this.mRefreshContent.canRefresh()))) {
+                                this.mIsBeingDragged = true;
+                                this.mTouchY = f5 - this.mTouchSlop;
+                            } else if (f8 < 0.0f && (this.mSpinner > 0 || ((this.mEnableOverScrollDrag || this.mEnableLoadMore) && ((this.mState == RefreshState.Loading && this.mFooterLocked) || this.mRefreshContent.canLoadMore())))) {
+                                this.mIsBeingDragged = true;
+                                this.mTouchY = this.mTouchSlop + f5;
+                            }
+                            if (this.mIsBeingDragged) {
+                                f8 = f5 - this.mTouchY;
+                                if (this.mSuperDispatchTouchEvent) {
+                                    motionEvent.setAction(3);
+                                    super.dispatchTouchEvent(motionEvent);
+                                }
+                                RefreshKernel refreshKernel = this.mKernel;
+                                int i5 = this.mSpinner;
+                                refreshKernel.setState((i5 > 0 || (i5 == 0 && f8 > 0.0f)) ? RefreshState.PullDownToRefresh : RefreshState.PullUpToLoad);
+                                ViewParent parent = getParent();
+                                if (parent != null) {
+                                    parent.requestDisallowInterceptTouchEvent(true);
+                                }
+                            }
+                        } else if (Math.abs(f7) >= this.mTouchSlop && Math.abs(f7) > Math.abs(f8) && this.mDragDirection != 'v') {
+                            this.mDragDirection = 'h';
+                        }
+                    }
+                    if (this.mIsBeingDragged) {
+                        int i6 = ((int) f8) + this.mTouchSpinner;
+                        if ((this.mViceState.isHeader && (i6 < 0 || this.mLastSpinner < 0)) || (this.mViceState.isFooter && (i6 > 0 || this.mLastSpinner > 0))) {
+                            this.mLastSpinner = i6;
+                            long eventTime = motionEvent.getEventTime();
+                            if (this.mFalsifyEvent == null) {
+                                MotionEvent obtain = MotionEvent.obtain(eventTime, eventTime, 0, this.mTouchX + f7, this.mTouchY, 0);
+                                this.mFalsifyEvent = obtain;
+                                super.dispatchTouchEvent(obtain);
+                            }
+                            MotionEvent obtain2 = MotionEvent.obtain(eventTime, eventTime, 2, this.mTouchX + f7, this.mTouchY + i6, 0);
+                            super.dispatchTouchEvent(obtain2);
+                            if (this.mFooterLocked && f8 > this.mTouchSlop && this.mSpinner < 0) {
+                                this.mFooterLocked = false;
+                            }
+                            if (i6 > 0 && ((this.mEnableOverScrollDrag || this.mEnableRefresh) && this.mRefreshContent.canRefresh())) {
+                                this.mLastTouchY = f5;
+                                this.mTouchY = f5;
+                                this.mTouchSpinner = 0;
+                                this.mKernel.setState(RefreshState.PullDownToRefresh);
+                            } else if (i6 >= 0 || !((this.mEnableOverScrollDrag || this.mEnableLoadMore) && this.mRefreshContent.canLoadMore())) {
+                                i = i6;
+                            } else {
+                                this.mLastTouchY = f5;
+                                this.mTouchY = f5;
+                                this.mTouchSpinner = 0;
+                                this.mKernel.setState(RefreshState.PullUpToLoad);
+                            }
+                            if ((this.mViceState.isHeader && i < 0) || (this.mViceState.isFooter && i > 0)) {
+                                if (this.mSpinner != 0) {
+                                    moveSpinnerInfinitely(0.0f);
+                                }
+                                return true;
+                            }
+                            if (this.mFalsifyEvent != null) {
+                                this.mFalsifyEvent = null;
+                                obtain2.setAction(3);
+                                super.dispatchTouchEvent(obtain2);
+                            }
+                            obtain2.recycle();
+                            i6 = i;
+                        }
+                        moveSpinnerInfinitely(i6);
+                        return true;
+                    } else if (this.mFooterLocked && f8 > this.mTouchSlop && this.mSpinner < 0) {
+                        this.mFooterLocked = false;
+                    }
+                }
+                return super.dispatchTouchEvent(motionEvent);
+            }
+            this.mVelocityTracker.clear();
+            this.mDragDirection = 'n';
+            MotionEvent motionEvent2 = this.mFalsifyEvent;
+            if (motionEvent2 != null) {
+                motionEvent2.recycle();
+                this.mFalsifyEvent = null;
+                long eventTime2 = motionEvent.getEventTime();
+                MotionEvent obtain3 = MotionEvent.obtain(eventTime2, eventTime2, actionMasked, this.mTouchX, f5, 0);
+                super.dispatchTouchEvent(obtain3);
+                obtain3.recycle();
+            }
+            overSpinner();
+            if (this.mIsBeingDragged) {
+                this.mIsBeingDragged = false;
+                return true;
+            }
+            return super.dispatchTouchEvent(motionEvent);
+        }
     }
 
     protected boolean startFlingIfNeed(Float f) {
@@ -1011,9 +1105,8 @@ public class SmartRefreshLayout extends ViewGroup implements RefreshLayout, Nest
         return z && !this.mEnablePureScrollMode;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     /* loaded from: classes2.dex */
-    public class FlingRunnable implements Runnable {
+    protected class FlingRunnable implements Runnable {
         int mOffset;
         float mVelocity;
         int mFrame = 0;
@@ -1041,14 +1134,45 @@ public class SmartRefreshLayout extends ViewGroup implements RefreshLayout, Nest
          */
         /*
             Code decompiled incorrectly, please refer to instructions dump.
-            To view partially-correct add '--show-bad-code' argument
         */
-        public java.lang.Runnable start() {
-            /*
-                Method dump skipped, instructions count: 215
-                To view this dump add '--comments-level debug' option
-            */
-            throw new UnsupportedOperationException("Method not decompiled: com.scwang.smartrefresh.layout.SmartRefreshLayout.FlingRunnable.start():java.lang.Runnable");
+        public Runnable start() {
+            if (SmartRefreshLayout.this.mState.isFinishing) {
+                return null;
+            }
+            if (SmartRefreshLayout.this.mSpinner != 0) {
+                if (!SmartRefreshLayout.this.mState.isOpening) {
+                    if (SmartRefreshLayout.this.mFooterNoMoreData && SmartRefreshLayout.this.mEnableFooterFollowWhenNoMoreData) {
+                        SmartRefreshLayout smartRefreshLayout = SmartRefreshLayout.this;
+                    }
+                    int i = 0;
+                    int i2 = SmartRefreshLayout.this.mSpinner;
+                    int i3 = SmartRefreshLayout.this.mSpinner;
+                    float f = this.mVelocity;
+                    while (true) {
+                        if (i3 * i2 <= 0) {
+                            break;
+                        }
+                        i++;
+                        f = (float) (f * Math.pow(this.mDamping, (this.mFrameDelay * i) / 10.0f));
+                        float f2 = ((this.mFrameDelay * 1.0f) / 1000.0f) * f;
+                        if (Math.abs(f2) >= 1.0f) {
+                            i2 = (int) (i2 + f2);
+                        } else if (!SmartRefreshLayout.this.mState.isOpening || ((SmartRefreshLayout.this.mState == RefreshState.Refreshing && i2 > SmartRefreshLayout.this.mHeaderHeight) || (SmartRefreshLayout.this.mState != RefreshState.Refreshing && i2 < (-SmartRefreshLayout.this.mFooterHeight)))) {
+                            return null;
+                        }
+                    }
+                }
+                if (SmartRefreshLayout.this.mState != RefreshState.Loading) {
+                    if (SmartRefreshLayout.this.mFooterNoMoreData && SmartRefreshLayout.this.mEnableFooterFollowWhenNoMoreData) {
+                        SmartRefreshLayout smartRefreshLayout2 = SmartRefreshLayout.this;
+                    }
+                    if (SmartRefreshLayout.this.mState == RefreshState.Refreshing) {
+                    }
+                }
+            }
+            this.mStartTime = AnimationUtils.currentAnimationTimeMillis();
+            SmartRefreshLayout.this.postDelayed(this, this.mFrameDelay);
+            return this;
         }
 
         @Override // java.lang.Runnable
@@ -1081,9 +1205,8 @@ public class SmartRefreshLayout extends ViewGroup implements RefreshLayout, Nest
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     /* loaded from: classes2.dex */
-    public class BounceRunnable implements Runnable {
+    protected class BounceRunnable implements Runnable {
         int mSmoothDistance;
         float mVelocity;
         int mFrame = 0;
@@ -1316,18 +1439,21 @@ public class SmartRefreshLayout extends ViewGroup implements RefreshLayout, Nest
         return layoutParams instanceof LayoutParams;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.view.ViewGroup
     public LayoutParams generateDefaultLayoutParams() {
         return new LayoutParams(-1, -1);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.view.ViewGroup
     public LayoutParams generateLayoutParams(ViewGroup.LayoutParams layoutParams) {
         return new LayoutParams(layoutParams);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // android.view.ViewGroup
     public LayoutParams generateLayoutParams(AttributeSet attributeSet) {
         return new LayoutParams(getContext(), attributeSet);
@@ -1459,6 +1585,7 @@ public class SmartRefreshLayout extends ViewGroup implements RefreshLayout, Nest
         return this.mNestedChild.isNestedScrollingEnabled();
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.scwang.smartrefresh.layout.api.RefreshLayout
     public SmartRefreshLayout setFooterHeight(float f) {
         if (this.mFooterHeightStatus.canReplaceWith(DimensionStatus.CodeExact)) {
@@ -1472,6 +1599,7 @@ public class SmartRefreshLayout extends ViewGroup implements RefreshLayout, Nest
         return this;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.scwang.smartrefresh.layout.api.RefreshLayout
     public SmartRefreshLayout setHeaderHeight(float f) {
         if (this.mHeaderHeightStatus.canReplaceWith(DimensionStatus.CodeExact)) {
@@ -1485,24 +1613,28 @@ public class SmartRefreshLayout extends ViewGroup implements RefreshLayout, Nest
         return this;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.scwang.smartrefresh.layout.api.RefreshLayout
     public SmartRefreshLayout setHeaderInsetStart(float f) {
         this.mHeaderInsetStart = DensityUtil.dp2px(f);
         return this;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.scwang.smartrefresh.layout.api.RefreshLayout
     public SmartRefreshLayout setFooterInsetStart(float f) {
         this.mFooterInsetStart = DensityUtil.dp2px(f);
         return this;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.scwang.smartrefresh.layout.api.RefreshLayout
     public SmartRefreshLayout setDragRate(float f) {
         this.mDragRate = f;
         return this;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.scwang.smartrefresh.layout.api.RefreshLayout
     public SmartRefreshLayout setHeaderMaxDragRate(float f) {
         this.mHeaderMaxDragRate = f;
@@ -1517,6 +1649,7 @@ public class SmartRefreshLayout extends ViewGroup implements RefreshLayout, Nest
         return this;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.scwang.smartrefresh.layout.api.RefreshLayout
     public SmartRefreshLayout setFooterMaxDragRate(float f) {
         this.mFooterMaxDragRate = f;
@@ -1531,30 +1664,35 @@ public class SmartRefreshLayout extends ViewGroup implements RefreshLayout, Nest
         return this;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.scwang.smartrefresh.layout.api.RefreshLayout
     public SmartRefreshLayout setHeaderTriggerRate(float f) {
         this.mHeaderTriggerRate = f;
         return this;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.scwang.smartrefresh.layout.api.RefreshLayout
     public SmartRefreshLayout setFooterTriggerRate(float f) {
         this.mFooterTriggerRate = f;
         return this;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.scwang.smartrefresh.layout.api.RefreshLayout
     public SmartRefreshLayout setReboundInterpolator(Interpolator interpolator) {
         this.mReboundInterpolator = interpolator;
         return this;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.scwang.smartrefresh.layout.api.RefreshLayout
     public SmartRefreshLayout setReboundDuration(int i) {
         this.mReboundDuration = i;
         return this;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.scwang.smartrefresh.layout.api.RefreshLayout
     public SmartRefreshLayout setEnableLoadMore(boolean z) {
         this.mManualLoadMore = true;
@@ -1562,12 +1700,14 @@ public class SmartRefreshLayout extends ViewGroup implements RefreshLayout, Nest
         return this;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.scwang.smartrefresh.layout.api.RefreshLayout
     public SmartRefreshLayout setEnableRefresh(boolean z) {
         this.mEnableRefresh = z;
         return this;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.scwang.smartrefresh.layout.api.RefreshLayout
     public SmartRefreshLayout setEnableHeaderTranslationContent(boolean z) {
         this.mEnableHeaderTranslationContent = z;
@@ -1575,6 +1715,7 @@ public class SmartRefreshLayout extends ViewGroup implements RefreshLayout, Nest
         return this;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.scwang.smartrefresh.layout.api.RefreshLayout
     public SmartRefreshLayout setEnableFooterTranslationContent(boolean z) {
         this.mEnableFooterTranslationContent = z;
@@ -1582,36 +1723,42 @@ public class SmartRefreshLayout extends ViewGroup implements RefreshLayout, Nest
         return this;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.scwang.smartrefresh.layout.api.RefreshLayout
     public SmartRefreshLayout setEnableAutoLoadMore(boolean z) {
         this.mEnableAutoLoadMore = z;
         return this;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.scwang.smartrefresh.layout.api.RefreshLayout
     public SmartRefreshLayout setEnableOverScrollBounce(boolean z) {
         this.mEnableOverScrollBounce = z;
         return this;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.scwang.smartrefresh.layout.api.RefreshLayout
     public SmartRefreshLayout setEnablePureScrollMode(boolean z) {
         this.mEnablePureScrollMode = z;
         return this;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.scwang.smartrefresh.layout.api.RefreshLayout
     public SmartRefreshLayout setEnableScrollContentWhenLoaded(boolean z) {
         this.mEnableScrollContentWhenLoaded = z;
         return this;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.scwang.smartrefresh.layout.api.RefreshLayout
     public SmartRefreshLayout setEnableScrollContentWhenRefreshed(boolean z) {
         this.mEnableScrollContentWhenRefreshed = z;
         return this;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.scwang.smartrefresh.layout.api.RefreshLayout
     public SmartRefreshLayout setEnableLoadMoreWhenContentNotFull(boolean z) {
         this.mEnableLoadMoreWhenContentNotFull = z;
@@ -1622,12 +1769,14 @@ public class SmartRefreshLayout extends ViewGroup implements RefreshLayout, Nest
         return this;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.scwang.smartrefresh.layout.api.RefreshLayout
     public SmartRefreshLayout setEnableOverScrollDrag(boolean z) {
         this.mEnableOverScrollDrag = z;
         return this;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.scwang.smartrefresh.layout.api.RefreshLayout
     @Deprecated
     public SmartRefreshLayout setEnableFooterFollowWhenLoadFinished(boolean z) {
@@ -1641,12 +1790,14 @@ public class SmartRefreshLayout extends ViewGroup implements RefreshLayout, Nest
         return this;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.scwang.smartrefresh.layout.api.RefreshLayout
     public SmartRefreshLayout setEnableClipHeaderWhenFixedBehind(boolean z) {
         this.mEnableClipHeaderWhenFixedBehind = z;
         return this;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.scwang.smartrefresh.layout.api.RefreshLayout
     public SmartRefreshLayout setEnableClipFooterWhenFixedBehind(boolean z) {
         this.mEnableClipFooterWhenFixedBehind = z;
@@ -1659,23 +1810,27 @@ public class SmartRefreshLayout extends ViewGroup implements RefreshLayout, Nest
         return this;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.scwang.smartrefresh.layout.api.RefreshLayout
     public SmartRefreshLayout setDisableContentWhenRefresh(boolean z) {
         this.mDisableContentWhenRefresh = z;
         return this;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.scwang.smartrefresh.layout.api.RefreshLayout
     public SmartRefreshLayout setDisableContentWhenLoading(boolean z) {
         this.mDisableContentWhenLoading = z;
         return this;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.scwang.smartrefresh.layout.api.RefreshLayout
     public SmartRefreshLayout setRefreshHeader(RefreshHeader refreshHeader) {
         return setRefreshHeader(refreshHeader, -1, -2);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.scwang.smartrefresh.layout.api.RefreshLayout
     public SmartRefreshLayout setRefreshHeader(RefreshHeader refreshHeader, int i, int i2) {
         RefreshInternal refreshInternal = this.mRefreshHeader;
@@ -1694,11 +1849,13 @@ public class SmartRefreshLayout extends ViewGroup implements RefreshLayout, Nest
         return this;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.scwang.smartrefresh.layout.api.RefreshLayout
     public SmartRefreshLayout setRefreshFooter(RefreshFooter refreshFooter) {
         return setRefreshFooter(refreshFooter, -1, -2);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.scwang.smartrefresh.layout.api.RefreshLayout
     public SmartRefreshLayout setRefreshFooter(RefreshFooter refreshFooter, int i, int i2) {
         RefreshInternal refreshInternal = this.mRefreshFooter;
@@ -1718,11 +1875,13 @@ public class SmartRefreshLayout extends ViewGroup implements RefreshLayout, Nest
         return this;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.scwang.smartrefresh.layout.api.RefreshLayout
     public SmartRefreshLayout setRefreshContent(View view) {
         return setRefreshContent(view, -1, -1);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.scwang.smartrefresh.layout.api.RefreshLayout
     public SmartRefreshLayout setRefreshContent(View view, int i, int i2) {
         RefreshContent refreshContent = this.mRefreshContent;
@@ -1783,12 +1942,14 @@ public class SmartRefreshLayout extends ViewGroup implements RefreshLayout, Nest
         return this.mState;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.scwang.smartrefresh.layout.api.RefreshLayout
     public SmartRefreshLayout setOnRefreshListener(OnRefreshListener onRefreshListener) {
         this.mRefreshListener = onRefreshListener;
         return this;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.scwang.smartrefresh.layout.api.RefreshLayout
     public SmartRefreshLayout setOnLoadMoreListener(OnLoadMoreListener onLoadMoreListener) {
         this.mLoadMoreListener = onLoadMoreListener;
@@ -1796,6 +1957,7 @@ public class SmartRefreshLayout extends ViewGroup implements RefreshLayout, Nest
         return this;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.scwang.smartrefresh.layout.api.RefreshLayout
     public SmartRefreshLayout setOnRefreshLoadMoreListener(OnRefreshLoadMoreListener onRefreshLoadMoreListener) {
         this.mRefreshListener = onRefreshLoadMoreListener;
@@ -1804,12 +1966,14 @@ public class SmartRefreshLayout extends ViewGroup implements RefreshLayout, Nest
         return this;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.scwang.smartrefresh.layout.api.RefreshLayout
     public SmartRefreshLayout setOnMultiPurposeListener(OnMultiPurposeListener onMultiPurposeListener) {
         this.mOnMultiPurposeListener = onMultiPurposeListener;
         return this;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.scwang.smartrefresh.layout.api.RefreshLayout
     public SmartRefreshLayout setPrimaryColors(int... iArr) {
         RefreshInternal refreshInternal = this.mRefreshHeader;
@@ -1824,6 +1988,7 @@ public class SmartRefreshLayout extends ViewGroup implements RefreshLayout, Nest
         return this;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.scwang.smartrefresh.layout.api.RefreshLayout
     public SmartRefreshLayout setPrimaryColorsId(int... iArr) {
         int[] iArr2 = new int[iArr.length];
@@ -1834,6 +1999,7 @@ public class SmartRefreshLayout extends ViewGroup implements RefreshLayout, Nest
         return this;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.scwang.smartrefresh.layout.api.RefreshLayout
     public SmartRefreshLayout setScrollBoundaryDecider(ScrollBoundaryDecider scrollBoundaryDecider) {
         this.mScrollBoundaryDecider = scrollBoundaryDecider;
@@ -1844,6 +2010,7 @@ public class SmartRefreshLayout extends ViewGroup implements RefreshLayout, Nest
         return this;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.scwang.smartrefresh.layout.api.RefreshLayout
     public SmartRefreshLayout setNoMoreData(boolean z) {
         if (this.mState == RefreshState.Loading && z) {
@@ -1870,26 +2037,31 @@ public class SmartRefreshLayout extends ViewGroup implements RefreshLayout, Nest
         return this;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.scwang.smartrefresh.layout.api.RefreshLayout
     public SmartRefreshLayout finishRefresh() {
         return finishRefresh(Math.min(Math.max(0, 300 - ((int) (System.currentTimeMillis() - this.mLastOpenTime))), 300));
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.scwang.smartrefresh.layout.api.RefreshLayout
     public SmartRefreshLayout finishLoadMore() {
         return finishLoadMore(Math.min(Math.max(0, 300 - ((int) (System.currentTimeMillis() - this.mLastOpenTime))), 300));
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.scwang.smartrefresh.layout.api.RefreshLayout
     public SmartRefreshLayout finishRefresh(int i) {
         return finishRefresh(i, true);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.scwang.smartrefresh.layout.api.RefreshLayout
     public SmartRefreshLayout finishRefresh(boolean z) {
         return finishRefresh(z ? Math.min(Math.max(0, 300 - ((int) (System.currentTimeMillis() - this.mLastOpenTime))), 300) : 0, z);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.scwang.smartrefresh.layout.api.RefreshLayout
     public SmartRefreshLayout finishRefresh(int i, final boolean z) {
         postDelayed(new Runnable() { // from class: com.scwang.smartrefresh.layout.SmartRefreshLayout.6
@@ -1948,20 +2120,21 @@ public class SmartRefreshLayout extends ViewGroup implements RefreshLayout, Nest
         return this;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.scwang.smartrefresh.layout.api.RefreshLayout
     public SmartRefreshLayout finishLoadMore(int i) {
         return finishLoadMore(i, true, false);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.scwang.smartrefresh.layout.api.RefreshLayout
     public SmartRefreshLayout finishLoadMore(boolean z) {
         return finishLoadMore(z ? Math.min(Math.max(0, 300 - ((int) (System.currentTimeMillis() - this.mLastOpenTime))), 300) : 0, z, false);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.scwang.smartrefresh.layout.SmartRefreshLayout$7  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public class AnonymousClass7 implements Runnable {
+    class AnonymousClass7 implements Runnable {
         final /* synthetic */ boolean val$noMoreData;
         final /* synthetic */ boolean val$success;
 
@@ -2062,12 +2235,14 @@ public class SmartRefreshLayout extends ViewGroup implements RefreshLayout, Nest
         }
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.scwang.smartrefresh.layout.api.RefreshLayout
     public SmartRefreshLayout finishLoadMore(int i, boolean z, boolean z2) {
         postDelayed(new AnonymousClass7(z, z2), i <= 0 ? 1L : i);
         return this;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.scwang.smartrefresh.layout.api.RefreshLayout
     public SmartRefreshLayout finishLoadMoreWithNoMoreData() {
         return finishLoadMore(Math.min(Math.max(0, 300 - ((int) (System.currentTimeMillis() - this.mLastOpenTime))), 300), true, true);

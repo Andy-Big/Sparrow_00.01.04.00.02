@@ -4,6 +4,7 @@ import androidx.constraintlayout.core.state.State;
 import androidx.constraintlayout.core.widgets.ConstraintAnchor;
 import androidx.constraintlayout.core.widgets.ConstraintWidget;
 import java.util.ArrayList;
+
 /* loaded from: classes.dex */
 public class ConstraintReference implements Reference {
     private Object key;
@@ -376,10 +377,9 @@ public class ConstraintReference implements Reference {
         return margin(this.mState.convertDimension(obj));
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: androidx.constraintlayout.core.state.ConstraintReference$1  reason: invalid class name */
     /* loaded from: classes.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    static /* synthetic */ class AnonymousClass1 {
         static final /* synthetic */ int[] $SwitchMap$androidx$constraintlayout$core$state$State$Constraint;
 
         static {

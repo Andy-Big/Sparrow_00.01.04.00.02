@@ -3,6 +3,7 @@ package androidx.databinding;
 import android.view.View;
 import java.util.Collections;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public abstract class DataBinderMapper {
     public abstract String convertBrIdToString(int i);

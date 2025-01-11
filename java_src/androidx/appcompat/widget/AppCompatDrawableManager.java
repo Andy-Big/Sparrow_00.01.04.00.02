@@ -10,6 +10,7 @@ import androidx.appcompat.R;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.appcompat.widget.ResourceManagerInternal;
 import androidx.core.graphics.ColorUtils;
+
 /* loaded from: classes.dex */
 public final class AppCompatDrawableManager {
     private static final boolean DEBUG = false;
@@ -160,69 +161,44 @@ public final class AppCompatDrawableManager {
                     @Override // androidx.appcompat.widget.ResourceManagerInternal.ResourceManagerHooks
                     /*
                         Code decompiled incorrectly, please refer to instructions dump.
-                        To view partially-correct add '--show-bad-code' argument
                     */
-                    public boolean tintDrawableUsingColorFilter(android.content.Context r7, int r8, android.graphics.drawable.Drawable r9) {
-                        /*
-                            r6 = this;
-                            android.graphics.PorterDuff$Mode r0 = androidx.appcompat.widget.AppCompatDrawableManager.access$000()
-                            int[] r1 = r6.COLORFILTER_TINT_COLOR_CONTROL_NORMAL
-                            boolean r1 = r6.arrayContains(r1, r8)
-                            r2 = 16842801(0x1010031, float:2.3693695E-38)
-                            r3 = -1
-                            r4 = 0
-                            r5 = 1
-                            if (r1 == 0) goto L17
-                            int r2 = androidx.appcompat.R.attr.colorControlNormal
-                        L14:
-                            r8 = r3
-                        L15:
-                            r1 = r5
-                            goto L44
-                        L17:
-                            int[] r1 = r6.COLORFILTER_COLOR_CONTROL_ACTIVATED
-                            boolean r1 = r6.arrayContains(r1, r8)
-                            if (r1 == 0) goto L22
-                            int r2 = androidx.appcompat.R.attr.colorControlActivated
-                            goto L14
-                        L22:
-                            int[] r1 = r6.COLORFILTER_COLOR_BACKGROUND_MULTIPLY
-                            boolean r1 = r6.arrayContains(r1, r8)
-                            if (r1 == 0) goto L2d
-                            android.graphics.PorterDuff$Mode r0 = android.graphics.PorterDuff.Mode.MULTIPLY
-                            goto L14
-                        L2d:
-                            int r1 = androidx.appcompat.R.drawable.abc_list_divider_mtrl_alpha
-                            if (r8 != r1) goto L3c
-                            r2 = 16842800(0x1010030, float:2.3693693E-38)
-                            r8 = 1109603123(0x42233333, float:40.8)
-                            int r8 = java.lang.Math.round(r8)
-                            goto L15
-                        L3c:
-                            int r1 = androidx.appcompat.R.drawable.abc_dialog_material_background
-                            if (r8 != r1) goto L41
-                            goto L14
-                        L41:
-                            r8 = r3
-                            r1 = r4
-                            r2 = r1
-                        L44:
-                            if (r1 == 0) goto L61
-                            boolean r1 = androidx.appcompat.widget.DrawableUtils.canSafelyMutateDrawable(r9)
-                            if (r1 == 0) goto L50
-                            android.graphics.drawable.Drawable r9 = r9.mutate()
-                        L50:
-                            int r7 = androidx.appcompat.widget.ThemeUtils.getThemeAttrColor(r7, r2)
-                            android.graphics.PorterDuffColorFilter r7 = androidx.appcompat.widget.AppCompatDrawableManager.getPorterDuffColorFilter(r7, r0)
-                            r9.setColorFilter(r7)
-                            if (r8 == r3) goto L60
-                            r9.setAlpha(r8)
-                        L60:
-                            return r5
-                        L61:
-                            return r4
-                        */
-                        throw new UnsupportedOperationException("Method not decompiled: androidx.appcompat.widget.AppCompatDrawableManager.AnonymousClass1.tintDrawableUsingColorFilter(android.content.Context, int, android.graphics.drawable.Drawable):boolean");
+                    public boolean tintDrawableUsingColorFilter(Context context, int i, Drawable drawable) {
+                        int i2;
+                        boolean z;
+                        PorterDuff.Mode mode = AppCompatDrawableManager.DEFAULT_MODE;
+                        int i3 = 16842801;
+                        if (arrayContains(this.COLORFILTER_TINT_COLOR_CONTROL_NORMAL, i)) {
+                            i3 = R.attr.colorControlNormal;
+                        } else if (arrayContains(this.COLORFILTER_COLOR_CONTROL_ACTIVATED, i)) {
+                            i3 = R.attr.colorControlActivated;
+                        } else if (arrayContains(this.COLORFILTER_COLOR_BACKGROUND_MULTIPLY, i)) {
+                            mode = PorterDuff.Mode.MULTIPLY;
+                        } else if (i == R.drawable.abc_list_divider_mtrl_alpha) {
+                            i3 = 16842800;
+                            i2 = Math.round(40.8f);
+                            z = true;
+                            if (z) {
+                                if (DrawableUtils.canSafelyMutateDrawable(drawable)) {
+                                    drawable = drawable.mutate();
+                                }
+                                drawable.setColorFilter(AppCompatDrawableManager.getPorterDuffColorFilter(ThemeUtils.getThemeAttrColor(context, i3), mode));
+                                if (i2 != -1) {
+                                    drawable.setAlpha(i2);
+                                }
+                                return true;
+                            }
+                            return false;
+                        } else if (i != R.drawable.abc_dialog_material_background) {
+                            i2 = -1;
+                            z = false;
+                            i3 = 0;
+                            if (z) {
+                            }
+                        }
+                        i2 = -1;
+                        z = true;
+                        if (z) {
+                        }
                     }
 
                     @Override // androidx.appcompat.widget.ResourceManagerInternal.ResourceManagerHooks
@@ -252,8 +228,7 @@ public final class AppCompatDrawableManager {
         return this.mResourceManager.getDrawable(context, i);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public synchronized Drawable getDrawable(Context context, int i, boolean z) {
+    synchronized Drawable getDrawable(Context context, int i, boolean z) {
         return this.mResourceManager.getDrawable(context, i, z);
     }
 
@@ -269,13 +244,11 @@ public final class AppCompatDrawableManager {
         return this.mResourceManager.tintDrawableUsingColorFilter(context, i, drawable);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public synchronized ColorStateList getTintList(Context context, int i) {
+    synchronized ColorStateList getTintList(Context context, int i) {
         return this.mResourceManager.getTintList(context, i);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static void tintDrawable(Drawable drawable, TintInfo tintInfo, int[] iArr) {
+    static void tintDrawable(Drawable drawable, TintInfo tintInfo, int[] iArr) {
         ResourceManagerInternal.tintDrawable(drawable, tintInfo, iArr);
     }
 

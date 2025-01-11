@@ -15,6 +15,7 @@ import kotlin.jvm.functions.Function2;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.sequences.Sequence;
+
 /* compiled from: FileTreeWalk.kt */
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000L\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0010(\n\u0002\b\u0006\u0018\u00002\b\u0012\u0004\u0012\u00020\u00020\u0001:\u0003\u001a\u001b\u001cB\u0019\b\u0010\u0012\u0006\u0010\u0003\u001a\u00020\u0002\u0012\b\b\u0002\u0010\u0004\u001a\u00020\u0005¢\u0006\u0002\u0010\u0006B\u0089\u0001\b\u0002\u0012\u0006\u0010\u0003\u001a\u00020\u0002\u0012\b\b\u0002\u0010\u0004\u001a\u00020\u0005\u0012\u0014\u0010\u0007\u001a\u0010\u0012\u0004\u0012\u00020\u0002\u0012\u0004\u0012\u00020\t\u0018\u00010\b\u0012\u0014\u0010\n\u001a\u0010\u0012\u0004\u0012\u00020\u0002\u0012\u0004\u0012\u00020\u000b\u0018\u00010\b\u00128\u0010\f\u001a4\u0012\u0013\u0012\u00110\u0002¢\u0006\f\b\u000e\u0012\b\b\u000f\u0012\u0004\b\b(\u0010\u0012\u0013\u0012\u00110\u0011¢\u0006\f\b\u000e\u0012\b\b\u000f\u0012\u0004\b\b(\u0012\u0012\u0004\u0012\u00020\u000b\u0018\u00010\r\u0012\b\b\u0002\u0010\u0013\u001a\u00020\u0014¢\u0006\u0002\u0010\u0015J\u000f\u0010\u0016\u001a\b\u0012\u0004\u0012\u00020\u00020\u0017H\u0096\u0002J\u000e\u0010\u0013\u001a\u00020\u00002\u0006\u0010\u0018\u001a\u00020\u0014J\u001a\u0010\u0007\u001a\u00020\u00002\u0012\u0010\u0019\u001a\u000e\u0012\u0004\u0012\u00020\u0002\u0012\u0004\u0012\u00020\t0\bJ \u0010\f\u001a\u00020\u00002\u0018\u0010\u0019\u001a\u0014\u0012\u0004\u0012\u00020\u0002\u0012\u0004\u0012\u00020\u0011\u0012\u0004\u0012\u00020\u000b0\rJ\u001a\u0010\n\u001a\u00020\u00002\u0012\u0010\u0019\u001a\u000e\u0012\u0004\u0012\u00020\u0002\u0012\u0004\u0012\u00020\u000b0\bR\u000e\u0010\u0004\u001a\u00020\u0005X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0013\u001a\u00020\u0014X\u0082\u0004¢\u0006\u0002\n\u0000R\u001c\u0010\u0007\u001a\u0010\u0012\u0004\u0012\u00020\u0002\u0012\u0004\u0012\u00020\t\u0018\u00010\bX\u0082\u0004¢\u0006\u0002\n\u0000R@\u0010\f\u001a4\u0012\u0013\u0012\u00110\u0002¢\u0006\f\b\u000e\u0012\b\b\u000f\u0012\u0004\b\b(\u0010\u0012\u0013\u0012\u00110\u0011¢\u0006\f\b\u000e\u0012\b\b\u000f\u0012\u0004\b\b(\u0012\u0012\u0004\u0012\u00020\u000b\u0018\u00010\rX\u0082\u0004¢\u0006\u0002\n\u0000R\u001c\u0010\n\u001a\u0010\u0012\u0004\u0012\u00020\u0002\u0012\u0004\u0012\u00020\u000b\u0018\u00010\bX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0003\u001a\u00020\u0002X\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006\u001d"}, d2 = {"Lkotlin/io/FileTreeWalk;", "Lkotlin/sequences/Sequence;", "Ljava/io/File;", "start", "direction", "Lkotlin/io/FileWalkDirection;", "(Ljava/io/File;Lkotlin/io/FileWalkDirection;)V", "onEnter", "Lkotlin/Function1;", "", "onLeave", "", "onFail", "Lkotlin/Function2;", "Lkotlin/ParameterName;", IMAPStore.ID_NAME, "f", "Ljava/io/IOException;", "e", "maxDepth", "", "(Ljava/io/File;Lkotlin/io/FileWalkDirection;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function2;I)V", "iterator", "", "depth", "function", "DirectoryState", "FileTreeWalkIterator", "WalkState", "kotlin-stdlib"}, k = 1, mv = {1, 4, 0})
 /* loaded from: classes2.dex */
@@ -26,6 +27,9 @@ public final class FileTreeWalk implements Sequence<File> {
     private final Function1<File, Unit> onLeave;
     private final File start;
 
+    /* JADX DEBUG: Multi-variable search result rejected for r3v0, resolved type: kotlin.jvm.functions.Function1<? super java.io.File, java.lang.Boolean> */
+    /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: kotlin.jvm.functions.Function1<? super java.io.File, kotlin.Unit> */
+    /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: kotlin.jvm.functions.Function2<? super java.io.File, ? super java.io.IOException, kotlin.Unit> */
     /* JADX WARN: Multi-variable type inference failed */
     private FileTreeWalk(File file, FileWalkDirection fileWalkDirection, Function1<? super File, Boolean> function1, Function1<? super File, Unit> function12, Function2<? super File, ? super IOException, Unit> function2, int i) {
         this.start = file;
@@ -56,11 +60,10 @@ public final class FileTreeWalk implements Sequence<File> {
         return new FileTreeWalkIterator();
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* compiled from: FileTreeWalk.kt */
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0012\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\b\"\u0018\u00002\u00020\u0001B\r\u0012\u0006\u0010\u0002\u001a\u00020\u0003¢\u0006\u0002\u0010\u0004J\n\u0010\u0007\u001a\u0004\u0018\u00010\u0003H&R\u0011\u0010\u0002\u001a\u00020\u0003¢\u0006\b\n\u0000\u001a\u0004\b\u0005\u0010\u0006¨\u0006\b"}, d2 = {"Lkotlin/io/FileTreeWalk$WalkState;", "", "root", "Ljava/io/File;", "(Ljava/io/File;)V", "getRoot", "()Ljava/io/File;", "step", "kotlin-stdlib"}, k = 1, mv = {1, 4, 0})
     /* loaded from: classes2.dex */
-    public static abstract class WalkState {
+    private static abstract class WalkState {
         private final File root;
 
         public abstract File step();
@@ -75,11 +78,10 @@ public final class FileTreeWalk implements Sequence<File> {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* compiled from: FileTreeWalk.kt */
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0012\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\b\"\u0018\u00002\u00020\u0001B\r\u0012\u0006\u0010\u0002\u001a\u00020\u0003¢\u0006\u0002\u0010\u0004¨\u0006\u0005"}, d2 = {"Lkotlin/io/FileTreeWalk$DirectoryState;", "Lkotlin/io/FileTreeWalk$WalkState;", "rootDir", "Ljava/io/File;", "(Ljava/io/File;)V", "kotlin-stdlib"}, k = 1, mv = {1, 4, 0})
     /* loaded from: classes2.dex */
-    public static abstract class DirectoryState extends WalkState {
+    private static abstract class DirectoryState extends WalkState {
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public DirectoryState(File rootDir) {
             super(rootDir);
@@ -112,6 +114,7 @@ public final class FileTreeWalk implements Sequence<File> {
             }
         }
 
+        /* JADX DEBUG: Incorrect args count in method signature: ()V */
         public FileTreeWalkIterator() {
             if (FileTreeWalk.this.start.isDirectory()) {
                 this.state.push(directoryState(FileTreeWalk.this.start));
@@ -162,11 +165,10 @@ public final class FileTreeWalk implements Sequence<File> {
             return step;
         }
 
-        /* JADX INFO: Access modifiers changed from: private */
         /* compiled from: FileTreeWalk.kt */
         @Metadata(bv = {1, 0, 3}, d1 = {"\u0000&\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\b\n\u0000\n\u0002\u0010\u0011\n\u0002\b\u0004\b\u0082\u0004\u0018\u00002\u00020\u0001B\r\u0012\u0006\u0010\u0002\u001a\u00020\u0003¢\u0006\u0002\u0010\u0004J\n\u0010\r\u001a\u0004\u0018\u00010\u0003H\u0016R\u000e\u0010\u0005\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0007\u001a\u00020\bX\u0082\u000e¢\u0006\u0002\n\u0000R\u0018\u0010\t\u001a\n\u0012\u0004\u0012\u00020\u0003\u0018\u00010\nX\u0082\u000e¢\u0006\u0004\n\u0002\u0010\u000bR\u000e\u0010\f\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006\u000e"}, d2 = {"Lkotlin/io/FileTreeWalk$FileTreeWalkIterator$BottomUpDirectoryState;", "Lkotlin/io/FileTreeWalk$DirectoryState;", "rootDir", "Ljava/io/File;", "(Lkotlin/io/FileTreeWalk$FileTreeWalkIterator;Ljava/io/File;)V", "failed", "", "fileIndex", "", "fileList", "", "[Ljava/io/File;", "rootVisited", "step", "kotlin-stdlib"}, k = 1, mv = {1, 4, 0})
         /* loaded from: classes2.dex */
-        public final class BottomUpDirectoryState extends DirectoryState {
+        private final class BottomUpDirectoryState extends DirectoryState {
             private boolean failed;
             private int fileIndex;
             private File[] fileList;
@@ -221,11 +223,10 @@ public final class FileTreeWalk implements Sequence<File> {
             }
         }
 
-        /* JADX INFO: Access modifiers changed from: private */
         /* compiled from: FileTreeWalk.kt */
         @Metadata(bv = {1, 0, 3}, d1 = {"\u0000(\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0000\n\u0002\u0010\u0011\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0002\b\u0002\b\u0082\u0004\u0018\u00002\u00020\u0001B\r\u0012\u0006\u0010\u0002\u001a\u00020\u0003¢\u0006\u0002\u0010\u0004J\n\u0010\f\u001a\u0004\u0018\u00010\u0003H\u0016R\u000e\u0010\u0005\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u0018\u0010\u0007\u001a\n\u0012\u0004\u0012\u00020\u0003\u0018\u00010\bX\u0082\u000e¢\u0006\u0004\n\u0002\u0010\tR\u000e\u0010\n\u001a\u00020\u000bX\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006\r"}, d2 = {"Lkotlin/io/FileTreeWalk$FileTreeWalkIterator$TopDownDirectoryState;", "Lkotlin/io/FileTreeWalk$DirectoryState;", "rootDir", "Ljava/io/File;", "(Lkotlin/io/FileTreeWalk$FileTreeWalkIterator;Ljava/io/File;)V", "fileIndex", "", "fileList", "", "[Ljava/io/File;", "rootVisited", "", "step", "kotlin-stdlib"}, k = 1, mv = {1, 4, 0})
         /* loaded from: classes2.dex */
-        public final class TopDownDirectoryState extends DirectoryState {
+        private final class TopDownDirectoryState extends DirectoryState {
             private int fileIndex;
             private File[] fileList;
             private boolean rootVisited;
@@ -244,95 +245,50 @@ public final class FileTreeWalk implements Sequence<File> {
             @Override // kotlin.io.FileTreeWalk.WalkState
             /*
                 Code decompiled incorrectly, please refer to instructions dump.
-                To view partially-correct add '--show-bad-code' argument
             */
-            public java.io.File step() {
-                /*
-                    r10 = this;
-                    boolean r0 = r10.rootVisited
-                    r1 = 0
-                    if (r0 != 0) goto L28
-                    kotlin.io.FileTreeWalk$FileTreeWalkIterator r0 = r10.this$0
-                    kotlin.io.FileTreeWalk r0 = kotlin.io.FileTreeWalk.this
-                    kotlin.jvm.functions.Function1 r0 = kotlin.io.FileTreeWalk.access$getOnEnter$p(r0)
-                    if (r0 == 0) goto L20
-                    java.io.File r2 = r10.getRoot()
-                    java.lang.Object r0 = r0.invoke(r2)
-                    java.lang.Boolean r0 = (java.lang.Boolean) r0
-                    boolean r0 = r0.booleanValue()
-                    if (r0 != 0) goto L20
-                    return r1
-                L20:
-                    r0 = 1
-                    r10.rootVisited = r0
-                    java.io.File r0 = r10.getRoot()
-                    return r0
-                L28:
-                    java.io.File[] r0 = r10.fileList
-                    if (r0 == 0) goto L4a
-                    int r2 = r10.fileIndex
-                    kotlin.jvm.internal.Intrinsics.checkNotNull(r0)
-                    int r0 = r0.length
-                    if (r2 >= r0) goto L35
-                    goto L4a
-                L35:
-                    kotlin.io.FileTreeWalk$FileTreeWalkIterator r0 = r10.this$0
-                    kotlin.io.FileTreeWalk r0 = kotlin.io.FileTreeWalk.this
-                    kotlin.jvm.functions.Function1 r0 = kotlin.io.FileTreeWalk.access$getOnLeave$p(r0)
-                    if (r0 == 0) goto L49
-                    java.io.File r2 = r10.getRoot()
-                    java.lang.Object r0 = r0.invoke(r2)
-                    kotlin.Unit r0 = (kotlin.Unit) r0
-                L49:
-                    return r1
-                L4a:
-                    java.io.File[] r0 = r10.fileList
-                    if (r0 != 0) goto L9c
-                    java.io.File r0 = r10.getRoot()
-                    java.io.File[] r0 = r0.listFiles()
-                    r10.fileList = r0
-                    if (r0 != 0) goto L7d
-                    kotlin.io.FileTreeWalk$FileTreeWalkIterator r0 = r10.this$0
-                    kotlin.io.FileTreeWalk r0 = kotlin.io.FileTreeWalk.this
-                    kotlin.jvm.functions.Function2 r0 = kotlin.io.FileTreeWalk.access$getOnFail$p(r0)
-                    if (r0 == 0) goto L7d
-                    java.io.File r2 = r10.getRoot()
-                    kotlin.io.AccessDeniedException r9 = new kotlin.io.AccessDeniedException
-                    java.io.File r4 = r10.getRoot()
-                    r5 = 0
-                    r7 = 2
-                    r8 = 0
-                    java.lang.String r6 = "Cannot list files in a directory"
-                    r3 = r9
-                    r3.<init>(r4, r5, r6, r7, r8)
-                    java.lang.Object r0 = r0.invoke(r2, r9)
-                    kotlin.Unit r0 = (kotlin.Unit) r0
-                L7d:
-                    java.io.File[] r0 = r10.fileList
-                    if (r0 == 0) goto L87
-                    kotlin.jvm.internal.Intrinsics.checkNotNull(r0)
-                    int r0 = r0.length
-                    if (r0 != 0) goto L9c
-                L87:
-                    kotlin.io.FileTreeWalk$FileTreeWalkIterator r0 = r10.this$0
-                    kotlin.io.FileTreeWalk r0 = kotlin.io.FileTreeWalk.this
-                    kotlin.jvm.functions.Function1 r0 = kotlin.io.FileTreeWalk.access$getOnLeave$p(r0)
-                    if (r0 == 0) goto L9b
-                    java.io.File r2 = r10.getRoot()
-                    java.lang.Object r0 = r0.invoke(r2)
-                    kotlin.Unit r0 = (kotlin.Unit) r0
-                L9b:
-                    return r1
-                L9c:
-                    java.io.File[] r0 = r10.fileList
-                    kotlin.jvm.internal.Intrinsics.checkNotNull(r0)
-                    int r1 = r10.fileIndex
-                    int r2 = r1 + 1
-                    r10.fileIndex = r2
-                    r0 = r0[r1]
-                    return r0
-                */
-                throw new UnsupportedOperationException("Method not decompiled: kotlin.io.FileTreeWalk.FileTreeWalkIterator.TopDownDirectoryState.step():java.io.File");
+            public File step() {
+                Function2 function2;
+                if (!this.rootVisited) {
+                    Function1 function1 = FileTreeWalk.this.onEnter;
+                    if (function1 == null || ((Boolean) function1.invoke(getRoot())).booleanValue()) {
+                        this.rootVisited = true;
+                        return getRoot();
+                    }
+                    return null;
+                }
+                File[] fileArr = this.fileList;
+                if (fileArr != null) {
+                    int i = this.fileIndex;
+                    Intrinsics.checkNotNull(fileArr);
+                    if (i >= fileArr.length) {
+                        Function1 function12 = FileTreeWalk.this.onLeave;
+                        if (function12 != null) {
+                            Unit unit = (Unit) function12.invoke(getRoot());
+                        }
+                        return null;
+                    }
+                }
+                if (this.fileList == null) {
+                    File[] listFiles = getRoot().listFiles();
+                    this.fileList = listFiles;
+                    if (listFiles == null && (function2 = FileTreeWalk.this.onFail) != null) {
+                        Unit unit2 = (Unit) function2.invoke(getRoot(), new AccessDeniedException(getRoot(), null, "Cannot list files in a directory", 2, null));
+                    }
+                    File[] fileArr2 = this.fileList;
+                    if (fileArr2 != null) {
+                        Intrinsics.checkNotNull(fileArr2);
+                    }
+                    Function1 function13 = FileTreeWalk.this.onLeave;
+                    if (function13 != null) {
+                        Unit unit3 = (Unit) function13.invoke(getRoot());
+                    }
+                    return null;
+                }
+                File[] fileArr3 = this.fileList;
+                Intrinsics.checkNotNull(fileArr3);
+                int i2 = this.fileIndex;
+                this.fileIndex = i2 + 1;
+                return fileArr3[i2];
             }
         }
 

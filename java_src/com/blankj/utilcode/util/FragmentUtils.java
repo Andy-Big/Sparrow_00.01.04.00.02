@@ -13,6 +13,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public final class FragmentUtils {
     private static final String ARGS_ID = "args_id";
@@ -1200,9 +1201,8 @@ public final class FragmentUtils {
         return fragment == null ? "null" : fragment.getClass().getSimpleName();
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static class Args {
+    private static class Args {
         final int id;
         final boolean isAddStack;
         final boolean isHide;

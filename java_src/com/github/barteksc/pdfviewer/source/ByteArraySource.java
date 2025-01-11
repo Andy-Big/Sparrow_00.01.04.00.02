@@ -4,6 +4,7 @@ import android.content.Context;
 import com.shockwave.pdfium.PdfDocument;
 import com.shockwave.pdfium.PdfiumCore;
 import java.io.IOException;
+
 /* loaded from: classes.dex */
 public class ByteArraySource implements DocumentSource {
     private byte[] data;

@@ -14,9 +14,9 @@ import java.util.Collections;
 import java.util.IdentityHashMap;
 import java.util.Iterator;
 import java.util.List;
-/* JADX INFO: Access modifiers changed from: package-private */
+
 /* loaded from: classes.dex */
-public class MergeAdapterController implements NestedAdapterWrapper.Callback {
+class MergeAdapterController implements NestedAdapterWrapper.Callback {
     private final MergeAdapter mMergeAdapter;
     private final MergeAdapter.Config.StableIdMode mStableIdMode;
     private final StableIdStorage mStableIdStorage;
@@ -26,8 +26,7 @@ public class MergeAdapterController implements NestedAdapterWrapper.Callback {
     private List<NestedAdapterWrapper> mWrappers = new ArrayList();
     private WrapperAndLocalPosition mReusableHolder = new WrapperAndLocalPosition();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public MergeAdapterController(MergeAdapter mergeAdapter, MergeAdapter.Config config) {
+    MergeAdapterController(MergeAdapter mergeAdapter, MergeAdapter.Config config) {
         this.mMergeAdapter = mergeAdapter;
         if (config.isolateViewTypes) {
             this.mViewTypeStorage = new ViewTypeStorage.IsolatedViewTypeStorage();
@@ -64,13 +63,11 @@ public class MergeAdapterController implements NestedAdapterWrapper.Callback {
         return -1;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean addAdapter(RecyclerView.Adapter<RecyclerView.ViewHolder> adapter) {
+    boolean addAdapter(RecyclerView.Adapter<RecyclerView.ViewHolder> adapter) {
         return addAdapter(this.mWrappers.size(), adapter);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean addAdapter(int i, RecyclerView.Adapter<RecyclerView.ViewHolder> adapter) {
+    boolean addAdapter(int i, RecyclerView.Adapter<RecyclerView.ViewHolder> adapter) {
         if (i < 0 || i > this.mWrappers.size()) {
             throw new IndexOutOfBoundsException("Index must be between 0 and " + this.mWrappers.size() + ". Given:" + i);
         }
@@ -97,8 +94,7 @@ public class MergeAdapterController implements NestedAdapterWrapper.Callback {
         return true;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean removeAdapter(RecyclerView.Adapter<RecyclerView.ViewHolder> adapter) {
+    boolean removeAdapter(RecyclerView.Adapter<RecyclerView.ViewHolder> adapter) {
         int indexOfWrapper = indexOfWrapper(adapter);
         if (indexOfWrapper == -1) {
             return false;
@@ -368,9 +364,8 @@ public class MergeAdapterController implements NestedAdapterWrapper.Callback {
         return this.mStableIdMode != MergeAdapter.Config.StableIdMode.NO_STABLE_IDS;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static class WrapperAndLocalPosition {
+    static class WrapperAndLocalPosition {
         boolean mInUse;
         int mLocalPosition;
         NestedAdapterWrapper mWrapper;

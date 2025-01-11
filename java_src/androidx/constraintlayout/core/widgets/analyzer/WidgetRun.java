@@ -2,6 +2,7 @@ package androidx.constraintlayout.core.widgets.analyzer;
 
 import androidx.constraintlayout.core.widgets.ConstraintAnchor;
 import androidx.constraintlayout.core.widgets.ConstraintWidget;
+
 /* loaded from: classes.dex */
 public abstract class WidgetRun implements Dependency {
     protected ConstraintWidget.DimensionBehaviour dimensionBehavior;
@@ -23,30 +24,24 @@ public abstract class WidgetRun implements Dependency {
         CENTER
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public abstract void apply();
+    abstract void apply();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public abstract void applyToWidget();
+    abstract void applyToWidget();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public abstract void clear();
+    abstract void clear();
 
     abstract void reset();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public abstract boolean supportsWrapComputation();
+    abstract boolean supportsWrapComputation();
 
     @Override // androidx.constraintlayout.core.widgets.analyzer.Dependency
     public void update(Dependency dependency) {
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void updateRunEnd(Dependency dependency) {
+    protected void updateRunEnd(Dependency dependency) {
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void updateRunStart(Dependency dependency) {
+    protected void updateRunStart(Dependency dependency) {
     }
 
     public WidgetRun(ConstraintWidget constraintWidget) {
@@ -90,8 +85,7 @@ public abstract class WidgetRun implements Dependency {
         return 0L;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public final DependencyNode getTarget(ConstraintAnchor constraintAnchor) {
+    protected final DependencyNode getTarget(ConstraintAnchor constraintAnchor) {
         if (constraintAnchor.mTarget == null) {
             return null;
         }
@@ -115,10 +109,9 @@ public abstract class WidgetRun implements Dependency {
         return constraintWidget.horizontalRun.start;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: androidx.constraintlayout.core.widgets.analyzer.WidgetRun$1  reason: invalid class name */
     /* loaded from: classes.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    static /* synthetic */ class AnonymousClass1 {
         static final /* synthetic */ int[] $SwitchMap$androidx$constraintlayout$core$widgets$ConstraintAnchor$Type;
 
         static {
@@ -147,8 +140,7 @@ public abstract class WidgetRun implements Dependency {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void updateRunCenter(Dependency dependency, ConstraintAnchor constraintAnchor, ConstraintAnchor constraintAnchor2, int i) {
+    protected void updateRunCenter(Dependency dependency, ConstraintAnchor constraintAnchor, ConstraintAnchor constraintAnchor2, int i) {
         DependencyNode target = getTarget(constraintAnchor);
         DependencyNode target2 = getTarget(constraintAnchor2);
         if (target.resolved && target2.resolved) {
@@ -212,8 +204,7 @@ public abstract class WidgetRun implements Dependency {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public final int getLimitedDimension(int i, int i2) {
+    protected final int getLimitedDimension(int i, int i2) {
         int max;
         if (i2 == 0) {
             int i3 = this.widget.mMatchConstraintMaxWidth;
@@ -237,8 +228,7 @@ public abstract class WidgetRun implements Dependency {
         return max;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public final DependencyNode getTarget(ConstraintAnchor constraintAnchor, int i) {
+    protected final DependencyNode getTarget(ConstraintAnchor constraintAnchor, int i) {
         if (constraintAnchor.mTarget == null) {
             return null;
         }
@@ -258,15 +248,13 @@ public abstract class WidgetRun implements Dependency {
         return widgetRun.start;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public final void addTarget(DependencyNode dependencyNode, DependencyNode dependencyNode2, int i) {
+    protected final void addTarget(DependencyNode dependencyNode, DependencyNode dependencyNode2, int i) {
         dependencyNode.targets.add(dependencyNode2);
         dependencyNode.margin = i;
         dependencyNode2.dependencies.add(dependencyNode);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public final void addTarget(DependencyNode dependencyNode, DependencyNode dependencyNode2, int i, DimensionDependency dimensionDependency) {
+    protected final void addTarget(DependencyNode dependencyNode, DependencyNode dependencyNode2, int i, DimensionDependency dimensionDependency) {
         dependencyNode.targets.add(dependencyNode2);
         dependencyNode.targets.add(this.dimension);
         dependencyNode.marginFactor = i;

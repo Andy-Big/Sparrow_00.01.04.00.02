@@ -7,6 +7,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 import kotlin.annotation.AnnotationTarget;
 import kotlin.annotation.MustBeDocumented;
+
 /* compiled from: Annotations.kt */
 @Target({ElementType.TYPE, ElementType.METHOD, ElementType.CONSTRUCTOR, ElementType.ANNOTATION_TYPE})
 @MustBeDocumented

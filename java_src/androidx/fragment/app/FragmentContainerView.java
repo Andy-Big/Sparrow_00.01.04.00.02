@@ -13,6 +13,7 @@ import android.view.WindowInsets;
 import android.widget.FrameLayout;
 import androidx.fragment.R;
 import java.util.ArrayList;
+
 /* loaded from: classes.dex */
 public final class FragmentContainerView extends FrameLayout {
     private ArrayList<View> mDisappearingFragmentChildren;
@@ -36,8 +37,7 @@ public final class FragmentContainerView extends FrameLayout {
         throw new UnsupportedOperationException("FragmentContainerView must be within a FragmentActivity to be instantiated from XML.");
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public FragmentContainerView(Context context, AttributeSet attributeSet, FragmentManager fragmentManager) {
+    FragmentContainerView(Context context, AttributeSet attributeSet, FragmentManager fragmentManager) {
         super(context, attributeSet);
         String str;
         this.mDrawDisappearingViewsFirst = true;
@@ -124,8 +124,7 @@ public final class FragmentContainerView extends FrameLayout {
         super.endViewTransition(view);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setDrawDisappearingViewsLast(boolean z) {
+    void setDrawDisappearingViewsLast(boolean z) {
         this.mDrawDisappearingViewsFirst = z;
     }
 

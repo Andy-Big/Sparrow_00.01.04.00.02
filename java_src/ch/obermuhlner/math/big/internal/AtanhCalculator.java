@@ -3,6 +3,7 @@ package ch.obermuhlner.math.big.internal;
 import ch.obermuhlner.math.big.BigRational;
 import java.math.BigDecimal;
 import java.math.MathContext;
+
 /* loaded from: classes.dex */
 public class AtanhCalculator extends SeriesCalculator {
     public static final AtanhCalculator INSTANCE = new AtanhCalculator();

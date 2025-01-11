@@ -14,6 +14,7 @@ import androidx.core.view.ScrollingView;
 import androidx.core.widget.NestedScrollView;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
+
 /* loaded from: classes2.dex */
 public abstract class SmartUtil {
     public static int getColor(Context context, int i) {

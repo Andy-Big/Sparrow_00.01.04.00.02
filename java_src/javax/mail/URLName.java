@@ -11,6 +11,7 @@ import java.net.URL;
 import java.net.UnknownHostException;
 import java.util.BitSet;
 import java.util.Locale;
+
 /* loaded from: classes2.dex */
 public class URLName {
     static final int caseDiff = 32;

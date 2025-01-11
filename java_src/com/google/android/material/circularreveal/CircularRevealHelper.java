@@ -17,6 +17,7 @@ import com.google.android.material.circularreveal.CircularRevealWidget;
 import com.google.android.material.math.MathUtils;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
+
 /* loaded from: classes.dex */
 public class CircularRevealHelper {
     public static final int BITMAP_SHADER = 0;

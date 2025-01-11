@@ -9,6 +9,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public final class GlideException extends Exception {
     private static final StackTraceElement[] EMPTY_ELEMENTS = new StackTraceElement[0];
@@ -39,13 +40,11 @@ public final class GlideException extends Exception {
         this.causes = list;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setLoggingDetails(Key key, DataSource dataSource) {
+    void setLoggingDetails(Key key, DataSource dataSource) {
         setLoggingDetails(key, dataSource, null);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setLoggingDetails(Key key, DataSource dataSource, Class<?> cls) {
+    void setLoggingDetails(Key key, DataSource dataSource, Class<?> cls) {
         this.key = key;
         this.dataSource = dataSource;
         this.dataClass = cls;
@@ -177,9 +176,8 @@ public final class GlideException extends Exception {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static final class IndentedAppendable implements Appendable {
+    private static final class IndentedAppendable implements Appendable {
         private static final String EMPTY_SEQUENCE = "";
         private static final String INDENT = "  ";
         private final Appendable appendable;

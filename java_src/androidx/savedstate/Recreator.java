@@ -10,15 +10,14 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
-/* JADX INFO: Access modifiers changed from: package-private */
+
 /* loaded from: classes.dex */
-public final class Recreator implements GenericLifecycleObserver {
+final class Recreator implements GenericLifecycleObserver {
     static final String CLASSES_KEY = "classes_to_restore";
     static final String COMPONENT_KEY = "androidx.savedstate.Restarter";
     private final SavedStateRegistryOwner mOwner;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public Recreator(SavedStateRegistryOwner savedStateRegistryOwner) {
+    Recreator(SavedStateRegistryOwner savedStateRegistryOwner) {
         this.mOwner = savedStateRegistryOwner;
     }
 
@@ -65,8 +64,7 @@ public final class Recreator implements GenericLifecycleObserver {
     static final class SavedStateProvider implements SavedStateRegistry.SavedStateProvider {
         final Set<String> mClasses = new HashSet();
 
-        /* JADX INFO: Access modifiers changed from: package-private */
-        public SavedStateProvider(SavedStateRegistry savedStateRegistry) {
+        SavedStateProvider(SavedStateRegistry savedStateRegistry) {
             savedStateRegistry.registerSavedStateProvider(Recreator.COMPONENT_KEY, this);
         }
 
@@ -77,8 +75,7 @@ public final class Recreator implements GenericLifecycleObserver {
             return bundle;
         }
 
-        /* JADX INFO: Access modifiers changed from: package-private */
-        public void add(String str) {
+        void add(String str) {
             this.mClasses.add(str);
         }
     }

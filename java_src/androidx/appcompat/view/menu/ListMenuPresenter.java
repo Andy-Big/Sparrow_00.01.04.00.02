@@ -15,6 +15,7 @@ import androidx.appcompat.R;
 import androidx.appcompat.view.menu.MenuPresenter;
 import androidx.appcompat.view.menu.MenuView;
 import java.util.ArrayList;
+
 /* loaded from: classes.dex */
 public class ListMenuPresenter implements MenuPresenter, AdapterView.OnItemClickListener {
     private static final String TAG = "ListMenuPresenter";
@@ -186,9 +187,8 @@ public class ListMenuPresenter implements MenuPresenter, AdapterView.OnItemClick
         restoreHierarchyState((Bundle) parcelable);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public class MenuAdapter extends BaseAdapter {
+    private class MenuAdapter extends BaseAdapter {
         private int mExpandedIndex = -1;
 
         @Override // android.widget.Adapter
@@ -206,6 +206,7 @@ public class ListMenuPresenter implements MenuPresenter, AdapterView.OnItemClick
             return this.mExpandedIndex < 0 ? size : size - 1;
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // android.widget.Adapter
         public MenuItemImpl getItem(int i) {
             ArrayList<MenuItemImpl> nonActionItems = ListMenuPresenter.this.mMenu.getNonActionItems();

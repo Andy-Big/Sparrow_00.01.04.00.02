@@ -67,6 +67,11 @@ public class BaseActivity extends AppCompatActivity {
     private List<Integer> arrayList_ch = new ArrayList();
     private List<Integer> arrayList_inputCh = new ArrayList();
 
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.-$$Lambda$BaseActivity$_fOJPw9SuDSBbspVEASM1ho8YlY.onChanged(java.lang.Object):void] */
+    public static /* synthetic */ void lambda$_fOJPw9SuDSBbspVEASM1ho8YlY(BaseActivity baseActivity, Boolean bool) {
+        baseActivity.setNightTheme(bool);
+    }
+
     @Override // androidx.appcompat.app.AppCompatActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     protected void onCreate(Bundle bundle) {
         ViewUtil.hideSystemUI(getWindow().getDecorView());
@@ -79,7 +84,7 @@ public class BaseActivity extends AppCompatActivity {
         sharedViewModel.nightThemeEnable.observe(this, new Observer() { // from class: com.rigol.scope.-$$Lambda$BaseActivity$_fOJPw9SuDSBbspVEASM1ho8YlY
             @Override // androidx.lifecycle.Observer
             public final void onChanged(Object obj) {
-                BaseActivity.this.setNightTheme((Boolean) obj);
+                BaseActivity.lambda$_fOJPw9SuDSBbspVEASM1ho8YlY(BaseActivity.this, (Boolean) obj);
             }
         });
         this.panelKeyViewModel = (PanelKeyViewModel) getAppViewModelProvider().get(PanelKeyViewModel.class);
@@ -125,7 +130,6 @@ public class BaseActivity extends AppCompatActivity {
         Timber.d("onConfigurationChanged: %s", configuration.toString());
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public void setNightTheme(Boolean bool) {
         if (bool.booleanValue()) {
             setTheme(R.style.AppTheme_Night);
@@ -162,6 +166,10 @@ public class BaseActivity extends AppCompatActivity {
             @Override // android.view.LayoutInflater.Factory
             public View onCreateView(String str, Context context, AttributeSet attributeSet) {
                 return null;
+            }
+
+            {
+                BaseActivity.this = this;
             }
 
             @Override // android.view.LayoutInflater.Factory2

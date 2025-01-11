@@ -13,6 +13,7 @@ import com.google.android.material.snackbar.Snackbar;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.ref.WeakReference;
+
 /* loaded from: classes.dex */
 public final class SnackbarUtils {
     private static final int COLOR_DEFAULT = -16777217;

@@ -2,6 +2,7 @@ package androidx.savedstate;
 
 import android.os.Bundle;
 import androidx.lifecycle.Lifecycle;
+
 /* loaded from: classes.dex */
 public final class SavedStateRegistryController {
     private final SavedStateRegistryOwner mOwner;

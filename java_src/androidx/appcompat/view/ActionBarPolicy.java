@@ -7,6 +7,7 @@ import android.content.res.TypedArray;
 import android.os.Build;
 import android.view.ViewConfiguration;
 import androidx.appcompat.R;
+
 /* loaded from: classes.dex */
 public class ActionBarPolicy {
     private Context mContext;

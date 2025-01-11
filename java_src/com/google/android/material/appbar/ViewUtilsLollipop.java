@@ -11,6 +11,7 @@ import android.view.ViewOutlineProvider;
 import androidx.constraintlayout.motion.widget.Key;
 import com.google.android.material.R;
 import com.google.android.material.internal.ThemeEnforcement;
+
 /* loaded from: classes.dex */
 class ViewUtilsLollipop {
     private static final int[] STATE_LIST_ANIM_ATTRS = {16843848};
@@ -18,13 +19,11 @@ class ViewUtilsLollipop {
     ViewUtilsLollipop() {
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static void setBoundsViewOutlineProvider(View view) {
+    static void setBoundsViewOutlineProvider(View view) {
         view.setOutlineProvider(ViewOutlineProvider.BOUNDS);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static void setStateListAnimatorFromAttrs(View view, AttributeSet attributeSet, int i, int i2) {
+    static void setStateListAnimatorFromAttrs(View view, AttributeSet attributeSet, int i, int i2) {
         Context context = view.getContext();
         TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context, attributeSet, STATE_LIST_ANIM_ATTRS, i, i2, new int[0]);
         try {
@@ -36,8 +35,7 @@ class ViewUtilsLollipop {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static void setDefaultAppBarLayoutStateListAnimator(View view, float f) {
+    static void setDefaultAppBarLayoutStateListAnimator(View view, float f) {
         int integer = view.getResources().getInteger(R.integer.app_bar_elevation_anim_duration);
         StateListAnimator stateListAnimator = new StateListAnimator();
         long j = integer;

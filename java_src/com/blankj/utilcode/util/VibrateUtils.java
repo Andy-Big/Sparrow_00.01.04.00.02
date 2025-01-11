@@ -1,6 +1,7 @@
 package com.blankj.utilcode.util;
 
 import android.os.Vibrator;
+
 /* loaded from: classes.dex */
 public final class VibrateUtils {
     private static Vibrator vibrator;

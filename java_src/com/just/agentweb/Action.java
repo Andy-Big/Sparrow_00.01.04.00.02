@@ -4,6 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import java.util.ArrayList;
 import java.util.Arrays;
+
 /* loaded from: classes.dex */
 public class Action implements Parcelable {
     public static final transient int ACTION_CAMERA = 3;
@@ -11,12 +12,14 @@ public class Action implements Parcelable {
     public static final transient int ACTION_PERMISSION = 1;
     public static final transient int ACTION_VIDEO = 4;
     public static final Parcelable.Creator<Action> CREATOR = new Parcelable.Creator<Action>() { // from class: com.just.agentweb.Action.1
+        /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
         public Action createFromParcel(Parcel parcel) {
             return new Action(parcel);
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
         public Action[] newArray(int i) {

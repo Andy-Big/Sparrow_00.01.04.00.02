@@ -7,6 +7,7 @@ import java.util.concurrent.RejectedExecutionException;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
+
 /* compiled from: WriteTimeoutSocket.java */
 /* loaded from: classes2.dex */
 class TimeoutOutputStream extends OutputStream {

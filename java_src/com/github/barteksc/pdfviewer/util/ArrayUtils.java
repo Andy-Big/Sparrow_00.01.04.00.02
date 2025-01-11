@@ -1,6 +1,7 @@
 package com.github.barteksc.pdfviewer.util;
 
 import java.util.ArrayList;
+
 /* loaded from: classes.dex */
 public class ArrayUtils {
     private ArrayUtils() {

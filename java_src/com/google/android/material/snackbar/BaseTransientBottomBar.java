@@ -50,6 +50,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.ArrayList;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>> {
     static final int ANIMATION_DURATION = 250;
@@ -147,17 +148,15 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
     public @interface Duration {
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     /* loaded from: classes.dex */
-    public interface OnAttachStateChangeListener {
+    protected interface OnAttachStateChangeListener {
         void onViewAttachedToWindow(View view);
 
         void onViewDetachedFromWindow(View view);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     /* loaded from: classes.dex */
-    public interface OnLayoutChangeListener {
+    protected interface OnLayoutChangeListener {
         void onLayoutChange(View view, int i, int i2, int i3, int i4);
     }
 
@@ -182,8 +181,7 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
         });
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public BaseTransientBottomBar(ViewGroup viewGroup, View view, com.google.android.material.snackbar.ContentViewCallback contentViewCallback) {
+    protected BaseTransientBottomBar(ViewGroup viewGroup, View view, com.google.android.material.snackbar.ContentViewCallback contentViewCallback) {
         if (viewGroup == null) {
             throw new IllegalArgumentException("Transient bottom bar must have non-null parent");
         }
@@ -351,8 +349,7 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
         dispatchDismiss(3);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void dispatchDismiss(int i) {
+    protected void dispatchDismiss(int i) {
         SnackbarManager.getInstance().dismiss(this.managerCallback, i);
     }
 
@@ -701,9 +698,8 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
         return enabledAccessibilityServiceList != null && enabledAccessibilityServiceList.isEmpty();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     /* loaded from: classes.dex */
-    public static class SnackbarBaseLayout extends FrameLayout {
+    protected static class SnackbarBaseLayout extends FrameLayout {
         private static final View.OnTouchListener consumeAllTouchListener = new View.OnTouchListener() { // from class: com.google.android.material.snackbar.BaseTransientBottomBar.SnackbarBaseLayout.1
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
@@ -718,13 +714,11 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
         private OnAttachStateChangeListener onAttachStateChangeListener;
         private OnLayoutChangeListener onLayoutChangeListener;
 
-        /* JADX INFO: Access modifiers changed from: protected */
-        public SnackbarBaseLayout(Context context) {
+        protected SnackbarBaseLayout(Context context) {
             this(context, null);
         }
 
-        /* JADX INFO: Access modifiers changed from: protected */
-        public SnackbarBaseLayout(Context context, AttributeSet attributeSet) {
+        protected SnackbarBaseLayout(Context context, AttributeSet attributeSet) {
             super(MaterialThemeOverlay.wrap(context, attributeSet, 0, 0), attributeSet);
             Context context2 = getContext();
             TypedArray obtainStyledAttributes = context2.obtainStyledAttributes(attributeSet, R.styleable.SnackbarLayout);

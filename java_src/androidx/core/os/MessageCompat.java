@@ -2,6 +2,7 @@ package androidx.core.os;
 
 import android.os.Build;
 import android.os.Message;
+
 /* loaded from: classes.dex */
 public final class MessageCompat {
     private static boolean sTryIsAsynchronous = true;

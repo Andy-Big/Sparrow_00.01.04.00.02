@@ -2,6 +2,7 @@ package javax.mail.search;
 
 import java.util.Date;
 import javax.mail.Message;
+
 /* loaded from: classes2.dex */
 public final class ReceivedDateTerm extends DateTerm {
     private static final long serialVersionUID = -2756695246195503170L;

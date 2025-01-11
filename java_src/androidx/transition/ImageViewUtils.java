@@ -5,14 +5,14 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.widget.ImageView;
 import java.lang.reflect.Field;
+
 /* loaded from: classes.dex */
 class ImageViewUtils {
     private static Field sDrawMatrixField = null;
     private static boolean sDrawMatrixFieldFetched = false;
     private static boolean sTryHiddenAnimateTransform = true;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static void animateTransform(ImageView imageView, Matrix matrix) {
+    static void animateTransform(ImageView imageView, Matrix matrix) {
         if (Build.VERSION.SDK_INT >= 29) {
             imageView.animateTransform(matrix);
         } else if (matrix == null) {

@@ -3,6 +3,7 @@ package com.sun.mail.smtp;
 import javax.mail.Address;
 import javax.mail.SendFailedException;
 import javax.mail.internet.InternetAddress;
+
 /* loaded from: classes2.dex */
 public class SMTPSendFailedException extends SendFailedException {
     private static final long serialVersionUID = 8049122628728932894L;

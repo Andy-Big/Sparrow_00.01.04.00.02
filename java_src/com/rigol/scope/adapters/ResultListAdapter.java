@@ -787,8 +787,6 @@ public class ResultListAdapter extends MultiItemTypeAdapter<List<ResultParam>> {
             super(i);
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.rigol.scope.adapters.ResultListAdapter.BaseMeasureAdapterDelegate, com.rigol.scope.adapters.AdapterDelegate
         public boolean isForViewType(List<ResultParam> list, int i) {
             return list.get(i) instanceof MeasureResultParam;
@@ -870,8 +868,6 @@ public class ResultListAdapter extends MultiItemTypeAdapter<List<ResultParam>> {
             super(i);
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.rigol.scope.adapters.ResultListAdapter.BaseMeasureAdapterDelegate, com.rigol.scope.adapters.AdapterDelegate
         public boolean isForViewType(List<ResultParam> list, int i) {
             return list.get(i) instanceof HistogramResultParam;
@@ -911,8 +907,6 @@ public class ResultListAdapter extends MultiItemTypeAdapter<List<ResultParam>> {
             super(i);
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.rigol.scope.adapters.ResultListAdapter.BaseMeasureAdapterDelegate, com.rigol.scope.adapters.AdapterDelegate
         public boolean isForViewType(List<ResultParam> list, int i) {
             return list.get(i) instanceof MeasHistogramResultParam;
@@ -952,8 +946,6 @@ public class ResultListAdapter extends MultiItemTypeAdapter<List<ResultParam>> {
             super(i);
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.rigol.scope.adapters.ResultListAdapter.BaseMeasureAdapterDelegate, com.rigol.scope.adapters.AdapterDelegate
         public boolean isForViewType(List<ResultParam> list, int i) {
             return list.get(i) instanceof CursorResultParam;
@@ -992,8 +984,6 @@ public class ResultListAdapter extends MultiItemTypeAdapter<List<ResultParam>> {
             super(i);
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.rigol.scope.adapters.ResultListAdapter.BaseMeasureAdapterDelegate, com.rigol.scope.adapters.AdapterDelegate
         public boolean isForViewType(List<ResultParam> list, int i) {
             return list.get(i) instanceof DvmResultParam;
@@ -1020,8 +1010,6 @@ public class ResultListAdapter extends MultiItemTypeAdapter<List<ResultParam>> {
             super(i);
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.rigol.scope.adapters.ResultListAdapter.BaseMeasureAdapterDelegate, com.rigol.scope.adapters.AdapterDelegate
         public boolean isForViewType(List<ResultParam> list, int i) {
             return list.get(i) instanceof CounterResultParam;
@@ -1071,8 +1059,6 @@ public class ResultListAdapter extends MultiItemTypeAdapter<List<ResultParam>> {
             super(i);
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.rigol.scope.adapters.ResultListAdapter.BaseMeasureAdapterDelegate, com.rigol.scope.adapters.AdapterDelegate
         public boolean isForViewType(List<ResultParam> list, int i) {
             return list.get(i) instanceof EyeResultParam;
@@ -1111,8 +1097,6 @@ public class ResultListAdapter extends MultiItemTypeAdapter<List<ResultParam>> {
             super(i);
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.rigol.scope.adapters.ResultListAdapter.BaseMeasureAdapterDelegate, com.rigol.scope.adapters.AdapterDelegate
         public boolean isForViewType(List<ResultParam> list, int i) {
             return list.get(i) instanceof JitterResultParam;
@@ -1151,8 +1135,6 @@ public class ResultListAdapter extends MultiItemTypeAdapter<List<ResultParam>> {
             super(i);
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.rigol.scope.adapters.ResultListAdapter.BaseMeasureAdapterDelegate, com.rigol.scope.adapters.AdapterDelegate
         public boolean isForViewType(List<ResultParam> list, int i) {
             return list.get(i) instanceof MaskResultParam;
@@ -1191,8 +1173,6 @@ public class ResultListAdapter extends MultiItemTypeAdapter<List<ResultParam>> {
             super(i);
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.rigol.scope.adapters.ResultListAdapter.BaseMeasureAdapterDelegate, com.rigol.scope.adapters.AdapterDelegate
         public boolean isForViewType(List<ResultParam> list, int i) {
             return list.get(i) instanceof RtsaMarkerResultParam;
@@ -1224,8 +1204,6 @@ public class ResultListAdapter extends MultiItemTypeAdapter<List<ResultParam>> {
     public static class BaseMeasureAdapterDelegate extends BaseAdapterDelegate<List<ResultParam>> {
         private int selectedPosition;
 
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.rigol.scope.adapters.AdapterDelegate
         public boolean isForViewType(List<ResultParam> list, int i) {
             return false;

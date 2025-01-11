@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Comparator;
 import java.util.logging.Level;
 import java.util.logging.LogRecord;
+
 /* loaded from: classes2.dex */
 public class SeverityComparator implements Comparator<LogRecord>, Serializable {
     private static final Comparator<LogRecord> INSTANCE = new SeverityComparator();
@@ -17,8 +18,7 @@ public class SeverityComparator implements Comparator<LogRecord>, Serializable {
         return i > 0 ? 1 : 0;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static SeverityComparator getInstance() {
+    static SeverityComparator getInstance() {
         return (SeverityComparator) INSTANCE;
     }
 
@@ -85,6 +85,7 @@ public class SeverityComparator implements Comparator<LogRecord>, Serializable {
         }
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.Comparator
     public int compare(LogRecord logRecord, LogRecord logRecord2) {
         if (logRecord == null || logRecord2 == null) {

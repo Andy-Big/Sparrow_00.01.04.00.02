@@ -51,6 +51,7 @@ import androidx.appcompat.R;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.appcompat.view.ActionMode;
+import androidx.appcompat.view.StandaloneActionMode;
 import androidx.appcompat.view.SupportActionModeWrapper;
 import androidx.appcompat.view.SupportMenuInflater;
 import androidx.appcompat.view.WindowCallbackWrapper;
@@ -66,8 +67,10 @@ import androidx.appcompat.widget.FitWindowsViewGroup;
 import androidx.appcompat.widget.TintTypedArray;
 import androidx.appcompat.widget.Toolbar;
 import androidx.appcompat.widget.VectorEnabledTintResources;
+import androidx.appcompat.widget.ViewStubCompat;
 import androidx.appcompat.widget.ViewUtils;
 import androidx.collection.SimpleArrayMap;
+import androidx.core.app.ActivityCompat;
 import androidx.core.app.NavUtils;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.res.ResourcesCompat;
@@ -79,14 +82,15 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.ViewPropertyAnimatorCompat;
 import androidx.core.view.ViewPropertyAnimatorListenerAdapter;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.core.widget.PopupWindowCompat;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleOwner;
 import java.lang.Thread;
 import java.util.List;
 import org.xmlpull.v1.XmlPullParser;
-/* JADX INFO: Access modifiers changed from: package-private */
+
 /* loaded from: classes.dex */
-public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuilder.Callback, LayoutInflater.Factory2 {
+class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuilder.Callback, LayoutInflater.Factory2 {
     static final String EXCEPTION_HANDLER_MESSAGE_SUFFIX = ". If the resource you are trying to use is a vector resource, you may be referencing it in an unsupported way. See AppCompatDelegate.setCompatVectorFromResourcesEnabled() for more info.";
     private static final boolean IS_PRE_LOLLIPOP;
     private static final boolean sCanApplyOverrideConfiguration;
@@ -184,23 +188,19 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
         sInstalledExceptionHandler = true;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public AppCompatDelegateImpl(Activity activity, AppCompatCallback appCompatCallback) {
+    AppCompatDelegateImpl(Activity activity, AppCompatCallback appCompatCallback) {
         this(activity, null, appCompatCallback, activity);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public AppCompatDelegateImpl(Dialog dialog, AppCompatCallback appCompatCallback) {
+    AppCompatDelegateImpl(Dialog dialog, AppCompatCallback appCompatCallback) {
         this(dialog.getContext(), dialog.getWindow(), appCompatCallback, dialog);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public AppCompatDelegateImpl(Context context, Window window, AppCompatCallback appCompatCallback) {
+    AppCompatDelegateImpl(Context context, Window window, AppCompatCallback appCompatCallback) {
         this(context, window, appCompatCallback, context);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public AppCompatDelegateImpl(Context context, Activity activity, AppCompatCallback appCompatCallback) {
+    AppCompatDelegateImpl(Context context, Activity activity, AppCompatCallback appCompatCallback) {
         this(context, null, appCompatCallback, activity);
     }
 
@@ -466,59 +466,33 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
     @Override // androidx.appcompat.app.AppCompatDelegate
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
     public void onDestroy() {
-        /*
-            r3 = this;
-            java.lang.Object r0 = r3.mHost
-            boolean r0 = r0 instanceof android.app.Activity
-            if (r0 == 0) goto L9
-            removeActivityDelegate(r3)
-        L9:
-            boolean r0 = r3.mInvalidatePanelMenuPosted
-            if (r0 == 0) goto L18
-            android.view.Window r0 = r3.mWindow
-            android.view.View r0 = r0.getDecorView()
-            java.lang.Runnable r1 = r3.mInvalidatePanelMenuRunnable
-            r0.removeCallbacks(r1)
-        L18:
-            r0 = 0
-            r3.mStarted = r0
-            r0 = 1
-            r3.mIsDestroyed = r0
-            int r0 = r3.mLocalNightMode
-            r1 = -100
-            if (r0 == r1) goto L48
-            java.lang.Object r0 = r3.mHost
-            boolean r1 = r0 instanceof android.app.Activity
-            if (r1 == 0) goto L48
-            android.app.Activity r0 = (android.app.Activity) r0
-            boolean r0 = r0.isChangingConfigurations()
-            if (r0 == 0) goto L48
-            androidx.collection.SimpleArrayMap<java.lang.String, java.lang.Integer> r0 = androidx.appcompat.app.AppCompatDelegateImpl.sLocalNightModes
-            java.lang.Object r1 = r3.mHost
-            java.lang.Class r1 = r1.getClass()
-            java.lang.String r1 = r1.getName()
-            int r2 = r3.mLocalNightMode
-            java.lang.Integer r2 = java.lang.Integer.valueOf(r2)
-            r0.put(r1, r2)
-            goto L57
-        L48:
-            androidx.collection.SimpleArrayMap<java.lang.String, java.lang.Integer> r0 = androidx.appcompat.app.AppCompatDelegateImpl.sLocalNightModes
-            java.lang.Object r1 = r3.mHost
-            java.lang.Class r1 = r1.getClass()
-            java.lang.String r1 = r1.getName()
-            r0.remove(r1)
-        L57:
-            androidx.appcompat.app.ActionBar r0 = r3.mActionBar
-            if (r0 == 0) goto L5e
-            r0.onDestroy()
-        L5e:
-            r3.cleanupAutoManagers()
-            return
-        */
-        throw new UnsupportedOperationException("Method not decompiled: androidx.appcompat.app.AppCompatDelegateImpl.onDestroy():void");
+        ActionBar actionBar;
+        if (this.mHost instanceof Activity) {
+            removeActivityDelegate(this);
+        }
+        if (this.mInvalidatePanelMenuPosted) {
+            this.mWindow.getDecorView().removeCallbacks(this.mInvalidatePanelMenuRunnable);
+        }
+        this.mStarted = false;
+        this.mIsDestroyed = true;
+        if (this.mLocalNightMode != -100) {
+            Object obj = this.mHost;
+            if ((obj instanceof Activity) && ((Activity) obj).isChangingConfigurations()) {
+                sLocalNightModes.put(this.mHost.getClass().getName(), Integer.valueOf(this.mLocalNightMode));
+                actionBar = this.mActionBar;
+                if (actionBar != null) {
+                    actionBar.onDestroy();
+                }
+                cleanupAutoManagers();
+            }
+        }
+        sLocalNightModes.remove(this.mHost.getClass().getName());
+        actionBar = this.mActionBar;
+        if (actionBar != null) {
+        }
+        cleanupAutoManagers();
     }
 
     private void cleanupAutoManagers() {
@@ -890,14 +864,147 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
     /* JADX WARN: Removed duplicated region for block: B:17:0x0029  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    androidx.appcompat.view.ActionMode startSupportActionModeFromWindow(androidx.appcompat.view.ActionMode.Callback r8) {
-        /*
-            Method dump skipped, instructions count: 368
-            To view this dump add '--comments-level debug' option
-        */
-        throw new UnsupportedOperationException("Method not decompiled: androidx.appcompat.app.AppCompatDelegateImpl.startSupportActionModeFromWindow(androidx.appcompat.view.ActionMode$Callback):androidx.appcompat.view.ActionMode");
+    ActionMode startSupportActionModeFromWindow(ActionMode.Callback callback) {
+        ActionMode actionMode;
+        Context context;
+        ActionMode actionMode2;
+        AppCompatCallback appCompatCallback;
+        endOnGoingFadeAnimation();
+        ActionMode actionMode3 = this.mActionMode;
+        if (actionMode3 != null) {
+            actionMode3.finish();
+        }
+        if (!(callback instanceof ActionModeCallbackWrapperV9)) {
+            callback = new ActionModeCallbackWrapperV9(callback);
+        }
+        AppCompatCallback appCompatCallback2 = this.mAppCompatCallback;
+        if (appCompatCallback2 != null && !this.mIsDestroyed) {
+            try {
+                actionMode = appCompatCallback2.onWindowStartingSupportActionMode(callback);
+            } catch (AbstractMethodError unused) {
+            }
+            if (actionMode == null) {
+                this.mActionMode = actionMode;
+            } else {
+                if (this.mActionModeView == null) {
+                    if (this.mIsFloating) {
+                        TypedValue typedValue = new TypedValue();
+                        Resources.Theme theme = this.mContext.getTheme();
+                        theme.resolveAttribute(R.attr.actionBarTheme, typedValue, true);
+                        if (typedValue.resourceId != 0) {
+                            Resources.Theme newTheme = this.mContext.getResources().newTheme();
+                            newTheme.setTo(theme);
+                            newTheme.applyStyle(typedValue.resourceId, true);
+                            context = new androidx.appcompat.view.ContextThemeWrapper(this.mContext, 0);
+                            context.getTheme().setTo(newTheme);
+                        } else {
+                            context = this.mContext;
+                        }
+                        this.mActionModeView = new ActionBarContextView(context);
+                        PopupWindow popupWindow = new PopupWindow(context, (AttributeSet) null, R.attr.actionModePopupWindowStyle);
+                        this.mActionModePopup = popupWindow;
+                        PopupWindowCompat.setWindowLayoutType(popupWindow, 2);
+                        this.mActionModePopup.setContentView(this.mActionModeView);
+                        this.mActionModePopup.setWidth(-1);
+                        context.getTheme().resolveAttribute(R.attr.actionBarSize, typedValue, true);
+                        this.mActionModeView.setContentHeight(TypedValue.complexToDimensionPixelSize(typedValue.data, context.getResources().getDisplayMetrics()));
+                        this.mActionModePopup.setHeight(-2);
+                        this.mShowActionModePopup = new Runnable() { // from class: androidx.appcompat.app.AppCompatDelegateImpl.6
+                            @Override // java.lang.Runnable
+                            public void run() {
+                                AppCompatDelegateImpl.this.mActionModePopup.showAtLocation(AppCompatDelegateImpl.this.mActionModeView, 55, 0, 0);
+                                AppCompatDelegateImpl.this.endOnGoingFadeAnimation();
+                                if (AppCompatDelegateImpl.this.shouldAnimateActionModeView()) {
+                                    AppCompatDelegateImpl.this.mActionModeView.setAlpha(0.0f);
+                                    AppCompatDelegateImpl appCompatDelegateImpl = AppCompatDelegateImpl.this;
+                                    appCompatDelegateImpl.mFadeAnim = ViewCompat.animate(appCompatDelegateImpl.mActionModeView).alpha(1.0f);
+                                    AppCompatDelegateImpl.this.mFadeAnim.setListener(new ViewPropertyAnimatorListenerAdapter() { // from class: androidx.appcompat.app.AppCompatDelegateImpl.6.1
+                                        @Override // androidx.core.view.ViewPropertyAnimatorListenerAdapter, androidx.core.view.ViewPropertyAnimatorListener
+                                        public void onAnimationStart(View view) {
+                                            AppCompatDelegateImpl.this.mActionModeView.setVisibility(0);
+                                        }
+
+                                        @Override // androidx.core.view.ViewPropertyAnimatorListenerAdapter, androidx.core.view.ViewPropertyAnimatorListener
+                                        public void onAnimationEnd(View view) {
+                                            AppCompatDelegateImpl.this.mActionModeView.setAlpha(1.0f);
+                                            AppCompatDelegateImpl.this.mFadeAnim.setListener(null);
+                                            AppCompatDelegateImpl.this.mFadeAnim = null;
+                                        }
+                                    });
+                                    return;
+                                }
+                                AppCompatDelegateImpl.this.mActionModeView.setAlpha(1.0f);
+                                AppCompatDelegateImpl.this.mActionModeView.setVisibility(0);
+                            }
+                        };
+                    } else {
+                        ViewStubCompat viewStubCompat = (ViewStubCompat) this.mSubDecor.findViewById(R.id.action_mode_bar_stub);
+                        if (viewStubCompat != null) {
+                            viewStubCompat.setLayoutInflater(LayoutInflater.from(getActionBarThemedContext()));
+                            this.mActionModeView = (ActionBarContextView) viewStubCompat.inflate();
+                        }
+                    }
+                }
+                if (this.mActionModeView != null) {
+                    endOnGoingFadeAnimation();
+                    this.mActionModeView.killMode();
+                    StandaloneActionMode standaloneActionMode = new StandaloneActionMode(this.mActionModeView.getContext(), this.mActionModeView, callback, this.mActionModePopup == null);
+                    if (callback.onCreateActionMode(standaloneActionMode, standaloneActionMode.getMenu())) {
+                        standaloneActionMode.invalidate();
+                        this.mActionModeView.initForMode(standaloneActionMode);
+                        this.mActionMode = standaloneActionMode;
+                        if (shouldAnimateActionModeView()) {
+                            this.mActionModeView.setAlpha(0.0f);
+                            ViewPropertyAnimatorCompat alpha = ViewCompat.animate(this.mActionModeView).alpha(1.0f);
+                            this.mFadeAnim = alpha;
+                            alpha.setListener(new ViewPropertyAnimatorListenerAdapter() { // from class: androidx.appcompat.app.AppCompatDelegateImpl.7
+                                @Override // androidx.core.view.ViewPropertyAnimatorListenerAdapter, androidx.core.view.ViewPropertyAnimatorListener
+                                public void onAnimationStart(View view) {
+                                    AppCompatDelegateImpl.this.mActionModeView.setVisibility(0);
+                                    AppCompatDelegateImpl.this.mActionModeView.sendAccessibilityEvent(32);
+                                    if (AppCompatDelegateImpl.this.mActionModeView.getParent() instanceof View) {
+                                        ViewCompat.requestApplyInsets((View) AppCompatDelegateImpl.this.mActionModeView.getParent());
+                                    }
+                                }
+
+                                @Override // androidx.core.view.ViewPropertyAnimatorListenerAdapter, androidx.core.view.ViewPropertyAnimatorListener
+                                public void onAnimationEnd(View view) {
+                                    AppCompatDelegateImpl.this.mActionModeView.setAlpha(1.0f);
+                                    AppCompatDelegateImpl.this.mFadeAnim.setListener(null);
+                                    AppCompatDelegateImpl.this.mFadeAnim = null;
+                                }
+                            });
+                        } else {
+                            this.mActionModeView.setAlpha(1.0f);
+                            this.mActionModeView.setVisibility(0);
+                            this.mActionModeView.sendAccessibilityEvent(32);
+                            if (this.mActionModeView.getParent() instanceof View) {
+                                ViewCompat.requestApplyInsets((View) this.mActionModeView.getParent());
+                            }
+                        }
+                        if (this.mActionModePopup != null) {
+                            this.mWindow.getDecorView().post(this.mShowActionModePopup);
+                        }
+                    } else {
+                        this.mActionMode = null;
+                    }
+                }
+            }
+            actionMode2 = this.mActionMode;
+            if (actionMode2 != null && (appCompatCallback = this.mAppCompatCallback) != null) {
+                appCompatCallback.onSupportActionModeStarted(actionMode2);
+            }
+            return this.mActionMode;
+        }
+        actionMode = null;
+        if (actionMode == null) {
+        }
+        actionMode2 = this.mActionMode;
+        if (actionMode2 != null) {
+            appCompatCallback.onSupportActionModeStarted(actionMode2);
+        }
+        return this.mActionMode;
     }
 
     final boolean shouldAnimateActionModeView() {
@@ -1712,64 +1819,40 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
     /* JADX WARN: Removed duplicated region for block: B:23:0x0053  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    private boolean updateForNightMode(int r7, boolean r8) {
-        /*
-            r6 = this;
-            android.content.Context r0 = r6.mContext
-            r1 = 0
-            android.content.res.Configuration r0 = r6.createOverrideConfigurationForDayNight(r0, r7, r1)
-            boolean r2 = r6.isActivityManifestHandlingUiMode()
-            android.content.Context r3 = r6.mContext
-            android.content.res.Resources r3 = r3.getResources()
-            android.content.res.Configuration r3 = r3.getConfiguration()
-            int r3 = r3.uiMode
-            r3 = r3 & 48
-            int r0 = r0.uiMode
-            r0 = r0 & 48
-            r4 = 1
-            if (r3 == r0) goto L47
-            if (r8 == 0) goto L47
-            if (r2 != 0) goto L47
-            boolean r8 = r6.mBaseContextAttached
-            if (r8 == 0) goto L47
-            boolean r8 = androidx.appcompat.app.AppCompatDelegateImpl.sCanReturnDifferentContext
-            if (r8 != 0) goto L30
-            boolean r8 = r6.mCreated
-            if (r8 == 0) goto L47
-        L30:
-            java.lang.Object r8 = r6.mHost
-            boolean r5 = r8 instanceof android.app.Activity
-            if (r5 == 0) goto L47
-            android.app.Activity r8 = (android.app.Activity) r8
-            boolean r8 = r8.isChild()
-            if (r8 != 0) goto L47
-            java.lang.Object r8 = r6.mHost
-            android.app.Activity r8 = (android.app.Activity) r8
-            androidx.core.app.ActivityCompat.recreate(r8)
-            r8 = r4
-            goto L48
-        L47:
-            r8 = 0
-        L48:
-            if (r8 != 0) goto L50
-            if (r3 == r0) goto L50
-            r6.updateResourcesConfigurationForNightMode(r0, r2, r1)
-            goto L51
-        L50:
-            r4 = r8
-        L51:
-            if (r4 == 0) goto L5e
-            java.lang.Object r8 = r6.mHost
-            boolean r0 = r8 instanceof androidx.appcompat.app.AppCompatActivity
-            if (r0 == 0) goto L5e
-            androidx.appcompat.app.AppCompatActivity r8 = (androidx.appcompat.app.AppCompatActivity) r8
-            r8.onNightModeChanged(r7)
-        L5e:
-            return r4
-        */
-        throw new UnsupportedOperationException("Method not decompiled: androidx.appcompat.app.AppCompatDelegateImpl.updateForNightMode(int, boolean):boolean");
+    private boolean updateForNightMode(int i, boolean z) {
+        boolean z2;
+        Configuration createOverrideConfigurationForDayNight = createOverrideConfigurationForDayNight(this.mContext, i, null);
+        boolean isActivityManifestHandlingUiMode = isActivityManifestHandlingUiMode();
+        int i2 = this.mContext.getResources().getConfiguration().uiMode & 48;
+        int i3 = createOverrideConfigurationForDayNight.uiMode & 48;
+        boolean z3 = true;
+        if (i2 != i3 && z && !isActivityManifestHandlingUiMode && this.mBaseContextAttached && (sCanReturnDifferentContext || this.mCreated)) {
+            Object obj = this.mHost;
+            if ((obj instanceof Activity) && !((Activity) obj).isChild()) {
+                ActivityCompat.recreate((Activity) this.mHost);
+                z2 = true;
+                if (!z2 || i2 == i3) {
+                    z3 = z2;
+                } else {
+                    updateResourcesConfigurationForNightMode(i3, isActivityManifestHandlingUiMode, null);
+                }
+                if (z3) {
+                    Object obj2 = this.mHost;
+                    if (obj2 instanceof AppCompatActivity) {
+                        ((AppCompatActivity) obj2).onNightModeChanged(i);
+                    }
+                }
+                return z3;
+            }
+        }
+        z2 = false;
+        if (z2) {
+        }
+        z3 = z2;
+        if (z3) {
+        }
+        return z3;
     }
 
     private void updateResourcesConfigurationForNightMode(int i, boolean z, Configuration configuration) {
@@ -1847,9 +1930,8 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
         return this.mActivityHandlesUiMode;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public class ActionModeCallbackWrapperV9 implements ActionMode.Callback {
+    class ActionModeCallbackWrapperV9 implements ActionMode.Callback {
         private ActionMode.Callback mWrapped;
 
         public ActionModeCallbackWrapperV9(ActionMode.Callback callback) {
@@ -1906,9 +1988,8 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public final class PanelMenuPresenterCallback implements MenuPresenter.Callback {
+    private final class PanelMenuPresenterCallback implements MenuPresenter.Callback {
         PanelMenuPresenterCallback() {
         }
 
@@ -1942,9 +2023,8 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public final class ActionMenuPresenterCallback implements MenuPresenter.Callback {
+    private final class ActionMenuPresenterCallback implements MenuPresenter.Callback {
         ActionMenuPresenterCallback() {
         }
 
@@ -1964,9 +2044,8 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     /* loaded from: classes.dex */
-    public static final class PanelFeatureState {
+    protected static final class PanelFeatureState {
         int background;
         View createdPanelView;
         ViewGroup decorView;
@@ -2090,21 +2169,23 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
             this.frozenMenuState = null;
         }
 
-        /* JADX INFO: Access modifiers changed from: private */
         /* loaded from: classes.dex */
-        public static class SavedState implements Parcelable {
+        private static class SavedState implements Parcelable {
             public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.ClassLoaderCreator<SavedState>() { // from class: androidx.appcompat.app.AppCompatDelegateImpl.PanelFeatureState.SavedState.1
+                /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
                 @Override // android.os.Parcelable.ClassLoaderCreator
                 public SavedState createFromParcel(Parcel parcel, ClassLoader classLoader) {
                     return SavedState.readFromParcel(parcel, classLoader);
                 }
 
+                /* JADX DEBUG: Method merged with bridge method */
                 @Override // android.os.Parcelable.Creator
                 public SavedState createFromParcel(Parcel parcel) {
                     return SavedState.readFromParcel(parcel, null);
                 }
 
+                /* JADX DEBUG: Method merged with bridge method */
                 @Override // android.os.Parcelable.Creator
                 public SavedState[] newArray(int i) {
                     return new SavedState[i];
@@ -2144,9 +2225,8 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public class ListMenuDecorView extends ContentFrameLayout {
+    private class ListMenuDecorView extends ContentFrameLayout {
         public ListMenuDecorView(Context context) {
             super(context);
         }
@@ -2175,9 +2255,8 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public class AppCompatWindowCallback extends WindowCallbackWrapper {
+    class AppCompatWindowCallback extends WindowCallbackWrapper {
         @Override // androidx.appcompat.view.WindowCallbackWrapper, android.view.Window.Callback
         public void onContentChanged() {
         }
@@ -2272,9 +2351,8 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public abstract class AutoNightModeManager {
+    abstract class AutoNightModeManager {
         private BroadcastReceiver mReceiver;
 
         abstract IntentFilter createIntentFilterForBroadcastReceiver();
@@ -2318,9 +2396,8 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public class AutoTimeNightModeManager extends AutoNightModeManager {
+    private class AutoTimeNightModeManager extends AutoNightModeManager {
         private final TwilightManager mTwilightManager;
 
         AutoTimeNightModeManager(TwilightManager twilightManager) {
@@ -2348,9 +2425,8 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public class AutoBatteryNightModeManager extends AutoNightModeManager {
+    private class AutoBatteryNightModeManager extends AutoNightModeManager {
         private final PowerManager mPowerManager;
 
         AutoBatteryNightModeManager(Context context) {
@@ -2499,9 +2575,8 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
         return configuration3;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static class ConfigurationImplApi17 {
+    static class ConfigurationImplApi17 {
         private ConfigurationImplApi17() {
         }
 
@@ -2512,9 +2587,8 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static class ConfigurationImplApi24 {
+    static class ConfigurationImplApi24 {
         private ConfigurationImplApi24() {
         }
 
@@ -2529,9 +2603,8 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static class ConfigurationImplApi26 {
+    static class ConfigurationImplApi26 {
         private ConfigurationImplApi26() {
         }
 

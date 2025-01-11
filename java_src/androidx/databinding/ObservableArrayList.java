@@ -3,6 +3,7 @@ package androidx.databinding;
 import androidx.databinding.ObservableList;
 import java.util.ArrayList;
 import java.util.Collection;
+
 /* loaded from: classes.dex */
 public class ObservableArrayList<T> extends ArrayList<T> implements ObservableList<T> {
     private transient ListChangeRegistry mListeners = new ListChangeRegistry();
@@ -36,6 +37,7 @@ public class ObservableArrayList<T> extends ArrayList<T> implements ObservableLi
         notifyAdd(i, 1);
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r3v0, resolved type: java.util.Collection<? extends T> */
     /* JADX WARN: Multi-variable type inference failed */
     @Override // java.util.ArrayList, java.util.AbstractCollection, java.util.Collection, java.util.List
     public boolean addAll(Collection<? extends T> collection) {
@@ -47,6 +49,7 @@ public class ObservableArrayList<T> extends ArrayList<T> implements ObservableLi
         return addAll;
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r3v0, resolved type: java.util.Collection<? extends T> */
     /* JADX WARN: Multi-variable type inference failed */
     @Override // java.util.ArrayList, java.util.AbstractList, java.util.List
     public boolean addAll(int i, Collection<? extends T> collection) {

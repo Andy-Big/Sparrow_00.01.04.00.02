@@ -1,6 +1,7 @@
 package androidx.databinding;
 
 import java.util.List;
+
 /* loaded from: classes.dex */
 public interface ObservableList<T> extends List<T> {
 

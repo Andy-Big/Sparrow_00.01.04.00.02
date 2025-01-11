@@ -1,6 +1,7 @@
 package androidx.core.util;
 
 import java.util.Locale;
+
 /* loaded from: classes.dex */
 public final class Preconditions {
     public static void checkArgument(boolean z) {

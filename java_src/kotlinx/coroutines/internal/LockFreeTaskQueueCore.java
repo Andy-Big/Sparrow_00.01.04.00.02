@@ -13,6 +13,7 @@ import kotlin.jvm.functions.Function2;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 import kotlinx.coroutines.DebugKt;
+
 /* compiled from: LockFreeTaskQueue.kt */
 @Metadata(bv = {1, 0, 3}, d1 = {"\u00004\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\b\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0006\n\u0002\u0010\t\n\u0000\n\u0002\u0018\u0002\n\u0002\b\n\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010 \n\u0002\b\u0019\b\u0000\u0018\u0000 2*\b\b\u0000\u0010\u0002*\u00020\u00012\u00020\u0001:\u000223B\u0017\u0012\u0006\u0010\u0004\u001a\u00020\u0003\u0012\u0006\u0010\u0006\u001a\u00020\u0005¢\u0006\u0004\b\u0007\u0010\bJ\u0015\u0010\n\u001a\u00020\u00032\u0006\u0010\t\u001a\u00028\u0000¢\u0006\u0004\b\n\u0010\u000bJ'\u0010\u000f\u001a\u0012\u0012\u0004\u0012\u00028\u00000\u0000j\b\u0012\u0004\u0012\u00028\u0000`\u000e2\u0006\u0010\r\u001a\u00020\fH\u0002¢\u0006\u0004\b\u000f\u0010\u0010J'\u0010\u0011\u001a\u0012\u0012\u0004\u0012\u00028\u00000\u0000j\b\u0012\u0004\u0012\u00028\u0000`\u000e2\u0006\u0010\r\u001a\u00020\fH\u0002¢\u0006\u0004\b\u0011\u0010\u0010J\r\u0010\u0012\u001a\u00020\u0005¢\u0006\u0004\b\u0012\u0010\u0013J3\u0010\u0015\u001a\u0016\u0012\u0004\u0012\u00028\u0000\u0018\u00010\u0000j\n\u0012\u0004\u0012\u00028\u0000\u0018\u0001`\u000e2\u0006\u0010\u0014\u001a\u00020\u00032\u0006\u0010\t\u001a\u00028\u0000H\u0002¢\u0006\u0004\b\u0015\u0010\u0016J\r\u0010\u0017\u001a\u00020\u0005¢\u0006\u0004\b\u0017\u0010\u0013J-\u0010\u001c\u001a\b\u0012\u0004\u0012\u00028\u00010\u001b\"\u0004\b\u0001\u0010\u00182\u0012\u0010\u001a\u001a\u000e\u0012\u0004\u0012\u00028\u0000\u0012\u0004\u0012\u00028\u00010\u0019¢\u0006\u0004\b\u001c\u0010\u001dJ\u000f\u0010\u001e\u001a\u00020\fH\u0002¢\u0006\u0004\b\u001e\u0010\u001fJ\u0013\u0010 \u001a\b\u0012\u0004\u0012\u00028\u00000\u0000¢\u0006\u0004\b \u0010!J\u000f\u0010\"\u001a\u0004\u0018\u00010\u0001¢\u0006\u0004\b\"\u0010#J&\u0010%\u001a\u0004\u0018\u00010\u00012\u0012\u0010$\u001a\u000e\u0012\u0004\u0012\u00028\u0000\u0012\u0004\u0012\u00020\u00050\u0019H\u0086\b¢\u0006\u0004\b%\u0010&J3\u0010)\u001a\u0016\u0012\u0004\u0012\u00028\u0000\u0018\u00010\u0000j\n\u0012\u0004\u0012\u00028\u0000\u0018\u0001`\u000e2\u0006\u0010'\u001a\u00020\u00032\u0006\u0010(\u001a\u00020\u0003H\u0002¢\u0006\u0004\b)\u0010*R\u0016\u0010\u0004\u001a\u00020\u00038\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b\u0004\u0010+R\u0013\u0010,\u001a\u00020\u00058F@\u0006¢\u0006\u0006\u001a\u0004\b,\u0010\u0013R\u0016\u0010-\u001a\u00020\u00038\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b-\u0010+R\u0016\u0010\u0006\u001a\u00020\u00058\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b\u0006\u0010.R\u0013\u00101\u001a\u00020\u00038F@\u0006¢\u0006\u0006\u001a\u0004\b/\u00100¨\u00064"}, d2 = {"Lkotlinx/coroutines/internal/LockFreeTaskQueueCore;", "", ExifInterface.LONGITUDE_EAST, "", "capacity", "", "singleConsumer", "<init>", "(IZ)V", "element", "addLast", "(Ljava/lang/Object;)I", "", "state", "Lkotlinx/coroutines/internal/Core;", "allocateNextCopy", "(J)Lkotlinx/coroutines/internal/LockFreeTaskQueueCore;", "allocateOrGetNextCopy", "close", "()Z", "index", "fillPlaceholder", "(ILjava/lang/Object;)Lkotlinx/coroutines/internal/LockFreeTaskQueueCore;", "isClosed", "R", "Lkotlin/Function1;", "transform", "", "map", "(Lkotlin/jvm/functions/Function1;)Ljava/util/List;", "markFrozen", "()J", "next", "()Lkotlinx/coroutines/internal/LockFreeTaskQueueCore;", "removeFirstOrNull", "()Ljava/lang/Object;", "predicate", "removeFirstOrNullIf", "(Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;", "oldHead", "newHead", "removeSlowPath", "(II)Lkotlinx/coroutines/internal/LockFreeTaskQueueCore;", "I", "isEmpty", "mask", "Z", "getSize", "()I", "size", "Companion", "Placeholder", "kotlinx-coroutines-core"}, k = 1, mv = {1, 1, 15})
 /* loaded from: classes2.dex */
@@ -79,6 +80,7 @@ public final class LockFreeTaskQueueCore<E> {
         return allocateOrGetNextCopy(markFrozen());
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r4v3, resolved type: java.util.concurrent.atomic.AtomicReferenceArray */
     /* JADX WARN: Multi-variable type inference failed */
     private final LockFreeTaskQueueCore<E> allocateNextCopy(long j) {
         LockFreeTaskQueueCore<E> lockFreeTaskQueueCore = new LockFreeTaskQueueCore<>(this.capacity * 2, this.singleConsumer);
@@ -187,88 +189,33 @@ public final class LockFreeTaskQueueCore<E> {
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    public final int addLast(E r13) {
-        /*
-            r12 = this;
-            java.lang.String r0 = "element"
-            kotlin.jvm.internal.Intrinsics.checkParameterIsNotNull(r13, r0)
-        L5:
-            long r3 = r12._state$internal
-            r0 = 3458764513820540928(0x3000000000000000, double:1.727233711018889E-77)
-            long r0 = r0 & r3
-            r7 = 0
-            int r0 = (r0 > r7 ? 1 : (r0 == r7 ? 0 : -1))
-            if (r0 == 0) goto L17
-            kotlinx.coroutines.internal.LockFreeTaskQueueCore$Companion r13 = kotlinx.coroutines.internal.LockFreeTaskQueueCore.Companion
-            int r13 = r13.addFailReason(r3)
-            return r13
-        L17:
-            r0 = 1073741823(0x3fffffff, double:5.304989472E-315)
-            long r0 = r0 & r3
-            r9 = 0
-            long r0 = r0 >> r9
-            int r0 = (int) r0
-            r1 = 1152921503533105152(0xfffffffc0000000, double:1.2882296003504729E-231)
-            long r1 = r1 & r3
-            r5 = 30
-            long r1 = r1 >> r5
-            int r10 = (int) r1
-            int r11 = r12.mask
-            int r1 = r10 + 2
-            r1 = r1 & r11
-            r2 = r0 & r11
-            r5 = 1
-            if (r1 != r2) goto L33
-            return r5
-        L33:
-            boolean r1 = r12.singleConsumer
-            r2 = 1073741823(0x3fffffff, float:1.9999999)
-            if (r1 != 0) goto L52
-            java.util.concurrent.atomic.AtomicReferenceArray r1 = r12.array$internal
-            r6 = r10 & r11
-            java.lang.Object r1 = r1.get(r6)
-            if (r1 == 0) goto L52
-            int r1 = r12.capacity
-            r3 = 1024(0x400, float:1.435E-42)
-            if (r1 < r3) goto L51
-            int r10 = r10 - r0
-            r0 = r10 & r2
-            int r1 = r1 >> 1
-            if (r0 <= r1) goto L5
-        L51:
-            return r5
-        L52:
-            int r0 = r10 + 1
-            r0 = r0 & r2
-            java.util.concurrent.atomic.AtomicLongFieldUpdater r1 = kotlinx.coroutines.internal.LockFreeTaskQueueCore._state$FU$internal
-            kotlinx.coroutines.internal.LockFreeTaskQueueCore$Companion r2 = kotlinx.coroutines.internal.LockFreeTaskQueueCore.Companion
-            long r5 = r2.updateTail(r3, r0)
-            r2 = r12
-            boolean r0 = r1.compareAndSet(r2, r3, r5)
-            if (r0 == 0) goto L5
-            java.util.concurrent.atomic.AtomicReferenceArray r0 = r12.array$internal
-            r1 = r10 & r11
-            r0.set(r1, r13)
-            r0 = r12
-            kotlinx.coroutines.internal.LockFreeTaskQueueCore r0 = (kotlinx.coroutines.internal.LockFreeTaskQueueCore) r0
-        L6e:
-            long r1 = r0._state$internal
-            r3 = 1152921504606846976(0x1000000000000000, double:1.2882297539194267E-231)
-            long r1 = r1 & r3
-            int r1 = (r1 > r7 ? 1 : (r1 == r7 ? 0 : -1))
-            if (r1 != 0) goto L78
-            goto L83
-        L78:
-            kotlinx.coroutines.internal.LockFreeTaskQueueCore r0 = r0.next()
-            kotlinx.coroutines.internal.LockFreeTaskQueueCore r0 = r0.fillPlaceholder(r10, r13)
-            if (r0 == 0) goto L83
-            goto L6e
-        L83:
-            return r9
-        */
-        throw new UnsupportedOperationException("Method not decompiled: kotlinx.coroutines.internal.LockFreeTaskQueueCore.addLast(java.lang.Object):int");
+    public final int addLast(E element) {
+        Intrinsics.checkParameterIsNotNull(element, "element");
+        while (true) {
+            long j = this._state$internal;
+            if ((3458764513820540928L & j) != 0) {
+                return Companion.addFailReason(j);
+            }
+            int i = (int) ((HEAD_MASK & j) >> 0);
+            int i2 = (int) ((TAIL_MASK & j) >> 30);
+            int i3 = this.mask;
+            if (((i2 + 2) & i3) == (i & i3)) {
+                return 1;
+            }
+            if (!this.singleConsumer && this.array$internal.get(i2 & i3) != null) {
+                int i4 = this.capacity;
+                if (i4 < 1024 || ((i2 - i) & MAX_CAPACITY_MASK) > (i4 >> 1)) {
+                    break;
+                }
+            } else if (_state$FU$internal.compareAndSet(this, j, Companion.updateTail(j, (i2 + 1) & MAX_CAPACITY_MASK))) {
+                this.array$internal.set(i2 & i3, element);
+                LockFreeTaskQueueCore<E> lockFreeTaskQueueCore = this;
+                while ((lockFreeTaskQueueCore._state$internal & FROZEN_MASK) != 0 && (lockFreeTaskQueueCore = lockFreeTaskQueueCore.next().fillPlaceholder(i2, element)) != null) {
+                }
+                return 0;
+            }
+        }
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:27:0x007a, code lost:
@@ -276,83 +223,40 @@ public final class LockFreeTaskQueueCore<E> {
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    public final java.lang.Object removeFirstOrNull() {
-        /*
-            r10 = this;
-        L0:
-            long r2 = r10._state$internal
-            r0 = 1152921504606846976(0x1000000000000000, double:1.2882297539194267E-231)
-            long r0 = r0 & r2
-            r4 = 0
-            int r0 = (r0 > r4 ? 1 : (r0 == r4 ? 0 : -1))
-            r6 = 0
-            if (r0 == 0) goto L10
-            kotlinx.coroutines.internal.Symbol r6 = kotlinx.coroutines.internal.LockFreeTaskQueueCore.REMOVE_FROZEN
-            goto L7a
-        L10:
-            r0 = 1073741823(0x3fffffff, double:5.304989472E-315)
-            long r0 = r0 & r2
-            r4 = 0
-            long r0 = r0 >> r4
-            int r7 = (int) r0
-            r0 = 1152921503533105152(0xfffffffc0000000, double:1.2882296003504729E-231)
-            long r0 = r0 & r2
-            r4 = 30
-            long r0 = r0 >> r4
-            int r0 = (int) r0
-            int r1 = access$getMask$p(r10)
-            r0 = r0 & r1
-            int r1 = access$getMask$p(r10)
-            r1 = r1 & r7
-            if (r0 != r1) goto L2e
-            goto L7a
-        L2e:
-            java.util.concurrent.atomic.AtomicReferenceArray r0 = r10.array$internal
-            int r1 = access$getMask$p(r10)
-            r1 = r1 & r7
-            java.lang.Object r8 = r0.get(r1)
-            if (r8 != 0) goto L42
-            boolean r0 = access$getSingleConsumer$p(r10)
-            if (r0 == 0) goto L0
-            goto L7a
-        L42:
-            boolean r0 = r8 instanceof kotlinx.coroutines.internal.LockFreeTaskQueueCore.Placeholder
-            if (r0 == 0) goto L47
-            goto L7a
-        L47:
-            int r0 = r7 + 1
-            r1 = 1073741823(0x3fffffff, float:1.9999999)
-            r9 = r0 & r1
-            java.util.concurrent.atomic.AtomicLongFieldUpdater r0 = kotlinx.coroutines.internal.LockFreeTaskQueueCore._state$FU$internal
-            kotlinx.coroutines.internal.LockFreeTaskQueueCore$Companion r1 = kotlinx.coroutines.internal.LockFreeTaskQueueCore.Companion
-            long r4 = r1.updateHead(r2, r9)
-            r1 = r10
-            boolean r0 = r0.compareAndSet(r1, r2, r4)
-            if (r0 == 0) goto L68
-            java.util.concurrent.atomic.AtomicReferenceArray r0 = r10.array$internal
-            int r1 = access$getMask$p(r10)
-            r1 = r1 & r7
-            r0.set(r1, r6)
-            goto L79
-        L68:
-            boolean r0 = access$getSingleConsumer$p(r10)
-            if (r0 != 0) goto L6f
-            goto L0
-        L6f:
-            r0 = r10
-            kotlinx.coroutines.internal.LockFreeTaskQueueCore r0 = (kotlinx.coroutines.internal.LockFreeTaskQueueCore) r0
-        L72:
-            kotlinx.coroutines.internal.LockFreeTaskQueueCore r0 = access$removeSlowPath(r0, r7, r9)
-            if (r0 == 0) goto L79
-            goto L72
-        L79:
-            r6 = r8
-        L7a:
-            return r6
-        */
-        throw new UnsupportedOperationException("Method not decompiled: kotlinx.coroutines.internal.LockFreeTaskQueueCore.removeFirstOrNull():java.lang.Object");
+    public final Object removeFirstOrNull() {
+        while (true) {
+            long j = this._state$internal;
+            if ((FROZEN_MASK & j) == 0) {
+                int i = (int) ((HEAD_MASK & j) >> 0);
+                if ((((int) ((TAIL_MASK & j) >> 30)) & this.mask) != (this.mask & i)) {
+                    Object obj = this.array$internal.get(this.mask & i);
+                    if (obj == null) {
+                        if (this.singleConsumer) {
+                            return null;
+                        }
+                    } else if (!(obj instanceof Placeholder)) {
+                        int i2 = (i + 1) & MAX_CAPACITY_MASK;
+                        if (_state$FU$internal.compareAndSet(this, j, Companion.updateHead(j, i2))) {
+                            this.array$internal.set(this.mask & i, null);
+                            break;
+                        } else if (this.singleConsumer) {
+                            LockFreeTaskQueueCore<E> lockFreeTaskQueueCore = this;
+                            do {
+                                lockFreeTaskQueueCore = lockFreeTaskQueueCore.removeSlowPath(i, i2);
+                            } while (lockFreeTaskQueueCore != null);
+                            break;
+                        }
+                    } else {
+                        return null;
+                    }
+                } else {
+                    return null;
+                }
+            } else {
+                return REMOVE_FROZEN;
+            }
+        }
     }
 
     public final Object removeFirstOrNullIf(Function1<? super E, Boolean> predicate) {

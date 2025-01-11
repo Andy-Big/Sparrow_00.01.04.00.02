@@ -8,6 +8,7 @@ import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPoolAdapter;
 import com.bumptech.glide.load.resource.ImageDecoderResourceDecoder;
 import java.io.IOException;
+
 /* loaded from: classes.dex */
 public final class BitmapImageDecoderResourceDecoder extends ImageDecoderResourceDecoder<Bitmap> {
     private static final String TAG = "BitmapImageDecoder";

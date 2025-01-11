@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import java.lang.reflect.Field;
+
 /* loaded from: classes.dex */
 public final class LayoutInflaterCompat {
     private static final String TAG = "LayoutInflaterCompatHC";

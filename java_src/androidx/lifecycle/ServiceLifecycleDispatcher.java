@@ -2,6 +2,7 @@ package androidx.lifecycle;
 
 import android.os.Handler;
 import androidx.lifecycle.Lifecycle;
+
 /* loaded from: classes.dex */
 public class ServiceLifecycleDispatcher {
     private final Handler mHandler = new Handler();
@@ -43,9 +44,8 @@ public class ServiceLifecycleDispatcher {
         return this.mRegistry;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static class DispatchRunnable implements Runnable {
+    static class DispatchRunnable implements Runnable {
         final Lifecycle.Event mEvent;
         private final LifecycleRegistry mRegistry;
         private boolean mWasExecuted = false;

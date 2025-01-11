@@ -15,6 +15,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import org.xmlpull.v1.XmlPullParser;
+
 /* loaded from: classes.dex */
 public class ConstraintAttribute {
     private static final String TAG = "TransitionLayout";
@@ -64,10 +65,9 @@ public class ConstraintAttribute {
         this.mStringValue = str;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: androidx.constraintlayout.widget.ConstraintAttribute$1  reason: invalid class name */
     /* loaded from: classes.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    static /* synthetic */ class AnonymousClass1 {
         static final /* synthetic */ int[] $SwitchMap$androidx$constraintlayout$widget$ConstraintAttribute$AttributeType;
 
         static {

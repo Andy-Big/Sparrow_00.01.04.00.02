@@ -4,6 +4,7 @@ import java.util.Queue;
 import org.slf4j.Logger;
 import org.slf4j.Marker;
 import org.slf4j.helpers.SubstituteLogger;
+
 /* loaded from: classes2.dex */
 public class EventRecodingLogger implements Logger {
     Queue<SubstituteLoggingEvent> eventQueue;

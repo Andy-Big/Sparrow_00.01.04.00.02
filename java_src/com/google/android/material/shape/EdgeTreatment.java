@@ -1,8 +1,8 @@
 package com.google.android.material.shape;
+
 /* loaded from: classes.dex */
 public class EdgeTreatment {
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean forceIntersection() {
+    boolean forceIntersection() {
         return false;
     }
 

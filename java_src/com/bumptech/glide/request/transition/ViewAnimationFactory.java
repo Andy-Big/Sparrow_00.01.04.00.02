@@ -5,6 +5,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.request.transition.ViewTransition;
+
 /* loaded from: classes.dex */
 public class ViewAnimationFactory<R> implements TransitionFactory<R> {
     private Transition<R> transition;

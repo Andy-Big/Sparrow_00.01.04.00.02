@@ -22,11 +22,11 @@ import com.google.android.material.shadow.ShadowViewDelegate;
 import com.google.android.material.shape.MaterialShapeDrawable;
 import com.google.android.material.shape.ShapeAppearanceModel;
 import java.util.ArrayList;
+
 /* loaded from: classes.dex */
 class FloatingActionButtonImplLollipop extends FloatingActionButtonImpl {
-    /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.google.android.material.floatingactionbutton.FloatingActionButtonImpl
-    public void jumpDrawableToCurrentState() {
+    void jumpDrawableToCurrentState() {
     }
 
     @Override // com.google.android.material.floatingactionbutton.FloatingActionButtonImpl
@@ -38,14 +38,12 @@ class FloatingActionButtonImplLollipop extends FloatingActionButtonImpl {
     void updateFromViewRotation() {
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public FloatingActionButtonImplLollipop(FloatingActionButton floatingActionButton, ShadowViewDelegate shadowViewDelegate) {
+    FloatingActionButtonImplLollipop(FloatingActionButton floatingActionButton, ShadowViewDelegate shadowViewDelegate) {
         super(floatingActionButton, shadowViewDelegate);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.google.android.material.floatingactionbutton.FloatingActionButtonImpl
-    public void initializeBackgroundDrawable(ColorStateList colorStateList, PorterDuff.Mode mode, ColorStateList colorStateList2, int i) {
+    void initializeBackgroundDrawable(ColorStateList colorStateList, PorterDuff.Mode mode, ColorStateList colorStateList2, int i) {
         Drawable drawable;
         this.shapeDrawable = createShapeDrawable();
         this.shapeDrawable.setTintList(colorStateList);
@@ -64,9 +62,8 @@ class FloatingActionButtonImplLollipop extends FloatingActionButtonImpl {
         this.contentBackground = this.rippleDrawable;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.google.android.material.floatingactionbutton.FloatingActionButtonImpl
-    public void setRippleColor(ColorStateList colorStateList) {
+    void setRippleColor(ColorStateList colorStateList) {
         if (this.rippleDrawable instanceof RippleDrawable) {
             ((RippleDrawable) this.rippleDrawable).setColor(RippleUtils.sanitizeRippleDrawableColor(colorStateList));
         } else {
@@ -114,9 +111,8 @@ class FloatingActionButtonImplLollipop extends FloatingActionButtonImpl {
         return this.view.getElevation();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.google.android.material.floatingactionbutton.FloatingActionButtonImpl
-    public void onCompatShadowChanged() {
+    void onCompatShadowChanged() {
         updatePadding();
     }
 
@@ -125,9 +121,8 @@ class FloatingActionButtonImplLollipop extends FloatingActionButtonImpl {
         return this.shadowViewDelegate.isCompatPaddingEnabled() || !shouldExpandBoundsForA11y();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.google.android.material.floatingactionbutton.FloatingActionButtonImpl
-    public void onDrawableStateChanged(int[] iArr) {
+    void onDrawableStateChanged(int[] iArr) {
         if (Build.VERSION.SDK_INT == 21) {
             if (this.view.isEnabled()) {
                 this.view.setElevation(this.elevation);
@@ -161,9 +156,8 @@ class FloatingActionButtonImplLollipop extends FloatingActionButtonImpl {
         return new AlwaysStatefulMaterialShapeDrawable((ShapeAppearanceModel) Preconditions.checkNotNull(this.shapeAppearance));
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.google.android.material.floatingactionbutton.FloatingActionButtonImpl
-    public void getPadding(Rect rect) {
+    void getPadding(Rect rect) {
         if (this.shadowViewDelegate.isCompatPaddingEnabled()) {
             super.getPadding(rect);
         } else if (!shouldExpandBoundsForA11y()) {
@@ -174,9 +168,8 @@ class FloatingActionButtonImplLollipop extends FloatingActionButtonImpl {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static class AlwaysStatefulMaterialShapeDrawable extends MaterialShapeDrawable {
+    static class AlwaysStatefulMaterialShapeDrawable extends MaterialShapeDrawable {
         @Override // com.google.android.material.shape.MaterialShapeDrawable, android.graphics.drawable.Drawable
         public boolean isStateful() {
             return true;

@@ -2,18 +2,17 @@ package com.github.chrisbanes.photoview;
 
 import android.widget.ImageView;
 import androidx.core.view.MotionEventCompat;
+
 /* loaded from: classes.dex */
 class Util {
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static int getPointerIndex(int i) {
+    static int getPointerIndex(int i) {
         return (i & MotionEventCompat.ACTION_POINTER_INDEX_MASK) >> 8;
     }
 
     Util() {
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static void checkZoomLevels(float f, float f2, float f3) {
+    static void checkZoomLevels(float f, float f2, float f3) {
         if (f >= f2) {
             throw new IllegalArgumentException("Minimum zoom has to be less than Medium zoom. Call setMinimumZoom() with a more appropriate value");
         }
@@ -22,8 +21,7 @@ class Util {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static boolean hasDrawable(ImageView imageView) {
+    static boolean hasDrawable(ImageView imageView) {
         return imageView.getDrawable() != null;
     }
 
@@ -42,8 +40,7 @@ class Util {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static boolean isSupportedScaleType(ImageView.ScaleType scaleType) {
+    static boolean isSupportedScaleType(ImageView.ScaleType scaleType) {
         if (scaleType == null) {
             return false;
         }

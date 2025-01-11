@@ -1,6 +1,7 @@
 package javax.mail.event;
 
 import javax.mail.Message;
+
 /* loaded from: classes2.dex */
 public class MessageChangedEvent extends MailEvent {
     public static final int ENVELOPE_CHANGED = 2;

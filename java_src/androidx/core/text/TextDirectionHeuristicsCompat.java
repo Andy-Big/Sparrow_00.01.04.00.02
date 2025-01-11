@@ -2,6 +2,7 @@ package androidx.core.text;
 
 import java.nio.CharBuffer;
 import java.util.Locale;
+
 /* loaded from: classes.dex */
 public final class TextDirectionHeuristicsCompat {
     private static final int STATE_FALSE = 1;
@@ -14,9 +15,8 @@ public final class TextDirectionHeuristicsCompat {
     public static final TextDirectionHeuristicCompat ANYRTL_LTR = new TextDirectionHeuristicInternal(AnyStrong.INSTANCE_RTL, false);
     public static final TextDirectionHeuristicCompat LOCALE = TextDirectionHeuristicLocale.INSTANCE;
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public interface TextDirectionAlgorithm {
+    private interface TextDirectionAlgorithm {
         int checkRtl(CharSequence charSequence, int i, int i2);
     }
 
@@ -123,6 +123,7 @@ public final class TextDirectionHeuristicsCompat {
         static final AnyStrong INSTANCE_RTL = new AnyStrong(true);
         private final boolean mLookForRtl;
 
+        /* JADX DEBUG: Failed to insert an additional move for type inference into block B:24:0x0022 */
         @Override // androidx.core.text.TextDirectionHeuristicsCompat.TextDirectionAlgorithm
         public int checkRtl(CharSequence charSequence, int i, int i2) {
             int i3 = i2 + i;

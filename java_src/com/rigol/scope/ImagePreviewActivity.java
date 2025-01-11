@@ -26,10 +26,15 @@ public class ImagePreviewActivity extends BaseActivity {
             Glide.with((FragmentActivity) this).load(stringExtra).signature(new Key() { // from class: com.rigol.scope.-$$Lambda$ImagePreviewActivity$chuMVav4Y1iyNPiT4fHOEFtTsNc
                 @Override // com.bumptech.glide.load.Key
                 public final void updateDiskCacheKey(MessageDigest messageDigest) {
-                    messageDigest.update(String.valueOf(FileUtils.getFileLastModified(stringExtra)).getBytes());
+                    ImagePreviewActivity.lambda$onCreate$0(stringExtra, messageDigest);
                 }
             }).into(inflate.image);
         }
+    }
+
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.-$$Lambda$ImagePreviewActivity$chuMVav4Y1iyNPiT4fHOEFtTsNc.updateDiskCacheKey(java.security.MessageDigest):void] */
+    static /* synthetic */ void lambda$onCreate$0(String str, MessageDigest messageDigest) {
+        messageDigest.update(String.valueOf(FileUtils.getFileLastModified(str)).getBytes());
     }
 
     @Override // com.rigol.scope.BaseActivity, android.app.Activity, android.view.Window.Callback

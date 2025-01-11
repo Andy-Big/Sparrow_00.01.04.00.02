@@ -4,6 +4,7 @@ import com.bumptech.glide.load.Key;
 import com.bumptech.glide.load.engine.Resource;
 import com.bumptech.glide.load.engine.cache.MemoryCache;
 import com.bumptech.glide.util.LruCache;
+
 /* loaded from: classes.dex */
 public class LruResourceCache extends LruCache<Key, Resource<?>> implements MemoryCache {
     private MemoryCache.ResourceRemovedListener listener;
@@ -27,6 +28,7 @@ public class LruResourceCache extends LruCache<Key, Resource<?>> implements Memo
         this.listener = resourceRemovedListener;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.bumptech.glide.util.LruCache
     public void onItemEvicted(Key key, Resource<?> resource) {
@@ -37,6 +39,7 @@ public class LruResourceCache extends LruCache<Key, Resource<?>> implements Memo
         resourceRemovedListener.onResourceRemoved(resource);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.bumptech.glide.util.LruCache
     public int getSize(Resource<?> resource) {

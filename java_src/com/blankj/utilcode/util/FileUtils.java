@@ -14,12 +14,16 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
+import java.security.DigestInputStream;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import javax.net.ssl.HttpsURLConnection;
 import kotlin.jvm.internal.ByteCompanionObject;
+
 /* loaded from: classes.dex */
 public final class FileUtils {
     private static final String LINE_SEP = System.getProperty("line.separator");
@@ -482,141 +486,118 @@ public final class FileUtils {
     /* JADX WARN: Removed duplicated region for block: B:35:0x004f A[RETURN] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    public static java.lang.String getFileCharsetSimple(java.io.File r4) {
-        /*
-            if (r4 != 0) goto L5
-            java.lang.String r4 = ""
-            return r4
-        L5:
-            boolean r0 = isUtf8(r4)
-            if (r0 == 0) goto Le
-            java.lang.String r4 = "UTF-8"
-            return r4
-        Le:
-            r0 = 0
-            r1 = 0
-            java.io.BufferedInputStream r2 = new java.io.BufferedInputStream     // Catch: java.lang.Throwable -> L34 java.io.IOException -> L36
-            java.io.FileInputStream r3 = new java.io.FileInputStream     // Catch: java.lang.Throwable -> L34 java.io.IOException -> L36
-            r3.<init>(r4)     // Catch: java.lang.Throwable -> L34 java.io.IOException -> L36
-            r2.<init>(r3)     // Catch: java.lang.Throwable -> L34 java.io.IOException -> L36
-            int r4 = r2.read()     // Catch: java.lang.Throwable -> L2e java.io.IOException -> L31
-            int r4 = r4 << 8
-            int r0 = r2.read()     // Catch: java.lang.Throwable -> L2e java.io.IOException -> L31
-            int r0 = r0 + r4
-            r2.close()     // Catch: java.io.IOException -> L29
-            goto L3f
-        L29:
-            r4 = move-exception
-            r4.printStackTrace()
-            goto L3f
-        L2e:
-            r4 = move-exception
-            r1 = r2
-            goto L52
-        L31:
-            r4 = move-exception
-            r1 = r2
-            goto L37
-        L34:
-            r4 = move-exception
-            goto L52
-        L36:
-            r4 = move-exception
-        L37:
-            r4.printStackTrace()     // Catch: java.lang.Throwable -> L34
-            if (r1 == 0) goto L3f
-            r1.close()     // Catch: java.io.IOException -> L29
-        L3f:
-            r4 = 65279(0xfeff, float:9.1475E-41)
-            if (r0 == r4) goto L4f
-            r4 = 65534(0xfffe, float:9.1833E-41)
-            if (r0 == r4) goto L4c
-            java.lang.String r4 = "GBK"
-            return r4
-        L4c:
-            java.lang.String r4 = "Unicode"
-            return r4
-        L4f:
-            java.lang.String r4 = "UTF-16BE"
-            return r4
-        L52:
-            if (r1 == 0) goto L5c
-            r1.close()     // Catch: java.io.IOException -> L58
-            goto L5c
-        L58:
-            r0 = move-exception
-            r0.printStackTrace()
-        L5c:
-            throw r4
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.blankj.utilcode.util.FileUtils.getFileCharsetSimple(java.io.File):java.lang.String");
+    public static String getFileCharsetSimple(File file) {
+        if (file == null) {
+            return "";
+        }
+        if (isUtf8(file)) {
+            return "UTF-8";
+        }
+        int i = 0;
+        BufferedInputStream bufferedInputStream = null;
+        try {
+            try {
+                try {
+                    BufferedInputStream bufferedInputStream2 = new BufferedInputStream(new FileInputStream(file));
+                    try {
+                        i = bufferedInputStream2.read() + (bufferedInputStream2.read() << 8);
+                        bufferedInputStream2.close();
+                    } catch (IOException e) {
+                        e = e;
+                        bufferedInputStream = bufferedInputStream2;
+                        e.printStackTrace();
+                        if (bufferedInputStream != null) {
+                            bufferedInputStream.close();
+                        }
+                        if (i == 65279) {
+                        }
+                    } catch (Throwable th) {
+                        th = th;
+                        bufferedInputStream = bufferedInputStream2;
+                        if (bufferedInputStream != null) {
+                            try {
+                                bufferedInputStream.close();
+                            } catch (IOException e2) {
+                                e2.printStackTrace();
+                            }
+                        }
+                        throw th;
+                    }
+                } catch (IOException e3) {
+                    e = e3;
+                }
+            } catch (IOException e4) {
+                e4.printStackTrace();
+            }
+            return i == 65279 ? i != 65534 ? "GBK" : "Unicode" : "UTF-16BE";
+        } catch (Throwable th2) {
+            th = th2;
+        }
     }
 
     public static boolean isUtf8(String str) {
         return isUtf8(getFileByPath(str));
     }
 
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [966=4, 969=4] */
     public static boolean isUtf8(File file) {
-        byte[] bArr;
-        BufferedInputStream bufferedInputStream;
         if (file == null) {
             return false;
         }
-        BufferedInputStream bufferedInputStream2 = null;
+        BufferedInputStream bufferedInputStream = null;
         try {
             try {
-                bArr = new byte[24];
-                bufferedInputStream = new BufferedInputStream(new FileInputStream(file));
-            } catch (Throwable th) {
-                th = th;
-            }
-        } catch (IOException e) {
-            e = e;
-        }
-        try {
-            int read = bufferedInputStream.read(bArr);
-            if (read == -1) {
+                byte[] bArr = new byte[24];
+                BufferedInputStream bufferedInputStream2 = new BufferedInputStream(new FileInputStream(file));
                 try {
-                    bufferedInputStream.close();
-                } catch (IOException e2) {
-                    e2.printStackTrace();
+                    int read = bufferedInputStream2.read(bArr);
+                    if (read == -1) {
+                        try {
+                            bufferedInputStream2.close();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                        return false;
+                    }
+                    byte[] bArr2 = new byte[read];
+                    System.arraycopy(bArr, 0, bArr2, 0, read);
+                    boolean z = isUtf8(bArr2) == 100;
+                    try {
+                        bufferedInputStream2.close();
+                    } catch (IOException e2) {
+                        e2.printStackTrace();
+                    }
+                    return z;
+                } catch (IOException e3) {
+                    e = e3;
+                    bufferedInputStream = bufferedInputStream2;
+                    e.printStackTrace();
+                    if (bufferedInputStream != null) {
+                        try {
+                            bufferedInputStream.close();
+                        } catch (IOException e4) {
+                            e4.printStackTrace();
+                        }
+                    }
+                    return false;
+                } catch (Throwable th) {
+                    th = th;
+                    bufferedInputStream = bufferedInputStream2;
+                    if (bufferedInputStream != null) {
+                        try {
+                            bufferedInputStream.close();
+                        } catch (IOException e5) {
+                            e5.printStackTrace();
+                        }
+                    }
+                    throw th;
                 }
-                return false;
+            } catch (IOException e6) {
+                e = e6;
             }
-            byte[] bArr2 = new byte[read];
-            System.arraycopy(bArr, 0, bArr2, 0, read);
-            boolean z = isUtf8(bArr2) == 100;
-            try {
-                bufferedInputStream.close();
-            } catch (IOException e3) {
-                e3.printStackTrace();
-            }
-            return z;
-        } catch (IOException e4) {
-            e = e4;
-            bufferedInputStream2 = bufferedInputStream;
-            e.printStackTrace();
-            if (bufferedInputStream2 != null) {
-                try {
-                    bufferedInputStream2.close();
-                } catch (IOException e5) {
-                    e5.printStackTrace();
-                }
-            }
-            return false;
         } catch (Throwable th2) {
             th = th2;
-            bufferedInputStream2 = bufferedInputStream;
-            if (bufferedInputStream2 != null) {
-                try {
-                    bufferedInputStream2.close();
-                } catch (IOException e6) {
-                    e6.printStackTrace();
-                }
-            }
-            throw th;
         }
     }
 
@@ -683,6 +664,10 @@ public final class FileUtils {
         return getFileLines(getFileByPath(str));
     }
 
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:34:0x0055 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:45:0x005e */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:46:0x0002 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:48:0x0002 */
     /* JADX WARN: Code restructure failed: missing block: B:10:0x0023, code lost:
         if (r6 >= r3) goto L19;
      */
@@ -738,87 +723,47 @@ public final class FileUtils {
     /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:27:0x0049 -> B:45:0x005e). Please submit an issue!!! */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    public static int getFileLines(java.io.File r9) {
-        /*
-            r0 = 1
-            r1 = 0
-            java.io.BufferedInputStream r2 = new java.io.BufferedInputStream     // Catch: java.lang.Throwable -> L53 java.io.IOException -> L55
-            java.io.FileInputStream r3 = new java.io.FileInputStream     // Catch: java.lang.Throwable -> L53 java.io.IOException -> L55
-            r3.<init>(r9)     // Catch: java.lang.Throwable -> L53 java.io.IOException -> L55
-            r2.<init>(r3)     // Catch: java.lang.Throwable -> L53 java.io.IOException -> L55
-            r9 = 1024(0x400, float:1.435E-42)
-            byte[] r1 = new byte[r9]     // Catch: java.lang.Throwable -> L4d java.io.IOException -> L50
-            java.lang.String r3 = com.blankj.utilcode.util.FileUtils.LINE_SEP     // Catch: java.lang.Throwable -> L4d java.io.IOException -> L50
-            java.lang.String r4 = "\n"
-            boolean r3 = r3.endsWith(r4)     // Catch: java.lang.Throwable -> L4d java.io.IOException -> L50
-            r4 = -1
-            r5 = 0
-            if (r3 == 0) goto L30
-        L1c:
-            int r3 = r2.read(r1, r5, r9)     // Catch: java.lang.Throwable -> L4d java.io.IOException -> L50
-            if (r3 == r4) goto L44
-            r6 = r5
-        L23:
-            if (r6 >= r3) goto L1c
-            r7 = r1[r6]     // Catch: java.lang.Throwable -> L4d java.io.IOException -> L50
-            r8 = 10
-            if (r7 != r8) goto L2d
-            int r0 = r0 + 1
-        L2d:
-            int r6 = r6 + 1
-            goto L23
-        L30:
-            int r3 = r2.read(r1, r5, r9)     // Catch: java.lang.Throwable -> L4d java.io.IOException -> L50
-            if (r3 == r4) goto L44
-            r6 = r5
-        L37:
-            if (r6 >= r3) goto L30
-            r7 = r1[r6]     // Catch: java.lang.Throwable -> L4d java.io.IOException -> L50
-            r8 = 13
-            if (r7 != r8) goto L41
-            int r0 = r0 + 1
-        L41:
-            int r6 = r6 + 1
-            goto L37
-        L44:
-            r2.close()     // Catch: java.io.IOException -> L48
-            goto L5e
-        L48:
-            r9 = move-exception
-            r9.printStackTrace()
-            goto L5e
-        L4d:
-            r9 = move-exception
-            r1 = r2
-            goto L5f
-        L50:
-            r9 = move-exception
-            r1 = r2
-            goto L56
-        L53:
-            r9 = move-exception
-            goto L5f
-        L55:
-            r9 = move-exception
-        L56:
-            r9.printStackTrace()     // Catch: java.lang.Throwable -> L53
-            if (r1 == 0) goto L5e
-            r1.close()     // Catch: java.io.IOException -> L48
-        L5e:
-            return r0
-        L5f:
-            if (r1 == 0) goto L69
-            r1.close()     // Catch: java.io.IOException -> L65
-            goto L69
-        L65:
-            r0 = move-exception
-            r0.printStackTrace()
-        L69:
-            throw r9
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.blankj.utilcode.util.FileUtils.getFileLines(java.io.File):int");
+    public static int getFileLines(File file) {
+        int i = 1;
+        BufferedInputStream bufferedInputStream = 0;
+        try {
+            try {
+                try {
+                    BufferedInputStream bufferedInputStream2 = new BufferedInputStream(new FileInputStream(file));
+                    try {
+                        byte[] bArr = new byte[1024];
+                    } catch (IOException e) {
+                        e = e;
+                        bufferedInputStream = bufferedInputStream2;
+                        e.printStackTrace();
+                        if (bufferedInputStream != null) {
+                            bufferedInputStream.close();
+                            bufferedInputStream = bufferedInputStream;
+                        }
+                        return i;
+                    } catch (Throwable th) {
+                        th = th;
+                        bufferedInputStream = bufferedInputStream2;
+                        if (bufferedInputStream != null) {
+                            try {
+                                bufferedInputStream.close();
+                            } catch (IOException e2) {
+                                e2.printStackTrace();
+                            }
+                        }
+                        throw th;
+                    }
+                } catch (IOException e3) {
+                    e = e3;
+                }
+            } catch (IOException e4) {
+                e4.printStackTrace();
+                bufferedInputStream = bufferedInputStream;
+            }
+        } catch (Throwable th2) {
+            th = th2;
+        }
     }
 
     public static String getSize(String str) {
@@ -919,74 +864,74 @@ public final class FileUtils {
     /* JADX WARN: Removed duplicated region for block: B:44:0x003e A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    public static byte[] getFileMD5(java.io.File r3) {
-        /*
-            r0 = 0
-            if (r3 != 0) goto L4
-            return r0
-        L4:
-            java.io.FileInputStream r1 = new java.io.FileInputStream     // Catch: java.lang.Throwable -> L33 java.io.IOException -> L35 java.security.NoSuchAlgorithmException -> L37
-            r1.<init>(r3)     // Catch: java.lang.Throwable -> L33 java.io.IOException -> L35 java.security.NoSuchAlgorithmException -> L37
-            java.lang.String r3 = "MD5"
-            java.security.MessageDigest r3 = java.security.MessageDigest.getInstance(r3)     // Catch: java.lang.Throwable -> L33 java.io.IOException -> L35 java.security.NoSuchAlgorithmException -> L37
-            java.security.DigestInputStream r2 = new java.security.DigestInputStream     // Catch: java.lang.Throwable -> L33 java.io.IOException -> L35 java.security.NoSuchAlgorithmException -> L37
-            r2.<init>(r1, r3)     // Catch: java.lang.Throwable -> L33 java.io.IOException -> L35 java.security.NoSuchAlgorithmException -> L37
-            r3 = 262144(0x40000, float:3.67342E-40)
-            byte[] r3 = new byte[r3]     // Catch: java.io.IOException -> L2f java.security.NoSuchAlgorithmException -> L31 java.lang.Throwable -> L47
-        L18:
-            int r1 = r2.read(r3)     // Catch: java.io.IOException -> L2f java.security.NoSuchAlgorithmException -> L31 java.lang.Throwable -> L47
-            if (r1 > 0) goto L18
-            java.security.MessageDigest r3 = r2.getMessageDigest()     // Catch: java.io.IOException -> L2f java.security.NoSuchAlgorithmException -> L31 java.lang.Throwable -> L47
-            byte[] r3 = r3.digest()     // Catch: java.io.IOException -> L2f java.security.NoSuchAlgorithmException -> L31 java.lang.Throwable -> L47
-            r2.close()     // Catch: java.io.IOException -> L2a
-            goto L2e
-        L2a:
-            r0 = move-exception
-            r0.printStackTrace()
-        L2e:
-            return r3
-        L2f:
-            r3 = move-exception
-            goto L39
-        L31:
-            r3 = move-exception
-            goto L39
-        L33:
-            r3 = move-exception
-            goto L49
-        L35:
-            r3 = move-exception
-            goto L38
-        L37:
-            r3 = move-exception
-        L38:
-            r2 = r0
-        L39:
-            r3.printStackTrace()     // Catch: java.lang.Throwable -> L47
-            if (r2 == 0) goto L46
-            r2.close()     // Catch: java.io.IOException -> L42
-            goto L46
-        L42:
-            r3 = move-exception
-            r3.printStackTrace()
-        L46:
-            return r0
-        L47:
-            r3 = move-exception
-            r0 = r2
-        L49:
-            if (r0 == 0) goto L53
-            r0.close()     // Catch: java.io.IOException -> L4f
-            goto L53
-        L4f:
-            r0 = move-exception
-            r0.printStackTrace()
-        L53:
-            throw r3
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.blankj.utilcode.util.FileUtils.getFileMD5(java.io.File):byte[]");
+    public static byte[] getFileMD5(File file) {
+        DigestInputStream digestInputStream;
+        DigestInputStream digestInputStream2;
+        DigestInputStream digestInputStream3 = null;
+        try {
+            if (file == null) {
+                return null;
+            }
+            try {
+                digestInputStream2 = new DigestInputStream(new FileInputStream(file), MessageDigest.getInstance("MD5"));
+            } catch (IOException e) {
+                e = e;
+                digestInputStream2 = null;
+                e.printStackTrace();
+                if (digestInputStream2 != null) {
+                }
+                return null;
+            } catch (NoSuchAlgorithmException e2) {
+                e = e2;
+                digestInputStream2 = null;
+                e.printStackTrace();
+                if (digestInputStream2 != null) {
+                }
+                return null;
+            } catch (Throwable th) {
+                th = th;
+                if (digestInputStream3 != null) {
+                    try {
+                        digestInputStream3.close();
+                    } catch (IOException e3) {
+                        e3.printStackTrace();
+                    }
+                }
+                throw th;
+            }
+            try {
+                do {
+                } while (digestInputStream2.read(new byte[262144]) > 0);
+                byte[] digest = digestInputStream2.getMessageDigest().digest();
+                try {
+                    digestInputStream2.close();
+                } catch (IOException e4) {
+                    e4.printStackTrace();
+                }
+                return digest;
+            } catch (IOException e5) {
+                e = e5;
+                e.printStackTrace();
+                if (digestInputStream2 != null) {
+                    try {
+                        digestInputStream2.close();
+                    } catch (IOException e6) {
+                        e6.printStackTrace();
+                    }
+                }
+                return null;
+            } catch (NoSuchAlgorithmException e7) {
+                e = e7;
+                e.printStackTrace();
+                if (digestInputStream2 != null) {
+                }
+                return null;
+            }
+        } catch (Throwable th2) {
+            th = th2;
+            digestInputStream3 = digestInputStream;
+        }
     }
 
     public static String getDirName(File file) {

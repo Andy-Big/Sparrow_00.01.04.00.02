@@ -18,6 +18,7 @@ import com.scwang.smartrefresh.layout.constant.SpinnerStyle;
 import com.scwang.smartrefresh.layout.internal.InternalAbstract;
 import com.scwang.smartrefresh.layout.internal.ProgressDrawable;
 import com.scwang.smartrefresh.layout.util.DensityUtil;
+
 /* loaded from: classes2.dex */
 public class WaterDropHeader extends InternalAbstract implements RefreshHeader {
     protected static final float MAX_PROGRESS_ANGLE = 0.8f;

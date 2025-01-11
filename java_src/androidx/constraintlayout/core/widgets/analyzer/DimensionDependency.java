@@ -1,9 +1,9 @@
 package androidx.constraintlayout.core.widgets.analyzer;
 
 import androidx.constraintlayout.core.widgets.analyzer.DependencyNode;
-/* JADX INFO: Access modifiers changed from: package-private */
+
 /* loaded from: classes.dex */
-public class DimensionDependency extends DependencyNode {
+class DimensionDependency extends DependencyNode {
     public int wrapValue;
 
     public DimensionDependency(WidgetRun widgetRun) {

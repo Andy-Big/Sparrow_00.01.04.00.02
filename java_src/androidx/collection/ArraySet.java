@@ -5,6 +5,7 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
+
 /* loaded from: classes.dex */
 public final class ArraySet<E> implements Collection<E>, Set<E> {
     private static final int BASE_SIZE = 4;
@@ -144,6 +145,7 @@ public final class ArraySet<E> implements Collection<E>, Set<E> {
         this.mSize = 0;
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: androidx.collection.ArraySet<E> */
     /* JADX WARN: Multi-variable type inference failed */
     public ArraySet(ArraySet<E> arraySet) {
         this();
@@ -152,6 +154,7 @@ public final class ArraySet<E> implements Collection<E>, Set<E> {
         }
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.util.Collection<E> */
     /* JADX WARN: Multi-variable type inference failed */
     public ArraySet(Collection<E> collection) {
         this();

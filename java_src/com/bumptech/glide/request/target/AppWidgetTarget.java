@@ -8,6 +8,7 @@ import android.graphics.drawable.Drawable;
 import android.widget.RemoteViews;
 import com.bumptech.glide.request.transition.Transition;
 import com.bumptech.glide.util.Preconditions;
+
 /* loaded from: classes.dex */
 public class AppWidgetTarget extends CustomTarget<Bitmap> {
     private final ComponentName componentName;

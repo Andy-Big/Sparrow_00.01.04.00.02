@@ -1,6 +1,7 @@
 package com.sun.mail.imap;
 
 import java.util.ArrayList;
+
 /* loaded from: classes2.dex */
 public class Rights implements Cloneable {
     private boolean[] rights;
@@ -172,20 +173,19 @@ public class Rights implements Cloneable {
     }
 
     public Object clone() {
-        Rights rights;
-        Rights rights2 = null;
+        Rights rights = null;
         try {
-            rights = (Rights) super.clone();
-        } catch (CloneNotSupportedException unused) {
-        }
-        try {
-            boolean[] zArr = new boolean[128];
-            rights.rights = zArr;
-            System.arraycopy(this.rights, 0, zArr, 0, this.rights.length);
-            return rights;
+            Rights rights2 = (Rights) super.clone();
+            try {
+                boolean[] zArr = new boolean[128];
+                rights2.rights = zArr;
+                System.arraycopy(this.rights, 0, zArr, 0, this.rights.length);
+                return rights2;
+            } catch (CloneNotSupportedException unused) {
+                rights = rights2;
+                return rights;
+            }
         } catch (CloneNotSupportedException unused2) {
-            rights2 = rights;
-            return rights2;
         }
     }
 

@@ -3,6 +3,7 @@ package org.slf4j;
 import org.slf4j.helpers.BasicMarkerFactory;
 import org.slf4j.helpers.Util;
 import org.slf4j.impl.StaticMarkerBinder;
+
 /* loaded from: classes2.dex */
 public class MarkerFactory {
     static IMarkerFactory MARKER_FACTORY;

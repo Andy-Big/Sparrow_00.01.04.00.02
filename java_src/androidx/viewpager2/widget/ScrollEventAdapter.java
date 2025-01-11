@@ -6,9 +6,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.widget.ViewPager2;
 import java.util.Locale;
-/* JADX INFO: Access modifiers changed from: package-private */
+
 /* loaded from: classes.dex */
-public final class ScrollEventAdapter extends RecyclerView.OnScrollListener {
+final class ScrollEventAdapter extends RecyclerView.OnScrollListener {
     private static final int NO_POSITION = -1;
     private static final int STATE_IDLE = 0;
     private static final int STATE_IN_PROGRESS_FAKE_DRAG = 4;
@@ -29,8 +29,7 @@ public final class ScrollEventAdapter extends RecyclerView.OnScrollListener {
     private int mTarget;
     private final ViewPager2 mViewPager;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ScrollEventAdapter(ViewPager2 viewPager2) {
+    ScrollEventAdapter(ViewPager2 viewPager2) {
         this.mViewPager = viewPager2;
         RecyclerView recyclerView = viewPager2.mRecyclerView;
         this.mRecyclerView = recyclerView;
@@ -98,95 +97,44 @@ public final class ScrollEventAdapter extends RecyclerView.OnScrollListener {
     @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    public void onScrolled(androidx.recyclerview.widget.RecyclerView r4, int r5, int r6) {
-        /*
-            r3 = this;
-            r4 = 1
-            r3.mScrollHappened = r4
-            r3.updateScrollEventValues()
-            boolean r0 = r3.mDispatchSelected
-            r1 = -1
-            r2 = 0
-            if (r0 == 0) goto L3f
-            r3.mDispatchSelected = r2
-            if (r6 > 0) goto L22
-            if (r6 != 0) goto L20
-            if (r5 >= 0) goto L16
-            r5 = r4
-            goto L17
-        L16:
-            r5 = r2
-        L17:
-            androidx.viewpager2.widget.ViewPager2 r6 = r3.mViewPager
-            boolean r6 = r6.isRtl()
-            if (r5 != r6) goto L20
-            goto L22
-        L20:
-            r5 = r2
-            goto L23
-        L22:
-            r5 = r4
-        L23:
-            if (r5 == 0) goto L31
-            androidx.viewpager2.widget.ScrollEventAdapter$ScrollEventValues r5 = r3.mScrollValues
-            int r5 = r5.mOffsetPx
-            if (r5 == 0) goto L31
-            androidx.viewpager2.widget.ScrollEventAdapter$ScrollEventValues r5 = r3.mScrollValues
-            int r5 = r5.mPosition
-            int r5 = r5 + r4
-            goto L35
-        L31:
-            androidx.viewpager2.widget.ScrollEventAdapter$ScrollEventValues r5 = r3.mScrollValues
-            int r5 = r5.mPosition
-        L35:
-            r3.mTarget = r5
-            int r6 = r3.mDragStartPosition
-            if (r6 == r5) goto L4d
-            r3.dispatchSelected(r5)
-            goto L4d
-        L3f:
-            int r5 = r3.mAdapterState
-            if (r5 != 0) goto L4d
-            androidx.viewpager2.widget.ScrollEventAdapter$ScrollEventValues r5 = r3.mScrollValues
-            int r5 = r5.mPosition
-            if (r5 != r1) goto L4a
-            r5 = r2
-        L4a:
-            r3.dispatchSelected(r5)
-        L4d:
-            androidx.viewpager2.widget.ScrollEventAdapter$ScrollEventValues r5 = r3.mScrollValues
-            int r5 = r5.mPosition
-            if (r5 != r1) goto L55
-            r5 = r2
-            goto L59
-        L55:
-            androidx.viewpager2.widget.ScrollEventAdapter$ScrollEventValues r5 = r3.mScrollValues
-            int r5 = r5.mPosition
-        L59:
-            androidx.viewpager2.widget.ScrollEventAdapter$ScrollEventValues r6 = r3.mScrollValues
-            float r6 = r6.mOffset
-            androidx.viewpager2.widget.ScrollEventAdapter$ScrollEventValues r0 = r3.mScrollValues
-            int r0 = r0.mOffsetPx
-            r3.dispatchScrolled(r5, r6, r0)
-            androidx.viewpager2.widget.ScrollEventAdapter$ScrollEventValues r5 = r3.mScrollValues
-            int r5 = r5.mPosition
-            int r6 = r3.mTarget
-            if (r5 == r6) goto L6e
-            if (r6 != r1) goto L7e
-        L6e:
-            androidx.viewpager2.widget.ScrollEventAdapter$ScrollEventValues r5 = r3.mScrollValues
-            int r5 = r5.mOffsetPx
-            if (r5 != 0) goto L7e
-            int r5 = r3.mScrollState
-            if (r5 == r4) goto L7e
-            r3.dispatchStateChanged(r2)
-            r3.resetState()
-        L7e:
-            return
-        */
-        throw new UnsupportedOperationException("Method not decompiled: androidx.viewpager2.widget.ScrollEventAdapter.onScrolled(androidx.recyclerview.widget.RecyclerView, int, int):void");
+    public void onScrolled(RecyclerView recyclerView, int i, int i2) {
+        boolean z;
+        int i3;
+        this.mScrollHappened = true;
+        updateScrollEventValues();
+        if (this.mDispatchSelected) {
+            this.mDispatchSelected = false;
+            if (i2 <= 0) {
+                if (i2 == 0) {
+                }
+                z = false;
+                i3 = (z || this.mScrollValues.mOffsetPx == 0) ? this.mScrollValues.mPosition : this.mScrollValues.mPosition + 1;
+                this.mTarget = i3;
+                if (this.mDragStartPosition != i3) {
+                    dispatchSelected(i3);
+                }
+            }
+            z = true;
+            if (z) {
+            }
+            this.mTarget = i3;
+            if (this.mDragStartPosition != i3) {
+            }
+        } else if (this.mAdapterState == 0) {
+            int i4 = this.mScrollValues.mPosition;
+            if (i4 == -1) {
+                i4 = 0;
+            }
+            dispatchSelected(i4);
+        }
+        dispatchScrolled(this.mScrollValues.mPosition == -1 ? 0 : this.mScrollValues.mPosition, this.mScrollValues.mOffset, this.mScrollValues.mOffsetPx);
+        int i5 = this.mScrollValues.mPosition;
+        int i6 = this.mTarget;
+        if ((i5 == i6 || i6 == -1) && this.mScrollValues.mOffsetPx == 0 && this.mScrollState != 1) {
+            dispatchStateChanged(0);
+            resetState();
+        }
     }
 
     private void updateScrollEventValues() {
@@ -248,13 +196,11 @@ public final class ScrollEventAdapter extends RecyclerView.OnScrollListener {
         dispatchStateChanged(1);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void notifyDataSetChangeHappened() {
+    void notifyDataSetChangeHappened() {
         this.mDataSetChangeHappened = true;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void notifyProgrammaticScroll(int i, boolean z) {
+    void notifyProgrammaticScroll(int i, boolean z) {
         this.mAdapterState = z ? 2 : 3;
         this.mFakeDragging = false;
         boolean z2 = this.mTarget != i;
@@ -265,14 +211,12 @@ public final class ScrollEventAdapter extends RecyclerView.OnScrollListener {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void notifyBeginFakeDrag() {
+    void notifyBeginFakeDrag() {
         this.mAdapterState = 4;
         startDrag(true);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void notifyEndFakeDrag() {
+    void notifyEndFakeDrag() {
         if (!isDragging() || this.mFakeDragging) {
             this.mFakeDragging = false;
             updateScrollEventValues();
@@ -288,28 +232,23 @@ public final class ScrollEventAdapter extends RecyclerView.OnScrollListener {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setOnPageChangeCallback(ViewPager2.OnPageChangeCallback onPageChangeCallback) {
+    void setOnPageChangeCallback(ViewPager2.OnPageChangeCallback onPageChangeCallback) {
         this.mCallback = onPageChangeCallback;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public int getScrollState() {
+    int getScrollState() {
         return this.mScrollState;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean isIdle() {
+    boolean isIdle() {
         return this.mScrollState == 0;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean isDragging() {
+    boolean isDragging() {
         return this.mScrollState == 1;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean isFakeDragging() {
+    boolean isFakeDragging() {
         return this.mFakeDragging;
     }
 
@@ -318,8 +257,7 @@ public final class ScrollEventAdapter extends RecyclerView.OnScrollListener {
         return i == 1 || i == 4;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public double getRelativeScrollPosition() {
+    double getRelativeScrollPosition() {
         updateScrollEventValues();
         return this.mScrollValues.mPosition + this.mScrollValues.mOffset;
     }
@@ -353,9 +291,8 @@ public final class ScrollEventAdapter extends RecyclerView.OnScrollListener {
         return this.mLayoutManager.findFirstVisibleItemPosition();
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static final class ScrollEventValues {
+    private static final class ScrollEventValues {
         float mOffset;
         int mOffsetPx;
         int mPosition;

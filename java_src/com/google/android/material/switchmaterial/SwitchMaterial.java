@@ -11,6 +11,7 @@ import com.google.android.material.elevation.ElevationOverlayProvider;
 import com.google.android.material.internal.ThemeEnforcement;
 import com.google.android.material.internal.ViewUtils;
 import com.google.android.material.theme.overlay.MaterialThemeOverlay;
+
 /* loaded from: classes.dex */
 public class SwitchMaterial extends SwitchCompat {
     private static final int DEF_STYLE_RES = R.style.Widget_MaterialComponents_CompoundButton_Switch;

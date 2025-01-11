@@ -11,6 +11,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.text.DecimalFormat;
 import java.util.Arrays;
+
 /* loaded from: classes.dex */
 public abstract class SplineSet {
     private static final String TAG = "SplineSet";
@@ -47,14 +48,12 @@ public abstract class SplineSet {
         return this.mCurveFit;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static SplineSet makeCustomSpline(String str, SparseArray<ConstraintAttribute> sparseArray) {
+    static SplineSet makeCustomSpline(String str, SparseArray<ConstraintAttribute> sparseArray) {
         return new CustomSet(str, sparseArray);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    public static SplineSet makeSpline(String str) {
+    static SplineSet makeSpline(String str) {
         char c;
         switch (str.hashCode()) {
             case -1249320806:
@@ -333,9 +332,8 @@ public abstract class SplineSet {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static class PathRotate extends SplineSet {
+    static class PathRotate extends SplineSet {
         @Override // androidx.constraintlayout.motion.widget.SplineSet
         public void setProperty(View view, float f) {
         }

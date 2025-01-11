@@ -27,6 +27,7 @@ import androidx.lifecycle.ViewModelStoreOwner;
 import androidx.loader.app.LoaderManager;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
+
 /* loaded from: classes.dex */
 public class FragmentActivity extends ComponentActivity implements ActivityCompat.OnRequestPermissionsResultCallback, ActivityCompat.RequestPermissionsRequestCodeValidator {
     static final String ALLOCATED_REQUEST_INDICIES_TAG = "android:support:request_indicies";
@@ -62,9 +63,8 @@ public class FragmentActivity extends ComponentActivity implements ActivityCompa
         this.mStopped = true;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.app.Activity
-    public void onActivityResult(int i, int i2, Intent intent) {
+    protected void onActivityResult(int i, int i2, Intent intent) {
         this.mFragments.noteStateNotSaved();
         int i3 = i >> 16;
         if (i3 != 0) {
@@ -126,9 +126,8 @@ public class FragmentActivity extends ComponentActivity implements ActivityCompa
         this.mFragments.dispatchConfigurationChanged(configuration);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
-    public void onCreate(Bundle bundle) {
+    protected void onCreate(Bundle bundle) {
         this.mFragments.attachHost(null);
         if (bundle != null) {
             this.mFragments.restoreSaveState(bundle.getParcelable(FRAGMENTS_TAG));
@@ -179,9 +178,8 @@ public class FragmentActivity extends ComponentActivity implements ActivityCompa
         return this.mFragments.onCreateView(view, str, context, attributeSet);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.app.Activity
-    public void onDestroy() {
+    protected void onDestroy() {
         super.onDestroy();
         this.mFragments.dispatchDestroy();
         this.mFragmentLifecycleRegistry.handleLifecycleEvent(Lifecycle.Event.ON_DESTROY);
@@ -215,9 +213,8 @@ public class FragmentActivity extends ComponentActivity implements ActivityCompa
         super.onPanelClosed(i, menu);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.app.Activity
-    public void onPause() {
+    protected void onPause() {
         super.onPause();
         this.mResumed = false;
         this.mFragments.dispatchPause();
@@ -235,18 +232,16 @@ public class FragmentActivity extends ComponentActivity implements ActivityCompa
         this.mFragments.noteStateNotSaved();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.app.Activity
-    public void onResume() {
+    protected void onResume() {
         super.onResume();
         this.mResumed = true;
         this.mFragments.noteStateNotSaved();
         this.mFragments.execPendingActions();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.app.Activity
-    public void onPostResume() {
+    protected void onPostResume() {
         super.onPostResume();
         onResumeFragments();
     }
@@ -269,9 +264,8 @@ public class FragmentActivity extends ComponentActivity implements ActivityCompa
         return super.onPreparePanel(0, view, menu);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
-    public void onSaveInstanceState(Bundle bundle) {
+    protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
         markFragmentsCreated();
         this.mFragmentLifecycleRegistry.handleLifecycleEvent(Lifecycle.Event.ON_STOP);
@@ -292,9 +286,8 @@ public class FragmentActivity extends ComponentActivity implements ActivityCompa
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.app.Activity
-    public void onStart() {
+    protected void onStart() {
         super.onStart();
         this.mStopped = false;
         if (!this.mCreated) {
@@ -307,9 +300,8 @@ public class FragmentActivity extends ComponentActivity implements ActivityCompa
         this.mFragments.dispatchStart();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.app.Activity
-    public void onStop() {
+    protected void onStop() {
         super.onStop();
         this.mStopped = true;
         markFragmentsCreated();
@@ -514,6 +506,7 @@ public class FragmentActivity extends ComponentActivity implements ActivityCompa
             return FragmentActivity.this.getLayoutInflater().cloneInContext(FragmentActivity.this);
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // androidx.fragment.app.FragmentHostCallback
         public FragmentActivity onGetHost() {

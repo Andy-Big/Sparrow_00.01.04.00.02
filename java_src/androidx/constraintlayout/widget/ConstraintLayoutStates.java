@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
+
 /* loaded from: classes.dex */
 public class ConstraintLayoutStates {
     private static final boolean DEBUG = false;
@@ -22,8 +23,7 @@ public class ConstraintLayoutStates {
     private SparseArray<ConstraintSet> mConstraintSetMap = new SparseArray<>();
     private ConstraintsChangedListener mConstraintsChangedListener = null;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ConstraintLayoutStates(Context context, ConstraintLayout constraintLayout, int i) {
+    ConstraintLayoutStates(Context context, ConstraintLayout constraintLayout, int i) {
         this.mConstraintLayout = constraintLayout;
         load(context, i);
     }
@@ -113,9 +113,8 @@ public class ConstraintLayoutStates {
         this.mConstraintsChangedListener = constraintsChangedListener;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static class State {
+    static class State {
         int mConstraintID;
         ConstraintSet mConstraintSet;
         int mId;
@@ -157,9 +156,8 @@ public class ConstraintLayoutStates {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static class Variant {
+    static class Variant {
         int mConstraintID;
         ConstraintSet mConstraintSet;
         int mId;

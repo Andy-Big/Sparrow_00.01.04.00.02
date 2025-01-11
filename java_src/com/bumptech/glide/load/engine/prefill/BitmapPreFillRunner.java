@@ -14,9 +14,9 @@ import java.security.MessageDigest;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
-/* JADX INFO: Access modifiers changed from: package-private */
+
 /* loaded from: classes.dex */
-public final class BitmapPreFillRunner implements Runnable {
+final class BitmapPreFillRunner implements Runnable {
     static final int BACKOFF_RATIO = 4;
     static final long INITIAL_BACKOFF_MS = 40;
     static final long MAX_DURATION_MS = 32;
@@ -95,9 +95,8 @@ public final class BitmapPreFillRunner implements Runnable {
         return j;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static final class UniqueKey implements Key {
+    private static final class UniqueKey implements Key {
         UniqueKey() {
         }
 
@@ -107,9 +106,8 @@ public final class BitmapPreFillRunner implements Runnable {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static class Clock {
+    static class Clock {
         Clock() {
         }
 

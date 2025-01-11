@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.Collections;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public final class ResourceUtils {
     private static final int BUFFER_SIZE = 8192;

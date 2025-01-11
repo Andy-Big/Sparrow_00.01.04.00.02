@@ -14,6 +14,7 @@ import androidx.core.app.BundleCompat;
 import androidx.core.app.NotificationBuilderWithBuilderAccessor;
 import androidx.core.app.NotificationCompat;
 import androidx.media.R;
+
 /* loaded from: classes.dex */
 public class NotificationCompat {
     private NotificationCompat() {

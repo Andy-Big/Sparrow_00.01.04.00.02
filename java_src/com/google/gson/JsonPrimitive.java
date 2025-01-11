@@ -4,11 +4,13 @@ import com.google.gson.internal.C$Gson$Preconditions;
 import com.google.gson.internal.LazilyParsedNumber;
 import java.math.BigDecimal;
 import java.math.BigInteger;
+
 /* loaded from: classes.dex */
 public final class JsonPrimitive extends JsonElement {
     private static final Class<?>[] PRIMITIVE_TYPES = {Integer.TYPE, Long.TYPE, Short.TYPE, Float.TYPE, Double.TYPE, Byte.TYPE, Boolean.TYPE, Character.TYPE, Integer.class, Long.class, Short.class, Float.class, Double.class, Byte.class, Boolean.class, Character.class};
     private Object value;
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.gson.JsonElement
     public JsonPrimitive deepCopy() {
         return this;
@@ -30,8 +32,7 @@ public final class JsonPrimitive extends JsonElement {
         setValue(ch2);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public JsonPrimitive(Object obj) {
+    JsonPrimitive(Object obj) {
         setValue(obj);
     }
 

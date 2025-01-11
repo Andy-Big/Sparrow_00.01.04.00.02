@@ -10,6 +10,7 @@ import kotlin.jvm.internal.Intrinsics;
 import kotlinx.coroutines.Job;
 import kotlinx.coroutines.flow.FlowCollector;
 import kotlinx.coroutines.internal.ScopeCoroutine;
+
 /* compiled from: SafeCollector.kt */
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000.\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0002\b\u0000\u0018\u0000*\u0004\b\u0000\u0010\u00012\b\u0012\u0004\u0012\u0002H\u00010\u0002B\u001b\u0012\f\u0010\u0003\u001a\b\u0012\u0004\u0012\u00028\u00000\u0002\u0012\u0006\u0010\u0004\u001a\u00020\u0005¢\u0006\u0002\u0010\u0006J\u0010\u0010\n\u001a\u00020\u000b2\u0006\u0010\f\u001a\u00020\u0005H\u0002J\u0019\u0010\r\u001a\u00020\u000b2\u0006\u0010\u000e\u001a\u00028\u0000H\u0096@ø\u0001\u0000¢\u0006\u0002\u0010\u000fJ\u001b\u0010\u0010\u001a\u0004\u0018\u00010\u0011*\u0004\u0018\u00010\u00112\b\u0010\u0012\u001a\u0004\u0018\u00010\u0011H\u0082\u0010R\u000e\u0010\u0004\u001a\u00020\u0005X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0007\u001a\u00020\bX\u0082\u0004¢\u0006\u0002\n\u0000R\u0014\u0010\u0003\u001a\b\u0012\u0004\u0012\u00028\u00000\u0002X\u0082\u0004¢\u0006\u0002\n\u0000R\u0010\u0010\t\u001a\u0004\u0018\u00010\u0005X\u0082\u000e¢\u0006\u0002\n\u0000\u0082\u0002\u0004\n\u0002\b\u0019¨\u0006\u0013"}, d2 = {"Lkotlinx/coroutines/flow/internal/SafeCollector;", ExifInterface.GPS_DIRECTION_TRUE, "Lkotlinx/coroutines/flow/FlowCollector;", "collector", "collectContext", "Lkotlin/coroutines/CoroutineContext;", "(Lkotlinx/coroutines/flow/FlowCollector;Lkotlin/coroutines/CoroutineContext;)V", "collectContextSize", "", "lastEmissionContext", "checkContext", "", "currentContext", "emit", "value", "(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "transitiveCoroutineParent", "Lkotlinx/coroutines/Job;", "collectJob", "kotlinx-coroutines-core"}, k = 1, mv = {1, 1, 15})
 /* loaded from: classes2.dex */
@@ -19,6 +20,7 @@ public final class SafeCollector<T> implements FlowCollector<T> {
     private final FlowCollector<T> collector;
     private CoroutineContext lastEmissionContext;
 
+    /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: kotlinx.coroutines.flow.FlowCollector<? super T> */
     /* JADX WARN: Multi-variable type inference failed */
     public SafeCollector(FlowCollector<? super T> collector, CoroutineContext collectContext) {
         Intrinsics.checkParameterIsNotNull(collector, "collector");
@@ -31,6 +33,8 @@ public final class SafeCollector<T> implements FlowCollector<T> {
                 return i + 1;
             }
 
+            /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
+            /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
             @Override // kotlin.jvm.functions.Function2
             public /* bridge */ /* synthetic */ Integer invoke(Integer num, CoroutineContext.Element element) {
                 return Integer.valueOf(invoke(num.intValue(), element));
@@ -50,11 +54,12 @@ public final class SafeCollector<T> implements FlowCollector<T> {
 
     private final void checkContext(CoroutineContext coroutineContext) {
         if (((Number) coroutineContext.fold(0, new Function2<Integer, CoroutineContext.Element, Integer>() { // from class: kotlinx.coroutines.flow.internal.SafeCollector$checkContext$result$1
-            /* JADX INFO: Access modifiers changed from: package-private */
             {
                 super(2);
             }
 
+            /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
+            /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
             @Override // kotlin.jvm.functions.Function2
             public /* bridge */ /* synthetic */ Integer invoke(Integer num, CoroutineContext.Element element) {
                 return Integer.valueOf(invoke(num.intValue(), element));

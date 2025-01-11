@@ -2,6 +2,7 @@ package androidx.core.content.res;
 
 import android.content.res.Resources;
 import android.os.Build;
+
 /* loaded from: classes.dex */
 public final class ConfigurationHelper {
     private ConfigurationHelper() {

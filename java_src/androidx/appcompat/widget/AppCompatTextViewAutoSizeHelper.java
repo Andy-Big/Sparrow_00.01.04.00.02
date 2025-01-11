@@ -24,9 +24,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.concurrent.ConcurrentHashMap;
-/* JADX INFO: Access modifiers changed from: package-private */
+
 /* loaded from: classes.dex */
-public class AppCompatTextViewAutoSizeHelper {
+class AppCompatTextViewAutoSizeHelper {
     private static final int DEFAULT_AUTO_SIZE_GRANULARITY_IN_PX = 1;
     private static final int DEFAULT_AUTO_SIZE_MAX_TEXT_SIZE_IN_SP = 112;
     private static final int DEFAULT_AUTO_SIZE_MIN_TEXT_SIZE_IN_SP = 12;
@@ -48,9 +48,8 @@ public class AppCompatTextViewAutoSizeHelper {
     private int[] mAutoSizeTextSizesInPx = new int[0];
     private boolean mHasPresetAutoSizeValues = false;
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static class Impl {
+    private static class Impl {
         void computeAndSetTextDirection(StaticLayout.Builder builder, TextView textView) {
         }
 
@@ -89,8 +88,7 @@ public class AppCompatTextViewAutoSizeHelper {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public AppCompatTextViewAutoSizeHelper(TextView textView) {
+    AppCompatTextViewAutoSizeHelper(TextView textView) {
         this.mTextView = textView;
         this.mContext = textView.getContext();
         if (Build.VERSION.SDK_INT >= 29) {
@@ -102,8 +100,7 @@ public class AppCompatTextViewAutoSizeHelper {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void loadFromAttributes(AttributeSet attributeSet, int i) {
+    void loadFromAttributes(AttributeSet attributeSet, int i) {
         int resourceId;
         TypedArray obtainStyledAttributes = this.mContext.obtainStyledAttributes(attributeSet, R.styleable.AppCompatTextView, i, 0);
         TextView textView = this.mTextView;
@@ -143,8 +140,7 @@ public class AppCompatTextViewAutoSizeHelper {
         this.mAutoSizeTextType = 0;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setAutoSizeTextTypeWithDefaults(int i) {
+    void setAutoSizeTextTypeWithDefaults(int i) {
         if (supportsAutoSizeText()) {
             if (i == 0) {
                 clearAutoSizeConfiguration();
@@ -160,8 +156,7 @@ public class AppCompatTextViewAutoSizeHelper {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setAutoSizeTextTypeUniformWithConfiguration(int i, int i2, int i3, int i4) throws IllegalArgumentException {
+    void setAutoSizeTextTypeUniformWithConfiguration(int i, int i2, int i3, int i4) throws IllegalArgumentException {
         if (supportsAutoSizeText()) {
             DisplayMetrics displayMetrics = this.mContext.getResources().getDisplayMetrics();
             validateAndSetAutoSizeTextTypeUniformConfiguration(TypedValue.applyDimension(i4, i, displayMetrics), TypedValue.applyDimension(i4, i2, displayMetrics), TypedValue.applyDimension(i4, i3, displayMetrics));
@@ -171,8 +166,7 @@ public class AppCompatTextViewAutoSizeHelper {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setAutoSizeTextTypeUniformWithPresetSizes(int[] iArr, int i) throws IllegalArgumentException {
+    void setAutoSizeTextTypeUniformWithPresetSizes(int[] iArr, int i) throws IllegalArgumentException {
         if (supportsAutoSizeText()) {
             int length = iArr.length;
             if (length > 0) {
@@ -198,28 +192,23 @@ public class AppCompatTextViewAutoSizeHelper {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public int getAutoSizeTextType() {
+    int getAutoSizeTextType() {
         return this.mAutoSizeTextType;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public int getAutoSizeStepGranularity() {
+    int getAutoSizeStepGranularity() {
         return Math.round(this.mAutoSizeStepGranularityInPx);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public int getAutoSizeMinTextSize() {
+    int getAutoSizeMinTextSize() {
         return Math.round(this.mAutoSizeMinTextSizeInPx);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public int getAutoSizeMaxTextSize() {
+    int getAutoSizeMaxTextSize() {
         return Math.round(this.mAutoSizeMaxTextSizeInPx);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public int[] getAutoSizeTextAvailableSizes() {
+    int[] getAutoSizeTextAvailableSizes() {
         return this.mAutoSizeTextSizesInPx;
     }
 
@@ -305,8 +294,7 @@ public class AppCompatTextViewAutoSizeHelper {
         return this.mNeedsAutoSizeText;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void autoSizeText() {
+    void autoSizeText() {
         if (isAutoSizeEnabled()) {
             if (this.mNeedsAutoSizeText) {
                 if (this.mTextView.getMeasuredHeight() <= 0 || this.mTextView.getMeasuredWidth() <= 0) {
@@ -340,8 +328,7 @@ public class AppCompatTextViewAutoSizeHelper {
         this.mNeedsAutoSizeText = false;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setTextSizeInternal(int i, float f) {
+    void setTextSizeInternal(int i, float f) {
         Resources resources;
         Context context = this.mContext;
         if (context == null) {
@@ -506,8 +493,7 @@ public class AppCompatTextViewAutoSizeHelper {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean isAutoSizeEnabled() {
+    boolean isAutoSizeEnabled() {
         return supportsAutoSizeText() && this.mAutoSizeTextType != 0;
     }
 

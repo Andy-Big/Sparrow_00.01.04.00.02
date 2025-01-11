@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import androidx.appcompat.R;
 import androidx.appcompat.view.ActionMode;
 import androidx.core.view.KeyEventDispatcher;
+
 /* loaded from: classes.dex */
 public class AppCompatDialog extends Dialog implements AppCompatCallback {
     private AppCompatDelegate mDelegate;
@@ -46,8 +47,7 @@ public class AppCompatDialog extends Dialog implements AppCompatCallback {
         delegate.onCreate(null);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public AppCompatDialog(Context context, boolean z, DialogInterface.OnCancelListener onCancelListener) {
+    protected AppCompatDialog(Context context, boolean z, DialogInterface.OnCancelListener onCancelListener) {
         super(context, z, onCancelListener);
         this.mKeyDispatcher = new KeyEventDispatcher.Component() { // from class: androidx.appcompat.app.AppCompatDialog.1
             @Override // androidx.core.view.KeyEventDispatcher.Component
@@ -57,9 +57,8 @@ public class AppCompatDialog extends Dialog implements AppCompatCallback {
         };
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.app.Dialog
-    public void onCreate(Bundle bundle) {
+    protected void onCreate(Bundle bundle) {
         getDelegate().installViewFactory();
         super.onCreate(bundle);
         getDelegate().onCreate(bundle);

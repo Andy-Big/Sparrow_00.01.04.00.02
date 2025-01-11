@@ -26,6 +26,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+
 /* loaded from: classes2.dex */
 public class ClassicsHeader extends InternalClassics<ClassicsHeader> implements RefreshHeader {
     public static final byte ID_TEXT_UPDATE = 4;
@@ -342,6 +343,7 @@ public class ClassicsHeader extends InternalClassics<ClassicsHeader> implements 
         return this;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.scwang.smartrefresh.layout.internal.InternalClassics
     public ClassicsHeader setAccentColor(int i) {

@@ -32,6 +32,7 @@ import javax.mail.Multipart;
 import javax.mail.Session;
 import javax.mail.internet.MimeBodyPart;
 import javax.mail.util.SharedByteArrayInputStream;
+
 /* loaded from: classes2.dex */
 public class MimeMessage extends Message implements MimePart {
     private boolean allowutf8;
@@ -112,8 +113,7 @@ public class MimeMessage extends Message implements MimePart {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public MimeMessage(Folder folder, int i) {
+    protected MimeMessage(Folder folder, int i) {
         super(folder, i);
         this.modified = false;
         this.saved = false;
@@ -145,8 +145,7 @@ public class MimeMessage extends Message implements MimePart {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void parse(InputStream inputStream) throws MessagingException {
+    protected void parse(InputStream inputStream) throws MessagingException {
         if (!(inputStream instanceof ByteArrayInputStream) && !(inputStream instanceof BufferedInputStream) && !(inputStream instanceof SharedInputStream)) {
             inputStream = new BufferedInputStream(inputStream);
         }
@@ -219,9 +218,8 @@ public class MimeMessage extends Message implements MimePart {
             super(str);
         }
 
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // javax.mail.Message.RecipientType
-        public Object readResolve() throws ObjectStreamException {
+        protected Object readResolve() throws ObjectStreamException {
             if (this.type.equals("Newsgroups")) {
                 return NEWSGROUPS;
             }
@@ -544,8 +542,7 @@ public class MimeMessage extends Message implements MimePart {
         return getDataHandler().getInputStream();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public InputStream getContentStream() throws MessagingException {
+    protected InputStream getContentStream() throws MessagingException {
         InputStream inputStream = this.contentStream;
         if (inputStream != null) {
             return ((SharedInputStream) inputStream).newStream(0L, -1L);

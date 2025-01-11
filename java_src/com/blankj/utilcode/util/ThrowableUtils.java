@@ -6,6 +6,7 @@ import java.io.Writer;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
+
 /* loaded from: classes.dex */
 public class ThrowableUtils {
     private static final String LINE_SEP = System.getProperty("line.separator");

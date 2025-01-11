@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import androidx.constraintlayout.motion.utils.Easing;
 import androidx.constraintlayout.widget.R;
 import java.util.HashMap;
+
 /* loaded from: classes.dex */
 public class KeyPosition extends KeyPositionBase {
     public static final String DRAWPATH = "drawPath";
@@ -413,6 +414,7 @@ public class KeyPosition extends KeyPositionBase {
         return this;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.constraintlayout.motion.widget.Key
     /* renamed from: clone */
     public Key mo2clone() {

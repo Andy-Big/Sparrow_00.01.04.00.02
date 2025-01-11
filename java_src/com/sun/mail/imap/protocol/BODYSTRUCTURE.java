@@ -6,6 +6,7 @@ import com.sun.mail.util.PropUtil;
 import java.io.PrintStream;
 import java.util.ArrayList;
 import javax.mail.internet.ParameterList;
+
 /* loaded from: classes2.dex */
 public class BODYSTRUCTURE implements Item {
     public String attachment;

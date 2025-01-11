@@ -7,6 +7,7 @@ import android.os.Build;
 import android.os.IBinder;
 import android.os.RemoteException;
 import android.support.v4.app.INotificationSideChannel;
+
 /* loaded from: classes.dex */
 public abstract class NotificationCompatSideChannelService extends Service {
     public abstract void cancel(String str, int i, String str2);

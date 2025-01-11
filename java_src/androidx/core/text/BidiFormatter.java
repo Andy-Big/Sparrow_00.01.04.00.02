@@ -3,6 +3,7 @@ package androidx.core.text;
 import android.text.SpannableStringBuilder;
 import java.util.Locale;
 import kotlin.text.Typography;
+
 /* loaded from: classes.dex */
 public final class BidiFormatter {
     private static final int DEFAULT_FLAGS = 2;
@@ -190,9 +191,8 @@ public final class BidiFormatter {
         return new DirectionalityEstimator(charSequence, false).getEntryDir();
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static class DirectionalityEstimator {
+    private static class DirectionalityEstimator {
         private static final byte[] DIR_TYPE_CACHE = new byte[1792];
         private static final int DIR_TYPE_CACHE_SIZE = 1792;
         private int charIndex;

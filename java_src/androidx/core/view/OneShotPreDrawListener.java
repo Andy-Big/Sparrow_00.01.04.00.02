@@ -2,6 +2,7 @@ package androidx.core.view;
 
 import android.view.View;
 import android.view.ViewTreeObserver;
+
 /* loaded from: classes.dex */
 public final class OneShotPreDrawListener implements ViewTreeObserver.OnPreDrawListener, View.OnAttachStateChangeListener {
     private final Runnable mRunnable;

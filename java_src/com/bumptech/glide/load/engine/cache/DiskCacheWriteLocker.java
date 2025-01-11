@@ -7,13 +7,16 @@ import java.util.Map;
 import java.util.Queue;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
+
 /* loaded from: classes.dex */
 final class DiskCacheWriteLocker {
     private final Map<String, WriteLock> locks = new HashMap();
     private final WriteLockPool writeLockPool = new WriteLockPool();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void acquire(String str) {
+    DiskCacheWriteLocker() {
+    }
+
+    void acquire(String str) {
         WriteLock writeLock;
         synchronized (this) {
             writeLock = this.locks.get(str);
@@ -26,8 +29,7 @@ final class DiskCacheWriteLocker {
         writeLock.lock.lock();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void release(String str) {
+    void release(String str) {
         WriteLock writeLock;
         synchronized (this) {
             writeLock = (WriteLock) Preconditions.checkNotNull(this.locks.get(str));
@@ -46,9 +48,8 @@ final class DiskCacheWriteLocker {
         writeLock.lock.unlock();
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static class WriteLock {
+    private static class WriteLock {
         int interestedThreads;
         final Lock lock = new ReentrantLock();
 

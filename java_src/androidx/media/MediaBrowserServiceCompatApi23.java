@@ -5,6 +5,7 @@ import android.media.browse.MediaBrowser;
 import android.os.Parcel;
 import android.service.media.MediaBrowserService;
 import androidx.media.MediaBrowserServiceCompatApi21;
+
 /* loaded from: classes.dex */
 class MediaBrowserServiceCompatApi23 {
 
@@ -19,8 +20,7 @@ class MediaBrowserServiceCompatApi23 {
 
     /* loaded from: classes.dex */
     static class MediaBrowserServiceAdaptor extends MediaBrowserServiceCompatApi21.MediaBrowserServiceAdaptor {
-        /* JADX INFO: Access modifiers changed from: package-private */
-        public MediaBrowserServiceAdaptor(Context context, ServiceCompatProxy serviceCompatProxy) {
+        MediaBrowserServiceAdaptor(Context context, ServiceCompatProxy serviceCompatProxy) {
             super(context, serviceCompatProxy);
         }
 

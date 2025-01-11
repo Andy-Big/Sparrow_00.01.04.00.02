@@ -7,6 +7,7 @@ import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleEventObserver;
 import androidx.lifecycle.LifecycleOwner;
 import java.lang.reflect.Field;
+
 /* loaded from: classes.dex */
 final class ImmLeaksCleaner implements LifecycleEventObserver {
     private static final int INIT_FAILED = 2;
@@ -18,8 +19,7 @@ final class ImmLeaksCleaner implements LifecycleEventObserver {
     private static Field sServedViewField;
     private Activity mActivity;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ImmLeaksCleaner(Activity activity) {
+    ImmLeaksCleaner(Activity activity) {
         this.mActivity = activity;
     }
 
@@ -53,11 +53,11 @@ final class ImmLeaksCleaner implements LifecycleEventObserver {
                                 inputMethodManager.isActive();
                             } catch (IllegalAccessException unused) {
                             }
-                        } catch (Throwable th) {
-                            throw th;
+                        } catch (ClassCastException unused2) {
+                        } catch (IllegalAccessException unused3) {
                         }
-                    } catch (ClassCastException unused2) {
-                    } catch (IllegalAccessException unused3) {
+                    } catch (Throwable th) {
+                        throw th;
                     }
                 }
             } catch (IllegalAccessException unused4) {

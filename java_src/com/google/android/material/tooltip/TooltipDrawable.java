@@ -20,6 +20,7 @@ import com.google.android.material.shape.EdgeTreatment;
 import com.google.android.material.shape.MarkerEdgeTreatment;
 import com.google.android.material.shape.MaterialShapeDrawable;
 import com.google.android.material.shape.OffsetEdgeTreatment;
+
 /* loaded from: classes.dex */
 public class TooltipDrawable extends MaterialShapeDrawable implements TextDrawableHelper.TextDrawableDelegate {
     private static final int DEFAULT_STYLE = R.style.Widget_MaterialComponents_Tooltip;
@@ -181,9 +182,8 @@ public class TooltipDrawable extends MaterialShapeDrawable implements TextDrawab
         canvas.restore();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.google.android.material.shape.MaterialShapeDrawable, android.graphics.drawable.Drawable
-    public void onBoundsChange(Rect rect) {
+    protected void onBoundsChange(Rect rect) {
         super.onBoundsChange(rect);
         setShapeAppearanceModel(getShapeAppearanceModel().toBuilder().setBottomEdge(createMarkerEdge()).build());
     }

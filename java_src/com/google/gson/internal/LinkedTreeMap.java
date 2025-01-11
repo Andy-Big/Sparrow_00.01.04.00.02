@@ -11,10 +11,12 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.NoSuchElementException;
 import java.util.Set;
+
 /* loaded from: classes.dex */
 public final class LinkedTreeMap<K, V> extends AbstractMap<K, V> implements Serializable {
     static final /* synthetic */ boolean $assertionsDisabled = false;
     private static final Comparator<Comparable> NATURAL_ORDER = new Comparator<Comparable>() { // from class: com.google.gson.internal.LinkedTreeMap.1
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
         public int compare(Comparable comparable, Comparable comparable2) {
             return comparable.compareTo(comparable2);
@@ -88,6 +90,7 @@ public final class LinkedTreeMap<K, V> extends AbstractMap<K, V> implements Seri
         return null;
     }
 
+    /* JADX DEBUG: Type inference failed for r4v2. Raw type applied. Possible types: K, ? super K */
     Node<K, V> find(K k, boolean z) {
         int i;
         Node<K, V> node;
@@ -137,6 +140,7 @@ public final class LinkedTreeMap<K, V> extends AbstractMap<K, V> implements Seri
         return null;
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r3v0, resolved type: java.lang.Object */
     /* JADX WARN: Multi-variable type inference failed */
     Node<K, V> findByObject(Object obj) {
         if (obj != 0) {
@@ -336,9 +340,8 @@ public final class LinkedTreeMap<K, V> extends AbstractMap<K, V> implements Seri
         return keySet2;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static final class Node<K, V> implements Map.Entry<K, V> {
+    static final class Node<K, V> implements Map.Entry<K, V> {
         int height;
         final K key;
         Node<K, V> left;
@@ -435,9 +438,8 @@ public final class LinkedTreeMap<K, V> extends AbstractMap<K, V> implements Seri
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public abstract class LinkedTreeMapIterator<T> implements Iterator<T> {
+    private abstract class LinkedTreeMapIterator<T> implements Iterator<T> {
         int expectedModCount;
         Node<K, V> lastReturned = null;
         Node<K, V> next;
@@ -494,6 +496,7 @@ public final class LinkedTreeMap<K, V> extends AbstractMap<K, V> implements Seri
                     LinkedTreeMap linkedTreeMap = LinkedTreeMap.this;
                 }
 
+                /* JADX DEBUG: Method merged with bridge method */
                 @Override // java.util.Iterator
                 public Map.Entry<K, V> next() {
                     return nextNode();

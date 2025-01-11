@@ -1,4 +1,5 @@
 package javax.mail;
+
 /* loaded from: classes2.dex */
 public class ReadOnlyFolderException extends MessagingException {
     private static final long serialVersionUID = 5711829372799039325L;

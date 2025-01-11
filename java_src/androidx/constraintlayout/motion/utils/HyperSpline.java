@@ -1,6 +1,7 @@
 package androidx.constraintlayout.motion.utils;
 
 import java.lang.reflect.Array;
+
 /* loaded from: classes.dex */
 public class HyperSpline {
     double[][] mCtl;

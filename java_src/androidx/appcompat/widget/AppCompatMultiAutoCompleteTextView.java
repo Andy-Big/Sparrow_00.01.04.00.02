@@ -11,6 +11,7 @@ import android.widget.MultiAutoCompleteTextView;
 import androidx.appcompat.R;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.core.view.TintableBackgroundView;
+
 /* loaded from: classes.dex */
 public class AppCompatMultiAutoCompleteTextView extends MultiAutoCompleteTextView implements TintableBackgroundView {
     private static final int[] TINT_ATTRS = {16843126};

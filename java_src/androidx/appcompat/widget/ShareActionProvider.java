@@ -13,6 +13,7 @@ import androidx.appcompat.R;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.appcompat.widget.ActivityChooserModel;
 import androidx.core.view.ActionProvider;
+
 /* loaded from: classes.dex */
 public class ShareActionProvider extends ActionProvider {
     private static final int DEFAULT_INITIAL_ACTIVITY_COUNT = 4;
@@ -127,9 +128,8 @@ public class ShareActionProvider extends ActionProvider {
         ActivityChooserModel.get(this.mContext, this.mShareHistoryFileName).setOnChooseActivityListener(this.mOnChooseActivityListener);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public class ShareActivityChooserModelPolicy implements ActivityChooserModel.OnChooseActivityListener {
+    private class ShareActivityChooserModelPolicy implements ActivityChooserModel.OnChooseActivityListener {
         ShareActivityChooserModelPolicy() {
         }
 

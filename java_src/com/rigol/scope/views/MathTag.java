@@ -32,6 +32,11 @@ public final class MathTag extends TagView {
         this(context, attributeSet, 0, 4, null);
     }
 
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.views.MathTag$$special$$inlined$let$lambda$5.onChanged(java.lang.Object):void, com.rigol.scope.views.MathTag$$special$$inlined$let$lambda$6.onChanged(java.lang.Object):void] */
+    public static final /* synthetic */ MathParam access$getMathParam$p(MathTag mathTag) {
+        return mathTag.mathParam;
+    }
+
     public /* synthetic */ MathTag(Context context, AttributeSet attributeSet, int i, int i2, DefaultConstructorMarker defaultConstructorMarker) {
         this(context, attributeSet, (i2 & 4) != 0 ? 0 : i);
     }
@@ -121,15 +126,13 @@ public final class MathTag extends TagView {
                 mutableLiveData5.observe((LifecycleOwner) context6, new Observer<Object>() { // from class: com.rigol.scope.views.MathTag$$special$$inlined$let$lambda$5
                     @Override // androidx.lifecycle.Observer
                     public final void onChanged(Object obj) {
-                        MathParam mathParam;
-                        MathParam mathParam2;
-                        mathParam = MathTag.this.mathParam;
-                        if (mathParam != null) {
-                            MathTag.this.setShowLabel(mathParam.isLabel());
+                        MathParam access$getMathParam$p = MathTag.access$getMathParam$p(MathTag.this);
+                        if (access$getMathParam$p != null) {
+                            MathTag.this.setShowLabel(access$getMathParam$p.isLabel());
                         }
                         MathTag mathTag = MathTag.this;
-                        mathParam2 = mathTag.mathParam;
-                        mathTag.setLabel(mathParam2 != null ? mathParam2.getLabelString() : null);
+                        MathParam access$getMathParam$p2 = MathTag.access$getMathParam$p(mathTag);
+                        mathTag.setLabel(access$getMathParam$p2 != null ? access$getMathParam$p2.getLabelString() : null);
                         MathTag.this.invalidate();
                     }
                 });
@@ -143,10 +146,9 @@ public final class MathTag extends TagView {
                 mutableLiveData6.observe((LifecycleOwner) context7, new Observer<Object>() { // from class: com.rigol.scope.views.MathTag$$special$$inlined$let$lambda$6
                     @Override // androidx.lifecycle.Observer
                     public final void onChanged(Object obj) {
-                        MathParam mathParam;
                         MathTag mathTag = MathTag.this;
-                        mathParam = mathTag.mathParam;
-                        mathTag.setLabel(mathParam != null ? mathParam.getLabelString() : null);
+                        MathParam access$getMathParam$p = MathTag.access$getMathParam$p(mathTag);
+                        mathTag.setLabel(access$getMathParam$p != null ? access$getMathParam$p.getLabelString() : null);
                         MathTag.this.invalidate();
                     }
                 });
@@ -154,7 +156,6 @@ public final class MathTag extends TagView {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public final void setMathParam(MathParam mathParam) {
         this.mathParam = mathParam;
         setText(ViewUtil.getShortChanStr(mathParam != null ? mathParam.getChan() : null));

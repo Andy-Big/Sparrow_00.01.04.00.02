@@ -13,6 +13,7 @@ import javax.jmdns.impl.JmDNSImpl;
 import javax.jmdns.impl.constants.DNSConstants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 /* loaded from: classes2.dex */
 public class Responder extends DNSTask {
     static Logger logger = LoggerFactory.getLogger(Responder.class.getName());

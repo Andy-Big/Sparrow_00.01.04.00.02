@@ -20,6 +20,7 @@ import androidx.core.view.GravityCompat;
 import androidx.core.view.ViewCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import java.lang.reflect.Method;
+
 @Deprecated
 /* loaded from: classes.dex */
 public class ActionBarDrawerToggle implements DrawerLayout.DrawerListener {
@@ -258,9 +259,8 @@ public class ActionBarDrawerToggle implements DrawerLayout.DrawerListener {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static class SetIndicatorInfo {
+    private static class SetIndicatorInfo {
         Method mSetHomeActionContentDescription;
         Method mSetHomeAsUpIndicator;
         ImageView mUpIndicatorView;
@@ -287,9 +287,8 @@ public class ActionBarDrawerToggle implements DrawerLayout.DrawerListener {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public class SlideDrawable extends InsetDrawable implements Drawable.Callback {
+    private class SlideDrawable extends InsetDrawable implements Drawable.Callback {
         private final boolean mHasMirroring;
         private float mOffset;
         private float mPosition;

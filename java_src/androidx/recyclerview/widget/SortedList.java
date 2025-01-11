@@ -4,6 +4,7 @@ import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Comparator;
+
 /* loaded from: classes.dex */
 public class SortedList<T> {
     private static final int CAPACITY_GROWTH = 10;
@@ -58,6 +59,7 @@ public class SortedList<T> {
         addAll(tArr, false);
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: androidx.recyclerview.widget.SortedList<T> */
     /* JADX WARN: Multi-variable type inference failed */
     public void addAll(Collection<T> collection) {
         addAll(collection.toArray((Object[]) Array.newInstance((Class<?>) this.mTClass, collection.size())), true);
@@ -76,6 +78,7 @@ public class SortedList<T> {
         replaceAll(tArr, false);
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: androidx.recyclerview.widget.SortedList<T> */
     /* JADX WARN: Multi-variable type inference failed */
     public void replaceAll(Collection<T> collection) {
         replaceAll(collection.toArray((Object[]) Array.newInstance((Class<?>) this.mTClass, collection.size())), true);

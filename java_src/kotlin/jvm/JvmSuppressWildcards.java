@@ -9,6 +9,7 @@ import kotlin.Metadata;
 import kotlin.annotation.AnnotationRetention;
 import kotlin.annotation.AnnotationTarget;
 import kotlin.annotation.MustBeDocumented;
+
 /* compiled from: JvmPlatformAnnotations.kt */
 @Target({ElementType.TYPE, ElementType.METHOD})
 @kotlin.annotation.Target(allowedTargets = {AnnotationTarget.CLASS, AnnotationTarget.FUNCTION, AnnotationTarget.PROPERTY, AnnotationTarget.TYPE})

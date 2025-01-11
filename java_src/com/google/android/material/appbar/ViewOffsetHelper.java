@@ -2,6 +2,7 @@ package com.google.android.material.appbar;
 
 import android.view.View;
 import androidx.core.view.ViewCompat;
+
 /* loaded from: classes.dex */
 class ViewOffsetHelper {
     private int layoutLeft;
@@ -16,14 +17,12 @@ class ViewOffsetHelper {
         this.view = view;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void onViewLayout() {
+    void onViewLayout() {
         this.layoutTop = this.view.getTop();
         this.layoutLeft = this.view.getLeft();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void applyOffsets() {
+    void applyOffsets() {
         View view = this.view;
         ViewCompat.offsetTopAndBottom(view, this.offsetTop - (view.getTop() - this.layoutTop));
         View view2 = this.view;

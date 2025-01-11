@@ -3,6 +3,7 @@ package javax.mail.event;
 import javax.mail.Address;
 import javax.mail.Message;
 import javax.mail.Transport;
+
 /* loaded from: classes2.dex */
 public class TransportEvent extends MailEvent {
     public static final int MESSAGE_DELIVERED = 1;

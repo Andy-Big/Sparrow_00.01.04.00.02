@@ -9,6 +9,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Properties;
+
 /* loaded from: classes.dex */
 public final class RomUtils {
     private static final String UNKNOWN = "unknown";
@@ -266,42 +267,42 @@ public final class RomUtils {
             try {
                 Runtime runtime = Runtime.getRuntime();
                 bufferedReader = new BufferedReader(new InputStreamReader(runtime.exec("getprop " + str).getInputStream()), 1024);
-            } catch (IOException unused) {
-                return "";
-            }
-        } catch (IOException unused2) {
-        } catch (Throwable th) {
-            th = th;
-        }
-        try {
-            readLine = bufferedReader.readLine();
-        } catch (IOException unused3) {
-            bufferedReader2 = bufferedReader;
-            if (bufferedReader2 != null) {
-                bufferedReader2.close();
-                return "";
-            }
-            return "";
-        } catch (Throwable th2) {
-            th = th2;
-            bufferedReader2 = bufferedReader;
-            if (bufferedReader2 != null) {
                 try {
-                    bufferedReader2.close();
+                    readLine = bufferedReader.readLine();
+                } catch (IOException unused) {
+                    bufferedReader2 = bufferedReader;
+                    if (bufferedReader2 != null) {
+                        bufferedReader2.close();
+                        return "";
+                    }
+                    return "";
+                } catch (Throwable th) {
+                    th = th;
+                    bufferedReader2 = bufferedReader;
+                    if (bufferedReader2 != null) {
+                        try {
+                            bufferedReader2.close();
+                        } catch (IOException unused2) {
+                        }
+                    }
+                    throw th;
+                }
+            } catch (IOException unused3) {
+            } catch (Throwable th2) {
+                th = th2;
+            }
+            if (readLine != null) {
+                try {
+                    bufferedReader.close();
                 } catch (IOException unused4) {
                 }
+                return readLine;
             }
-            throw th;
+            bufferedReader.close();
+            return "";
+        } catch (IOException unused5) {
+            return "";
         }
-        if (readLine != null) {
-            try {
-                bufferedReader.close();
-            } catch (IOException unused5) {
-            }
-            return readLine;
-        }
-        bufferedReader.close();
-        return "";
     }
 
     private static String getSystemPropertyByStream(String str) {

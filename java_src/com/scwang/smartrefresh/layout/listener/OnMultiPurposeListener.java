@@ -2,6 +2,7 @@ package com.scwang.smartrefresh.layout.listener;
 
 import com.scwang.smartrefresh.layout.api.RefreshFooter;
 import com.scwang.smartrefresh.layout.api.RefreshHeader;
+
 /* loaded from: classes2.dex */
 public interface OnMultiPurposeListener extends OnRefreshLoadMoreListener, OnStateChangedListener {
     void onFooterFinish(RefreshFooter refreshFooter, boolean z);

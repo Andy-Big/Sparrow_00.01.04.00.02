@@ -8,6 +8,7 @@ import com.google.android.material.R;
 import com.google.android.material.color.MaterialColors;
 import com.google.android.material.internal.ViewUtils;
 import com.google.android.material.resources.MaterialAttributes;
+
 /* loaded from: classes.dex */
 public class ElevationOverlayProvider {
     private static final float FORMULA_MULTIPLIER = 4.5f;

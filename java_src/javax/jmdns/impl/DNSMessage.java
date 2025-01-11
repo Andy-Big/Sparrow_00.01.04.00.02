@@ -7,6 +7,7 @@ import java.util.LinkedList;
 import java.util.List;
 import javax.jmdns.impl.constants.DNSConstants;
 import kotlin.UByte;
+
 /* loaded from: classes2.dex */
 public abstract class DNSMessage {
     public static final boolean MULTICAST = true;
@@ -19,8 +20,7 @@ public abstract class DNSMessage {
     protected final List<DNSRecord> _authoritativeAnswers = Collections.synchronizedList(new LinkedList());
     protected final List<DNSRecord> _additionals = Collections.synchronizedList(new LinkedList());
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public DNSMessage(int i, int i2, boolean z) {
+    protected DNSMessage(int i, int i2, boolean z) {
         this._flags = i;
         this._id = i2;
         this._multicast = z;
@@ -117,8 +117,7 @@ public abstract class DNSMessage {
         return ((getNumberOfQuestions() + getNumberOfAnswers()) + getNumberOfAuthorities()) + getNumberOfAdditionals() == 0;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public String print() {
+    String print() {
         StringBuilder sb = new StringBuilder(200);
         sb.append(toString());
         sb.append("\n");
@@ -145,8 +144,7 @@ public abstract class DNSMessage {
         return sb.toString();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public String print(byte[] bArr) {
+    protected String print(byte[] bArr) {
         StringBuilder sb = new StringBuilder(4000);
         int length = bArr.length;
         int i = 0;

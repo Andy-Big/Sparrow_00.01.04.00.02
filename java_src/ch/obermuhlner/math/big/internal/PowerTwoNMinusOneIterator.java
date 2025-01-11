@@ -3,6 +3,7 @@ package ch.obermuhlner.math.big.internal;
 import ch.obermuhlner.math.big.BigDecimalMath;
 import java.math.BigDecimal;
 import java.math.MathContext;
+
 /* loaded from: classes.dex */
 public class PowerTwoNMinusOneIterator implements PowerIterator {
     private final MathContext mathContext;

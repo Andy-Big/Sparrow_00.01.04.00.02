@@ -2,6 +2,7 @@ package javax.activation;
 
 import java.util.Map;
 import java.util.WeakHashMap;
+
 /* loaded from: classes2.dex */
 public abstract class CommandMap {
     private static CommandMap defaultCommandMap;

@@ -7,6 +7,7 @@ import com.sun.mail.iap.ByteArray;
 import com.sun.mail.iap.CommandFailedException;
 import com.sun.mail.iap.ConnectionException;
 import com.sun.mail.iap.Literal;
+import com.sun.mail.iap.LiteralException;
 import com.sun.mail.iap.ParsingException;
 import com.sun.mail.iap.Protocol;
 import com.sun.mail.iap.ProtocolException;
@@ -44,6 +45,7 @@ import javax.mail.internet.MimeUtility;
 import javax.mail.search.SearchException;
 import javax.mail.search.SearchTerm;
 import org.slf4j.Marker;
+
 /* loaded from: classes2.dex */
 public class IMAPProtocol extends Protocol {
     static final /* synthetic */ boolean $assertionsDisabled = false;
@@ -232,9 +234,8 @@ public class IMAPProtocol extends Protocol {
         return this.rev1;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.sun.mail.iap.Protocol
-    public boolean supportsNonSyncLiterals() {
+    protected boolean supportsNonSyncLiterals() {
         return hasCapability("LITERAL+");
     }
 
@@ -1046,9 +1047,8 @@ public class IMAPProtocol extends Protocol {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.sun.mail.iap.Protocol
-    public ByteArray getResponseBuffer() {
+    protected ByteArray getResponseBuffer() {
         ByteArray byteArray = this.ba;
         this.ba = null;
         return byteArray;
@@ -1761,75 +1761,41 @@ public class IMAPProtocol extends Protocol {
     /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:13:0x002b -> B:14:0x002c). Please submit an issue!!! */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    public synchronized void idleStart() throws com.sun.mail.iap.ProtocolException {
-        /*
-            r5 = this;
-            monitor-enter(r5)
-            java.lang.String r0 = "IDLE"
-            boolean r0 = r5.hasCapability(r0)     // Catch: java.lang.Throwable -> L6e
-            if (r0 == 0) goto L66
-            java.util.ArrayList r0 = new java.util.ArrayList     // Catch: java.lang.Throwable -> L6e
-            r0.<init>()     // Catch: java.lang.Throwable -> L6e
-            r1 = 0
-            r2 = 1
-            java.lang.String r3 = "IDLE"
-            r4 = 0
-            java.lang.String r3 = r5.writeCommand(r3, r4)     // Catch: java.lang.Exception -> L1a com.sun.mail.iap.LiteralException -> L23 java.lang.Throwable -> L6e
-            r5.idleTag = r3     // Catch: java.lang.Exception -> L1a com.sun.mail.iap.LiteralException -> L23 java.lang.Throwable -> L6e
-            goto L2c
-        L1a:
-            r1 = move-exception
-            com.sun.mail.iap.Response r1 = com.sun.mail.iap.Response.byeResponse(r1)     // Catch: java.lang.Throwable -> L6e
-            r0.add(r1)     // Catch: java.lang.Throwable -> L6e
-            goto L2b
-        L23:
-            r1 = move-exception
-            com.sun.mail.iap.Response r1 = r1.getResponse()     // Catch: java.lang.Throwable -> L6e
-            r0.add(r1)     // Catch: java.lang.Throwable -> L6e
-        L2b:
-            r1 = r2
-        L2c:
-            if (r1 != 0) goto L48
-            com.sun.mail.iap.Response r3 = r5.readResponse()     // Catch: com.sun.mail.iap.ProtocolException -> L2c java.io.IOException -> L33 java.lang.Throwable -> L6e
-            goto L38
-        L33:
-            r3 = move-exception
-            com.sun.mail.iap.Response r3 = com.sun.mail.iap.Response.byeResponse(r3)     // Catch: java.lang.Throwable -> L6e
-        L38:
-            r0.add(r3)     // Catch: java.lang.Throwable -> L6e
-            boolean r4 = r3.isContinuation()     // Catch: java.lang.Throwable -> L6e
-            if (r4 != 0) goto L2b
-            boolean r3 = r3.isBYE()     // Catch: java.lang.Throwable -> L6e
-            if (r3 == 0) goto L2c
-            goto L2b
-        L48:
-            int r1 = r0.size()     // Catch: java.lang.Throwable -> L6e
-            com.sun.mail.iap.Response[] r1 = new com.sun.mail.iap.Response[r1]     // Catch: java.lang.Throwable -> L6e
-            java.lang.Object[] r0 = r0.toArray(r1)     // Catch: java.lang.Throwable -> L6e
-            com.sun.mail.iap.Response[] r0 = (com.sun.mail.iap.Response[]) r0     // Catch: java.lang.Throwable -> L6e
-            int r1 = r0.length     // Catch: java.lang.Throwable -> L6e
-            int r1 = r1 - r2
-            r1 = r0[r1]     // Catch: java.lang.Throwable -> L6e
-            r5.notifyResponseHandlers(r0)     // Catch: java.lang.Throwable -> L6e
-            boolean r0 = r1.isContinuation()     // Catch: java.lang.Throwable -> L6e
-            if (r0 != 0) goto L64
-            r5.handleResult(r1)     // Catch: java.lang.Throwable -> L6e
-        L64:
-            monitor-exit(r5)
-            return
-        L66:
-            com.sun.mail.iap.BadCommandException r0 = new com.sun.mail.iap.BadCommandException     // Catch: java.lang.Throwable -> L6e
-            java.lang.String r1 = "IDLE not supported"
-            r0.<init>(r1)     // Catch: java.lang.Throwable -> L6e
-            throw r0     // Catch: java.lang.Throwable -> L6e
-        L6e:
-            r0 = move-exception
-            monitor-exit(r5)
-            throw r0
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.sun.mail.imap.protocol.IMAPProtocol.idleStart():void");
+    public synchronized void idleStart() throws ProtocolException {
+        Response byeResponse;
+        if (!hasCapability("IDLE")) {
+            throw new BadCommandException("IDLE not supported");
+        }
+        ArrayList arrayList = new ArrayList();
+        boolean z = false;
+        try {
+            this.idleTag = writeCommand("IDLE", null);
+        } catch (LiteralException e) {
+            arrayList.add(e.getResponse());
+        } catch (Exception e2) {
+            arrayList.add(Response.byeResponse(e2));
+        }
+        while (!z) {
+            try {
+            } catch (ProtocolException unused) {
+            } catch (IOException e3) {
+                byeResponse = Response.byeResponse(e3);
+            }
+            byeResponse = readResponse();
+            arrayList.add(byeResponse);
+            if (!byeResponse.isContinuation() && !byeResponse.isBYE()) {
+            }
+            z = true;
+            while (!z) {
+            }
+        }
+        Response[] responseArr = (Response[]) arrayList.toArray(new Response[arrayList.size()]);
+        Response response = responseArr[responseArr.length - 1];
+        notifyResponseHandlers(responseArr);
+        if (!response.isContinuation()) {
+            handleResult(response);
+        }
     }
 
     public synchronized Response readIdleResponse() {

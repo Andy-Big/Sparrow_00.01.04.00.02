@@ -21,6 +21,7 @@ import androidx.core.widget.TextViewCompat;
 import androidx.core.widget.TintableCompoundDrawablesView;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
+
 /* loaded from: classes.dex */
 public class AppCompatTextView extends TextView implements TintableBackgroundView, TintableCompoundDrawablesView, AutoSizeableTextView {
     private final AppCompatBackgroundHelper mBackgroundTintHelper;
@@ -344,9 +345,8 @@ public class AppCompatTextView extends TextView implements TintableBackgroundVie
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.widget.TextView, android.view.View
-    public void onMeasure(int i, int i2) {
+    protected void onMeasure(int i, int i2) {
         consumeTextFutureAndSetBlocking();
         super.onMeasure(i, i2);
     }

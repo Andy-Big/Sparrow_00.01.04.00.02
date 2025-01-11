@@ -3,6 +3,7 @@ package androidx.constraintlayout.core;
 import androidx.constraintlayout.core.ArrayRow;
 import java.io.PrintStream;
 import java.util.Arrays;
+
 /* loaded from: classes.dex */
 public class ArrayLinkedVariables implements ArrayRow.ArrayRowVariables {
     private static final boolean DEBUG = false;
@@ -21,8 +22,7 @@ public class ArrayLinkedVariables implements ArrayRow.ArrayRowVariables {
     private int mLast = -1;
     private boolean mDidFillOnce = false;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ArrayLinkedVariables(ArrayRow arrayRow, Cache cache) {
+    ArrayLinkedVariables(ArrayRow arrayRow, Cache cache) {
         this.mRow = arrayRow;
         this.mCache = cache;
     }

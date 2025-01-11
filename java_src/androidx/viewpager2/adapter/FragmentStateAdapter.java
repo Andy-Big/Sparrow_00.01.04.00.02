@@ -25,6 +25,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
+
 /* loaded from: classes.dex */
 public abstract class FragmentStateAdapter extends RecyclerView.Adapter<FragmentViewHolder> implements StatefulAdapter {
     private static final long GRACE_WINDOW_TIME_MS = 10000;
@@ -47,6 +48,7 @@ public abstract class FragmentStateAdapter extends RecyclerView.Adapter<Fragment
         return i;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public final boolean onFailedToRecycleView(FragmentViewHolder fragmentViewHolder) {
         return true;
@@ -86,11 +88,13 @@ public abstract class FragmentStateAdapter extends RecyclerView.Adapter<Fragment
         this.mFragmentMaxLifecycleEnforcer = null;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public final FragmentViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         return FragmentViewHolder.create(viewGroup);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public final void onBindViewHolder(final FragmentViewHolder fragmentViewHolder, int i) {
         long itemId = fragmentViewHolder.getItemId();
@@ -178,6 +182,7 @@ public abstract class FragmentStateAdapter extends RecyclerView.Adapter<Fragment
         this.mFragments.put(itemId, createFragment);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public final void onViewAttachedToWindow(FragmentViewHolder fragmentViewHolder) {
         placeFragmentInViewHolder(fragmentViewHolder);
@@ -258,6 +263,7 @@ public abstract class FragmentStateAdapter extends RecyclerView.Adapter<Fragment
         frameLayout.addView(view);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public final void onViewRecycled(FragmentViewHolder fragmentViewHolder) {
         Long itemForViewHolder = itemForViewHolder(fragmentViewHolder.getContainer().getId());
@@ -393,9 +399,8 @@ public abstract class FragmentStateAdapter extends RecyclerView.Adapter<Fragment
         return Long.parseLong(str.substring(str2.length()));
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public class FragmentMaxLifecycleEnforcer {
+    class FragmentMaxLifecycleEnforcer {
         private RecyclerView.AdapterDataObserver mDataObserver;
         private LifecycleEventObserver mLifecycleObserver;
         private ViewPager2.OnPageChangeCallback mPageChangeCallback;
@@ -527,9 +532,8 @@ public abstract class FragmentStateAdapter extends RecyclerView.Adapter<Fragment
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static class FragmentEventDispatcher {
+    static class FragmentEventDispatcher {
         private List<FragmentTransactionCallback> mCallbacks = new CopyOnWriteArrayList();
 
         FragmentEventDispatcher() {

@@ -7,6 +7,7 @@ import android.util.Log;
 import android.util.TypedValue;
 import android.view.ViewConfiguration;
 import java.lang.reflect.Method;
+
 /* loaded from: classes.dex */
 public final class ViewConfigurationCompat {
     private static final String TAG = "ViewConfigCompat";

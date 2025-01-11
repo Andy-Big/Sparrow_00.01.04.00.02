@@ -45,6 +45,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Iterator;
+
 /* loaded from: classes.dex */
 public class MotionLayout extends ConstraintLayout implements NestedScrollingParent3 {
     private static final boolean DEBUG = false;
@@ -136,9 +137,8 @@ public class MotionLayout extends ConstraintLayout implements NestedScrollingPar
     boolean mUndergoingMotion;
     int mWidthMeasureMode;
 
-    /* JADX INFO: Access modifiers changed from: protected */
     /* loaded from: classes.dex */
-    public interface MotionTracker {
+    protected interface MotionTracker {
         void addMovement(MotionEvent motionEvent);
 
         void clear();
@@ -169,9 +169,8 @@ public class MotionLayout extends ConstraintLayout implements NestedScrollingPar
         void onTransitionTrigger(MotionLayout motionLayout, int i, boolean z, float f);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public enum TransitionState {
+    enum TransitionState {
         UNDEFINED,
         SETUP,
         MOVING,
@@ -205,8 +204,7 @@ public class MotionLayout extends ConstraintLayout implements NestedScrollingPar
     public void onNestedScrollAccepted(View view, View view2, int i, int i2) {
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public MotionController getMotionController(int i) {
+    MotionController getMotionController(int i) {
         return this.mFrameArrayList.get(findViewById(i));
     }
 
@@ -364,8 +362,7 @@ public class MotionLayout extends ConstraintLayout implements NestedScrollingPar
         return System.nanoTime();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public MotionTracker obtainVelocityTracker() {
+    protected MotionTracker obtainVelocityTracker() {
         return MyTracker.obtain();
     }
 
@@ -391,8 +388,7 @@ public class MotionLayout extends ConstraintLayout implements NestedScrollingPar
         transition.setEnable(false);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setState(TransitionState transitionState) {
+    void setState(TransitionState transitionState) {
         if (transitionState == TransitionState.FINISHED && this.mCurrentState == -1) {
             return;
         }
@@ -414,10 +410,9 @@ public class MotionLayout extends ConstraintLayout implements NestedScrollingPar
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: androidx.constraintlayout.motion.widget.MotionLayout$2  reason: invalid class name */
     /* loaded from: classes.dex */
-    public static /* synthetic */ class AnonymousClass2 {
+    static /* synthetic */ class AnonymousClass2 {
         static final /* synthetic */ int[] $SwitchMap$androidx$constraintlayout$motion$widget$MotionLayout$TransitionState;
 
         static {
@@ -595,8 +590,7 @@ public class MotionLayout extends ConstraintLayout implements NestedScrollingPar
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void setTransition(MotionScene.Transition transition) {
+    protected void setTransition(MotionScene.Transition transition) {
         this.mScene.setTransition(transition);
         setState(TransitionState.SETUP);
         if (this.mCurrentState == this.mScene.getEndId()) {
@@ -694,9 +688,8 @@ public class MotionLayout extends ConstraintLayout implements NestedScrollingPar
         animateTo(1.0f);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public class StateCache {
+    class StateCache {
         float mProgress = Float.NaN;
         float mVelocity = Float.NaN;
         int startState = -1;
@@ -1246,9 +1239,8 @@ public class MotionLayout extends ConstraintLayout implements NestedScrollingPar
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public class Model {
+    class Model {
         int mEndId;
         int mStartId;
         ConstraintWidgetContainer mLayoutStart = new ConstraintWidgetContainer();
@@ -2218,8 +2210,7 @@ public class MotionLayout extends ConstraintLayout implements NestedScrollingPar
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void evaluate(boolean z) {
+    void evaluate(boolean z) {
         boolean z2;
         boolean z3;
         int i;
@@ -2650,8 +2641,7 @@ public class MotionLayout extends ConstraintLayout implements NestedScrollingPar
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void onNewStateAttachHandlers() {
+    void onNewStateAttachHandlers() {
         MotionScene motionScene = this.mScene;
         if (motionScene == null) {
             return;
@@ -2677,8 +2667,7 @@ public class MotionLayout extends ConstraintLayout implements NestedScrollingPar
         return this.mTransitionLastPosition;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void getAnchorDpDt(int i, float f, float f2, float f3, float[] fArr) {
+    void getAnchorDpDt(int i, float f, float f2, float f3, float[] fArr) {
         String resourceName;
         HashMap<View, MotionController> hashMap = this.mFrameArrayList;
         View viewById = getViewById(i);
@@ -3017,8 +3006,7 @@ public class MotionLayout extends ConstraintLayout implements NestedScrollingPar
         return this.mScene.getTransitionById(i);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public int lookUpConstraintId(String str) {
+    int lookUpConstraintId(String str) {
         MotionScene motionScene = this.mScene;
         if (motionScene == null) {
             return 0;
@@ -3026,8 +3014,7 @@ public class MotionLayout extends ConstraintLayout implements NestedScrollingPar
         return motionScene.lookUpConstraintId(str);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public String getConstraintSetNames(int i) {
+    String getConstraintSetNames(int i) {
         MotionScene motionScene = this.mScene;
         if (motionScene == null) {
             return null;
@@ -3035,8 +3022,7 @@ public class MotionLayout extends ConstraintLayout implements NestedScrollingPar
         return motionScene.lookUpConstraintName(i);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void disableAutoTransition(boolean z) {
+    void disableAutoTransition(boolean z) {
         MotionScene motionScene = this.mScene;
         if (motionScene == null) {
             return;

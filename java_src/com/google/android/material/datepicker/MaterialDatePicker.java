@@ -33,6 +33,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
+
 /* loaded from: classes.dex */
 public final class MaterialDatePicker<S> extends DialogFragment {
     private static final String CALENDAR_CONSTRAINTS_KEY = "CALENDAR_CONSTRAINTS_KEY";
@@ -173,6 +174,7 @@ public final class MaterialDatePicker<S> extends DialogFragment {
         }
         this.confirmButton.setTag(CONFIRM_BUTTON_TAG);
         this.confirmButton.setOnClickListener(new View.OnClickListener() { // from class: com.google.android.material.datepicker.MaterialDatePicker.1
+            /* JADX DEBUG: Multi-variable search result rejected for r0v2, resolved type: com.google.android.material.datepicker.MaterialPickerOnPositiveButtonClickListener */
             /* JADX WARN: Multi-variable type inference failed */
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -269,9 +271,8 @@ public final class MaterialDatePicker<S> extends DialogFragment {
                 MaterialDatePicker.this.confirmButton.setEnabled(MaterialDatePicker.this.dateSelector.isSelectionComplete());
             }
 
-            /* JADX INFO: Access modifiers changed from: package-private */
             @Override // com.google.android.material.datepicker.OnSelectionChangedListener
-            public void onIncompleteSelectionChanged() {
+            void onIncompleteSelectionChanged() {
                 MaterialDatePicker.this.confirmButton.setEnabled(false);
             }
         });
@@ -313,8 +314,7 @@ public final class MaterialDatePicker<S> extends DialogFragment {
         return stateListDrawable;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static boolean isFullscreen(Context context) {
+    static boolean isFullscreen(Context context) {
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(MaterialAttributes.resolveOrThrow(context, R.attr.materialCalendarStyle, MaterialCalendar.class.getCanonicalName()), new int[]{16843277});
         boolean z = obtainStyledAttributes.getBoolean(0, false);
         obtainStyledAttributes.recycle();

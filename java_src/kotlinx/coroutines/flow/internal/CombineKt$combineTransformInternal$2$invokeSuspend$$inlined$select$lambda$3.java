@@ -13,6 +13,7 @@ import kotlin.jvm.internal.Ref;
 import kotlinx.coroutines.channels.ReceiveChannel;
 import kotlinx.coroutines.flow.FlowCollector;
 import kotlinx.coroutines.internal.Symbol;
+
 /* compiled from: Combine.kt */
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\"\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\b\u0003\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002\"\u0004\b\u0001\u0010\u0003\"\u0004\b\u0002\u0010\u00042\u0006\u0010\u0005\u001a\u00020\u0006H\u008a@¢\u0006\u0004\b\u0007\u0010\b¨\u0006\t"}, d2 = {"<anonymous>", "", "T1", "T2", "R", "value", "", "invoke", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "kotlinx/coroutines/flow/internal/CombineKt$combineTransformInternal$2$1$4"}, k = 3, mv = {1, 1, 15})
 /* loaded from: classes2.dex */
@@ -28,9 +29,8 @@ final class CombineKt$combineTransformInternal$2$invokeSuspend$$inlined$select$l
     private Object p$0;
     final /* synthetic */ CombineKt$combineTransformInternal$2 this$0;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CombineKt$combineTransformInternal$2$invokeSuspend$$inlined$select$lambda$3(Continuation continuation, CombineKt$combineTransformInternal$2 combineKt$combineTransformInternal$2, Ref.BooleanRef booleanRef, ReceiveChannel receiveChannel, Ref.ObjectRef objectRef, Ref.ObjectRef objectRef2, Ref.BooleanRef booleanRef2, ReceiveChannel receiveChannel2) {
+    CombineKt$combineTransformInternal$2$invokeSuspend$$inlined$select$lambda$3(Continuation continuation, CombineKt$combineTransformInternal$2 combineKt$combineTransformInternal$2, Ref.BooleanRef booleanRef, ReceiveChannel receiveChannel, Ref.ObjectRef objectRef, Ref.ObjectRef objectRef2, Ref.BooleanRef booleanRef2, ReceiveChannel receiveChannel2) {
         super(2, continuation);
         this.this$0 = combineKt$combineTransformInternal$2;
         this.$firstIsClosed$inlined = booleanRef;
@@ -49,6 +49,7 @@ final class CombineKt$combineTransformInternal$2$invokeSuspend$$inlined$select$l
         return combineKt$combineTransformInternal$2$invokeSuspend$$inlined$select$lambda$3;
     }
 
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
     @Override // kotlin.jvm.functions.Function2
     public final Object invoke(Object obj, Continuation<? super Unit> continuation) {
         return ((CombineKt$combineTransformInternal$2$invokeSuspend$$inlined$select$lambda$3) create(obj, continuation)).invokeSuspend(Unit.INSTANCE);

@@ -47,6 +47,7 @@ import javax.mail.internet.MimePart;
 import javax.mail.internet.ParseException;
 import javax.net.ssl.SSLSocket;
 import kotlin.UByte;
+
 /* loaded from: classes2.dex */
 public class SMTPTransport extends Transport {
     static final /* synthetic */ boolean $assertionsDisabled = false;
@@ -112,8 +113,7 @@ public class SMTPTransport extends Transport {
         this(session, uRLName, "smtp", false);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public SMTPTransport(Session session, URLName uRLName, String str, boolean z) {
+    protected SMTPTransport(Session session, URLName uRLName, String str, boolean z) {
         super(session, uRLName);
         this.name = "smtp";
         this.defaultPort = 25;
@@ -478,9 +478,8 @@ public class SMTPTransport extends Transport {
         throw new AuthenticationFailedException("No authentication mechanisms supported by both server and client");
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
-    public abstract class Authenticator {
+    private abstract class Authenticator {
         static final /* synthetic */ boolean $assertionsDisabled = false;
         private final boolean enabled;
         private final String mech;
@@ -509,6 +508,7 @@ public class SMTPTransport extends Transport {
             return this.enabled;
         }
 
+        /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [931=4, 932=4, 934=4, 935=4, 936=4, 946=4, 947=4] */
         boolean authenticate(String str, String str2, String str3, String str4) throws MessagingException {
             try {
                 try {
@@ -558,26 +558,26 @@ public class SMTPTransport extends Transport {
                         throw new AuthenticationFailedException(SMTPTransport.this.getLastServerResponse());
                     }
                     return true;
-                } catch (IOException e) {
-                    MailLogger mailLogger3 = SMTPTransport.this.logger;
-                    Level level = Level.FINE;
-                    mailLogger3.log(level, "AUTH " + this.mech + " failed", (Throwable) e);
-                    if (SMTPTransport.this.noauthdebug && SMTPTransport.this.isTracing()) {
-                        MailLogger mailLogger4 = SMTPTransport.this.logger;
-                        StringBuilder sb3 = new StringBuilder();
-                        sb3.append("AUTH ");
-                        sb3.append(this.mech);
-                        sb3.append(" ");
-                        sb3.append(this.resp != 235 ? "failed" : "succeeded");
-                        mailLogger4.fine(sb3.toString());
-                    }
-                    SMTPTransport.this.resumeTracing();
-                    if (this.resp != 235) {
-                        SMTPTransport.this.closeConnection();
-                        throw new AuthenticationFailedException(SMTPTransport.this.getLastServerResponse());
-                    }
-                    return true;
                 }
+            } catch (IOException e) {
+                MailLogger mailLogger3 = SMTPTransport.this.logger;
+                Level level = Level.FINE;
+                mailLogger3.log(level, "AUTH " + this.mech + " failed", (Throwable) e);
+                if (SMTPTransport.this.noauthdebug && SMTPTransport.this.isTracing()) {
+                    MailLogger mailLogger4 = SMTPTransport.this.logger;
+                    StringBuilder sb3 = new StringBuilder();
+                    sb3.append("AUTH ");
+                    sb3.append(this.mech);
+                    sb3.append(" ");
+                    sb3.append(this.resp != 235 ? "failed" : "succeeded");
+                    mailLogger4.fine(sb3.toString());
+                }
+                SMTPTransport.this.resumeTracing();
+                if (this.resp != 235) {
+                    SMTPTransport.this.closeConnection();
+                    throw new AuthenticationFailedException(SMTPTransport.this.getLastServerResponse());
+                }
+                return true;
             }
         }
     }
@@ -898,11 +898,11 @@ public class SMTPTransport extends Transport {
                         return false;
                     }
                     return true;
-                } catch (Exception unused2) {
-                    closeConnection();
+                } catch (MessagingException unused2) {
                     return false;
                 }
-            } catch (MessagingException unused3) {
+            } catch (Exception unused3) {
+                closeConnection();
                 return false;
             }
         }
@@ -1171,14 +1171,235 @@ public class SMTPTransport extends Transport {
     /* JADX WARN: Removed duplicated region for block: B:60:0x0145  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    protected void rcptTo() throws javax.mail.MessagingException {
-        /*
-            Method dump skipped, instructions count: 802
-            To view this dump add '--comments-level debug' option
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.sun.mail.smtp.SMTPTransport.rcptTo():void");
+    protected void rcptTo() throws MessagingException {
+        String str;
+        boolean z;
+        int i;
+        Address[] addressArr;
+        InternetAddress internetAddress;
+        String str2;
+        int readServerResponse;
+        Exception sMTPAddressSucceededException;
+        ArrayList arrayList = new ArrayList();
+        ArrayList arrayList2 = new ArrayList();
+        ArrayList arrayList3 = new ArrayList();
+        this.invalidAddr = null;
+        this.validUnsentAddr = null;
+        this.validSentAddr = null;
+        MimeMessage mimeMessage = this.message;
+        boolean sendPartial = mimeMessage instanceof SMTPMessage ? ((SMTPMessage) mimeMessage).getSendPartial() : false;
+        if (!sendPartial) {
+            sendPartial = PropUtil.getBooleanProperty(this.session.getProperties(), "mail." + this.name + ".sendpartial", false);
+        }
+        if (sendPartial) {
+            this.logger.fine("sendPartial set");
+        }
+        if (supportsExtension("DSN")) {
+            MimeMessage mimeMessage2 = this.message;
+            str = mimeMessage2 instanceof SMTPMessage ? ((SMTPMessage) mimeMessage2).getDSNNotify() : null;
+            if (str == null) {
+                str = this.session.getProperty("mail." + this.name + ".dsn.notify");
+            }
+            if (str != null) {
+                z = true;
+                MessagingException messagingException = null;
+                i = 0;
+                boolean z2 = false;
+                while (true) {
+                    addressArr = this.addresses;
+                    if (i >= addressArr.length) {
+                        internetAddress = (InternetAddress) addressArr[i];
+                        str2 = "RCPT TO:" + normalizeAddress(internetAddress.getAddress());
+                        if (z) {
+                            str2 = str2 + " NOTIFY=" + str;
+                        }
+                        sendCommand(str2);
+                        readServerResponse = readServerResponse();
+                        if (readServerResponse == 250 || readServerResponse == 251) {
+                            arrayList.add(internetAddress);
+                            if (this.reportSuccess) {
+                                sMTPAddressSucceededException = new SMTPAddressSucceededException(internetAddress, str2, readServerResponse, this.lastServerResponse);
+                                if (messagingException != null) {
+                                    messagingException.setNextException(sMTPAddressSucceededException);
+                                }
+                                messagingException = sMTPAddressSucceededException;
+                            }
+                        } else {
+                            if (readServerResponse != 501 && readServerResponse != 503) {
+                                switch (readServerResponse) {
+                                    default:
+                                        switch (readServerResponse) {
+                                            case 550:
+                                            case 551:
+                                            case 553:
+                                                break;
+                                            case 552:
+                                                break;
+                                            default:
+                                                if (readServerResponse >= 400 && readServerResponse <= 499) {
+                                                    arrayList2.add(internetAddress);
+                                                } else if (readServerResponse >= 500 && readServerResponse <= 599) {
+                                                    arrayList3.add(internetAddress);
+                                                }
+                                                if (!sendPartial) {
+                                                    z2 = true;
+                                                }
+                                                sMTPAddressSucceededException = new SMTPAddressFailedException(internetAddress, str2, readServerResponse, this.lastServerResponse);
+                                                if (messagingException != null) {
+                                                    messagingException.setNextException(sMTPAddressSucceededException);
+                                                    break;
+                                                }
+                                                messagingException = sMTPAddressSucceededException;
+                                                break;
+                                        }
+                                    case 450:
+                                    case 451:
+                                    case 452:
+                                        if (!sendPartial) {
+                                            z2 = true;
+                                        }
+                                        arrayList2.add(internetAddress);
+                                        sMTPAddressSucceededException = new SMTPAddressFailedException(internetAddress, str2, readServerResponse, this.lastServerResponse);
+                                        if (messagingException != null) {
+                                            messagingException.setNextException(sMTPAddressSucceededException);
+                                            break;
+                                        }
+                                        messagingException = sMTPAddressSucceededException;
+                                        break;
+                                }
+                            }
+                            if (!sendPartial) {
+                                z2 = true;
+                            }
+                            arrayList3.add(internetAddress);
+                            sMTPAddressSucceededException = new SMTPAddressFailedException(internetAddress, str2, readServerResponse, this.lastServerResponse);
+                            if (messagingException != null) {
+                                messagingException.setNextException(sMTPAddressSucceededException);
+                            }
+                            messagingException = sMTPAddressSucceededException;
+                        }
+                        i++;
+                    } else {
+                        if (sendPartial && arrayList.size() == 0) {
+                            z2 = true;
+                        }
+                        if (z2) {
+                            Address[] addressArr2 = new Address[arrayList3.size()];
+                            this.invalidAddr = addressArr2;
+                            arrayList3.toArray(addressArr2);
+                            this.validUnsentAddr = new Address[arrayList.size() + arrayList2.size()];
+                            int i2 = 0;
+                            int i3 = 0;
+                            while (i2 < arrayList.size()) {
+                                this.validUnsentAddr[i3] = (Address) arrayList.get(i2);
+                                i2++;
+                                i3++;
+                            }
+                            int i4 = 0;
+                            while (i4 < arrayList2.size()) {
+                                this.validUnsentAddr[i3] = (Address) arrayList2.get(i4);
+                                i4++;
+                                i3++;
+                            }
+                        } else if (this.reportSuccess || (sendPartial && (arrayList3.size() > 0 || arrayList2.size() > 0))) {
+                            this.sendPartiallyFailed = true;
+                            this.exception = messagingException;
+                            Address[] addressArr3 = new Address[arrayList3.size()];
+                            this.invalidAddr = addressArr3;
+                            arrayList3.toArray(addressArr3);
+                            Address[] addressArr4 = new Address[arrayList2.size()];
+                            this.validUnsentAddr = addressArr4;
+                            arrayList2.toArray(addressArr4);
+                            Address[] addressArr5 = new Address[arrayList.size()];
+                            this.validSentAddr = addressArr5;
+                            arrayList.toArray(addressArr5);
+                        } else {
+                            this.validSentAddr = this.addresses;
+                        }
+                        if (this.logger.isLoggable(Level.FINE)) {
+                            Address[] addressArr6 = this.validSentAddr;
+                            if (addressArr6 != null && addressArr6.length > 0) {
+                                this.logger.fine("Verified Addresses");
+                                for (int i5 = 0; i5 < this.validSentAddr.length; i5++) {
+                                    this.logger.fine("  " + this.validSentAddr[i5]);
+                                }
+                            }
+                            Address[] addressArr7 = this.validUnsentAddr;
+                            if (addressArr7 != null && addressArr7.length > 0) {
+                                this.logger.fine("Valid Unsent Addresses");
+                                for (int i6 = 0; i6 < this.validUnsentAddr.length; i6++) {
+                                    this.logger.fine("  " + this.validUnsentAddr[i6]);
+                                }
+                            }
+                            Address[] addressArr8 = this.invalidAddr;
+                            if (addressArr8 != null && addressArr8.length > 0) {
+                                this.logger.fine("Invalid Addresses");
+                                for (int i7 = 0; i7 < this.invalidAddr.length; i7++) {
+                                    this.logger.fine("  " + this.invalidAddr[i7]);
+                                }
+                            }
+                        }
+                        if (z2) {
+                            this.logger.fine("Sending failed because of invalid destination addresses");
+                            notifyTransportListeners(2, this.validSentAddr, this.validUnsentAddr, this.invalidAddr, this.message);
+                            String str3 = this.lastServerResponse;
+                            int i8 = this.lastReturnCode;
+                            try {
+                                try {
+                                    try {
+                                        if (this.serverSocket != null) {
+                                            issueCommand("RSET", -1);
+                                        }
+                                    } catch (MessagingException unused) {
+                                        close();
+                                    }
+                                } catch (MessagingException e) {
+                                    this.logger.log(Level.FINE, "close failed", (Throwable) e);
+                                }
+                                throw new SendFailedException("Invalid Addresses", messagingException, this.validSentAddr, this.validUnsentAddr, this.invalidAddr);
+                            } finally {
+                                this.lastServerResponse = str3;
+                                this.lastReturnCode = i8;
+                            }
+                        }
+                        return;
+                    }
+                }
+                if (this.logger.isLoggable(Level.FINE)) {
+                    this.logger.fine("got response code " + readServerResponse + ", with response: " + this.lastServerResponse);
+                }
+                String str4 = this.lastServerResponse;
+                int i9 = this.lastReturnCode;
+                if (this.serverSocket != null) {
+                    issueCommand("RSET", -1);
+                }
+                this.lastServerResponse = str4;
+                this.lastReturnCode = i9;
+                throw new SMTPAddressFailedException(internetAddress, str2, readServerResponse, str4);
+            }
+        } else {
+            str = null;
+        }
+        z = false;
+        MessagingException messagingException2 = null;
+        i = 0;
+        boolean z22 = false;
+        while (true) {
+            addressArr = this.addresses;
+            if (i >= addressArr.length) {
+            }
+            i++;
+        }
+        if (this.logger.isLoggable(Level.FINE)) {
+        }
+        String str42 = this.lastServerResponse;
+        int i92 = this.lastReturnCode;
+        if (this.serverSocket != null) {
+        }
+        this.lastServerResponse = str42;
+        this.lastReturnCode = i92;
+        throw new SMTPAddressFailedException(internetAddress, str2, readServerResponse, str42);
     }
 
     protected OutputStream data() throws MessagingException {
@@ -1289,49 +1510,49 @@ public class SMTPTransport extends Transport {
         this.host = UNKNOWN;
         try {
             i = this.serverSocket.getPort();
-        } catch (IOException e2) {
-            i = -1;
-            e = e2;
-        }
-        try {
-            this.host = this.serverSocket.getInetAddress().getHostName();
-            if (this.logger.isLoggable(Level.FINE)) {
-                this.logger.fine("starting protocol to host \"" + this.host + "\", port " + i);
-            }
-            initStreams();
-            int readServerResponse2 = readServerResponse();
-            if (readServerResponse2 != 220) {
-                try {
-                    if (this.quitOnSessionReject) {
-                        sendCommand("QUIT");
-                        if (this.quitWait && (readServerResponse = readServerResponse()) != 221 && readServerResponse != -1 && this.logger.isLoggable(Level.FINE)) {
-                            this.logger.fine("QUIT failed with " + readServerResponse);
-                        }
-                    }
-                    this.serverSocket.close();
-                    this.serverSocket = null;
-                    this.serverOutput = null;
-                    this.serverInput = null;
-                } catch (Exception e3) {
-                    if (this.logger.isLoggable(Level.FINE)) {
-                        this.logger.log(Level.FINE, "QUIT failed", (Throwable) e3);
-                    }
-                    this.serverSocket.close();
-                    this.serverSocket = null;
-                    this.serverOutput = null;
-                    this.serverInput = null;
-                }
-                this.lineInputStream = null;
+            try {
+                this.host = this.serverSocket.getInetAddress().getHostName();
                 if (this.logger.isLoggable(Level.FINE)) {
-                    this.logger.fine("got bad greeting from host \"" + this.host + "\", port: " + i + ", response: " + readServerResponse2);
+                    this.logger.fine("starting protocol to host \"" + this.host + "\", port " + i);
                 }
-                throw new MessagingException("Got bad greeting from SMTP host: " + this.host + ", port: " + i + ", response: " + readServerResponse2);
-            } else if (this.logger.isLoggable(Level.FINE)) {
-                this.logger.fine("protocol started to host \"" + this.host + "\", port: " + i);
+                initStreams();
+                int readServerResponse2 = readServerResponse();
+                if (readServerResponse2 != 220) {
+                    try {
+                        if (this.quitOnSessionReject) {
+                            sendCommand("QUIT");
+                            if (this.quitWait && (readServerResponse = readServerResponse()) != 221 && readServerResponse != -1 && this.logger.isLoggable(Level.FINE)) {
+                                this.logger.fine("QUIT failed with " + readServerResponse);
+                            }
+                        }
+                        this.serverSocket.close();
+                        this.serverSocket = null;
+                        this.serverOutput = null;
+                        this.serverInput = null;
+                    } catch (Exception e2) {
+                        if (this.logger.isLoggable(Level.FINE)) {
+                            this.logger.log(Level.FINE, "QUIT failed", (Throwable) e2);
+                        }
+                        this.serverSocket.close();
+                        this.serverSocket = null;
+                        this.serverOutput = null;
+                        this.serverInput = null;
+                    }
+                    this.lineInputStream = null;
+                    if (this.logger.isLoggable(Level.FINE)) {
+                        this.logger.fine("got bad greeting from host \"" + this.host + "\", port: " + i + ", response: " + readServerResponse2);
+                    }
+                    throw new MessagingException("Got bad greeting from SMTP host: " + this.host + ", port: " + i + ", response: " + readServerResponse2);
+                } else if (this.logger.isLoggable(Level.FINE)) {
+                    this.logger.fine("protocol started to host \"" + this.host + "\", port: " + i);
+                }
+            } catch (IOException e3) {
+                e = e3;
+                throw new MessagingException("Could not start protocol to SMTP host: " + this.host + ", port: " + i, e);
             }
         } catch (IOException e4) {
+            i = -1;
             e = e4;
-            throw new MessagingException("Could not start protocol to SMTP host: " + this.host + ", port: " + i, e);
         }
     }
 
@@ -1436,90 +1657,63 @@ public class SMTPTransport extends Transport {
     /* JADX WARN: Removed duplicated region for block: B:28:0x006b  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    protected int readServerResponse() throws javax.mail.MessagingException {
-        /*
-            r6 = this;
-            java.lang.String r0 = "close failed"
-            java.lang.StringBuilder r1 = new java.lang.StringBuilder
-            r2 = 100
-            r1.<init>(r2)
-        L9:
-            r2 = 0
-            com.sun.mail.util.LineInputStream r3 = r6.lineInputStream     // Catch: java.io.IOException -> L79
-            java.lang.String r3 = r3.readLine()     // Catch: java.io.IOException -> L79
-            r4 = -1
-            if (r3 != 0) goto L2d
-            java.lang.String r0 = r1.toString()     // Catch: java.io.IOException -> L79
-            int r1 = r0.length()     // Catch: java.io.IOException -> L79
-            if (r1 != 0) goto L1f
-            java.lang.String r0 = "[EOF]"
-        L1f:
-            r6.lastServerResponse = r0     // Catch: java.io.IOException -> L79
-            r6.lastReturnCode = r4     // Catch: java.io.IOException -> L79
-            com.sun.mail.util.MailLogger r1 = r6.logger     // Catch: java.io.IOException -> L79
-            java.util.logging.Level r3 = java.util.logging.Level.FINE     // Catch: java.io.IOException -> L79
-            java.lang.String r5 = "EOF: {0}"
-            r1.log(r3, r5, r0)     // Catch: java.io.IOException -> L79
-            return r4
-        L2d:
-            r1.append(r3)     // Catch: java.io.IOException -> L79
-            java.lang.String r5 = "\n"
-            r1.append(r5)     // Catch: java.io.IOException -> L79
-            boolean r3 = r6.isNotLastLine(r3)     // Catch: java.io.IOException -> L79
-            if (r3 != 0) goto L9
-            java.lang.String r1 = r1.toString()     // Catch: java.io.IOException -> L79
-            int r3 = r1.length()
-            r5 = 3
-            if (r3 < r5) goto L68
-            java.lang.String r2 = r1.substring(r2, r5)     // Catch: java.lang.StringIndexOutOfBoundsException -> L4f java.lang.NumberFormatException -> L5c
-            int r0 = java.lang.Integer.parseInt(r2)     // Catch: java.lang.StringIndexOutOfBoundsException -> L4f java.lang.NumberFormatException -> L5c
-            goto L69
-        L4f:
-            r6.close()     // Catch: javax.mail.MessagingException -> L53
-            goto L68
-        L53:
-            r2 = move-exception
-            com.sun.mail.util.MailLogger r3 = r6.logger
-            java.util.logging.Level r5 = java.util.logging.Level.FINE
-            r3.log(r5, r0, r2)
-            goto L68
-        L5c:
-            r6.close()     // Catch: javax.mail.MessagingException -> L60
-            goto L68
-        L60:
-            r2 = move-exception
-            com.sun.mail.util.MailLogger r3 = r6.logger
-            java.util.logging.Level r5 = java.util.logging.Level.FINE
-            r3.log(r5, r0, r2)
-        L68:
-            r0 = r4
-        L69:
-            if (r0 != r4) goto L74
-            com.sun.mail.util.MailLogger r2 = r6.logger
-            java.util.logging.Level r3 = java.util.logging.Level.FINE
-            java.lang.String r4 = "bad server response: {0}"
-            r2.log(r3, r4, r1)
-        L74:
-            r6.lastServerResponse = r1
-            r6.lastReturnCode = r0
-            return r0
-        L79:
-            r0 = move-exception
-            com.sun.mail.util.MailLogger r1 = r6.logger
-            java.util.logging.Level r3 = java.util.logging.Level.FINE
-            java.lang.String r4 = "exception reading response"
-            r1.log(r3, r4, r0)
-            java.lang.String r1 = ""
-            r6.lastServerResponse = r1
-            r6.lastReturnCode = r2
-            javax.mail.MessagingException r1 = new javax.mail.MessagingException
-            java.lang.String r2 = "Exception reading response"
-            r1.<init>(r2, r0)
-            throw r1
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.sun.mail.smtp.SMTPTransport.readServerResponse():int");
+    protected int readServerResponse() throws MessagingException {
+        String readLine;
+        int parseInt;
+        StringBuilder sb = new StringBuilder(100);
+        do {
+            try {
+                readLine = this.lineInputStream.readLine();
+                if (readLine == null) {
+                    String sb2 = sb.toString();
+                    if (sb2.length() == 0) {
+                        sb2 = "[EOF]";
+                    }
+                    this.lastServerResponse = sb2;
+                    this.lastReturnCode = -1;
+                    this.logger.log(Level.FINE, "EOF: {0}", sb2);
+                    return -1;
+                }
+                sb.append(readLine);
+                sb.append("\n");
+            } catch (IOException e) {
+                this.logger.log(Level.FINE, "exception reading response", (Throwable) e);
+                this.lastServerResponse = "";
+                this.lastReturnCode = 0;
+                throw new MessagingException("Exception reading response", e);
+            }
+        } while (isNotLastLine(readLine));
+        String sb3 = sb.toString();
+        if (sb3.length() >= 3) {
+            try {
+                try {
+                    try {
+                        parseInt = Integer.parseInt(sb3.substring(0, 3));
+                    } catch (NumberFormatException unused) {
+                        close();
+                    } catch (StringIndexOutOfBoundsException unused2) {
+                        close();
+                    }
+                } catch (MessagingException e2) {
+                    this.logger.log(Level.FINE, "close failed", (Throwable) e2);
+                }
+            } catch (MessagingException e3) {
+                this.logger.log(Level.FINE, "close failed", (Throwable) e3);
+            }
+            if (parseInt == -1) {
+                this.logger.log(Level.FINE, "bad server response: {0}", sb3);
+            }
+            this.lastServerResponse = sb3;
+            this.lastReturnCode = parseInt;
+            return parseInt;
+        }
+        parseInt = -1;
+        if (parseInt == -1) {
+        }
+        this.lastServerResponse = sb3;
+        this.lastReturnCode = parseInt;
+        return parseInt;
     }
 
     protected void checkConnected() {
@@ -1618,9 +1812,8 @@ public class SMTPTransport extends Transport {
         return ASCIIUtility.getBytes(str);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
-    public class BDATOutputStream extends SMTPOutputStream {
+    private class BDATOutputStream extends SMTPOutputStream {
         public BDATOutputStream(OutputStream outputStream, int i) {
             super(new ChunkedOutputStream(outputStream, i));
         }

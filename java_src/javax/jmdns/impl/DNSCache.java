@@ -12,6 +12,7 @@ import javax.jmdns.impl.constants.DNSRecordClass;
 import javax.jmdns.impl.constants.DNSRecordType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 /* loaded from: classes2.dex */
 public class DNSCache extends ConcurrentHashMap<String, List<DNSEntry>> {
     private static Logger logger = LoggerFactory.getLogger(DNSCache.class.getName());

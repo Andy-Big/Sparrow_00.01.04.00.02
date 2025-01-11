@@ -5,6 +5,7 @@ import androidx.core.content.ContextCompat;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
 import com.rigol.scope.utilities.UnitFormat;
+
 /* loaded from: classes.dex */
 public final class ColorUtils {
     public static int setAlphaComponent(int i, float f) {

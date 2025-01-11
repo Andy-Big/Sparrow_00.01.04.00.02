@@ -1,4 +1,5 @@
 package com.google.android.material.transition;
+
 /* loaded from: classes.dex */
 class FitModeResult {
     final float currentEndHeight;
@@ -8,8 +9,7 @@ class FitModeResult {
     final float endScale;
     final float startScale;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public FitModeResult(float f, float f2, float f3, float f4, float f5, float f6) {
+    FitModeResult(float f, float f2, float f3, float f4, float f5, float f6) {
         this.startScale = f;
         this.endScale = f2;
         this.currentStartWidth = f3;

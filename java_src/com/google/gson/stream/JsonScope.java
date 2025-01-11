@@ -1,4 +1,5 @@
 package com.google.gson.stream;
+
 /* loaded from: classes.dex */
 final class JsonScope {
     static final int CLOSED = 8;

@@ -64,30 +64,21 @@ public final class EyeParam extends BaseParam {
             }
         };
         this.chan = new BaseProperty<>(getServiceId(), MessageID.MSG_EYE_SOURCE, Integer.valueOf(ServiceEnum.Chan.chan1.value1), null, getLogPrefix("chan"), false, false, true, 104, null);
-        final int serviceId2 = getServiceId();
-        final MessageAttr messageAttr = new MessageAttr(0, 0, 90);
-        final String logPrefix2 = getLogPrefix("highThres");
-        this.highThres = new BaseProperty<Integer>(serviceId2, MessageID.MSG_EYE_HIGHTHRE_PER, 90, messageAttr, logPrefix2) { // from class: com.rigol.scope.data.EyeParam$highThres$1
+        this.highThres = new BaseProperty<Integer>(getServiceId(), MessageID.MSG_EYE_HIGHTHRE_PER, 90, new MessageAttr(0, 0, 90), getLogPrefix("highThres")) { // from class: com.rigol.scope.data.EyeParam$highThres$1
             @Override // com.rigol.scope.data.BaseProperty
             public void onChanged(boolean z) {
                 super.onChanged(z);
                 readAttr();
             }
         };
-        final int serviceId3 = getServiceId();
-        final MessageAttr messageAttr2 = new MessageAttr(0, 0, 50);
-        final String logPrefix3 = getLogPrefix("midThres");
-        this.midThres = new BaseProperty<Integer>(serviceId3, MessageID.MSG_EYE_MIDTHRE_PER, 50, messageAttr2, logPrefix3) { // from class: com.rigol.scope.data.EyeParam$midThres$1
+        this.midThres = new BaseProperty<Integer>(getServiceId(), MessageID.MSG_EYE_MIDTHRE_PER, 50, new MessageAttr(0, 0, 50), getLogPrefix("midThres")) { // from class: com.rigol.scope.data.EyeParam$midThres$1
             @Override // com.rigol.scope.data.BaseProperty
             public void onChanged(boolean z) {
                 super.onChanged(z);
                 readAttr();
             }
         };
-        final int serviceId4 = getServiceId();
-        final MessageAttr messageAttr3 = new MessageAttr(0, 0, 10);
-        final String logPrefix4 = getLogPrefix("lowThres");
-        this.lowThres = new BaseProperty<Integer>(serviceId4, MessageID.MSG_EYE_LOWTHRE_PER, 10, messageAttr3, logPrefix4) { // from class: com.rigol.scope.data.EyeParam$lowThres$1
+        this.lowThres = new BaseProperty<Integer>(getServiceId(), MessageID.MSG_EYE_LOWTHRE_PER, 10, new MessageAttr(0, 0, 10), getLogPrefix("lowThres")) { // from class: com.rigol.scope.data.EyeParam$lowThres$1
             @Override // com.rigol.scope.data.BaseProperty
             public void onChanged(boolean z) {
                 super.onChanged(z);
@@ -96,13 +87,11 @@ public final class EyeParam extends BaseParam {
         };
         this.recoveryType = new BaseProperty<>(getServiceId(), MessageID.MSG_EYE_CR_SELMETHOD, 0, null, getLogPrefix("recoveryType"), false, false, false, 232, null);
         this.type = new BaseProperty<>(getServiceId(), MessageID.MSG_EYE_CR_FREQTYPE, 0, null, getLogPrefix("type"), false, false, false, 232, null);
-        final int serviceId5 = getServiceId();
+        int serviceId2 = getServiceId();
         f = EyeParamKt.DEFAULT_DATARATE;
-        final Long valueOf = Long.valueOf(f);
+        Long valueOf = Long.valueOf(f);
         f2 = EyeParamKt.DEFAULT_DATARATE;
-        final MessageAttr messageAttr4 = new MessageAttr(0L, 0L, f2);
-        final String logPrefix5 = getLogPrefix("dataRate");
-        this.dataRate = new BaseProperty<Long>(serviceId5, MessageID.MSG_EYE_CR_DATEFREQ, valueOf, messageAttr4, logPrefix5) { // from class: com.rigol.scope.data.EyeParam$dataRate$1
+        this.dataRate = new BaseProperty<Long>(serviceId2, MessageID.MSG_EYE_CR_DATEFREQ, valueOf, new MessageAttr(0L, 0L, f2), getLogPrefix("dataRate")) { // from class: com.rigol.scope.data.EyeParam$dataRate$1
             @Override // com.rigol.scope.data.BaseProperty
             public void onChanged(boolean z) {
                 super.onChanged(z);
@@ -110,23 +99,18 @@ public final class EyeParam extends BaseParam {
             }
         };
         this.pllOrder = new BaseProperty<>(getServiceId(), MessageID.MSG_EYE_CR_PLLORDER, 0, null, getLogPrefix("pllOrder"), false, false, false, 232, null);
-        final int serviceId6 = getServiceId();
+        int serviceId3 = getServiceId();
         d = EyeParamKt.DEFAULT_LOOPBW;
-        final Long valueOf2 = Long.valueOf((long) d);
+        Long valueOf2 = Long.valueOf((long) d);
         d2 = EyeParamKt.DEFAULT_LOOPBW;
-        final MessageAttr messageAttr5 = new MessageAttr(0L, 0L, (long) d2);
-        final String logPrefix6 = getLogPrefix("loopBw");
-        this.loopBw = new BaseProperty<Long>(serviceId6, MessageID.MSG_EYE_CR_PLLWIDTH, valueOf2, messageAttr5, logPrefix6) { // from class: com.rigol.scope.data.EyeParam$loopBw$1
+        this.loopBw = new BaseProperty<Long>(serviceId3, MessageID.MSG_EYE_CR_PLLWIDTH, valueOf2, new MessageAttr(0L, 0L, (long) d2), getLogPrefix("loopBw")) { // from class: com.rigol.scope.data.EyeParam$loopBw$1
             @Override // com.rigol.scope.data.BaseProperty
             public void onChanged(boolean z) {
                 super.onChanged(z);
                 readAttr();
             }
         };
-        final int serviceId7 = getServiceId();
-        final MessageAttr messageAttr6 = new MessageAttr(0, 0, 707);
-        final String logPrefix7 = getLogPrefix("dampFactor");
-        this.dampFactor = new BaseProperty<Integer>(serviceId7, MessageID.MSG_EYE_CR_DAMPFACTOR, 707, messageAttr6, logPrefix7) { // from class: com.rigol.scope.data.EyeParam$dampFactor$1
+        this.dampFactor = new BaseProperty<Integer>(getServiceId(), MessageID.MSG_EYE_CR_DAMPFACTOR, 707, new MessageAttr(0, 0, 707), getLogPrefix("dampFactor")) { // from class: com.rigol.scope.data.EyeParam$dampFactor$1
             @Override // com.rigol.scope.data.BaseProperty
             public void onChanged(boolean z) {
                 super.onChanged(z);
@@ -136,13 +120,11 @@ public final class EyeParam extends BaseParam {
         this.chanExternalClock = new BaseProperty<>(getServiceId(), MessageID.MSG_EYE_EXTERNAL_CLOCK_SRC, Integer.valueOf(ServiceEnum.Chan.chan3.value1), null, getLogPrefix("chanExternalClock"), false, false, false, 232, null);
         this.eyeTemplate = new BaseProperty<>(getServiceId(), MessageID.MSG_EYE_TEMPLATE, Integer.valueOf(ServiceEnum.EyeTemplate.eth100.value1), null, getLogPrefix("eyeTemplate"), false, false, true, 72, null);
         this.templateFlag = new BaseProperty<>(getServiceId(), MessageID.MSG_EYE_TEMPLATE_STATUS, false, null, getLogPrefix("templateFlag"), false, false, true, 72, null);
-        final int serviceId8 = getServiceId();
+        int serviceId4 = getServiceId();
         f3 = EyeParamKt.DEFAULT_NOISEHOLDUP;
-        final Integer valueOf3 = Integer.valueOf((int) f3);
+        Integer valueOf3 = Integer.valueOf((int) f3);
         f4 = EyeParamKt.DEFAULT_NOISEHOLDUP;
-        final MessageAttr messageAttr7 = new MessageAttr(0, 0, (int) f4);
-        final String logPrefix8 = getLogPrefix("noiseHoldUp");
-        this.noiseHoldUp = new BaseProperty<Integer>(serviceId8, MessageID.MSG_EYE_NOISE_HOLDUP, valueOf3, messageAttr7, logPrefix8) { // from class: com.rigol.scope.data.EyeParam$noiseHoldUp$1
+        this.noiseHoldUp = new BaseProperty<Integer>(serviceId4, MessageID.MSG_EYE_NOISE_HOLDUP, valueOf3, new MessageAttr(0, 0, (int) f4), getLogPrefix("noiseHoldUp")) { // from class: com.rigol.scope.data.EyeParam$noiseHoldUp$1
             @Override // com.rigol.scope.data.BaseProperty
             public void onChanged(boolean z) {
                 super.onChanged(z);

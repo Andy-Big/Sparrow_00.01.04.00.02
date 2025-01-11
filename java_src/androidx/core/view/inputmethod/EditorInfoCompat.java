@@ -3,6 +3,7 @@ package androidx.core.view.inputmethod;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.inputmethod.EditorInfo;
+
 /* loaded from: classes.dex */
 public final class EditorInfoCompat {
     private static final String CONTENT_MIME_TYPES_INTEROP_KEY = "android.support.v13.view.inputmethod.EditorInfoCompat.CONTENT_MIME_TYPES";
@@ -38,8 +39,7 @@ public final class EditorInfoCompat {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static int getProtocol(EditorInfo editorInfo) {
+    static int getProtocol(EditorInfo editorInfo) {
         if (Build.VERSION.SDK_INT >= 25) {
             return 1;
         }

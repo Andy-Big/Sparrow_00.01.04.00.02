@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Lifecycle;
 import androidx.viewpager.widget.PagerAdapter;
 import java.util.ArrayList;
+
 /* loaded from: classes.dex */
 public abstract class FragmentStatePagerAdapter extends PagerAdapter {
     public static final int BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT = 1;

@@ -10,6 +10,7 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.charset.Charset;
 import kotlin.UByte;
+
 /* loaded from: classes.dex */
 public final class DefaultImageHeaderParser implements ImageHeaderParser {
     static final int EXIF_MAGIC_NUMBER = 65496;
@@ -266,9 +267,8 @@ public final class DefaultImageHeaderParser implements ImageHeaderParser {
         return -1;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static final class RandomAccessReader {
+    private static final class RandomAccessReader {
         private final ByteBuffer data;
 
         RandomAccessReader(byte[] bArr, int i) {
@@ -302,9 +302,8 @@ public final class DefaultImageHeaderParser implements ImageHeaderParser {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public interface Reader {
+    private interface Reader {
         int getUInt16() throws IOException;
 
         short getUInt8() throws IOException;

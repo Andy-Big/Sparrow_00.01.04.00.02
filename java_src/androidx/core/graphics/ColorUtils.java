@@ -3,6 +3,7 @@ package androidx.core.graphics;
 import android.graphics.Color;
 import androidx.core.view.ViewCompat;
 import java.util.Objects;
+
 /* loaded from: classes.dex */
 public final class ColorUtils {
     private static final int MIN_ALPHA_SEARCH_MAX_ITERATIONS = 10;

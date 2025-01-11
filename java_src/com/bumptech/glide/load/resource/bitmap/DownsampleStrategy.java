@@ -2,6 +2,7 @@ package com.bumptech.glide.load.resource.bitmap;
 
 import android.os.Build;
 import com.bumptech.glide.load.Option;
+
 /* loaded from: classes.dex */
 public abstract class DownsampleStrategy {
     public static final DownsampleStrategy DEFAULT;

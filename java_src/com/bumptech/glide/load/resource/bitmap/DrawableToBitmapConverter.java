@@ -10,6 +10,7 @@ import com.bumptech.glide.load.engine.Resource;
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPoolAdapter;
 import java.util.concurrent.locks.Lock;
+
 /* loaded from: classes.dex */
 final class DrawableToBitmapConverter {
     private static final BitmapPool NO_RECYCLE_BITMAP_POOL = new BitmapPoolAdapter() { // from class: com.bumptech.glide.load.resource.bitmap.DrawableToBitmapConverter.1
@@ -22,8 +23,7 @@ final class DrawableToBitmapConverter {
     private DrawableToBitmapConverter() {
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static Resource<Bitmap> convert(BitmapPool bitmapPool, Drawable drawable, int i, int i2) {
+    static Resource<Bitmap> convert(BitmapPool bitmapPool, Drawable drawable, int i, int i2) {
         Bitmap bitmap;
         Drawable current = drawable.getCurrent();
         boolean z = false;

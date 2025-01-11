@@ -9,6 +9,7 @@ import com.bumptech.glide.signature.ObjectKey;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.nio.ByteBuffer;
+
 /* loaded from: classes.dex */
 public class ByteArrayLoader<Data> implements ModelLoader<byte[], Data> {
     private final Converter<Data> converter;
@@ -20,6 +21,7 @@ public class ByteArrayLoader<Data> implements ModelLoader<byte[], Data> {
         Class<Data> getDataClass();
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.model.ModelLoader
     public boolean handles(byte[] bArr) {
         return true;
@@ -29,14 +31,14 @@ public class ByteArrayLoader<Data> implements ModelLoader<byte[], Data> {
         this.converter = converter;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.model.ModelLoader
     public ModelLoader.LoadData<Data> buildLoadData(byte[] bArr, int i, int i2, Options options) {
         return new ModelLoader.LoadData<>(new ObjectKey(bArr), new Fetcher(bArr, this.converter));
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static class Fetcher<Data> implements DataFetcher<Data> {
+    private static class Fetcher<Data> implements DataFetcher<Data> {
         private final Converter<Data> converter;
         private final byte[] model;
 
@@ -53,6 +55,7 @@ public class ByteArrayLoader<Data> implements ModelLoader<byte[], Data> {
             this.converter = converter;
         }
 
+        /* JADX DEBUG: Type inference failed for r2v2. Raw type applied. Possible types: Data, ? super Data */
         @Override // com.bumptech.glide.load.data.DataFetcher
         public void loadData(Priority priority, DataFetcher.DataCallback<? super Data> dataCallback) {
             dataCallback.onDataReady((Data) this.converter.convert(this.model));
@@ -78,6 +81,7 @@ public class ByteArrayLoader<Data> implements ModelLoader<byte[], Data> {
         @Override // com.bumptech.glide.load.model.ModelLoaderFactory
         public ModelLoader<byte[], ByteBuffer> build(MultiModelLoaderFactory multiModelLoaderFactory) {
             return new ByteArrayLoader(new Converter<ByteBuffer>() { // from class: com.bumptech.glide.load.model.ByteArrayLoader.ByteBufferFactory.1
+                /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.bumptech.glide.load.model.ByteArrayLoader.Converter
                 public ByteBuffer convert(byte[] bArr) {
                     return ByteBuffer.wrap(bArr);
@@ -100,6 +104,7 @@ public class ByteArrayLoader<Data> implements ModelLoader<byte[], Data> {
         @Override // com.bumptech.glide.load.model.ModelLoaderFactory
         public ModelLoader<byte[], InputStream> build(MultiModelLoaderFactory multiModelLoaderFactory) {
             return new ByteArrayLoader(new Converter<InputStream>() { // from class: com.bumptech.glide.load.model.ByteArrayLoader.StreamFactory.1
+                /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
                 @Override // com.bumptech.glide.load.model.ByteArrayLoader.Converter
                 public InputStream convert(byte[] bArr) {

@@ -47,6 +47,11 @@ public final class BodeViewLien extends View {
     private float xCircle;
     private float yCircle;
 
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.utilities.BodeViewLien$onDraw$1.run():void] */
+    public static final /* synthetic */ Path access$getPath_line$p(BodeViewLien bodeViewLien) {
+        return bodeViewLien.path_line;
+    }
+
     public final int getSpacing() {
         return this.spacing;
     }
@@ -270,14 +275,10 @@ public final class BodeViewLien extends View {
             postDelayed(new Runnable() { // from class: com.rigol.scope.utilities.BodeViewLien$onDraw$1
                 @Override // java.lang.Runnable
                 public final void run() {
-                    Path path;
-                    Path path2;
-                    path = BodeViewLien.this.path_line;
-                    path.moveTo(BodeViewLien.this.getOldX() + 120.0f, BodeViewLien.this.getOldy());
-                    path2 = BodeViewLien.this.path_line;
+                    BodeViewLien.access$getPath_line$p(BodeViewLien.this).moveTo(BodeViewLien.this.getOldX() + 120.0f, BodeViewLien.this.getOldy());
                     Float f = BodeViewLien.this.getPosition_listy().get(BodeViewLien.this.getMCount());
                     Intrinsics.checkNotNullExpressionValue(f, "position_listy[mCount]");
-                    path2.lineTo(BodeViewLien.this.getPosition_listx().get(BodeViewLien.this.getMCount()).floatValue() + 120.0f, f.floatValue());
+                    BodeViewLien.access$getPath_line$p(BodeViewLien.this).lineTo(BodeViewLien.this.getPosition_listx().get(BodeViewLien.this.getMCount()).floatValue() + 120.0f, f.floatValue());
                     BodeViewLien bodeViewLien = BodeViewLien.this;
                     Float f2 = bodeViewLien.getPosition_listx().get(BodeViewLien.this.getMCount());
                     Intrinsics.checkNotNullExpressionValue(f2, "position_listx[mCount]");

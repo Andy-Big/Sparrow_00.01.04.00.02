@@ -19,6 +19,7 @@ import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
+
 /* loaded from: classes.dex */
 public class AgentWebView extends LollipopFixedWebView {
     private static final String TAG = AgentWebView.class.getSimpleName();

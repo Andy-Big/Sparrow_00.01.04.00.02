@@ -8,6 +8,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 /* loaded from: classes.dex */
 public class Lifecycling {
     private static final int GENERATED_CALLBACK = 2;
@@ -26,8 +27,7 @@ public class Lifecycling {
         };
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static LifecycleEventObserver lifecycleEventObserver(Object obj) {
+    static LifecycleEventObserver lifecycleEventObserver(Object obj) {
         boolean z = obj instanceof LifecycleEventObserver;
         boolean z2 = obj instanceof FullLifecycleObserver;
         if (z && z2) {

@@ -5,6 +5,7 @@ import com.bumptech.glide.load.Key;
 import com.bumptech.glide.util.Util;
 import java.nio.ByteBuffer;
 import java.security.MessageDigest;
+
 /* loaded from: classes.dex */
 public final class AndroidResourceSignature implements Key {
     private final Key applicationVersion;

@@ -8,6 +8,7 @@ import com.google.gson.TypeAdapterFactory;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.internal.ConstructorConstructor;
 import com.google.gson.reflect.TypeToken;
+
 /* loaded from: classes.dex */
 public final class JsonAdapterAnnotationTypeAdapterFactory implements TypeAdapterFactory {
     private final ConstructorConstructor constructorConstructor;
@@ -25,8 +26,7 @@ public final class JsonAdapterAnnotationTypeAdapterFactory implements TypeAdapte
         return (TypeAdapter<T>) getTypeAdapter(this.constructorConstructor, gson, typeToken, jsonAdapter);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public TypeAdapter<?> getTypeAdapter(ConstructorConstructor constructorConstructor, Gson gson, TypeToken<?> typeToken, JsonAdapter jsonAdapter) {
+    TypeAdapter<?> getTypeAdapter(ConstructorConstructor constructorConstructor, Gson gson, TypeToken<?> typeToken, JsonAdapter jsonAdapter) {
         TypeAdapter<?> treeTypeAdapter;
         Object construct = constructorConstructor.get(TypeToken.get((Class) jsonAdapter.value())).construct();
         if (construct instanceof TypeAdapter) {

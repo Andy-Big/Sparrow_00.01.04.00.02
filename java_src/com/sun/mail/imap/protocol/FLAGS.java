@@ -2,6 +2,7 @@ package com.sun.mail.imap.protocol;
 
 import com.sun.mail.iap.ParsingException;
 import javax.mail.Flags;
+
 /* loaded from: classes2.dex */
 public class FLAGS extends Flags implements Item {
     static final char[] name = {'F', 'L', 'A', 'G', 'S'};

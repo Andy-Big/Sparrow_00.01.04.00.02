@@ -10,6 +10,7 @@ import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.net.Proxy;
 import java.net.Socket;
+import java.net.SocketTimeoutException;
 import java.nio.channels.SocketChannel;
 import java.nio.charset.StandardCharsets;
 import java.security.AccessController;
@@ -32,6 +33,7 @@ import javax.net.ssl.SSLPeerUnverifiedException;
 import javax.net.ssl.SSLSocket;
 import javax.net.ssl.SSLSocketFactory;
 import org.slf4j.Marker;
+
 /* loaded from: classes2.dex */
 public class SocketFetcher {
     private static MailLogger logger = new MailLogger(SocketFetcher.class, "socket", "DEBUG SocketFetcher", PropUtil.getBooleanSystemProperty("mail.socket.debug", false), System.out);
@@ -47,14 +49,146 @@ public class SocketFetcher {
     /* JADX WARN: Removed duplicated region for block: B:68:0x023b  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    public static java.net.Socket getSocket(java.lang.String r22, int r23, java.util.Properties r24, java.lang.String r25, boolean r26) throws java.io.IOException {
-        /*
-            Method dump skipped, instructions count: 611
-            To view this dump add '--comments-level debug' option
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.sun.mail.util.SocketFetcher.getSocket(java.lang.String, int, java.util.Properties, java.lang.String, boolean):java.net.Socket");
+    public static Socket getSocket(String str, int i, Properties properties, String str2, boolean z) throws IOException {
+        int i2;
+        SocketFactory socketFactory;
+        String str3;
+        int i3;
+        Socket socket;
+        int i4;
+        Exception e;
+        Exception exc;
+        String str4 = str2;
+        if (logger.isLoggable(Level.FINER)) {
+            MailLogger mailLogger = logger;
+            StringBuilder sb = new StringBuilder();
+            sb.append("getSocket, host ");
+            sb.append(str);
+            sb.append(", port ");
+            i2 = i;
+            sb.append(i2);
+            sb.append(", prefix ");
+            sb.append(str4);
+            sb.append(", useSSL ");
+            sb.append(z);
+            mailLogger.finer(sb.toString());
+        } else {
+            i2 = i;
+        }
+        if (str4 == null) {
+            str4 = "socket";
+        }
+        String str5 = str4;
+        Properties properties2 = properties == null ? new Properties() : properties;
+        int intProperty = PropUtil.getIntProperty(properties2, str5 + ".connectiontimeout", -1);
+        Socket socket2 = null;
+        String property = properties2.getProperty(str5 + ".localaddress", null);
+        InetAddress byName = property != null ? InetAddress.getByName(property) : null;
+        int intProperty2 = PropUtil.getIntProperty(properties2, str5 + ".localport", 0);
+        boolean booleanProperty = PropUtil.getBooleanProperty(properties2, str5 + ".socketFactory.fallback", true);
+        String str6 = "unknown socket factory";
+        int intProperty3 = PropUtil.getIntProperty(properties2, str5 + ".timeout", -1);
+        if (z) {
+            try {
+                try {
+                    Object obj = properties2.get(str5 + ".ssl.socketFactory");
+                    if (obj instanceof SocketFactory) {
+                        socketFactory = (SocketFactory) obj;
+                        str6 = "SSL socket factory instance " + socketFactory;
+                    } else {
+                        socketFactory = null;
+                    }
+                    if (socketFactory == null) {
+                        String property2 = properties2.getProperty(str5 + ".ssl.socketFactory.class");
+                        str6 = "SSL socket factory class " + property2;
+                        socketFactory = getSocketFactory(property2);
+                    }
+                    str3 = ".ssl.socketFactory.port";
+                } catch (SocketTimeoutException e2) {
+                    throw e2;
+                }
+            } catch (Exception e3) {
+                e = e3;
+                i3 = intProperty3;
+                socket = null;
+                i4 = -1;
+                if (booleanProperty) {
+                    if (e instanceof InvocationTargetException) {
+                        Throwable targetException = ((InvocationTargetException) e).getTargetException();
+                        if (targetException instanceof Exception) {
+                            exc = (Exception) targetException;
+                            if (!(exc instanceof IOException)) {
+                                throw ((IOException) exc);
+                            }
+                            throw new SocketConnectException("Using " + str6, exc, str, i4, intProperty);
+                        }
+                    }
+                    exc = e;
+                    if (!(exc instanceof IOException)) {
+                    }
+                } else {
+                    socket2 = socket;
+                    if (socket2 != null) {
+                    }
+                }
+            }
+        } else {
+            socketFactory = null;
+            str3 = null;
+        }
+        if (socketFactory == null) {
+            Object obj2 = properties2.get(str5 + ".socketFactory");
+            if (obj2 instanceof SocketFactory) {
+                socketFactory = (SocketFactory) obj2;
+                str6 = "socket factory instance " + socketFactory;
+            }
+            if (socketFactory == null) {
+                String property3 = properties2.getProperty(str5 + ".socketFactory.class");
+                str6 = "socket factory class " + property3;
+                socketFactory = getSocketFactory(property3);
+            }
+            str3 = ".socketFactory.port";
+        }
+        SocketFactory socketFactory2 = socketFactory;
+        String str7 = str6;
+        if (socketFactory2 != null) {
+            try {
+                int intProperty4 = PropUtil.getIntProperty(properties2, str5 + str3, -1);
+                int i5 = intProperty4 == -1 ? i2 : intProperty4;
+                i3 = intProperty3;
+                socket = null;
+                try {
+                    socket2 = createSocket(byName, intProperty2, str, i5, intProperty, intProperty3, properties2, str5, socketFactory2, z);
+                } catch (Exception e4) {
+                    e = e4;
+                    str6 = str7;
+                    i4 = i5;
+                    if (booleanProperty) {
+                    }
+                }
+            } catch (Exception e5) {
+                e = e5;
+                i3 = intProperty3;
+                socket = null;
+                i4 = -1;
+                str6 = str7;
+            }
+        } else {
+            i3 = intProperty3;
+        }
+        if (socket2 != null) {
+            return createSocket(byName, intProperty2, str, i, intProperty, i3, properties2, str5, null, z);
+        }
+        int i6 = i3;
+        if (i6 >= 0) {
+            if (logger.isLoggable(Level.FINEST)) {
+                logger.finest("set socket read timeout " + i6);
+            }
+            socket2.setSoTimeout(i6);
+            return socket2;
+        }
+        return socket2;
     }
 
     public static Socket getSocket(String str, int i, Properties properties, String str2) throws IOException {
@@ -194,52 +328,52 @@ public class SocketFetcher {
         }
         try {
             logger.finest("connecting...");
-        } catch (IOException e) {
-            e = e;
-        }
-        try {
-            if (str3 != null) {
-                proxyConnect(socket, str3, i6, property3, property4, str, i2, i3);
-                str5 = str;
-            } else if (i3 >= 0) {
-                str5 = str;
-                socket.connect(new InetSocketAddress(str5, i2), i3);
-            } else {
-                str5 = str;
-                socket.connect(new InetSocketAddress(str5, i2));
-            }
-            logger.finest("success!");
-            if ((z || (sSLSocketFactory2 instanceof SSLSocketFactory)) && !(socket instanceof SSLSocket)) {
-                String property5 = properties.getProperty(str2 + ".ssl.trust");
-                if (property5 != null) {
-                    try {
-                        MailSSLSocketFactory mailSSLSocketFactory = new MailSSLSocketFactory();
-                        if (property5.equals(Marker.ANY_MARKER)) {
-                            mailSSLSocketFactory.setTrustAllHosts(true);
-                        } else {
-                            mailSSLSocketFactory.setTrustedHosts(property5.split("\\s+"));
-                        }
-                        sSLSocketFactory = mailSSLSocketFactory;
-                    } catch (GeneralSecurityException e2) {
-                        IOException iOException = new IOException("Can't create MailSSLSocketFactory");
-                        iOException.initCause(e2);
-                        throw iOException;
-                    }
-                } else if (sSLSocketFactory2 instanceof SSLSocketFactory) {
-                    sSLSocketFactory = (SSLSocketFactory) sSLSocketFactory2;
+            try {
+                if (str3 != null) {
+                    proxyConnect(socket, str3, i6, property3, property4, str, i2, i3);
+                    str5 = str;
+                } else if (i3 >= 0) {
+                    str5 = str;
+                    socket.connect(new InetSocketAddress(str5, i2), i3);
                 } else {
-                    sSLSocketFactory = (SSLSocketFactory) SSLSocketFactory.getDefault();
+                    str5 = str;
+                    socket.connect(new InetSocketAddress(str5, i2));
                 }
-                socket = sSLSocketFactory.createSocket(socket, str5, i2, true);
-                sSLSocketFactory2 = sSLSocketFactory;
+                logger.finest("success!");
+                if ((z || (sSLSocketFactory2 instanceof SSLSocketFactory)) && !(socket instanceof SSLSocket)) {
+                    String property5 = properties.getProperty(str2 + ".ssl.trust");
+                    if (property5 != null) {
+                        try {
+                            MailSSLSocketFactory mailSSLSocketFactory = new MailSSLSocketFactory();
+                            if (property5.equals(Marker.ANY_MARKER)) {
+                                mailSSLSocketFactory.setTrustAllHosts(true);
+                            } else {
+                                mailSSLSocketFactory.setTrustedHosts(property5.split("\\s+"));
+                            }
+                            sSLSocketFactory = mailSSLSocketFactory;
+                        } catch (GeneralSecurityException e) {
+                            IOException iOException = new IOException("Can't create MailSSLSocketFactory");
+                            iOException.initCause(e);
+                            throw iOException;
+                        }
+                    } else if (sSLSocketFactory2 instanceof SSLSocketFactory) {
+                        sSLSocketFactory = (SSLSocketFactory) sSLSocketFactory2;
+                    } else {
+                        sSLSocketFactory = (SSLSocketFactory) SSLSocketFactory.getDefault();
+                    }
+                    socket = sSLSocketFactory.createSocket(socket, str5, i2, true);
+                    sSLSocketFactory2 = sSLSocketFactory;
+                }
+                configureSSLSocket(socket, str5, properties, str2, sSLSocketFactory2);
+                return socket;
+            } catch (IOException e2) {
+                e = e2;
+                IOException iOException2 = e;
+                logger.log(Level.FINEST, "connection failed", (Throwable) iOException2);
+                throw new SocketConnectException(str4, iOException2, str, i2, i3);
             }
-            configureSSLSocket(socket, str5, properties, str2, sSLSocketFactory2);
-            return socket;
         } catch (IOException e3) {
             e = e3;
-            IOException iOException2 = e;
-            logger.log(Level.FINEST, "connection failed", (Throwable) iOException2);
-            throw new SocketConnectException(str4, iOException2, str, i2, i3);
         }
     }
 
@@ -271,6 +405,8 @@ public class SocketFetcher {
         return startTLS(socket, socket.getInetAddress().getHostName(), properties, str);
     }
 
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:12:0x008a */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:16:0x0093 */
     public static Socket startTLS(Socket socket, String str, Properties properties, String str2) throws IOException {
         SocketFactory socketFactory;
         int port = socket.getPort();
@@ -390,6 +526,7 @@ public class SocketFetcher {
         }
     }
 
+    /* JADX DEBUG: Finally have unexpected throw blocks count: 3, expect 1 */
     private static IOException cleanupAndThrow(Socket socket, IOException iOException) {
         try {
             socket.close();
@@ -557,6 +694,7 @@ public class SocketFetcher {
 
     private static ClassLoader getContextClassLoader() {
         return (ClassLoader) AccessController.doPrivileged(new PrivilegedAction<ClassLoader>() { // from class: com.sun.mail.util.SocketFetcher.1
+            /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // java.security.PrivilegedAction
             public ClassLoader run() {

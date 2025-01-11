@@ -8,6 +8,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+
 /* loaded from: classes.dex */
 public class StreamEncoder implements Encoder<InputStream> {
     private static final String TAG = "StreamEncoder";
@@ -17,6 +18,7 @@ public class StreamEncoder implements Encoder<InputStream> {
         this.byteArrayPool = arrayPool;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.Encoder
     public boolean encode(InputStream inputStream, File file, Options options) {
         byte[] bArr = (byte[]) this.byteArrayPool.get(65536, byte[].class);
@@ -60,15 +62,15 @@ public class StreamEncoder implements Encoder<InputStream> {
                     fileOutputStream2.close();
                     z = true;
                     fileOutputStream2.close();
-                } catch (IOException unused2) {
+                } catch (Throwable th2) {
+                    th = th2;
                 }
             } catch (IOException e2) {
                 e = e2;
             }
-            this.byteArrayPool.put(bArr);
-            return z;
-        } catch (Throwable th2) {
-            th = th2;
+        } catch (IOException unused2) {
         }
+        this.byteArrayPool.put(bArr);
+        return z;
     }
 }

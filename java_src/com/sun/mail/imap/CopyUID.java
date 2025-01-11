@@ -1,6 +1,7 @@
 package com.sun.mail.imap;
 
 import com.sun.mail.imap.protocol.UIDSet;
+
 /* loaded from: classes2.dex */
 public class CopyUID {
     public UIDSet[] dst;

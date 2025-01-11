@@ -3,6 +3,7 @@ package androidx.constraintlayout.core.state.helpers;
 import androidx.constraintlayout.core.state.ConstraintReference;
 import androidx.constraintlayout.core.state.State;
 import java.util.Iterator;
+
 /* loaded from: classes.dex */
 public class VerticalChainReference extends ChainReference {
     private Object mBottomToBottom;

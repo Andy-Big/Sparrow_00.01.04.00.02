@@ -2,6 +2,7 @@ package androidx.constraintlayout.core.widgets;
 
 import androidx.constraintlayout.core.widgets.ConstraintWidget;
 import androidx.constraintlayout.core.widgets.analyzer.BasicMeasure;
+
 /* loaded from: classes.dex */
 public class VirtualLayout extends HelperWidget {
     private int mPaddingTop = 0;
@@ -86,8 +87,7 @@ public class VirtualLayout extends HelperWidget {
         return this.mResolvedPaddingRight;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void needsCallbackFromSolver(boolean z) {
+    protected void needsCallbackFromSolver(boolean z) {
         this.mNeedsCallFromSolver = z;
     }
 
@@ -122,8 +122,7 @@ public class VirtualLayout extends HelperWidget {
         this.mMeasuredHeight = i2;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public boolean measureChildren() {
+    protected boolean measureChildren() {
         BasicMeasure.Measurer measurer = this.mParent != null ? ((ConstraintWidgetContainer) this.mParent).getMeasurer() : null;
         if (measurer == null) {
             return false;
@@ -162,8 +161,7 @@ public class VirtualLayout extends HelperWidget {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void measure(ConstraintWidget constraintWidget, ConstraintWidget.DimensionBehaviour dimensionBehaviour, int i, ConstraintWidget.DimensionBehaviour dimensionBehaviour2, int i2) {
+    protected void measure(ConstraintWidget constraintWidget, ConstraintWidget.DimensionBehaviour dimensionBehaviour, int i, ConstraintWidget.DimensionBehaviour dimensionBehaviour2, int i2) {
         while (this.mMeasurer == null && getParent() != null) {
             this.mMeasurer = ((ConstraintWidgetContainer) getParent()).getMeasurer();
         }

@@ -26,9 +26,9 @@ import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.core.view.ActionProvider;
 import androidx.core.view.GravityCompat;
 import java.util.ArrayList;
-/* JADX INFO: Access modifiers changed from: package-private */
+
 /* loaded from: classes.dex */
-public class ActionMenuPresenter extends BaseMenuPresenter implements ActionProvider.SubUiVisibilityListener {
+class ActionMenuPresenter extends BaseMenuPresenter implements ActionProvider.SubUiVisibilityListener {
     private static final String TAG = "ActionMenuPresenter";
     private final SparseBooleanArray mActionButtonGroups;
     ActionButtonSubmenu mActionButtonPopup;
@@ -512,16 +512,17 @@ public class ActionMenuPresenter extends BaseMenuPresenter implements ActionProv
         actionMenuView.initialize(this.mMenu);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static class SavedState implements Parcelable {
+    private static class SavedState implements Parcelable {
         public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.Creator<SavedState>() { // from class: androidx.appcompat.widget.ActionMenuPresenter.SavedState.1
+            /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public SavedState createFromParcel(Parcel parcel) {
                 return new SavedState(parcel);
             }
 
+            /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public SavedState[] newArray(int i) {
@@ -548,9 +549,8 @@ public class ActionMenuPresenter extends BaseMenuPresenter implements ActionProv
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public class OverflowMenuButton extends AppCompatImageView implements ActionMenuView.ActionMenuChildView {
+    private class OverflowMenuButton extends AppCompatImageView implements ActionMenuView.ActionMenuChildView {
         @Override // androidx.appcompat.widget.ActionMenuView.ActionMenuChildView
         public boolean needsDividerAfter() {
             return false;
@@ -621,9 +621,8 @@ public class ActionMenuPresenter extends BaseMenuPresenter implements ActionProv
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public class OverflowPopup extends MenuPopupHelper {
+    private class OverflowPopup extends MenuPopupHelper {
         public OverflowPopup(Context context, MenuBuilder menuBuilder, View view, boolean z) {
             super(context, menuBuilder, view, z, R.attr.actionOverflowMenuStyle);
             setGravity(GravityCompat.END);
@@ -640,9 +639,8 @@ public class ActionMenuPresenter extends BaseMenuPresenter implements ActionProv
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public class ActionButtonSubmenu extends MenuPopupHelper {
+    private class ActionButtonSubmenu extends MenuPopupHelper {
         public ActionButtonSubmenu(Context context, SubMenuBuilder subMenuBuilder, View view) {
             super(context, subMenuBuilder, view, false, R.attr.actionOverflowMenuStyle);
             if (!((MenuItemImpl) subMenuBuilder.getItem()).isActionButton()) {
@@ -689,9 +687,8 @@ public class ActionMenuPresenter extends BaseMenuPresenter implements ActionProv
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public class OpenOverflowRunnable implements Runnable {
+    private class OpenOverflowRunnable implements Runnable {
         private OverflowPopup mPopup;
 
         public OpenOverflowRunnable(OverflowPopup overflowPopup) {

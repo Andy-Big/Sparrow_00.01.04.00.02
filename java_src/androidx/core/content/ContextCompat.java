@@ -66,11 +66,15 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.concurrent.Executor;
 import java.util.concurrent.RejectedExecutionException;
+
 /* loaded from: classes.dex */
 public class ContextCompat {
     private static final String TAG = "ContextCompat";
     private static final Object sLock = new Object();
     private static TypedValue sTempValue;
+
+    protected ContextCompat() {
+    }
 
     public static boolean startActivities(Context context, Intent[] intentArr) {
         return startActivities(context, intentArr, null);
@@ -246,9 +250,8 @@ public class ContextCompat {
         return LegacyServiceMapHolder.SERVICES.get(cls);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static final class LegacyServiceMapHolder {
+    private static final class LegacyServiceMapHolder {
         static final HashMap<Class<?>, String> SERVICES = new HashMap<>();
 
         private LegacyServiceMapHolder() {

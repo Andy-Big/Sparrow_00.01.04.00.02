@@ -25,6 +25,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+
 /* loaded from: classes.dex */
 public abstract class VersionedParcel {
     private static final int EX_BAD_PARCELABLE = -2;
@@ -263,8 +264,7 @@ public abstract class VersionedParcel {
         writeBooleanArray(zArr);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void writeBooleanArray(boolean[] zArr) {
+    protected void writeBooleanArray(boolean[] zArr) {
         if (zArr != null) {
             writeInt(zArr.length);
             for (boolean z : zArr) {
@@ -279,8 +279,7 @@ public abstract class VersionedParcel {
         return !readField(i) ? zArr : readBooleanArray();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public boolean[] readBooleanArray() {
+    protected boolean[] readBooleanArray() {
         int readInt = readInt();
         if (readInt < 0) {
             return null;
@@ -328,8 +327,7 @@ public abstract class VersionedParcel {
         writeIntArray(iArr);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void writeIntArray(int[] iArr) {
+    protected void writeIntArray(int[] iArr) {
         if (iArr != null) {
             writeInt(iArr.length);
             for (int i : iArr) {
@@ -344,8 +342,7 @@ public abstract class VersionedParcel {
         return !readField(i) ? iArr : readIntArray();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public int[] readIntArray() {
+    protected int[] readIntArray() {
         int readInt = readInt();
         if (readInt < 0) {
             return null;
@@ -362,8 +359,7 @@ public abstract class VersionedParcel {
         writeLongArray(jArr);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void writeLongArray(long[] jArr) {
+    protected void writeLongArray(long[] jArr) {
         if (jArr != null) {
             writeInt(jArr.length);
             for (long j : jArr) {
@@ -378,8 +374,7 @@ public abstract class VersionedParcel {
         return !readField(i) ? jArr : readLongArray();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public long[] readLongArray() {
+    protected long[] readLongArray() {
         int readInt = readInt();
         if (readInt < 0) {
             return null;
@@ -396,8 +391,7 @@ public abstract class VersionedParcel {
         writeFloatArray(fArr);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void writeFloatArray(float[] fArr) {
+    protected void writeFloatArray(float[] fArr) {
         if (fArr != null) {
             writeInt(fArr.length);
             for (float f : fArr) {
@@ -412,8 +406,7 @@ public abstract class VersionedParcel {
         return !readField(i) ? fArr : readFloatArray();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public float[] readFloatArray() {
+    protected float[] readFloatArray() {
         int readInt = readInt();
         if (readInt < 0) {
             return null;
@@ -430,8 +423,7 @@ public abstract class VersionedParcel {
         writeDoubleArray(dArr);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void writeDoubleArray(double[] dArr) {
+    protected void writeDoubleArray(double[] dArr) {
         if (dArr != null) {
             writeInt(dArr.length);
             for (double d : dArr) {
@@ -446,8 +438,7 @@ public abstract class VersionedParcel {
         return !readField(i) ? dArr : readDoubleArray();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public double[] readDoubleArray() {
+    protected double[] readDoubleArray() {
         int readInt = readInt();
         if (readInt < 0) {
             return null;
@@ -551,8 +542,7 @@ public abstract class VersionedParcel {
         writeArray(tArr);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public <T> void writeArray(T[] tArr) {
+    protected <T> void writeArray(T[] tArr) {
         if (tArr == null) {
             writeInt(-1);
             return;
@@ -623,8 +613,7 @@ public abstract class VersionedParcel {
         writeVersionedParcelable(versionedParcelable);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void writeVersionedParcelable(VersionedParcelable versionedParcelable) {
+    protected void writeVersionedParcelable(VersionedParcelable versionedParcelable) {
         if (versionedParcelable == null) {
             writeString(null);
             return;
@@ -635,6 +624,7 @@ public abstract class VersionedParcel {
         createSubParcel.closeField();
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r3v0, resolved type: androidx.versionedparcelable.VersionedParcel */
     /* JADX WARN: Multi-variable type inference failed */
     private void writeVersionedParcelableCreator(VersionedParcelable versionedParcelable) {
         try {
@@ -840,6 +830,7 @@ public abstract class VersionedParcel {
         return s;
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r7v2, resolved type: androidx.collection.ArrayMap */
     /* JADX WARN: Multi-variable type inference failed */
     public <K, V> Map<K, V> readMap(Map<K, V> map, int i) {
         if (readField(i)) {
@@ -867,8 +858,7 @@ public abstract class VersionedParcel {
         return !readField(i) ? tArr : (T[]) readArray(tArr);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public <T> T[] readArray(T[] tArr) {
+    protected <T> T[] readArray(T[] tArr) {
         int readInt = readInt();
         if (readInt < 0) {
             return null;
@@ -913,8 +903,7 @@ public abstract class VersionedParcel {
         return !readField(i) ? t : (T) readVersionedParcelable();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public <T extends VersionedParcelable> T readVersionedParcelable() {
+    protected <T extends VersionedParcelable> T readVersionedParcelable() {
         String readString = readString();
         if (readString == null) {
             return null;

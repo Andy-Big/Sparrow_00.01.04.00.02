@@ -16,15 +16,15 @@ import androidx.core.view.accessibility.AccessibilityNodeProviderCompat;
 import java.lang.ref.WeakReference;
 import java.util.Collections;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public class AccessibilityDelegateCompat {
     private static final View.AccessibilityDelegate DEFAULT_DELEGATE = new View.AccessibilityDelegate();
     private final View.AccessibilityDelegate mBridge;
     private final View.AccessibilityDelegate mOriginalDelegate;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static final class AccessibilityDelegateAdapter extends View.AccessibilityDelegate {
+    static final class AccessibilityDelegateAdapter extends View.AccessibilityDelegate {
         final AccessibilityDelegateCompat mCompat;
 
         AccessibilityDelegateAdapter(AccessibilityDelegateCompat accessibilityDelegateCompat) {
@@ -99,8 +99,7 @@ public class AccessibilityDelegateCompat {
         this.mBridge = new AccessibilityDelegateAdapter(this);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public View.AccessibilityDelegate getBridge() {
+    View.AccessibilityDelegate getBridge() {
         return this.mBridge;
     }
 

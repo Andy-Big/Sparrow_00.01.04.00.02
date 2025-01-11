@@ -3,6 +3,7 @@ package com.sun.mail.util;
 import java.io.FilterOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+
 /* loaded from: classes2.dex */
 public class CRLFOutputStream extends FilterOutputStream {
     private static final byte[] newline = {13, 10};

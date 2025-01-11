@@ -3,6 +3,7 @@ package androidx.core.view;
 import android.os.Build;
 import android.view.View;
 import android.view.Window;
+
 /* loaded from: classes.dex */
 public final class WindowCompat {
     public static final int FEATURE_ACTION_BAR = 8;

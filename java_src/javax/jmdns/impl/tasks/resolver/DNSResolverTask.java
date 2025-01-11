@@ -7,6 +7,7 @@ import javax.jmdns.impl.JmDNSImpl;
 import javax.jmdns.impl.tasks.DNSTask;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 /* loaded from: classes2.dex */
 public abstract class DNSResolverTask extends DNSTask {
     private static Logger logger = LoggerFactory.getLogger(DNSResolverTask.class.getName());

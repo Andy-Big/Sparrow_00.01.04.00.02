@@ -3,6 +3,7 @@ package com.bumptech.glide.request.target;
 import android.graphics.drawable.Drawable;
 import com.bumptech.glide.request.Request;
 import com.bumptech.glide.util.Util;
+
 /* loaded from: classes.dex */
 public abstract class CustomTarget<T> implements Target<T> {
     private final int height;

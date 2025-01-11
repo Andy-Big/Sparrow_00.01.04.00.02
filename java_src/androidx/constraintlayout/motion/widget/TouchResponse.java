@@ -13,9 +13,9 @@ import androidx.constraintlayout.motion.widget.MotionLayout;
 import androidx.constraintlayout.widget.R;
 import androidx.core.widget.NestedScrollView;
 import org.xmlpull.v1.XmlPullParser;
-/* JADX INFO: Access modifiers changed from: package-private */
+
 /* loaded from: classes.dex */
-public class TouchResponse {
+class TouchResponse {
     private static final boolean DEBUG = false;
     private static final float EPSILON = 1.0E-7f;
     static final int FLAG_DISABLE_POST_SCROLL = 1;
@@ -63,8 +63,7 @@ public class TouchResponse {
     private int mFlags = 0;
     private float mDragThreshold = 10.0f;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public TouchResponse(Context context, MotionLayout motionLayout, XmlPullParser xmlPullParser) {
+    TouchResponse(Context context, MotionLayout motionLayout, XmlPullParser xmlPullParser) {
         this.mMotionLayout = motionLayout;
         fillFromAttributeList(context, Xml.asAttributeSet(xmlPullParser));
     }
@@ -152,8 +151,7 @@ public class TouchResponse {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setUpTouchEvent(float f, float f2) {
+    void setUpTouchEvent(float f, float f2) {
         this.mLastTouchX = f;
         this.mLastTouchY = f2;
         this.mDragStarted = false;
@@ -165,18 +163,150 @@ public class TouchResponse {
     /* JADX WARN: Removed duplicated region for block: B:54:0x0252  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    void processTouchRotateEvent(android.view.MotionEvent r22, androidx.constraintlayout.motion.widget.MotionLayout.MotionTracker r23, int r24, androidx.constraintlayout.motion.widget.MotionScene r25) {
-        /*
-            Method dump skipped, instructions count: 682
-            To view this dump add '--comments-level debug' option
-        */
-        throw new UnsupportedOperationException("Method not decompiled: androidx.constraintlayout.motion.widget.TouchResponse.processTouchRotateEvent(android.view.MotionEvent, androidx.constraintlayout.motion.widget.MotionLayout$MotionTracker, int, androidx.constraintlayout.motion.widget.MotionScene):void");
+    void processTouchRotateEvent(MotionEvent motionEvent, MotionLayout.MotionTracker motionTracker, int i, MotionScene motionScene) {
+        float left;
+        int top;
+        int bottom;
+        float rawY;
+        int i2;
+        float f;
+        int i3;
+        float[] fArr;
+        View findViewById;
+        double atan2;
+        float[] fArr2;
+        motionTracker.addMovement(motionEvent);
+        int action = motionEvent.getAction();
+        if (action == 0) {
+            this.mLastTouchX = motionEvent.getRawX();
+            this.mLastTouchY = motionEvent.getRawY();
+            this.mDragStarted = false;
+        } else if (action != 1) {
+            if (action != 2) {
+                return;
+            }
+            motionEvent.getRawY();
+            motionEvent.getRawX();
+            float width = this.mMotionLayout.getWidth() / 2.0f;
+            float height = this.mMotionLayout.getHeight() / 2.0f;
+            int i4 = this.mRotationCenterId;
+            if (i4 != -1) {
+                View findViewById2 = this.mMotionLayout.findViewById(i4);
+                height = (findViewById2.getTop() + findViewById2.getBottom()) / 2.0f;
+                width = (findViewById2.getLeft() + findViewById2.getRight()) / 2.0f;
+            } else {
+                int i5 = this.mTouchAnchorId;
+                if (i5 != -1) {
+                    if (this.mMotionLayout.findViewById(this.mMotionLayout.getMotionController(i5).getAnimateRelativeTo()) == null) {
+                        Log.e(TAG, "could not find view to animate to");
+                    } else {
+                        width = (findViewById.getLeft() + findViewById.getRight()) / 2.0f;
+                        height = (findViewById.getTop() + findViewById.getBottom()) / 2.0f;
+                    }
+                }
+            }
+            float rawX = motionEvent.getRawX() - width;
+            float rawY2 = motionEvent.getRawY() - height;
+            float atan22 = (float) (((Math.atan2(motionEvent.getRawY() - height, motionEvent.getRawX() - width) - Math.atan2(this.mLastTouchY - height, this.mLastTouchX - width)) * 180.0d) / 3.141592653589793d);
+            if (atan22 > 330.0f) {
+                atan22 -= 360.0f;
+            } else if (atan22 < -330.0f) {
+                atan22 += 360.0f;
+            }
+            if (Math.abs(atan22) > 0.01d || this.mDragStarted) {
+                float progress = this.mMotionLayout.getProgress();
+                if (!this.mDragStarted) {
+                    this.mDragStarted = true;
+                    this.mMotionLayout.setProgress(progress);
+                }
+                int i6 = this.mTouchAnchorId;
+                if (i6 != -1) {
+                    this.mMotionLayout.getAnchorDpDt(i6, progress, this.mTouchAnchorX, this.mTouchAnchorY, this.mAnchorDpDt);
+                    this.mAnchorDpDt[1] = (float) Math.toDegrees(fArr2[1]);
+                } else {
+                    this.mAnchorDpDt[1] = 360.0f;
+                }
+                float max = Math.max(Math.min(progress + ((atan22 * this.mDragScale) / this.mAnchorDpDt[1]), 1.0f), 0.0f);
+                if (max != this.mMotionLayout.getProgress()) {
+                    this.mMotionLayout.setProgress(max);
+                    motionTracker.computeCurrentVelocity(1000);
+                    float xVelocity = motionTracker.getXVelocity();
+                    double yVelocity = motionTracker.getYVelocity();
+                    double d = xVelocity;
+                    this.mMotionLayout.mLastVelocity = (float) Math.toDegrees((float) ((Math.hypot(yVelocity, d) * Math.sin(Math.atan2(yVelocity, d) - atan2)) / Math.hypot(rawX, rawY2)));
+                } else {
+                    this.mMotionLayout.mLastVelocity = 0.0f;
+                }
+                this.mLastTouchX = motionEvent.getRawX();
+                this.mLastTouchY = motionEvent.getRawY();
+            }
+        } else {
+            this.mDragStarted = false;
+            motionTracker.computeCurrentVelocity(16);
+            float xVelocity2 = motionTracker.getXVelocity();
+            float yVelocity2 = motionTracker.getYVelocity();
+            float progress2 = this.mMotionLayout.getProgress();
+            float width2 = this.mMotionLayout.getWidth() / 2.0f;
+            float height2 = this.mMotionLayout.getHeight() / 2.0f;
+            int i7 = this.mRotationCenterId;
+            if (i7 != -1) {
+                View findViewById3 = this.mMotionLayout.findViewById(i7);
+                left = (findViewById3.getLeft() + findViewById3.getRight()) / 2.0f;
+                top = findViewById3.getTop();
+                bottom = findViewById3.getBottom();
+            } else {
+                int i8 = this.mTouchAnchorId;
+                if (i8 != -1) {
+                    View findViewById4 = this.mMotionLayout.findViewById(this.mMotionLayout.getMotionController(i8).getAnimateRelativeTo());
+                    left = (findViewById4.getLeft() + findViewById4.getRight()) / 2.0f;
+                    top = findViewById4.getTop();
+                    bottom = findViewById4.getBottom();
+                }
+                float rawX2 = motionEvent.getRawX() - width2;
+                double degrees = Math.toDegrees(Math.atan2(motionEvent.getRawY() - height2, rawX2));
+                i2 = this.mTouchAnchorId;
+                if (i2 == -1) {
+                    this.mMotionLayout.getAnchorDpDt(i2, progress2, this.mTouchAnchorX, this.mTouchAnchorY, this.mAnchorDpDt);
+                    this.mAnchorDpDt[1] = (float) Math.toDegrees(fArr[1]);
+                } else {
+                    this.mAnchorDpDt[1] = 360.0f;
+                }
+                float degrees2 = ((float) (Math.toDegrees(Math.atan2(yVelocity2 + rawY, xVelocity2 + rawX2)) - degrees)) * 62.5f;
+                f = Float.isNaN(degrees2) ? (((degrees2 * 3.0f) * this.mDragScale) / this.mAnchorDpDt[1]) + progress2 : progress2;
+                if (f != 0.0f || f == 1.0f || (i3 = this.mOnTouchUp) == 3) {
+                    if (0.0f < f || 1.0f <= f) {
+                        this.mMotionLayout.setState(MotionLayout.TransitionState.FINISHED);
+                    }
+                    return;
+                }
+                this.mMotionLayout.touchAnimateTo(i3, ((double) f) < 0.5d ? 0.0f : 1.0f, ((degrees2 * this.mDragScale) / this.mAnchorDpDt[1]) * 3.0f);
+                if (0.0f >= progress2 || 1.0f <= progress2) {
+                    this.mMotionLayout.setState(MotionLayout.TransitionState.FINISHED);
+                    return;
+                }
+                return;
+            }
+            float f2 = left;
+            height2 = (top + bottom) / 2.0f;
+            width2 = f2;
+            float rawX22 = motionEvent.getRawX() - width2;
+            double degrees3 = Math.toDegrees(Math.atan2(motionEvent.getRawY() - height2, rawX22));
+            i2 = this.mTouchAnchorId;
+            if (i2 == -1) {
+            }
+            float degrees22 = ((float) (Math.toDegrees(Math.atan2(yVelocity2 + rawY, xVelocity2 + rawX22)) - degrees3)) * 62.5f;
+            if (Float.isNaN(degrees22)) {
+            }
+            if (f != 0.0f) {
+            }
+            if (0.0f < f) {
+            }
+            this.mMotionLayout.setState(MotionLayout.TransitionState.FINISHED);
+        }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void processTouchEvent(MotionEvent motionEvent, MotionLayout.MotionTracker motionTracker, int i, MotionScene motionScene) {
+    void processTouchEvent(MotionEvent motionEvent, MotionLayout.MotionTracker motionTracker, int i, MotionScene motionScene) {
         float f;
         int i2;
         float f2;
@@ -271,14 +401,12 @@ public class TouchResponse {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setDown(float f, float f2) {
+    void setDown(float f, float f2) {
         this.mLastTouchX = f;
         this.mLastTouchY = f2;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public float getProgressDirection(float f, float f2) {
+    float getProgressDirection(float f, float f2) {
         this.mMotionLayout.getAnchorDpDt(this.mTouchAnchorId, this.mMotionLayout.getProgress(), this.mTouchAnchorX, this.mTouchAnchorY, this.mAnchorDpDt);
         if (this.mTouchDirectionX != 0.0f) {
             float[] fArr = this.mAnchorDpDt;
@@ -294,8 +422,7 @@ public class TouchResponse {
         return (f2 * this.mTouchDirectionY) / this.mAnchorDpDt[1];
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void scrollUp(float f, float f2) {
+    void scrollUp(float f, float f2) {
         float f3;
         this.mDragStarted = false;
         float progress = this.mMotionLayout.getProgress();
@@ -320,8 +447,7 @@ public class TouchResponse {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void scrollMove(float f, float f2) {
+    void scrollMove(float f, float f2) {
         float f3;
         float progress = this.mMotionLayout.getProgress();
         if (!this.mDragStarted) {
@@ -348,8 +474,7 @@ public class TouchResponse {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setupTouch() {
+    void setupTouch() {
         View view;
         int i = this.mTouchAnchorId;
         if (i != -1) {
@@ -397,8 +522,7 @@ public class TouchResponse {
         this.mMaxAcceleration = f;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public float getMaxAcceleration() {
+    float getMaxAcceleration() {
         return this.mMaxAcceleration;
     }
 
@@ -406,13 +530,11 @@ public class TouchResponse {
         return this.mMaxVelocity;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean getMoveWhenScrollAtTop() {
+    boolean getMoveWhenScrollAtTop() {
         return this.mMoveWhenScrollAtTop;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public RectF getTouchRegion(ViewGroup viewGroup, RectF rectF) {
+    RectF getTouchRegion(ViewGroup viewGroup, RectF rectF) {
         View findViewById;
         int i = this.mTouchRegionId;
         if (i == -1 || (findViewById = viewGroup.findViewById(i)) == null) {
@@ -422,13 +544,11 @@ public class TouchResponse {
         return rectF;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public int getTouchRegionId() {
+    int getTouchRegionId() {
         return this.mTouchRegionId;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public RectF getLimitBoundsTo(ViewGroup viewGroup, RectF rectF) {
+    RectF getLimitBoundsTo(ViewGroup viewGroup, RectF rectF) {
         View findViewById;
         int i = this.mLimitBoundsTo;
         if (i == -1 || (findViewById = viewGroup.findViewById(i)) == null) {
@@ -442,8 +562,7 @@ public class TouchResponse {
         return this.mLimitBoundsTo;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public float dot(float f, float f2) {
+    float dot(float f, float f2) {
         return (f * this.mTouchDirectionX) + (f2 * this.mTouchDirectionY);
     }
 

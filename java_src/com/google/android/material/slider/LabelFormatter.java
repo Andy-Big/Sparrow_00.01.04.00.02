@@ -1,4 +1,5 @@
 package com.google.android.material.slider;
+
 /* loaded from: classes.dex */
 public interface LabelFormatter {
     public static final int LABEL_FLOATING = 0;

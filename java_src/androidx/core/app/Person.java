@@ -4,6 +4,7 @@ import android.app.Person;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import androidx.core.graphics.drawable.IconCompat;
+
 /* loaded from: classes.dex */
 public class Person {
     private static final String ICON_KEY = "icon";

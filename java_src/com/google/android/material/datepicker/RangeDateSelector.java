@@ -20,9 +20,11 @@ import com.google.android.material.textfield.TextInputLayout;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
+
 /* loaded from: classes.dex */
 public class RangeDateSelector implements DateSelector<Pair<Long, Long>> {
     public static final Parcelable.Creator<RangeDateSelector> CREATOR = new Parcelable.Creator<RangeDateSelector>() { // from class: com.google.android.material.datepicker.RangeDateSelector.3
+        /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
         public RangeDateSelector createFromParcel(Parcel parcel) {
@@ -32,6 +34,7 @@ public class RangeDateSelector implements DateSelector<Pair<Long, Long>> {
             return rangeDateSelector;
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
         public RangeDateSelector[] newArray(int i) {
@@ -73,6 +76,7 @@ public class RangeDateSelector implements DateSelector<Pair<Long, Long>> {
         return (l == null || this.selectedEndItem == null || !isValidRange(l.longValue(), this.selectedEndItem.longValue())) ? false : true;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.android.material.datepicker.DateSelector
     public void setSelection(Pair<Long, Long> pair) {
         if (pair.first != null && pair.second != null) {
@@ -82,6 +86,7 @@ public class RangeDateSelector implements DateSelector<Pair<Long, Long>> {
         this.selectedEndItem = pair.second != null ? Long.valueOf(UtcDates.canonicalYearMonthDay(pair.second.longValue())) : null;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.google.android.material.datepicker.DateSelector
     public Pair<Long, Long> getSelection() {

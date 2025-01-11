@@ -27,6 +27,7 @@ import androidx.constraintlayout.motion.widget.FloatLayout;
 import androidx.constraintlayout.widget.R;
 import androidx.core.view.GravityCompat;
 import com.google.android.material.badge.BadgeDrawable;
+
 /* loaded from: classes.dex */
 public class MotionLabel extends View implements FloatLayout {
     private static final int MONOSPACE = 3;

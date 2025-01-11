@@ -3,12 +3,11 @@ package androidx.constraintlayout.core.widgets.analyzer;
 import androidx.constraintlayout.core.widgets.Barrier;
 import androidx.constraintlayout.core.widgets.ConstraintWidget;
 import androidx.constraintlayout.core.widgets.analyzer.DependencyNode;
-/* JADX INFO: Access modifiers changed from: package-private */
+
 /* loaded from: classes.dex */
-public class HelperReferences extends WidgetRun {
-    /* JADX INFO: Access modifiers changed from: package-private */
+class HelperReferences extends WidgetRun {
     @Override // androidx.constraintlayout.core.widgets.analyzer.WidgetRun
-    public boolean supportsWrapComputation() {
+    boolean supportsWrapComputation() {
         return false;
     }
 
@@ -16,9 +15,8 @@ public class HelperReferences extends WidgetRun {
         super(constraintWidget);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     @Override // androidx.constraintlayout.core.widgets.analyzer.WidgetRun
-    public void clear() {
+    void clear() {
         this.runGroup = null;
         this.start.clear();
     }
@@ -33,9 +31,8 @@ public class HelperReferences extends WidgetRun {
         dependencyNode.targets.add(this.start);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     @Override // androidx.constraintlayout.core.widgets.analyzer.WidgetRun
-    public void apply() {
+    void apply() {
         if (this.widget instanceof Barrier) {
             this.start.delegateToWidgetRun = true;
             Barrier barrier = (Barrier) this.widget;

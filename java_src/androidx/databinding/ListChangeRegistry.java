@@ -3,6 +3,7 @@ package androidx.databinding;
 import androidx.core.util.Pools;
 import androidx.databinding.CallbackRegistry;
 import androidx.databinding.ObservableList;
+
 /* loaded from: classes.dex */
 public class ListChangeRegistry extends CallbackRegistry<ObservableList.OnListChangedCallback, ObservableList, ListChanges> {
     private static final int ALL = 0;
@@ -12,6 +13,7 @@ public class ListChangeRegistry extends CallbackRegistry<ObservableList.OnListCh
     private static final int REMOVED = 4;
     private static final Pools.SynchronizedPool<ListChanges> sListChanges = new Pools.SynchronizedPool<>(10);
     private static final CallbackRegistry.NotifierCallback<ObservableList.OnListChangedCallback, ObservableList, ListChanges> NOTIFIER_CALLBACK = new CallbackRegistry.NotifierCallback<ObservableList.OnListChangedCallback, ObservableList, ListChanges>() { // from class: androidx.databinding.ListChangeRegistry.1
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.databinding.CallbackRegistry.NotifierCallback
         public void onNotifyCallback(ObservableList.OnListChangedCallback onListChangedCallback, ObservableList observableList, int i, ListChanges listChanges) {
             if (i == 1) {
@@ -59,6 +61,7 @@ public class ListChangeRegistry extends CallbackRegistry<ObservableList.OnListCh
         return acquire;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.databinding.CallbackRegistry
     public synchronized void notifyCallbacks(ObservableList observableList, int i, ListChanges listChanges) {
         super.notifyCallbacks((ListChangeRegistry) observableList, i, (int) listChanges);
@@ -71,9 +74,8 @@ public class ListChangeRegistry extends CallbackRegistry<ObservableList.OnListCh
         super(NOTIFIER_CALLBACK);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static class ListChanges {
+    static class ListChanges {
         public int count;
         public int start;
         public int to;

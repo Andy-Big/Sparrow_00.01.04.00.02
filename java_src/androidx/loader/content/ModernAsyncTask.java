@@ -19,6 +19,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
+
 /* loaded from: classes.dex */
 abstract class ModernAsyncTask<Params, Progress, Result> {
     private static final int CORE_POOL_SIZE = 5;
@@ -43,6 +44,7 @@ abstract class ModernAsyncTask<Params, Progress, Result> {
     final AtomicBoolean mCancelled = new AtomicBoolean();
     final AtomicBoolean mTaskInvoked = new AtomicBoolean();
     private final WorkerRunnable<Params, Result> mWorker = new WorkerRunnable<Params, Result>() { // from class: androidx.loader.content.ModernAsyncTask.2
+        /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
         @Override // java.util.concurrent.Callable
         public Result call() throws Exception {
             ModernAsyncTask.this.mTaskInvoked.set(true);
@@ -115,6 +117,9 @@ abstract class ModernAsyncTask<Params, Progress, Result> {
         sDefaultExecutor = executor;
     }
 
+    ModernAsyncTask() {
+    }
+
     void postResultIfNotInvoked(Result result) {
         if (this.mTaskInvoked.get()) {
             return;
@@ -156,10 +161,9 @@ abstract class ModernAsyncTask<Params, Progress, Result> {
         return executeOnExecutor(sDefaultExecutor, paramsArr);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: androidx.loader.content.ModernAsyncTask$4  reason: invalid class name */
     /* loaded from: classes.dex */
-    public static /* synthetic */ class AnonymousClass4 {
+    static /* synthetic */ class AnonymousClass4 {
         static final /* synthetic */ int[] $SwitchMap$androidx$loader$content$ModernAsyncTask$Status;
 
         static {
@@ -214,13 +218,13 @@ abstract class ModernAsyncTask<Params, Progress, Result> {
         this.mStatus = Status.FINISHED;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static class InternalHandler extends Handler {
+    private static class InternalHandler extends Handler {
         InternalHandler() {
             super(Looper.getMainLooper());
         }
 
+        /* JADX DEBUG: Multi-variable search result rejected for r3v2, resolved type: androidx.loader.content.ModernAsyncTask */
         /* JADX WARN: Multi-variable type inference failed */
         @Override // android.os.Handler
         public void handleMessage(Message message) {
@@ -235,18 +239,16 @@ abstract class ModernAsyncTask<Params, Progress, Result> {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static abstract class WorkerRunnable<Params, Result> implements Callable<Result> {
+    private static abstract class WorkerRunnable<Params, Result> implements Callable<Result> {
         Params[] mParams;
 
         WorkerRunnable() {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static class AsyncTaskResult<Data> {
+    private static class AsyncTaskResult<Data> {
         final Data[] mData;
         final ModernAsyncTask mTask;
 

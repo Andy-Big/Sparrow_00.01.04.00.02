@@ -5,6 +5,7 @@ import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public final class JsonArray extends JsonElement implements Iterable<JsonElement> {
     private final List<JsonElement> elements;
@@ -17,6 +18,7 @@ public final class JsonArray extends JsonElement implements Iterable<JsonElement
         this.elements = new ArrayList(i);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.gson.JsonElement
     public JsonArray deepCopy() {
         if (!this.elements.isEmpty()) {

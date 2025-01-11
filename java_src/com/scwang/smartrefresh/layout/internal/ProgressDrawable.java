@@ -7,6 +7,7 @@ import android.graphics.Rect;
 import android.graphics.drawable.Animatable;
 import android.view.animation.LinearInterpolator;
 import com.blankj.utilcode.constant.CacheConstants;
+
 /* loaded from: classes2.dex */
 public class ProgressDrawable extends PaintDrawable implements Animatable, ValueAnimator.AnimatorUpdateListener {
     protected ValueAnimator mValueAnimator;

@@ -1,4 +1,5 @@
 package androidx.core.app;
+
 /* loaded from: classes.dex */
 public final class NotificationCompatExtras {
     public static final String EXTRA_ACTION_EXTRAS = "android.support.actionExtras";

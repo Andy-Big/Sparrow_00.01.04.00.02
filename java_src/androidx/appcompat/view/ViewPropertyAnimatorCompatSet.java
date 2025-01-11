@@ -7,6 +7,7 @@ import androidx.core.view.ViewPropertyAnimatorListener;
 import androidx.core.view.ViewPropertyAnimatorListenerAdapter;
 import java.util.ArrayList;
 import java.util.Iterator;
+
 /* loaded from: classes.dex */
 public class ViewPropertyAnimatorCompatSet {
     private Interpolator mInterpolator;

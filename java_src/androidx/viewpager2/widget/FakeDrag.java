@@ -5,6 +5,7 @@ import android.view.MotionEvent;
 import android.view.VelocityTracker;
 import android.view.ViewConfiguration;
 import androidx.recyclerview.widget.RecyclerView;
+
 /* loaded from: classes.dex */
 final class FakeDrag {
     private int mActualDraggedDistance;
@@ -16,20 +17,17 @@ final class FakeDrag {
     private VelocityTracker mVelocityTracker;
     private final ViewPager2 mViewPager;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public FakeDrag(ViewPager2 viewPager2, ScrollEventAdapter scrollEventAdapter, RecyclerView recyclerView) {
+    FakeDrag(ViewPager2 viewPager2, ScrollEventAdapter scrollEventAdapter, RecyclerView recyclerView) {
         this.mViewPager = viewPager2;
         this.mScrollEventAdapter = scrollEventAdapter;
         this.mRecyclerView = recyclerView;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean isFakeDragging() {
+    boolean isFakeDragging() {
         return this.mScrollEventAdapter.isFakeDragging();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean beginFakeDrag() {
+    boolean beginFakeDrag() {
         if (this.mScrollEventAdapter.isDragging()) {
             return false;
         }
@@ -45,8 +43,7 @@ final class FakeDrag {
         return true;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean fakeDragBy(float f) {
+    boolean fakeDragBy(float f) {
         if (this.mScrollEventAdapter.isFakeDragging()) {
             float f2 = this.mRequestedDragDistance - f;
             this.mRequestedDragDistance = f2;
@@ -65,8 +62,7 @@ final class FakeDrag {
         return false;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean endFakeDrag() {
+    boolean endFakeDrag() {
         if (this.mScrollEventAdapter.isFakeDragging()) {
             this.mScrollEventAdapter.notifyEndFakeDrag();
             VelocityTracker velocityTracker = this.mVelocityTracker;

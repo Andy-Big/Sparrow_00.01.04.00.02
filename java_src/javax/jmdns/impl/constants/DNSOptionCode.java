@@ -1,4 +1,5 @@
 package javax.jmdns.impl.constants;
+
 /* loaded from: classes2.dex */
 public enum DNSOptionCode {
     Unknown("Unknown", 65535),

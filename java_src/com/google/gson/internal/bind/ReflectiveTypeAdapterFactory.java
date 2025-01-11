@@ -25,6 +25,7 @@ import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+
 /* loaded from: classes.dex */
 public final class ReflectiveTypeAdapterFactory implements TypeAdapterFactory {
     private final ReflectionAccessor accessor = ReflectionAccessor.getInstance();
@@ -163,9 +164,8 @@ public final class ReflectiveTypeAdapterFactory implements TypeAdapterFactory {
         return linkedHashMap;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static abstract class BoundField {
+    static abstract class BoundField {
         final boolean deserialized;
         final String name;
         final boolean serialized;

@@ -9,6 +9,7 @@ import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.OvalShape;
 import android.os.Build;
 import android.widget.ImageView;
+
 /* loaded from: classes2.dex */
 public class CircleImageView extends ImageView {
     protected static final int FILL_SHADOW_COLOR = 1023410176;

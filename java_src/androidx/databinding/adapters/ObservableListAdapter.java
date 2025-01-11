@@ -8,6 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 import androidx.databinding.ObservableList;
 import java.util.List;
+
 /* loaded from: classes.dex */
 class ObservableListAdapter<T> extends BaseAdapter {
     private final Context mContext;

@@ -14,9 +14,9 @@ import android.graphics.drawable.Drawable;
 import androidx.core.graphics.ColorUtils;
 import com.google.android.material.shape.ShapeAppearanceModel;
 import com.google.android.material.shape.ShapeAppearancePathProvider;
-/* JADX INFO: Access modifiers changed from: package-private */
+
 /* loaded from: classes.dex */
-public class BorderDrawable extends Drawable {
+class BorderDrawable extends Drawable {
     private static final float DRAW_STROKE_WIDTH_MULTIPLE = 1.3333f;
     private ColorStateList borderTint;
     float borderWidth;
@@ -35,8 +35,7 @@ public class BorderDrawable extends Drawable {
     private final BorderState state = new BorderState();
     private boolean invalidateShader = true;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public BorderDrawable(ShapeAppearanceModel shapeAppearanceModel) {
+    BorderDrawable(ShapeAppearanceModel shapeAppearanceModel) {
         this.shapeAppearanceModel = shapeAppearanceModel;
         Paint paint = new Paint(1);
         this.paint = paint;
@@ -52,8 +51,7 @@ public class BorderDrawable extends Drawable {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setBorderTint(ColorStateList colorStateList) {
+    void setBorderTint(ColorStateList colorStateList) {
         if (colorStateList != null) {
             this.currentBorderTintColor = colorStateList.getColorForState(getState(), this.currentBorderTintColor);
         }
@@ -68,8 +66,7 @@ public class BorderDrawable extends Drawable {
         invalidateSelf();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setGradientColors(int i, int i2, int i3, int i4) {
+    void setGradientColors(int i, int i2, int i3, int i4) {
         this.topOuterStrokeColor = i;
         this.topInnerStrokeColor = i2;
         this.bottomOuterStrokeColor = i3;

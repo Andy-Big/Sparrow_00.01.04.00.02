@@ -3,6 +3,7 @@ package com.just.agentweb;
 import android.webkit.WebView;
 import com.just.agentweb.AgentWeb;
 import java.util.Map;
+
 /* loaded from: classes.dex */
 public class JsInterfaceHolderImpl extends JsBaseInterfaceHolder {
     private static final String TAG = JsInterfaceHolderImpl.class.getSimpleName();
@@ -10,8 +11,7 @@ public class JsInterfaceHolderImpl extends JsBaseInterfaceHolder {
     private WebCreator mWebCreator;
     private WebView mWebView;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static JsInterfaceHolderImpl getJsInterfaceHolder(WebCreator webCreator, AgentWeb.SecurityType securityType) {
+    static JsInterfaceHolderImpl getJsInterfaceHolder(WebCreator webCreator, AgentWeb.SecurityType securityType) {
         return new JsInterfaceHolderImpl(webCreator, securityType);
     }
 

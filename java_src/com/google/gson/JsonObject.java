@@ -3,10 +3,12 @@ package com.google.gson;
 import com.google.gson.internal.LinkedTreeMap;
 import java.util.Map;
 import java.util.Set;
+
 /* loaded from: classes.dex */
 public final class JsonObject extends JsonElement {
     private final LinkedTreeMap<String, JsonElement> members = new LinkedTreeMap<>();
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.gson.JsonElement
     public JsonObject deepCopy() {
         JsonObject jsonObject = new JsonObject();

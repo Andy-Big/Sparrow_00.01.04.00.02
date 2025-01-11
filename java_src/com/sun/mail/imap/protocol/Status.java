@@ -5,6 +5,7 @@ import com.sun.mail.iap.Response;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
+
 /* loaded from: classes2.dex */
 public class Status {
     static final String[] standardItems = {"MESSAGES", "RECENT", "UNSEEN", "UIDNEXT", "UIDVALIDITY"};

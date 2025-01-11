@@ -18,6 +18,7 @@ import javax.net.ssl.SSLSocketFactory;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.TrustManagerFactory;
 import javax.net.ssl.X509TrustManager;
+
 /* loaded from: classes2.dex */
 public class MailSSLSocketFactory extends SSLSocketFactory {
     private SSLSocketFactory adapteeFactory;

@@ -7,6 +7,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public class ArrayUtils {
     public static final int INDEX_NOT_FOUND = -1;
@@ -1635,6 +1636,7 @@ public class ArrayUtils {
         Arrays.sort(sArr);
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: com.blankj.utilcode.util.ArrayUtils$Closure<E> */
     /* JADX WARN: Multi-variable type inference failed */
     public static <E> void forAllDo(Object obj, Closure<E> closure) {
         if (obj == null || closure == 0) {

@@ -29,6 +29,7 @@ import com.blankj.utilcode.util.Utils;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.reflect.Field;
+
 /* loaded from: classes.dex */
 public final class ToastUtils {
     private static final int COLOR_DEFAULT = -16777217;
@@ -49,9 +50,8 @@ public final class ToastUtils {
     private Drawable[] mIcons = new Drawable[4];
     private boolean isNotUseSystemToast = false;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public interface IToast {
+    interface IToast {
         void cancel();
 
         void setToastView(View view);
@@ -307,9 +307,8 @@ public final class ToastUtils {
         return new ActivityToast(toastUtils);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static final class SystemToast extends AbsToast {
+    static final class SystemToast extends AbsToast {
         SystemToast(ToastUtils toastUtils) {
             super(toastUtils);
             if (Build.VERSION.SDK_INT == 25) {
@@ -364,9 +363,8 @@ public final class ToastUtils {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static final class WindowManagerToast extends AbsToast {
+    static final class WindowManagerToast extends AbsToast {
         private Utils.ActivityLifecycleCallbacks mActivityLifecycleCallbacks;
         private WindowManager.LayoutParams mParams;
         private WindowManager mWM;
@@ -430,9 +428,8 @@ public final class ToastUtils {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static final class ActivityToast extends AbsToast {
+    static final class ActivityToast extends AbsToast {
         private static int sShowingIndex;
         private Utils.ActivityLifecycleCallbacks mActivityLifecycleCallbacks;
 
@@ -556,9 +553,8 @@ public final class ToastUtils {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static abstract class AbsToast implements IToast {
+    static abstract class AbsToast implements IToast {
         protected Toast mToast = new Toast(Utils.getApp());
         protected ToastUtils mToastUtils;
         protected View mToastView;

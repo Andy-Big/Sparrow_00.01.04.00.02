@@ -4,6 +4,7 @@ import java.io.FilterInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import kotlin.UByte;
+
 /* loaded from: classes.dex */
 public final class ExifOrientationStream extends FilterInputStream {
     private static final byte[] EXIF_SEGMENT;

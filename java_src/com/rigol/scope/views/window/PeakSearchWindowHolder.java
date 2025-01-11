@@ -50,6 +50,11 @@ public final class PeakSearchWindowHolder extends WindowHolder {
     private final TableAdapter tableAdapter;
     private final TableSimpleBinding tableBinding;
 
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.views.window.PeakSearchWindowHolder$$special$$inlined$apply$lambda$3.onChanged(java.util.ArrayList<com.rigol.scope.data.MathParam>):void] */
+    public static final /* synthetic */ void access$setMathParam$p(PeakSearchWindowHolder peakSearchWindowHolder, MathParam mathParam) {
+        peakSearchWindowHolder.setMathParam(mathParam);
+    }
+
     public final Context getContext() {
         return this.context;
     }
@@ -118,7 +123,7 @@ public final class PeakSearchWindowHolder extends WindowHolder {
                             return;
                         }
                         PeakSearchWindowHolder peakSearchWindowHolder = PeakSearchWindowHolder.this;
-                        peakSearchWindowHolder.setMathParam(arrayList.get(peakSearchWindowHolder.getMathParamIndex()));
+                        PeakSearchWindowHolder.access$setMathParam$p(peakSearchWindowHolder, arrayList.get(peakSearchWindowHolder.getMathParamIndex()));
                     }
                 });
             } else {
@@ -134,7 +139,10 @@ public final class PeakSearchWindowHolder extends WindowHolder {
             throw new NullPointerException("null cannot be cast to non-null type androidx.lifecycle.LifecycleOwner");
         }
         mutableLiveData.observe((LifecycleOwner) topActivity2, new Observer<Boolean>() { // from class: com.rigol.scope.views.window.PeakSearchWindowHolder.2
-            /* JADX DEBUG: Method merged with bridge method */
+            {
+                PeakSearchWindowHolder.this = this;
+            }
+
             @Override // androidx.lifecycle.Observer
             public void onChanged(Boolean bool) {
                 String UI_QueryStr = API.getInstance().UI_QueryStr(windowParam.getServiceID(), MessageID.MSG_FFT_PEAK_STR);
@@ -189,7 +197,6 @@ public final class PeakSearchWindowHolder extends WindowHolder {
         return this.binding;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public final void setMathParam(MathParam mathParam) {
         this.mathParam = mathParam;
         updateTitle();

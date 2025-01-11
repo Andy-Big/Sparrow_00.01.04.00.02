@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.util.Enumeration;
 import javax.mail.MessagingException;
+
 /* loaded from: classes2.dex */
 public class PreencodedMimeBodyPart extends MimeBodyPart {
     private String encoding;
@@ -35,9 +36,8 @@ public class PreencodedMimeBodyPart extends MimeBodyPart {
         outputStream.flush();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // javax.mail.internet.MimeBodyPart
-    public void updateHeaders() throws MessagingException {
+    protected void updateHeaders() throws MessagingException {
         super.updateHeaders();
         MimeBodyPart.setEncoding(this, this.encoding);
     }

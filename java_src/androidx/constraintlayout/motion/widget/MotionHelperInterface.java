@@ -4,6 +4,7 @@ import android.graphics.Canvas;
 import android.view.View;
 import androidx.constraintlayout.motion.widget.MotionLayout;
 import java.util.HashMap;
+
 /* loaded from: classes.dex */
 public interface MotionHelperInterface extends Animatable, MotionLayout.TransitionListener {
     boolean isDecorator();

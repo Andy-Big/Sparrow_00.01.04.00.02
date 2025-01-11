@@ -2,6 +2,7 @@ package com.bumptech.glide.load.resource.bytes;
 
 import com.bumptech.glide.load.engine.Resource;
 import com.bumptech.glide.util.Preconditions;
+
 /* loaded from: classes.dex */
 public class BytesResource implements Resource<byte[]> {
     private final byte[] bytes;
@@ -19,6 +20,7 @@ public class BytesResource implements Resource<byte[]> {
         return byte[].class;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.engine.Resource
     public byte[] get() {
         return this.bytes;

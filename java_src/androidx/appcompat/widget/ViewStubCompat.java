@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.view.ViewParent;
 import androidx.appcompat.R;
 import java.lang.ref.WeakReference;
+
 /* loaded from: classes.dex */
 public final class ViewStubCompat extends View {
     private OnInflateListener mInflateListener;

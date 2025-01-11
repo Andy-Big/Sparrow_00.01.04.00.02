@@ -4,6 +4,7 @@ import androidx.constraintlayout.core.state.ConstraintReference;
 import androidx.constraintlayout.core.state.HelperReference;
 import androidx.constraintlayout.core.state.State;
 import java.util.Iterator;
+
 /* loaded from: classes.dex */
 public class AlignVerticallyReference extends HelperReference {
     private float mBias;

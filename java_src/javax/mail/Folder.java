@@ -15,6 +15,7 @@ import javax.mail.event.MessageChangedListener;
 import javax.mail.event.MessageCountEvent;
 import javax.mail.event.MessageCountListener;
 import javax.mail.search.SearchTerm;
+
 /* loaded from: classes2.dex */
 public abstract class Folder implements AutoCloseable {
     public static final int HOLDS_FOLDERS = 2;
@@ -76,8 +77,7 @@ public abstract class Folder implements AutoCloseable {
 
     public abstract boolean renameTo(Folder folder) throws MessagingException;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public Folder(Store store) {
+    protected Folder(Store store) {
         this.store = store;
         Session session = store.getSession();
         String property = session.getProperties().getProperty("mail.event.scope", "folder");
@@ -283,8 +283,7 @@ public abstract class Folder implements AutoCloseable {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void notifyConnectionListeners(int i) {
+    protected void notifyConnectionListeners(int i) {
         if (this.connectionListeners != null) {
             queueEvent(new ConnectionEvent(this, i), this.connectionListeners);
         }
@@ -306,16 +305,14 @@ public abstract class Folder implements AutoCloseable {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void notifyFolderListeners(int i) {
+    protected void notifyFolderListeners(int i) {
         if (this.folderListeners != null) {
             queueEvent(new FolderEvent(this, this, i), this.folderListeners);
         }
         this.store.notifyFolderListeners(i, this);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void notifyFolderRenamedListeners(Folder folder) {
+    protected void notifyFolderRenamedListeners(Folder folder) {
         if (this.folderListeners != null) {
             queueEvent(new FolderEvent(this, this, folder, 3), this.folderListeners);
         }
@@ -335,16 +332,14 @@ public abstract class Folder implements AutoCloseable {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void notifyMessageAddedListeners(Message[] messageArr) {
+    protected void notifyMessageAddedListeners(Message[] messageArr) {
         if (this.messageCountListeners == null) {
             return;
         }
         queueEvent(new MessageCountEvent(this, 1, false, messageArr), this.messageCountListeners);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void notifyMessageRemovedListeners(boolean z, Message[] messageArr) {
+    protected void notifyMessageRemovedListeners(boolean z, Message[] messageArr) {
         if (this.messageCountListeners == null) {
             return;
         }
@@ -364,8 +359,7 @@ public abstract class Folder implements AutoCloseable {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void notifyMessageChangedListeners(int i, Message message) {
+    protected void notifyMessageChangedListeners(int i, Message message) {
         if (this.messageChangedListeners == null) {
             return;
         }
@@ -376,8 +370,7 @@ public abstract class Folder implements AutoCloseable {
         this.q.enqueue(mailEvent, (Vector) vector.clone());
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void finalize() throws Throwable {
+    protected void finalize() throws Throwable {
         try {
             this.q.terminateQueue();
         } finally {

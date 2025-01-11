@@ -48,6 +48,7 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.InternetHeaders;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeUtility;
+
 /* loaded from: classes2.dex */
 public class IMAPMessage extends MimeMessage implements ReadableMime {
     static final String EnvelopeCmd = "ENVELOPE INTERNALDATE RFC822.SIZE";
@@ -67,8 +68,7 @@ public class IMAPMessage extends MimeMessage implements ReadableMime {
     private String type;
     private volatile long uid;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public IMAPMessage(IMAPFolder iMAPFolder, int i) {
+    protected IMAPMessage(IMAPFolder iMAPFolder, int i) {
         super(iMAPFolder, i);
         this.size = -1L;
         this.uid = -1L;
@@ -79,8 +79,7 @@ public class IMAPMessage extends MimeMessage implements ReadableMime {
         this.flags = null;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public IMAPMessage(Session session) {
+    protected IMAPMessage(Session session) {
         super(session);
         this.size = -1L;
         this.uid = -1L;
@@ -90,8 +89,7 @@ public class IMAPMessage extends MimeMessage implements ReadableMime {
         this.loadedHeaders = new Hashtable<>(1);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public IMAPProtocol getProtocol() throws ProtocolException, FolderClosedException {
+    protected IMAPProtocol getProtocol() throws ProtocolException, FolderClosedException {
         ((IMAPFolder) this.folder).waitIfIdle();
         IMAPProtocol iMAPProtocol = ((IMAPFolder) this.folder).protocol;
         if (iMAPProtocol != null) {
@@ -100,8 +98,7 @@ public class IMAPMessage extends MimeMessage implements ReadableMime {
         throw new FolderClosedException(this.folder);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public boolean isREV1() throws FolderClosedException {
+    protected boolean isREV1() throws FolderClosedException {
         IMAPProtocol iMAPProtocol = ((IMAPFolder) this.folder).protocol;
         if (iMAPProtocol == null) {
             throw new FolderClosedException(this.folder);
@@ -109,29 +106,24 @@ public class IMAPMessage extends MimeMessage implements ReadableMime {
         return iMAPProtocol.isREV1();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public Object getMessageCacheLock() {
+    protected Object getMessageCacheLock() {
         return ((IMAPFolder) this.folder).messageCacheLock;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public int getSequenceNumber() {
+    protected int getSequenceNumber() {
         return ((IMAPFolder) this.folder).messageCache.seqnumOf(getMessageNumber());
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // javax.mail.Message
-    public void setMessageNumber(int i) {
+    protected void setMessageNumber(int i) {
         super.setMessageNumber(i);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public long getUID() {
+    protected long getUID() {
         return this.uid;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void setUID(long j) {
+    protected void setUID(long j) {
         this.uid = j;
     }
 
@@ -156,31 +148,26 @@ public class IMAPMessage extends MimeMessage implements ReadableMime {
         return this.modseq;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public long _getModSeq() {
+    long _getModSeq() {
         return this.modseq;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setModSeq(long j) {
+    void setModSeq(long j) {
         this.modseq = j;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // javax.mail.Message
-    public void setExpunged(boolean z) {
+    protected void setExpunged(boolean z) {
         super.setExpunged(z);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void checkExpunged() throws MessageRemovedException {
+    protected void checkExpunged() throws MessageRemovedException {
         if (this.expunged) {
             throw new MessageRemovedException();
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void forceCheckExpunged() throws MessageRemovedException, FolderClosedException {
+    protected void forceCheckExpunged() throws MessageRemovedException, FolderClosedException {
         synchronized (getMessageCacheLock()) {
             try {
                 getProtocol().noop();
@@ -194,13 +181,11 @@ public class IMAPMessage extends MimeMessage implements ReadableMime {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public int getFetchBlockSize() {
+    protected int getFetchBlockSize() {
         return ((IMAPStore) this.folder.getStore()).getFetchBlockSize();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public boolean ignoreBodyStructureSize() {
+    protected boolean ignoreBodyStructureSize() {
         return ((IMAPStore) this.folder.getStore()).ignoreBodyStructureSize();
     }
 
@@ -526,9 +511,8 @@ public class IMAPMessage extends MimeMessage implements ReadableMime {
         throw new IllegalWriteException("IMAPMessage is read-only");
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // javax.mail.internet.MimeMessage
-    public InputStream getContentStream() throws MessagingException {
+    protected InputStream getContentStream() throws MessagingException {
         BODY fetchBody;
         if (this.bodyLoaded) {
             return super.getContentStream();
@@ -695,12 +679,12 @@ public class IMAPMessage extends MimeMessage implements ReadableMime {
                         }
                         byteArrayInputStream = null;
                     }
-                } catch (ConnectionException e) {
-                    throw new FolderClosedException(this.folder, e.getMessage());
+                } catch (ProtocolException e) {
+                    forceCheckExpunged();
+                    throw new MessagingException(e.getMessage(), e);
                 }
-            } catch (ProtocolException e2) {
-                forceCheckExpunged();
-                throw new MessagingException(e2.getMessage(), e2);
+            } catch (ConnectionException e2) {
+                throw new FolderClosedException(this.folder, e2.getMessage());
             }
         }
         if (byteArrayInputStream == null) {
@@ -904,107 +888,55 @@ public class IMAPMessage extends MimeMessage implements ReadableMime {
         @Override // com.sun.mail.imap.Utility.Condition
         /*
             Code decompiled incorrectly, please refer to instructions dump.
-            To view partially-correct add '--show-bad-code' argument
         */
-        public boolean test(com.sun.mail.imap.IMAPMessage r7) {
-            /*
-                r6 = this;
-                boolean r0 = r6.needEnvelope
-                r1 = 1
-                if (r0 == 0) goto L12
-                com.sun.mail.imap.protocol.ENVELOPE r0 = com.sun.mail.imap.IMAPMessage.access$000(r7)
-                if (r0 != 0) goto L12
-                boolean r0 = com.sun.mail.imap.IMAPMessage.access$100(r7)
-                if (r0 != 0) goto L12
-                return r1
-            L12:
-                boolean r0 = r6.needFlags
-                if (r0 == 0) goto L1d
-                javax.mail.Flags r0 = com.sun.mail.imap.IMAPMessage.access$200(r7)
-                if (r0 != 0) goto L1d
-                return r1
-            L1d:
-                boolean r0 = r6.needBodyStructure
-                if (r0 == 0) goto L2e
-                com.sun.mail.imap.protocol.BODYSTRUCTURE r0 = com.sun.mail.imap.IMAPMessage.access$300(r7)
-                if (r0 != 0) goto L2e
-                boolean r0 = com.sun.mail.imap.IMAPMessage.access$100(r7)
-                if (r0 != 0) goto L2e
-                return r1
-            L2e:
-                boolean r0 = r6.needUID
-                r2 = -1
-                if (r0 == 0) goto L3d
-                long r4 = r7.getUID()
-                int r0 = (r4 > r2 ? 1 : (r4 == r2 ? 0 : -1))
-                if (r0 != 0) goto L3d
-                return r1
-            L3d:
-                boolean r0 = r6.needHeaders
-                if (r0 == 0) goto L48
-                boolean r0 = com.sun.mail.imap.IMAPMessage.access$400(r7)
-                if (r0 != 0) goto L48
-                return r1
-            L48:
-                boolean r0 = r6.needSize
-                if (r0 == 0) goto L5b
-                long r4 = com.sun.mail.imap.IMAPMessage.access$500(r7)
-                int r0 = (r4 > r2 ? 1 : (r4 == r2 ? 0 : -1))
-                if (r0 != 0) goto L5b
-                boolean r0 = com.sun.mail.imap.IMAPMessage.access$100(r7)
-                if (r0 != 0) goto L5b
-                return r1
-            L5b:
-                boolean r0 = r6.needMessage
-                if (r0 == 0) goto L66
-                boolean r0 = com.sun.mail.imap.IMAPMessage.access$100(r7)
-                if (r0 != 0) goto L66
-                return r1
-            L66:
-                boolean r0 = r6.needRDate
-                if (r0 == 0) goto L71
-                java.util.Date r0 = com.sun.mail.imap.IMAPMessage.access$600(r7)
-                if (r0 != 0) goto L71
-                return r1
-            L71:
-                r0 = 0
-                r2 = r0
-            L73:
-                java.lang.String[] r3 = r6.hdrs
-                int r4 = r3.length
-                if (r2 >= r4) goto L84
-                r3 = r3[r2]
-                boolean r3 = com.sun.mail.imap.IMAPMessage.access$700(r7, r3)
-                if (r3 != 0) goto L81
-                return r1
-            L81:
-                int r2 = r2 + 1
-                goto L73
-            L84:
-                java.util.Set<com.sun.mail.imap.protocol.FetchItem> r2 = r6.need
-                java.util.Iterator r2 = r2.iterator()
-            L8a:
-                boolean r3 = r2.hasNext()
-                if (r3 == 0) goto La7
-                java.lang.Object r3 = r2.next()
-                com.sun.mail.imap.protocol.FetchItem r3 = (com.sun.mail.imap.protocol.FetchItem) r3
-                java.util.Map<java.lang.String, java.lang.Object> r4 = r7.items
-                if (r4 == 0) goto La6
-                java.util.Map<java.lang.String, java.lang.Object> r4 = r7.items
-                java.lang.String r3 = r3.getName()
-                java.lang.Object r3 = r4.get(r3)
-                if (r3 != 0) goto L8a
-            La6:
-                return r1
-            La7:
-                return r0
-            */
-            throw new UnsupportedOperationException("Method not decompiled: com.sun.mail.imap.IMAPMessage.FetchProfileCondition.test(com.sun.mail.imap.IMAPMessage):boolean");
+        public boolean test(IMAPMessage iMAPMessage) {
+            if (this.needEnvelope && iMAPMessage._getEnvelope() == null && !iMAPMessage.bodyLoaded) {
+                return true;
+            }
+            if (this.needFlags && iMAPMessage._getFlags() == null) {
+                return true;
+            }
+            if (this.needBodyStructure && iMAPMessage._getBodyStructure() == null && !iMAPMessage.bodyLoaded) {
+                return true;
+            }
+            if (this.needUID && iMAPMessage.getUID() == -1) {
+                return true;
+            }
+            if (this.needHeaders && !iMAPMessage.areHeadersLoaded()) {
+                return true;
+            }
+            if (this.needSize && iMAPMessage.size == -1 && !iMAPMessage.bodyLoaded) {
+                return true;
+            }
+            if (this.needMessage && !iMAPMessage.bodyLoaded) {
+                return true;
+            }
+            if (this.needRDate && iMAPMessage.receivedDate == null) {
+                return true;
+            }
+            int i = 0;
+            while (true) {
+                String[] strArr = this.hdrs;
+                if (i < strArr.length) {
+                    if (!iMAPMessage.isHeaderLoaded(strArr[i])) {
+                        return true;
+                    }
+                    i++;
+                } else {
+                    for (FetchItem fetchItem : this.need) {
+                        if (iMAPMessage.items == null || iMAPMessage.items.get(fetchItem.getName()) == null) {
+                            return true;
+                        }
+                        while (r2.hasNext()) {
+                        }
+                    }
+                    return false;
+                }
+            }
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public boolean handleFetchItem(Item item, String[] strArr, boolean z) throws MessagingException {
+    protected boolean handleFetchItem(Item item, String[] strArr, boolean z) throws MessagingException {
         ByteArrayInputStream byteArrayInputStream;
         boolean isHeader;
         if (item instanceof Flags) {
@@ -1076,8 +1008,7 @@ public class IMAPMessage extends MimeMessage implements ReadableMime {
         return true;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void handleExtensionFetchItems(Map<String, Object> map) {
+    protected void handleExtensionFetchItems(Map<String, Object> map) {
         if (map == null || map.isEmpty()) {
             return;
         }
@@ -1298,13 +1229,11 @@ public class IMAPMessage extends MimeMessage implements ReadableMime {
         return this.bs;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void _setFlags(Flags flags) {
+    void _setFlags(Flags flags) {
         this.flags = flags;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public Session _getSession() {
+    Session _getSession() {
         return this.session;
     }
 }

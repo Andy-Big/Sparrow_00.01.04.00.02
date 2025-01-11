@@ -4,15 +4,18 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import com.google.android.material.datepicker.CalendarConstraints;
 import java.util.Arrays;
+
 /* loaded from: classes.dex */
 public class DateValidatorPointBackward implements CalendarConstraints.DateValidator {
     public static final Parcelable.Creator<DateValidatorPointBackward> CREATOR = new Parcelable.Creator<DateValidatorPointBackward>() { // from class: com.google.android.material.datepicker.DateValidatorPointBackward.1
+        /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
         public DateValidatorPointBackward createFromParcel(Parcel parcel) {
             return new DateValidatorPointBackward(parcel.readLong());
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
         public DateValidatorPointBackward[] newArray(int i) {

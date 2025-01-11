@@ -127,6 +127,10 @@ public class KeyboardPopupView extends BasePopupView implements View.OnClickList
             protected void setrecovery_num(int i) {
             }
 
+            {
+                KeyboardPopupView.this = this;
+            }
+
             @Override // com.rigol.scope.utilities.AorBManager
             protected void setSwitch_num(int i) {
                 KeyboardPopupView.this.aorBManager.showKey(KeyboardPopupView.this.context, ((AorBParam) arrayList.get(i)).getEditText(), true, ((AorBParam) arrayList.get(i)).getAorb());
@@ -196,7 +200,7 @@ public class KeyboardPopupView extends BasePopupView implements View.OnClickList
         }
     }
 
-    /* renamed from: com.rigol.scope.views.keyboard.KeyboardPopupView$2  reason: invalid class name */
+    /* renamed from: com.rigol.scope.views.keyboard.KeyboardPopupView$2 */
     /* loaded from: classes2.dex */
     static /* synthetic */ class AnonymousClass2 {
         static final /* synthetic */ int[] $SwitchMap$com$rigol$scope$cil$ServiceEnum$Unit;

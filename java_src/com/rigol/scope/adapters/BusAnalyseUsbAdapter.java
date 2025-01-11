@@ -39,14 +39,12 @@ public class BusAnalyseUsbAdapter extends RecyclerView.Adapter<BusAnalyseUsbHold
         this.popupView = basePopupView;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public BusAnalyseUsbHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         this.binding = AdapterBusUsbAnalyseBinding.inflate(LayoutInflater.from(viewGroup.getContext()), viewGroup, false);
         return new BusAnalyseUsbHolder(this.binding);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(BusAnalyseUsbHolder busAnalyseUsbHolder, int i) {
         this.binding.busAnalyseUsbTypeValue.setOnClickListener(this);

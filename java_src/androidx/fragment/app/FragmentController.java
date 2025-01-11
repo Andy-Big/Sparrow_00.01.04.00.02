@@ -16,6 +16,7 @@ import java.io.FileDescriptor;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public class FragmentController {
     private final FragmentHostCallback<?> mHost;

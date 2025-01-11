@@ -4,6 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
+
 /* loaded from: classes.dex */
 class ViewOffsetBehavior<V extends View> extends CoordinatorLayout.Behavior<V> {
     private int tempLeftRightOffset;
@@ -43,8 +44,7 @@ class ViewOffsetBehavior<V extends View> extends CoordinatorLayout.Behavior<V> {
         return true;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void layoutChild(CoordinatorLayout coordinatorLayout, V v, int i) {
+    protected void layoutChild(CoordinatorLayout coordinatorLayout, V v, int i) {
         coordinatorLayout.onLayoutChild(v, i);
     }
 

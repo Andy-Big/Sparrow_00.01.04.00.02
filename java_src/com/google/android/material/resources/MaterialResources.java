@@ -8,6 +8,7 @@ import android.os.Build;
 import android.util.TypedValue;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.appcompat.widget.TintTypedArray;
+
 /* loaded from: classes.dex */
 public class MaterialResources {
     private MaterialResources() {
@@ -64,8 +65,7 @@ public class MaterialResources {
         return dimensionPixelSize;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static int getIndexWithValue(TypedArray typedArray, int i, int i2) {
+    static int getIndexWithValue(TypedArray typedArray, int i, int i2) {
         return typedArray.hasValue(i) ? i : i2;
     }
 }

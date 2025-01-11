@@ -10,6 +10,7 @@ import androidx.appcompat.R;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.core.view.TintableBackgroundView;
 import androidx.core.widget.TintableCompoundButton;
+
 /* loaded from: classes.dex */
 public class AppCompatCheckBox extends CheckBox implements TintableCompoundButton, TintableBackgroundView {
     private final AppCompatBackgroundHelper mBackgroundTintHelper;
@@ -145,9 +146,8 @@ public class AppCompatCheckBox extends CheckBox implements TintableCompoundButto
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.widget.CompoundButton, android.widget.TextView, android.view.View
-    public void drawableStateChanged() {
+    protected void drawableStateChanged() {
         super.drawableStateChanged();
         AppCompatBackgroundHelper appCompatBackgroundHelper = this.mBackgroundTintHelper;
         if (appCompatBackgroundHelper != null) {

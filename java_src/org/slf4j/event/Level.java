@@ -1,4 +1,5 @@
 package org.slf4j.event;
+
 /* loaded from: classes2.dex */
 public enum Level {
     ERROR(40, "ERROR"),

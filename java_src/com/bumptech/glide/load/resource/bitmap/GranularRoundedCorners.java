@@ -5,6 +5,7 @@ import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
 import com.bumptech.glide.util.Util;
 import java.nio.ByteBuffer;
 import java.security.MessageDigest;
+
 /* loaded from: classes.dex */
 public final class GranularRoundedCorners extends BitmapTransformation {
     private static final String ID = "com.bumptech.glide.load.resource.bitmap.GranularRoundedCorners";

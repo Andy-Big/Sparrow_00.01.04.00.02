@@ -19,6 +19,7 @@ import androidx.appcompat.R;
 import androidx.appcompat.view.menu.MenuView;
 import androidx.appcompat.widget.TintTypedArray;
 import androidx.core.view.ViewCompat;
+
 /* loaded from: classes.dex */
 public class ListMenuItemView extends LinearLayout implements MenuView.ItemView, AbsListView.SelectionBoundsAdjuster {
     private static final String TAG = "ListMenuItemView";

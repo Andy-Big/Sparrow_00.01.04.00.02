@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import javax.mail.Message;
 import javax.mail.MessagingException;
+
 /* compiled from: IMAPFolder.java */
 /* loaded from: classes2.dex */
 class MessageLiteral implements Literal {

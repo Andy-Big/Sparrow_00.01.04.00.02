@@ -21,6 +21,7 @@ import android.view.TouchDelegate;
 import android.view.View;
 import androidx.core.view.ViewCompat;
 import com.blankj.utilcode.util.ShadowUtils;
+
 /* loaded from: classes.dex */
 public class ClickUtils {
     private static final long DEBOUNCING_DEFAULT_VALUE = 1000;
@@ -388,9 +389,8 @@ public class ClickUtils {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static class OnUtilsTouchListener implements View.OnTouchListener {
+    private static class OnUtilsTouchListener implements View.OnTouchListener {
         public static OnUtilsTouchListener getInstance() {
             return LazyHolder.INSTANCE;
         }
@@ -426,9 +426,8 @@ public class ClickUtils {
             }
         }
 
-        /* JADX INFO: Access modifiers changed from: private */
         /* loaded from: classes.dex */
-        public static class LazyHolder {
+        private static class LazyHolder {
             private static final OnUtilsTouchListener INSTANCE = new OnUtilsTouchListener();
 
             private LazyHolder() {
@@ -436,9 +435,8 @@ public class ClickUtils {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static class ClickDrawableWrapper extends ShadowUtils.DrawableWrapper {
+    static class ClickDrawableWrapper extends ShadowUtils.DrawableWrapper {
         private BitmapDrawable mBitmapDrawable;
         private Paint mColorPaint;
 

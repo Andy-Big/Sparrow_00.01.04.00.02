@@ -13,6 +13,7 @@ import com.shockwave.pdfium.util.Size;
 import com.shockwave.pdfium.util.SizeF;
 import java.util.ArrayList;
 import java.util.List;
+
 /* loaded from: classes.dex */
 class PdfFile {
     private static final Object lock = new Object();
@@ -36,8 +37,7 @@ class PdfFile {
     private List<Float> pageSpacing = new ArrayList();
     private float documentLength = 0.0f;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public PdfFile(PdfiumCore pdfiumCore, PdfDocument pdfDocument, FitPolicy fitPolicy, Size size, int[] iArr, boolean z, int i, boolean z2, boolean z3) {
+    PdfFile(PdfiumCore pdfiumCore, PdfDocument pdfDocument, FitPolicy fitPolicy, Size size, int[] iArr, boolean z, int i, boolean z2, boolean z3) {
         this.pdfiumCore = pdfiumCore;
         this.pdfDocument = pdfDocument;
         this.pageFitPolicy = fitPolicy;

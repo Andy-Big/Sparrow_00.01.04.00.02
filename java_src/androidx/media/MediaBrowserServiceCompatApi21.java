@@ -11,6 +11,7 @@ import android.service.media.MediaBrowserService;
 import android.support.v4.media.session.MediaSessionCompat;
 import java.util.ArrayList;
 import java.util.List;
+
 /* loaded from: classes.dex */
 class MediaBrowserServiceCompatApi21 {
 
@@ -45,11 +46,11 @@ class MediaBrowserServiceCompatApi21 {
     static class ResultWrapper<T> {
         MediaBrowserService.Result mResultObj;
 
-        /* JADX INFO: Access modifiers changed from: package-private */
-        public ResultWrapper(MediaBrowserService.Result result) {
+        ResultWrapper(MediaBrowserService.Result result) {
             this.mResultObj = result;
         }
 
+        /* JADX DEBUG: Multi-variable search result rejected for r0v4, resolved type: android.service.media.MediaBrowserService$Result */
         /* JADX WARN: Multi-variable type inference failed */
         public void sendResult(T t) {
             if (t instanceof List) {
@@ -87,8 +88,7 @@ class MediaBrowserServiceCompatApi21 {
         final Bundle mExtras;
         final String mRootId;
 
-        /* JADX INFO: Access modifiers changed from: package-private */
-        public BrowserRoot(String str, Bundle bundle) {
+        BrowserRoot(String str, Bundle bundle) {
             this.mRootId = str;
             this.mExtras = bundle;
         }
@@ -98,8 +98,7 @@ class MediaBrowserServiceCompatApi21 {
     static class MediaBrowserServiceAdaptor extends MediaBrowserService {
         final ServiceCompatProxy mServiceProxy;
 
-        /* JADX INFO: Access modifiers changed from: package-private */
-        public MediaBrowserServiceAdaptor(Context context, ServiceCompatProxy serviceCompatProxy) {
+        MediaBrowserServiceAdaptor(Context context, ServiceCompatProxy serviceCompatProxy) {
             attachBaseContext(context);
             this.mServiceProxy = serviceCompatProxy;
         }

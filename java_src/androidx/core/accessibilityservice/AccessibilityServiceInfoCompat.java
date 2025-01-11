@@ -3,6 +3,7 @@ package androidx.core.accessibilityservice;
 import android.accessibilityservice.AccessibilityServiceInfo;
 import android.content.pm.PackageManager;
 import android.os.Build;
+
 /* loaded from: classes.dex */
 public final class AccessibilityServiceInfoCompat {
     public static final int CAPABILITY_CAN_FILTER_KEY_EVENTS = 8;

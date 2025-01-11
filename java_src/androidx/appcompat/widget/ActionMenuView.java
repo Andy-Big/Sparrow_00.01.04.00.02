@@ -17,6 +17,7 @@ import androidx.appcompat.view.menu.MenuItemImpl;
 import androidx.appcompat.view.menu.MenuPresenter;
 import androidx.appcompat.view.menu.MenuView;
 import androidx.appcompat.widget.LinearLayoutCompat;
+
 /* loaded from: classes.dex */
 public class ActionMenuView extends LinearLayoutCompat implements MenuBuilder.ItemInvoker, MenuView {
     static final int GENERATED_ITEM_PADDING = 4;
@@ -108,9 +109,8 @@ public class ActionMenuView extends LinearLayoutCompat implements MenuBuilder.It
         this.mOnMenuItemClickListener = onMenuItemClickListener;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // androidx.appcompat.widget.LinearLayoutCompat, android.view.View
-    public void onMeasure(int i, int i2) {
+    protected void onMeasure(int i, int i2) {
         MenuBuilder menuBuilder;
         boolean z = this.mFormatItems;
         boolean z2 = View.MeasureSpec.getMode(i) == 1073741824;
@@ -344,8 +344,7 @@ public class ActionMenuView extends LinearLayoutCompat implements MenuBuilder.It
         setMeasuredDimension(i4, i3 != 1073741824 ? i5 : i21);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static int measureChildForCells(View view, int i, int i2, int i3, int i4) {
+    static int measureChildForCells(View view, int i, int i2, int i3, int i4) {
         LayoutParams layoutParams = (LayoutParams) view.getLayoutParams();
         int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(View.MeasureSpec.getSize(i3) - i4, View.MeasureSpec.getMode(i3));
         ActionMenuItemView actionMenuItemView = view instanceof ActionMenuItemView ? (ActionMenuItemView) view : null;
@@ -374,9 +373,8 @@ public class ActionMenuView extends LinearLayoutCompat implements MenuBuilder.It
         return i5;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // androidx.appcompat.widget.LinearLayoutCompat, android.view.ViewGroup, android.view.View
-    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
+    protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         int width;
         int i5;
         if (!this.mFormatItems) {
@@ -485,6 +483,7 @@ public class ActionMenuView extends LinearLayoutCompat implements MenuBuilder.It
         this.mReserveOverflow = z;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // androidx.appcompat.widget.LinearLayoutCompat, android.view.ViewGroup
     public LayoutParams generateDefaultLayoutParams() {
@@ -493,11 +492,13 @@ public class ActionMenuView extends LinearLayoutCompat implements MenuBuilder.It
         return layoutParams;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.appcompat.widget.LinearLayoutCompat, android.view.ViewGroup
     public LayoutParams generateLayoutParams(AttributeSet attributeSet) {
         return new LayoutParams(getContext(), attributeSet);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // androidx.appcompat.widget.LinearLayoutCompat, android.view.ViewGroup
     public LayoutParams generateLayoutParams(ViewGroup.LayoutParams layoutParams) {
@@ -516,9 +517,8 @@ public class ActionMenuView extends LinearLayoutCompat implements MenuBuilder.It
         return generateDefaultLayoutParams();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // androidx.appcompat.widget.LinearLayoutCompat, android.view.ViewGroup
-    public boolean checkLayoutParams(ViewGroup.LayoutParams layoutParams) {
+    protected boolean checkLayoutParams(ViewGroup.LayoutParams layoutParams) {
         return layoutParams instanceof LayoutParams;
     }
 
@@ -612,9 +612,8 @@ public class ActionMenuView extends LinearLayoutCompat implements MenuBuilder.It
         this.mPresenter.setExpandedActionViewsExclusive(z);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public class MenuBuilderCallback implements MenuBuilder.Callback {
+    private class MenuBuilderCallback implements MenuBuilder.Callback {
         MenuBuilderCallback() {
         }
 
@@ -631,9 +630,8 @@ public class ActionMenuView extends LinearLayoutCompat implements MenuBuilder.It
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static class ActionMenuPresenterCallback implements MenuPresenter.Callback {
+    private static class ActionMenuPresenterCallback implements MenuPresenter.Callback {
         @Override // androidx.appcompat.view.menu.MenuPresenter.Callback
         public void onCloseMenu(MenuBuilder menuBuilder, boolean z) {
         }

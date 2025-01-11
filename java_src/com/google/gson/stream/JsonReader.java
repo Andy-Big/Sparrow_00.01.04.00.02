@@ -7,6 +7,7 @@ import java.io.EOFException;
 import java.io.IOException;
 import java.io.Reader;
 import kotlin.text.Typography;
+
 /* loaded from: classes.dex */
 public class JsonReader implements Closeable {
     private static final long MIN_INCOMPLETE_INTEGER = -922337203685477580L;
@@ -439,14 +440,85 @@ public class JsonReader implements Closeable {
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    private int peekNumber() throws java.io.IOException {
-        /*
-            Method dump skipped, instructions count: 247
-            To view this dump add '--comments-level debug' option
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.google.gson.stream.JsonReader.peekNumber():int");
+    private int peekNumber() throws IOException {
+        char[] cArr = this.buffer;
+        int i = this.pos;
+        int i2 = this.limit;
+        int i3 = 0;
+        boolean z = true;
+        int i4 = 0;
+        char c = 0;
+        boolean z2 = false;
+        long j = 0;
+        while (true) {
+            if (i + i4 == i2) {
+                if (i4 == cArr.length) {
+                    return i3;
+                }
+                if (!fillBuffer(i4 + 1)) {
+                    break;
+                }
+                i = this.pos;
+                i2 = this.limit;
+            }
+            char c2 = cArr[i + i4];
+            char c3 = 3;
+            if (c2 != '+') {
+                if (c2 == 'E' || c2 == 'e') {
+                    i3 = 0;
+                    if (c != 2 && c != 4) {
+                        return 0;
+                    }
+                    c = 5;
+                } else if (c2 == '-') {
+                    c3 = 6;
+                    i3 = 0;
+                    if (c == 0) {
+                        c = 1;
+                        z2 = true;
+                    } else if (c != 5) {
+                        return 0;
+                    }
+                } else if (c2 == '.') {
+                    i3 = 0;
+                    if (c != 2) {
+                        return 0;
+                    }
+                } else if (c2 < '0' || c2 > '9') {
+                    break;
+                } else {
+                    if (c == 1 || c == 0) {
+                        j = -(c2 - '0');
+                        c = 2;
+                    } else if (c == 2) {
+                        if (j == 0) {
+                            return 0;
+                        }
+                        long j2 = (10 * j) - (c2 - '0');
+                        int i5 = (j > MIN_INCOMPLETE_INTEGER ? 1 : (j == MIN_INCOMPLETE_INTEGER ? 0 : -1));
+                        z &= i5 > 0 || (i5 == 0 && j2 < j);
+                        j = j2;
+                    } else if (c == 3) {
+                        i3 = 0;
+                        c = 4;
+                    } else if (c == 5 || c == 6) {
+                        i3 = 0;
+                        c = 7;
+                    }
+                    i3 = 0;
+                }
+                i4++;
+            } else {
+                c3 = 6;
+                i3 = 0;
+                if (c != 5) {
+                    return 0;
+                }
+            }
+            c = c3;
+            i4++;
+        }
     }
 
     private boolean isLiteral(char c) throws IOException {
@@ -659,88 +731,49 @@ public class JsonReader implements Closeable {
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    private java.lang.String nextQuotedValue(char r10) throws java.io.IOException {
-        /*
-            r9 = this;
-            char[] r0 = r9.buffer
-            r1 = 0
-        L3:
-            int r2 = r9.pos
-            int r3 = r9.limit
-        L7:
-            r4 = r3
-            r3 = r2
-        L9:
-            r5 = 16
-            r6 = 1
-            if (r2 >= r4) goto L5c
-            int r7 = r2 + 1
-            char r2 = r0[r2]
-            if (r2 != r10) goto L28
-            r9.pos = r7
-            int r7 = r7 - r3
-            int r7 = r7 - r6
-            if (r1 != 0) goto L20
-            java.lang.String r10 = new java.lang.String
-            r10.<init>(r0, r3, r7)
-            return r10
-        L20:
-            r1.append(r0, r3, r7)
-            java.lang.String r10 = r1.toString()
-            return r10
-        L28:
-            r8 = 92
-            if (r2 != r8) goto L4f
-            r9.pos = r7
-            int r7 = r7 - r3
-            int r7 = r7 - r6
-            if (r1 != 0) goto L40
-            int r1 = r7 + 1
-            int r1 = r1 * 2
-            java.lang.StringBuilder r2 = new java.lang.StringBuilder
-            int r1 = java.lang.Math.max(r1, r5)
-            r2.<init>(r1)
-            r1 = r2
-        L40:
-            r1.append(r0, r3, r7)
-            char r2 = r9.readEscapeCharacter()
-            r1.append(r2)
-            int r2 = r9.pos
-            int r3 = r9.limit
-            goto L7
-        L4f:
-            r5 = 10
-            if (r2 != r5) goto L5a
-            int r2 = r9.lineNumber
-            int r2 = r2 + r6
-            r9.lineNumber = r2
-            r9.lineStart = r7
-        L5a:
-            r2 = r7
-            goto L9
-        L5c:
-            if (r1 != 0) goto L6c
-            int r1 = r2 - r3
-            int r1 = r1 * 2
-            java.lang.StringBuilder r4 = new java.lang.StringBuilder
-            int r1 = java.lang.Math.max(r1, r5)
-            r4.<init>(r1)
-            r1 = r4
-        L6c:
-            int r4 = r2 - r3
-            r1.append(r0, r3, r4)
-            r9.pos = r2
-            boolean r2 = r9.fillBuffer(r6)
-            if (r2 == 0) goto L7a
-            goto L3
-        L7a:
-            java.lang.String r10 = "Unterminated string"
-            java.io.IOException r10 = r9.syntaxError(r10)
-            throw r10
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.google.gson.stream.JsonReader.nextQuotedValue(char):java.lang.String");
+    private String nextQuotedValue(char c) throws IOException {
+        char[] cArr = this.buffer;
+        StringBuilder sb = null;
+        do {
+            int i = this.pos;
+            int i2 = this.limit;
+            while (true) {
+                int i3 = i2;
+                int i4 = i;
+                while (i < i3) {
+                    int i5 = i + 1;
+                    char c2 = cArr[i];
+                    if (c2 == c) {
+                        this.pos = i5;
+                        int i6 = (i5 - i4) - 1;
+                        if (sb == null) {
+                            return new String(cArr, i4, i6);
+                        }
+                        sb.append(cArr, i4, i6);
+                        return sb.toString();
+                    } else if (c2 == '\\') {
+                        this.pos = i5;
+                        int i7 = (i5 - i4) - 1;
+                        if (sb == null) {
+                            sb = new StringBuilder(Math.max((i7 + 1) * 2, 16));
+                        }
+                        sb.append(cArr, i4, i7);
+                        sb.append(readEscapeCharacter());
+                        i = this.pos;
+                        i2 = this.limit;
+                    } else {
+                        if (c2 == '\n') {
+                            this.lineNumber++;
+                            this.lineStart = i5;
+                        }
+                        i = i5;
+                    }
+                }
+                break;
+            }
+        } while (fillBuffer(1));
+        throw syntaxError("Unterminated string");
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:34:0x004a, code lost:
@@ -750,107 +783,63 @@ public class JsonReader implements Closeable {
     /* JADX WARN: Removed duplicated region for block: B:47:0x008a  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    private java.lang.String nextUnquotedValue() throws java.io.IOException {
-        /*
-            r6 = this;
-            r0 = 0
-            r1 = 0
-        L2:
-            r2 = r0
-        L3:
-            int r3 = r6.pos
-            int r4 = r3 + r2
-            int r5 = r6.limit
-            if (r4 >= r5) goto L4e
-            char[] r4 = r6.buffer
-            int r3 = r3 + r2
-            char r3 = r4[r3]
-            r4 = 9
-            if (r3 == r4) goto L5c
-            r4 = 10
-            if (r3 == r4) goto L5c
-            r4 = 12
-            if (r3 == r4) goto L5c
-            r4 = 13
-            if (r3 == r4) goto L5c
-            r4 = 32
-            if (r3 == r4) goto L5c
-            r4 = 35
-            if (r3 == r4) goto L4a
-            r4 = 44
-            if (r3 == r4) goto L5c
-            r4 = 47
-            if (r3 == r4) goto L4a
-            r4 = 61
-            if (r3 == r4) goto L4a
-            r4 = 123(0x7b, float:1.72E-43)
-            if (r3 == r4) goto L5c
-            r4 = 125(0x7d, float:1.75E-43)
-            if (r3 == r4) goto L5c
-            r4 = 58
-            if (r3 == r4) goto L5c
-            r4 = 59
-            if (r3 == r4) goto L4a
-            switch(r3) {
-                case 91: goto L5c;
-                case 92: goto L4a;
-                case 93: goto L5c;
-                default: goto L47;
+    private String nextUnquotedValue() throws IOException {
+        String sb;
+        int i = 0;
+        StringBuilder sb2 = null;
+        do {
+            int i2 = 0;
+            while (true) {
+                int i3 = this.pos;
+                if (i3 + i2 < this.limit) {
+                    char c = this.buffer[i3 + i2];
+                    if (c != '\t' && c != '\n' && c != '\f' && c != '\r' && c != ' ') {
+                        if (c != '#') {
+                            if (c != ',') {
+                                if (c != '/' && c != '=') {
+                                    if (c != '{' && c != '}' && c != ':') {
+                                        if (c != ';') {
+                                            switch (c) {
+                                                case '[':
+                                                case ']':
+                                                    break;
+                                                case '\\':
+                                                    break;
+                                                default:
+                                                    i2++;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                } else if (i2 < this.buffer.length) {
+                    if (fillBuffer(i2 + 1)) {
+                    }
+                } else {
+                    if (sb2 == null) {
+                        sb2 = new StringBuilder(Math.max(i2, 16));
+                    }
+                    sb2.append(this.buffer, this.pos, i2);
+                    this.pos += i2;
+                }
             }
-        L47:
-            int r2 = r2 + 1
-            goto L3
-        L4a:
-            r6.checkLenient()
-            goto L5c
-        L4e:
-            char[] r3 = r6.buffer
-            int r3 = r3.length
-            if (r2 >= r3) goto L5e
-            int r3 = r2 + 1
-            boolean r3 = r6.fillBuffer(r3)
-            if (r3 == 0) goto L5c
-            goto L3
-        L5c:
-            r0 = r2
-            goto L7e
-        L5e:
-            if (r1 != 0) goto L6b
-            java.lang.StringBuilder r1 = new java.lang.StringBuilder
-            r3 = 16
-            int r3 = java.lang.Math.max(r2, r3)
-            r1.<init>(r3)
-        L6b:
-            char[] r3 = r6.buffer
-            int r4 = r6.pos
-            r1.append(r3, r4, r2)
-            int r3 = r6.pos
-            int r3 = r3 + r2
-            r6.pos = r3
-            r2 = 1
-            boolean r2 = r6.fillBuffer(r2)
-            if (r2 != 0) goto L2
-        L7e:
-            if (r1 != 0) goto L8a
-            java.lang.String r1 = new java.lang.String
-            char[] r2 = r6.buffer
-            int r3 = r6.pos
-            r1.<init>(r2, r3, r0)
-            goto L95
-        L8a:
-            char[] r2 = r6.buffer
-            int r3 = r6.pos
-            r1.append(r2, r3, r0)
-            java.lang.String r1 = r1.toString()
-        L95:
-            int r2 = r6.pos
-            int r2 = r2 + r0
-            r6.pos = r2
-            return r1
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.google.gson.stream.JsonReader.nextUnquotedValue():java.lang.String");
+            i = i2;
+            if (sb2 != null) {
+                sb = new String(this.buffer, this.pos, i);
+            } else {
+                sb2.append(this.buffer, this.pos, i);
+                sb = sb2.toString();
+            }
+            this.pos += i;
+            return sb;
+        } while (fillBuffer(1));
+        if (sb2 != null) {
+        }
+        this.pos += i;
+        return sb;
     }
 
     private void skipQuotedValue(char c) throws IOException {
@@ -887,72 +876,42 @@ public class JsonReader implements Closeable {
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    private void skipUnquotedValue() throws java.io.IOException {
-        /*
-            r4 = this;
-        L0:
-            r0 = 0
-        L1:
-            int r1 = r4.pos
-            int r2 = r1 + r0
-            int r3 = r4.limit
-            if (r2 >= r3) goto L51
-            char[] r2 = r4.buffer
-            int r1 = r1 + r0
-            char r1 = r2[r1]
-            r2 = 9
-            if (r1 == r2) goto L4b
-            r2 = 10
-            if (r1 == r2) goto L4b
-            r2 = 12
-            if (r1 == r2) goto L4b
-            r2 = 13
-            if (r1 == r2) goto L4b
-            r2 = 32
-            if (r1 == r2) goto L4b
-            r2 = 35
-            if (r1 == r2) goto L48
-            r2 = 44
-            if (r1 == r2) goto L4b
-            r2 = 47
-            if (r1 == r2) goto L48
-            r2 = 61
-            if (r1 == r2) goto L48
-            r2 = 123(0x7b, float:1.72E-43)
-            if (r1 == r2) goto L4b
-            r2 = 125(0x7d, float:1.75E-43)
-            if (r1 == r2) goto L4b
-            r2 = 58
-            if (r1 == r2) goto L4b
-            r2 = 59
-            if (r1 == r2) goto L48
-            switch(r1) {
-                case 91: goto L4b;
-                case 92: goto L48;
-                case 93: goto L4b;
-                default: goto L45;
+    private void skipUnquotedValue() throws IOException {
+        do {
+            int i = 0;
+            while (true) {
+                int i2 = this.pos;
+                if (i2 + i < this.limit) {
+                    char c = this.buffer[i2 + i];
+                    if (c != '\t' && c != '\n' && c != '\f' && c != '\r' && c != ' ') {
+                        if (c != '#') {
+                            if (c != ',') {
+                                if (c != '/' && c != '=') {
+                                    if (c != '{' && c != '}' && c != ':') {
+                                        if (c != ';') {
+                                            switch (c) {
+                                                case '[':
+                                                case ']':
+                                                    break;
+                                                case '\\':
+                                                    break;
+                                                default:
+                                                    i++;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                } else {
+                    this.pos = i2 + i;
+                }
             }
-        L45:
-            int r0 = r0 + 1
-            goto L1
-        L48:
-            r4.checkLenient()
-        L4b:
-            int r1 = r4.pos
-            int r1 = r1 + r0
-            r4.pos = r1
-            return
-        L51:
-            int r1 = r1 + r0
-            r4.pos = r1
-            r0 = 1
-            boolean r0 = r4.fillBuffer(r0)
-            if (r0 != 0) goto L0
-            return
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.google.gson.stream.JsonReader.skipUnquotedValue():void");
+            this.pos += i;
+            return;
+        } while (fillBuffer(1));
     }
 
     public int nextInt() throws IOException {

@@ -9,6 +9,7 @@ import com.blankj.utilcode.util.Utils;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
+
 /* loaded from: classes.dex */
 public class UtilsTransActivity extends AppCompatActivity {
     private static final Map<UtilsTransActivity, TransActivityDelegate> CALLBACK_MAP = new HashMap();
@@ -30,8 +31,7 @@ public class UtilsTransActivity extends AppCompatActivity {
         start(activity, consumer, transActivityDelegate, UtilsTransActivity.class);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public static void start(Activity activity, Utils.Consumer<Intent> consumer, TransActivityDelegate transActivityDelegate, Class<?> cls) {
+    protected static void start(Activity activity, Utils.Consumer<Intent> consumer, TransActivityDelegate transActivityDelegate, Class<?> cls) {
         if (transActivityDelegate == null) {
             return;
         }
@@ -48,9 +48,8 @@ public class UtilsTransActivity extends AppCompatActivity {
         activity.startActivity(intent);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // androidx.appcompat.app.AppCompatActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
-    public void onCreate(Bundle bundle) {
+    protected void onCreate(Bundle bundle) {
         overridePendingTransition(0, 0);
         Serializable serializableExtra = getIntent().getSerializableExtra(EXTRA_DELEGATE);
         if (!(serializableExtra instanceof TransActivityDelegate)) {
@@ -65,9 +64,8 @@ public class UtilsTransActivity extends AppCompatActivity {
         transActivityDelegate.onCreated(this, bundle);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // androidx.appcompat.app.AppCompatActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onStart() {
+    protected void onStart() {
         super.onStart();
         TransActivityDelegate transActivityDelegate = CALLBACK_MAP.get(this);
         if (transActivityDelegate == null) {
@@ -76,9 +74,8 @@ public class UtilsTransActivity extends AppCompatActivity {
         transActivityDelegate.onStarted(this);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onResume() {
+    protected void onResume() {
         super.onResume();
         TransActivityDelegate transActivityDelegate = CALLBACK_MAP.get(this);
         if (transActivityDelegate == null) {
@@ -87,9 +84,8 @@ public class UtilsTransActivity extends AppCompatActivity {
         transActivityDelegate.onResumed(this);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onPause() {
+    protected void onPause() {
         overridePendingTransition(0, 0);
         super.onPause();
         TransActivityDelegate transActivityDelegate = CALLBACK_MAP.get(this);
@@ -99,9 +95,8 @@ public class UtilsTransActivity extends AppCompatActivity {
         transActivityDelegate.onPaused(this);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // androidx.appcompat.app.AppCompatActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onStop() {
+    protected void onStop() {
         super.onStop();
         TransActivityDelegate transActivityDelegate = CALLBACK_MAP.get(this);
         if (transActivityDelegate == null) {
@@ -110,9 +105,8 @@ public class UtilsTransActivity extends AppCompatActivity {
         transActivityDelegate.onStopped(this);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // androidx.appcompat.app.AppCompatActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
-    public void onSaveInstanceState(Bundle bundle) {
+    protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
         TransActivityDelegate transActivityDelegate = CALLBACK_MAP.get(this);
         if (transActivityDelegate == null) {
@@ -121,9 +115,8 @@ public class UtilsTransActivity extends AppCompatActivity {
         transActivityDelegate.onSaveInstanceState(this, bundle);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // androidx.appcompat.app.AppCompatActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onDestroy() {
+    protected void onDestroy() {
         super.onDestroy();
         TransActivityDelegate transActivityDelegate = CALLBACK_MAP.get(this);
         if (transActivityDelegate == null) {
@@ -149,9 +142,8 @@ public class UtilsTransActivity extends AppCompatActivity {
         transActivityDelegate.onRequestPermissionsResult(this, i, strArr, iArr);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onActivityResult(int i, int i2, Intent intent) {
+    protected void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
         TransActivityDelegate transActivityDelegate = CALLBACK_MAP.get(this);
         if (transActivityDelegate == null) {

@@ -8,6 +8,7 @@ import com.bumptech.glide.load.Transformation;
 import com.bumptech.glide.load.engine.Resource;
 import com.bumptech.glide.util.Preconditions;
 import java.security.MessageDigest;
+
 @Deprecated
 /* loaded from: classes.dex */
 public class BitmapDrawableTransformation implements Transformation<BitmapDrawable> {
@@ -26,6 +27,7 @@ public class BitmapDrawableTransformation implements Transformation<BitmapDrawab
         return convertToBitmapDrawableResource(this.wrapped.transform(context, convertToDrawableResource(resource), i, i2));
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r3v0, resolved type: com.bumptech.glide.load.engine.Resource<android.graphics.drawable.Drawable> */
     /* JADX WARN: Multi-variable type inference failed */
     private static Resource<BitmapDrawable> convertToBitmapDrawableResource(Resource<Drawable> resource) {
         if (resource.get() instanceof BitmapDrawable) {

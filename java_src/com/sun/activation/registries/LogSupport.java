@@ -3,6 +3,7 @@ package com.sun.activation.registries;
 import java.io.PrintStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 /* loaded from: classes2.dex */
 public class LogSupport {
     private static boolean debug = false;

@@ -42,7 +42,6 @@ public class UtilityScreenSaverAdapter extends RecyclerView.Adapter<ScreenSaverV
         this.utilityParam = utilityParam;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public ScreenSaverViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         AdapterUtilityScreensaverBinding inflate = AdapterUtilityScreensaverBinding.inflate(LayoutInflater.from(viewGroup.getContext()), viewGroup, false);
@@ -51,7 +50,6 @@ public class UtilityScreenSaverAdapter extends RecyclerView.Adapter<ScreenSaverV
         return new ScreenSaverViewHolder(this.binding);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(ScreenSaverViewHolder screenSaverViewHolder, int i) {
         initClicke(screenSaverViewHolder);
@@ -128,6 +126,10 @@ public class UtilityScreenSaverAdapter extends RecyclerView.Adapter<ScreenSaverV
             case R.id.tv_watitime_value /* 2131364459 */:
                 if (this.utilityParam != null) {
                     new KeyboardPopupView(new KeyboardPopupView.Builder(ServiceEnum.Unit.Unit_number, 999L, 1L, 30L, Integer.parseInt(this.utilityParam.getScreenTime())).setKeyboardListener(new KeyboardListener() { // from class: com.rigol.scope.adapters.UtilityScreenSaverAdapter.1
+                        {
+                            UtilityScreenSaverAdapter.this = this;
+                        }
+
                         @Override // com.rigol.scope.views.keyboard.KeyboardListener
                         public <T> void resultMinUnitValueListener(T t) {
                             UtilityScreenSaverAdapter.this.utilityParam.saveScreenTime(String.valueOf((Long) t));

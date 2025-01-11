@@ -71,6 +71,12 @@ public class UtilityPopupView extends BasePopupView {
     private final UtilityViewModel utilityViewModel;
     private final PopupviewUtilityBinding utilsBinding;
 
+    /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.views.-$$Lambda$UtilityPopupView$CfOd_j2siQ-EmeMoOB8A6UgZ9Os.setClosePop():void] */
+    /* renamed from: lambda$CfOd_j2siQ-EmeMoOB8A6UgZ9Os */
+    public static /* synthetic */ void m13lambda$CfOd_j2siQEmeMoOB8A6UgZ9Os(UtilityPopupView utilityPopupView) {
+        utilityPopupView.dismiss();
+    }
+
     public UtilityPopupView() {
         super((int) R.style.App_PopupWindow_Utility);
         this.clickAboutCount = 0;
@@ -81,7 +87,10 @@ public class UtilityPopupView extends BasePopupView {
         this.utilityViewModel = utilityViewModel;
         if (utilityViewModel != null) {
             utilityViewModel.getLiveData().observe((LifecycleOwner) ActivityUtils.getTopActivity(), new Observer<UtilityParam>() { // from class: com.rigol.scope.views.UtilityPopupView.1
-                /* JADX DEBUG: Method merged with bridge method */
+                {
+                    UtilityPopupView.this = this;
+                }
+
                 @Override // androidx.lifecycle.Observer
                 public void onChanged(UtilityParam utilityParam) {
                     UtilityPopupView.this.utilityParam = utilityParam;
@@ -250,7 +259,7 @@ public class UtilityPopupView extends BasePopupView {
                 this.utilitySelfCheckAdapter.setCloseUtilityPopListener(new UtilitySelfCheckAdapter.SelfCheckClosePop() { // from class: com.rigol.scope.views.-$$Lambda$UtilityPopupView$CfOd_j2siQ-EmeMoOB8A6UgZ9Os
                     @Override // com.rigol.scope.adapters.UtilitySelfCheckAdapter.SelfCheckClosePop
                     public final void setClosePop() {
-                        UtilityPopupView.this.dismiss();
+                        UtilityPopupView.m13lambda$CfOd_j2siQEmeMoOB8A6UgZ9Os(UtilityPopupView.this);
                     }
                 });
                 return;
@@ -266,6 +275,10 @@ public class UtilityPopupView extends BasePopupView {
             case 12:
                 final List<MappingObject> list = ViewUtil.getList((int) R.array.debug_msg_list);
                 BaseAdapter<List<MappingObject>> baseAdapter = new BaseAdapter<List<MappingObject>>(this.context, list, R.layout.adapter_item_simple) { // from class: com.rigol.scope.views.UtilityPopupView.2
+                    {
+                        UtilityPopupView.this = this;
+                    }
+
                     @Override // com.rigol.scope.adapters.BaseAdapter
                     protected void convert(BaseViewHolder<? extends ViewDataBinding> baseViewHolder, List<MappingObject> list2, int i3) {
                         MappingObject mappingObject = list2.get(i3);
@@ -330,7 +343,7 @@ public class UtilityPopupView extends BasePopupView {
         }
     }
 
-    /* renamed from: com.rigol.scope.views.UtilityPopupView$3  reason: invalid class name */
+    /* renamed from: com.rigol.scope.views.UtilityPopupView$3 */
     /* loaded from: classes2.dex */
     static /* synthetic */ class AnonymousClass3 {
         static final /* synthetic */ int[] $SwitchMap$com$rigol$scope$cil$ServiceEnum$DebugType;

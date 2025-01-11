@@ -1,6 +1,7 @@
 package androidx.transition;
 
 import android.view.View;
+
 /* loaded from: classes.dex */
 public abstract class VisibilityPropagation extends TransitionPropagation {
     private static final String PROPNAME_VISIBILITY = "android:visibilityPropagation:visibility";

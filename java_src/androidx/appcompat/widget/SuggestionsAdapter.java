@@ -28,6 +28,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
 import java.util.WeakHashMap;
+
 /* loaded from: classes.dex */
 class SuggestionsAdapter extends ResourceCursorAdapter implements View.OnClickListener {
     private static final boolean DBG = false;
@@ -155,9 +156,8 @@ class SuggestionsAdapter extends ResourceCursorAdapter implements View.OnClickLi
         return newView;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static final class ChildViewCache {
+    private static final class ChildViewCache {
         public final ImageView mIcon1;
         public final ImageView mIcon2;
         public final ImageView mIconRefine;

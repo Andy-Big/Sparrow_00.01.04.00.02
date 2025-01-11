@@ -2,6 +2,7 @@ package com.sun.mail.auth;
 
 import kotlin.UByte;
 import kotlin.jvm.internal.ByteCompanionObject;
+
 /* loaded from: classes2.dex */
 public final class MD4 {
     private static final int S11 = 3;

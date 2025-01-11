@@ -1,6 +1,7 @@
 package com.google.android.material.transition.platform;
 
 import android.transition.Transition;
+
 /* loaded from: classes.dex */
 abstract class TransitionListenerAdapter implements Transition.TransitionListener {
     @Override // android.transition.Transition.TransitionListener
@@ -21,5 +22,8 @@ abstract class TransitionListenerAdapter implements Transition.TransitionListene
 
     @Override // android.transition.Transition.TransitionListener
     public void onTransitionStart(Transition transition) {
+    }
+
+    TransitionListenerAdapter() {
     }
 }

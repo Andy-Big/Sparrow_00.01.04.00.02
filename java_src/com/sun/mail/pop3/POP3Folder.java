@@ -1,9 +1,12 @@
 package com.sun.mail.pop3;
 
+import com.sun.mail.util.LineInputStream;
 import com.sun.mail.util.MailLogger;
 import java.io.EOFException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.lang.reflect.Constructor;
+import java.util.StringTokenizer;
 import java.util.logging.Level;
 import javax.mail.FetchProfile;
 import javax.mail.Flags;
@@ -15,6 +18,7 @@ import javax.mail.MessageRemovedException;
 import javax.mail.MessagingException;
 import javax.mail.MethodNotSupportedException;
 import javax.mail.UIDFolder;
+
 /* loaded from: classes2.dex */
 public class POP3Folder extends Folder {
     private boolean doneUidl;
@@ -50,8 +54,7 @@ public class POP3Folder extends Folder {
         return false;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public POP3Folder(POP3Store pOP3Store, String str) {
+    protected POP3Folder(POP3Store pOP3Store, String str) {
         super(pOP3Store);
         this.exists = false;
         this.opened = false;
@@ -210,11 +213,11 @@ public class POP3Folder extends Folder {
                         return true;
                     }
                     throw new IOException("NOOP failed");
-                } catch (MessagingException unused) {
+                } catch (IOException unused) {
+                    close(false);
                     return false;
                 }
-            } catch (IOException unused2) {
-                close(false);
+            } catch (MessagingException unused2) {
                 return false;
             }
         }
@@ -252,34 +255,20 @@ public class POP3Folder extends Folder {
     /* JADX WARN: Removed duplicated region for block: B:9:0x001d  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    protected com.sun.mail.pop3.POP3Message createMessage(javax.mail.Folder r4, int r5) throws javax.mail.MessagingException {
-        /*
-            r3 = this;
-            com.sun.mail.pop3.POP3Store r4 = r3.store
-            java.lang.reflect.Constructor<?> r4 = r4.messageConstructor
-            if (r4 == 0) goto L1a
-            r0 = 2
-            java.lang.Object[] r0 = new java.lang.Object[r0]     // Catch: java.lang.Exception -> L1a
-            r1 = 0
-            r0[r1] = r3     // Catch: java.lang.Exception -> L1a
-            r1 = 1
-            java.lang.Integer r2 = java.lang.Integer.valueOf(r5)     // Catch: java.lang.Exception -> L1a
-            r0[r1] = r2     // Catch: java.lang.Exception -> L1a
-            java.lang.Object r4 = r4.newInstance(r0)     // Catch: java.lang.Exception -> L1a
-            com.sun.mail.pop3.POP3Message r4 = (com.sun.mail.pop3.POP3Message) r4     // Catch: java.lang.Exception -> L1a
-            goto L1b
-        L1a:
-            r4 = 0
-        L1b:
-            if (r4 != 0) goto L22
-            com.sun.mail.pop3.POP3Message r4 = new com.sun.mail.pop3.POP3Message
-            r4.<init>(r3, r5)
-        L22:
-            return r4
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.sun.mail.pop3.POP3Folder.createMessage(javax.mail.Folder, int):com.sun.mail.pop3.POP3Message");
+    protected POP3Message createMessage(Folder folder, int i) throws MessagingException {
+        POP3Message pOP3Message;
+        Constructor<?> constructor = this.store.messageConstructor;
+        if (constructor != null) {
+            try {
+                pOP3Message = (POP3Message) constructor.newInstance(this, Integer.valueOf(i));
+            } catch (Exception unused) {
+            }
+            return pOP3Message != null ? new POP3Message(this, i) : pOP3Message;
+        }
+        pOP3Message = null;
+        if (pOP3Message != null) {
+        }
     }
 
     @Override // javax.mail.Folder
@@ -309,12 +298,12 @@ public class POP3Folder extends Folder {
                         }
                     }
                     this.doneUidl = true;
-                } catch (IOException e) {
-                    throw new MessagingException("error getting UIDL", e);
+                } catch (EOFException e) {
+                    close(false);
+                    throw new FolderClosedException(this, e.toString());
                 }
-            } catch (EOFException e2) {
-                close(false);
-                throw new FolderClosedException(this, e2.toString());
+            } catch (IOException e2) {
+                throw new MessagingException("error getting UIDL", e2);
             }
         }
         if (fetchProfile.contains(FetchProfile.Item.ENVELOPE)) {
@@ -367,80 +356,74 @@ public class POP3Folder extends Folder {
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    public synchronized int[] getSizes() throws javax.mail.MessagingException {
-        /*
-            r6 = this;
-            monitor-enter(r6)
-            r6.checkOpen()     // Catch: java.lang.Throwable -> L62
-            int r0 = r6.total     // Catch: java.lang.Throwable -> L62
-            int[] r0 = new int[r0]     // Catch: java.lang.Throwable -> L62
-            r1 = 0
-            com.sun.mail.pop3.Protocol r2 = r6.port     // Catch: java.lang.Throwable -> L4a java.io.IOException -> L57
-            java.io.InputStream r2 = r2.list()     // Catch: java.lang.Throwable -> L4a java.io.IOException -> L57
-            com.sun.mail.util.LineInputStream r3 = new com.sun.mail.util.LineInputStream     // Catch: java.lang.Throwable -> L48 java.io.IOException -> L58
-            r3.<init>(r2)     // Catch: java.lang.Throwable -> L48 java.io.IOException -> L58
-        L14:
-            java.lang.String r1 = r3.readLine()     // Catch: java.lang.Throwable -> L43 java.io.IOException -> L46
-            if (r1 == 0) goto L3a
-            java.util.StringTokenizer r4 = new java.util.StringTokenizer     // Catch: java.lang.RuntimeException -> L14 java.lang.Throwable -> L43 java.io.IOException -> L46
-            r4.<init>(r1)     // Catch: java.lang.RuntimeException -> L14 java.lang.Throwable -> L43 java.io.IOException -> L46
-            java.lang.String r1 = r4.nextToken()     // Catch: java.lang.RuntimeException -> L14 java.lang.Throwable -> L43 java.io.IOException -> L46
-            int r1 = java.lang.Integer.parseInt(r1)     // Catch: java.lang.RuntimeException -> L14 java.lang.Throwable -> L43 java.io.IOException -> L46
-            java.lang.String r4 = r4.nextToken()     // Catch: java.lang.RuntimeException -> L14 java.lang.Throwable -> L43 java.io.IOException -> L46
-            int r4 = java.lang.Integer.parseInt(r4)     // Catch: java.lang.RuntimeException -> L14 java.lang.Throwable -> L43 java.io.IOException -> L46
-            if (r1 <= 0) goto L14
-            int r5 = r6.total     // Catch: java.lang.RuntimeException -> L14 java.lang.Throwable -> L43 java.io.IOException -> L46
-            if (r1 > r5) goto L14
-            int r1 = r1 + (-1)
-            r0[r1] = r4     // Catch: java.lang.RuntimeException -> L14 java.lang.Throwable -> L43 java.io.IOException -> L46
-            goto L14
-        L3a:
-            r3.close()     // Catch: java.io.IOException -> L3d java.lang.Throwable -> L62
-        L3d:
-            if (r2 == 0) goto L60
-        L3f:
-            r2.close()     // Catch: java.io.IOException -> L60 java.lang.Throwable -> L62
-            goto L60
-        L43:
-            r0 = move-exception
-            r1 = r3
-            goto L4c
-        L46:
-            r1 = r3
-            goto L58
-        L48:
-            r0 = move-exception
-            goto L4c
-        L4a:
-            r0 = move-exception
-            r2 = r1
-        L4c:
-            if (r1 == 0) goto L51
-            r1.close()     // Catch: java.io.IOException -> L51 java.lang.Throwable -> L62
-        L51:
-            if (r2 == 0) goto L56
-            r2.close()     // Catch: java.io.IOException -> L56 java.lang.Throwable -> L62
-        L56:
-            throw r0     // Catch: java.lang.Throwable -> L62
-        L57:
-            r2 = r1
-        L58:
-            if (r1 == 0) goto L5d
-            r1.close()     // Catch: java.io.IOException -> L5d java.lang.Throwable -> L62
-        L5d:
-            if (r2 == 0) goto L60
-            goto L3f
-        L60:
-            monitor-exit(r6)
-            return r0
-        L62:
-            r0 = move-exception
-            monitor-exit(r6)
-            throw r0
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.sun.mail.pop3.POP3Folder.getSizes():int[]");
+    public synchronized int[] getSizes() throws MessagingException {
+        int[] iArr;
+        InputStream inputStream;
+        checkOpen();
+        iArr = new int[this.total];
+        LineInputStream lineInputStream = null;
+        try {
+            inputStream = this.port.list();
+            try {
+                LineInputStream lineInputStream2 = new LineInputStream(inputStream);
+                while (true) {
+                    try {
+                        String readLine = lineInputStream2.readLine();
+                        if (readLine != null) {
+                            try {
+                                StringTokenizer stringTokenizer = new StringTokenizer(readLine);
+                                int parseInt = Integer.parseInt(stringTokenizer.nextToken());
+                                int parseInt2 = Integer.parseInt(stringTokenizer.nextToken());
+                                if (parseInt > 0 && parseInt <= this.total) {
+                                    iArr[parseInt - 1] = parseInt2;
+                                }
+                            } catch (RuntimeException unused) {
+                            }
+                        } else {
+                            try {
+                                break;
+                            } catch (IOException unused2) {
+                            }
+                        }
+                    } catch (IOException unused3) {
+                        lineInputStream = lineInputStream2;
+                        if (lineInputStream != null) {
+                            try {
+                                lineInputStream.close();
+                            } catch (IOException unused4) {
+                            }
+                        }
+                    } catch (Throwable th) {
+                        th = th;
+                        lineInputStream = lineInputStream2;
+                        if (lineInputStream != null) {
+                            try {
+                                lineInputStream.close();
+                            } catch (IOException unused5) {
+                            }
+                        }
+                        if (inputStream != null) {
+                            try {
+                                inputStream.close();
+                            } catch (IOException unused6) {
+                            }
+                        }
+                        throw th;
+                    }
+                }
+                lineInputStream2.close();
+            } catch (IOException unused7) {
+            } catch (Throwable th2) {
+                th = th2;
+            }
+        } catch (IOException unused8) {
+            inputStream = null;
+        } catch (Throwable th3) {
+            th = th3;
+            inputStream = null;
+        }
+        return iArr;
     }
 
     public synchronized InputStream listCommand() throws MessagingException, IOException {
@@ -448,9 +431,8 @@ public class POP3Folder extends Folder {
         return this.port.list();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // javax.mail.Folder
-    public void finalize() throws Throwable {
+    protected void finalize() throws Throwable {
         this.forceClose = !this.store.finalizeCleanClose;
         try {
             if (this.opened) {
@@ -480,21 +462,18 @@ public class POP3Folder extends Folder {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public Protocol getProtocol() throws MessagingException {
+    Protocol getProtocol() throws MessagingException {
         Protocol protocol = this.port;
         checkOpen();
         return protocol;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // javax.mail.Folder
-    public void notifyMessageChangedListeners(int i, Message message) {
+    protected void notifyMessageChangedListeners(int i, Message message) {
         super.notifyMessageChangedListeners(i, message);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public TempFile getFileCache() {
+    TempFile getFileCache() {
         return this.fileCache;
     }
 }

@@ -1,4 +1,5 @@
 package com.sun.mail.iap;
+
 /* loaded from: classes2.dex */
 public class ProtocolException extends Exception {
     private static final long serialVersionUID = -4360500807971797439L;

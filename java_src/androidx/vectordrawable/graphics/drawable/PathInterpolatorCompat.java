@@ -11,6 +11,7 @@ import android.view.animation.Interpolator;
 import androidx.core.content.res.TypedArrayUtils;
 import androidx.core.graphics.PathParser;
 import org.xmlpull.v1.XmlPullParser;
+
 /* loaded from: classes.dex */
 public class PathInterpolatorCompat implements Interpolator {
     public static final double EPSILON = 1.0E-5d;

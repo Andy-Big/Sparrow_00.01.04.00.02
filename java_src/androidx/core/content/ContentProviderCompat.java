@@ -2,6 +2,7 @@ package androidx.core.content;
 
 import android.content.ContentProvider;
 import android.content.Context;
+
 /* loaded from: classes.dex */
 public final class ContentProviderCompat {
     private ContentProviderCompat() {

@@ -4,6 +4,7 @@ import java.util.Locale;
 import java.util.regex.MatchResult;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
 /* loaded from: classes.dex */
 class FindAddress {
     private static final String HOUSE_COMPONENT = "(?:one|[0-9]+([a-z](?=[^a-z]|$)|st|nd|rd|th)?)";
@@ -28,9 +29,8 @@ class FindAddress {
     private static final Pattern sSuffixedNumberRe = Pattern.compile("([0-9]+)(st|nd|rd|th)", 2);
     private static final Pattern sZipCodeRe = Pattern.compile("(?:[0-9]{5}(?:-[0-9]{4})?)(?=[,*•\t  \u1680\u2000\u2001\u2002\u2003\u2004\u2005\u2006 \u2008\u2009\u200a \u205f\u3000\n\u000b\f\r\u0085\u2028\u2029]|$)", 2);
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static class ZipRange {
+    private static class ZipRange {
         int mException1;
         int mException2;
         int mHigh;
@@ -141,135 +141,87 @@ class FindAddress {
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    private static int attemptMatch(java.lang.String r13, java.util.regex.MatchResult r14) {
-        /*
-            int r14 = r14.end()
-            java.util.regex.Pattern r0 = androidx.core.text.util.FindAddress.sWordRe
-            java.util.regex.Matcher r0 = r0.matcher(r13)
-            r1 = -1
-            r2 = 0
-            r3 = 1
-            java.lang.String r4 = ""
-            r9 = r1
-            r10 = r9
-            r8 = r2
-            r5 = r3
-            r6 = r5
-            r7 = r6
-        L15:
-            int r11 = r13.length()
-            if (r14 >= r11) goto Ld5
-            boolean r11 = r0.find(r14)
-            if (r11 != 0) goto L27
-            int r13 = r13.length()
-        L25:
-            int r13 = -r13
-            return r13
-        L27:
-            int r11 = r0.end()
-            int r12 = r0.start()
-            int r11 = r11 - r12
-            r12 = 25
-            if (r11 <= r12) goto L39
-            int r13 = r0.end()
-            goto L25
-        L39:
-            int r11 = r0.start()
-            if (r14 >= r11) goto L51
-            int r11 = r14 + 1
-            char r14 = r13.charAt(r14)
-            java.lang.String r12 = "\n\u000b\f\r\u0085\u2028\u2029"
-            int r14 = r12.indexOf(r14)
-            if (r14 == r1) goto L4f
-            int r5 = r5 + 1
-        L4f:
-            r14 = r11
-            goto L39
-        L51:
-            r11 = 5
-            if (r5 <= r11) goto L56
-            goto Ld5
-        L56:
-            int r6 = r6 + r3
-            r12 = 14
-            if (r6 <= r12) goto L5d
-            goto Ld5
-        L5d:
-            java.util.regex.MatchResult r12 = matchHouseNumber(r13, r14)
-            if (r12 == 0) goto L6d
-            if (r7 == 0) goto L69
-            if (r5 <= r3) goto L69
-            int r13 = -r14
-            return r13
-        L69:
-            if (r9 != r1) goto Lcb
-            r9 = r14
-            goto Lcb
-        L6d:
-            java.lang.String r7 = r0.group(r2)
-            boolean r7 = isValidLocationName(r7)
-            if (r7 == 0) goto L7a
-            r7 = r2
-            r8 = r3
-            goto Lcb
-        L7a:
-            if (r6 != r11) goto L83
-            if (r8 != 0) goto L83
-            int r14 = r0.end()
-            goto Ld5
-        L83:
-            if (r8 == 0) goto Lca
-            r7 = 4
-            if (r6 <= r7) goto Lca
-            java.util.regex.MatchResult r14 = matchState(r13, r14)
-            if (r14 == 0) goto Lca
-            java.lang.String r7 = "et"
-            boolean r4 = r4.equals(r7)
-            if (r4 == 0) goto La7
-            java.lang.String r4 = r14.group(r2)
-            java.lang.String r7 = "al"
-            boolean r4 = r4.equals(r7)
-            if (r4 == 0) goto La7
-            int r14 = r14.end()
-            goto Ld5
-        La7:
-            java.util.regex.Pattern r4 = androidx.core.text.util.FindAddress.sWordRe
-            java.util.regex.Matcher r4 = r4.matcher(r13)
-            int r7 = r14.end()
-            boolean r7 = r4.find(r7)
-            if (r7 == 0) goto Lc6
-            java.lang.String r7 = r4.group(r2)
-            boolean r14 = isValidZipCode(r7, r14)
-            if (r14 == 0) goto Lca
-            int r13 = r4.end()
-            return r13
-        Lc6:
-            int r10 = r14.end()
-        Lca:
-            r7 = r2
-        Lcb:
-            java.lang.String r4 = r0.group(r2)
-            int r14 = r0.end()
-            goto L15
-        Ld5:
-            if (r10 <= 0) goto Ld8
-            return r10
-        Ld8:
-            if (r9 <= 0) goto Ldb
-            goto Ldc
-        Ldb:
-            r9 = r14
-        Ldc:
-            int r13 = -r9
-            return r13
-        */
-        throw new UnsupportedOperationException("Method not decompiled: androidx.core.text.util.FindAddress.attemptMatch(java.lang.String, java.util.regex.MatchResult):int");
+    private static int attemptMatch(String str, MatchResult matchResult) {
+        int length;
+        MatchResult matchState;
+        int end = matchResult.end();
+        Matcher matcher = sWordRe.matcher(str);
+        String str2 = "";
+        int i = -1;
+        int i2 = -1;
+        boolean z = false;
+        int i3 = 1;
+        int i4 = 1;
+        boolean z2 = true;
+        while (true) {
+            if (end < str.length()) {
+                if (!matcher.find(end)) {
+                    length = str.length();
+                    break;
+                } else if (matcher.end() - matcher.start() > 25) {
+                    length = matcher.end();
+                    break;
+                } else {
+                    while (end < matcher.start()) {
+                        int i5 = end + 1;
+                        if (NL.indexOf(str.charAt(end)) != -1) {
+                            i3++;
+                        }
+                        end = i5;
+                    }
+                    if (i3 > 5 || (i4 = i4 + 1) > 14) {
+                        break;
+                    }
+                    if (matchHouseNumber(str, end) == null) {
+                        if (!isValidLocationName(matcher.group(0))) {
+                            if (i4 == 5 && !z) {
+                                end = matcher.end();
+                                break;
+                            }
+                            if (z && i4 > 4 && (matchState = matchState(str, end)) != null) {
+                                if (str2.equals("et") && matchState.group(0).equals("al")) {
+                                    end = matchState.end();
+                                    break;
+                                }
+                                Matcher matcher2 = sWordRe.matcher(str);
+                                if (matcher2.find(matchState.end())) {
+                                    if (isValidZipCode(matcher2.group(0), matchState)) {
+                                        return matcher2.end();
+                                    }
+                                } else {
+                                    i2 = matchState.end();
+                                }
+                            }
+                            z2 = false;
+                        } else {
+                            z2 = false;
+                            z = true;
+                        }
+                    } else if (z2 && i3 > 1) {
+                        return -end;
+                    } else {
+                        if (i == -1) {
+                            i = end;
+                        }
+                    }
+                    str2 = matcher.group(0);
+                    end = matcher.end();
+                }
+            } else {
+                break;
+            }
+        }
+        if (i2 > 0) {
+            return i2;
+        }
+        if (i <= 0) {
+            i = end;
+        }
+        return -i;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static String findAddress(String str) {
+    static String findAddress(String str) {
         Matcher matcher = sHouseNumberRe.matcher(str);
         int i = 0;
         while (matcher.find(i)) {

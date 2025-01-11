@@ -1,6 +1,7 @@
 package javax.jmdns;
 
 import java.util.EventObject;
+
 /* loaded from: classes2.dex */
 public abstract class ServiceEvent extends EventObject implements Cloneable {
     private static final long serialVersionUID = -8558445644541006271L;
@@ -17,6 +18,7 @@ public abstract class ServiceEvent extends EventObject implements Cloneable {
         super(obj);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // 
     public ServiceEvent clone() {
         try {

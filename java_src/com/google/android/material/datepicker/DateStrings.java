@@ -6,13 +6,13 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
+
 /* loaded from: classes.dex */
 class DateStrings {
     private DateStrings() {
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static String getYearMonthDay(long j) {
+    static String getYearMonthDay(long j) {
         return getYearMonthDay(j, Locale.getDefault());
     }
 
@@ -34,8 +34,7 @@ class DateStrings {
         return UtcDates.getMediumNoYear(locale).format(new Date(j));
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static String getMonthDayOfWeekDay(long j) {
+    static String getMonthDayOfWeekDay(long j) {
         return getMonthDayOfWeekDay(j, Locale.getDefault());
     }
 
@@ -46,8 +45,7 @@ class DateStrings {
         return UtcDates.getFullFormat(locale).format(new Date(j));
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static String getYearMonthDayOfWeekDay(long j) {
+    static String getYearMonthDayOfWeekDay(long j) {
         return getYearMonthDayOfWeekDay(j, Locale.getDefault());
     }
 
@@ -58,8 +56,7 @@ class DateStrings {
         return UtcDates.getFullFormat(locale).format(new Date(j));
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static String getDateString(long j) {
+    static String getDateString(long j) {
         return getDateString(j, null);
     }
 
@@ -76,8 +73,7 @@ class DateStrings {
         return getYearMonthDay(j);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static Pair<String, String> getDateRangeString(Long l, Long l2) {
+    static Pair<String, String> getDateRangeString(Long l, Long l2) {
         return getDateRangeString(l, l2, null);
     }
 

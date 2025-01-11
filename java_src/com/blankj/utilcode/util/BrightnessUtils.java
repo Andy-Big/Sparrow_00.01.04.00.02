@@ -4,6 +4,7 @@ import android.content.ContentResolver;
 import android.provider.Settings;
 import android.view.Window;
 import android.view.WindowManager;
+
 /* loaded from: classes.dex */
 public final class BrightnessUtils {
     private BrightnessUtils() {

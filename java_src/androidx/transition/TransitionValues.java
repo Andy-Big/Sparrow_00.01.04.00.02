@@ -4,6 +4,7 @@ import android.view.View;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+
 /* loaded from: classes.dex */
 public class TransitionValues {
     public View view;

@@ -14,6 +14,7 @@ import com.bumptech.glide.load.data.ExifOrientationStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+
 /* loaded from: classes.dex */
 public class ThumbFetcher implements DataFetcher<InputStream> {
     private static final String TAG = "MediaStoreThumbFetcher";

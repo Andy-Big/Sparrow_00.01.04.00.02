@@ -3,9 +3,9 @@ package androidx.constraintlayout.core.widgets.analyzer;
 import androidx.constraintlayout.core.widgets.ConstraintWidgetContainer;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* JADX INFO: Access modifiers changed from: package-private */
+
 /* loaded from: classes.dex */
-public class RunGroup {
+class RunGroup {
     public static final int BASELINE = 2;
     public static final int END = 1;
     public static final int START = 0;

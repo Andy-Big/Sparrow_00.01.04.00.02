@@ -1,4 +1,5 @@
 package androidx.appcompat.app;
+
 /* loaded from: classes.dex */
 class TwilightCalculator {
     private static final float ALTIDUTE_CORRECTION_CIVIL_TWILIGHT = -0.10471976f;
@@ -19,8 +20,7 @@ class TwilightCalculator {
     TwilightCalculator() {
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static TwilightCalculator getInstance() {
+    static TwilightCalculator getInstance() {
         if (sInstance == null) {
             sInstance = new TwilightCalculator();
         }

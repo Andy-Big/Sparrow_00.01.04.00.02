@@ -22,6 +22,7 @@ import androidx.core.internal.view.SupportMenu;
 import androidx.core.view.ViewCompat;
 import java.util.ArrayList;
 import java.util.HashMap;
+
 /* loaded from: classes.dex */
 public class ConstraintLayout extends ViewGroup {
     private static final boolean DEBUG = false;
@@ -215,9 +216,8 @@ public class ConstraintLayout extends ViewGroup {
         this.mChildrenByIds.put(getId(), this);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public class Measurer implements BasicMeasure.Measurer {
+    class Measurer implements BasicMeasure.Measurer {
         ConstraintLayout layout;
         int layoutHeightSpec;
         int layoutWidthSpec;
@@ -985,9 +985,8 @@ public class ConstraintLayout extends ViewGroup {
         this.mLastMeasureHeight = i7;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.view.View
-    public void onMeasure(int i, int i2) {
+    protected void onMeasure(int i, int i2) {
         if (!this.mDirtyHierarchy) {
             int childCount = getChildCount();
             int i3 = 0;
@@ -1104,9 +1103,8 @@ public class ConstraintLayout extends ViewGroup {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.view.ViewGroup, android.view.View
-    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
+    protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         View content;
         int childCount = getChildCount();
         boolean isInEditMode = isInEditMode();
@@ -1143,11 +1141,13 @@ public class ConstraintLayout extends ViewGroup {
         return this.mLayoutWidget.getOptimizationLevel();
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // android.view.ViewGroup
     public LayoutParams generateLayoutParams(AttributeSet attributeSet) {
         return new LayoutParams(getContext(), attributeSet);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.view.ViewGroup
     public LayoutParams generateDefaultLayoutParams() {
@@ -1172,9 +1172,8 @@ public class ConstraintLayout extends ViewGroup {
         return this.mChildrenByIds.get(i);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.view.ViewGroup, android.view.View
-    public void dispatchDraw(Canvas canvas) {
+    protected void dispatchDraw(Canvas canvas) {
         Object tag;
         int size;
         ArrayList<ConstraintHelper> arrayList = this.mConstraintHelpers;
@@ -2423,14 +2422,192 @@ public class ConstraintLayout extends ViewGroup {
         @Override // android.view.ViewGroup.LayoutParams
         /*
             Code decompiled incorrectly, please refer to instructions dump.
-            To view partially-correct add '--show-bad-code' argument
         */
-        public void resolveLayoutDirection(int r6) {
-            /*
-                Method dump skipped, instructions count: 315
-                To view this dump add '--comments-level debug' option
-            */
-            throw new UnsupportedOperationException("Method not decompiled: androidx.constraintlayout.widget.ConstraintLayout.LayoutParams.resolveLayoutDirection(int):void");
+        public void resolveLayoutDirection(int i) {
+            int i2;
+            int i3;
+            int i4;
+            int i5;
+            int i6;
+            int i7;
+            int i8;
+            int i9;
+            float f;
+            boolean z = false;
+            if (Build.VERSION.SDK_INT >= 17) {
+                this.layoutDirection = i;
+                this.isRtl = 1 == i;
+            }
+            int i10 = this.originalLeftMargin;
+            this.leftMargin = i10;
+            int i11 = this.originalRightMargin;
+            this.rightMargin = i11;
+            if (this.isRtl) {
+                this.leftMargin = i11;
+                this.rightMargin = i10;
+                int i12 = this.startMargin;
+                if (i12 != -1) {
+                    this.rightMargin = i12;
+                }
+                int i13 = this.endMargin;
+                if (i13 != -1) {
+                    this.leftMargin = i13;
+                }
+            } else {
+                int i14 = this.startMargin;
+                if (i14 != -1) {
+                    this.leftMargin = i14;
+                }
+                int i15 = this.endMargin;
+                if (i15 != -1) {
+                    this.rightMargin = i15;
+                }
+            }
+            this.resolvedRightToLeft = -1;
+            this.resolvedRightToRight = -1;
+            this.resolvedLeftToLeft = -1;
+            this.resolvedLeftToRight = -1;
+            this.resolveGoneLeftMargin = -1;
+            this.resolveGoneRightMargin = -1;
+            this.resolveGoneLeftMargin = this.goneLeftMargin;
+            this.resolveGoneRightMargin = this.goneRightMargin;
+            this.resolvedHorizontalBias = this.horizontalBias;
+            this.resolvedGuideBegin = this.guideBegin;
+            this.resolvedGuideEnd = this.guideEnd;
+            this.resolvedGuidePercent = this.guidePercent;
+            if (this.isRtl) {
+                int i16 = this.startToEnd;
+                if (i16 != -1) {
+                    this.resolvedRightToLeft = i16;
+                } else {
+                    int i17 = this.startToStart;
+                    if (i17 != -1) {
+                        this.resolvedRightToRight = i17;
+                    }
+                    i6 = this.endToStart;
+                    if (i6 != -1) {
+                        this.resolvedLeftToRight = i6;
+                        z = true;
+                    }
+                    i7 = this.endToEnd;
+                    if (i7 != -1) {
+                        this.resolvedLeftToLeft = i7;
+                        z = true;
+                    }
+                    i8 = this.goneStartMargin;
+                    if (i8 != -1) {
+                        this.resolveGoneRightMargin = i8;
+                    }
+                    i9 = this.goneEndMargin;
+                    if (i9 != -1) {
+                        this.resolveGoneLeftMargin = i9;
+                    }
+                    if (z) {
+                        this.resolvedHorizontalBias = 1.0f - this.horizontalBias;
+                    }
+                    if (this.isGuideline && this.orientation == 1) {
+                        f = this.guidePercent;
+                        if (f == -1.0f) {
+                            this.resolvedGuidePercent = 1.0f - f;
+                            this.resolvedGuideBegin = -1;
+                            this.resolvedGuideEnd = -1;
+                        } else {
+                            int i18 = this.guideBegin;
+                            if (i18 != -1) {
+                                this.resolvedGuideEnd = i18;
+                                this.resolvedGuideBegin = -1;
+                                this.resolvedGuidePercent = -1.0f;
+                            } else {
+                                int i19 = this.guideEnd;
+                                if (i19 != -1) {
+                                    this.resolvedGuideBegin = i19;
+                                    this.resolvedGuideEnd = -1;
+                                    this.resolvedGuidePercent = -1.0f;
+                                }
+                            }
+                        }
+                    }
+                }
+                z = true;
+                i6 = this.endToStart;
+                if (i6 != -1) {
+                }
+                i7 = this.endToEnd;
+                if (i7 != -1) {
+                }
+                i8 = this.goneStartMargin;
+                if (i8 != -1) {
+                }
+                i9 = this.goneEndMargin;
+                if (i9 != -1) {
+                }
+                if (z) {
+                }
+                if (this.isGuideline) {
+                    f = this.guidePercent;
+                    if (f == -1.0f) {
+                    }
+                }
+            } else {
+                int i20 = this.startToEnd;
+                if (i20 != -1) {
+                    this.resolvedLeftToRight = i20;
+                }
+                int i21 = this.startToStart;
+                if (i21 != -1) {
+                    this.resolvedLeftToLeft = i21;
+                }
+                int i22 = this.endToStart;
+                if (i22 != -1) {
+                    this.resolvedRightToLeft = i22;
+                }
+                int i23 = this.endToEnd;
+                if (i23 != -1) {
+                    this.resolvedRightToRight = i23;
+                }
+                int i24 = this.goneStartMargin;
+                if (i24 != -1) {
+                    this.resolveGoneLeftMargin = i24;
+                }
+                int i25 = this.goneEndMargin;
+                if (i25 != -1) {
+                    this.resolveGoneRightMargin = i25;
+                }
+            }
+            if (this.endToStart == -1 && this.endToEnd == -1 && this.startToStart == -1 && this.startToEnd == -1) {
+                int i26 = this.rightToLeft;
+                if (i26 != -1) {
+                    this.resolvedRightToLeft = i26;
+                    if (this.rightMargin <= 0 && (i5 = this.originalRightMargin) > 0) {
+                        this.rightMargin = i5;
+                    }
+                } else {
+                    int i27 = this.rightToRight;
+                    if (i27 != -1) {
+                        this.resolvedRightToRight = i27;
+                        if (this.rightMargin <= 0 && (i2 = this.originalRightMargin) > 0) {
+                            this.rightMargin = i2;
+                        }
+                    }
+                }
+                int i28 = this.leftToLeft;
+                if (i28 != -1) {
+                    this.resolvedLeftToLeft = i28;
+                    if (this.leftMargin > 0 || (i4 = this.originalLeftMargin) <= 0) {
+                        return;
+                    }
+                    this.leftMargin = i4;
+                    return;
+                }
+                int i29 = this.leftToRight;
+                if (i29 != -1) {
+                    this.resolvedLeftToRight = i29;
+                    if (this.leftMargin > 0 || (i3 = this.originalLeftMargin) <= 0) {
+                        return;
+                    }
+                    this.leftMargin = i3;
+                }
+            }
         }
 
         public String getConstraintTag() {

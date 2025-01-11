@@ -8,6 +8,7 @@ import java.util.Hashtable;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.TreeMap;
+
 /* loaded from: classes.dex */
 public class MapUtils {
 
@@ -30,6 +31,7 @@ public class MapUtils {
         return Collections.unmodifiableMap(newHashMap(pairArr));
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: java.util.HashMap<K, V> */
     /* JADX WARN: Multi-variable type inference failed */
     @SafeVarargs
     public static <K, V> HashMap<K, V> newHashMap(Pair<K, V>... pairArr) {
@@ -44,6 +46,7 @@ public class MapUtils {
         return hashMap;
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: java.util.LinkedHashMap<K, V> */
     /* JADX WARN: Multi-variable type inference failed */
     @SafeVarargs
     public static <K, V> LinkedHashMap<K, V> newLinkedHashMap(Pair<K, V>... pairArr) {
@@ -58,6 +61,7 @@ public class MapUtils {
         return linkedHashMap;
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: java.util.TreeMap<K, V> */
     /* JADX WARN: Multi-variable type inference failed */
     @SafeVarargs
     public static <K, V> TreeMap<K, V> newTreeMap(Comparator<K> comparator, Pair<K, V>... pairArr) {
@@ -75,6 +79,7 @@ public class MapUtils {
         return treeMap;
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: java.util.Hashtable<K, V> */
     /* JADX WARN: Multi-variable type inference failed */
     @SafeVarargs
     public static <K, V> Hashtable<K, V> newHashTable(Pair<K, V>... pairArr) {

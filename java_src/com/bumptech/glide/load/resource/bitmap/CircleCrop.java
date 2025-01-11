@@ -3,6 +3,7 @@ package com.bumptech.glide.load.resource.bitmap;
 import android.graphics.Bitmap;
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
 import java.security.MessageDigest;
+
 /* loaded from: classes.dex */
 public class CircleCrop extends BitmapTransformation {
     private static final String ID = "com.bumptech.glide.load.resource.bitmap.CircleCrop.1";

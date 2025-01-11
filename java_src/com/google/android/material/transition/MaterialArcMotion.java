@@ -3,6 +3,7 @@ package com.google.android.material.transition;
 import android.graphics.Path;
 import android.graphics.PointF;
 import androidx.transition.PathMotion;
+
 /* loaded from: classes.dex */
 public final class MaterialArcMotion extends PathMotion {
     @Override // androidx.transition.PathMotion

@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.NavigableMap;
 import java.util.TreeMap;
+
 /* loaded from: classes.dex */
 public final class LruArrayPool implements ArrayPool {
     private static final int DEFAULT_SIZE = 4194304;
@@ -198,9 +199,8 @@ public final class LruArrayPool implements ArrayPool {
         return i;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static final class KeyPool extends BaseKeyPool<Key> {
+    private static final class KeyPool extends BaseKeyPool<Key> {
         KeyPool() {
         }
 
@@ -210,6 +210,7 @@ public final class LruArrayPool implements ArrayPool {
             return key;
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // com.bumptech.glide.load.engine.bitmap_recycle.BaseKeyPool
@@ -218,9 +219,8 @@ public final class LruArrayPool implements ArrayPool {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static final class Key implements Poolable {
+    private static final class Key implements Poolable {
         private Class<?> arrayClass;
         private final KeyPool pool;
         int size;

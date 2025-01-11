@@ -12,6 +12,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.view.accessibility.AccessibilityEvent;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public class WindowCallbackWrapper implements Window.Callback {
     final Window.Callback mWrapped;

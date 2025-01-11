@@ -1,6 +1,7 @@
 package androidx.core.database;
 
 import android.text.TextUtils;
+
 @Deprecated
 /* loaded from: classes.dex */
 public final class DatabaseUtilsCompat {

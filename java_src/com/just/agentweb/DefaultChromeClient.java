@@ -19,6 +19,7 @@ import com.just.agentweb.ActionActivity;
 import java.lang.ref.WeakReference;
 import java.util.Arrays;
 import java.util.List;
+
 /* loaded from: classes.dex */
 public class DefaultChromeClient extends MiddlewareWebChromeBase {
     public static final String ANDROID_WEBCHROMECLIENT_PATH = "android.webkit.WebChromeClient";
@@ -38,8 +39,7 @@ public class DefaultChromeClient extends MiddlewareWebChromeBase {
     private android.webkit.WebChromeClient mWebChromeClient;
     private WebView mWebView;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public DefaultChromeClient(Activity activity, IndicatorController indicatorController, android.webkit.WebChromeClient webChromeClient, IVideo iVideo, PermissionInterceptor permissionInterceptor, WebView webView) {
+    DefaultChromeClient(Activity activity, IndicatorController indicatorController, android.webkit.WebChromeClient webChromeClient, IVideo iVideo, PermissionInterceptor permissionInterceptor, WebView webView) {
         super(webChromeClient);
         this.mActivityWeakReference = null;
         this.TAG = DefaultChromeClient.class.getSimpleName();

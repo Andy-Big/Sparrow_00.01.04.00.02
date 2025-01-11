@@ -3,6 +3,7 @@ package androidx.databinding.adapters;
 import android.util.SparseBooleanArray;
 import android.widget.TableLayout;
 import java.util.regex.Pattern;
+
 /* loaded from: classes.dex */
 public class TableLayoutBindingAdapter {
     private static final int MAX_COLUMNS = 20;

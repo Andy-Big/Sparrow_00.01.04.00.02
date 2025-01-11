@@ -19,6 +19,7 @@ import androidx.core.view.ViewCompat;
 import androidx.interpolator.view.animation.FastOutSlowInInterpolator;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
+
 /* loaded from: classes.dex */
 public class CircularProgressDrawable extends Drawable implements Animatable {
     private static final int ANIMATION_DURATION = 1332;
@@ -344,9 +345,8 @@ public class CircularProgressDrawable extends Drawable implements Animatable {
         this.mAnimator = ofFloat;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static class Ring {
+    private static class Ring {
         Path mArrow;
         int mArrowHeight;
         int mArrowWidth;

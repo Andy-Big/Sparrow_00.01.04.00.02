@@ -27,7 +27,9 @@ import androidx.core.view.MenuItemCompat;
 import java.io.IOException;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
+import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
+
 /* loaded from: classes.dex */
 public class SupportMenuInflater extends MenuInflater {
     static final Class<?>[] ACTION_PROVIDER_CONSTRUCTOR_SIGNATURE;
@@ -68,10 +70,10 @@ public class SupportMenuInflater extends MenuInflater {
                 try {
                     xmlResourceParser = this.mContext.getResources().getLayout(i);
                     parseMenu(xmlResourceParser, Xml.asAttributeSet(xmlResourceParser), menu);
-                } catch (XmlPullParserException e) {
+                } catch (IOException e) {
                     throw new InflateException("Error inflating menu XML", e);
                 }
-            } catch (IOException e2) {
+            } catch (XmlPullParserException e2) {
                 throw new InflateException("Error inflating menu XML", e2);
             }
         } finally {
@@ -180,120 +182,25 @@ public class SupportMenuInflater extends MenuInflater {
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct add '--show-bad-code' argument
     */
-    private void parseMenu(org.xmlpull.v1.XmlPullParser r13, android.util.AttributeSet r14, android.view.Menu r15) throws org.xmlpull.v1.XmlPullParserException, java.io.IOException {
-        /*
-            r12 = this;
-            androidx.appcompat.view.SupportMenuInflater$MenuState r0 = new androidx.appcompat.view.SupportMenuInflater$MenuState
-            r0.<init>(r15)
-            int r15 = r13.getEventType()
-        L9:
-            r1 = 2
-            java.lang.String r2 = "menu"
-            r3 = 1
-            if (r15 != r1) goto L35
-            java.lang.String r15 = r13.getName()
-            boolean r4 = r15.equals(r2)
-            if (r4 == 0) goto L1e
-            int r15 = r13.next()
-            goto L3b
-        L1e:
-            java.lang.RuntimeException r13 = new java.lang.RuntimeException
-            java.lang.StringBuilder r14 = new java.lang.StringBuilder
-            r14.<init>()
-            java.lang.String r0 = "Expecting menu, got "
-            r14.append(r0)
-            r14.append(r15)
-            java.lang.String r14 = r14.toString()
-            r13.<init>(r14)
-            throw r13
-        L35:
-            int r15 = r13.next()
-            if (r15 != r3) goto L9
-        L3b:
-            r4 = 0
-            r5 = 0
-            r8 = r4
-            r6 = r5
-            r7 = r6
-        L40:
-            if (r6 != 0) goto Lca
-            if (r15 == r3) goto Lc2
-            java.lang.String r9 = "item"
-            java.lang.String r10 = "group"
-            if (r15 == r1) goto L91
-            r11 = 3
-            if (r15 == r11) goto L4f
-            goto Lbc
-        L4f:
-            java.lang.String r15 = r13.getName()
-            if (r7 == 0) goto L5f
-            boolean r11 = r15.equals(r8)
-            if (r11 == 0) goto L5f
-            r8 = r4
-            r7 = r5
-            goto Lbc
-        L5f:
-            boolean r10 = r15.equals(r10)
-            if (r10 == 0) goto L69
-            r0.resetGroup()
-            goto Lbc
-        L69:
-            boolean r9 = r15.equals(r9)
-            if (r9 == 0) goto L89
-            boolean r15 = r0.hasAddedItem()
-            if (r15 != 0) goto Lbc
-            androidx.core.view.ActionProvider r15 = r0.itemActionProvider
-            if (r15 == 0) goto L85
-            androidx.core.view.ActionProvider r15 = r0.itemActionProvider
-            boolean r15 = r15.hasSubMenu()
-            if (r15 == 0) goto L85
-            r0.addSubMenuItem()
-            goto Lbc
-        L85:
-            r0.addItem()
-            goto Lbc
-        L89:
-            boolean r15 = r15.equals(r2)
-            if (r15 == 0) goto Lbc
-            r6 = r3
-            goto Lbc
-        L91:
-            if (r7 == 0) goto L94
-            goto Lbc
-        L94:
-            java.lang.String r15 = r13.getName()
-            boolean r10 = r15.equals(r10)
-            if (r10 == 0) goto La2
-            r0.readGroup(r14)
-            goto Lbc
-        La2:
-            boolean r9 = r15.equals(r9)
-            if (r9 == 0) goto Lac
-            r0.readItem(r14)
-            goto Lbc
-        Lac:
-            boolean r9 = r15.equals(r2)
-            if (r9 == 0) goto Lba
-            android.view.SubMenu r15 = r0.addSubMenuItem()
-            r12.parseMenu(r13, r14, r15)
-            goto Lbc
-        Lba:
-            r8 = r15
-            r7 = r3
-        Lbc:
-            int r15 = r13.next()
-            goto L40
-        Lc2:
-            java.lang.RuntimeException r13 = new java.lang.RuntimeException
-            java.lang.String r14 = "Unexpected end of document"
-            r13.<init>(r14)
-            throw r13
-        Lca:
-            return
-        */
-        throw new UnsupportedOperationException("Method not decompiled: androidx.appcompat.view.SupportMenuInflater.parseMenu(org.xmlpull.v1.XmlPullParser, android.util.AttributeSet, android.view.Menu):void");
+    private void parseMenu(XmlPullParser xmlPullParser, AttributeSet attributeSet, Menu menu) throws XmlPullParserException, IOException {
+        MenuState menuState = new MenuState(menu);
+        int eventType = xmlPullParser.getEventType();
+        while (true) {
+            if (eventType == 2) {
+                String name = xmlPullParser.getName();
+                if (name.equals(XML_MENU)) {
+                    eventType = xmlPullParser.next();
+                } else {
+                    throw new RuntimeException("Expecting menu, got " + name);
+                }
+            } else {
+                eventType = xmlPullParser.next();
+                if (eventType == 1) {
+                    break;
+                }
+            }
+        }
     }
 
     Object getRealOwner() {
@@ -307,9 +214,8 @@ public class SupportMenuInflater extends MenuInflater {
         return (!(obj instanceof Activity) && (obj instanceof ContextWrapper)) ? findRealOwner(((ContextWrapper) obj).getBaseContext()) : obj;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static class InflatedOnMenuItemClickListener implements MenuItem.OnMenuItemClickListener {
+    private static class InflatedOnMenuItemClickListener implements MenuItem.OnMenuItemClickListener {
         private static final Class<?>[] PARAM_TYPES = {MenuItem.class};
         private Method mMethod;
         private Object mRealOwner;
@@ -340,9 +246,8 @@ public class SupportMenuInflater extends MenuInflater {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public class MenuState {
+    private class MenuState {
         private static final int defaultGroupId = 0;
         private static final int defaultItemCategory = 0;
         private static final int defaultItemCheckable = 0;

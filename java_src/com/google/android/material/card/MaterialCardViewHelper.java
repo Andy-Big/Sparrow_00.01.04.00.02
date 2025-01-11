@@ -22,9 +22,9 @@ import com.google.android.material.shape.CutCornerTreatment;
 import com.google.android.material.shape.MaterialShapeDrawable;
 import com.google.android.material.shape.RoundedCornerTreatment;
 import com.google.android.material.shape.ShapeAppearanceModel;
-/* JADX INFO: Access modifiers changed from: package-private */
+
 /* loaded from: classes.dex */
-public class MaterialCardViewHelper {
+class MaterialCardViewHelper {
     private static final float CARD_VIEW_SHADOW_MULTIPLIER = 1.5f;
     private static final int CHECKED_ICON_LAYER_INDEX = 2;
     private static final int[] CHECKED_STATE_SET = {16842912};
@@ -69,8 +69,7 @@ public class MaterialCardViewHelper {
         obtainStyledAttributes.recycle();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void loadFromAttributes(TypedArray typedArray) {
+    void loadFromAttributes(TypedArray typedArray) {
         ColorStateList colorStateList = MaterialResources.getColorStateList(this.materialCardView.getContext(), typedArray, R.styleable.MaterialCardView_strokeColor);
         this.strokeColor = colorStateList;
         if (colorStateList == null) {
@@ -97,18 +96,15 @@ public class MaterialCardViewHelper {
         this.materialCardView.setForeground(insetDrawable(clickableForeground));
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean isBackgroundOverwritten() {
+    boolean isBackgroundOverwritten() {
         return this.isBackgroundOverwritten;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setBackgroundOverwritten(boolean z) {
+    void setBackgroundOverwritten(boolean z) {
         this.isBackgroundOverwritten = z;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setStrokeColor(ColorStateList colorStateList) {
+    void setStrokeColor(ColorStateList colorStateList) {
         if (this.strokeColor == colorStateList) {
             return;
         }
@@ -116,8 +112,7 @@ public class MaterialCardViewHelper {
         updateStroke();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public int getStrokeColor() {
+    int getStrokeColor() {
         ColorStateList colorStateList = this.strokeColor;
         if (colorStateList == null) {
             return -1;
@@ -125,13 +120,11 @@ public class MaterialCardViewHelper {
         return colorStateList.getDefaultColor();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ColorStateList getStrokeColorStateList() {
+    ColorStateList getStrokeColorStateList() {
         return this.strokeColor;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setStrokeWidth(int i) {
+    void setStrokeWidth(int i) {
         if (i == this.strokeWidth) {
             return;
         }
@@ -139,28 +132,23 @@ public class MaterialCardViewHelper {
         updateStroke();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public int getStrokeWidth() {
+    int getStrokeWidth() {
         return this.strokeWidth;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public MaterialShapeDrawable getBackground() {
+    MaterialShapeDrawable getBackground() {
         return this.bgDrawable;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setCardBackgroundColor(ColorStateList colorStateList) {
+    void setCardBackgroundColor(ColorStateList colorStateList) {
         this.bgDrawable.setFillColor(colorStateList);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ColorStateList getCardBackgroundColor() {
+    ColorStateList getCardBackgroundColor() {
         return this.bgDrawable.getFillColor();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setCardForegroundColor(ColorStateList colorStateList) {
+    void setCardForegroundColor(ColorStateList colorStateList) {
         MaterialShapeDrawable materialShapeDrawable = this.foregroundContentDrawable;
         if (colorStateList == null) {
             colorStateList = ColorStateList.valueOf(0);
@@ -168,24 +156,20 @@ public class MaterialCardViewHelper {
         materialShapeDrawable.setFillColor(colorStateList);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ColorStateList getCardForegroundColor() {
+    ColorStateList getCardForegroundColor() {
         return this.foregroundContentDrawable.getFillColor();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setUserContentPadding(int i, int i2, int i3, int i4) {
+    void setUserContentPadding(int i, int i2, int i3, int i4) {
         this.userContentPadding.set(i, i2, i3, i4);
         updateContentPadding();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public Rect getUserContentPadding() {
+    Rect getUserContentPadding() {
         return this.userContentPadding;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void updateClickable() {
+    void updateClickable() {
         Drawable drawable = this.fgDrawable;
         Drawable clickableForeground = this.materialCardView.isClickable() ? getClickableForeground() : this.foregroundContentDrawable;
         this.fgDrawable = clickableForeground;
@@ -194,8 +178,7 @@ public class MaterialCardViewHelper {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setCornerRadius(float f) {
+    void setCornerRadius(float f) {
         setShapeAppearanceModel(this.shapeAppearanceModel.withCornerSize(f));
         this.fgDrawable.invalidateSelf();
         if (shouldAddCornerPaddingOutsideCardBackground() || shouldAddCornerPaddingInsideCardBackground()) {
@@ -206,13 +189,11 @@ public class MaterialCardViewHelper {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public float getCornerRadius() {
+    float getCornerRadius() {
         return this.bgDrawable.getTopLeftCornerResolvedSize();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setProgress(float f) {
+    void setProgress(float f) {
         this.bgDrawable.setInterpolation(f);
         MaterialShapeDrawable materialShapeDrawable = this.foregroundContentDrawable;
         if (materialShapeDrawable != null) {
@@ -224,18 +205,15 @@ public class MaterialCardViewHelper {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public float getProgress() {
+    float getProgress() {
         return this.bgDrawable.getInterpolation();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void updateElevation() {
+    void updateElevation() {
         this.bgDrawable.setElevation(this.materialCardView.getCardElevation());
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void updateInsets() {
+    void updateInsets() {
         if (!isBackgroundOverwritten()) {
             this.materialCardView.setBackgroundInternal(insetDrawable(this.bgDrawable));
         }
@@ -246,30 +224,25 @@ public class MaterialCardViewHelper {
         this.foregroundContentDrawable.setStroke(this.strokeWidth, this.strokeColor);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void updateContentPadding() {
+    void updateContentPadding() {
         int calculateActualCornerPadding = (int) ((shouldAddCornerPaddingInsideCardBackground() || shouldAddCornerPaddingOutsideCardBackground() ? calculateActualCornerPadding() : 0.0f) - getParentCardViewCalculatedCornerPadding());
         this.materialCardView.setAncestorContentPadding(this.userContentPadding.left + calculateActualCornerPadding, this.userContentPadding.top + calculateActualCornerPadding, this.userContentPadding.right + calculateActualCornerPadding, this.userContentPadding.bottom + calculateActualCornerPadding);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setCheckable(boolean z) {
+    void setCheckable(boolean z) {
         this.checkable = z;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean isCheckable() {
+    boolean isCheckable() {
         return this.checkable;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setRippleColor(ColorStateList colorStateList) {
+    void setRippleColor(ColorStateList colorStateList) {
         this.rippleColor = colorStateList;
         updateRippleColor();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setCheckedIconTint(ColorStateList colorStateList) {
+    void setCheckedIconTint(ColorStateList colorStateList) {
         this.checkedIconTint = colorStateList;
         Drawable drawable = this.checkedIcon;
         if (drawable != null) {
@@ -277,23 +250,19 @@ public class MaterialCardViewHelper {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ColorStateList getCheckedIconTint() {
+    ColorStateList getCheckedIconTint() {
         return this.checkedIconTint;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ColorStateList getRippleColor() {
+    ColorStateList getRippleColor() {
         return this.rippleColor;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public Drawable getCheckedIcon() {
+    Drawable getCheckedIcon() {
         return this.checkedIcon;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setCheckedIcon(Drawable drawable) {
+    void setCheckedIcon(Drawable drawable) {
         this.checkedIcon = drawable;
         if (drawable != null) {
             Drawable wrap = DrawableCompat.wrap(drawable.mutate());
@@ -305,8 +274,7 @@ public class MaterialCardViewHelper {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void onMeasure(int i, int i2) {
+    void onMeasure(int i, int i2) {
         int i3;
         int i4;
         if (this.clickableForegroundDrawable != null) {
@@ -331,8 +299,7 @@ public class MaterialCardViewHelper {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void forceRippleRedraw() {
+    void forceRippleRedraw() {
         Drawable drawable = this.rippleDrawable;
         if (drawable != null) {
             Rect bounds = drawable.getBounds();
@@ -342,8 +309,7 @@ public class MaterialCardViewHelper {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setShapeAppearanceModel(ShapeAppearanceModel shapeAppearanceModel) {
+    void setShapeAppearanceModel(ShapeAppearanceModel shapeAppearanceModel) {
         this.shapeAppearanceModel = shapeAppearanceModel;
         this.bgDrawable.setShapeAppearanceModel(shapeAppearanceModel);
         MaterialShapeDrawable materialShapeDrawable = this.bgDrawable;
@@ -362,8 +328,7 @@ public class MaterialCardViewHelper {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ShapeAppearanceModel getShapeAppearanceModel() {
+    ShapeAppearanceModel getShapeAppearanceModel() {
         return this.shapeAppearanceModel;
     }
 

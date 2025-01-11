@@ -11,14 +11,14 @@ import java.util.List;
 import java.util.NoSuchElementException;
 import javax.mail.Header;
 import javax.mail.MessagingException;
+
 /* loaded from: classes2.dex */
 public class InternetHeaders {
     private static final boolean ignoreWhitespaceLines = PropUtil.getBooleanSystemProperty("mail.mime.ignorewhitespacelines", false);
     protected List<InternetHeader> headers;
 
-    /* JADX INFO: Access modifiers changed from: protected */
     /* loaded from: classes2.dex */
-    public static final class InternetHeader extends Header {
+    protected static final class InternetHeader extends Header {
         String line;
 
         public InternetHeader(String str) {
@@ -58,9 +58,8 @@ public class InternetHeaders {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
-    public static class MatchEnum {
+    static class MatchEnum {
         private Iterator<InternetHeader> e;
         private boolean match;
         private String[] names;
@@ -125,13 +124,13 @@ public class InternetHeaders {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
-    public static class MatchStringEnum extends MatchEnum implements Enumeration<String> {
+    static class MatchStringEnum extends MatchEnum implements Enumeration<String> {
         MatchStringEnum(List<InternetHeader> list, String[] strArr, boolean z) {
             super(list, strArr, z, true);
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // javax.mail.internet.InternetHeaders.MatchEnum, java.util.Enumeration
         public String nextElement() {
             return (String) super.nextElement();
@@ -144,6 +143,7 @@ public class InternetHeaders {
             super(list, strArr, z, false);
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // javax.mail.internet.InternetHeaders.MatchEnum, java.util.Enumeration
         public Header nextElement() {
             return (Header) super.nextElement();

@@ -15,6 +15,7 @@ import android.os.IBinder;
 import android.os.PowerManager;
 import java.util.ArrayList;
 import java.util.HashMap;
+
 /* loaded from: classes.dex */
 public abstract class JobIntentService extends Service {
     static final boolean DEBUG = false;
@@ -29,17 +30,15 @@ public abstract class JobIntentService extends Service {
     boolean mStopped = false;
     boolean mDestroyed = false;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public interface CompatJobEngine {
+    interface CompatJobEngine {
         IBinder compatGetBinder();
 
         GenericWorkItem dequeueWork();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public interface GenericWorkItem {
+    interface GenericWorkItem {
         void complete();
 
         Intent getIntent();
@@ -51,9 +50,8 @@ public abstract class JobIntentService extends Service {
         return true;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static abstract class WorkEnqueuer {
+    static abstract class WorkEnqueuer {
         final ComponentName mComponentName;
         boolean mHasJobId;
         int mJobId;
@@ -84,9 +82,8 @@ public abstract class JobIntentService extends Service {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static final class CompatWorkEnqueuer extends WorkEnqueuer {
+    static final class CompatWorkEnqueuer extends WorkEnqueuer {
         private final Context mContext;
         private final PowerManager.WakeLock mLaunchWakeLock;
         boolean mLaunchingService;
@@ -227,9 +224,8 @@ public abstract class JobIntentService extends Service {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static final class JobWorkEnqueuer extends WorkEnqueuer {
+    static final class JobWorkEnqueuer extends WorkEnqueuer {
         private final JobInfo mJobInfo;
         private final JobScheduler mJobScheduler;
 
@@ -246,9 +242,8 @@ public abstract class JobIntentService extends Service {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public final class CompatWorkItem implements GenericWorkItem {
+    final class CompatWorkItem implements GenericWorkItem {
         final Intent mIntent;
         final int mStartId;
 
@@ -268,12 +263,12 @@ public abstract class JobIntentService extends Service {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public final class CommandProcessor extends AsyncTask<Void, Void, Void> {
+    final class CommandProcessor extends AsyncTask<Void, Void, Void> {
         CommandProcessor() {
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // android.os.AsyncTask
         public Void doInBackground(Void... voidArr) {
@@ -287,12 +282,14 @@ public abstract class JobIntentService extends Service {
             }
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // android.os.AsyncTask
         public void onCancelled(Void r1) {
             JobIntentService.this.processorFinished();
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // android.os.AsyncTask
         public void onPostExecute(Void r1) {
