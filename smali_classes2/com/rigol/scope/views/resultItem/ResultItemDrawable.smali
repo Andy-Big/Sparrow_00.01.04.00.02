@@ -32,12 +32,12 @@
     .line 58
     invoke-direct {p0}, Landroid/graphics/drawable/Drawable;-><init>()V
 
-    const/16 v0, 0x1e
+    const/16 v0, 0x11
 
     .line 49
     iput v0, p0, Lcom/rigol/scope/views/resultItem/ResultItemDrawable;->mTopHeight:I
 
-    const/4 v0, 0x7
+    const/4 v0, 0x4
 
     .line 54
     iput v0, p0, Lcom/rigol/scope/views/resultItem/ResultItemDrawable;->mRadius:I
@@ -90,7 +90,7 @@
     .line 71
     iget-object v0, p0, Lcom/rigol/scope/views/resultItem/ResultItemDrawable;->normalPaint:Landroid/graphics/Paint;
 
-    const/high16 v2, 0x40000000    # 2.0f
+    const/high16 v2, 0x3f800000    # 1.0f
 
     invoke-virtual {v0, v2}, Landroid/graphics/Paint;->setStrokeWidth(F)V
 
@@ -148,10 +148,6 @@
 
     iget v3, v0, Lcom/rigol/scope/views/resultItem/ResultItemDrawable;->mTopWidth:I
 
-    sub-int/2addr v2, v3
-
-    sub-int/2addr v1, v2
-
     .line 87
     iget v2, v0, Lcom/rigol/scope/views/resultItem/ResultItemDrawable;->currentState:I
 
@@ -202,11 +198,11 @@
 
     iget v2, v2, Landroid/graphics/Rect;->left:I
 
-    add-int/lit8 v2, v2, 0x3
+    add-int/lit8 v2, v2, 0x2
 
     int-to-float v5, v2
 
-    const/high16 v6, 0x40400000    # 3.0f
+    const/high16 v6, 0x40000000    # 2.0f
 
     add-int/lit8 v1, v1, -0x2
 
@@ -215,6 +211,8 @@
     iget-object v1, v0, Lcom/rigol/scope/views/resultItem/ResultItemDrawable;->mBounds:Landroid/graphics/Rect;
 
     iget v1, v1, Landroid/graphics/Rect;->bottom:I
+
+    add-int/lit8 v1, v1, -0x2
 
     int-to-float v8, v1
 
@@ -231,6 +229,8 @@
     iget-object v11, v0, Lcom/rigol/scope/views/resultItem/ResultItemDrawable;->normalPaint:Landroid/graphics/Paint;
 
     invoke-virtual/range {v4 .. v11}, Landroid/graphics/Canvas;->drawRoundRect(FFFFFFLandroid/graphics/Paint;)V
+
+    goto/16 :goto_0
 
     .line 100
     iget-object v1, v0, Lcom/rigol/scope/views/resultItem/ResultItemDrawable;->mBounds:Landroid/graphics/Rect;
@@ -345,6 +345,8 @@
 
     iget v2, v0, Lcom/rigol/scope/views/resultItem/ResultItemDrawable;->mTopWidth:I
 
+    const/16 v2, 0x78
+
     add-int/lit8 v2, v2, -0x2
 
     int-to-float v5, v2
@@ -386,6 +388,8 @@
     move-object/from16 v8, p1
 
     invoke-virtual/range {v8 .. v15}, Landroid/graphics/Canvas;->drawRoundRect(FFFFFFLandroid/graphics/Paint;)V
+
+    goto :goto_0
 
     .line 117
     iget-object v1, v0, Lcom/rigol/scope/views/resultItem/ResultItemDrawable;->mBounds:Landroid/graphics/Rect;

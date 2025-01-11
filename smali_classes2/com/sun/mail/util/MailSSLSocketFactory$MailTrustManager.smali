@@ -87,82 +87,102 @@
 
 # virtual methods
 .method public checkClientTrusted([Ljava/security/cert/X509Certificate;Ljava/lang/String;)V
-    .locals 1
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/security/cert/CertificateException;
-        }
-    .end annotation
-
-    .line 332
-    iget-object v0, p0, Lcom/sun/mail/util/MailSSLSocketFactory$MailTrustManager;->this$0:Lcom/sun/mail/util/MailSSLSocketFactory;
-
-    invoke-virtual {v0}, Lcom/sun/mail/util/MailSSLSocketFactory;->isTrustAllHosts()Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    iget-object v0, p0, Lcom/sun/mail/util/MailSSLSocketFactory$MailTrustManager;->this$0:Lcom/sun/mail/util/MailSSLSocketFactory;
-
-    invoke-virtual {v0}, Lcom/sun/mail/util/MailSSLSocketFactory;->getTrustedHosts()[Ljava/lang/String;
-
-    move-result-object v0
-
-    if-nez v0, :cond_0
-
-    .line 333
-    iget-object v0, p0, Lcom/sun/mail/util/MailSSLSocketFactory$MailTrustManager;->adapteeTrustManager:Ljavax/net/ssl/X509TrustManager;
-
-    invoke-interface {v0, p1, p2}, Ljavax/net/ssl/X509TrustManager;->checkClientTrusted([Ljava/security/cert/X509Certificate;Ljava/lang/String;)V
-
-    :cond_0
+    # inserted by apk-mitm to disable certificate pinning
+    .locals 0
     return-void
+
+    # commented out by apk-mitm to disable old method body
+    #
+    # .locals 1
+    # .annotation system Ldalvik/annotation/Throws;
+    #     value = {
+    #         Ljava/security/cert/CertificateException;
+    #     }
+    # .end annotation
+    #
+    # .line 332
+    # iget-object v0, p0, Lcom/sun/mail/util/MailSSLSocketFactory$MailTrustManager;->this$0:Lcom/sun/mail/util/MailSSLSocketFactory;
+    #
+    # invoke-virtual {v0}, Lcom/sun/mail/util/MailSSLSocketFactory;->isTrustAllHosts()Z
+    #
+    # move-result v0
+    #
+    # if-nez v0, :cond_0
+    #
+    # iget-object v0, p0, Lcom/sun/mail/util/MailSSLSocketFactory$MailTrustManager;->this$0:Lcom/sun/mail/util/MailSSLSocketFactory;
+    #
+    # invoke-virtual {v0}, Lcom/sun/mail/util/MailSSLSocketFactory;->getTrustedHosts()[Ljava/lang/String;
+    #
+    # move-result-object v0
+    #
+    # if-nez v0, :cond_0
+    #
+    # .line 333
+    # iget-object v0, p0, Lcom/sun/mail/util/MailSSLSocketFactory$MailTrustManager;->adapteeTrustManager:Ljavax/net/ssl/X509TrustManager;
+    #
+    # invoke-interface {v0, p1, p2}, Ljavax/net/ssl/X509TrustManager;->checkClientTrusted([Ljava/security/cert/X509Certificate;Ljava/lang/String;)V
+    #
+    # :cond_0
+    # return-void
 .end method
 
 .method public checkServerTrusted([Ljava/security/cert/X509Certificate;Ljava/lang/String;)V
-    .locals 1
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/security/cert/CertificateException;
-        }
-    .end annotation
-
-    .line 344
-    iget-object v0, p0, Lcom/sun/mail/util/MailSSLSocketFactory$MailTrustManager;->this$0:Lcom/sun/mail/util/MailSSLSocketFactory;
-
-    invoke-virtual {v0}, Lcom/sun/mail/util/MailSSLSocketFactory;->isTrustAllHosts()Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    iget-object v0, p0, Lcom/sun/mail/util/MailSSLSocketFactory$MailTrustManager;->this$0:Lcom/sun/mail/util/MailSSLSocketFactory;
-
-    invoke-virtual {v0}, Lcom/sun/mail/util/MailSSLSocketFactory;->getTrustedHosts()[Ljava/lang/String;
-
-    move-result-object v0
-
-    if-nez v0, :cond_0
-
-    .line 345
-    iget-object v0, p0, Lcom/sun/mail/util/MailSSLSocketFactory$MailTrustManager;->adapteeTrustManager:Ljavax/net/ssl/X509TrustManager;
-
-    invoke-interface {v0, p1, p2}, Ljavax/net/ssl/X509TrustManager;->checkServerTrusted([Ljava/security/cert/X509Certificate;Ljava/lang/String;)V
-
-    :cond_0
+    # inserted by apk-mitm to disable certificate pinning
+    .locals 0
     return-void
+
+    # commented out by apk-mitm to disable old method body
+    #
+    # .locals 1
+    # .annotation system Ldalvik/annotation/Throws;
+    #     value = {
+    #         Ljava/security/cert/CertificateException;
+    #     }
+    # .end annotation
+    #
+    # .line 344
+    # iget-object v0, p0, Lcom/sun/mail/util/MailSSLSocketFactory$MailTrustManager;->this$0:Lcom/sun/mail/util/MailSSLSocketFactory;
+    #
+    # invoke-virtual {v0}, Lcom/sun/mail/util/MailSSLSocketFactory;->isTrustAllHosts()Z
+    #
+    # move-result v0
+    #
+    # if-nez v0, :cond_0
+    #
+    # iget-object v0, p0, Lcom/sun/mail/util/MailSSLSocketFactory$MailTrustManager;->this$0:Lcom/sun/mail/util/MailSSLSocketFactory;
+    #
+    # invoke-virtual {v0}, Lcom/sun/mail/util/MailSSLSocketFactory;->getTrustedHosts()[Ljava/lang/String;
+    #
+    # move-result-object v0
+    #
+    # if-nez v0, :cond_0
+    #
+    # .line 345
+    # iget-object v0, p0, Lcom/sun/mail/util/MailSSLSocketFactory$MailTrustManager;->adapteeTrustManager:Ljavax/net/ssl/X509TrustManager;
+    #
+    # invoke-interface {v0, p1, p2}, Ljavax/net/ssl/X509TrustManager;->checkServerTrusted([Ljava/security/cert/X509Certificate;Ljava/lang/String;)V
+    #
+    # :cond_0
+    # return-void
 .end method
 
 .method public getAcceptedIssuers()[Ljava/security/cert/X509Certificate;
+    # inserted by apk-mitm to disable certificate pinning
     .locals 1
-
-    .line 353
-    iget-object v0, p0, Lcom/sun/mail/util/MailSSLSocketFactory$MailTrustManager;->adapteeTrustManager:Ljavax/net/ssl/X509TrustManager;
-
-    invoke-interface {v0}, Ljavax/net/ssl/X509TrustManager;->getAcceptedIssuers()[Ljava/security/cert/X509Certificate;
-
-    move-result-object v0
-
+    const/4 v0, 0x0
+    new-array v0, v0, [Ljava/security/cert/X509Certificate;
     return-object v0
+
+    # commented out by apk-mitm to disable old method body
+    #
+    # .locals 1
+    #
+    # .line 353
+    # iget-object v0, p0, Lcom/sun/mail/util/MailSSLSocketFactory$MailTrustManager;->adapteeTrustManager:Ljavax/net/ssl/X509TrustManager;
+    #
+    # invoke-interface {v0}, Ljavax/net/ssl/X509TrustManager;->getAcceptedIssuers()[Ljava/security/cert/X509Certificate;
+    #
+    # move-result-object v0
+    #
+    # return-object v0
 .end method

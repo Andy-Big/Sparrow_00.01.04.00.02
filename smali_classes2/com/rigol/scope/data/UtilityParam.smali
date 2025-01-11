@@ -715,12 +715,24 @@
 .end method
 
 .method public final getSoftVersion()Ljava/lang/String;
-    .locals 1
+    .locals 2
     .annotation runtime Landroidx/databinding/Bindable;
     .end annotation
 
-    .line 382
-    iget-object v0, p0, Lcom/rigol/scope/data/UtilityParam;->softVersion:Ljava/lang/String;
+    .line 361
+# changed deleted
+#    iget-object v0, p0, Lcom/rigol/scope/data/UtilityParam;->softVersion:Ljava/lang/String;
+
+# changed added
+    new-instance v0, Ljava/lang/StringBuilder;
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v1, "(a002)"
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget-object v1, p0, Lcom/rigol/scope/data/UtilityParam;->softVersion:Ljava/lang/String;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v0
+# /changed
 
     return-object v0
 .end method

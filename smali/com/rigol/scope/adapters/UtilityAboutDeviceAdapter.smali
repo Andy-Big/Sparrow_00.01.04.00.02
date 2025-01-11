@@ -363,7 +363,7 @@
 
     move-result v9
 
-    const/16 v10, 0x8
+    const/16 v10, 0xe
 
     if-nez v9, :cond_5
 

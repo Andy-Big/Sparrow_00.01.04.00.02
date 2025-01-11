@@ -15,6 +15,7 @@
 .field private final mboundView0:Landroidx/constraintlayout/widget/ConstraintLayout;
 
 
+
 # direct methods
 .method static constructor <clinit>()V
     .locals 0
@@ -30,7 +31,7 @@
 
     sget-object v1, Lcom/rigol/scope/databinding/AdapterItemVerticalBindingImpl;->sViewsWithIds:Landroid/util/SparseIntArray;
 
-    const/16 v2, 0x9
+    const/16 v2, 0x10
 
     invoke-static {p1, p2, v2, v0, v1}, Lcom/rigol/scope/databinding/AdapterItemVerticalBindingImpl;->mapBindings(Landroidx/databinding/DataBindingComponent;Landroid/view/View;ILandroidx/databinding/ViewDataBinding$IncludedLayouts;Landroid/util/SparseIntArray;)[Ljava/lang/Object;
 
@@ -44,7 +45,8 @@
 .method private constructor <init>(Landroidx/databinding/DataBindingComponent;Landroid/view/View;[Ljava/lang/Object;)V
     .locals 13
 
-    move-object v12, p0
+# changed 
+#    move-object v12, p0
 
     const/4 v0, 0x6
 
@@ -111,6 +113,13 @@
 
     check-cast v11, Landroid/widget/TextView;
 
+# changed added
+    const/16 v0, 0x9
+    aget-object v0, p3, v0
+    move-object v12, v0
+    check-cast v12, Landroid/widget/TextView;
+# /changed
+
     const/4 v3, 0x3
 
     move-object v0, p0
@@ -119,7 +128,10 @@
 
     move-object v2, p2
 
-    invoke-direct/range {v0 .. v11}, Lcom/rigol/scope/databinding/AdapterItemVerticalBinding;-><init>(Ljava/lang/Object;Landroid/view/View;ILandroid/widget/ImageView;Landroid/widget/TextView;Landroid/widget/ImageView;Landroid/widget/ImageView;Landroid/widget/ImageView;Landroid/widget/TextView;Landroid/widget/TextView;Landroid/widget/TextView;)V
+    invoke-direct/range {v0 .. v12}, Lcom/rigol/scope/databinding/AdapterItemVerticalBinding;-><init>(Ljava/lang/Object;Landroid/view/View;ILandroid/widget/ImageView;Landroid/widget/TextView;Landroid/widget/ImageView;Landroid/widget/ImageView;Landroid/widget/ImageView;Landroid/widget/TextView;Landroid/widget/TextView;Landroid/widget/TextView;Landroid/widget/TextView;)V
+
+# changed added
+    move-object v12, p0
 
     const-wide/16 v0, -0x1
 
@@ -179,6 +191,11 @@
     iget-object v0, v12, Lcom/rigol/scope/databinding/AdapterItemVerticalBindingImpl;->title:Landroid/widget/TextView;
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setTag(Ljava/lang/Object;)V
+
+# changed added
+    iget-object v0, v12, Lcom/rigol/scope/databinding/AdapterItemVerticalBindingImpl;->probe_atten:Landroid/widget/TextView;
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setTag(Ljava/lang/Object;)V
+# /changed
 
     move-object v0, p2
 
@@ -632,9 +649,17 @@
 .end method
 
 
+
+
+
+
+
+
+
+
 # virtual methods
 .method protected executeBindings()V
-    .locals 48
+    .locals 51
 
     move-object/from16 v1, p0
 
@@ -679,6 +704,12 @@
     const-wide/16 v25, 0x2012
 
     const/4 v8, 0x0
+
+# changed added
+    const v48, 0x7fffffff
+    const v49, 0x0
+    const-string v50, "--"
+# /added
 
     if-eqz v6, :cond_2f
 
@@ -1420,6 +1451,20 @@
 
     move-result-object v4
 
+# changed added
+    move-object/16 v49, v1
+    invoke-virtual {v0}, Lcom/rigol/scope/data/VerticalParam;->getProbeRatio()Lcom/rigol/scope/cil/ServiceEnum$ProbeX;
+    move-result-object v1
+    if-eqz v1, :cond1_3c
+    iget-object v1, v1, Lcom/rigol/scope/cil/ServiceEnum$ProbeX;->value2:Ljava/lang/String;
+    goto :goto1_2e
+    :cond1_3c
+    const-string v1, "--"
+    :goto1_2e
+    move-object/16 v50, v1
+    move-object/16 v1, v49
+# /added
+
     goto :goto_24
 
     :cond_2c
@@ -1627,6 +1672,10 @@
 
     move-result v0
 
+# changed added (inactive color for probe attenuate)
+    move/from16 v48, v0
+# /changed
+
     goto :goto_2a
 
     :cond_33
@@ -1634,10 +1683,27 @@
 
     const v4, 0x7f0600ab
 
+# changed added (active color for probe attenuate)
+    move/from16 v49, v0
+    const v4, 0x7f061000
+    iget-object v0, v1, Lcom/rigol/scope/databinding/AdapterItemVerticalBindingImpl;->probe_atten:Landroid/widget/TextView;
+    invoke-static {v0, v4}, Lcom/rigol/scope/databinding/AdapterItemVerticalBindingImpl;->getColorFromResource(Landroid/view/View;I)I
+    move-result v48
+    move/16 v0, v49
+    const v4, 0x7f0600ab
+# /changed
+
     :goto_2a
     if-eqz v16, :cond_34
 
-    move-object/from16 v16, v19
+# changed added
+    const v16, 0x7f081000
+    invoke-static/range {v16 .. v16}, Lcom/rigol/scope/utilities/ContextUtil;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+    move-result-object v16
+# /added
+
+# changed removed
+#    move-object/from16 v16, v19
 
     goto :goto_2b
 
@@ -1764,6 +1830,12 @@
 
     invoke-virtual {v0, v14}, Landroid/widget/TextView;->setTextColor(I)V
 
+# changed added
+    iget-object v0, v1, Lcom/rigol/scope/databinding/AdapterItemVerticalBindingImpl;->probe_atten:Landroid/widget/TextView;
+    move/16 v14, v48
+    invoke-virtual {v0, v14}, Landroid/widget/TextView;->setTextColor(I)V
+# /changed
+
     goto :goto_2d
 
     :cond_38
@@ -1873,6 +1945,27 @@
     move-object/from16 v4, v42
 
     invoke-static {v0, v4}, Landroidx/databinding/adapters/TextViewBindingAdapter;->setText(Landroid/widget/TextView;Ljava/lang/CharSequence;)V
+
+# changed added
+# save v1
+    move-object/16 v48, v1
+# build new string
+    new-instance v0, Ljava/lang/StringBuilder;
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+# add probe attenuate value string to new string 
+    move-object/16 v4, v50
+    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+# add 'x' symbol
+    const-string v1, "x"
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+#convert to string
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v4
+#restore v1
+    move-object/from16 v1, v48
+    iget-object v0, v1, Lcom/rigol/scope/databinding/AdapterItemVerticalBindingImpl;->probe_atten:Landroid/widget/TextView;
+    invoke-static {v0, v4}, Landroidx/databinding/adapters/TextViewBindingAdapter;->setText(Landroid/widget/TextView;Ljava/lang/CharSequence;)V
+# /added
 
     :cond_3f
     const-wide/16 v4, 0x2002

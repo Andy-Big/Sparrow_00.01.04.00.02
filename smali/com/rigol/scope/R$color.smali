@@ -801,6 +801,15 @@
 .field public static final yellow_green:I = 0x7f060188
 
 
+
+
+
+.field public static final probe_atten_color:I = 0x7f061000
+
+
+
+
+
 # direct methods
 .method private constructor <init>()V
     .locals 0

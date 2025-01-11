@@ -19,15 +19,19 @@
     .end annotation
 .end field
 
+
 .field public final position:Landroid/widget/TextView;
 
 .field public final scale:Landroid/widget/TextView;
 
 .field public final title:Landroid/widget/TextView;
 
+# changed added
+.field public final probe_atten:Landroid/widget/TextView;
+
 
 # direct methods
-.method protected constructor <init>(Ljava/lang/Object;Landroid/view/View;ILandroid/widget/ImageView;Landroid/widget/TextView;Landroid/widget/ImageView;Landroid/widget/ImageView;Landroid/widget/ImageView;Landroid/widget/TextView;Landroid/widget/TextView;Landroid/widget/TextView;)V
+.method protected constructor <init>(Ljava/lang/Object;Landroid/view/View;ILandroid/widget/ImageView;Landroid/widget/TextView;Landroid/widget/ImageView;Landroid/widget/ImageView;Landroid/widget/ImageView;Landroid/widget/TextView;Landroid/widget/TextView;Landroid/widget/TextView;Landroid/widget/TextView;)V
     .locals 0
 
     .line 50
@@ -56,6 +60,9 @@
 
     .line 58
     iput-object p11, p0, Lcom/rigol/scope/databinding/AdapterItemVerticalBinding;->title:Landroid/widget/TextView;
+
+# changed added
+    iput-object p12, p0, Lcom/rigol/scope/databinding/AdapterItemVerticalBinding;->probe_atten:Landroid/widget/TextView;
 
     return-void
 .end method
