@@ -61,6 +61,11 @@
 .field private updateUIViewModel:Lcom/rigol/scope/viewmodels/UpdateUIViewModel;
 
 
+# change added
+.field private isFullScreen:Z
+# /change
+
+
 # direct methods
 .method public constructor <init>()V
     .locals 4
@@ -167,6 +172,11 @@
     invoke-direct {v0, p0}, Lcom/rigol/scope/MainActivity$7;-><init>(Lcom/rigol/scope/MainActivity;)V
 
     iput-object v0, p0, Lcom/rigol/scope/MainActivity;->guardListener:Lcom/rigol/iguardservice/IGuardListener$Stub;
+
+# change added
+    const/4 v0, 0x0
+    iput-boolean v0, p0, Lcom/rigol/scope/MainActivity;->isFullScreen:Z
+# /change
 
     return-void
 .end method
@@ -1283,6 +1293,7 @@
     return-void
 .end method
 
+
 .method public synthetic lambda$onCreate$9$MainActivity(Landroid/view/View;)V
     .locals 2
 
@@ -2045,6 +2056,16 @@
 
     invoke-virtual {v0, v1, v3}, Landroidx/lifecycle/LiveData;->observe(Landroidx/lifecycle/LifecycleOwner;Landroidx/lifecycle/Observer;)V
 
+
+
+
+# this.binding.resultsBarIcon.setOnClickListener(new View.OnClickListener() {
+#             @Override // android.view.View.OnClickListener
+#             public final void onClick(View view) {
+#                 MainActivity.this.lambda$onCreate$9$MainActivity(view);
+#             }
+#         });
+
     .line 564
     iget-object v0, v1, Lcom/rigol/scope/MainActivity;->binding:Lcom/rigol/scope/databinding/ActivityMainBinding;
 
@@ -2055,6 +2076,37 @@
     invoke-direct {v3, v1}, Lcom/rigol/scope/-$$Lambda$MainActivity$rkhiAE_RKL1N1grFc_z8yPqOpXY;-><init>(Lcom/rigol/scope/MainActivity;)V
 
     invoke-virtual {v0, v3}, Landroid/widget/ImageView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+
+
+# change added
+    const-string v0, "===[RIGOL-A002-DEBUG]==="
+    const-string v3, "========== FullScreen SetOnClick proceed begin =========="
+    invoke-static {v0, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+
+# this.binding.fullScreenIcon.setOnClickListener(new View.OnClickListener() {
+#             @Override // android.view.View.OnClickListener
+#             public final void onClick(View view) {
+#                 MainActivity.this.lambda$onCreate$9$MainActivity(view);
+#             }
+#         });
+
+    .line 564
+    iget-object v0, v1, Lcom/rigol/scope/MainActivity;->binding:Lcom/rigol/scope/databinding/ActivityMainBinding;
+    iget-object v0, v0, Lcom/rigol/scope/databinding/ActivityMainBinding;->fullscreenwave_icon:Landroid/widget/ImageView;
+
+
+    new-instance v3, Lcom/rigol/scope/-$$Lambda$MainActivity$SetFullScreenOnClick;
+    invoke-direct {v3, v1}, Lcom/rigol/scope/-$$Lambda$MainActivity$SetFullScreenOnClick;-><init>(Lcom/rigol/scope/MainActivity;)V
+    invoke-virtual {v0, v3}, Landroid/widget/ImageView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    const-string v0, "===[RIGOL-A002-DEBUG]==="
+    const-string v3, "========== FullScreen SetOnClick proceed end =========="
+    invoke-static {v0, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+# /change
+
+
 
     .line 596
     new-instance v0, Landroid/content/IntentFilter;
@@ -2410,3 +2462,78 @@
     :goto_1
     return-void
 .end method
+
+
+
+
+
+# change added
+.method public getFullScreen()Z
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/rigol/scope/MainActivity;->isFullScreen:Z
+
+    return v0
+.end method
+
+.method public setFullScreen(Z)V
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/rigol/scope/MainActivity;->isFullScreen:Z
+
+    return-void
+.end method
+
+
+.method public clickFullScreen(Landroid/view/View;)V
+    .locals 2
+
+    .line 566
+    iget-object p1, p0, Lcom/rigol/scope/MainActivity;->sharedParam:Lcom/rigol/scope/data/SharedParam;
+
+    if-eqz p1, :cond_1
+
+    .line 567
+    iget-object p1, p0, Lcom/rigol/scope/MainActivity;->binding:Lcom/rigol/scope/databinding/ActivityMainBinding;
+
+    iget-object p1, p1, Lcom/rigol/scope/databinding/ActivityMainBinding;->resultsBar:Landroidx/fragment/app/FragmentContainerView;
+
+    invoke-virtual {p1}, Landroidx/fragment/app/FragmentContainerView;->getVisibility()I
+
+    move-result p1
+
+    const/4 v0, 0x0
+
+    const/4 v1, 0x1
+
+    if-nez p1, :cond_0
+
+    .line 568
+    iget-object p1, p0, Lcom/rigol/scope/MainActivity;->sharedParam:Lcom/rigol/scope/data/SharedParam;
+
+    invoke-virtual {p1, v0}, Lcom/rigol/scope/data/SharedParam;->setShowResultBar(Z)V
+
+    .line 569
+    iget-object p1, p0, Lcom/rigol/scope/MainActivity;->sharedParam:Lcom/rigol/scope/data/SharedParam;
+
+    invoke-virtual {p1, v1}, Lcom/rigol/scope/data/SharedParam;->setClosedResultBar(Z)V
+
+    goto :goto_0
+
+    .line 571
+    :cond_0
+    iget-object p1, p0, Lcom/rigol/scope/MainActivity;->sharedParam:Lcom/rigol/scope/data/SharedParam;
+
+    invoke-virtual {p1, v1}, Lcom/rigol/scope/data/SharedParam;->setShowResultBar(Z)V
+
+    .line 572
+    iget-object p1, p0, Lcom/rigol/scope/MainActivity;->sharedParam:Lcom/rigol/scope/data/SharedParam;
+
+    invoke-virtual {p1, v0}, Lcom/rigol/scope/data/SharedParam;->setClosedResultBar(Z)V
+
+    :cond_1
+    :goto_0
+    return-void
+.end method
+
+# /change

@@ -26,9 +26,9 @@
 
     sput-object v0, Lcom/rigol/scope/databinding/ActivityMainBindingImpl;->sViewsWithIds:Landroid/util/SparseIntArray;
 
-    const v1, 0x7f0a0690
+    const v1, 0x7f0a0690    # R.id.navigation_bar
 
-    const/4 v2, 0x5
+    const/4 v2, 0x6
 
     .line 17
     invoke-virtual {v0, v1, v2}, Landroid/util/SparseIntArray;->put(II)V
@@ -36,27 +36,27 @@
     .line 18
     sget-object v0, Lcom/rigol/scope/databinding/ActivityMainBindingImpl;->sViewsWithIds:Landroid/util/SparseIntArray;
 
-    const v1, 0x7f0a07fe
+    const v1, 0x7f0a07fe    # R.id.settings_bar
 
-    const/4 v2, 0x6
+    const/4 v2, 0x7
 
     invoke-virtual {v0, v1, v2}, Landroid/util/SparseIntArray;->put(II)V
 
     .line 19
     sget-object v0, Lcom/rigol/scope/databinding/ActivityMainBindingImpl;->sViewsWithIds:Landroid/util/SparseIntArray;
 
-    const v1, 0x7f0a0b20
+    const v1, 0x7f0a0b20    # R.id.waveform
 
-    const/4 v2, 0x7
+    const/16 v2, 0x8
 
     invoke-virtual {v0, v1, v2}, Landroid/util/SparseIntArray;->put(II)V
 
     .line 20
     sget-object v0, Lcom/rigol/scope/databinding/ActivityMainBindingImpl;->sViewsWithIds:Landroid/util/SparseIntArray;
 
-    const v1, 0x7f0a052a
+    const v1, 0x7f0a052a    # R.id.image_logo
 
-    const/16 v2, 0x8
+    const/16 v2, 0x9
 
     invoke-virtual {v0, v1, v2}, Landroid/util/SparseIntArray;->put(II)V
 
@@ -64,14 +64,20 @@
 .end method
 
 .method public constructor <init>(Landroidx/databinding/DataBindingComponent;Landroid/view/View;)V
-    .locals 3
+    .locals 6
 
     .line 31
     sget-object v0, Lcom/rigol/scope/databinding/ActivityMainBindingImpl;->sIncludes:Landroidx/databinding/ViewDataBinding$IncludedLayouts;
 
     sget-object v1, Lcom/rigol/scope/databinding/ActivityMainBindingImpl;->sViewsWithIds:Landroid/util/SparseIntArray;
 
-    const/16 v2, 0x9
+# change changed
+    const/16 v2, 0xa
+#    const/16 v2, 0x9
+
+    const-string v3, "===[RIGOL-A002-DEBUG]==="
+    const-string v4, "ActivityMainBinding->Init() begin"
+    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-static {p1, p2, v2, v0, v1}, Lcom/rigol/scope/databinding/ActivityMainBindingImpl;->mapBindings(Landroidx/databinding/DataBindingComponent;Landroid/view/View;ILandroidx/databinding/ViewDataBinding$IncludedLayouts;Landroid/util/SparseIntArray;)[Ljava/lang/Object;
 
@@ -85,9 +91,11 @@
 .method private constructor <init>(Landroidx/databinding/DataBindingComponent;Landroid/view/View;[Ljava/lang/Object;)V
     .locals 13
 
-    move-object v12, p0
+# change deleted
+#    move-object v12, p0
+# /change
 
-    const/16 v0, 0x8
+    const/16 v0, 0x9
 
     .line 34
     aget-object v0, p3, v0
@@ -104,7 +112,7 @@
 
     check-cast v5, Landroidx/constraintlayout/widget/ConstraintLayout;
 
-    const/4 v0, 0x5
+    const/4 v0, 0x6
 
     aget-object v0, p3, v0
 
@@ -136,7 +144,7 @@
 
     check-cast v9, Landroid/widget/ImageView;
 
-    const/4 v0, 0x6
+    const/4 v0, 0x7
 
     aget-object v0, p3, v0
 
@@ -144,13 +152,22 @@
 
     check-cast v10, Landroidx/fragment/app/FragmentContainerView;
 
-    const/4 v0, 0x7
+    const/16 v0, 0x8
 
     aget-object v0, p3, v0
 
     move-object v11, v0
 
     check-cast v11, Landroidx/fragment/app/FragmentContainerView;
+
+
+# change added
+    const/4 v0, 0x5
+    aget-object v0, p3, v0
+    move-object v12, v0
+    check-cast v12, Landroid/widget/ImageView;
+# /change
+
 
     const/4 v3, 0x2
 
@@ -160,7 +177,15 @@
 
     move-object v2, p2
 
-    invoke-direct/range {v0 .. v11}, Lcom/rigol/scope/databinding/ActivityMainBinding;-><init>(Ljava/lang/Object;Landroid/view/View;ILandroid/widget/ImageView;Landroidx/constraintlayout/widget/ConstraintLayout;Landroidx/fragment/app/FragmentContainerView;Landroid/widget/ImageView;Landroidx/fragment/app/FragmentContainerView;Landroid/widget/ImageView;Landroidx/fragment/app/FragmentContainerView;Landroidx/fragment/app/FragmentContainerView;)V
+# change changed
+    invoke-direct/range {v0 .. v12}, Lcom/rigol/scope/databinding/ActivityMainBinding;-><init>(Ljava/lang/Object;Landroid/view/View;ILandroid/widget/ImageView;Landroidx/constraintlayout/widget/ConstraintLayout;Landroidx/fragment/app/FragmentContainerView;Landroid/widget/ImageView;Landroidx/fragment/app/FragmentContainerView;Landroid/widget/ImageView;Landroidx/fragment/app/FragmentContainerView;Landroidx/fragment/app/FragmentContainerView;Landroid/widget/ImageView;)V
+#    invoke-direct/range {v0 .. v11}, Lcom/rigol/scope/databinding/ActivityMainBinding;-><init>(Ljava/lang/Object;Landroid/view/View;ILandroid/widget/ImageView;Landroidx/constraintlayout/widget/ConstraintLayout;Landroidx/fragment/app/FragmentContainerView;Landroid/widget/ImageView;Landroidx/fragment/app/FragmentContainerView;Landroid/widget/ImageView;Landroidx/fragment/app/FragmentContainerView;Landroidx/fragment/app/FragmentContainerView;)V
+
+
+# change added
+    move-object v12, p0
+# /change
+
 
     const-wide/16 v0, -0x1
 
@@ -201,7 +226,11 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setTag(Ljava/lang/Object;)V
 
-    move-object v0, p2
+
+# change added
+    iget-object v0, v12, Lcom/rigol/scope/databinding/ActivityMainBindingImpl;->fullscreenwave_icon:Landroid/widget/ImageView;
+    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setTag(Ljava/lang/Object;)V
+# /change
 
     .line 50
     invoke-virtual {p0, p2}, Lcom/rigol/scope/databinding/ActivityMainBindingImpl;->setRootTag(Landroid/view/View;)V
@@ -413,12 +442,12 @@
 
     if-eqz v0, :cond_3
 
-    const v10, 0x7f0804ce
+    const v10, 0x7f0804ce   #   R.drawable.ic_menu_close
 
     goto :goto_2
 
     :cond_3
-    const v10, 0x7f0804cf
+    const v10, 0x7f0804cf   #   R.drawable.ic_menu_open
 
     :goto_2
     invoke-static {v6, v10}, Landroidx/appcompat/content/res/AppCompatResources;->getDrawable(Landroid/content/Context;I)Landroid/graphics/drawable/Drawable;
@@ -520,6 +549,7 @@
     invoke-static {v0, v6}, Landroidx/databinding/adapters/ImageViewBindingAdapter;->setImageDrawable(Landroid/widget/ImageView;Landroid/graphics/drawable/Drawable;)V
 
     :cond_c
+
     return-void
 
     :catchall_0

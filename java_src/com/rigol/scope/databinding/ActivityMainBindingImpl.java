@@ -31,7 +31,7 @@ public class ActivityMainBindingImpl extends ActivityMainBinding {
     }
 
     public ActivityMainBindingImpl(DataBindingComponent dataBindingComponent, View view) {
-        this(dataBindingComponent, view, mapBindings(dataBindingComponent, view, 9, sIncludes, sViewsWithIds));
+        this(dataBindingComponent, view, mapBindings(dataBindingComponent, view, 10, sIncludes, sViewsWithIds));
     }
 
     private ActivityMainBindingImpl(DataBindingComponent dataBindingComponent, View view, Object[] objArr) {

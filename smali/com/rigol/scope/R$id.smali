@@ -5952,6 +5952,7 @@
 
 .field public static final nothing_view1:I = 0x7f0a1001
 .field public static final nothing_view2:I = 0x7f0a1002
+.field public static final fullscreenwave_icon:I = 0x7f0a1003
 
 
 

@@ -1605,6 +1605,8 @@
 
 
 .field public static final bg_item_vertical_act:I = 0x7f081000
+.field public static final fullscreen_open:I = 0x7f081001
+.field public static final fullscreen_close:I = 0x7f081002
 
 
 

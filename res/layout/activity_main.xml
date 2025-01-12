@@ -88,4 +88,14 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <ImageView android:id="@id/fullscreenwave_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/fullscreen_open"
+        android:tag="binding_5"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginLeft="5.0dip"
+        android:layout_marginTop="32.0dip" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

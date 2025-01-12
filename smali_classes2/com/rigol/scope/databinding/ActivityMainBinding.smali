@@ -31,9 +31,23 @@
 .field public final waveform:Landroidx/fragment/app/FragmentContainerView;
 
 
-# direct methods
-.method protected constructor <init>(Ljava/lang/Object;Landroid/view/View;ILandroid/widget/ImageView;Landroidx/constraintlayout/widget/ConstraintLayout;Landroidx/fragment/app/FragmentContainerView;Landroid/widget/ImageView;Landroidx/fragment/app/FragmentContainerView;Landroid/widget/ImageView;Landroidx/fragment/app/FragmentContainerView;Landroidx/fragment/app/FragmentContainerView;)V
-    .locals 0
+# change added
+.field public final fullscreenwave_icon:Landroid/widget/ImageView;
+# /change
+
+
+
+# change changed
+.method protected constructor <init>(Ljava/lang/Object;Landroid/view/View;ILandroid/widget/ImageView;Landroidx/constraintlayout/widget/ConstraintLayout;Landroidx/fragment/app/FragmentContainerView;Landroid/widget/ImageView;Landroidx/fragment/app/FragmentContainerView;Landroid/widget/ImageView;Landroidx/fragment/app/FragmentContainerView;Landroidx/fragment/app/FragmentContainerView;Landroid/widget/ImageView;)V
+#.method protected constructor <init>(Ljava/lang/Object;Landroid/view/View;ILandroid/widget/ImageView;Landroidx/constraintlayout/widget/ConstraintLayout;Landroidx/fragment/app/FragmentContainerView;Landroid/widget/ImageView;Landroidx/fragment/app/FragmentContainerView;Landroid/widget/ImageView;Landroidx/fragment/app/FragmentContainerView;Landroidx/fragment/app/FragmentContainerView;)V
+    .locals 3
+
+
+# change added
+    const-string v0, "===[RIGOL-A002-DEBUG]==="
+    const-string v1, "========== ActivityMainBinding->Constructor() begin =========="
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+# /change
 
     .line 56
     invoke-direct {p0, p1, p2, p3}, Landroidx/databinding/ViewDataBinding;-><init>(Ljava/lang/Object;Landroid/view/View;I)V
@@ -62,11 +76,35 @@
     .line 64
     iput-object p11, p0, Lcom/rigol/scope/databinding/ActivityMainBinding;->waveform:Landroidx/fragment/app/FragmentContainerView;
 
+    iput-object p12, p0, Lcom/rigol/scope/databinding/ActivityMainBinding;->fullscreenwave_icon:Landroid/widget/ImageView;
+
+
+# change added
+    const-string v0, "===[RIGOL-A002-DEBUG]==="
+    const-string v1, "========== ActivityMainBinding->Constructor() end =========="
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+# /change
+
     return-void
 .end method
 
+
+
+
+# change added
+.method protected init1(Landroid/widget/ImageView;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/rigol/scope/databinding/ActivityMainBinding;->fullscreenwave_icon:Landroid/widget/ImageView;
+
+    return-void
+.end method
+# /change
+
+
+
 .method public static bind(Landroid/view/View;)Lcom/rigol/scope/databinding/ActivityMainBinding;
-    .locals 1
+    .locals 2
 
     .line 121
     invoke-static {}, Landroidx/databinding/DataBindingUtil;->getDefaultComponent()Landroidx/databinding/DataBindingComponent;
@@ -77,15 +115,16 @@
 
     move-result-object p0
 
+
     return-object p0
 .end method
 
 .method public static bind(Landroid/view/View;Ljava/lang/Object;)Lcom/rigol/scope/databinding/ActivityMainBinding;
-    .locals 1
+    .locals 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
-    const v0, 0x7f0d001e
+   const v0,  0x7f0d001e    # R.layout.activity_main
 
     .line 133
     invoke-static {p1, p0, v0}, Lcom/rigol/scope/databinding/ActivityMainBinding;->bind(Ljava/lang/Object;Landroid/view/View;I)Landroidx/databinding/ViewDataBinding;
@@ -94,7 +133,7 @@
 
     check-cast p0, Lcom/rigol/scope/databinding/ActivityMainBinding;
 
-    return-object p0
+   return-object p0
 .end method
 
 .method public static inflate(Landroid/view/LayoutInflater;)Lcom/rigol/scope/databinding/ActivityMainBinding;
@@ -132,7 +171,7 @@
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
-    const v0, 0x7f0d001e
+    const v0, 0x7f0d001e    # R.layout.activity_main
 
     .line 98
     invoke-static {p0, v0, p1, p2, p3}, Landroidx/databinding/ViewDataBinding;->inflateInternal(Landroid/view/LayoutInflater;ILandroid/view/ViewGroup;ZLjava/lang/Object;)Landroidx/databinding/ViewDataBinding;
@@ -149,7 +188,7 @@
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
-    const v0, 0x7f0d001e
+    const v0, 0x7f0d001e    # R.layout.activity_main
 
     const/4 v1, 0x0
 

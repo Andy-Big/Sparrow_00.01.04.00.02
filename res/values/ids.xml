@@ -2765,4 +2765,7 @@
     <item type="id" name="probe_atten" />
     <item type="id" name="nothing_view1" />
     <item type="id" name="nothing_view2" />
+
+    <item type="id" name="fullscreenwave_icon" />
+
 </resources>

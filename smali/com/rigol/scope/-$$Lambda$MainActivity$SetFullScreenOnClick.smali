@@ -1,4 +1,4 @@
-.class public final synthetic Lcom/rigol/scope/-$$Lambda$MainActivity$rkhiAE_RKL1N1grFc_z8yPqOpXY;
+.class public final synthetic Lcom/rigol/scope/-$$Lambda$MainActivity$SetFullScreenOnClick;
 .super Ljava/lang/Object;
 .source "lambda"
 
@@ -17,7 +17,7 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/rigol/scope/-$$Lambda$MainActivity$rkhiAE_RKL1N1grFc_z8yPqOpXY;->f$0:Lcom/rigol/scope/MainActivity;
+    iput-object p1, p0, Lcom/rigol/scope/-$$Lambda$MainActivity$SetFullScreenOnClick;->f$0:Lcom/rigol/scope/MainActivity;
 
     return-void
 .end method
@@ -25,9 +25,13 @@
 
 # virtual methods
 .method public final onClick(Landroid/view/View;)V
-    .locals 1
+    .locals 3
 
-    iget-object v0, p0, Lcom/rigol/scope/-$$Lambda$MainActivity$rkhiAE_RKL1N1grFc_z8yPqOpXY;->f$0:Lcom/rigol/scope/MainActivity;
+    const-string v1, "A002-DEBUG"
+    const-string v2, "========== FullScreen OnClick proceed =========="
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v0, p0, Lcom/rigol/scope/-$$Lambda$MainActivity$SetFullScreenOnClick;->f$0:Lcom/rigol/scope/MainActivity;
 
     invoke-virtual {v0, p1}, Lcom/rigol/scope/MainActivity;->lambda$onCreate$9$MainActivity(Landroid/view/View;)V
 
