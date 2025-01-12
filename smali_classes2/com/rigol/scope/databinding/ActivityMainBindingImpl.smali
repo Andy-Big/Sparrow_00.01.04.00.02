@@ -75,10 +75,6 @@
     const/16 v2, 0xa
 #    const/16 v2, 0x9
 
-    const-string v3, "===[RIGOL-A002-DEBUG]==="
-    const-string v4, "ActivityMainBinding->Init() begin"
-    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
     invoke-static {p1, p2, v2, v0, v1}, Lcom/rigol/scope/databinding/ActivityMainBindingImpl;->mapBindings(Landroidx/databinding/DataBindingComponent;Landroid/view/View;ILandroidx/databinding/ViewDataBinding$IncludedLayouts;Landroid/util/SparseIntArray;)[Ljava/lang/Object;
 
     move-result-object v0

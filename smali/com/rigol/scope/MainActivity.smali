@@ -174,8 +174,8 @@
     iput-object v0, p0, Lcom/rigol/scope/MainActivity;->guardListener:Lcom/rigol/iguardservice/IGuardListener$Stub;
 
 # change added
-    const/4 v0, 0x0
-    iput-boolean v0, p0, Lcom/rigol/scope/MainActivity;->isFullScreen:Z
+    const v2, 0x1
+    iput-boolean v2, p0, Lcom/rigol/scope/MainActivity;->isFullScreen:Z
 # /change
 
     return-void
@@ -2080,9 +2080,6 @@
 
 
 # change added
-    const-string v0, "===[RIGOL-A002-DEBUG]==="
-    const-string v3, "========== FullScreen SetOnClick proceed begin =========="
-    invoke-static {v0, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
 
 # this.binding.fullScreenIcon.setOnClickListener(new View.OnClickListener() {
@@ -2101,7 +2098,7 @@
     invoke-direct {v3, v1}, Lcom/rigol/scope/-$$Lambda$MainActivity$SetFullScreenOnClick;-><init>(Lcom/rigol/scope/MainActivity;)V
     invoke-virtual {v0, v3}, Landroid/widget/ImageView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    const-string v0, "===[RIGOL-A002-DEBUG]==="
+    const-string v0, "[RIGOL-A002-DEBUG]"
     const-string v3, "========== FullScreen SetOnClick proceed end =========="
     invoke-static {v0, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 # /change
@@ -2486,54 +2483,78 @@
 
 
 .method public clickFullScreen(Landroid/view/View;)V
-    .locals 2
+    .locals 8
 
-    .line 566
-    iget-object p1, p0, Lcom/rigol/scope/MainActivity;->sharedParam:Lcom/rigol/scope/data/SharedParam;
+# change log output
+    const-string v4, "[RIGOL-A002-DEBUG]"
+    const-string v5, "========== clickFullScreen() begin =========="
+    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+# /change
 
-    if-eqz p1, :cond_1
+    # параметры
+    iget-object v1, p0, Lcom/rigol/scope/MainActivity;->sharedParam:Lcom/rigol/scope/data/SharedParam;
+    if-eqz v1, :cond_2
 
-    .line 567
-    iget-object p1, p0, Lcom/rigol/scope/MainActivity;->binding:Lcom/rigol/scope/databinding/ActivityMainBinding;
+    # биндинг
+    iget-object v2, p0, Lcom/rigol/scope/MainActivity;->binding:Lcom/rigol/scope/databinding/ActivityMainBinding;
+    if-eqz v2, :cond_2
 
-    iget-object p1, p1, Lcom/rigol/scope/databinding/ActivityMainBinding;->resultsBar:Landroidx/fragment/app/FragmentContainerView;
+    # контекст иконки разворота на весь экран
+    iget-object v3, v2, Lcom/rigol/scope/databinding/ActivityMainBindingImpl;->fullscreenwave_icon:Landroid/widget/ImageView;
+    invoke-virtual {v3}, Landroid/widget/ImageView;->getContext()Landroid/content/Context;
+    move-result-object v3
+    if-eqz v3, :cond_2
 
-    invoke-virtual {p1}, Landroidx/fragment/app/FragmentContainerView;->getVisibility()I
+    # проверка на включен ли режим разворота на весь экран
+    iget-boolean v0, p0, Lcom/rigol/scope/MainActivity;->isFullScreen:Z
+    if-nez v0, :cond_0
 
-    move-result p1
+    # не развернуто, разворачиваем
+    const-string v5, "== FullScreen ENABLE =="
+    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    
+    const v0, 0x1
+    iput-boolean v0, p0, Lcom/rigol/scope/MainActivity;->isFullScreen:Z
+    const v0, 0x8   #   View.GONE
 
-    const/4 v0, 0x0
+    # картинка сворачивания
+    const v7, 0x7f081002   #   R.drawable.fullscreen_close
+    goto :cond_1
 
-    const/4 v1, 0x1
-
-    if-nez p1, :cond_0
-
-    .line 568
-    iget-object p1, p0, Lcom/rigol/scope/MainActivity;->sharedParam:Lcom/rigol/scope/data/SharedParam;
-
-    invoke-virtual {p1, v0}, Lcom/rigol/scope/data/SharedParam;->setShowResultBar(Z)V
-
-    .line 569
-    iget-object p1, p0, Lcom/rigol/scope/MainActivity;->sharedParam:Lcom/rigol/scope/data/SharedParam;
-
-    invoke-virtual {p1, v1}, Lcom/rigol/scope/data/SharedParam;->setClosedResultBar(Z)V
-
-    goto :goto_0
-
-    .line 571
     :cond_0
-    iget-object p1, p0, Lcom/rigol/scope/MainActivity;->sharedParam:Lcom/rigol/scope/data/SharedParam;
+    # развернуто, сворачиваем
+    const-string v5, "== FullScreen DISABLE =="
+    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    
+    const v0, 0x0   #   View.VISIBLE
+    iput-boolean v0, p0, Lcom/rigol/scope/MainActivity;->isFullScreen:Z
+    const v0, 0x0
 
-    invoke-virtual {p1, v1}, Lcom/rigol/scope/data/SharedParam;->setShowResultBar(Z)V
-
-    .line 572
-    iget-object p1, p0, Lcom/rigol/scope/MainActivity;->sharedParam:Lcom/rigol/scope/data/SharedParam;
-
-    invoke-virtual {p1, v0}, Lcom/rigol/scope/data/SharedParam;->setClosedResultBar(Z)V
+    # картинка разворачивания
+    const v7, 0x7f081001   #   R.drawable.fullscreen_open
 
     :cond_1
-    :goto_0
-    return-void
+    iget-object v6, v2, Lcom/rigol/scope/databinding/ActivityMainBindingImpl;->settingsBar:Landroidx/fragment/app/FragmentContainerView;
+    invoke-virtual {v6, v0}, Landroidx/fragment/app/FragmentContainerView;->setVisibility(I)V
+
+    iget-object v6, v2, Lcom/rigol/scope/databinding/ActivityMainBindingImpl;->navigationBar:Landroidx/fragment/app/FragmentContainerView;
+    invoke-virtual {v6, v0}, Landroidx/fragment/app/FragmentContainerView;->setVisibility(I)V
+    # получаем в v7 картинку из ресурсов
+    invoke-static {v3, v7}, Landroidx/appcompat/content/res/AppCompatResources;->getDrawable(Landroid/content/Context;I)Landroid/graphics/drawable/Drawable;
+    move-result-object v7
+    # получаем в v6 объект иконки
+    iget-object v6, v2, Lcom/rigol/scope/databinding/ActivityMainBindingImpl;->fullscreenwave_icon:Landroid/widget/ImageView;
+    # присваиваем картинку к иконке
+    invoke-static {v6, v7}, Landroidx/databinding/adapters/ImageViewBindingAdapter;->setImageDrawable(Landroid/widget/ImageView;Landroid/graphics/drawable/Drawable;)V
+
+    :cond_2
+ # change log output
+    const-string v0, "[RIGOL-A002-DEBUG]"
+    const-string v1, "========== clickFullScreen() end =========="
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+# /change
+
+   return-void
 .end method
 
 # /change

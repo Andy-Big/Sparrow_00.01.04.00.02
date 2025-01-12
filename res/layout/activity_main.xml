@@ -93,8 +93,8 @@
         android:layout_height="wrap_content"
         android:src="@drawable/fullscreen_open"
         android:tag="binding_5"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/waveform"
+        app:layout_constraintStart_toStartOf="@id/waveform"
         android:layout_marginLeft="5.0dip"
         android:layout_marginTop="32.0dip" />
 
