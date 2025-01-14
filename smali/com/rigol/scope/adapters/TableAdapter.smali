@@ -636,7 +636,7 @@
 
     invoke-virtual {v7, v9}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    const/high16 v9, 0x41400000    # 12.0f
+    const/high16 v9, 0x41700000    # 15.0f
 
     .line 320
     invoke-virtual {v7, v9}, Landroid/widget/TextView;->setTextSize(F)V

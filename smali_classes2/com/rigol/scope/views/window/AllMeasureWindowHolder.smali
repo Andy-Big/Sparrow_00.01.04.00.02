@@ -222,7 +222,7 @@
 
     move-result-object v4
 
-    const/16 v5, 0x1e
+    const/16 v5, 0x14
 
     invoke-direct {v0, v5, v3, v4}, Lcom/rigol/scope/adapters/TableAdapter;-><init>(I[FLandroid/graphics/drawable/Drawable;)V
 
