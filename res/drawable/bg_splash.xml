@@ -2,7 +2,7 @@
 <layer-list
   xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:drawable="@android:color/black" />
-    <item android:gravity="center" android:height="89.0px" android:width="404.0px">
-        <bitmap android:src="@drawable/logo" />
+    <item android:gravity="center" android:height="585.0px" android:width="550.0px">
+        <bitmap android:src="@drawable/logo_rm" />
     </item>
 </layer-list>
