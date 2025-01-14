@@ -23,10 +23,16 @@
       app:layout_constraintTop_toBottomOf="@id/title_layout"
       style="@style/App.Title.ResultItem"
     />
-    <com.rigol.scope.views.DisableTouchEventRecyclerView android:id="@id/result_list" android:tag="binding_2" android:layout_width="fill_parent" android:layout_height="wrap_content" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@id/title" style="@style/App.RecyclerView.Linear" />
-    <TextView android:textSize="17.0sp"
+    <com.rigol.scope.views.DisableTouchEventRecyclerView android:id="@id/result_list"
+      android:tag="binding_2"
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/title"
+      style="@style/App.RecyclerView.Linear" />
+    <TextView android:id="@id/current_result"
+      android:textSize="17.0sp"
       android:textColor="#ffffffff"
-      android:id="@id/current_result"
       android:tag="binding_3"
       android:gravity="right"
       android:paddingLeft="5.0dip"

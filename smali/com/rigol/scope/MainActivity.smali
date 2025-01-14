@@ -2483,7 +2483,7 @@
 
 
 .method public clickFullScreen(Landroid/view/View;)V
-    .locals 8
+    .locals 10
 
 # change log output
     const-string v4, "[RIGOL-A002-DEBUG]"
@@ -2505,10 +2505,14 @@
     move-result-object v3
     if-eqz v3, :cond_2
 
+   
+   
     # проверка на включен ли режим разворота на весь экран
     iget-boolean v0, p0, Lcom/rigol/scope/MainActivity;->isFullScreen:Z
     if-nez v0, :cond_0
 
+    
+    
     # не развернуто, разворачиваем
     const-string v5, "== FullScreen ENABLE =="
     invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
@@ -2519,10 +2523,18 @@
 
     # картинка сворачивания
     const v7, 0x7f081002   #   R.drawable.fullscreen_close
+
+    # поля слева и справа
+    const v8, 0x0
+    # поля сверху и снизу
+    const v9, 0x0
+
     goto :cond_1
 
-    :cond_0
+    
+    
     # развернуто, сворачиваем
+    :cond_0
     const-string v5, "== FullScreen DISABLE =="
     invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
     
@@ -2533,12 +2545,23 @@
     # картинка разворачивания
     const v7, 0x7f081001   #   R.drawable.fullscreen_open
 
+    # поля слева и справа
+    const v8, 0x2
+    # поля сверху и снизу
+    const v9, 0x7
+
+
+
+
     :cond_1
+    # скрываем или отображаем нижнюю панель
     iget-object v6, v2, Lcom/rigol/scope/databinding/ActivityMainBindingImpl;->settingsBar:Landroidx/fragment/app/FragmentContainerView;
     invoke-virtual {v6, v0}, Landroidx/fragment/app/FragmentContainerView;->setVisibility(I)V
 
+    # скрываем или отображаем верхнюю панель
     iget-object v6, v2, Lcom/rigol/scope/databinding/ActivityMainBindingImpl;->navigationBar:Landroidx/fragment/app/FragmentContainerView;
     invoke-virtual {v6, v0}, Landroidx/fragment/app/FragmentContainerView;->setVisibility(I)V
+
     # получаем в v7 картинку из ресурсов
     invoke-static {v3, v7}, Landroidx/appcompat/content/res/AppCompatResources;->getDrawable(Landroid/content/Context;I)Landroid/graphics/drawable/Drawable;
     move-result-object v7
@@ -2546,6 +2569,23 @@
     iget-object v6, v2, Lcom/rigol/scope/databinding/ActivityMainBindingImpl;->fullscreenwave_icon:Landroid/widget/ImageView;
     # присваиваем картинку к иконке
     invoke-static {v6, v7}, Landroidx/databinding/adapters/ImageViewBindingAdapter;->setImageDrawable(Landroid/widget/ImageView;Landroid/graphics/drawable/Drawable;)V
+
+    # устанавливаем поля
+#    iget-object v6, v2, Lcom/rigol/scope/databinding/ActivityMainBindingImpl;->waveform:Landroidx/fragment/app/FragmentContainerView;
+
+#    invoke-virtual {v6}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+#    invoke-virtual {v6}, Landroidx/fragment/app/FragmentContainerView;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+#    move-result-object v6
+
+#    iput v8, v6, Landroid/view/ViewGroup$LayoutParams;->leftMargin:I
+
+#    invoke-virtual {v6, v8}, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->setMarginStart(I)V
+#    invoke-virtual {v6, v9}, Landroid/view/ViewGroup$LayoutParams;->setMarginTop(I)V
+#    invoke-virtual {v6, v8}, Landroid/view/ViewGroup$LayoutParams;->setMarginEnd(I)V
+#    invoke-virtual {v6, v9}, Landroid/view/ViewGroup$LayoutParams;->setMarginBottom(I)V
+
+    
+
 
     :cond_2
  # change log output

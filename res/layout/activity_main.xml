@@ -4,11 +4,14 @@
     android:layout_height="fill_parent"
     android:background="?custom_attr_app_bg"
     android:importantForAutofill="no"
-    android:padding="@dimen/region_spacing"
+    android:padding="1.0dip"
     android:tag="layout/activity_main_0"
     app:skin_tag="background:custom_attr_app_bg"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+<!--
+    android:padding="@dimen/region_spacing"
+-->
 
     <androidx.fragment.app.FragmentContainerView android:id="@id/navigation_bar"
         android:name="com.rigol.scope.NavigationBarFragment"
@@ -30,15 +33,21 @@
         android:name="com.rigol.scope.WaveformFragment"
         android:layout_width="0.0dip"
         android:layout_height="0.0dip"
-        android:layout_marginLeft="2.0dip"
-        android:layout_marginTop="@dimen/region_spacing"
-        android:layout_marginRight="2.0dip"
-        android:layout_marginBottom="@dimen/region_spacing"
+        android:layout_marginLeft="0.0dip"
+        android:layout_marginTop="0.0dip"
+        android:layout_marginRight="0.0dip"
+        android:layout_marginBottom="0.0dip"
         app:layout_constraintBottom_toTopOf="@id/settings_bar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/navigation_bar" />
 
+<!--
+        android:layout_marginLeft="2.0dip"
+        android:layout_marginTop="@dimen/region_spacing"
+        android:layout_marginRight="2.0dip"
+        android:layout_marginBottom="@dimen/region_spacing"
+-->
     <ImageView android:id="@id/results_bar_icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -95,7 +104,7 @@
         android:tag="binding_5"
         app:layout_constraintTop_toTopOf="@id/waveform"
         app:layout_constraintStart_toStartOf="@id/waveform"
-        android:layout_marginLeft="5.0dip"
-        android:layout_marginTop="32.0dip" />
+        android:layout_marginLeft="-5.0dip"
+        android:layout_marginTop="22.0dip" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

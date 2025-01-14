@@ -764,9 +764,10 @@
         <item name="android:ellipsize">end</item>
         <item name="android:layout_height">20.0dip</item>
         <item name="android:maxLines">1</item>
-        <item name="autoSizeMaxTextSize">12.0sp</item>
-        <item name="autoSizeMinTextSize">10.0sp</item>
+<!--        <item name="autoSizeMaxTextSize">20.0sp</item>
+        <item name="autoSizeMinTextSize">14.0sp</item>
         <item name="autoSizeTextType">uniform</item>
+-->
     </style>
     <style name="App.Title" parent="@style/TextAppearance.AppCompat.Title">
         <item name="android:textSize">13.0sp</item>
