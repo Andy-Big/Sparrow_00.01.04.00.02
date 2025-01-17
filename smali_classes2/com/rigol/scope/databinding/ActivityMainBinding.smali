@@ -44,9 +44,8 @@
 
 
 # change added
-    const-string v0, "[RIGOL-A002-DEBUG]"
-    const-string v1, "========== ActivityMainBinding->Constructor() begin =========="
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    const-string v0, "========== ActivityMainBinding->Constructor() begin =========="
+    invoke-static {v0}, Lcom/rigol/scope/App;->axxxLogOut(Ljava/lang/String;)V
 # /change
 
     .line 56
@@ -80,9 +79,8 @@
 
 
 # change added
-    const-string v0, "[RIGOL-A002-DEBUG]"
-    const-string v1, "========== ActivityMainBinding->Constructor() end =========="
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    const-string v0, "========== ActivityMainBinding->Constructor() end =========="
+    invoke-static {v0}, Lcom/rigol/scope/App;->axxxLogOut(Ljava/lang/String;)V
 # /change
 
     return-void

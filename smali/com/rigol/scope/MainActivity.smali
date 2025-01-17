@@ -2098,9 +2098,8 @@
     invoke-direct {v3, v1}, Lcom/rigol/scope/-$$Lambda$MainActivity$SetFullScreenOnClick;-><init>(Lcom/rigol/scope/MainActivity;)V
     invoke-virtual {v0, v3}, Landroid/widget/ImageView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    const-string v0, "[RIGOL-A002-DEBUG]"
-    const-string v3, "========== FullScreen SetOnClick proceed end =========="
-    invoke-static {v0, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    const-string v0, "========== FullScreen SetOnClick proceed end =========="
+    invoke-static {v0}, Lcom/rigol/scope/App;->axxxLogOut(Ljava/lang/String;)V
 # /change
 
 
@@ -2486,9 +2485,8 @@
     .locals 10
 
 # change log output
-    const-string v4, "[RIGOL-A002-DEBUG]"
-    const-string v5, "========== clickFullScreen() begin =========="
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    const-string v0, "========== clickFullScreen() begin =========="
+    invoke-static {v0}, Lcom/rigol/scope/App;->axxxLogOut(Ljava/lang/String;)V
 # /change
 
     # параметры
@@ -2515,7 +2513,7 @@
     
     # не развернуто, разворачиваем
     const-string v5, "== FullScreen ENABLE =="
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v5}, Lcom/rigol/scope/App;->axxxLogOut(Ljava/lang/String;)V
     
     const v0, 0x1
     iput-boolean v0, p0, Lcom/rigol/scope/MainActivity;->isFullScreen:Z
@@ -2536,7 +2534,7 @@
     # развернуто, сворачиваем
     :cond_0
     const-string v5, "== FullScreen DISABLE =="
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v5}, Lcom/rigol/scope/App;->axxxLogOut(Ljava/lang/String;)V
     
     const v0, 0x0   #   View.VISIBLE
     iput-boolean v0, p0, Lcom/rigol/scope/MainActivity;->isFullScreen:Z
@@ -2589,9 +2587,8 @@
 
     :cond_2
  # change log output
-    const-string v0, "[RIGOL-A002-DEBUG]"
-    const-string v1, "========== clickFullScreen() end =========="
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    const-string v0, "========== clickFullScreen() end =========="
+    invoke-static {v0}, Lcom/rigol/scope/App;->axxxLogOut(Ljava/lang/String;)V
 # /change
 
    return-void
