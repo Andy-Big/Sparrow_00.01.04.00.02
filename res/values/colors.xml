@@ -303,5 +303,15 @@
 
 
 
+
+
+
+
     <color name="probe_atten_color">#ffb0ffb0</color>
+    <color name="fullscreen_bar_bg">#ff202020</color>
+    <color name="fsb_h_title_color">#ffff8000</color>
+    <color name="fsb_value_color">#ffffffff</color>
+    <color name="fsb_value_dis_color">#ff676767</color>
+
+
 </resources>

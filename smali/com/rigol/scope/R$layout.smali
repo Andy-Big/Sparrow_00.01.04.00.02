@@ -685,6 +685,17 @@
 .field public static final window_waveform:I = 0x7f0d014e
 
 
+
+
+
+
+.field public static final fragment_fullscreen_bar:I = 0x7f0d1001
+
+
+
+
+
+
 # direct methods
 .method private constructor <init>()V
     .locals 0
