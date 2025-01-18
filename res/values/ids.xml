@@ -2768,4 +2768,17 @@
 
     <item type="id" name="fullscreenwave_icon" />
 
+    <item type="id" name="fullscreen_bar" />
+    <item type="id" name="fsb_h_title" />
+    <item type="id" name="fsb_h_value" />
+    <item type="id" name="fsb_v1_title" />
+    <item type="id" name="fsb_v1_value" />
+    <item type="id" name="fsb_v2_title" />
+    <item type="id" name="fsb_v2_value" />
+    <item type="id" name="fsb_v3_title" />
+    <item type="id" name="fsb_v3_value" />
+    <item type="id" name="fsb_v4_title" />
+    <item type="id" name="fsb_v4_value" />
+
+
 </resources>

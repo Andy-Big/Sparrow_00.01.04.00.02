@@ -805,10 +805,10 @@
 
 
 .field public static final probe_atten_color:I = 0x7f061000
-
-
-
-
+.field public static final fullscreen_bar_bg:I = 0x7f061001
+.field public static final fsb_value_color:I = 0x7f061002
+.field public static final fsb_h_title_color:I = 0x7f061003
+.field public static final fsb_value_dis_color:I = 0x7f061004
 
 # direct methods
 .method private constructor <init>()V

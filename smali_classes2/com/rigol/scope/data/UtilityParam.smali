@@ -726,7 +726,7 @@
 # changed added
     new-instance v0, Ljava/lang/StringBuilder;
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-    const-string v1, "(a002)"
+    const-string v1, "(a003)"
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
     iget-object v1, p0, Lcom/rigol/scope/data/UtilityParam;->softVersion:Ljava/lang/String;
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;

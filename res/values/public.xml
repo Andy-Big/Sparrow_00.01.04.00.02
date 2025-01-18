@@ -16234,9 +16234,24 @@
     <public type="id" name="probe_atten" id="0x7f0a1000" />
     <public type="id" name="nothing_view1" id="0x7f0a1001" />
     <public type="id" name="nothing_view2" id="0x7f0a1002" />
-    <public type="id" name="fullscreenwave_icon" id="0x7f0a1003" />
-
     <public type="color" name="probe_atten_color" id="0x7f061000" />
+
+    <public type="id" name="fullscreenwave_icon" id="0x7f0a1003" />
+    <public type="id" name="fullscreen_bar" id="0x7f0a1004" />
+    <public type="color" name="fullscreen_bar_bg" id="0x7f061001" />
+    <public type="color" name="fsb_value_color" id="0x7f061002" />
+    <public type="color" name="fsb_h_title_color" id="0x7f061003" />
+    <public type="color" name="fsb_value_dis_color" id="0x7f061004" />
+    <public type="id" name="fsb_h_title" id="0x7f0a1005" />
+    <public type="id" name="fsb_h_value" id="0x7f0a1006" />
+    <public type="id" name="fsb_v1_title" id="0x7f0a1007" />
+    <public type="id" name="fsb_v1_value" id="0x7f0a1008" />
+    <public type="id" name="fsb_v2_title" id="0x7f0a1009" />
+    <public type="id" name="fsb_v2_value" id="0x7f0a100a" />
+    <public type="id" name="fsb_v3_title" id="0x7f0a100b" />
+    <public type="id" name="fsb_v3_value" id="0x7f0a100c" />
+    <public type="id" name="fsb_v4_title" id="0x7f0a100d" />
+    <public type="id" name="fsb_v4_value" id="0x7f0a100e" />
 
     <public type="drawable" name="bg_item_vertical_act" id="0x7f081000" />
     <public type="drawable" name="fullscreen_open" id="0x7f081001" />

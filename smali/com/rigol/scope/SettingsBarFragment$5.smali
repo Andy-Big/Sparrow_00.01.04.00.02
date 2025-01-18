@@ -35,11 +35,20 @@
 .method public onDoubleTap(Landroid/view/MotionEvent;Landroid/view/View;Landroidx/recyclerview/widget/RecyclerView$ViewHolder;I)Z
     .locals 0
 
-    .line 515
-    iget-object p1, p0, Lcom/rigol/scope/SettingsBarFragment$5;->this$0:Lcom/rigol/scope/SettingsBarFragment;
+# change changed
+    
+    invoke-virtual {p0, p4}, Lcom/rigol/scope/SettingsBarFragment$5;->switchCouple(I)V
 
-    invoke-static {p1, p4}, Lcom/rigol/scope/SettingsBarFragment;->access$200(Lcom/rigol/scope/SettingsBarFragment;I)V
+# change original code
 
+#    .line 515
+#    iget-object p1, p0, Lcom/rigol/scope/SettingsBarFragment$5;->this$0:Lcom/rigol/scope/SettingsBarFragment;
+#
+#    invoke-static {p1, p4}, Lcom/rigol/scope/SettingsBarFragment;->access$200(Lcom/rigol/scope/SettingsBarFragment;I)V
+
+# /change
+
+    :cond_exit
     const/4 p1, 0x1
 
     return p1
@@ -251,3 +260,64 @@
     :goto_1
     return p2
 .end method
+
+
+# change added
+# virtual methods
+.method public switchCouple(I)V
+    .locals 3
+
+    const-string v0, "========== switchCouple() begin =========="
+    invoke-static {v0}, Lcom/rigol/scope/App;->axxxLogOut(Ljava/lang/String;)V
+
+    # получаем v0 = VerticalParam
+    iget-object v0, p0, Lcom/rigol/scope/SettingsBarFragment$5;->this$0:Lcom/rigol/scope/SettingsBarFragment;
+    invoke-static {v0}, Lcom/rigol/scope/SettingsBarFragment;->access$300(Lcom/rigol/scope/SettingsBarFragment;)Lcom/rigol/scope/adapters/VerticalAdapter;
+    move-result-object v0
+    invoke-virtual {v0, p1}, Lcom/rigol/scope/adapters/VerticalAdapter;->getItem(I)Lcom/rigol/scope/data/VerticalParam;
+    move-result-object v0
+    # получаем v1 = Coupling
+    invoke-virtual {v0}, Lcom/rigol/scope/data/VerticalParam;->getCoupling()Lcom/rigol/scope/cil/ServiceEnum$Coupling;
+    move-result-object v1
+    # сравниваем v1 с Coupling.DC
+    sget-object v2, Lcom/rigol/scope/cil/ServiceEnum$Coupling;->DC:Lcom/rigol/scope/cil/ServiceEnum$Coupling;
+    if-ne v1, v2, :cond_0
+
+    # coupling = DC, переключаем на AC
+
+    const-string v2, "========== switchCouple() DC->AC =========="
+    invoke-static {v2}, Lcom/rigol/scope/App;->axxxLogOut(Ljava/lang/String;)V
+
+    sget-object v2, Lcom/rigol/scope/cil/ServiceEnum$Coupling;->AC:Lcom/rigol/scope/cil/ServiceEnum$Coupling;
+    invoke-virtual {v0, v2}, Lcom/rigol/scope/data/VerticalParam;->setCoupling(Lcom/rigol/scope/cil/ServiceEnum$Coupling;)V
+    invoke-virtual {v0, v2}, Lcom/rigol/scope/data/VerticalParam;->saveCoupling(Lcom/rigol/scope/cil/ServiceEnum$Coupling;)V
+    goto :cond_exit
+
+    # если не DC, переключаем на DC
+    :cond_0
+
+    const-string v2, "========== switchCouple() AC->DC =========="
+    invoke-static {v2}, Lcom/rigol/scope/App;->axxxLogOut(Ljava/lang/String;)V
+
+    sget-object v2, Lcom/rigol/scope/cil/ServiceEnum$Coupling;->DC:Lcom/rigol/scope/cil/ServiceEnum$Coupling;
+    invoke-virtual {v0, v2}, Lcom/rigol/scope/data/VerticalParam;->setCoupling(Lcom/rigol/scope/cil/ServiceEnum$Coupling;)V
+    invoke-virtual {v0, v2}, Lcom/rigol/scope/data/VerticalParam;->saveCoupling(Lcom/rigol/scope/cil/ServiceEnum$Coupling;)V
+
+
+#    iget-object p1, p0, Lcom/rigol/scope/adapters/VerticalViewPagerAdapter;->param:Lcom/rigol/scope/data/VerticalParam;
+#    invoke-virtual {p1, v0}, Lcom/rigol/scope/data/VerticalParam;->saveCoupling(Lcom/rigol/scope/cil/ServiceEnum$Coupling;)V
+
+
+    :cond_exit
+
+    iget-object v0, p0, Lcom/rigol/scope/SettingsBarFragment$5;->this$0:Lcom/rigol/scope/SettingsBarFragment;
+    invoke-static {v0}, Lcom/rigol/scope/SettingsBarFragment;->access$300(Lcom/rigol/scope/SettingsBarFragment;)Lcom/rigol/scope/adapters/VerticalAdapter;
+    move-result-object v0
+    invoke-virtual {v0}, Lcom/rigol/scope/adapters/VerticalAdapter;->notifyDataSetChanged()V
+
+    const-string v0, "========== switchCouple() end =========="
+    invoke-static {v0}, Lcom/rigol/scope/App;->axxxLogOut(Ljava/lang/String;)V
+
+    return-void
+.end method
+# /change

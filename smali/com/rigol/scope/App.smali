@@ -244,3 +244,20 @@
 
     return-void
 .end method
+
+
+
+# change added
+.method public static axxxLogOut(Ljava/lang/String;)V
+    .locals 1
+
+    .prologue   
+    const-string v0, "[RIGOL-Axxx-DEBUG]"
+
+    .line 10
+    invoke-static {v0, p0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 13
+        return-void
+.end method
+# /change

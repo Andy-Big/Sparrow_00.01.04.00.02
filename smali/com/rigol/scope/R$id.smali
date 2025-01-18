@@ -5953,9 +5953,17 @@
 .field public static final nothing_view1:I = 0x7f0a1001
 .field public static final nothing_view2:I = 0x7f0a1002
 .field public static final fullscreenwave_icon:I = 0x7f0a1003
-
-
-
+.field public static final fullscreen_bar:I = 0x7f0a1004
+.field public static final fsb_h_title:I = 0x7f0a1005
+.field public static final fsb_h_value:I = 0x7f0a1006
+.field public static final fsb_v1_title:I = 0x7f0a1007
+.field public static final fsb_v1_value:I = 0x7f0a1008
+.field public static final fsb_v2_title:I = 0x7f0a1009
+.field public static final fsb_v2_value:I = 0x7f0a100a
+.field public static final fsb_v3_title:I = 0x7f0a100b
+.field public static final fsb_v3_value:I = 0x7f0a100c
+.field public static final fsb_v4_title:I = 0x7f0a100d
+.field public static final fsb_v4_value:I = 0x7f0a100e
 
 
 # direct methods
