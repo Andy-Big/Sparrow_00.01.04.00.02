@@ -83,7 +83,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
-/* loaded from: classes.dex */
+/* loaded from: classes.dex */ 
 public class SettingsBarFragment extends BaseFragment implements View.OnClickListener {
     private static final int MSG_UPDATE_TIME = 1;
     AfgViewModel afgViewModel;
