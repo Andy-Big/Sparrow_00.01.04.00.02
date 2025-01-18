@@ -58,7 +58,7 @@ For the English version, please use the browser's built-in translator.
 
 ### Одно окно в режиме "на весь экран"
 ![logo](_images/RigolDS5.png)
-![logo](_images/RigolDS11.png)
+![logo](_images/RigolDS12.png)
 ![logo](_images/RigolDS17.png)
 
 
