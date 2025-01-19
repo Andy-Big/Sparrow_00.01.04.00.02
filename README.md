@@ -1,4 +1,4 @@
-For the English version, please use the browser's built-in translator.
+[English version](#english-version)
 
 # Модифицированное приложение Sparrow для осциллографа Rigol DHO800/DHO900
 
@@ -162,3 +162,164 @@ For the English version, please use the browser's built-in translator.
 ![logo](_images/RigolDS13.png)
 ![logo](_images/RigolDS14.png)
 
+
+# English version
+# Modified Sparrow Application for Rigol DHO800/DHO900 Oscilloscope
+
+![logo](_images/sparrow_logo.png)
+
+#### *I would like to thank all participants of the EEvblog forum thread for their help, hints and advice - [https://www.eevblog.com/forum/testgear/hacking-the-rigol-dho800900-scope](https://www.eevblog.com/forum/testgear/hacking-the-rigol-dho800900-scope)*
+
+## Contents
+* [Main](#main)
+* [Installation](#installation)
+* [Change History](#change-history)
+* [Screenshots](#screenshots)
+
+# Main
+The modification of the Rigol DHO800/DHO900 application improves the usability of the oscilloscope by enhancing the interface and adding new features.
+
+## Current Changes Compared to Original Version
+- Changed the application splash screen at startup. This is done to show when the system finishes loading and the application itself starts.
+- Double-tapping the channel icon at the bottom of the screen toggles that channel's coupling mode between AC and DC.
+- Added probe attenuation factor display to channel icons at the bottom of the screen. [See screenshots](#screenshots).
+- Measurement result items on the left panel have been reduced in height to show more measurements simultaneously. Additionally, the measurement value font size has been slightly increased for better readability. [See screenshots](#screenshots)
+- Expanded measurement result items changed to tabular view: parameter name with its value to the left. This reduced the expanded item height, allowing up to three expanded items to be visible simultaneously. Values also have slightly increased font size for better readability. [See screenshots](#screenshots).
+- Increased touch sensitivity area for measurement result item expand/collapse arrows. Now it's much easier to expand and collapse items.
+- Added a full-screen icon to the top left corner of the waveform window. The same icon collapses the window back to original size. [See screenshots](#screenshots).
+- Enabled current time and date display in the bottom right corner.
+
+# Installation
+The modified application exists in two versions:
+- **Sparrow_axxx.apk** - version for installation on patched system - this is the recommended option.
+- **Sparrow_axxx_u.apk** - version for installation on original system.
+
+## What is Android System Patch and Why is it Needed?
+Android system has user permission segregation and application signature verification systems. The **system** user has the broadest rights, and if an application wants to install as system and access certain restricted system functions, it must declare itself as an application with **system** user rights. However, the problem is that for an application to declare itself as system, it must be signed with the same key that signed the Android build itself. Only the device manufacturer has such a key, meaning no one else can sign an application with **system** user rights.
+
+The Android system patch involves disabling application signature verification. This is done by replacing one of the system files responsible for verifying application signatures. After this, any application can declare itself as a system application with **system** user rights and access restricted Android functions while being signed with any key.
+
+The system patch is installed only once; subsequent reinstallation or updates of the modified application do not require its reinstallation. This patch also doesn't interfere with the original application's operation, so if you decide to roll back to the original version, you won't need to roll back the patch. Although if for some reason you want to roll back the patch, it's easy to do.
+
+### What's the Difference Between Versions?
+- Version **Sparrow_axxx.apk** - this is the version for installation on patched system. It declares itself as a system application with **system** user rights and can access any system functions.
+- Version **Sparrow_axxx_u.apk** - this is the version for installation on original system. It doesn't declare itself as a system application and works with limited regular user rights. As a result, this version won't be able to, for example, save screenshots, as Android won't give it access to screen content.
+
+## Installation Preparation
+For installing both the patch and any version of the modified application, you'll need ADB. You can download it from the [official website](https://developer.android.com/studio/releases/platform-tools).
+The oscilloscope must be connected to the same network as the computer - via cable or Wi-Fi.
+You need to download the archive of the needed version from the [releases section](/releases). Extract these files to the ADB directory (or any other if you've added ADB to system environment variables). Launch command prompt in this folder (open this folder in explorer and enter cmd in its address bar) and then enter the commands shown below in the command prompt. Enter only what's highlighted in **bold italic**, you can directly copy the specified commands and paste them into the command prompt.
+
+## System Patch Installation
+First is the ADB connection command to the device by its IP address. The oscilloscope's IP address can be seen in the oscilloscope itself in the **Utility->IO** menu. Replace 192.168.1.41 with your oscilloscope's address:
+***adb connect 192.168.1.41:55555***
+ADB should respond with successful connection:
+*connected to 192.168.1.41:55555*
+
+Now you need to upload the patched system file to the oscilloscope:
+***adb push services.jar /rigol/data/***
+And get a success response:
+*services.jar: 1 file pushed, 0 skipped. 59.7 MB/s (3179392 bytes in 0.051s)*
+
+Now launch ADB shell.
+***adb shell***
+The system command prompt (e.g., D:\\Rigol>) will be replaced with the oscilloscope's command prompt, and further commands are entered in this command prompt:
+*rk3399_rigol:/ \$*
+
+Get administrator rights:
+***su***
+The $ symbol in the prompt will change to #:
+*rk3399_rigol:/ #*
+
+Make the system partition writable:
+***mount -o rw,remount /system***
+
+Delete the original system file:
+***rm /system/framework/services.jar -f***
+
+Also delete its remnant in another directory:
+***rm /system/framework/oat/arm64/services.odex -f***
+
+And delete its cache in another directory too:
+***rm /data/dalvik-cache/arm64/system@framework@services.jar@classes.dex***
+
+Move the previously uploaded patched system file to the system partition:
+***mv /rigol/data/services.jar /system/framework***
+
+Return the system partition back to read-only mode:
+***mount -o ro,remount /system***
+
+Sync command to ensure all filesystem changes are saved:
+***sync***
+
+Reboot the oscilloscope:
+***reboot***
+
+During reboot, the ADB shell will disconnect and return to your system's command prompt. Now your oscilloscope trusts all applications' claims about being system applications without verifying the key they're signed with :)
+If after reboot the oscilloscope hangs on the loading screen - no worries, just turn off the oscilloscope by long-pressing the power button (or unplugging the power connector) and turn it on again.
+
+## Modified Application Installation
+Attention! Installation of **Sparrow_axxx.apk** version is only possible on a previously patched system. On original system, install the **Sparrow_axxx_u.apk** version.
+
+First is the ADB connection command to the device by its IP address. The oscilloscope's IP address can be seen in the oscilloscope itself in the **Utility->IO** menu. Replace 192.168.1.41 with your oscilloscope's address:
+***adb connect 192.168.1.41:55555***
+ADB should respond with successful connection:
+*connected to 192.168.1.41:55555*
+Or that it's already connected:
+*already connected to 192.168.1.41:55555*
+
+Delete the installed oscilloscope application:
+***adb uninstall com.rigol.scope***
+The application on the oscilloscope should close and a success response should be given:
+*Success*
+
+Install the modified application:
+***adb install -g -r Sparrow_axxx.apk***
+(or ***adb install -g -r Sparrow_axxx_u.apk*** if you're installing on unpatched system)
+This might take quite some time, but eventually should give a success response:
+*Performing Streamed Install*
+*Success*
+
+The oscilloscope application should start itself within 5-20 seconds, but if it doesn't start - just turn off the oscilloscope by long-pressing the power button (or unplugging the power connector) and turn it on again.
+
+# Change History
+#### **a003** 19.01.2025
+- Changed the application splash screen at startup. This is done to show when the system finishes loading and the application itself starts.
+- Double-tapping the channel icon at the bottom of the screen toggles that channel's coupling mode between AC and DC.
+
+#### **a002** 13.01.2025
+- Added probe attenuation factor display to channel icons at the bottom of the screen. [See screenshots](#screenshots).
+- Measurement result items on the left panel have been reduced in height to show more measurements simultaneously. Additionally, the measurement value font size has been slightly increased for better readability. [See screenshots](#screenshots)
+- Expanded measurement result items changed to tabular view: parameter name with its value to the left. This reduced the expanded item height, allowing up to three expanded items to be visible simultaneously. Values also have slightly increased font size for better readability. [See screenshots](#screenshots).
+- Increased touch sensitivity area for measurement result item expand/collapse arrows. Now it's much easier to expand and collapse items.
+- Added a full-screen icon to the top left corner of the waveform window. The same icon collapses the window back to original size. [See screenshots](#screenshots).
+- Enabled current time and date display in the bottom right corner.
+
+# Screenshots
+### Three windows in normal mode
+![logo](_images/RigolDS0.png)
+### Three windows in full-screen mode
+![logo](_images/RigolDS1.png)
+
+### Two windows horizontally in normal mode
+![logo](_images/RigolDS9.png)
+### Two windows horizontally in full-screen mode
+![logo](_images/RigolDS10.png)
+
+### Two windows vertically in normal mode
+![logo](_images/RigolDS6.png)
+### Two windows vertically in full-screen mode
+![logo](_images/RigolDS7.png)
+
+### One window in full-screen mode
+![logo](_images/RigolDS5.png)
+![logo](_images/RigolDS12.png)
+![logo](_images/RigolDS17.png)
+
+### Measurement results panel in normal mode
+![logo](_images/RigolDS15.png)
+![logo](_images/RigolDS16.png)
+
+### Measurement results panel in full-screen mode
+![logo](_images/RigolDS13.png)
+![logo](_images/RigolDS14.png)
