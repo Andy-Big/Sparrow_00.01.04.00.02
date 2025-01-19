@@ -34,16 +34,21 @@
 - **Sparrow_axxx_u.apk** - версия для установки на оригинальную систему.
 ## Что такое патч системы Android и зачем он нужен?
 Система Android обладает системой разграничения прав пользователей и системой проверки подписи приложений. Самыми широкими правами обладает пользователь **system** и если приложение хочет установиться как системное и получать доступ к некоторым ограниченным системным функциям, то оно должно заявить себя как приложение с правами пользователя **system**. Но проблема в том, что для того, чтобы приложение могло заявить себя как системное, оно должно быть подписано тем же ключом, которым подписана сама сборка Android. Такой ключ имеется только у производителя устройства, а значит никто больше не может подписать приложение с правами пользователя **system**.  
+
 Патч системы Android заключается в том чтобы отключить проверку подписи приложений. Это делается путем замены одного из системных файлов, который отвечает за проверку подписи приложений. После этого любое приложение может заявиться как системное приложение с правами пользователя **system** и получить доступ к ограниченным функциям Андроида, будучи подписанным любым ключом.  
+
 Патч системы устанавливается только один раз, в дальнейшем при переустановке или обновлении модифицированного приложения его повторная установка уже не требуется. Этот патч так же не мешает работе оригинального приложения, так что если вы решите откатиться к оригинальной версии, то вам не придется откатывать патч. Хотя если по каким-то причинам захочется откатить патч, то это легко сделать.
+
 ### Какая разница между версиями?
 - Версия **Sparrow_axxx.apk** - это версия для установки на пропатченную систему. Она заявляет себя как системное приложение с правами пользователя **system** и может получать доступ к любым системным функциям.
 - Версия **Sparrow_axxx_u.apk** - это версия для установки на оригинальную систему. Она не заявляется как системное приложение и работает с ограниченными правами обычного пользователя. В результате эта версия не сможет, например, сохранять скриншоты, т.к. Андроид не даст ей доступ к содержимому экрана.
 
 ## Подготовка к установке
 Для установки как патча, так и любой из версий модифицированного приложения, вам потребуется ADB. Загрузить его можно с [официального сайта](https://developer.android.com/studio/releases/platform-tools).  
+
 Осциллограф должен быть подключен к одной сети с компьютером - кабелем или через Wi-Fi.  
-Необходимо скачать архив нужной версии из [раздела релизов](/releases). Распакуйте эти файлы в каталог с ADB (или в любой другой если вы добавили ADB в системные переменные среды). Запустите в этой папке командную строку (открыть эту папку в проводнике и в его адресной строке ввести команду cmd) и дальше вводите в командной строке показанные ниже команды. Вводить нужно только то, что выделено жирным курсивом, можно прямо копировать указанные команды и вставлять их в командную строку.
+
+Необходимо скачать архив нужной версии из [раздела релизов](/releases). Распакуйте эти файлы в каталог с ADB (или в любой другой если вы добавили ADB в системные переменные среды). Запустите в этой папке командную строку (открыть эту папку в проводнике и в его адресной строке ввести команду cmd) и дальше вводите в командной строке показанные ниже команды. Вводить нужно только то, что выделено ***жирным курсивом***, можно прямо копировать указанные команды и вставлять их в командную строку.
 
 ## Установка патча системы
 Первой идет команда подключения ADB к устройству по его IP-адресу. IP-адрес осциллографа можно увидеть в самом осциллографе в меню **Utility->IO**. Подставьте адрес своего осциллографа вместо 192.168.1.41:  
@@ -211,53 +216,55 @@ The system patch is installed only once; subsequent reinstallation or updates of
 
 ## Installation Preparation
 For installing both the patch and any version of the modified application, you'll need ADB. You can download it from the [official website](https://developer.android.com/studio/releases/platform-tools).
+
 The oscilloscope must be connected to the same network as the computer - via cable or Wi-Fi.
-You need to download the archive of the needed version from the [releases section](/releases). Extract these files to the ADB directory (or any other if you've added ADB to system environment variables). Launch command prompt in this folder (open this folder in explorer and enter cmd in its address bar) and then enter the commands shown below in the command prompt. Enter only what's highlighted in **bold italic**, you can directly copy the specified commands and paste them into the command prompt.
+
+You need to download the archive of the needed version from the [releases section](/releases). Extract these files to the ADB directory (or any other if you've added ADB to system environment variables). Launch command prompt in this folder (open this folder in explorer and enter cmd in its address bar) and then enter the commands shown below in the command prompt. Enter only what's highlighted in ***bold italic***, you can directly copy the specified commands and paste them into the command prompt.
 
 ## System Patch Installation
-First is the ADB connection command to the device by its IP address. The oscilloscope's IP address can be seen in the oscilloscope itself in the **Utility->IO** menu. Replace 192.168.1.41 with your oscilloscope's address:
-***adb connect 192.168.1.41:55555***
-ADB should respond with successful connection:
-*connected to 192.168.1.41:55555*
+First is the ADB connection command to the device by its IP address. The oscilloscope's IP address can be seen in the oscilloscope itself in the **Utility->IO** menu. Replace 192.168.1.41 with your oscilloscope's address:  
+***adb connect 192.168.1.41:55555***  
+ADB should respond with successful connection:  
+*connected to 192.168.1.41:55555*  
 
-Now you need to upload the patched system file to the oscilloscope:
-***adb push services.jar /rigol/data/***
-And get a success response:
-*services.jar: 1 file pushed, 0 skipped. 59.7 MB/s (3179392 bytes in 0.051s)*
+Now you need to upload the patched system file to the oscilloscope:  
+***adb push services.jar /rigol/data/***  
+And get a success response:  
+*services.jar: 1 file pushed, 0 skipped. 59.7 MB/s (3179392 bytes in 0.051s)*  
 
-Now launch ADB shell.
-***adb shell***
-The system command prompt (e.g., D:\\Rigol>) will be replaced with the oscilloscope's command prompt, and further commands are entered in this command prompt:
-*rk3399_rigol:/ \$*
+Now launch ADB shell.  
+***adb shell***  
+The system command prompt (e.g., D:\\Rigol>) will be replaced with the oscilloscope's command prompt, and further commands are entered in this command prompt:  
+*rk3399_rigol:/ \$*  
 
-Get administrator rights:
-***su***
-The $ symbol in the prompt will change to #:
-*rk3399_rigol:/ #*
+Get administrator rights:  
+***su***  
+The $ symbol in the prompt will change to #:  
+*rk3399_rigol:/ #*  
 
-Make the system partition writable:
-***mount -o rw,remount /system***
+Make the system partition writable:  
+***mount -o rw,remount /system***  
 
-Delete the original system file:
-***rm /system/framework/services.jar -f***
+Delete the original system file:  
+***rm /system/framework/services.jar -f***  
 
-Also delete its remnant in another directory:
-***rm /system/framework/oat/arm64/services.odex -f***
+Also delete its remnant in another directory:  
+***rm /system/framework/oat/arm64/services.odex -f***  
 
-And delete its cache in another directory too:
-***rm /data/dalvik-cache/arm64/system@framework@services.jar@classes.dex***
+And delete its cache in another directory too:  
+***rm /data/dalvik-cache/arm64/system@framework@services.jar@classes.dex***  
 
-Move the previously uploaded patched system file to the system partition:
-***mv /rigol/data/services.jar /system/framework***
+Move the previously uploaded patched system file to the system partition:  
+***mv /rigol/data/services.jar /system/framework***  
 
-Return the system partition back to read-only mode:
-***mount -o ro,remount /system***
+Return the system partition back to read-only mode:  
+***mount -o ro,remount /system***  
 
-Sync command to ensure all filesystem changes are saved:
-***sync***
+Sync command to ensure all filesystem changes are saved:  
+***sync***  
 
-Reboot the oscilloscope:
-***reboot***
+Reboot the oscilloscope:  
+***reboot***  
 
 During reboot, the ADB shell will disconnect and return to your system's command prompt. Now your oscilloscope trusts all applications' claims about being system applications without verifying the key they're signed with :)
 If after reboot the oscilloscope hangs on the loading screen - no worries, just turn off the oscilloscope by long-pressing the power button (or unplugging the power connector) and turn it on again.
@@ -265,24 +272,24 @@ If after reboot the oscilloscope hangs on the loading screen - no worries, just 
 ## Modified Application Installation
 Attention! Installation of **Sparrow_axxx.apk** version is only possible on a previously patched system. On original system, install the **Sparrow_axxx_u.apk** version.
 
-First is the ADB connection command to the device by its IP address. The oscilloscope's IP address can be seen in the oscilloscope itself in the **Utility->IO** menu. Replace 192.168.1.41 with your oscilloscope's address:
-***adb connect 192.168.1.41:55555***
-ADB should respond with successful connection:
-*connected to 192.168.1.41:55555*
-Or that it's already connected:
-*already connected to 192.168.1.41:55555*
+First is the ADB connection command to the device by its IP address. The oscilloscope's IP address can be seen in the oscilloscope itself in the **Utility->IO** menu. Replace 192.168.1.41 with your oscilloscope's address:  
+***adb connect 192.168.1.41:55555***  
+ADB should respond with successful connection:  
+*connected to 192.168.1.41:55555*  
+Or that it's already connected:  
+*already connected to 192.168.1.41:55555*  
 
-Delete the installed oscilloscope application:
+Delete the installed oscilloscope application:  
 ***adb uninstall com.rigol.scope***
-The application on the oscilloscope should close and a success response should be given:
-*Success*
+The application on the oscilloscope should close and a success response should be given:  
+*Success*  
 
-Install the modified application:
-***adb install -g -r Sparrow_axxx.apk***
-(or ***adb install -g -r Sparrow_axxx_u.apk*** if you're installing on unpatched system)
-This might take quite some time, but eventually should give a success response:
-*Performing Streamed Install*
-*Success*
+Install the modified application:  
+***adb install -g -r Sparrow_axxx.apk***  
+(or ***adb install -g -r Sparrow_axxx_u.apk*** if you're installing on unpatched system)  
+This might take quite some time, but eventually should give a success response:  
+*Performing Streamed Install*  
+*Success*  
 
 The oscilloscope application should start itself within 5-20 seconds, but if it doesn't start - just turn off the oscilloscope by long-pressing the power button (or unplugging the power connector) and turn it on again.
 
