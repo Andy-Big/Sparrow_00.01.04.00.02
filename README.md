@@ -162,8 +162,12 @@
 ![logo](_images/RigolDS13.png)
 ![logo](_images/RigolDS14.png)
 
+---
+<br>
+<br>
+<br>
 
-# English version
+### English version
 # Modified Sparrow Application for Rigol DHO800/DHO900 Oscilloscope
 
 ![logo](_images/sparrow_logo.png)
