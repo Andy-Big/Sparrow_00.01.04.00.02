@@ -4,7 +4,7 @@
 
 ![logo](_images/sparrow_logo.png)
 
-#### *Выражаю благодарность всем участникам темы на форуме EEvblog за помощь, подсказки и советы - [https://www.eevblog.com/forum/testgear/hacking-the-rigol-dho800900-scope](https://www.eevblog.com/forum/testgear/hacking-the-rigol-dho800900-scope)*
+#### *Выражаю благодарность всем участникам темы на форумах EEvblog и 4PDA за помощь, подсказки и советы - [https://www.eevblog.com/forum/testgear/hacking-the-rigol-dho800900-scope](https://www.eevblog.com/forum/testgear/hacking-the-rigol-dho800900-scope) , [https://4pda.to/forum/index.php?showtopic=1080959](https://4pda.to/forum/index.php?showtopic=1080959)*
 
 Если вам понравился этот проект, то вы можете поддержать его 300 рублями через ЮМани по [вот этой ссылке](https://yoomoney.ru/quickpay/fundraise/button?billNumber=17P19CIPI3F.250114&)
 
@@ -177,7 +177,7 @@
 
 ![logo](_images/sparrow_logo.png)
 
-#### *I would like to thank all participants of the EEvblog forum thread for their help, hints and advice - [https://www.eevblog.com/forum/testgear/hacking-the-rigol-dho800900-scope](https://www.eevblog.com/forum/testgear/hacking-the-rigol-dho800900-scope)*
+#### *I would like to thank all participants of the EEvblog and 4PDA forum threads for their help, hints and advice - [https://www.eevblog.com/forum/testgear/hacking-the-rigol-dho800900-scope](https://www.eevblog.com/forum/testgear/hacking-the-rigol-dho800900-scope), [https://4pda.to/forum/index.php?showtopic=1080959](https://4pda.to/forum/index.php?showtopic=1080959)*
 
 ## Contents
 * [Main](#main)
