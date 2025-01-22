@@ -8,17 +8,18 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout 
         android:id="@id/result_layout"
-        android:background="?custom_attr_item_bg"
         android:padding="3.0dip"
         android:layout_width="fill_parent"
         android:layout_height="0.0dip"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         app:skin_tag="background:custom_attr_item_bg">
+<!--        android:background="?custom_attr_item_bg" -->
+<!--        app:layout_constraintTop_toTopOf="parent" -->
 
         <View
+            android:visibility="gone"
             android:id="@id/result_title_bg"
             android:background="@drawable/bg_rectangle_top_corners"
             android:layout_width="fill_parent"
@@ -28,6 +29,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            android:visibility="gone"
             android:textSize="18.0sp"
             android:textColor="@android:color/white"
             android:gravity="center"
@@ -44,6 +46,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
+            android:visibility="gone"
             android:tag="binding_2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -54,15 +57,17 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@id/result_list"
-            android:background="@color/blue_grayish"
             android:layout_width="fill_parent"
             android:layout_height="0.0dip"
             android:layout_marginTop="4.0dip"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/result_title_bg"
+            android:gravity="bottom"
+            android:layout_gravity="bottom"
             style="@style/App.RecyclerView.Linear" />
+<!--            app:layout_constraintTop_toBottomOf="@id/result_title_bg" -->
+<!--            android:background="@color/blue_grayish" -->
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -793,9 +793,9 @@
         <item name="android:textColor">#ffffffff</item>
         <item name="android:layout_height">20.0dip</item>
         <item name="android:maxLines">1</item>
-        <item name="android:paddingStart">1.0dip</item>
+        <item name="android:paddingStart">3.0dip</item>
         <item name="android:paddingEnd">1.0dip</item>
-        <item name="android:layout_marginStart">5.0dip</item>
+        <item name="android:layout_marginStart">3.0dip</item>
     </style>
     <style name="App.Window" parent="@style/None" />
     <style name="App.Window.Waveform" parent="@style/App.Window" />
@@ -2526,12 +2526,12 @@
     <style name="Platform.V25.AppCompat.Light" parent="@android:style/Theme.Material.Light.NoActionBar" />
     <style name="Platform.Widget.AppCompat.Spinner" parent="@android:style/Widget.Holo.Spinner" />
     <style name="ResultItemTitleLayout">
-        <item name="android:paddingTop">5.0dip</item>
-        <item name="android:paddingBottom">2.0dip</item>
+        <item name="android:paddingTop">1.0dip</item>
+        <item name="android:paddingBottom">1.0dip</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:paddingStart">0.0dip</item>
-        <item name="android:paddingEnd">5.0dip</item>
+        <item name="android:paddingStart">3.0dip</item>
+        <item name="android:paddingEnd">3.0dip</item>
     </style>
     <style name="RtlOverlay.DialogWindowTitle.AppCompat" parent="@style/Base.DialogWindowTitle.AppCompat">
         <item name="android:textAlignment">viewStart</item>
