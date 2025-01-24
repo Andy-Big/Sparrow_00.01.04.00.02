@@ -19,6 +19,8 @@
 Модификация приложения Rigol DHO800/DHO900 повышает удобство использования осциллографа, улучшая интерфейс и добавляя в него новые возможности.
 
 ## Текущие изменения по сравнению с оригинальной версией
+- Значения вертикальной шкалы теперь не перепрыгивают на левую или правую сторону главного окна осциллограммы при раскрытии и сворачивании панели измерений, а всегда остаются слева.
+- Панель измерений полностью прозрачная, список измерений в ней прижат вниз, так что при 3-4 измерениях они практически не мешают просмотру сигнала.
 - Изменена заставка при запуске приложения (сплэшскрин). Это сделано для того чтобы было видно когда заканчивается загрузки системы и запускается само приложение.
 - Двойным тапом на иконку канала внизу экрана у этого канала изменяется режим блокировки между AC и DC.
 - В иконки каналов внизу экрана добавлено отображение текущего делителя щупа. [Смотреть скриншоты](#скриншоты).
@@ -126,6 +128,10 @@
 
 
 # История изменений
+#### **a004** 24.01.2025
+- Значения вертикальной шкалы теперь не перепрыгивают на левую или правую сторону главного окна осциллограммы при раскрытии и сворачивании панели измерений, а всегда остаются слева.
+- Панель измерений полностью прозрачная, список измерений в ней прижат вниз, так что при 3-4 измерениях они практически не мешают просмотру сигнала.
+
 #### **a003** 19.01.2025
 - Изменена заставка при запуске приложения (сплэшскрин). Это сделано для того чтобы было видно когда заканчивается загрузка системы и запускается само приложение.
 - Двойным тапом на иконку канала внизу экрана у этого канала изменяется режим блокировки между AC и DC.
@@ -161,12 +167,14 @@
 
 
 ### Панель результатов измерений в обычном режиме
-![logo](_images/RigolDS15.png)
-![logo](_images/RigolDS16.png)
+![logo](_images/RigolDS43.png)
+![logo](_images/RigolDS44.png)
+![logo](_images/RigolDS45.png)
 
 ### Панель результатов измерений в режиме "на весь экран"
-![logo](_images/RigolDS13.png)
-![logo](_images/RigolDS14.png)
+![logo](_images/RigolDS46.png)
+![logo](_images/RigolDS47.png)
+![logo](_images/RigolDS48.png)
 
 ---
 <br>
@@ -190,6 +198,8 @@
 The modification of the Rigol DHO800/DHO900 application improves the usability of the oscilloscope by enhancing the interface and adding new features.
 
 ## Current Changes Compared to Original Version
+- The vertical scale values ​​no longer jump to the left or right side of the main oscillogram window when expanding and collapsing the measurement panel, but always remain on the left.
+- The measurement panel is completely transparent, the list of measurements in it is pressed down, so that with 3-4 measurements they practically do not interfere with viewing the signal.
 - Changed the application splash screen at startup. This is done to show when the system finishes loading and the application itself starts.
 - Double-tapping the channel icon at the bottom of the screen toggles that channel's coupling mode between AC and DC.
 - Added probe attenuation factor display to channel icons at the bottom of the screen. [See screenshots](#screenshots).
@@ -295,6 +305,10 @@ This might take quite some time, but eventually should give a success response:
 The oscilloscope application should start itself within 5-20 seconds, but if it doesn't start - just turn off the oscilloscope by long-pressing the power button (or unplugging the power connector) and turn it on again.
 
 # Change History
+#### **a004** 24.01.2025
+- The vertical scale values ​​no longer jump to the left or right side of the main oscillogram window when expanding and collapsing the measurement panel, but always remain on the left.
+- The measurement panel is completely transparent, the list of measurements in it is pressed down, so that with 3-4 measurements they practically do not interfere with viewing the signal.
+
 #### **a003** 19.01.2025
 - Changed the application splash screen at startup. This is done to show when the system finishes loading and the application itself starts.
 - Double-tapping the channel icon at the bottom of the screen toggles that channel's coupling mode between AC and DC.
@@ -329,9 +343,11 @@ The oscilloscope application should start itself within 5-20 seconds, but if it 
 ![logo](_images/RigolDS17.png)
 
 ### Measurement results panel in normal mode
-![logo](_images/RigolDS15.png)
-![logo](_images/RigolDS16.png)
+![logo](_images/RigolDS43.png)
+![logo](_images/RigolDS44.png)
+![logo](_images/RigolDS45.png)
 
 ### Measurement results panel in full-screen mode
-![logo](_images/RigolDS13.png)
-![logo](_images/RigolDS14.png)
+![logo](_images/RigolDS46.png)
+![logo](_images/RigolDS47.png)
+![logo](_images/RigolDS48.png)
