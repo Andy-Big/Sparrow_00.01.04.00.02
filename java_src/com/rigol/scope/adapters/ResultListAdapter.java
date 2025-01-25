@@ -792,7 +792,8 @@ public class ResultListAdapter extends MultiItemTypeAdapter<List<ResultParam>> {
             return list.get(i) instanceof MeasureResultParam;
         }
 
-        @Override // com.rigol.scope.adapters.ResultListAdapter.BaseMeasureAdapterDelegate
+    // info: задание заголовка пункта измерений с цветным выделением канала
+    @Override // com.rigol.scope.adapters.ResultListAdapter.BaseMeasureAdapterDelegate
         protected void onBindViewHolder(List<ResultParam> list, int i, BaseViewHolder<? extends ViewDataBinding> baseViewHolder) {
             SpannableString titleWithSrc;
             super.onBindViewHolder(list, i, baseViewHolder);
