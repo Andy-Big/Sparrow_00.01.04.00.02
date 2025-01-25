@@ -39,7 +39,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 1
+    .locals 2
 
     const-string v0, "context"
 
@@ -70,7 +70,10 @@
     const/high16 p2, -0x1000000
 
     .line 61
+
+# change removed
     invoke-virtual {p0, p1, p1, p1, p2}, Lcom/rigol/scope/views/baseview/LabelView;->setShadowLayer(FFFI)V
+# /change
 
     return-void
 .end method
@@ -106,3 +109,42 @@
     :cond_0
     return-void
 .end method
+
+# change added
+.method protected onDraw(Landroid/graphics/Canvas;)V
+    .locals 3
+
+    # save original color
+    invoke-virtual {p0}, Landroid/widget/TextView;->getTextColors()Landroid/content/res/ColorStateList;
+    move-result-object v0
+    invoke-virtual {v0}, Landroid/content/res/ColorStateList;->getDefaultColor()I
+    move-result v0
+    # set black color
+    const v1, -0x1000000
+    invoke-virtual {p0, v1}, Landroid/widget/TextView;->setTextColor(I)V
+
+    invoke-virtual {p0}, Landroid/widget/TextView;->getPaint()Landroid/text/TextPaint;
+    move-result-object v1
+
+    # set stroke width
+    const/high16 v2, 0x41000000    # 8.0f
+    invoke-virtual {v1, v2}, Landroid/graphics/Paint;->setStrokeWidth(F)V
+    # set stroke style
+    sget-object v2, Landroid/graphics/Paint$Style;->STROKE:Landroid/graphics/Paint$Style;
+    invoke-virtual {v1, v2}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
+    # paint stroked text
+    invoke-super {p0, p1}, Landroid/widget/TextView;->onDraw(Landroid/graphics/Canvas;)V
+    # reset stroke width
+    const/high16 v2, 0x0    # 0.0f
+    invoke-virtual {v1, v2}, Landroid/graphics/Paint;->setStrokeWidth(F)V
+    # reset stroke style
+    sget-object v2, Landroid/graphics/Paint$Style;->FILL:Landroid/graphics/Paint$Style;
+    invoke-virtual {v1, v2}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
+    # set original color
+    invoke-virtual {p0, v0}, Landroid/widget/TextView;->setTextColor(I)V
+    # paint normal text
+    invoke-super {p0, p1}, Landroid/widget/TextView;->onDraw(Landroid/graphics/Canvas;)V
+
+    return-void
+.end method
+# /change
