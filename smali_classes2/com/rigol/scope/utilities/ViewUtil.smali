@@ -7553,6 +7553,7 @@
     return-object p0
 .end method
 
+# info: формирование заголовка пункта измерений с цветным выделением канала
 .method public static getTitleWithSrc(Landroid/content/Context;Ljava/lang/String;Lcom/rigol/scope/cil/ServiceEnum$Chan;)Landroid/text/SpannableString;
     .locals 3
 
@@ -7568,15 +7569,13 @@
 
     invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v2, "("
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string v0, ")"
-
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+# change changed
+    #const-string v2, "("
+    #invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    #invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    #const-string v0, ")"
+    #invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+# /changed
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -7598,18 +7597,25 @@
     invoke-direct {p2, p0}, Landroid/text/style/ForegroundColorSpan;-><init>(I)V
 
     .line 1913
-    invoke-virtual {p1}, Ljava/lang/String;->length()I
 
-    move-result p0
+# change changed
+    #invoke-virtual {p1}, Ljava/lang/String;->length()I
+    #move-result p0
+    #add-int/lit8 p0, p0, 0x1
+# /change
 
-    add-int/lit8 p0, p0, 0x1
+# change added
+    const/4 p0, 0x0
+# /changed
 
     .line 1914
     invoke-virtual {v0}, Ljava/lang/String;->length()I
 
     move-result p1
 
-    add-int/lit8 p1, p1, -0x1
+# change changed
+    #add-int/lit8 p1, p1, -0x1
+# /change
 
     const/16 v0, 0x21
 

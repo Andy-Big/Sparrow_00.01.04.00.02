@@ -248,6 +248,7 @@
 
 
 # change added
+# info: вывод отладочной информации в logcat
 .method public static axxxLogOut(Ljava/lang/String;)V
     .locals 1
 
