@@ -3,6 +3,10 @@
 .source "LabelView.kt"
 
 
+# info: подготовка и отрисовка меток каналов
+
+
+
 # annotations
 .annotation runtime Lkotlin/Metadata;
     bv = {

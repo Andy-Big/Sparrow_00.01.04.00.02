@@ -1,3 +1,5 @@
+// info: подготовка и отрисовка меток каналов
+
 package com.rigol.scope.views.baseview;
 
 import android.content.Context;
