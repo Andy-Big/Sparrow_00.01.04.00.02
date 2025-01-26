@@ -1,7 +1,10 @@
-
-<p align="right">
-![GitHub Downloads](https://img.shields.io/github/downloads/Andy-Big/Rigol-DHO800-900-Sparrow_mod/total?style=flat-square)
+<p align="center">
+  <a href="https://github.com/Andy-Big/Rigol-DHO800-900-Sparrow_mod/releases">
+    <img src="[https://img.shields.io/github/downloads/kiwibrowser/src.next/total?label=GitHub%20Downloads&color=%6BDDD5](https://img.shields.io/github/downloads/Andy-Big/Rigol-DHO800-900-Sparrow_mod/total?style=flat-square)">
+  </a>
 </p>
+
+![GitHub Downloads](https://img.shields.io/github/downloads/Andy-Big/Rigol-DHO800-900-Sparrow_mod/total?style=flat-square)
 
 [English version](#english-version)
 
