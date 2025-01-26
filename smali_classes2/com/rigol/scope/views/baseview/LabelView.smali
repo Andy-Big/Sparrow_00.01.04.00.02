@@ -90,7 +90,7 @@
     .line 61
 
 # change removed
-    invoke-virtual {p0, p1, p1, p1, p2}, Lcom/rigol/scope/views/baseview/LabelView;->setShadowLayer(FFFI)V
+    #invoke-virtual {p0, p1, p1, p1, p2}, Lcom/rigol/scope/views/baseview/LabelView;->setShadowLayer(FFFI)V
 # /change
 
     return-void
@@ -160,7 +160,7 @@
     invoke-virtual {v0}, Landroid/content/res/ColorStateList;->getDefaultColor()I
     move-result v0
     # set black color
-    const v1, -0x1000000
+    const v1, 0xaf000000
     invoke-virtual {p0, v1}, Landroid/widget/TextView;->setTextColor(I)V
 
     invoke-virtual {p0}, Landroid/widget/TextView;->getPaint()Landroid/text/TextPaint;
