@@ -1,5 +1,10 @@
-| [![GitHub Downloads](https://img.shields.io/github/downloads/Andy-Big/Rigol-DHO800-900-Sparrow_mod/total?style=flat-square)](https://github.com/Andy-Big/Rigol-DHO800-900-Sparrow_mod/releases) |
-|:---:|
+[//]: # (Downloads Badge Center)
+[//]: # "Centered Image"
+<div align="center">
+
+[![GitHub Downloads](https://img.shields.io/github/downloads/Andy-Big/Rigol-DHO800-900-Sparrow_mod/total?style=flat-square)](https://github.com/Andy-Big/Rigol-DHO800-900-Sparrow_mod/releases)
+
+</div>
 
 [English version](#english-version)
 

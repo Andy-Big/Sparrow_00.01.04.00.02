@@ -7625,7 +7625,11 @@
     return-object v1
 .end method
 
-.method public static getTitleWithSrc(Landroid/content/Context;Ljava/lang/String;Lcom/rigol/scope/cil/ServiceEnum$Chan;Lcom/rigol/scope/cil/ServiceEnum$Chan;)Landroid/text/SpannableString;
+
+# changed
+.method public static getTitleWithSrc2(Landroid/content/Context;Ljava/lang/String;Lcom/rigol/scope/cil/ServiceEnum$Chan;Lcom/rigol/scope/cil/ServiceEnum$Chan;)Landroid/text/SpannableString;
+#.method public static getTitleWithSrc(Landroid/content/Context;Ljava/lang/String;Lcom/rigol/scope/cil/ServiceEnum$Chan;Lcom/rigol/scope/cil/ServiceEnum$Chan;)Landroid/text/SpannableString;
+# /changed
     .locals 4
 
     if-eqz p3, :cond_1
@@ -7775,6 +7779,79 @@
 
     return-object p0
 .end method
+
+
+# changed added
+.method public static getTitleWithSrc(Landroid/content/Context;Ljava/lang/String;Lcom/rigol/scope/cil/ServiceEnum$Chan;Lcom/rigol/scope/cil/ServiceEnum$Chan;)Landroid/text/SpannableString;
+    .locals 4
+
+    if-eqz p3, :cond_1
+    iget-object v0, p3, Lcom/rigol/scope/cil/ServiceEnum$Chan;->value2:Ljava/lang/String;
+    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    move-result v0
+    if-eqz v0, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    # получение короткого названия канала 1
+    invoke-static {p2}, Lcom/rigol/scope/utilities/ViewUtil;->getShortChanStr(Lcom/rigol/scope/cil/ServiceEnum$Chan;)Ljava/lang/String;
+    move-result-object v0
+    # получение короткого названия канала 2
+    invoke-static {p3}, Lcom/rigol/scope/utilities/ViewUtil;->getShortChanStr(Lcom/rigol/scope/cil/ServiceEnum$Chan;)Ljava/lang/String;
+    move-result-object v1
+    
+    # создание строки с названием
+    new-instance v2, Ljava/lang/StringBuilder;
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v0
+
+    # создание объекта SpannableString
+    new-instance v1, Landroid/text/SpannableString;
+    invoke-direct {v1, v0}, Landroid/text/SpannableString;-><init>(Ljava/lang/CharSequence;)V
+    # получение цвета первого канала
+    invoke-static {p0, p2}, Lcom/rigol/scope/utilities/ColorUtil;->getColor(Landroid/content/Context;Lcom/rigol/scope/cil/ServiceEnum$Chan;)I
+    move-result v2
+
+    # создание объекта ForegroundColorSpan
+    new-instance v3, Landroid/text/style/ForegroundColorSpan;
+    invoke-direct {v3, v2}, Landroid/text/style/ForegroundColorSpan;-><init>(I)V
+
+    # Применяем цвет первого канала к 4-му символу с конца
+    invoke-virtual {v0}, Ljava/lang/String;->length()I
+    move-result p1
+    add-int/lit8 v2, p1, -0x4
+    add-int/lit8 p1, p1, -0x3
+    const/16 p2, 0x21
+    invoke-virtual {v1, v3, v2, p1, p2}, Landroid/text/SpannableString;->setSpan(Ljava/lang/Object;III)V
+
+    # получение цвета второго канала
+    invoke-static {p0, p3}, Lcom/rigol/scope/utilities/ColorUtil;->getColor(Landroid/content/Context;Lcom/rigol/scope/cil/ServiceEnum$Chan;)I
+    move-result p0
+
+    # создание объекта ForegroundColorSpan
+    new-instance p1, Landroid/text/style/ForegroundColorSpan;
+    invoke-direct {p1, p0}, Landroid/text/style/ForegroundColorSpan;-><init>(I)V
+
+    # Применяем цвет второго канала ко 2-му символу с конца
+    invoke-virtual {v0}, Ljava/lang/String;->length()I
+    move-result p0
+    add-int/lit8 v0, p0, -0x2
+    add-int/lit8 p0, p0, -0x1
+    invoke-virtual {v1, p1, v0, p0, p2}, Landroid/text/SpannableString;->setSpan(Ljava/lang/Object;III)V
+    return-object v1
+
+    .line 1932
+    :cond_1
+    :goto_0
+    invoke-static {p0, p1, p2}, Lcom/rigol/scope/utilities/ViewUtil;->getTitleWithSrc(Landroid/content/Context;Ljava/lang/String;Lcom/rigol/scope/cil/ServiceEnum$Chan;)Landroid/text/SpannableString;
+    move-result-object p0
+    return-object p0
+.end method
+# /changed
+
 
 .method public static getTouchLock()Z
     .locals 1
