@@ -37,6 +37,13 @@
 .end annotation
 
 
+
+# change added
+.field private isDrawing:Z
+# /change
+
+
+
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 2
@@ -47,6 +54,13 @@
 
     .line 36
     invoke-direct {p0, p1, p2}, Landroidx/appcompat/widget/AppCompatTextView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
+
+
+# change added
+    const/4 v0, 0x0
+    iput-boolean v0, p0, Lcom/rigol/scope/views/baseview/LabelView;->isDrawing:Z
+# /change
+
 
     .line 52
     invoke-static {}, Landroid/view/View;->generateViewId()I
@@ -110,9 +124,31 @@
     return-void
 .end method
 
+
+
 # change added
+.method protected invalidate()V
+    .locals 1
+
+    #const-string v0, "========== com/rigol/scope/views/baseview/LabelView->invalidate() =========="
+    #invoke-static {v0}, Lcom/rigol/scope/App;->axxxLogOut(Ljava/lang/String;)V
+
+    iget-boolean v0, p0, Lcom/rigol/scope/views/baseview/LabelView;->isDrawing:Z
+    if-eqz v0, :cond_0
+    return-void
+    :cond_0
+    invoke-super {p0}, Landroid/view/View;->invalidate()V
+    return-void
+.end method
+
 .method protected onDraw(Landroid/graphics/Canvas;)V
     .locals 3
+
+    #const-string v0, "========== com/rigol/scope/views/baseview/LabelView->onDraw() =========="
+    #invoke-static {v0}, Lcom/rigol/scope/App;->axxxLogOut(Ljava/lang/String;)V
+
+    const/4 v0, 0x1
+    iput-boolean v0, p0, Lcom/rigol/scope/views/baseview/LabelView;->isDrawing:Z
 
     # save original color
     invoke-virtual {p0}, Landroid/widget/TextView;->getTextColors()Landroid/content/res/ColorStateList;
@@ -142,6 +178,9 @@
     invoke-virtual {v1, v2}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
     # set original color
     invoke-virtual {p0, v0}, Landroid/widget/TextView;->setTextColor(I)V
+
+    const/4 v0, 0x0
+    iput-boolean v0, p0, Lcom/rigol/scope/views/baseview/LabelView;->isDrawing:Z
     # paint normal text
     invoke-super {p0, p1}, Landroid/widget/TextView;->onDraw(Landroid/graphics/Canvas;)V
 
