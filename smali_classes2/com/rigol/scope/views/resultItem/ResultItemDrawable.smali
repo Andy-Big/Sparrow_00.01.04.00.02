@@ -64,7 +64,8 @@
 
     iput-object v0, p0, Lcom/rigol/scope/views/resultItem/ResultItemDrawable;->normalPaint:Landroid/graphics/Paint;
 
-    const-string v1, "#4F5C5F"
+    const-string v1, "#2A3133"
+#    const-string v1, "#4F5C5F"
 
     .line 68
     invoke-static {v1}, Landroid/graphics/Color;->parseColor(Ljava/lang/String;)I

@@ -3112,12 +3112,13 @@
         <item>{v: 1, si: math_275}</item>
     </string-array>
     <string-array name="msg_meas_quick_popup">
-        <item>{v: 0, si: measure_210}</item>
-        <item>{v: 3, si: measure_211}</item>
-        <item>{v: 5, si: measure_212}</item>
-        <item>{v: 1, si: measure_213}</item>
-        <item>{v: 2, si: measure_214}</item>
-        <item>{v: 4, si: measure_215}</item>
+        <item>{v: 0, si: measure_210}</item> <!-- Indicator -->
+        <item>{v: 3, si: measure_211}</item> <!-- Setting -->
+        <item>{v: 5, si: measure_212}</item> <!-- Change item -->
+        <item>{v: 1, si: measure_213}</item> <!-- Reset Stat. -->
+        <item>{v: 2, si: measure_214}</item> <!-- Remove -->
+        <item>{v: 4, si: measure_215}</item> <!-- Remove All -->
+        <item>{v: 6, si: measure_216}</item> <!-- Names/Colors -->
     </string-array>
     <string-array name="msg_navigate_enable">
         <item>{v: 0, si: navigate_2}</item>

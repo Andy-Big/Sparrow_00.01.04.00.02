@@ -252,13 +252,38 @@
 .method public static axxxLogOut(Ljava/lang/String;)V
     .locals 1
 
-    .prologue   
     const-string v0, "[RIGOL-Axxx-DEBUG]"
 
-    .line 10
     invoke-static {v0, p0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 13
-        return-void
+    return-void
+.end method
+
+# info: вывод отладочной информации с числовым значением в logcat
+.method public static axxxLogOutI(Ljava/lang/String;I)V
+    .locals 2
+
+    const-string v0, "[RIGOL-Axxx-DEBUG]"
+
+    # Создаем новый StringBuilder
+    new-instance v1, Ljava/lang/StringBuilder;
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    
+    # Добавляем исходную строку p0 в StringBuilder
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    
+    # Преобразуем число p1 в строку и добавляем в StringBuilder
+    invoke-static {p1}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+    move-result-object p0
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    
+    # Получаем итоговую строку из StringBuilder
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p0
+
+    # Выводим отладочное сообщение в logcat
+    invoke-static {v0, p0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
 .end method
 # /change

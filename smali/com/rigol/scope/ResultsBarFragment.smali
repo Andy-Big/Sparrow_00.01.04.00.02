@@ -1449,7 +1449,11 @@
     return-void
 .end method
 
-.method public synthetic lambda$showQuickPopupView$10$ResultsBarFragment(Lcom/rigol/scope/views/baseview/BasePopupView;Landroid/view/View;ILcom/rigol/scope/viewmodels/SharedViewModel;Landroid/view/View;Landroidx/recyclerview/widget/RecyclerView$ViewHolder;ILcom/rigol/scope/data/MappingObject;)V
+
+# changed changed
+.method public synthetic lambda$showQuickPopupView$10$ResultsBarFragment_(Lcom/rigol/scope/views/baseview/BasePopupView;Landroid/view/View;ILcom/rigol/scope/viewmodels/SharedViewModel;Landroid/view/View;Landroidx/recyclerview/widget/RecyclerView$ViewHolder;ILcom/rigol/scope/data/MappingObject;)V
+#.method public synthetic lambda$showQuickPopupView$10$ResultsBarFragment(Lcom/rigol/scope/views/baseview/BasePopupView;Landroid/view/View;ILcom/rigol/scope/viewmodels/SharedViewModel;Landroid/view/View;Landroidx/recyclerview/widget/RecyclerView$ViewHolder;ILcom/rigol/scope/data/MappingObject;)V
+# /changed
     .locals 0
 
     if-nez p8, :cond_0
@@ -1591,6 +1595,194 @@
         :pswitch_0
     .end packed-switch
 .end method
+
+
+
+# info: обработка нажатий в меню пунктов измерений
+# changed added
+# Это лямбда из метода setOnItemClickListener для MeasureQuickPopupView
+.method public synthetic lambda$showQuickPopupView$10$ResultsBarFragment(Lcom/rigol/scope/views/baseview/BasePopupView;Landroid/view/View;ILcom/rigol/scope/viewmodels/SharedViewModel;Landroid/view/View;Landroidx/recyclerview/widget/RecyclerView$ViewHolder;ILcom/rigol/scope/data/MappingObject;)V
+    .locals 5
+
+    const-string v0, "========== lambda$showQuickPopupView$10$ResultsBarFragment =========="
+    invoke-static {v0}, Lcom/rigol/scope/App;->axxxLogOut(Ljava/lang/String;)V
+
+    # if (mappingObject == null) return;
+    if-nez p8, :cond_0
+    return-void
+
+    const-string v0, "========== lambda$showQuickPopupView$10$ResultsBarFragment - mappingObject != null =========="
+    invoke-static {v0}, Lcom/rigol/scope/App;->axxxLogOut(Ljava/lang/String;)V
+
+    # MeasureQuickItemType type = ServiceEnum.getMeasureQuickItemTypeFromValue1(mappingObject.getValue());
+    .line 390
+    :cond_0
+    invoke-virtual {p8}, Lcom/rigol/scope/data/MappingObject;->getValue()I
+    move-result p5
+    invoke-static {p5}, Lcom/rigol/scope/cil/ServiceEnum;->getMeasureQuickItemTypeFromValue1(I)Lcom/rigol/scope/cil/ServiceEnum$MeasureQuickItemType;
+    move-result-object p5
+    if-nez p5, :cond_1
+    return-void
+
+    const-string v0, "========== lambda$showQuickPopupView$10$ResultsBarFragment - measureQuickItemType != null =========="
+    invoke-static {v0}, Lcom/rigol/scope/App;->axxxLogOut(Ljava/lang/String;)V
+
+    # switch (type) {
+    .line 394
+    :cond_1
+    sget-object p6, Lcom/rigol/scope/ResultsBarFragment$3;->$SwitchMap$com$rigol$scope$cil$ServiceEnum$MeasureQuickItemType:[I
+    invoke-virtual {p5}, Lcom/rigol/scope/cil/ServiceEnum$MeasureQuickItemType;->ordinal()I
+    move-result p5
+    aget p5, p6, p5
+    const/4 p6, 0x1
+
+    const-string v0, "========== MeasureQuickItemType ordinal() switch value : "
+    invoke-static {v0, p5}, Lcom/rigol/scope/App;->axxxLogOutI(Ljava/lang/String;I)V
+
+   packed-switch p5, :pswitch_data_0
+    goto :goto_0
+
+    # case DELETE_ALL:
+    # showDeleteAllAlertPopupView();
+    .line 430
+    :pswitch_0
+    invoke-direct {p0}, Lcom/rigol/scope/ResultsBarFragment;->showDeleteAllAlertPopupView()V
+    goto :goto_0
+
+    # case ADD:
+    # popupView.dismiss();
+    # if (sharedViewModel != null) {
+    #     sharedViewModel.hasChangeMeasureItem.setValue(true);
+    # }
+    # showPopupView(view, MeasurePopupView.class);
+    .line 422
+    :pswitch_1
+    invoke-virtual {p1}, Lcom/rigol/scope/views/baseview/BasePopupView;->dismiss()V
+    if-eqz p4, :cond_2
+    .line 423
+    iget-object p1, p4, Lcom/rigol/scope/viewmodels/SharedViewModel;->hasChangeMeasureItem:Landroidx/lifecycle/MutableLiveData;
+    invoke-static {p6}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+    move-result-object p3
+    invoke-virtual {p1, p3}, Landroidx/lifecycle/MutableLiveData;->setValue(Ljava/lang/Object;)V
+    .line 424
+    :cond_2
+    const-class p1, Lcom/rigol/scope/views/measure/MeasurePopupView;
+    invoke-direct {p0, p2, p1}, Lcom/rigol/scope/ResultsBarFragment;->showPopupView(Landroid/view/View;Ljava/lang/Class;)V
+    goto :goto_0
+
+    .line 397
+    :pswitch_2
+    iget-object p1, p0, Lcom/rigol/scope/ResultsBarFragment;->measureSettingParam:Lcom/rigol/scope/data/MeasureSettingParam;
+    if-eqz p1, :cond_3
+    .line 398
+    invoke-virtual {p1, p6}, Lcom/rigol/scope/data/MeasureSettingParam;->saveCursorIndicator(Z)V
+    .line 399
+    iget-object p1, p0, Lcom/rigol/scope/ResultsBarFragment;->measureSettingParam:Lcom/rigol/scope/data/MeasureSettingParam;
+    invoke-virtual {p1, p6}, Lcom/rigol/scope/data/MeasureSettingParam;->saveCursorThreshold(Z)V
+    .line 400
+    sget-object p1, Lcom/rigol/scope/views/baseview/OrientationView;->Companion:Lcom/rigol/scope/views/baseview/OrientationView$Companion;
+    invoke-virtual {p1, p6}, Lcom/rigol/scope/views/baseview/OrientationView$Companion;->setShowThreshold(Z)V
+    goto :goto_0
+
+    # case STATISTICS:
+    # API.getInstance().UI_PostInt32(0x1c, 0x3325, 1);
+    .line 405
+    :pswitch_3
+    invoke-static {}, Lcom/rigol/scope/cil/API;->getInstance()Lcom/rigol/scope/cil/API;
+    move-result-object p1
+    const/16 p2, 0x1c
+    const/16 p3, 0x3325
+    invoke-virtual {p1, p2, p3, p6}, Lcom/rigol/scope/cil/API;->UI_PostInt32(III)I
+    goto :goto_0
+
+    # case DELETE:
+    # if (resultAdapter != null) {
+    #     resultAdapter.remove(resultAdapter.getCurrentItem());
+    #     popupView.dismiss();
+    # }
+    .line 415
+    :pswitch_4
+    iget-object p2, p0, Lcom/rigol/scope/ResultsBarFragment;->resultAdapter:Lcom/rigol/scope/adapters/ResultListAdapter;
+    if-eqz p2, :cond_3
+    .line 416
+    invoke-virtual {p2}, Lcom/rigol/scope/adapters/ResultListAdapter;->getCurrentItem()I
+    move-result p3
+    invoke-virtual {p2, p3}, Lcom/rigol/scope/adapters/ResultListAdapter;->remove(I)V
+    .line 417
+    invoke-virtual {p1}, Lcom/rigol/scope/views/baseview/BasePopupView;->dismiss()V
+    goto :goto_0
+
+    # case SETTING:
+    # popupView.dismiss();
+    # showSettingPopupView(view, position);
+    .line 410
+    :pswitch_5
+    invoke-virtual {p1}, Lcom/rigol/scope/views/baseview/BasePopupView;->dismiss()V
+    .line 411
+    invoke-direct {p0, p2, p3}, Lcom/rigol/scope/ResultsBarFragment;->showSettingPopupView(Landroid/view/View;I)V
+    goto :goto_0
+
+
+
+    # Добавляем новый case для CH_NAMES
+    :pswitch_6  # CH_NAMES
+    invoke-virtual {p1}, Lcom/rigol/scope/views/baseview/BasePopupView;->dismiss()V
+    # Вызываем метод для обработки нажатия на CH_NAMES
+    const-string v0, "========== lambda$showQuickPopupView$10$ResultsBarFragment - CH_NAMES =========="
+    invoke-static {v0}, Lcom/rigol/scope/App;->axxxLogOut(Ljava/lang/String;)V
+    # Переключаем режим отображения названий каналов
+    invoke-static {}, Lcom/rigol/scope/utilities/ViewUtil;->switchShowChannelNames()Z
+    move-result v0
+    # Если названия каналов включены, то устанавливаем ширину результатов 190dp, иначе 155dp
+    if-eqz v0, :cond_4
+    const v2, 190
+    goto :goto_1
+    :cond_4
+    const v2, 155
+    :goto_1
+    # Устанавливаем ширину результатов
+
+    # Получаем root view из binding
+    iget-object v0, p0, Lcom/rigol/scope/ResultsBarFragment;->binding:Lcom/rigol/scope/databinding/FragmentResultsBarBinding;
+    invoke-virtual {v0}, Lcom/rigol/scope/databinding/FragmentResultsBarBinding;->getRoot()Landroid/view/View;
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+    move-result-object v1
+
+    iget v3, v1, Landroid/view/ViewGroup$LayoutParams;->width:I
+    const-string v4, "========== lambda$showQuickPopupView$10$ResultsBarFragment - CH_NAMES - width: "
+    invoke-static {v4, v3}, Lcom/rigol/scope/App;->axxxLogOutI(Ljava/lang/String;I)V
+
+    # Устанавливаем новую ширину
+    iput v2, v1, Landroid/view/ViewGroup$LayoutParams;->width:I
+
+    # Важно: устанавливаем gravity RIGHT для сохранения привязки вправо
+    check-cast v1, Landroid/widget/FrameLayout$LayoutParams;
+    const/16 v3, 0x5  # Gravity.RIGHT
+    iput v3, v1, Landroid/widget/FrameLayout$LayoutParams;->gravity:I
+
+    # Применяем обновленные параметры
+    invoke-virtual {v0, v1}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+
+    :cond_3
+    :goto_0
+    return-void
+    nop
+
+    :pswitch_data_0
+    .packed-switch 0x1
+        :pswitch_5  # SETTING
+        :pswitch_4  # DELETE
+        :pswitch_3  # STATISTICS
+        :pswitch_2  # SETTING
+        :pswitch_1  # ADD
+        :pswitch_0  # DELETE_ALL
+        :pswitch_6  # CH_NAMES - новый пункт
+    .end packed-switch
+.end method
+# /changed
+
 
 .method public synthetic lambda$showQuickPopupView$11$ResultsBarFragment(Lcom/rigol/scope/views/baseview/BasePopupView;Landroid/view/View;ILandroid/view/View;Landroidx/recyclerview/widget/RecyclerView$ViewHolder;ILcom/rigol/scope/data/MappingObject;)V
     .locals 0

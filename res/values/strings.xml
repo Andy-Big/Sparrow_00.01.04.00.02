@@ -7961,4 +7961,9 @@
     <string name="zonetrigger_string_vert_zoom_out">@string/string_vert_zoom_out</string>
     <string name="zonetrigger_string_wave_zoom_in">@string/string_wave_zoom_in</string>
     <string name="zonetrigger_string_wave_zoom_out">@string/string_wave_zoom_out</string>
+
+
+
+    <string name="measure_216">Names/Colors</string>
+
 </resources>

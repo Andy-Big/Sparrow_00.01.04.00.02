@@ -38,6 +38,11 @@
 .field public static final enum SETTING:Lcom/rigol/scope/cil/ServiceEnum$MeasureQuickItemType;
 
 
+# change add
+.field public static final enum CH_NAMES:Lcom/rigol/scope/cil/ServiceEnum$MeasureQuickItemType;
+# /change
+
+
 # instance fields
 .field public final pic1:Ljava/lang/String;
 
@@ -178,7 +183,25 @@
 
     sput-object v0, Lcom/rigol/scope/cil/ServiceEnum$MeasureQuickItemType;->CHANGE_ITEM:Lcom/rigol/scope/cil/ServiceEnum$MeasureQuickItemType;
 
-    const/4 v1, 0x6
+# change add
+    new-instance v0, Lcom/rigol/scope/cil/ServiceEnum$MeasureQuickItemType;
+    const-string v9, "CH_NAMES"
+    const/4 v10, 0x6
+    const/4 v11, 0x6
+    const-string v12, ""
+    const-string v13, ""
+    const-string v14, ""
+    move-object v8, v0
+    invoke-direct/range {v8 .. v14}, Lcom/rigol/scope/cil/ServiceEnum$MeasureQuickItemType;-><init>(Ljava/lang/String;IILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    sput-object v0, Lcom/rigol/scope/cil/ServiceEnum$MeasureQuickItemType;->CH_NAMES:Lcom/rigol/scope/cil/ServiceEnum$MeasureQuickItemType;
+# /change
+
+
+# change change
+    #const/4 v1, 0x6
+    const/4 v1, 0x7
+# /change
+
 
     new-array v1, v1, [Lcom/rigol/scope/cil/ServiceEnum$MeasureQuickItemType;
 
@@ -216,6 +239,13 @@
     const/4 v2, 0x5
 
     aput-object v0, v1, v2
+
+
+    # change add
+    const/4 v2, 0x6
+    aput-object v0, v1, v2
+    # /change
+
 
     sput-object v1, Lcom/rigol/scope/cil/ServiceEnum$MeasureQuickItemType;->$VALUES:[Lcom/rigol/scope/cil/ServiceEnum$MeasureQuickItemType;
 

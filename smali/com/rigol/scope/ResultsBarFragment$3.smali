@@ -18,8 +18,10 @@
 .field static final synthetic $SwitchMap$com$rigol$scope$cil$ServiceEnum$MeasureQuickItemType:[I
 
 
+# info: подготовка пунктов меню (всплывающее меню при нажатии пункта измерения) из массива
 # direct methods
 .method static constructor <clinit>()V
+
     .locals 3
 
     .line 693
@@ -127,5 +129,16 @@
     .catch Ljava/lang/NoSuchFieldError; {:try_start_5 .. :try_end_5} :catch_5
 
     :catch_5
+    :try_start_6
+    sget-object v0, Lcom/rigol/scope/ResultsBarFragment$3;->$SwitchMap$com$rigol$scope$cil$ServiceEnum$MeasureQuickItemType:[I
+    sget-object v1, Lcom/rigol/scope/cil/ServiceEnum$MeasureQuickItemType;->CH_NAMES:Lcom/rigol/scope/cil/ServiceEnum$MeasureQuickItemType;
+    invoke-virtual {v1}, Lcom/rigol/scope/cil/ServiceEnum$MeasureQuickItemType;->ordinal()I
+    move-result v1
+    const/4 v2, 0x7
+    aput v2, v0, v1
+    :try_end_6
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_6 .. :try_end_6} :catch_6
+
+    :catch_6
     return-void
 .end method

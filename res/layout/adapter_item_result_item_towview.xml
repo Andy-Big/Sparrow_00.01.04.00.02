@@ -15,7 +15,7 @@
     style="@style/App.Text.ResultItem" />
   <androidx.appcompat.widget.AppCompatTextView android:id="@id/item_data"
     android:textSize="17.0sp"
-    android:layout_width="100.0dip"
+    android:layout_width="90.0dip"
     android:layout_height="20.0dip"
     android:text="@string/result_item_none_value"
     android:layout_marginEnd="5.0dip"

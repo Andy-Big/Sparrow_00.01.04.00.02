@@ -8,7 +8,7 @@
 
 [English version](#english-version)
 
-# Модифицированное приложение Sparrow для осциллографа Rigol DHO800/DHO900
+# Модифицированное приложение Sparrow (интерфейс) для осциллографа Rigol DHO800/DHO900
 
 ![logo](_images/sparrow_logo.png)
 
@@ -218,7 +218,7 @@
 
 ### English version
 
-# Modified Sparrow Application for Rigol DHO800/DHO900 Oscilloscope
+# Modified Sparrow Application (interface) for Rigol DHO800/DHO900 Oscilloscope
 
 ![logo](_images/sparrow_logo.png)
 

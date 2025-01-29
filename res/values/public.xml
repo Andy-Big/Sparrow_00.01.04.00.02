@@ -16257,4 +16257,6 @@
     <public type="drawable" name="fullscreen_open" id="0x7f081001" />
     <public type="drawable" name="fullscreen_close" id="0x7f081002" />
 
+    <public type="string" name="measure_216" id="0x7f103000" />
+
 </resources>
