@@ -33,6 +33,57 @@ public class PopupviewXyBindingImpl extends PopupviewXyBinding {
     private long mDirtyFlags;
     private final ConstraintLayout mboundView0;
 
+
+
+    private static final long DIRTY_FLAG_GRID_FULL_MAPPING = 0x1L;
+    private static final long DIRTY_FLAG_WAVE_WIDTH = 0x2L;
+    private static final long DIRTY_FLAG_GRIDS = 0x4L;
+    private static final long DIRTY_FLAG_UTILITY_PARAM = 0x8L;
+    private static final long DIRTY_FLAG_WAVE_INTENSITY = 0x10L;
+    private static final long DIRTY_FLAG_GRID_HALF_MAPPING = 0x20L;
+    private static final long DIRTY_FLAG_XY_PARAM = 0x40L;
+    private static final long DIRTY_FLAG_GRID_NONE_MAPPING = 0x80L;
+    private static final long DIRTY_FLAG_FRAME_PERSIST = 0x100L;
+    private static final long DIRTY_FLAG_ADV_SETTING = 0x200L;
+    private static final long DIRTY_FLAG_SOURCE2_MAPPING = 0x400L;
+    private static final long DIRTY_FLAG_PERSIST_TIME = 0x800L;
+    private static final long DIRTY_FLAG_WINDOW_PARAM = 0x1000L;
+    private static final long DIRTY_FLAG_AUTO_COMPRESSION = 0x2000L;
+    private static final long DIRTY_FLAG_SOURCE1_MAPPING = 0x4000L;
+    private static final long DIRTY_FLAG_COMPRESSION_RATIO = 0x8000L;
+
+    // Флаги для групповых обновлений
+    private static final long DIRTY_FLAG_UI_UPDATE = 0x100000000L;
+    private static final long DIRTY_FLAG_COLOR_UPDATE = 0x200000000L;
+    private static final long DIRTY_FLAG_VISIBILITY_UPDATE = 0x400000000L;
+    private static final long DIRTY_FLAG_UI_STATE = 0x800000000L;
+    private static final long DIRTY_FLAG_PROJECT_MODE = 0x1000000000L;
+    private static final long DIRTY_FLAG_AFTERGLOW_UPDATE = 0x2000000000L;
+    private static final long DIRTY_FLAG_CONTROLS_INTERACTIVITY = 0x4000000000L;
+    private static final long DIRTY_FLAG_TEXT_UPDATE = 0x8000000000L;
+    private static final long DIRTY_FLAG_RADIO_BUTTONS = 0x10000000000L;
+    private static final long DIRTY_FLAG_GRID_STATE = 0x20000000000L;
+    private static final long DIRTY_FLAG_SOURCE1_CHANGE = 0x40000000000L;
+    private static final long DIRTY_FLAG_SOURCE2_CHANGE = 0x80000000000L;
+    private static final long DIRTY_FLAG_SOURCE1_COLOR = 0x100000000000L;
+    private static final long DIRTY_FLAG_SOURCE2_COLOR = 0x200000000000L;
+
+    // Комбинации флагов для часто используемых обновлений
+    private static final long DIRTY_FLAG_GRID_AND_WAVE = DIRTY_FLAG_GRIDS | DIRTY_FLAG_WAVE_WIDTH;
+    private static final long DIRTY_FLAG_ALL_MAPPINGS = DIRTY_FLAG_GRID_FULL_MAPPING | DIRTY_FLAG_GRID_HALF_MAPPING | DIRTY_FLAG_GRID_NONE_MAPPING;
+    private static final long DIRTY_FLAG_ALL_SOURCES = DIRTY_FLAG_SOURCE1_MAPPING | DIRTY_FLAG_SOURCE2_MAPPING;
+    private static final long DIRTY_FLAG_ALL_SETTINGS = DIRTY_FLAG_ADV_SETTING | DIRTY_FLAG_AUTO_COMPRESSION | DIRTY_FLAG_COMPRESSION_RATIO;
+    private static final long DIRTY_FLAG_ALL_PERSIST = DIRTY_FLAG_FRAME_PERSIST | DIRTY_FLAG_PERSIST_TIME;
+    private static final long DIRTY_FLAG_ALL_PARAMS = DIRTY_FLAG_XY_PARAM | DIRTY_FLAG_UTILITY_PARAM | DIRTY_FLAG_WINDOW_PARAM;
+    private static final long DIRTY_FLAG_ALL_WAVE = DIRTY_FLAG_WAVE_WIDTH | DIRTY_FLAG_WAVE_INTENSITY;
+    private static final long DIRTY_FLAG_ALL_UI_UPDATES = DIRTY_FLAG_UI_UPDATE | DIRTY_FLAG_COLOR_UPDATE | DIRTY_FLAG_VISIBILITY_UPDATE | DIRTY_FLAG_UI_STATE;
+    private static final long DIRTY_FLAG_ALL_SOURCE_CHANGES = DIRTY_FLAG_SOURCE1_CHANGE | DIRTY_FLAG_SOURCE2_CHANGE | DIRTY_FLAG_SOURCE1_COLOR | DIRTY_FLAG_SOURCE2_COLOR;
+    private static final long DIRTY_FLAG_ALL_CONTROLS = DIRTY_FLAG_CONTROLS_INTERACTIVITY | DIRTY_FLAG_TEXT_UPDATE | DIRTY_FLAG_RADIO_BUTTONS;
+
+
+
+
+
     static {
         SparseIntArray sparseIntArray = new SparseIntArray();
         sViewsWithIds = sparseIntArray;
@@ -84,7 +135,7 @@ public class PopupviewXyBindingImpl extends PopupviewXyBinding {
     @Override // androidx.databinding.ViewDataBinding
     public void invalidateAll() {
         synchronized (this) {
-            this.mDirtyFlags = 4294967296L;
+            this.mDirtyFlags = DIRTY_FLAG_UI_UPDATE;
         }
         requestRebind();
     }
@@ -121,7 +172,7 @@ public class PopupviewXyBindingImpl extends PopupviewXyBinding {
         updateRegistration(0, mappingObject);
         this.mGridFullMapping = mappingObject;
         synchronized (this) {
-            this.mDirtyFlags |= 1;
+            this.mDirtyFlags |= DIRTY_FLAG_GRID_FULL_MAPPING;
         }
         notifyPropertyChanged(358);
         super.requestRebind();
@@ -132,7 +183,7 @@ public class PopupviewXyBindingImpl extends PopupviewXyBinding {
         updateRegistration(3, utilityParam);
         this.mUtilityParam = utilityParam;
         synchronized (this) {
-            this.mDirtyFlags |= 8;
+            this.mDirtyFlags |= DIRTY_FLAG_UTILITY_PARAM;
         }
         notifyPropertyChanged(1013);
         super.requestRebind();
@@ -143,7 +194,7 @@ public class PopupviewXyBindingImpl extends PopupviewXyBinding {
         updateRegistration(5, mappingObject);
         this.mGridHalfMapping = mappingObject;
         synchronized (this) {
-            this.mDirtyFlags |= 32;
+            this.mDirtyFlags |= DIRTY_FLAG_GRID_HALF_MAPPING;
         }
         notifyPropertyChanged(359);
         super.requestRebind();
@@ -154,7 +205,7 @@ public class PopupviewXyBindingImpl extends PopupviewXyBinding {
         updateRegistration(6, xYParam);
         this.mXyParam = xYParam;
         synchronized (this) {
-            this.mDirtyFlags |= 64;
+            this.mDirtyFlags |= DIRTY_FLAG_XY_PARAM;
         }
         notifyPropertyChanged(1084);
         super.requestRebind();
@@ -165,7 +216,7 @@ public class PopupviewXyBindingImpl extends PopupviewXyBinding {
         updateRegistration(7, mappingObject);
         this.mGridNoneMapping = mappingObject;
         synchronized (this) {
-            this.mDirtyFlags |= 128;
+            this.mDirtyFlags |= DIRTY_FLAG_GRID_NONE_MAPPING;
         }
         notifyPropertyChanged(361);
         super.requestRebind();
@@ -176,7 +227,7 @@ public class PopupviewXyBindingImpl extends PopupviewXyBinding {
         updateRegistration(12, windowParam);
         this.mWindowParam = windowParam;
         synchronized (this) {
-            this.mDirtyFlags |= PlaybackStateCompat.ACTION_SKIP_TO_QUEUE_ITEM;
+            this.mDirtyFlags |= DIRTY_FLAG_WINDOW_PARAM;
         }
         notifyPropertyChanged(1077);
         super.requestRebind();
@@ -225,12 +276,12 @@ public class PopupviewXyBindingImpl extends PopupviewXyBinding {
     private boolean onChangeGridFullMapping(MappingObject mappingObject, int i) {
         if (i == 0) {
             synchronized (this) {
-                this.mDirtyFlags |= 1;
+                this.mDirtyFlags |= DIRTY_FLAG_GRID_FULL_MAPPING;
             }
             return true;
         } else if (i == 915) {
             synchronized (this) {
-                this.mDirtyFlags |= PlaybackStateCompat.ACTION_PREPARE_FROM_SEARCH;
+                this.mDirtyFlags |= DIRTY_FLAG_AUTO_COMPRESSION;
             }
             return true;
         } else {
@@ -246,7 +297,7 @@ public class PopupviewXyBindingImpl extends PopupviewXyBinding {
             return true;
         } else if (i == 1015) {
             synchronized (this) {
-                this.mDirtyFlags |= PlaybackStateCompat.ACTION_PREPARE_FROM_URI;
+                this.mDirtyFlags |= DIRTY_FLAG_SOURCE1_MAPPING;
             }
             return true;
         } else {
@@ -262,7 +313,7 @@ public class PopupviewXyBindingImpl extends PopupviewXyBinding {
             return true;
         } else if (i == 1015) {
             synchronized (this) {
-                this.mDirtyFlags |= PlaybackStateCompat.ACTION_SET_REPEAT_MODE;
+                this.mDirtyFlags |= DIRTY_FLAG_COMPRESSION_RATIO;
             }
             return true;
         } else {
@@ -278,7 +329,7 @@ public class PopupviewXyBindingImpl extends PopupviewXyBinding {
             return true;
         } else if (i == 677) {
             synchronized (this) {
-                this.mDirtyFlags |= PlaybackStateCompat.ACTION_SET_SHUFFLE_MODE_ENABLED;
+                this.mDirtyFlags |= 0x200000L;
             }
             return true;
         } else {
@@ -294,7 +345,7 @@ public class PopupviewXyBindingImpl extends PopupviewXyBinding {
             return true;
         } else if (i == 1015) {
             synchronized (this) {
-                this.mDirtyFlags |= PlaybackStateCompat.ACTION_SET_CAPTIONING_ENABLED;
+                this.mDirtyFlags |= 0x100000L;
             }
             return true;
         } else {
@@ -310,7 +361,7 @@ public class PopupviewXyBindingImpl extends PopupviewXyBinding {
             return true;
         } else if (i == 915) {
             synchronized (this) {
-                this.mDirtyFlags |= PlaybackStateCompat.ACTION_SET_SHUFFLE_MODE;
+                this.mDirtyFlags |= 0x80000L;
             }
             return true;
         } else {
@@ -321,7 +372,7 @@ public class PopupviewXyBindingImpl extends PopupviewXyBinding {
     private boolean onChangeXyParam(XYParam xYParam, int i) {
         if (i == 0) {
             synchronized (this) {
-                this.mDirtyFlags |= 64;
+                this.mDirtyFlags |= DIRTY_FLAG_XY_PARAM;
             }
             return true;
         }
@@ -331,12 +382,12 @@ public class PopupviewXyBindingImpl extends PopupviewXyBinding {
     private boolean onChangeGridNoneMapping(MappingObject mappingObject, int i) {
         if (i == 0) {
             synchronized (this) {
-                this.mDirtyFlags |= 128;
+                this.mDirtyFlags |= DIRTY_FLAG_GRID_NONE_MAPPING;
             }
             return true;
         } else if (i == 915) {
             synchronized (this) {
-                this.mDirtyFlags |= 4194304;
+                this.mDirtyFlags |= 0x400000L;
             }
             return true;
         } else {
@@ -347,12 +398,12 @@ public class PopupviewXyBindingImpl extends PopupviewXyBinding {
     private boolean onChangeXyParamFramePersist(BaseProperty<Integer> baseProperty, int i) {
         if (i == 0) {
             synchronized (this) {
-                this.mDirtyFlags |= 256;
+                this.mDirtyFlags |= DIRTY_FLAG_FRAME_PERSIST;
             }
             return true;
         } else if (i == 1015) {
             synchronized (this) {
-                this.mDirtyFlags |= 8388608;
+                this.mDirtyFlags |= 0x800000L;
             }
             return true;
         } else {
@@ -363,12 +414,12 @@ public class PopupviewXyBindingImpl extends PopupviewXyBinding {
     private boolean onChangeXyParamAdvSetting(BaseProperty<Boolean> baseProperty, int i) {
         if (i == 0) {
             synchronized (this) {
-                this.mDirtyFlags |= 512;
+                this.mDirtyFlags |= DIRTY_FLAG_ADV_SETTING;
             }
             return true;
         } else if (i == 1015) {
             synchronized (this) {
-                this.mDirtyFlags |= 16777216;
+                this.mDirtyFlags |= 0x1000000L;
             }
             return true;
         } else {
@@ -379,12 +430,12 @@ public class PopupviewXyBindingImpl extends PopupviewXyBinding {
     private boolean onChangeViewUtilGetMappingObjectComRigolScopeRArrayMsgChanListWindowParamSource2Value1(MappingObject mappingObject, int i) {
         if (i == 0) {
             synchronized (this) {
-                this.mDirtyFlags |= PlaybackStateCompat.ACTION_PLAY_FROM_MEDIA_ID;
+                this.mDirtyFlags |= DIRTY_FLAG_SOURCE2_MAPPING;
             }
             return true;
         } else if (i == 915) {
             synchronized (this) {
-                this.mDirtyFlags |= 33554432;
+                this.mDirtyFlags |= 0x2000000L;
             }
             return true;
         } else {
@@ -395,12 +446,12 @@ public class PopupviewXyBindingImpl extends PopupviewXyBinding {
     private boolean onChangeXyParamPersistTime(BaseProperty<Integer> baseProperty, int i) {
         if (i == 0) {
             synchronized (this) {
-                this.mDirtyFlags |= PlaybackStateCompat.ACTION_PLAY_FROM_SEARCH;
+                this.mDirtyFlags |= DIRTY_FLAG_PERSIST_TIME;
             }
             return true;
         } else if (i == 1015) {
             synchronized (this) {
-                this.mDirtyFlags |= 67108864;
+                this.mDirtyFlags |= 0x4000000L;
             }
             return true;
         } else {
@@ -411,17 +462,17 @@ public class PopupviewXyBindingImpl extends PopupviewXyBinding {
     private boolean onChangeWindowParam(WindowParam windowParam, int i) {
         if (i == 0) {
             synchronized (this) {
-                this.mDirtyFlags |= PlaybackStateCompat.ACTION_SKIP_TO_QUEUE_ITEM;
+                this.mDirtyFlags |= DIRTY_FLAG_WINDOW_PARAM;
             }
             return true;
         } else if (i == 859) {
             synchronized (this) {
-                this.mDirtyFlags |= 134217728;
+                this.mDirtyFlags |= 0x8000000L;
             }
             return true;
         } else if (i == 860) {
             synchronized (this) {
-                this.mDirtyFlags |= 268435456;
+                this.mDirtyFlags |= 0x10000000L;
             }
             return true;
         } else {
@@ -432,12 +483,12 @@ public class PopupviewXyBindingImpl extends PopupviewXyBinding {
     private boolean onChangeXyParamAutoCompression(BaseProperty<Boolean> baseProperty, int i) {
         if (i == 0) {
             synchronized (this) {
-                this.mDirtyFlags |= PlaybackStateCompat.ACTION_PLAY_FROM_URI;
+                this.mDirtyFlags |= DIRTY_FLAG_AUTO_COMPRESSION;
             }
             return true;
         } else if (i == 1015) {
             synchronized (this) {
-                this.mDirtyFlags |= 536870912;
+                this.mDirtyFlags |= 0x20000000L;
             }
             return true;
         } else {
@@ -448,12 +499,12 @@ public class PopupviewXyBindingImpl extends PopupviewXyBinding {
     private boolean onChangeViewUtilGetMappingObjectComRigolScopeRArrayMsgChanListWindowParamSource1Value1(MappingObject mappingObject, int i) {
         if (i == 0) {
             synchronized (this) {
-                this.mDirtyFlags |= PlaybackStateCompat.ACTION_PREPARE;
+                this.mDirtyFlags |= DIRTY_FLAG_SOURCE1_MAPPING;
             }
             return true;
         } else if (i == 915) {
             synchronized (this) {
-                this.mDirtyFlags |= 1073741824;
+                this.mDirtyFlags |= 0x40000000L;
             }
             return true;
         } else {
@@ -464,12 +515,12 @@ public class PopupviewXyBindingImpl extends PopupviewXyBinding {
     private boolean onChangeXyParamCompressionRatio(BaseProperty<Integer> baseProperty, int i) {
         if (i == 0) {
             synchronized (this) {
-                this.mDirtyFlags |= PlaybackStateCompat.ACTION_PREPARE_FROM_MEDIA_ID;
+                this.mDirtyFlags |= DIRTY_FLAG_COMPRESSION_RATIO;
             }
             return true;
         } else if (i == 1015) {
             synchronized (this) {
-                this.mDirtyFlags |= 2147483648L;
+                this.mDirtyFlags |= 0x80000000L;
             }
             return true;
         } else {
@@ -507,78 +558,76 @@ public class PopupviewXyBindingImpl extends PopupviewXyBinding {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     protected void executeBindings() {
-        long j;
-        float f;
-        boolean z;
-        String str;
-        String str2;
-        boolean z2;
-        float f2;
-        boolean z3;
-        int i;
-        boolean z4;
-        int i2;
-        boolean z5;
-        boolean z6;
-        boolean z7;
-        int i3;
-        int i4;
-        int i5;
-        int i6;
-        String str3;
-        String str4;
-        String str5;
-        String str6;
-        String str7;
-        boolean z8;
-        String str8;
-        int i7;
-        int i8;
-        int i9;
-        String str9;
-        String str10;
-        int i10;
-        int i11;
-        int i12;
-        int i13;
-        long j2;
-        int i14;
-        ServiceEnum.Chan chan;
-        int i15;
-        int i16;
-        int i17;
-        String str11;
-        boolean z9;
-        boolean z10;
-        boolean z11;
-        boolean z12;
-        boolean z13;
-        int i18;
-        String str12;
-        String str13;
-        int i19;
-        String str14;
-        String str15;
-        int i20;
-        boolean z14;
-        boolean z15;
-        int i21;
-        String str16;
-        int i22;
-        String str17;
-        boolean z16;
-        int i23;
-        long j3;
-        BaseProperty<Integer> baseProperty;
-        BaseProperty<Boolean> baseProperty2;
-        int i24;
-        BaseProperty<Integer> baseProperty3;
-        BaseProperty<Boolean> baseProperty4;
-        int i25;
-        BaseProperty<Integer> baseProperty5;
-        BaseProperty<Integer> baseProperty6;
+        long dirtyFlags;
+        float alphaValue;
+        boolean isProjectMode;
+        String gridFullStr;
+        String gridHalfStr;
+        boolean isAdvSettingEnabled;
+        float settingAlpha;
+        boolean isNoneGridSelected;
+        int waveWidthValue;
+        boolean isAutoCompressionEnabled;
+        int persistTimeValue;
+        boolean isFullGridSelected;
+        boolean isHalfGridSelected;
+        int framePersistValue;
+        int waveIntensityValue;
+        int compressionRatioValue;
+        int visibilityValue;
+        String waveWidthText;
+        String waveIntensityText;
+        String framePersistText;
+        String persistTimeText;
+        String compressionRatioText;
+        boolean isWindowParamVisible;
+        String gridNoneStr;
+        int sourceAColor;
+        int sourceBColor;
+        int sourceAValue;
+        String sourceAText;
+        String sourceBText;
+        int sourceBValue;
+        int visibilityState;
+        int controlsVisibility;
+        long updatedDirtyFlags;
+        int channelValue;
+        ServiceEnum.Chan sourceAChan;
+        int colorValue;
+        int channelId;
+        int waveWidth;
+        String waveWidthPercentText;
+        boolean isProjectModeEnabled;
+        boolean isAutoCompression;
+        boolean isAdvSetting;
+        boolean isNoneGrid;
+        boolean isFullGrid;
+        int settingsVisibility;
+        String intensityPercentText;
+        String persistPercentText;
+        int persistValue;
+        String framePersistPercentText;
+        String afterglowPercentText;
+        int afterglowValue;
+        boolean isAdvancedMode;
+        boolean isAutoCompress;
+        int compressionValue;
+        String compressionText;
+        int seekbarValue;
+        String seekbarText;
+        boolean isAutoMode;
+        int autoVisibility;
+        long tempDirtyFlags;
+        BaseProperty<Integer> waveWidthProperty;
+        BaseProperty<Boolean> autoCompressionProperty;
+        int propertyValue;
+        BaseProperty<Integer> persistTimeProperty;
+        BaseProperty<Boolean> advSettingProperty;
+        int persistTime;
+        BaseProperty<Integer> framePersistProperty;
+        BaseProperty<Integer> intensityProperty;
         synchronized (this) {
-            j = this.mDirtyFlags;
+            dirtyFlags = this.mDirtyFlags;
             this.mDirtyFlags = 0L;
         }
         MappingObject mappingObject = this.mGridFullMapping;
@@ -587,457 +636,457 @@ public class PopupviewXyBindingImpl extends PopupviewXyBinding {
         XYParam xYParam = this.mXyParam;
         MappingObject mappingObject3 = this.mGridNoneMapping;
         WindowParam windowParam = this.mWindowParam;
-        String str18 = ((j & 4295032833L) == 0 || mappingObject == null) ? null : mappingObject.getStr();
+        String str18 = ((dirtyFlags & DIRTY_FLAG_GRID_FULL) == 0 || mappingObject == null) ? null : mappingObject.getStr();
         float f3 = 0.0f;
-        if ((j & 4295491592L) != 0) {
-            z = utilityParam != null ? utilityParam.getProjectMode() : false;
-            f = ContextUtil.getAlpha(z);
+        if ((dirtyFlags & DIRTY_FLAG_UTILITY_PARAM) != 0) {
+            isProjectMode = utilityParam != null ? utilityParam.getProjectMode() : false;
+            alphaValue = ContextUtil.getAlpha(isProjectMode);
         } else {
-            f = 0.0f;
-            z = false;
+            alphaValue = 0.0f;
+            isProjectMode = false;
         }
-        String str19 = ((j & 4297064480L) == 0 || mappingObject2 == null) ? null : mappingObject2.getStr();
-        if ((j & 7073606494L) != 0) {
-            if ((j & 4295098434L) != 0) {
+        String str19 = ((dirtyFlags & DIRTY_FLAG_GRID_HALF) == 0 || mappingObject2 == null) ? null : mappingObject2.getStr();
+        if ((dirtyFlags & DIRTY_FLAG_XY_PARAM) != 0) {
+            if ((dirtyFlags & DIRTY_FLAG_WAVE_WIDTH) != 0) {
                 BaseProperty<Integer> waveWidth = xYParam != null ? xYParam.getWaveWidth() : null;
                 updateRegistration(1, waveWidth);
-                i17 = ViewDataBinding.safeUnbox(waveWidth != null ? waveWidth.getValue() : null);
-                str11 = String.valueOf((i17 * 100) / 65535) + " % ";
+                waveWidthValue = ViewDataBinding.safeUnbox(waveWidth != null ? waveWidth.getValue() : null);
+                waveWidthText = String.valueOf((waveWidthValue * 100) / 65535) + " % ";
             } else {
-                i17 = 0;
-                str11 = null;
+                waveWidthValue = 0;
+                waveWidthText = null;
             }
-            if ((j & 4295229508L) != 0) {
+            if ((dirtyFlags & DIRTY_FLAG_GRIDS) != 0) {
                 BaseProperty<Integer> grids = xYParam != null ? xYParam.getGrids() : null;
                 updateRegistration(2, grids);
-                int safeUnbox = ViewDataBinding.safeUnbox(grids != null ? grids.getValue() : null);
-                boolean z17 = safeUnbox == ServiceEnum.EWaveGrids.GRID_IS_NONE.value1;
-                z11 = safeUnbox == ServiceEnum.EWaveGrids.GRID_IS_HALF.value1;
-                z9 = safeUnbox == ServiceEnum.EWaveGrids.GRID_IS_FULL.value1;
-                z10 = z17;
+                int gridValue = ViewDataBinding.safeUnbox(grids != null ? grids.getValue() : null);
+                isNoneGridSelected = gridValue == ServiceEnum.EWaveGrids.GRID_IS_NONE.value1;
+                isHalfGridSelected = gridValue == ServiceEnum.EWaveGrids.GRID_IS_HALF.value1;
+                isFullGridSelected = gridValue == ServiceEnum.EWaveGrids.GRID_IS_FULL.value1;
+                isNoneGrid = isNoneGridSelected;
             } else {
-                z9 = false;
-                z10 = false;
-                z11 = false;
+                isFullGridSelected = false;
+                isNoneGrid = false;
+                isHalfGridSelected = false;
             }
-            if ((j & 4296015952L) != 0) {
+            if ((dirtyFlags & DIRTY_FLAG_WAVE_INTENSITY) != 0) {
                 if (xYParam != null) {
-                    z13 = z10;
-                    z12 = z9;
-                    baseProperty6 = xYParam.getWaveIntensity();
+                    isNoneGridSelected = isNoneGrid;
+                    isFullGrid = isFullGridSelected;
+                    intensityProperty = xYParam.getWaveIntensity();
                 } else {
-                    z12 = z9;
-                    z13 = z10;
-                    baseProperty6 = null;
+                    isFullGrid = isFullGridSelected;
+                    isNoneGridSelected = isNoneGrid;
+                    intensityProperty = null;
                 }
-                updateRegistration(4, baseProperty6);
-                int safeUnbox2 = ViewDataBinding.safeUnbox(baseProperty6 != null ? baseProperty6.getValue() : null);
-                i18 = safeUnbox2;
-                str12 = String.valueOf((safeUnbox2 * 100) / 65535) + " % ";
+                updateRegistration(4, intensityProperty);
+                int intensityValue = ViewDataBinding.safeUnbox(intensityProperty != null ? intensityProperty.getValue() : null);
+                waveIntensityValue = intensityValue;
+                waveIntensityText = String.valueOf((intensityValue * 100) / 65535) + " % ";
             } else {
-                z12 = z9;
-                z13 = z10;
-                i18 = 0;
-                str12 = null;
+                isFullGrid = isFullGridSelected;
+                isNoneGridSelected = isNoneGrid;
+                waveIntensityValue = 0;
+                waveIntensityText = null;
             }
-            if ((j & 4303356224L) != 0) {
+            if ((dirtyFlags & DIRTY_FLAG_FRAME_PERSIST) != 0) {
                 if (xYParam != null) {
-                    baseProperty5 = xYParam.getFramePersist();
-                    str13 = str12;
-                    i25 = 8;
+                    framePersistProperty = xYParam.getFramePersist();
+                    intensityPercentText = waveIntensityText;
+                    persistTime = 8;
                 } else {
-                    str13 = str12;
-                    i25 = 8;
-                    baseProperty5 = null;
+                    intensityPercentText = waveIntensityText;
+                    persistTime = 8;
+                    framePersistProperty = null;
                 }
-                updateRegistration(i25, baseProperty5);
-                int safeUnbox3 = ViewDataBinding.safeUnbox(baseProperty5 != null ? baseProperty5.getValue() : null);
-                str14 = String.valueOf((safeUnbox3 * 100) / 65535) + " % ";
-                i19 = safeUnbox3;
+                updateRegistration(persistTime, framePersistProperty);
+                int persistValue = ViewDataBinding.safeUnbox(framePersistProperty != null ? framePersistProperty.getValue() : null);
+                framePersistText = String.valueOf((persistValue * 100) / 65535) + " % ";
+                framePersistValue = persistValue;
             } else {
-                str13 = str12;
-                i19 = 0;
-                str14 = null;
+                intensityPercentText = waveIntensityText;
+                framePersistValue = 0;
+                framePersistText = null;
             }
-            int i26 = ((j & 4312269384L) > 0L ? 1 : ((j & 4312269384L) == 0L ? 0 : -1));
+            int i26 = ((dirtyFlags & DIRTY_FLAG_ADV_SETTING) > 0L ? 1 : ((dirtyFlags & DIRTY_FLAG_ADV_SETTING) == 0L ? 0 : -1));
             if (i26 != 0) {
                 if (xYParam != null) {
-                    i20 = i19;
-                    str15 = str14;
-                    baseProperty4 = xYParam.getAdvSetting();
+                    afterglowValue = framePersistValue;
+                    afterglowPercentText = framePersistText;
+                    advSettingProperty = xYParam.getAdvSetting();
                 } else {
-                    str15 = str14;
-                    i20 = i19;
-                    baseProperty4 = null;
+                    afterglowPercentText = framePersistText;
+                    afterglowValue = framePersistValue;
+                    advSettingProperty = null;
                 }
-                updateRegistration(9, baseProperty4);
-                z14 = ViewDataBinding.safeUnbox(baseProperty4 != null ? baseProperty4.getValue() : null);
+                updateRegistration(9, advSettingProperty);
+                isAdvancedMode = ViewDataBinding.safeUnbox(advSettingProperty != null ? advSettingProperty.getValue() : null);
                 if (i26 != 0) {
-                    j = z14 ? j | 274877906944L : j | 137438953472L;
+                    dirtyFlags = isAdvancedMode ? dirtyFlags | DIRTY_FLAG_ADV_SETTING_TRUE : dirtyFlags | DIRTY_FLAG_ADV_SETTING_FALSE;
                 }
             } else {
-                str15 = str14;
-                i20 = i19;
-                z14 = false;
+                afterglowPercentText = framePersistText;
+                afterglowValue = framePersistValue;
+                isAdvancedMode = false;
             }
-            if ((j & 4362078272L) != 0) {
+            if ((dirtyFlags & DIRTY_FLAG_PERSIST_TIME) != 0) {
                 if (xYParam != null) {
-                    baseProperty3 = xYParam.getPersistTime();
-                    z15 = z14;
-                    i24 = 11;
+                    persistTimeProperty = xYParam.getPersistTime();
+                    isAdvSetting = isAdvancedMode;
+                    propertyValue = 11;
                 } else {
-                    z15 = z14;
-                    i24 = 11;
-                    baseProperty3 = null;
+                    isAdvSetting = isAdvancedMode;
+                    propertyValue = 11;
+                    persistTimeProperty = null;
                 }
-                updateRegistration(i24, baseProperty3);
-                int safeUnbox4 = ViewDataBinding.safeUnbox(baseProperty3 != null ? baseProperty3.getValue() : null);
-                str16 = String.valueOf((safeUnbox4 * 100) / 65535) + " % ";
-                i21 = safeUnbox4;
+                updateRegistration(propertyValue, persistTimeProperty);
+                int persistTimeValue = ViewDataBinding.safeUnbox(persistTimeProperty != null ? persistTimeProperty.getValue() : null);
+                persistTimeText = String.valueOf((persistTimeValue * 100) / 65535) + " % ";
+                this.persistTimeValue = persistTimeValue;
             } else {
-                z15 = z14;
-                i21 = 0;
-                str16 = null;
+                isAdvSetting = isAdvancedMode;
+                this.persistTimeValue = 0;
+                persistTimeText = null;
             }
-            int i27 = ((j & 4831846464L) > 0L ? 1 : ((j & 4831846464L) == 0L ? 0 : -1));
+            int i27 = ((dirtyFlags & DIRTY_FLAG_AUTO_COMPRESSION) > 0L ? 1 : ((dirtyFlags & DIRTY_FLAG_AUTO_COMPRESSION) == 0L ? 0 : -1));
             if (i27 != 0) {
                 if (xYParam != null) {
-                    str17 = str16;
-                    i22 = i21;
-                    baseProperty2 = xYParam.getAutoCompression();
+                    seekbarText = persistTimeText;
+                    seekbarValue = this.persistTimeValue;
+                    autoCompressionProperty = xYParam.getAutoCompression();
                 } else {
-                    i22 = i21;
-                    str17 = str16;
-                    baseProperty2 = null;
+                    seekbarValue = this.persistTimeValue;
+                    seekbarText = persistTimeText;
+                    autoCompressionProperty = null;
                 }
-                updateRegistration(13, baseProperty2);
-                z16 = ViewDataBinding.safeUnbox(baseProperty2 != null ? baseProperty2.getValue() : null);
+                updateRegistration(13, autoCompressionProperty);
+                isAutoMode = ViewDataBinding.safeUnbox(autoCompressionProperty != null ? autoCompressionProperty.getValue() : null);
                 if (i27 != 0) {
-                    j |= z16 ? 17179869184L : 8589934592L;
+                    dirtyFlags |= isAutoMode ? DIRTY_FLAG_AUTO_COMPRESSION_TRUE : DIRTY_FLAG_AUTO_COMPRESSION_FALSE;
                 }
-                i23 = z16 ? 8 : 0;
+                autoVisibility = isAutoMode ? 8 : 0;
             } else {
-                i22 = i21;
-                str17 = str16;
-                z16 = false;
-                i23 = 0;
+                seekbarValue = this.persistTimeValue;
+                seekbarText = persistTimeText;
+                isAutoMode = false;
+                autoVisibility = 0;
             }
-            if ((j & 6442483776L) != 0) {
+            if ((dirtyFlags & DIRTY_FLAG_COMPRESSION_RATIO) != 0) {
                 if (xYParam != null) {
-                    baseProperty = xYParam.getCompressionRatio();
-                    j3 = j;
+                    waveWidthProperty = xYParam.getCompressionRatio();
+                    tempDirtyFlags = dirtyFlags;
                 } else {
-                    j3 = j;
-                    baseProperty = null;
+                    tempDirtyFlags = dirtyFlags;
+                    waveWidthProperty = null;
                 }
-                updateRegistration(15, baseProperty);
-                int safeUnbox5 = ViewDataBinding.safeUnbox(baseProperty != null ? baseProperty.getValue() : null);
-                i5 = i17;
-                str7 = str11;
-                z2 = z;
-                z7 = z12;
-                i6 = i18;
-                z6 = z15;
-                i2 = i22;
-                str5 = String.valueOf(safeUnbox5);
-                z5 = z16;
-                i = i23;
-                str2 = str19;
-                str6 = str13;
-                z4 = z13;
-                str3 = str17;
-                i4 = safeUnbox5;
-                f2 = f;
-                i3 = i20;
-                j = j3;
+                updateRegistration(15, waveWidthProperty);
+                int compressionValue = ViewDataBinding.safeUnbox(waveWidthProperty != null ? waveWidthProperty.getValue() : null);
+                waveWidth = waveWidthValue;
+                waveWidthPercentText = waveWidthText;
+                isProjectModeEnabled = isProjectMode;
+                isFullGrid = isFullGrid;
+                waveIntensityValue = waveIntensityValue;
+                isAdvSetting = isAdvSetting;
+                persistTimeValue = seekbarValue;
+                compressionText = String.valueOf(compressionValue);
+                isAutoCompress = isAutoMode;
+                visibilityValue = autoVisibility;
+                gridHalfStr = str19;
+                intensityPercentText = intensityPercentText;
+                isNoneGridSelected = isNoneGridSelected;
+                persistTimeText = seekbarText;
+                compressionRatioValue = compressionValue;
+                settingAlpha = alphaValue;
+                framePersistValue = afterglowValue;
+                dirtyFlags = tempDirtyFlags;
             } else {
-                i5 = i17;
-                str7 = str11;
-                z2 = z;
-                z7 = z12;
-                i6 = i18;
-                z6 = z15;
-                i2 = i22;
-                str5 = null;
-                z5 = z16;
-                i = i23;
-                str2 = str19;
-                str6 = str13;
-                z4 = z13;
-                str3 = str17;
-                f2 = f;
-                i4 = 0;
-                i3 = i20;
+                waveWidth = waveWidthValue;
+                waveWidthPercentText = waveWidthText;
+                isProjectModeEnabled = isProjectMode;
+                isFullGrid = isFullGrid;
+                waveIntensityValue = waveIntensityValue;
+                isAdvSetting = isAdvSetting;
+                persistTimeValue = seekbarValue;
+                compressionText = null;
+                isAutoCompress = isAutoMode;
+                visibilityValue = autoVisibility;
+                gridHalfStr = str19;
+                intensityPercentText = intensityPercentText;
+                isNoneGridSelected = isNoneGridSelected;
+                persistTimeText = seekbarText;
+                settingAlpha = alphaValue;
+                framePersistValue = afterglowValue;
+                compressionRatioValue = 0;
             }
-            String str20 = str15;
-            str = str18;
-            z3 = z11;
-            str4 = str20;
+            String afterglowText = afterglowPercentText;
+            gridFullStr = str18;
+            isHalfGridSelected = isHalfGridSelected;
+            framePersistText = afterglowText;
         } else {
-            str = str18;
-            str2 = str19;
-            z2 = z;
-            f2 = f;
-            z3 = false;
-            i = 0;
-            z4 = false;
-            i2 = 0;
-            z5 = false;
-            z6 = false;
-            z7 = false;
-            i3 = 0;
-            i4 = 0;
-            i5 = 0;
-            i6 = 0;
-            str3 = null;
-            str4 = null;
-            str5 = null;
-            str6 = null;
-            str7 = null;
+            gridFullStr = str18;
+            gridHalfStr = str19;
+            isProjectModeEnabled = isProjectMode;
+            settingAlpha = alphaValue;
+            isHalfGridSelected = false;
+            visibilityValue = 0;
+            isNoneGridSelected = false;
+            persistTimeValue = 0;
+            isAutoCompress = false;
+            isAdvSetting = false;
+            isFullGrid = false;
+            framePersistValue = 0;
+            compressionRatioValue = 0;
+            waveWidth = 0;
+            waveIntensityValue = 0;
+            persistTimeText = null;
+            framePersistText = null;
+            compressionText = null;
+            intensityPercentText = null;
+            waveWidthPercentText = null;
         }
-        String str21 = ((j & 4299161728L) == 0 || mappingObject3 == null) ? null : mappingObject3.getStr();
-        if ((j & 5804938240L) != 0) {
-            int i28 = ((j & 4294971392L) > 0L ? 1 : ((j & 4294971392L) == 0L ? 0 : -1));
+        String gridNoneStr = ((dirtyFlags & DIRTY_FLAG_GRID_NONE) == 0 || mappingObject3 == null) ? null : mappingObject3.getStr();
+        if ((dirtyFlags & DIRTY_FLAG_WINDOW_PARAM) != 0) {
+            int i28 = ((dirtyFlags & DIRTY_FLAG_WINDOW_PARAM_VISIBILITY) > 0L ? 1 : ((dirtyFlags & DIRTY_FLAG_WINDOW_PARAM_VISIBILITY) == 0L ? 0 : -1));
             if (i28 != 0) {
-                boolean z18 = windowParam == null;
+                isWindowParamVisible = windowParam == null;
                 if (i28 != 0) {
-                    j |= z18 ? 68719476736L : 34359738368L;
+                    dirtyFlags |= isWindowParamVisible ? DIRTY_FLAG_WINDOW_PARAM_NULL : DIRTY_FLAG_WINDOW_PARAM_NOT_NULL;
                 }
-                if (z18) {
-                    i12 = 8;
-                    if ((j & 5502947328L) == 0) {
+                if (isWindowParamVisible) {
+                    controlsVisibility = 8;
+                    if ((dirtyFlags & DIRTY_FLAG_SOURCE1) == 0) {
                         if (windowParam != null) {
-                            str8 = str21;
-                            chan = windowParam.getSource1();
+                            gridNoneStr = gridNoneStr;
+                            sourceAChan = windowParam.getSource1();
                         } else {
-                            str8 = str21;
-                            chan = null;
+                            gridNoneStr = gridNoneStr;
+                            sourceAChan = null;
                         }
-                        if ((j & 4429189120L) != 0) {
-                            z8 = z4;
-                            i15 = ColorUtil.getColor(getRoot().getContext(), chan);
+                        if ((dirtyFlags & DIRTY_FLAG_SOURCE1_COLOR) != 0) {
+                            isNoneGridSelected = isNoneGridSelected;
+                            colorValue = ColorUtil.getColor(getRoot().getContext(), sourceAChan);
                         } else {
-                            z8 = z4;
-                            i15 = 0;
+                            isNoneGridSelected = isNoneGridSelected;
+                            colorValue = 0;
                         }
-                        if (chan != null) {
-                            i16 = chan.value1;
-                            i13 = i15;
+                        if (sourceAChan != null) {
+                            channelId = sourceAChan.value1;
+                            sourceAColor = colorValue;
                         } else {
-                            i13 = i15;
-                            i16 = 0;
+                            sourceAColor = colorValue;
+                            channelId = 0;
                         }
-                        MappingObject mappingObject4 = ViewUtil.getMappingObject(R.array.msg_chan_list, i16);
+                        MappingObject mappingObject4 = ViewUtil.getMappingObject(R.array.msg_chan_list, channelId);
                         updateRegistration(14, mappingObject4);
                         if (mappingObject4 != null) {
-                            str9 = mappingObject4.getStr();
-                            if ((j & 4596962304L) != 0) {
+                            sourceAText = mappingObject4.getStr();
+                            if ((dirtyFlags & DIRTY_FLAG_SOURCE2) != 0) {
                                 ServiceEnum.Chan source2 = windowParam != null ? windowParam.getSource2() : null;
-                                int color = (j & 4563406848L) != 0 ? ColorUtil.getColor(getRoot().getContext(), source2) : 0;
+                                int sourceBColor = (dirtyFlags & DIRTY_FLAG_SOURCE2_COLOR) != 0 ? ColorUtil.getColor(getRoot().getContext(), source2) : 0;
                                 if (source2 != null) {
-                                    i14 = source2.value1;
-                                    j2 = j;
+                                    channelValue = source2.value1;
+                                    updatedDirtyFlags = dirtyFlags;
                                 } else {
-                                    j2 = j;
-                                    i14 = 0;
+                                    updatedDirtyFlags = dirtyFlags;
+                                    channelValue = 0;
                                 }
-                                MappingObject mappingObject5 = ViewUtil.getMappingObject(R.array.msg_chan_list, i14);
+                                MappingObject mappingObject5 = ViewUtil.getMappingObject(R.array.msg_chan_list, channelValue);
                                 updateRegistration(10, mappingObject5);
                                 if (mappingObject5 != null) {
-                                    i9 = color;
-                                    i8 = i13;
-                                    i7 = i12;
-                                    str10 = mappingObject5.getStr();
-                                    j = j2;
-                                    boolean projectMode = ((j & 274877906944L) != 0 || utilityParam == null) ? z2 : utilityParam.getProjectMode();
-                                    i10 = ((j & 4312269384L) > 0L ? 1 : ((j & 4312269384L) == 0L ? 0 : -1));
+                                    sourceBColor = sourceBColor;
+                                    sourceAColor = sourceAColor;
+                                    visibilityState = controlsVisibility;
+                                    sourceBText = mappingObject5.getStr();
+                                    dirtyFlags = updatedDirtyFlags;
+                                    boolean projectMode2 = ((dirtyFlags & DIRTY_FLAG_ADV_SETTING_TRUE) != 0 || utilityParam == null) ? isProjectModeEnabled : utilityParam.getProjectMode();
+                                    i10 = ((dirtyFlags & DIRTY_FLAG_ADV_SETTING) > 0L ? 1 : ((dirtyFlags & DIRTY_FLAG_ADV_SETTING) == 0L ? 0 : -1));
                                     if (i10 != 0) {
-                                        f3 = ContextUtil.getAlpha(z6 ? projectMode : false);
+                                        f3 = ContextUtil.getAlpha(isAdvSetting ? projectMode2 : false);
                                     }
-                                    int i29 = i8;
-                                    float f4 = f3;
-                                    String str22 = str9;
+                                    int sourceAColorValue = sourceAColor;
+                                    float alphaValue2 = f3;
+                                    String sourceAStr = sourceAText;
                                     if (i10 == 0) {
-                                        i11 = i7;
+                                        visibilityState = visibilityState;
                                         if (getBuildSdkInt() >= 11) {
-                                            this.afterglow.setAlpha(f4);
-                                            this.afterglowInframe.setAlpha(f4);
-                                            this.afterglowInframePercent.setAlpha(f4);
-                                            this.afterglowInframeSeekBar.setAlpha(f4);
-                                            this.afterglowPercent.setAlpha(f4);
-                                            this.afterglowSeekBar.setAlpha(f4);
-                                            this.autoCompression.setAlpha(f4);
-                                            this.autoCompressionSwitchButton.setAlpha(f4);
-                                            this.intensity.setAlpha(f4);
-                                            this.intensityPercent.setAlpha(f4);
-                                            this.intensitySeekBar.setAlpha(f4);
-                                            this.samplerate.setAlpha(f4);
-                                            this.samplerateSeekBar.setAlpha(f4);
-                                            this.samplerateText.setAlpha(f4);
-                                            this.waveformSize.setAlpha(f4);
-                                            this.waveformSizePercent.setAlpha(f4);
-                                            this.waveformSizeSeekBar.setAlpha(f4);
+                                            this.afterglow.setAlpha(alphaValue2);
+                                            this.afterglowInframe.setAlpha(alphaValue2);
+                                            this.afterglowInframePercent.setAlpha(alphaValue2);
+                                            this.afterglowInframeSeekBar.setAlpha(alphaValue2);
+                                            this.afterglowPercent.setAlpha(alphaValue2);
+                                            this.afterglowSeekBar.setAlpha(alphaValue2);
+                                            this.autoCompression.setAlpha(alphaValue2);
+                                            this.autoCompressionSwitchButton.setAlpha(alphaValue2);
+                                            this.intensity.setAlpha(alphaValue2);
+                                            this.intensityPercent.setAlpha(alphaValue2);
+                                            this.intensitySeekBar.setAlpha(alphaValue2);
+                                            this.samplerate.setAlpha(alphaValue2);
+                                            this.samplerateSeekBar.setAlpha(alphaValue2);
+                                            this.samplerateText.setAlpha(alphaValue2);
+                                            this.waveformSize.setAlpha(alphaValue2);
+                                            this.waveformSizePercent.setAlpha(alphaValue2);
+                                            this.waveformSizeSeekBar.setAlpha(alphaValue2);
                                         }
                                     } else {
-                                        i11 = i7;
+                                        visibilityState = visibilityState;
                                     }
-                                    if ((j & 4303356224L) != 0) {
-                                        TextViewBindingAdapter.setText(this.afterglowInframePercent, str4);
-                                        SeekBarBindingAdapter.setProgress(this.afterglowInframeSeekBar, i3);
+                                    if ((dirtyFlags & DIRTY_FLAG_FRAME_PERSIST) != 0) {
+                                        TextViewBindingAdapter.setText(this.afterglowInframePercent, framePersistText);
+                                        SeekBarBindingAdapter.setProgress(this.afterglowInframeSeekBar, framePersistValue);
                                     }
-                                    if ((4311745088L & j) != 0) {
-                                        this.afterglowInframeSeekBar.setTouchable(z6);
-                                        this.afterglowSeekBar.setTouchable(z6);
-                                        this.autoCompressionSwitchButton.setEnabled(z6);
-                                        this.intensitySeekBar.setTouchable(z6);
-                                        this.samplerateSeekBar.setTouchable(z6);
-                                        CompoundButtonBindingAdapter.setChecked(this.settingADVSwitchButton, z6);
-                                        this.waveformSizeSeekBar.setTouchable(z6);
+                                    if ((DIRTY_FLAG_ADV_SETTING_CONTROLS & dirtyFlags) != 0) {
+                                        this.afterglowInframeSeekBar.setTouchable(isAdvSetting);
+                                        this.afterglowSeekBar.setTouchable(isAdvSetting);
+                                        this.autoCompressionSwitchButton.setEnabled(isAdvSetting);
+                                        this.intensitySeekBar.setTouchable(isAdvSetting);
+                                        this.samplerateSeekBar.setTouchable(isAdvSetting);
+                                        CompoundButtonBindingAdapter.setChecked(this.settingADVSwitchButton, isAdvSetting);
+                                        this.waveformSizeSeekBar.setTouchable(isAdvSetting);
                                     }
-                                    if ((4362078272L & j) != 0) {
-                                        TextViewBindingAdapter.setText(this.afterglowPercent, str3);
-                                        SeekBarBindingAdapter.setProgress(this.afterglowSeekBar, i2);
+                                    if ((DIRTY_FLAG_PERSIST_TIME & dirtyFlags) != 0) {
+                                        TextViewBindingAdapter.setText(this.afterglowPercent, persistTimeText);
+                                        SeekBarBindingAdapter.setProgress(this.afterglowSeekBar, persistTimeValue);
                                     }
-                                    if ((4831846464L & j) != 0) {
-                                        CompoundButtonBindingAdapter.setChecked(this.autoCompressionSwitchButton, z5);
-                                        this.samplerate.setVisibility(i);
-                                        this.samplerateSeekBar.setVisibility(i);
-                                        this.samplerateText.setVisibility(i);
+                                    if ((DIRTY_FLAG_AUTO_COMPRESSION & dirtyFlags) != 0) {
+                                        CompoundButtonBindingAdapter.setChecked(this.autoCompressionSwitchButton, isAutoCompress);
+                                        this.samplerate.setVisibility(visibilityValue);
+                                        this.samplerateSeekBar.setVisibility(visibilityValue);
+                                        this.samplerateText.setVisibility(visibilityValue);
                                     }
-                                    if ((j & 4295229508L) != 0) {
-                                        CompoundButtonBindingAdapter.setChecked(this.fullRadioButton, z7);
-                                        CompoundButtonBindingAdapter.setChecked(this.halfRadioButton, z3);
-                                        CompoundButtonBindingAdapter.setChecked(this.noneRadioButton, z8);
+                                    if ((dirtyFlags & DIRTY_FLAG_GRIDS) != 0) {
+                                        CompoundButtonBindingAdapter.setChecked(this.fullRadioButton, isFullGrid);
+                                        CompoundButtonBindingAdapter.setChecked(this.halfRadioButton, isHalfGridSelected);
+                                        CompoundButtonBindingAdapter.setChecked(this.noneRadioButton, isNoneGridSelected);
                                     }
-                                    if ((4295032833L & j) != 0) {
-                                        TextViewBindingAdapter.setText(this.fullRadioButton, str);
+                                    if ((DIRTY_FLAG_GRID_FULL & dirtyFlags) != 0) {
+                                        TextViewBindingAdapter.setText(this.fullRadioButton, gridFullStr);
                                     }
-                                    if ((j & 4297064480L) != 0) {
-                                        TextViewBindingAdapter.setText(this.halfRadioButton, str2);
+                                    if ((dirtyFlags & DIRTY_FLAG_GRID_HALF) != 0) {
+                                        TextViewBindingAdapter.setText(this.halfRadioButton, gridHalfStr);
                                     }
-                                    if ((j & 4296015952L) != 0) {
-                                        TextViewBindingAdapter.setText(this.intensityPercent, str6);
-                                        SeekBarBindingAdapter.setProgress(this.intensitySeekBar, i6);
+                                    if ((dirtyFlags & DIRTY_FLAG_WAVE_INTENSITY) != 0) {
+                                        TextViewBindingAdapter.setText(this.intensityPercent, intensityPercentText);
+                                        SeekBarBindingAdapter.setProgress(this.intensitySeekBar, waveIntensityValue);
                                     }
-                                    if ((j & 4299161728L) != 0) {
-                                        TextViewBindingAdapter.setText(this.noneRadioButton, str8);
+                                    if ((dirtyFlags & DIRTY_FLAG_GRID_NONE) != 0) {
+                                        TextViewBindingAdapter.setText(this.noneRadioButton, gridNoneStr);
                                     }
-                                    if ((6442483776L & j) != 0) {
-                                        SeekBarBindingAdapter.setProgress(this.samplerateSeekBar, i4);
-                                        TextViewBindingAdapter.setText(this.samplerateText, str5);
+                                    if ((DIRTY_FLAG_COMPRESSION_RATIO & dirtyFlags) != 0) {
+                                        SeekBarBindingAdapter.setProgress(this.samplerateSeekBar, compressionRatioValue);
+                                        TextViewBindingAdapter.setText(this.samplerateText, compressionText);
                                     }
-                                    if ((4295491592L & j) != 0) {
+                                    if ((DIRTY_FLAG_UTILITY_PARAM & dirtyFlags) != 0) {
                                         if (getBuildSdkInt() >= 11) {
-                                            float f5 = f2;
-                                            this.settingADV.setAlpha(f5);
-                                            this.settingADVSwitchButton.setAlpha(f5);
+                                            float alphaValue3 = settingAlpha;
+                                            this.settingADV.setAlpha(alphaValue3);
+                                            this.settingADVSwitchButton.setAlpha(alphaValue3);
                                         }
-                                        this.settingADVSwitchButton.setEnabled(projectMode);
+                                        this.settingADVSwitchButton.setEnabled(projectMode2);
                                     }
-                                    if ((j & 4294971392L) != 0) {
-                                        int i30 = i11;
-                                        this.sourceA.setVisibility(i30);
-                                        this.sourceASpinner.setVisibility(i30);
-                                        this.sourceB.setVisibility(i30);
-                                        this.sourceBSpinner.setVisibility(i30);
+                                    if ((dirtyFlags & DIRTY_FLAG_WINDOW_PARAM_VISIBILITY) != 0) {
+                                        int visibility = visibilityState;
+                                        this.sourceA.setVisibility(visibility);
+                                        this.sourceASpinner.setVisibility(visibility);
+                                        this.sourceB.setVisibility(visibility);
+                                        this.sourceBSpinner.setVisibility(visibility);
                                     }
-                                    if ((j & 5502947328L) != 0) {
-                                        TextViewBindingAdapter.setText(this.sourceASpinner, str22);
+                                    if ((dirtyFlags & DIRTY_FLAG_SOURCE1) != 0) {
+                                        TextViewBindingAdapter.setText(this.sourceASpinner, sourceAStr);
                                     }
-                                    if ((4429189120L & j) != 0) {
-                                        this.sourceASpinner.setTextColor(i29);
+                                    if ((DIRTY_FLAG_SOURCE1_COLOR & dirtyFlags) != 0) {
+                                        this.sourceASpinner.setTextColor(sourceAColorValue);
                                     }
-                                    if ((j & 4596962304L) != 0) {
-                                        TextViewBindingAdapter.setText(this.sourceBSpinner, str10);
+                                    if ((dirtyFlags & DIRTY_FLAG_SOURCE2) != 0) {
+                                        TextViewBindingAdapter.setText(this.sourceBSpinner, sourceBText);
                                     }
-                                    if ((4563406848L & j) != 0) {
-                                        this.sourceBSpinner.setTextColor(i9);
+                                    if ((DIRTY_FLAG_SOURCE2_COLOR & dirtyFlags) != 0) {
+                                        this.sourceBSpinner.setTextColor(sourceBColor);
                                     }
-                                    if ((j & 4295098434L) == 0) {
-                                        TextViewBindingAdapter.setText(this.waveformSizePercent, str7);
-                                        SeekBarBindingAdapter.setProgress(this.waveformSizeSeekBar, i5);
+                                    if ((dirtyFlags & DIRTY_FLAG_WAVE_WIDTH) == 0) {
+                                        TextViewBindingAdapter.setText(this.waveformSizePercent, waveWidthPercentText);
+                                        SeekBarBindingAdapter.setProgress(this.waveformSizeSeekBar, waveWidth);
                                         return;
                                     }
                                     return;
                                 }
-                                i9 = color;
-                                i8 = i13;
-                                i7 = i12;
-                                j = j2;
+                                sourceBColor = sourceBColor;
+                                sourceAColor = sourceAColor;
+                                visibilityState = controlsVisibility;
+                                dirtyFlags = updatedDirtyFlags;
                             } else {
-                                i9 = 0;
-                                i8 = i13;
-                                i7 = i12;
+                                sourceBColor = 0;
+                                sourceAColor = sourceAColor;
+                                visibilityState = controlsVisibility;
                             }
                         }
                     } else {
-                        z8 = z4;
-                        str8 = str21;
-                        i13 = 0;
+                        isNoneGridSelected = isNoneGridSelected;
+                        gridNoneStr = gridNoneStr;
+                        sourceAColor = 0;
                     }
-                    str9 = null;
-                    if ((j & 4596962304L) != 0) {
+                    sourceAText = null;
+                    if ((dirtyFlags & DIRTY_FLAG_SOURCE2) != 0) {
                     }
                 }
             }
-            i12 = 0;
-            if ((j & 5502947328L) == 0) {
+            controlsVisibility = 0;
+            if ((dirtyFlags & DIRTY_FLAG_SOURCE1) == 0) {
             }
-            str9 = null;
-            if ((j & 4596962304L) != 0) {
+            sourceAText = null;
+            if ((dirtyFlags & DIRTY_FLAG_SOURCE2) != 0) {
             }
         } else {
-            z8 = z4;
-            str8 = str21;
-            i7 = 0;
-            i8 = 0;
-            i9 = 0;
-            str9 = null;
+            isNoneGridSelected = isNoneGridSelected;
+            gridNoneStr = gridNoneStr;
+            visibilityState = 0;
+            sourceAColor = 0;
+            sourceBColor = 0;
+            sourceAText = null;
         }
-        str10 = null;
-        if ((j & 274877906944L) != 0) {
+        sourceBText = null;
+        if ((dirtyFlags & DIRTY_FLAG_ADV_SETTING_TRUE) != 0) {
         }
-        i10 = ((j & 4312269384L) > 0L ? 1 : ((j & 4312269384L) == 0L ? 0 : -1));
+        i10 = ((dirtyFlags & DIRTY_FLAG_ADV_SETTING) > 0L ? 1 : ((dirtyFlags & DIRTY_FLAG_ADV_SETTING) == 0L ? 0 : -1));
         if (i10 != 0) {
         }
-        int i292 = i8;
-        float f42 = f3;
-        String str222 = str9;
+        int sourceAColorValue2 = sourceAColor;
+        float alphaValue22 = f3;
+        String sourceAStr2 = sourceAText;
         if (i10 == 0) {
         }
-        if ((j & 4303356224L) != 0) {
+        if ((dirtyFlags & DIRTY_FLAG_FRAME_PERSIST) != 0) {
         }
-        if ((4311745088L & j) != 0) {
+        if ((DIRTY_FLAG_ADV_SETTING_CONTROLS & dirtyFlags) != 0) {
         }
-        if ((4362078272L & j) != 0) {
+        if ((DIRTY_FLAG_PERSIST_TIME & dirtyFlags) != 0) {
         }
-        if ((4831846464L & j) != 0) {
+        if ((DIRTY_FLAG_AUTO_COMPRESSION & dirtyFlags) != 0) {
         }
-        if ((j & 4295229508L) != 0) {
+        if ((dirtyFlags & DIRTY_FLAG_GRIDS) != 0) {
         }
-        if ((4295032833L & j) != 0) {
+        if ((DIRTY_FLAG_GRID_FULL & dirtyFlags) != 0) {
         }
-        if ((j & 4297064480L) != 0) {
+        if ((dirtyFlags & DIRTY_FLAG_GRID_HALF) != 0) {
         }
-        if ((j & 4296015952L) != 0) {
+        if ((dirtyFlags & DIRTY_FLAG_WAVE_INTENSITY) != 0) {
         }
-        if ((j & 4299161728L) != 0) {
+        if ((dirtyFlags & DIRTY_FLAG_GRID_NONE) != 0) {
         }
-        if ((6442483776L & j) != 0) {
+        if ((DIRTY_FLAG_COMPRESSION_RATIO & dirtyFlags) != 0) {
         }
-        if ((4295491592L & j) != 0) {
+        if ((DIRTY_FLAG_UTILITY_PARAM & dirtyFlags) != 0) {
         }
-        if ((j & 4294971392L) != 0) {
+        if ((dirtyFlags & DIRTY_FLAG_WINDOW_PARAM_VISIBILITY) != 0) {
         }
-        if ((j & 5502947328L) != 0) {
+        if ((dirtyFlags & DIRTY_FLAG_SOURCE1) != 0) {
         }
-        if ((4429189120L & j) != 0) {
+        if ((DIRTY_FLAG_SOURCE1_COLOR & dirtyFlags) != 0) {
         }
-        if ((j & 4596962304L) != 0) {
+        if ((dirtyFlags & DIRTY_FLAG_SOURCE2) != 0) {
         }
-        if ((4563406848L & j) != 0) {
+        if ((DIRTY_FLAG_SOURCE2_COLOR & dirtyFlags) != 0) {
         }
-        if ((j & 4295098434L) == 0) {
+        if ((dirtyFlags & DIRTY_FLAG_WAVE_WIDTH) == 0) {
         }
     }
 }
