@@ -28,17 +28,22 @@
 
 Модификация приложения Rigol DHO800/DHO900 повышает удобство использования осциллографа, улучшая интерфейс и добавляя в него новые возможности.
 
-## Текущие изменения по сравнению с оригинальной версией
+## Текущие изменения по сравнению с оригинальной версией  ([Смотреть скриншоты](#скриншоты))
 
+- Текст подписей для сигналов в окне осциллограмм теперь обрамлен черной обводкой, так что они стали более заметными на форе сигналов.
+- Пункты результатов измерений теперь можно переключать между стандартным, с названием канала, и цветным, без названия. Без названий каналов пункты измерений становятся более компактными и занимают меньше места. Переключение производится пунктом "*Names/Colors*" меню, вызываемого нажатием на пункт результата измерения.
+- Значок-стрелка разворачивания пунктов измерений убрана, так что пункты измерений стали слегка ниже. Разворачивание производится нажатием в правой части пункта измерений.
+- Фон пунктов измерений сделан чуть более темным.
+- Панель измерений немного приподнята чтобы не загораживать горизонтальную шкалу
 - Значения вертикальной шкалы теперь не перепрыгивают на левую или правую сторону главного окна осциллограммы при раскрытии и сворачивании панели измерений, а всегда остаются слева.
 - Панель измерений полностью прозрачная, список измерений в ней прижат вниз, так что при 3-4 измерениях они практически не мешают просмотру сигнала.
 - Изменена заставка при запуске приложения (сплэшскрин). Это сделано для того чтобы было видно когда заканчивается загрузки системы и запускается само приложение.
 - Двойным тапом на иконку канала внизу экрана у этого канала изменяется режим блокировки между AC и DC.
-- В иконки каналов внизу экрана добавлено отображение текущего делителя щупа. [Смотреть скриншоты](#скриншоты).
-- Пункты результатов измерений на панели слева уменьшены по высоте для того чтобы можно было видеть большее количество измерений одновременно. Кроме того, немного увеличен шрифт значений измерений для более легкой читаемости. [Смотреть скриншоты](#скриншоты)
-- Раскрытые пункты результатов измерений изменены на табличный вид: имя параметра и слева от него значение этого параметра. Это уменьшило высоту раскрытого пункта, позволив видеть одновременно до трех раскрытых пунктов. У значений так же немного увеличен шрифт для более легкой читаемости. [Смотреть скриншоты](#скриншоты).
+- В иконки каналов внизу экрана добавлено отображение текущего делителя щупа.
+- Пункты результатов измерений на панели слева уменьшены по высоте для того чтобы можно было видеть большее количество измерений одновременно. Кроме того, немного увеличен шрифт значений измерений для более легкой читаемости.
+- Раскрытые пункты результатов измерений изменены на табличный вид: имя параметра и слева от него значение этого параметра. Это уменьшило высоту раскрытого пункта, позволив видеть одновременно до трех раскрытых пунктов. У значений так же немного увеличен шрифт для более легкой читаемости.
 - У стрелок раскрытия и закрытия пунктов результатов измерений увеличена область чувствительности к нажатию. Теперь раскрыть и закрыть пункт гораздо проще.
-- В левый верхний угол окна осциллограммы добавлена иконка раскрытия этого окна на весь экран. Этой же иконкой окно сворачивается обратно в оригинальный размер. [Смотреть скриншоты](#скриншоты).
+- В левый верхний угол окна осциллограммы добавлена иконка раскрытия этого окна на весь экран. Этой же иконкой окно сворачивается обратно в оригинальный размер.
 - В правом нижнем углу включено отображение текущего времени и даты.
 
 
@@ -120,7 +125,7 @@
 
 ## Установка модифицированного приложения
 
-Внимание! Установка версии **Sparrow_axxx.apk** возможна только на пропатченной ранее системе. На оригинальной системе устанавливается версия **Sparrow_axxx_u.apk**.
+Внимание! Установка версии **Sparrow_aXXX.apk** возможна только на пропатченной ранее системе. На оригинальной системе устанавливается версия **Sparrow_aXXX_u.apk**.
 
 Первой идет команда подключения ADB к устройству по его IP-адресу. IP-адрес осциллографа можно увидеть в самом осциллографе в меню **Utility->IO**. Подставьте адрес своего осциллографа вместо 192.168.1.41:  
 ***adb connect 192.168.1.41:55555***  
@@ -135,8 +140,8 @@
 *Success*  
 
 Установите модифицированное приложение:  
-***adb install -g -r Sparrow_axxx.apk***  
-(или ***adb install -g -r Sparrow_axxx_u.apk*** если вы устанавливаете на непропатченную систему)  
+***adb install -g -r Sparrow_aXXX.apk***  
+(или ***adb install -g -r Sparrow_aXXX_u.apk*** если вы устанавливаете на непропатченную систему)  
 Это может занять довольно много времени, но в итоге должен быть выдан ответ об успешности:  
 *Performing Streamed Install*  
 *Success*  
@@ -146,6 +151,14 @@
 
 
 # История изменений
+
+#### **a005** 30.01.2025
+
+- Текст подписей для сигналов в окне осциллограмм теперь обрамлен черной обводкой, так что они стали более заметными на форе сигналов.
+- Пункты результатов измерений теперь можно переключать между стандартным, с названием канала, и цветным, без названия. Без названий каналов пункты измерений становятся более компактными и занимают меньше места. Переключение производится пунктом "*Names/Colors*" меню, вызываемого нажатием на пункт результата измерения.
+- Значок-стрелка разворачивания пунктов измерений убрана, так что пункты измерений стали слегка ниже. Разворачивание производится нажатием в правой части пункта измерений.
+- Фон пунктов измерений сделан чуть более темным.
+- Панель измерений немного приподнята чтобы не загораживать горизонтальную шкалу
 
 #### **a004** 24.01.2025
 
@@ -178,38 +191,44 @@
 
 ### Два окна горизонтально в обычном режиме
 
-![logo](_images/RigolDS9.png)
+![logo](_images/RigolDS2.png)
 
 ### Два окна горизонтально в режиме "на весь экран"
 
-![logo](_images/RigolDS10.png)
+![logo](_images/RigolDS3.png)
 
 ### Два окна вертикально в обычном режиме
 
-![logo](_images/RigolDS6.png)
+![logo](_images/RigolDS4.png)
 
 ### Два окна вертикально в режиме "на весь экран"
 
-![logo](_images/RigolDS7.png)
+![logo](_images/RigolDS5.png)
 
 ### Одно окно в режиме "на весь экран"
 
-![logo](_images/RigolDS5.png)
-![logo](_images/RigolDS12.png)
-![logo](_images/RigolDS17.png)
+![logo](_images/RigolDS6.png)
+![logo](_images/RigolDS7.png)
+![logo](_images/RigolDS8.png)
 
 
 ### Панель результатов измерений в обычном режиме
 
-![logo](_images/RigolDS43.png)
-![logo](_images/RigolDS44.png)
-![logo](_images/RigolDS45.png)
+![logo](_images/RigolDS9.png)
+![logo](_images/RigolDS10.png)
+![logo](_images/RigolDS11.png)
 
 ### Панель результатов измерений в режиме "на весь экран"
 
-![logo](_images/RigolDS46.png)
-![logo](_images/RigolDS47.png)
-![logo](_images/RigolDS48.png)
+![logo](_images/RigolDS12.png)
+![logo](_images/RigolDS13.png)
+![logo](_images/RigolDS14.png)
+
+### Панель результатов измерений в стандартном и цветовом режиме отображения каналов
+
+![logo](_images/RigolDS15.png)
+![logo](_images/RigolDS16.png)
+![logo](_images/RigolDS17.png)
 
 ---
 <br>
@@ -235,17 +254,22 @@
 
 The modification of the Rigol DHO800/DHO900 application improves the usability of the oscilloscope by enhancing the interface and adding new features.
 
-## Current Changes Compared to Original Version
+## Current Changes Compared to Original Version  [see screenshots](#screenshots)
 
+- The text of the waveform labels in the oscillogram window is now framed with a black outline, so that they are more visible on the signal form.
+- The measurement result items can now be switched between the standard one, with the channel name, and the colored one, without a name. Without channel names, the measurement items become more compact and take up less space. Switching is done using the "*Names/Colors*" menu item, which is called by clicking on the measurement result item.
+- The arrow icon for expanding the measurement items has been removed, so that the measurement items have become slightly lower. Expanding is done by clicking on the right side of the measurement item.
+- The background of the measurement items has been made slightly darker.
+- The measurement panel has been slightly raised so as not to block the horizontal scale
 - The vertical scale values ​​no longer jump to the left or right side of the main oscillogram window when expanding and collapsing the measurement panel, but always remain on the left.
 - The measurement panel is completely transparent, the list of measurements in it is pressed down, so that with 3-4 measurements they practically do not interfere with viewing the signal.
 - Changed the application splash screen at startup. This is done to show when the system finishes loading and the application itself starts.
 - Double-tapping the channel icon at the bottom of the screen toggles that channel's coupling mode between AC and DC.
-- Added probe attenuation factor display to channel icons at the bottom of the screen. [See screenshots](#screenshots).
-- Measurement result items on the left panel have been reduced in height to show more measurements simultaneously. Additionally, the measurement value font size has been slightly increased for better readability. [See screenshots](#screenshots)
-- Expanded measurement result items changed to tabular view: parameter name with its value to the left. This reduced the expanded item height, allowing up to three expanded items to be visible simultaneously. Values also have slightly increased font size for better readability. [See screenshots](#screenshots).
+- Added probe attenuation factor display to channel icons at the bottom of the screen.
+- Measurement result items on the left panel have been reduced in height to show more measurements simultaneously. Additionally, the measurement value font size has been slightly increased for better readability.
+- Expanded measurement result items changed to tabular view: parameter name with its value to the left. This reduced the expanded item height, allowing up to three expanded items to be visible simultaneously. Values also have slightly increased font size for better readability.
 - Increased touch sensitivity area for measurement result item expand/collapse arrows. Now it's much easier to expand and collapse items.
-- Added a full-screen icon to the top left corner of the waveform window. The same icon collapses the window back to original size. [See screenshots](#screenshots).
+- Added a full-screen icon to the top left corner of the waveform window. The same icon collapses the window back to original size.
 - Enabled current time and date display in the bottom right corner.
 
 # Installation
@@ -326,7 +350,7 @@ If after reboot the oscilloscope hangs on the loading screen - no worries, just 
 
 ## Modified Application Installation
 
-Attention! Installation of **Sparrow_axxx.apk** version is only possible on a previously patched system. On original system, install the **Sparrow_axxx_u.apk** version.
+Attention! Installation of **Sparrow_aXXX.apk** version is only possible on a previously patched system. On original system, install the **Sparrow_aXXX_u.apk** version.
 
 First is the ADB connection command to the device by its IP address. The oscilloscope's IP address can be seen in the oscilloscope itself in the **Utility->IO** menu. Replace 192.168.1.41 with your oscilloscope's address:  
 ***adb connect 192.168.1.41:55555***  
@@ -341,8 +365,8 @@ The application on the oscilloscope should close and a success response should b
 *Success*  
 
 Install the modified application:  
-***adb install -g -r Sparrow_axxx.apk***  
-(or ***adb install -g -r Sparrow_axxx_u.apk*** if you're installing on unpatched system)  
+***adb install -g -r Sparrow_aXXX.apk***  
+(or ***adb install -g -r Sparrow_aXXX_u.apk*** if you're installing on unpatched system)  
 This might take quite some time, but eventually should give a success response:  
 *Performing Streamed Install*  
 *Success*  
@@ -350,6 +374,14 @@ This might take quite some time, but eventually should give a success response:
 The oscilloscope application should start itself within 5-20 seconds, but if it doesn't start - just turn off the oscilloscope by long-pressing the power button (or unplugging the power connector) and turn it on again.
 
 # Change History
+
+#### **a005** 30.01.2025
+
+- The text of the waveform labels in the oscillogram window is now framed with a black outline, so that they are more visible on the signal form.
+- The measurement result items can now be switched between the standard one, with the channel name, and the colored one, without a name. Without channel names, the measurement items become more compact and take up less space. Switching is done using the "*Names/Colors*" menu item, which is called by clicking on the measurement result item.
+- The arrow icon for expanding the measurement items has been removed, so that the measurement items have become slightly lower. Expanding is done by clicking on the right side of the measurement item.
+- The background of the measurement items has been made slightly darker.
+- The measurement panel has been slightly raised so as not to block the horizontal scale
 
 #### **a004** 24.01.2025
 
@@ -382,34 +414,40 @@ The oscilloscope application should start itself within 5-20 seconds, but if it 
 
 ### Two windows horizontally in normal mode
 
-![logo](_images/RigolDS9.png)
+![logo](_images/RigolDS2.png)
 
 ### Two windows horizontally in full-screen mode
 
-![logo](_images/RigolDS10.png)
+![logo](_images/RigolDS3.png)
 
 ### Two windows vertically in normal mode
 
-![logo](_images/RigolDS6.png)
+![logo](_images/RigolDS4.png)
 
 ### Two windows vertically in full-screen mode
 
-![logo](_images/RigolDS7.png)
+![logo](_images/RigolDS5.png)
 
 ### One window in full-screen mode
 
-![logo](_images/RigolDS5.png)
-![logo](_images/RigolDS12.png)
-![logo](_images/RigolDS17.png)
+![logo](_images/RigolDS6.png)
+![logo](_images/RigolDS7.png)
+![logo](_images/RigolDS8.png)
 
 ### Measurement results panel in normal mode
 
-![logo](_images/RigolDS43.png)
-![logo](_images/RigolDS44.png)
-![logo](_images/RigolDS45.png)
+![logo](_images/RigolDS9.png)
+![logo](_images/RigolDS10.png)
+![logo](_images/RigolDS11.png)
 
 ### Measurement results panel in full-screen mode
 
-![logo](_images/RigolDS46.png)
-![logo](_images/RigolDS47.png)
-![logo](_images/RigolDS48.png)
+![logo](_images/RigolDS12.png)
+![logo](_images/RigolDS13.png)
+![logo](_images/RigolDS14.png)
+
+### Measurement results panel in standard and color display mode
+
+![logo](_images/RigolDS15.png)
+![logo](_images/RigolDS16.png)
+![logo](_images/RigolDS17.png)
