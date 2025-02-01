@@ -62,6 +62,7 @@
 
 
 # change added
+# Inform: флаг полноэкранного режима
 .field private isFullScreen:Z
 # /change
 
@@ -2089,6 +2090,7 @@
 #             }
 #         });
 
+# Inform: задание кнопке "Полноэкранный режим" обработчика нажатий
     .line 564
     iget-object v0, v1, Lcom/rigol/scope/MainActivity;->binding:Lcom/rigol/scope/databinding/ActivityMainBinding;
     iget-object v0, v0, Lcom/rigol/scope/databinding/ActivityMainBinding;->fullscreenwave_icon:Landroid/widget/ImageView;
@@ -2464,6 +2466,7 @@
 
 
 # change added
+# Inform: получение флага полноэкранного режима
 .method public getFullScreen()Z
     .locals 1
 
@@ -2472,6 +2475,7 @@
     return v0
 .end method
 
+# Inform: установка флага полноэкранного режима
 .method public setFullScreen(Z)V
     .locals 0
 
@@ -2502,13 +2506,11 @@
     invoke-virtual {v3}, Landroid/widget/ImageView;->getContext()Landroid/content/Context;
     move-result-object v3
     if-eqz v3, :cond_2
-
    
    
     # проверка на включен ли режим разворота на весь экран
     iget-boolean v0, p0, Lcom/rigol/scope/MainActivity;->isFullScreen:Z
     if-nez v0, :cond_0
-
     
     
     # не развернуто, разворачиваем
@@ -2528,7 +2530,6 @@
     const v9, 0x0
 
     goto :cond_1
-
     
     
     # развернуто, сворачиваем
@@ -2549,8 +2550,6 @@
     const v9, 0x7
 
 
-
-
     :cond_1
     # скрываем или отображаем нижнюю панель
     iget-object v6, v2, Lcom/rigol/scope/databinding/ActivityMainBindingImpl;->settingsBar:Landroidx/fragment/app/FragmentContainerView;
@@ -2567,22 +2566,6 @@
     iget-object v6, v2, Lcom/rigol/scope/databinding/ActivityMainBindingImpl;->fullscreenwave_icon:Landroid/widget/ImageView;
     # присваиваем картинку к иконке
     invoke-static {v6, v7}, Landroidx/databinding/adapters/ImageViewBindingAdapter;->setImageDrawable(Landroid/widget/ImageView;Landroid/graphics/drawable/Drawable;)V
-
-    # устанавливаем поля
-#    iget-object v6, v2, Lcom/rigol/scope/databinding/ActivityMainBindingImpl;->waveform:Landroidx/fragment/app/FragmentContainerView;
-
-#    invoke-virtual {v6}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
-#    invoke-virtual {v6}, Landroidx/fragment/app/FragmentContainerView;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
-#    move-result-object v6
-
-#    iput v8, v6, Landroid/view/ViewGroup$LayoutParams;->leftMargin:I
-
-#    invoke-virtual {v6, v8}, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->setMarginStart(I)V
-#    invoke-virtual {v6, v9}, Landroid/view/ViewGroup$LayoutParams;->setMarginTop(I)V
-#    invoke-virtual {v6, v8}, Landroid/view/ViewGroup$LayoutParams;->setMarginEnd(I)V
-#    invoke-virtual {v6, v9}, Landroid/view/ViewGroup$LayoutParams;->setMarginBottom(I)V
-
-    
 
 
     :cond_2

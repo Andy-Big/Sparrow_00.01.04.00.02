@@ -1598,7 +1598,7 @@
 
 
 
-# info: обработка нажатий в меню пунктов измерений
+# Inform: обработка нажатий в меню пунктов измерений
 # changed added
 # Это лямбда из метода setOnItemClickListener для MeasureQuickPopupView
 .method public synthetic lambda$showQuickPopupView$10$ResultsBarFragment(Lcom/rigol/scope/views/baseview/BasePopupView;Landroid/view/View;ILcom/rigol/scope/viewmodels/SharedViewModel;Landroid/view/View;Landroidx/recyclerview/widget/RecyclerView$ViewHolder;ILcom/rigol/scope/data/MappingObject;)V

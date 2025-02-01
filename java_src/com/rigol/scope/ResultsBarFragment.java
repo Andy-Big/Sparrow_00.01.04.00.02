@@ -430,7 +430,7 @@ public class ResultsBarFragment extends BaseFragment {
         }
     }
 
-// info: обработка нажатий в меню пунктов измерений
+// Inform: обработка нажатий в меню пунктов измерений
     public /* synthetic */ void lambda$showQuickPopupView$10$ResultsBarFragment(BasePopupView basePopupView, View view, int i, SharedViewModel sharedViewModel, View view2, RecyclerView.ViewHolder viewHolder, int i2, MappingObject mappingObject) {
         ServiceEnum.MeasureQuickItemType measureQuickItemTypeFromValue1;
         if (mappingObject == null || (measureQuickItemTypeFromValue1 = ServiceEnum.getMeasureQuickItemTypeFromValue1(mappingObject.getValue())) == null) {
@@ -640,7 +640,7 @@ public class ResultsBarFragment extends BaseFragment {
     }
 
 
-    // info: подготовка пунктов меню (всплывающее меню при нажатии пункта измерения) из массива
+    // Inform: подготовка пунктов меню (всплывающее меню при нажатии пункта измерения) из массива
     /* renamed from: com.rigol.scope.ResultsBarFragment$3  reason: invalid class name */
     /* loaded from: classes.dex */
     static /* synthetic */ class AnonymousClass3 {

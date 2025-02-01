@@ -248,7 +248,7 @@
 
 
 # change added
-# info: вывод отладочной информации в logcat
+# Inform: вывод отладочной информации в logcat
 .method public static axxxLogOut(Ljava/lang/String;)V
     .locals 1
 
@@ -259,7 +259,7 @@
     return-void
 .end method
 
-# info: вывод отладочной информации с числовым значением в logcat
+# Inform: вывод отладочной информации с числовым значением в logcat
 .method public static axxxLogOutI(Ljava/lang/String;I)V
     .locals 2
 

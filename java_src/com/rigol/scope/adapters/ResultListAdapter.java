@@ -354,7 +354,7 @@ public class ResultListAdapter extends MultiItemTypeAdapter<List<ResultParam>> {
         setCurrentItem(-1);
     }
 
-// info: восстановление активных пунктов измерений из preferences приложения
+// Inform: восстановление активных пунктов измерений из preferences приложения
     public void recover() throws JSONException {
         List<ResultParam> resultParams;
         boolean z;
@@ -459,7 +459,7 @@ public class ResultListAdapter extends MultiItemTypeAdapter<List<ResultParam>> {
         }
     }
 
-// info: сохранение активного списка результатов измерений в preferences приложения
+// Inform: сохранение активного списка результатов измерений в preferences приложения
     private void cacheItems() {
         try {
             SPUtils.getInstance().put(CACHED_RESULT_LIST_KEY, JsonUtil.toJson(getItems()));
@@ -795,7 +795,7 @@ public class ResultListAdapter extends MultiItemTypeAdapter<List<ResultParam>> {
             return list.get(i) instanceof MeasureResultParam;
         }
 
-    // info: задание заголовка пункта измерений с цветным выделением канала
+    // Inform: задание заголовка пункта измерений с цветным выделением канала
     @Override // com.rigol.scope.adapters.ResultListAdapter.BaseMeasureAdapterDelegate
         protected void onBindViewHolder(List<ResultParam> list, int i, BaseViewHolder<? extends ViewDataBinding> baseViewHolder) {
             SpannableString titleWithSrc;

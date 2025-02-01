@@ -1075,9 +1075,10 @@ public class ViewUtil {
         return chan != null && chan.value1 >= ServiceEnum.Chan.r1.value1 && chan.value1 <= ServiceEnum.Chan.r10.value1;
     }
 
-    // info: формирование заголовка пункта измерений с цветным выделением канала
+    // Inform: формирование заголовка пункта измерений с цветным выделением канала
     public static SpannableString getTitleWithSrc(Context context, String str, ServiceEnum.Chan chan) {
         String str2;
+
         SpannableString spannableString = new SpannableString(str + "(" + getShortChanStr(chan) + ")");
         spannableString.setSpan(new ForegroundColorSpan(ColorUtil.getColor(context, chan)), str.length() + 1, str2.length() - 1, 33);
         return spannableString;

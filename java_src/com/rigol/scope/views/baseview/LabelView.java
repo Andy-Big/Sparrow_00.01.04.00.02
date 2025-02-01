@@ -1,4 +1,4 @@
-// info: подготовка и отрисовка меток каналов
+// Inform: подготовка и отрисовка меток каналов
 
 package com.rigol.scope.views.baseview;
 
