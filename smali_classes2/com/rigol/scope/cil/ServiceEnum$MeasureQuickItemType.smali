@@ -78,6 +78,7 @@
 
     sput-object v7, Lcom/rigol/scope/cil/ServiceEnum$MeasureQuickItemType;->INDICATOR:Lcom/rigol/scope/cil/ServiceEnum$MeasureQuickItemType;
 
+
     .line 6652
     new-instance v0, Lcom/rigol/scope/cil/ServiceEnum$MeasureQuickItemType;
 
@@ -98,6 +99,7 @@
     invoke-direct/range {v8 .. v14}, Lcom/rigol/scope/cil/ServiceEnum$MeasureQuickItemType;-><init>(Ljava/lang/String;IILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     sput-object v0, Lcom/rigol/scope/cil/ServiceEnum$MeasureQuickItemType;->RESET:Lcom/rigol/scope/cil/ServiceEnum$MeasureQuickItemType;
+
 
     .line 6653
     new-instance v0, Lcom/rigol/scope/cil/ServiceEnum$MeasureQuickItemType;
@@ -120,6 +122,7 @@
 
     sput-object v0, Lcom/rigol/scope/cil/ServiceEnum$MeasureQuickItemType;->REMOVE:Lcom/rigol/scope/cil/ServiceEnum$MeasureQuickItemType;
 
+
     .line 6654
     new-instance v0, Lcom/rigol/scope/cil/ServiceEnum$MeasureQuickItemType;
 
@@ -141,6 +144,7 @@
 
     sput-object v0, Lcom/rigol/scope/cil/ServiceEnum$MeasureQuickItemType;->SETTING:Lcom/rigol/scope/cil/ServiceEnum$MeasureQuickItemType;
 
+
     .line 6655
     new-instance v0, Lcom/rigol/scope/cil/ServiceEnum$MeasureQuickItemType;
 
@@ -161,6 +165,7 @@
     invoke-direct/range {v1 .. v7}, Lcom/rigol/scope/cil/ServiceEnum$MeasureQuickItemType;-><init>(Ljava/lang/String;IILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     sput-object v0, Lcom/rigol/scope/cil/ServiceEnum$MeasureQuickItemType;->REMOVE_ALL:Lcom/rigol/scope/cil/ServiceEnum$MeasureQuickItemType;
+
 
     .line 6656
     new-instance v0, Lcom/rigol/scope/cil/ServiceEnum$MeasureQuickItemType;
@@ -185,14 +190,14 @@
 
 # change add
     new-instance v0, Lcom/rigol/scope/cil/ServiceEnum$MeasureQuickItemType;
-    const-string v9, "CH_NAMES"
-    const/4 v10, 0x6
-    const/4 v11, 0x6
-    const-string v12, ""
-    const-string v13, ""
-    const-string v14, ""
-    move-object v8, v0
-    invoke-direct/range {v8 .. v14}, Lcom/rigol/scope/cil/ServiceEnum$MeasureQuickItemType;-><init>(Ljava/lang/String;IILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    const-string v2, "CH_NAMES"
+    const/4 v3, 0x6
+    const/4 v4, 0x6
+    const-string v5, ""
+    const-string v6, ""
+    const-string v7, ""
+    move-object v1, v0
+    invoke-direct/range {v1 .. v7}, Lcom/rigol/scope/cil/ServiceEnum$MeasureQuickItemType;-><init>(Ljava/lang/String;IILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
     sput-object v0, Lcom/rigol/scope/cil/ServiceEnum$MeasureQuickItemType;->CH_NAMES:Lcom/rigol/scope/cil/ServiceEnum$MeasureQuickItemType;
 # /change
 
@@ -212,11 +217,13 @@
 
     aput-object v2, v1, v3
 
+
     sget-object v2, Lcom/rigol/scope/cil/ServiceEnum$MeasureQuickItemType;->RESET:Lcom/rigol/scope/cil/ServiceEnum$MeasureQuickItemType;
 
     const/4 v3, 0x1
 
     aput-object v2, v1, v3
+
 
     sget-object v2, Lcom/rigol/scope/cil/ServiceEnum$MeasureQuickItemType;->REMOVE:Lcom/rigol/scope/cil/ServiceEnum$MeasureQuickItemType;
 
@@ -224,11 +231,13 @@
 
     aput-object v2, v1, v3
 
+
     sget-object v2, Lcom/rigol/scope/cil/ServiceEnum$MeasureQuickItemType;->SETTING:Lcom/rigol/scope/cil/ServiceEnum$MeasureQuickItemType;
 
     const/4 v3, 0x3
 
     aput-object v2, v1, v3
+
 
     sget-object v2, Lcom/rigol/scope/cil/ServiceEnum$MeasureQuickItemType;->REMOVE_ALL:Lcom/rigol/scope/cil/ServiceEnum$MeasureQuickItemType;
 
@@ -236,12 +245,18 @@
 
     aput-object v2, v1, v3
 
+
+# change add
+    sget-object v0, Lcom/rigol/scope/cil/ServiceEnum$MeasureQuickItemType;->CHANGE_ITEM:Lcom/rigol/scope/cil/ServiceEnum$MeasureQuickItemType;
+# /change
     const/4 v2, 0x5
 
     aput-object v0, v1, v2
 
 
+
     # change add
+    sget-object v0, Lcom/rigol/scope/cil/ServiceEnum$MeasureQuickItemType;->CH_NAMES:Lcom/rigol/scope/cil/ServiceEnum$MeasureQuickItemType;
     const/4 v2, 0x6
     aput-object v0, v1, v2
     # /change

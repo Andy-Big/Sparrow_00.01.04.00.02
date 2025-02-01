@@ -23,35 +23,34 @@
 * [История изменений](#история-изменений)
 * [Скриншоты](#скриншоты)
 
-
 # Главное
 
 Модификация приложения Rigol DHO800/DHO900 повышает удобство использования осциллографа, улучшая интерфейс и добавляя в него новые возможности.
 
 ## Текущие изменения по сравнению с оригинальной версией  ([Смотреть скриншоты](#скриншоты))
 
-- Текст подписей для сигналов в окне осциллограмм теперь обрамлен черной обводкой, так что они стали более заметными на форе сигналов.
-- Пункты результатов измерений теперь можно переключать между стандартным, с названием канала, и цветным, без названия. Без названий каналов пункты измерений становятся более компактными и занимают меньше места. Переключение производится пунктом "*Names/Colors*" меню, вызываемого нажатием на пункт результата измерения.
-- Значок-стрелка разворачивания пунктов измерений убрана, так что пункты измерений стали слегка ниже. Разворачивание производится нажатием в правой части пункта измерений.
-- Фон пунктов измерений сделан чуть более темным.
-- Панель измерений немного приподнята чтобы не загораживать горизонтальную шкалу
-- Значения вертикальной шкалы теперь не перепрыгивают на левую или правую сторону главного окна осциллограммы при раскрытии и сворачивании панели измерений, а всегда остаются слева.
-- Панель измерений полностью прозрачная, список измерений в ней прижат вниз, так что при 3-4 измерениях они практически не мешают просмотру сигнала.
-- Изменена заставка при запуске приложения (сплэшскрин). Это сделано для того чтобы было видно когда заканчивается загрузки системы и запускается само приложение.
-- Двойным тапом на иконку канала внизу экрана у этого канала изменяется режим блокировки между AC и DC.
-- В иконки каналов внизу экрана добавлено отображение текущего делителя щупа.
-- Пункты результатов измерений на панели слева уменьшены по высоте для того чтобы можно было видеть большее количество измерений одновременно. Кроме того, немного увеличен шрифт значений измерений для более легкой читаемости.
-- Раскрытые пункты результатов измерений изменены на табличный вид: имя параметра и слева от него значение этого параметра. Это уменьшило высоту раскрытого пункта, позволив видеть одновременно до трех раскрытых пунктов. У значений так же немного увеличен шрифт для более легкой читаемости.
-- У стрелок раскрытия и закрытия пунктов результатов измерений увеличена область чувствительности к нажатию. Теперь раскрыть и закрыть пункт гораздо проще.
-- В левый верхний угол окна осциллограммы добавлена иконка раскрытия этого окна на весь экран. Этой же иконкой окно сворачивается обратно в оригинальный размер.
-- В правом нижнем углу включено отображение текущего времени и даты.
-
+* Текст подписей для сигналов в окне осциллограмм теперь обрамлен черной обводкой, так что они стали более заметными на форе сигналов.
+* Пункты результатов измерений теперь можно переключать между стандартным, с названием канала, и цветным, без названия. Без названий каналов пункты измерений становятся более компактными и занимают меньше места. Переключение производится пунктом "*Names/Colors*" меню, вызываемого нажатием на пункт результата измерения.
+* Значок-стрелка разворачивания пунктов измерений убрана, так что пункты измерений стали слегка ниже. Разворачивание производится нажатием в правой части пункта измерений.
+* Фон пунктов измерений сделан чуть более темным.
+* Панель измерений немного приподнята чтобы не загораживать горизонтальную шкалу
+* Значения вертикальной шкалы теперь не перепрыгивают на левую или правую сторону главного окна осциллограммы при раскрытии и сворачивании панели измерений, а всегда остаются слева.
+* Панель измерений полностью прозрачная, список измерений в ней прижат вниз, так что при 3-4 измерениях они практически не мешают просмотру сигнала.
+* Изменена заставка при запуске приложения (сплэшскрин). Это сделано для того чтобы было видно когда заканчивается загрузки системы и запускается само приложение.
+* Двойным тапом на иконку канала внизу экрана у этого канала изменяется режим блокировки между AC и DC.
+* В иконки каналов внизу экрана добавлено отображение текущего делителя щупа.
+* Пункты результатов измерений на панели слева уменьшены по высоте для того чтобы можно было видеть большее количество измерений одновременно. Кроме того, немного увеличен шрифт значений измерений для более легкой читаемости.
+* Раскрытые пункты результатов измерений изменены на табличный вид: имя параметра и слева от него значение этого параметра. Это уменьшило высоту раскрытого пункта, позволив видеть одновременно до трех раскрытых пунктов. У значений так же немного увеличен шрифт для более легкой читаемости.
+* У стрелок раскрытия и закрытия пунктов результатов измерений увеличена область чувствительности к нажатию. Теперь раскрыть и закрыть пункт гораздо проще.
+* В левый верхний угол окна осциллограммы добавлена иконка раскрытия этого окна на весь экран. Этой же иконкой окно сворачивается обратно в оригинальный размер.
+* В правом нижнем углу включено отображение текущего времени и даты.
 
 # Установка
 
-Модифицированное приложение существует в двух версиях:  
-- **Sparrow_axxx.apk** - версия для установки на пропатченную систему - это рекомендованный вариант.
-- **Sparrow_axxx_u.apk** - версия для установки на оригинальную систему.
+Модифицированное приложение существует в двух версиях:
+
+* **Sparrow_aXXX.apk** - версия для установки на пропатченную систему - это рекомендованный вариант.
+* **Sparrow_aXXX_u.apk** - версия для установки на оригинальную систему.
 
 ## Что такое патч системы Android и зачем он нужен?
 
@@ -63,8 +62,8 @@
 
 ### Какая разница между версиями?
 
-- Версия **Sparrow_axxx.apk** - это версия для установки на пропатченную систему. Она заявляет себя как системное приложение с правами пользователя **system** и может получать доступ к любым системным функциям.
-- Версия **Sparrow_axxx_u.apk** - это версия для установки на оригинальную систему. Она не заявляется как системное приложение и работает с ограниченными правами обычного пользователя. В результате эта версия не сможет, например, сохранять скриншоты, т.к. Андроид не даст ей доступ к содержимому экрана.
+* Версия **Sparrow_aXXX.apk** - это версия для установки на пропатченную систему. Она заявляет себя как системное приложение с правами пользователя **system** и может получать доступ к любым системным функциям.
+* Версия **Sparrow_aXXX_u.apk** - это версия для установки на оригинальную систему. Она не заявляется как системное приложение и работает с ограниченными правами обычного пользователя. В результате эта версия не сможет, например, сохранять скриншоты, т.к. Андроид не даст ей доступ к содержимому экрана.
 
 ## Подготовка к установке
 
@@ -94,7 +93,7 @@
 Получите права администратора:  
 ***su***  
 Символ $ в подсказке сменится на символ #:  
-*rk3399_rigol:/ #*   
+*rk3399_rigol:/ #*
 
 Сделайте системный раздел доступным для записи:  
 ***mount -o rw,remount  /system***  
@@ -120,7 +119,7 @@
 Перезагрузите осциллограф:
 ***reboot***  
 
-В процессе перезагрузки шелл ADB отвалится и вернется подсказка командной строки вашей системы. Все, теперь ваш осциллограф верит всем приложения на слово, что они являются системными, не проверяя верность ключа, которым они подписаны :)  
+В процессе перезагрузки шелл ADB отвалится и вернется подсказка командной строки вашей системы. Все, теперь ваш осциллограф верит всем приложениям на слово, что они являются системными, не проверяя верность ключа, которым они подписаны :)  
 Если после перезагрузки осциллограф зависнет на экране загрузки - ничего страшного, просто выключите осциллограф длительным нажатием кнопки питания (или выдернув коннектор питания) и включите снова.
 
 ## Установка модифицированного приложения
@@ -148,36 +147,34 @@
 
 Приложение осциллографа должно само запуститься в течении 5-20 сек, но если не запускается - просто выключите осциллограф длительным нажатием кнопки питания (или выдернув коннектор питания) и включите снова.
 
-
-
 # История изменений
 
 #### **a005** 30.01.2025
 
-- Текст подписей для сигналов в окне осциллограмм теперь обрамлен черной обводкой, так что они стали более заметными на форе сигналов.
-- Пункты результатов измерений теперь можно переключать между стандартным, с названием канала, и цветным, без названия. Без названий каналов пункты измерений становятся более компактными и занимают меньше места. Переключение производится пунктом "*Names/Colors*" меню, вызываемого нажатием на пункт результата измерения.
-- Значок-стрелка разворачивания пунктов измерений убрана, так что пункты измерений стали слегка ниже. Разворачивание производится нажатием в правой части пункта измерений.
-- Фон пунктов измерений сделан чуть более темным.
-- Панель измерений немного приподнята чтобы не загораживать горизонтальную шкалу
+* Текст подписей для сигналов в окне осциллограмм теперь обрамлен черной обводкой, так что они стали более заметными на форе сигналов.
+* Пункты результатов измерений теперь можно переключать между стандартным, с названием канала, и цветным, без названия. Без названий каналов пункты измерений становятся более компактными и занимают меньше места. Переключение производится пунктом "*Names/Colors*" меню, вызываемого нажатием на пункт результата измерения.
+* Значок-стрелка разворачивания пунктов измерений убрана, так что пункты измерений стали слегка ниже. Разворачивание производится нажатием в правой части пункта измерений.
+* Фон пунктов измерений сделан чуть более темным.
+* Панель измерений немного приподнята чтобы не загораживать горизонтальную шкалу
 
 #### **a004** 24.01.2025
 
-- Значения вертикальной шкалы теперь не перепрыгивают на левую или правую сторону главного окна осциллограммы при раскрытии и сворачивании панели измерений, а всегда остаются слева.
-- Панель измерений полностью прозрачная, список измерений в ней прижат вниз, так что при 3-4 измерениях они практически не мешают просмотру сигнала.
+* Значения вертикальной шкалы теперь не перепрыгивают на левую или правую сторону главного окна осциллограммы при раскрытии и сворачивании панели измерений, а всегда остаются слева.
+* Панель измерений полностью прозрачная, список измерений в ней прижат вниз, так что при 3-4 измерениях они практически не мешают просмотру сигнала.
 
 #### **a003** 19.01.2025
 
-- Изменена заставка при запуске приложения (сплэшскрин). Это сделано для того чтобы было видно когда заканчивается загрузка системы и запускается само приложение.
-- Двойным тапом на иконку канала внизу экрана у этого канала изменяется режим блокировки между AC и DC.
+* Изменена заставка при запуске приложения (сплэшскрин). Это сделано для того чтобы было видно когда заканчивается загрузки системы и запускается само приложение.
+* Двойным тапом на иконку канала внизу экрана у этого канала изменяется режим блокировки между AC и DC.
 
 #### **a002** 13.01.2025
 
-- В иконки каналов внизу экрана добавлено отображение текущего делителя щупа. [Смотреть скриншоты](#скриншоты).
-- Пункты результатов измерений на панели слева уменьшены по высоте для того чтобы можно было видеть большее количество измерений одновременно. Кроме того, немного увеличен шрифт значений измерений для более легкой читаемости. [Смотреть скриншоты](#скриншоты)
-- Раскрытые пункты результатов измерений изменены на табличный вид: имя параметра и слева от него значение этого параметра. Это уменьшило высоту раскрытого пункта, позволив видеть одновременно до трех раскрытых пунктов. У значений так же немного увеличен шрифт для более легкой читаемости. [Смотреть скриншоты](#скриншоты).
-- У стрелок раскрытия и закрытия пунктов результатов измерений увеличена область чувствительности к нажатию. Теперь раскрыть и закрыть пункт гораздо проще.
-- В левый верхний угол окна осциллограммы добавлена иконка раскрытия этого окна на весь экран. Этой же иконкой окно сворачивается обратно в оригинальный размер. [Смотреть скриншоты](#скриншоты).
-- В правом нижнем углу включено отображение текущего времени и даты.
+* В иконки каналов внизу экрана добавлено отображение текущего делителя щупа. [Смотреть скриншоты](#скриншоты).
+* Пункты результатов измерений на панели слева уменьшены по высоте для того чтобы можно было видеть большее количество измерений одновременно. Кроме того, немного увеличен шрифт значений измерений для более легкой читаемости. [Смотреть скриншоты](#скриншоты)
+* Раскрытые пункты результатов измерений изменены на табличный вид: имя параметра и слева от него значение этого параметра. Это уменьшило высоту раскрытого пункта, позволив видеть одновременно до трех раскрытых пунктов. У значений так же немного увеличен шрифт для более легкой читаемости. [Смотреть скриншоты](#скриншоты).
+* У стрелок раскрытия и закрытия пунктов результатов измерений увеличена область чувствительности к нажатию. Теперь раскрыть и закрыть пункт гораздо проще.
+* В левый верхний угол окна осциллограммы добавлена иконка раскрытия этого окна на весь экран. Этой же иконкой окно сворачивается обратно в оригинальный размер. [Смотреть скриншоты](#скриншоты).
+* В правом нижнем углу включено отображение текущего времени и даты.
 
 # Скриншоты
 
@@ -210,7 +207,6 @@
 ![logo](_images/RigolDS6.png)
 ![logo](_images/RigolDS7.png)
 ![logo](_images/RigolDS8.png)
-
 
 ### Панель результатов измерений в обычном режиме
 
@@ -256,27 +252,28 @@ The modification of the Rigol DHO800/DHO900 application improves the usability o
 
 ## Current Changes Compared to Original Version  [see screenshots](#screenshots)
 
-- The text of the waveform labels in the oscillogram window is now framed with a black outline, so that they are more visible on the signal form.
-- The measurement result items can now be switched between the standard one, with the channel name, and the colored one, without a name. Without channel names, the measurement items become more compact and take up less space. Switching is done using the "*Names/Colors*" menu item, which is called by clicking on the measurement result item.
-- The arrow icon for expanding the measurement items has been removed, so that the measurement items have become slightly lower. Expanding is done by clicking on the right side of the measurement item.
-- The background of the measurement items has been made slightly darker.
-- The measurement panel has been slightly raised so as not to block the horizontal scale
-- The vertical scale values ​​no longer jump to the left or right side of the main oscillogram window when expanding and collapsing the measurement panel, but always remain on the left.
-- The measurement panel is completely transparent, the list of measurements in it is pressed down, so that with 3-4 measurements they practically do not interfere with viewing the signal.
-- Changed the application splash screen at startup. This is done to show when the system finishes loading and the application itself starts.
-- Double-tapping the channel icon at the bottom of the screen toggles that channel's coupling mode between AC and DC.
-- Added probe attenuation factor display to channel icons at the bottom of the screen.
-- Measurement result items on the left panel have been reduced in height to show more measurements simultaneously. Additionally, the measurement value font size has been slightly increased for better readability.
-- Expanded measurement result items changed to tabular view: parameter name with its value to the left. This reduced the expanded item height, allowing up to three expanded items to be visible simultaneously. Values also have slightly increased font size for better readability.
-- Increased touch sensitivity area for measurement result item expand/collapse arrows. Now it's much easier to expand and collapse items.
-- Added a full-screen icon to the top left corner of the waveform window. The same icon collapses the window back to original size.
-- Enabled current time and date display in the bottom right corner.
+* The text of the waveform labels in the oscillogram window is now framed with a black outline, so that they are more visible on the signal form.
+* The measurement result items can now be switched between the standard one, with the channel name, and the colored one, without a name. Without channel names, the measurement items become more compact and take up less space. Switching is done using the "*Names/Colors*" menu item, which is called by clicking on the measurement result item.
+* The arrow icon for expanding the measurement items has been removed, so that the measurement items have become slightly lower. Expanding is done by clicking on the right side of the measurement item.
+* The background of the measurement items has been made slightly darker.
+* The measurement panel has been slightly raised so as not to block the horizontal scale
+* The vertical scale values ​​no longer jump to the left or right side of the main oscillogram window when expanding and collapsing the measurement panel, but always remain on the left.
+* The measurement panel is completely transparent, the list of measurements in it is pressed down, so that with 3-4 measurements they practically do not interfere with viewing the signal.
+* Changed the application splash screen at startup. This is done to show when the system finishes loading and the application itself starts.
+* Double-tapping the channel icon at the bottom of the screen toggles that channel's coupling mode between AC and DC.
+* Added probe attenuation factor display to channel icons at the bottom of the screen.
+* Measurement result items on the left panel have been reduced in height to show more measurements simultaneously. Additionally, the measurement value font size has been slightly increased for better readability.
+* Expanded measurement result items changed to tabular view: parameter name with its value to the left. This reduced the expanded item height, allowing up to three expanded items to be visible simultaneously. Values also have slightly increased font size for better readability.
+* Increased touch sensitivity area for measurement result item expand/collapse arrows. Now it's much easier to expand and collapse items.
+* Added a full-screen icon to the top left corner of the waveform window. The same icon collapses the window back to original size.
+* Enabled current time and date display in the bottom right corner.
 
 # Installation
 
 The modified application exists in two versions:
-- **Sparrow_axxx.apk** - version for installation on patched system - this is the recommended option.
-- **Sparrow_axxx_u.apk** - version for installation on original system.
+
+* **Sparrow_axxx.apk** - version for installation on patched system - this is the recommended option.
+* **Sparrow_axxx_u.apk** - version for installation on original system.
 
 ## What is Android System Patch and Why is it Needed?
 
@@ -288,8 +285,8 @@ The system patch is installed only once; subsequent reinstallation or updates of
 
 ### What's the Difference Between Versions?
 
-- Version **Sparrow_axxx.apk** - this is the version for installation on patched system. It declares itself as a system application with **system** user rights and can access any system functions.
-- Version **Sparrow_axxx_u.apk** - this is the version for installation on original system. It doesn't declare itself as a system application and works with limited regular user rights. As a result, this version won't be able to, for example, save screenshots, as Android won't give it access to screen content.
+* Version **Sparrow_axxx.apk** - this is the version for installation on patched system. It declares itself as a system application with **system** user rights and can access any system functions.
+* Version **Sparrow_axxx_u.apk** - this is the version for installation on original system. It doesn't declare itself as a system application and works with limited regular user rights. As a result, this version won't be able to, for example, save screenshots, as Android won't give it access to screen content.
 
 ## Installation Preparation
 
@@ -377,30 +374,30 @@ The oscilloscope application should start itself within 5-20 seconds, but if it 
 
 #### **a005** 30.01.2025
 
-- The text of the waveform labels in the oscillogram window is now framed with a black outline, so that they are more visible on the signal form.
-- The measurement result items can now be switched between the standard one, with the channel name, and the colored one, without a name. Without channel names, the measurement items become more compact and take up less space. Switching is done using the "*Names/Colors*" menu item, which is called by clicking on the measurement result item.
-- The arrow icon for expanding the measurement items has been removed, so that the measurement items have become slightly lower. Expanding is done by clicking on the right side of the measurement item.
-- The background of the measurement items has been made slightly darker.
-- The measurement panel has been slightly raised so as not to block the horizontal scale
+* The text of the waveform labels in the oscillogram window is now framed with a black outline, so that they are more visible on the signal form.
+* The measurement result items can now be switched between the standard one, with the channel name, and the colored one, without a name. Without channel names, the measurement items become more compact and take up less space. Switching is done using the "*Names/Colors*" menu item, which is called by clicking on the measurement result item.
+* The arrow icon for expanding the measurement items has been removed, so that the measurement items have become slightly lower. Expanding is done by clicking on the right side of the measurement item.
+* The background of the measurement items has been made slightly darker.
+* The measurement panel has been slightly raised so as not to block the horizontal scale
 
 #### **a004** 24.01.2025
 
-- The vertical scale values ​​no longer jump to the left or right side of the main oscillogram window when expanding and collapsing the measurement panel, but always remain on the left.
-- The measurement panel is completely transparent, the list of measurements in it is pressed down, so that with 3-4 measurements they practically do not interfere with viewing the signal.
+* The vertical scale values ​​no longer jump to the left or right side of the main oscillogram window when expanding and collapsing the measurement panel, but always remain on the left.
+* The measurement panel is completely transparent, the list of measurements in it is pressed down, so that with 3-4 measurements they practically do not interfere with viewing the signal.
 
 #### **a003** 19.01.2025
 
-- Changed the application splash screen at startup. This is done to show when the system finishes loading and the application itself starts.
-- Double-tapping the channel icon at the bottom of the screen toggles that channel's coupling mode between AC and DC.
+* Changed the application splash screen at startup. This is done to show when the system finishes loading and the application itself starts.
+* Double-tapping the channel icon at the bottom of the screen toggles that channel's coupling mode between AC and DC.
 
 #### **a002** 13.01.2025
 
-- Added probe attenuation factor display to channel icons at the bottom of the screen. [See screenshots](#screenshots).
-- Measurement result items on the left panel have been reduced in height to show more measurements simultaneously. Additionally, the measurement value font size has been slightly increased for better readability. [See screenshots](#screenshots)
-- Expanded measurement result items changed to tabular view: parameter name with its value to the left. This reduced the expanded item height, allowing up to three expanded items to be visible simultaneously. Values also have slightly increased font size for better readability. [See screenshots](#screenshots).
-- Increased touch sensitivity area for measurement result item expand/collapse arrows. Now it's much easier to expand and collapse items.
-- Added a full-screen icon to the top left corner of the waveform window. The same icon collapses the window back to original size. [See screenshots](#screenshots).
-- Enabled current time and date display in the bottom right corner.
+* Added probe attenuation factor display to channel icons at the bottom of the screen. [See screenshots](#screenshots).
+* Measurement result items on the left panel have been reduced in height to show more measurements simultaneously. Additionally, the measurement value font size has been slightly increased for better readability. [See screenshots](#screenshots)
+* Expanded measurement result items changed to tabular view: parameter name with its value to the left. This reduced the expanded item height, allowing up to three expanded items to be visible simultaneously. Values also have slightly increased font size for better readability. [See screenshots](#screenshots).
+* Increased touch sensitivity area for measurement result item expand/collapse arrows. Now it's much easier to expand and collapse items.
+* Added a full-screen icon to the top left corner of the waveform window. The same icon collapses the window back to original size. [See screenshots](#screenshots).
+* Enabled current time and date display in the bottom right corner.
 
 # Screenshots
 

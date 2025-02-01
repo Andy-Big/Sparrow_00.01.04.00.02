@@ -1611,9 +1611,6 @@
     if-nez p8, :cond_0
     return-void
 
-    const-string v0, "========== lambda$showQuickPopupView$10$ResultsBarFragment - mappingObject != null =========="
-    invoke-static {v0}, Lcom/rigol/scope/App;->axxxLogOut(Ljava/lang/String;)V
-
     # MeasureQuickItemType type = ServiceEnum.getMeasureQuickItemTypeFromValue1(mappingObject.getValue());
     .line 390
     :cond_0
@@ -1624,9 +1621,6 @@
     if-nez p5, :cond_1
     return-void
 
-    const-string v0, "========== lambda$showQuickPopupView$10$ResultsBarFragment - measureQuickItemType != null =========="
-    invoke-static {v0}, Lcom/rigol/scope/App;->axxxLogOut(Ljava/lang/String;)V
-
     # switch (type) {
     .line 394
     :cond_1
@@ -1635,21 +1629,18 @@
     move-result p5
     aget p5, p6, p5
     const/4 p6, 0x1
-
-    const-string v0, "========== MeasureQuickItemType ordinal() switch value : "
-    invoke-static {v0, p5}, Lcom/rigol/scope/App;->axxxLogOutI(Ljava/lang/String;I)V
-
-   packed-switch p5, :pswitch_data_0
+    
+    packed-switch p5, :pswitch_data_0
     goto :goto_0
 
-    # case DELETE_ALL:
+    # case REMOVE_ALL:
     # showDeleteAllAlertPopupView();
     .line 430
     :pswitch_0
     invoke-direct {p0}, Lcom/rigol/scope/ResultsBarFragment;->showDeleteAllAlertPopupView()V
     goto :goto_0
 
-    # case ADD:
+    # case CHANGE_ITEM:
     # popupView.dismiss();
     # if (sharedViewModel != null) {
     #     sharedViewModel.hasChangeMeasureItem.setValue(true);
@@ -1670,6 +1661,14 @@
     invoke-direct {p0, p2, p1}, Lcom/rigol/scope/ResultsBarFragment;->showPopupView(Landroid/view/View;Ljava/lang/Class;)V
     goto :goto_0
 
+    # case INDICATORS:
+    # MeasureSettingParam measureSettingParam = this.measureSettingParam;
+    # if (measureSettingParam != null) {
+    #     measureSettingParam.saveCursorIndicator(true);
+    #     this.measureSettingParam.saveCursorThreshold(true);
+    #     OrientationView.Companion.setShowThreshold(true);
+    #     return;
+    # }
     .line 397
     :pswitch_2
     iget-object p1, p0, Lcom/rigol/scope/ResultsBarFragment;->measureSettingParam:Lcom/rigol/scope/data/MeasureSettingParam;
@@ -1695,7 +1694,7 @@
     invoke-virtual {p1, p2, p3, p6}, Lcom/rigol/scope/cil/API;->UI_PostInt32(III)I
     goto :goto_0
 
-    # case DELETE:
+    # case REMOVE:
     # if (resultAdapter != null) {
     #     resultAdapter.remove(resultAdapter.getCurrentItem());
     #     popupView.dismiss();
@@ -1728,8 +1727,6 @@
     :pswitch_6  # CH_NAMES
     invoke-virtual {p1}, Lcom/rigol/scope/views/baseview/BasePopupView;->dismiss()V
     # Вызываем метод для обработки нажатия на CH_NAMES
-    const-string v0, "========== lambda$showQuickPopupView$10$ResultsBarFragment - CH_NAMES =========="
-    invoke-static {v0}, Lcom/rigol/scope/App;->axxxLogOut(Ljava/lang/String;)V
     # Переключаем режим отображения названий каналов
     invoke-static {}, Lcom/rigol/scope/utilities/ViewUtil;->switchShowChannelNames()Z
     move-result v0
@@ -1751,8 +1748,6 @@
     move-result-object v1
 
     iget v3, v1, Landroid/view/ViewGroup$LayoutParams;->width:I
-    const-string v4, "========== lambda$showQuickPopupView$10$ResultsBarFragment - CH_NAMES - width: "
-    invoke-static {v4, v3}, Lcom/rigol/scope/App;->axxxLogOutI(Ljava/lang/String;I)V
 
     # Устанавливаем новую ширину
     iput v2, v1, Landroid/view/ViewGroup$LayoutParams;->width:I
@@ -1773,11 +1768,11 @@
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_5  # SETTING
-        :pswitch_4  # DELETE
+        :pswitch_4  # REMOVE
         :pswitch_3  # STATISTICS
-        :pswitch_2  # SETTING
-        :pswitch_1  # ADD
-        :pswitch_0  # DELETE_ALL
+        :pswitch_2  # INDICATORS
+        :pswitch_1  # CHANGE_ITEM
+        :pswitch_0  # REMOVE_ALL
         :pswitch_6  # CH_NAMES - новый пункт
     .end packed-switch
 .end method

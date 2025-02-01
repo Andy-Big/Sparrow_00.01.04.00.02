@@ -354,6 +354,7 @@ public class ResultListAdapter extends MultiItemTypeAdapter<List<ResultParam>> {
         setCurrentItem(-1);
     }
 
+// info: восстановление активных пунктов измерений из preferences приложения
     public void recover() throws JSONException {
         List<ResultParam> resultParams;
         boolean z;
@@ -458,9 +459,11 @@ public class ResultListAdapter extends MultiItemTypeAdapter<List<ResultParam>> {
         }
     }
 
+// info: сохранение активного списка результатов измерений в preferences приложения
     private void cacheItems() {
         try {
             SPUtils.getInstance().put(CACHED_RESULT_LIST_KEY, JsonUtil.toJson(getItems()));
+
         } catch (JSONException e) {
             e.printStackTrace();
         }
