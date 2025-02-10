@@ -1,10 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Inform: layout фрагмента с информацией о каналах и дискретизации в полноэкранном режиме -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="30.0dip"
     android:orientation="horizontal"
+    android:background="#FF404040"
+    android:paddingTop="3.0dip"
     >
+
+
+    <TextView
+        android:id="@id/fsb_a_value"
+        android:text="STOP"
+        style="@style/App.FullScreenBar.Text.Values"
+        android:layout_width="50.0dip"
+        />
+
 
     <TextView
         android:id="@id/fsb_h_title"
@@ -13,13 +24,12 @@
         android:textColor="#FFFFFF"
         />
 
-
     <TextView
         android:id="@id/fsb_h_value"
         android:text="625.00MSa/s"
         style="@style/App.FullScreenBar.Text.Values"
+        android:layout_width="120.0dip"
         />
-
 
 
     <TextView
@@ -44,13 +54,11 @@
         style="@style/App.FullScreenBar.Text.Title"
         />
 
-
     <TextView
         android:id="@id/fsb_v2_value"
         android:text="500.00mV/"
         style="@style/App.FullScreenBar.Text.Values"
         />
-
 
 
     <TextView
@@ -67,7 +75,6 @@
         />
 
 
-
     <TextView
         android:id="@id/fsb_v4_title"
         android:text="С4: "
@@ -75,12 +82,10 @@
         style="@style/App.FullScreenBar.Text.Title"
         />
 
-
     <TextView
         android:id="@id/fsb_v4_value"
         android:text="500.00mV/"
         style="@style/App.FullScreenBar.Text.Values"
         />
-
 
 </LinearLayout> 

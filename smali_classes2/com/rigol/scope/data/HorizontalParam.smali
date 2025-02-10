@@ -4867,6 +4867,11 @@
 
     move-result-object v0
 
+# change added
+# Inform: вызываем метод из FullscreenBarFragment для изменения сэмплрейта
+    invoke-static {p1, p2}, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->onChangedHP(J)V
+# /change
+
     invoke-static {p1, p2}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
     move-result-object v1
@@ -4883,9 +4888,6 @@
     .line 439
     invoke-virtual {p0, p1}, Lcom/rigol/scope/data/HorizontalParam;->notifyPropertyChanged(I)V
 
-# change added
-    invoke-static {p0}, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->onChangedHP(Lcom/rigol/scope/data/HorizontalParam;)V
-# /change
     return-void
 .end method
 
@@ -5069,6 +5071,11 @@
     iget-object v0, p0, Lcom/rigol/scope/data/HorizontalParam;->triggerStatus:Lcom/rigol/scope/cil/ServiceEnum$ControlStatus;
 
     if-eq v0, p1, :cond_0
+
+# change added
+# Inform: вызываем метод из FullscreenBarFragment для изменения состояния триггера
+    invoke-static {p1}, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->onChangedTrig(Lcom/rigol/scope/cil/ServiceEnum$ControlStatus;)V
+# /change
 
     const-string v1, "triggerStatus"
 

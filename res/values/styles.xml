@@ -3957,7 +3957,7 @@
         <item name="android:gravity">left</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:paddingLeft">25.0dip</item>
+        <item name="android:paddingLeft">10.0dip</item>
         <item name="android:paddingBottom">2.0dip</item>
     </style>
 
@@ -3966,7 +3966,7 @@
         <item name="android:textSize">17.0sp</item>
         <item name="android:textColor">@color/fsb_value_color</item>
         <item name="android:gravity">left</item>
-        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_width">90.0dip</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:paddingBottom">2.0dip</item>
     </style>

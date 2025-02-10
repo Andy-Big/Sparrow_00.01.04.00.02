@@ -2779,6 +2779,6 @@
     <item type="id" name="fsb_v3_value" />
     <item type="id" name="fsb_v4_title" />
     <item type="id" name="fsb_v4_value" />
-
+    <item type="id" name="fsb_a_value" />
 
 </resources>

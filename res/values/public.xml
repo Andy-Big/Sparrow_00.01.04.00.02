@@ -16254,6 +16254,7 @@
     <public type="id" name="fsb_v3_value" id="0x7f0a100c" />
     <public type="id" name="fsb_v4_title" id="0x7f0a100d" />
     <public type="id" name="fsb_v4_value" id="0x7f0a100e" />
+    <public type="id" name="fsb_a_value" id="0x7f0a100f" />
 
     <public type="drawable" name="bg_item_vertical_act" id="0x7f081000" />
     <public type="drawable" name="fullscreen_open" id="0x7f081001" />

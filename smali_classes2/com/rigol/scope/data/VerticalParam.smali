@@ -4107,6 +4107,12 @@
 .method public final setStatus(Lcom/rigol/scope/cil/ServiceEnum$enChanStatus;)V
     .locals 2
 
+# change added
+# Inform: получаем значение chan и вызываем метод из FullscreenBarFragment для изменения состояния канала
+    iget-object v0, p0, Lcom/rigol/scope/data/VerticalParam;->chan:Lcom/rigol/scope/cil/ServiceEnum$Chan;
+    invoke-static {v0, p1}, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->onChangedChanStatus(Lcom/rigol/scope/cil/ServiceEnum$Chan;Lcom/rigol/scope/cil/ServiceEnum$enChanStatus;)V
+# /change
+
     const-string v0, "value"
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
