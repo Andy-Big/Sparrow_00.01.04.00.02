@@ -260,7 +260,7 @@
 .end method
 
 # Inform: вывод отладочной информации с числовым значением в logcat
-.method public static axxxLogOutI(Ljava/lang/String;I)V
+.method public static axxxLogOut(Ljava/lang/String;I)V
     .locals 2
 
     const-string v0, "[RIGOL-Axxx-DEBUG]"
@@ -283,6 +283,32 @@
 
     # Выводим отладочное сообщение в logcat
     invoke-static {v0, p0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+.end method
+
+# Inform: вывод отладочной информации с текстовым значением в logcat
+.method public static axxxLogOut(Ljava/lang/String;Ljava/lang/String;)V
+    .locals 2
+
+    const-string v0, "[RIGOL-Axxx-DEBUG]"
+
+    # Создаем новый StringBuilder
+    new-instance v1, Ljava/lang/StringBuilder;
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    
+    # Добавляем исходную строку p0 в StringBuilder
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    
+    # Добавляем исходную строку p1 в StringBuilder
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    # Получаем итоговую строку из StringBuilder
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v1
+
+    # Выводим отладочное сообщение в logcat
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 .end method

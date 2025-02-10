@@ -37,7 +37,7 @@
         android:layout_marginTop="0.0dip"
         android:layout_marginRight="0.0dip"
         android:layout_marginBottom="0.0dip"
-        app:layout_constraintBottom_toTopOf="@id/settings_bar"
+        app:layout_constraintBottom_toTopOf="@id/fullscreen_bar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/navigation_bar" />
@@ -48,6 +48,7 @@
         android:layout_marginRight="2.0dip"
         android:layout_marginBottom="@dimen/region_spacing"
 -->
+
     <ImageView android:id="@id/results_bar_icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -66,7 +67,7 @@
         android:layout_marginBottom="20dip"
         android:alpha="0.9"
         android:tag="binding_2"
-        app:layout_constraintBottom_toTopOf="@id/settings_bar"
+        app:layout_constraintBottom_toTopOf="@id/fullscreen_bar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/navigation_bar" />
 <!--        android:layout_marginBottom="@dimen/region_spacing" -->
@@ -107,5 +108,26 @@
         app:layout_constraintStart_toStartOf="@id/waveform"
         android:layout_marginLeft="-5.0dip"
         android:layout_marginTop="22.0dip" />
+
+
+
+    <!-- Inform: Фрагмент для отображения настроек каналов и дискретизации в полноэкранном режиме -->
+    <androidx.fragment.app.FragmentContainerView android:id="@id/fullscreen_bar"
+        android:name="com.rigol.scope.myfragment.FullscreenBarFragment"
+        android:tag="binding_6"
+        android:layout_width="0.0dip"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="0.0dip"
+        android:layout_marginTop="0.0dip"
+        android:layout_marginRight="0.0dip"
+        android:layout_marginBottom="0.0dip"
+        app:layout_constraintBottom_toTopOf="@id/settings_bar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/waveform" />
+<!--        android:name="com.rigol.scope.FullscreenBarFragment" -->
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

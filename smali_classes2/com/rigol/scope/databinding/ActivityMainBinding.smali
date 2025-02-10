@@ -33,14 +33,16 @@
 
 # change added
 .field public final fullscreenwave_icon:Landroid/widget/ImageView;
+
+.field public final fullscreen_bar:Landroidx/fragment/app/FragmentContainerView;
 # /change
 
 
 
 # change changed
-.method protected constructor <init>(Ljava/lang/Object;Landroid/view/View;ILandroid/widget/ImageView;Landroidx/constraintlayout/widget/ConstraintLayout;Landroidx/fragment/app/FragmentContainerView;Landroid/widget/ImageView;Landroidx/fragment/app/FragmentContainerView;Landroid/widget/ImageView;Landroidx/fragment/app/FragmentContainerView;Landroidx/fragment/app/FragmentContainerView;Landroid/widget/ImageView;)V
+.method protected constructor <init>(Ljava/lang/Object;Landroid/view/View;ILandroid/widget/ImageView;Landroidx/constraintlayout/widget/ConstraintLayout;Landroidx/fragment/app/FragmentContainerView;Landroid/widget/ImageView;Landroidx/fragment/app/FragmentContainerView;Landroid/widget/ImageView;Landroidx/fragment/app/FragmentContainerView;Landroidx/fragment/app/FragmentContainerView;)V
 #.method protected constructor <init>(Ljava/lang/Object;Landroid/view/View;ILandroid/widget/ImageView;Landroidx/constraintlayout/widget/ConstraintLayout;Landroidx/fragment/app/FragmentContainerView;Landroid/widget/ImageView;Landroidx/fragment/app/FragmentContainerView;Landroid/widget/ImageView;Landroidx/fragment/app/FragmentContainerView;Landroidx/fragment/app/FragmentContainerView;)V
-    .locals 3
+    .locals 1
 
 
 # change added
@@ -75,8 +77,11 @@
     .line 64
     iput-object p11, p0, Lcom/rigol/scope/databinding/ActivityMainBinding;->waveform:Landroidx/fragment/app/FragmentContainerView;
 
-    iput-object p12, p0, Lcom/rigol/scope/databinding/ActivityMainBinding;->fullscreenwave_icon:Landroid/widget/ImageView;
+    .line 65
+#    iput-object p12, p0, Lcom/rigol/scope/databinding/ActivityMainBinding;->fullscreenwave_icon:Landroid/widget/ImageView;
 
+    .line 66
+#    iput-object p13, p0, Lcom/rigol/scope/databinding/ActivityMainBinding;->fullscreen_bar:Landroidx/fragment/app/FragmentContainerView;
 
 # change added
     const-string v0, "========== ActivityMainBinding->Constructor() end =========="
@@ -90,10 +95,25 @@
 
 
 # change added
-.method protected init1(Landroid/widget/ImageView;)V
-    .locals 0
+# Inform: инициализация иконки разворачивания и информационной панели в полноэкранном режиме
+.method protected init1(Landroid/widget/ImageView;Landroidx/fragment/app/FragmentContainerView;)V
+    .locals 1
 
+# change added
+    const-string v0, "========== ActivityMainBinding->init1() begin =========="
+    invoke-static {v0}, Lcom/rigol/scope/App;->axxxLogOut(Ljava/lang/String;)V
+# /change
+    .line 5034
     iput-object p1, p0, Lcom/rigol/scope/databinding/ActivityMainBinding;->fullscreenwave_icon:Landroid/widget/ImageView;
+
+    .line 5035
+    iput-object p2, p0, Lcom/rigol/scope/databinding/ActivityMainBinding;->fullscreen_bar:Landroidx/fragment/app/FragmentContainerView;
+
+# change added
+    const-string v0, "========== ActivityMainBinding->init1() end =========="
+    invoke-static {v0}, Lcom/rigol/scope/App;->axxxLogOut(Ljava/lang/String;)V
+# /change
+
 
     return-void
 .end method

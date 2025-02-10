@@ -16237,7 +16237,9 @@
     <public type="color" name="probe_atten_color" id="0x7f061000" />
 
     <public type="id" name="fullscreenwave_icon" id="0x7f0a1003" />
+
     <public type="id" name="fullscreen_bar" id="0x7f0a1004" />
+    <public type="layout" name="fragment_fullscreen_bar" id="0x7f0d1000" />
     <public type="color" name="fullscreen_bar_bg" id="0x7f061001" />
     <public type="color" name="fsb_value_color" id="0x7f061002" />
     <public type="color" name="fsb_h_title_color" id="0x7f061003" />

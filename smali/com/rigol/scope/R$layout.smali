@@ -689,7 +689,7 @@
 
 
 
-.field public static final fragment_fullscreen_bar:I = 0x7f0d1001
+.field public static final fragment_fullscreen_bar:I = 0x7f0d1000
 
 
 

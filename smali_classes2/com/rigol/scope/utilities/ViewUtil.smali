@@ -7579,7 +7579,7 @@
 
 
 
-# info: формирование заголовка пункта измерений с цветным выделением канала
+# Inform: формирование заголовка пункта измерений с цветным выделением канала
 # change changed
 .method public static getTitleWithSrc_orig(Landroid/content/Context;Ljava/lang/String;Lcom/rigol/scope/cil/ServiceEnum$Chan;)Landroid/text/SpannableString;
 #.method public static getTitleWithSrc(Landroid/content/Context;Ljava/lang/String;Lcom/rigol/scope/cil/ServiceEnum$Chan;)Landroid/text/SpannableString;

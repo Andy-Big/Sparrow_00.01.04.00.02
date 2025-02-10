@@ -175,7 +175,7 @@
     iput-object v0, p0, Lcom/rigol/scope/MainActivity;->guardListener:Lcom/rigol/iguardservice/IGuardListener$Stub;
 
 # change added
-    const v2, 0x1
+    const v2, 0x0
     iput-boolean v2, p0, Lcom/rigol/scope/MainActivity;->isFullScreen:Z
 # /change
 
@@ -2234,6 +2234,17 @@
 
     invoke-virtual {v0, v2, v3, v4}, Landroid/view/View;->postDelayed(Ljava/lang/Runnable;J)Z
 
+# change added
+    # скрываем панель с информацией о каналах и дискретизации
+    const v2, 0x8   #   View.GONE
+    iget-object v0, v1, Lcom/rigol/scope/MainActivity;->binding:Lcom/rigol/scope/databinding/ActivityMainBinding;
+    iget-object v0, v0, Lcom/rigol/scope/databinding/ActivityMainBinding;->fullscreen_bar:Landroidx/fragment/app/FragmentContainerView;
+    invoke-virtual {v0, v2}, Landroidx/fragment/app/FragmentContainerView;->setVisibility(I)V
+# /change
+
+
+
+
     return-void
 .end method
 
@@ -2485,8 +2496,9 @@
 .end method
 
 
+# Inform: обработка нажатия на кнопку полноэкранного режима
 .method public clickFullScreen(Landroid/view/View;)V
-    .locals 10
+    .locals 11
 
 # change log output
     const-string v0, "========== clickFullScreen() begin =========="
@@ -2497,7 +2509,7 @@
     iget-object v1, p0, Lcom/rigol/scope/MainActivity;->sharedParam:Lcom/rigol/scope/data/SharedParam;
     if-eqz v1, :cond_2
 
-    # биндинг
+    # биндинг v8
     iget-object v2, p0, Lcom/rigol/scope/MainActivity;->binding:Lcom/rigol/scope/databinding/ActivityMainBinding;
     if-eqz v2, :cond_2
 
@@ -2519,7 +2531,10 @@
     
     const v0, 0x1
     iput-boolean v0, p0, Lcom/rigol/scope/MainActivity;->isFullScreen:Z
+    # флаг сокрытия/показа верхней и нижней панелей
     const v0, 0x8   #   View.GONE
+    # флаг сокрытия/показа панели с информацией о каналах и дискретизации
+    const v10, 0x0   #   View.VISIBLE
 
     # картинка сворачивания
     const v7, 0x7f081002   #   R.drawable.fullscreen_close
@@ -2528,18 +2543,21 @@
     const v8, 0x0
     # поля сверху и снизу
     const v9, 0x0
-
-    goto :cond_1
     
+    goto :cond_1
     
     # развернуто, сворачиваем
     :cond_0
     const-string v5, "== FullScreen DISABLE =="
     invoke-static {v5}, Lcom/rigol/scope/App;->axxxLogOut(Ljava/lang/String;)V
     
-    const v0, 0x0   #   View.VISIBLE
-    iput-boolean v0, p0, Lcom/rigol/scope/MainActivity;->isFullScreen:Z
     const v0, 0x0
+    iput-boolean v0, p0, Lcom/rigol/scope/MainActivity;->isFullScreen:Z
+    # флаг сокрытия/показа верхней и нижней панелей
+    const v0, 0x0   #   View.VISIBLE
+    # флаг сокрытия/показа панели с информацией о каналах и дискретизации
+    const v10, 0x8   #   View.GONE
+
 
     # картинка разворачивания
     const v7, 0x7f081001   #   R.drawable.fullscreen_open
@@ -2549,8 +2567,11 @@
     # поля сверху и снизу
     const v9, 0x7
 
-
     :cond_1
+    # скрываем или отображаем панель с информацией о каналах и дискретизации
+    iget-object v6, v2, Lcom/rigol/scope/databinding/ActivityMainBindingImpl;->fullscreen_bar:Landroidx/fragment/app/FragmentContainerView;
+    invoke-virtual {v6, v10}, Landroidx/fragment/app/FragmentContainerView;->setVisibility(I)V
+
     # скрываем или отображаем нижнюю панель
     iget-object v6, v2, Lcom/rigol/scope/databinding/ActivityMainBindingImpl;->settingsBar:Landroidx/fragment/app/FragmentContainerView;
     invoke-virtual {v6, v0}, Landroidx/fragment/app/FragmentContainerView;->setVisibility(I)V
@@ -2568,6 +2589,7 @@
     invoke-static {v6, v7}, Landroidx/databinding/adapters/ImageViewBindingAdapter;->setImageDrawable(Landroid/widget/ImageView;Landroid/graphics/drawable/Drawable;)V
 
 
+
     :cond_2
  # change log output
     const-string v0, "========== clickFullScreen() end =========="
@@ -2577,4 +2599,26 @@
    return-void
 .end method
 
+# /change
+
+
+
+# change added
+# Inform: инициализация фрагмента с информацией о каналах и дискретизации в полноэкранном режиме
+.method private initFullscreenBar()V
+    .locals 2
+
+
+    invoke-virtual {p0}, Landroidx/appcompat/app/AppCompatActivity;->getSupportFragmentManager()Landroidx/fragment/app/FragmentManager;
+    move-result-object v0
+    
+    const v1, 0x7f0a1004  # ID вашего fullscreen_bar фрагмента
+    
+    invoke-virtual {v0, v1}, Landroidx/fragment/app/FragmentManager;->findFragmentById(I)Landroidx/fragment/app/Fragment;
+    move-result-object v0
+    
+    check-cast v0, Lcom/rigol/scope/myfragment/FullscreenBarFragment;
+    
+    return-void
+.end method
 # /change

@@ -18,7 +18,7 @@
 .field static final synthetic $SwitchMap$com$rigol$scope$cil$ServiceEnum$MeasureQuickItemType:[I
 
 
-# info: подготовка пунктов меню (всплывающее меню при нажатии пункта измерения) из массива
+# Inform: подготовка пунктов меню (всплывающее меню при нажатии пункта измерения) из массива
 # direct methods
 .method static constructor <clinit>()V
 

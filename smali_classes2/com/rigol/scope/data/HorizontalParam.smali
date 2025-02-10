@@ -4883,6 +4883,9 @@
     .line 439
     invoke-virtual {p0, p1}, Lcom/rigol/scope/data/HorizontalParam;->notifyPropertyChanged(I)V
 
+# change added
+    invoke-static {p0}, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->onChangedHP(Lcom/rigol/scope/data/HorizontalParam;)V
+# /change
     return-void
 .end method
 

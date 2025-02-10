@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Inform: layout фрагмента с информацией о каналах и дискретизации в полноэкранном режиме -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="30.0dip"
+    android:orientation="horizontal"
+    >
+
+    <TextView
+        android:id="@id/fsb_h_title"
+        style="@style/App.FullScreenBar.Text.Title"
+        android:text="H: "
+        android:textColor="#FFFFFF"
+        />
+
+
+    <TextView
+        android:id="@id/fsb_h_value"
+        android:text="625.00MSa/s"
+        style="@style/App.FullScreenBar.Text.Values"
+        />
+
+
+
+    <TextView
+        android:id="@id/fsb_v1_title"
+        android:text="С1: "
+        android:textColor="@color/chan1"
+        style="@style/App.FullScreenBar.Text.Title"
+        android:layout_marginLeft="8dp"
+        />
+
+    <TextView
+        android:id="@id/fsb_v1_value"
+        android:text="500.00mV/"
+        style="@style/App.FullScreenBar.Text.Values"
+        />
+
+
+    <TextView
+        android:id="@id/fsb_v2_title"
+        android:text="С2: "
+        android:textColor="@color/chan2"
+        style="@style/App.FullScreenBar.Text.Title"
+        />
+
+
+    <TextView
+        android:id="@id/fsb_v2_value"
+        android:text="500.00mV/"
+        style="@style/App.FullScreenBar.Text.Values"
+        />
+
+
+
+    <TextView
+        android:id="@id/fsb_v3_title"
+        android:text="С3: "
+        android:textColor="@color/chan3"
+        style="@style/App.FullScreenBar.Text.Title"
+        />
+
+    <TextView
+        android:id="@id/fsb_v3_value"
+        android:text="500.00mV/"
+        style="@style/App.FullScreenBar.Text.Values"
+        />
+
+
+
+    <TextView
+        android:id="@id/fsb_v4_title"
+        android:text="С4: "
+        android:textColor="@color/chan4"
+        style="@style/App.FullScreenBar.Text.Title"
+        />
+
+
+    <TextView
+        android:id="@id/fsb_v4_value"
+        android:text="500.00mV/"
+        style="@style/App.FullScreenBar.Text.Values"
+        />
+
+
+</LinearLayout> 
