@@ -18,16 +18,14 @@
 .field private fsb_v4_title:Landroid/widget/TextView;
 .field private fsb_v4_value:Landroid/widget/TextView;
 
-
-
 .field private horizontalParam:Lcom/rigol/scope/data/HorizontalParam;
 .field private horizontalViewModel:Lcom/rigol/scope/viewmodels/HorizontalViewModel;
 
+.field private chanNum:I
 
 .method public constructor <init>()V
-
-
     .locals 0
+
     invoke-direct {p0}, Landroidx/fragment/app/Fragment;-><init>()V
     return-void
 .end method
@@ -55,11 +53,16 @@
     check-cast p1, Lcom/rigol/scope/viewmodels/HorizontalViewModel;
     iput-object p1, p0, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->horizontalViewModel:Lcom/rigol/scope/viewmodels/HorizontalViewModel;
 
+    # Количество каналов
+    const/16 v0, 0xf
+    iput v0, p0, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->chanNum:I
+
     # Добавляем лог для проверки
     const-string v0, "== FullScreenBarFragment onCreate == : ViewModel initialized"
     const-string v1, ""
     invoke-static {v0, v1}, Lcom/rigol/scope/App;->axxxLogOut(Ljava/lang/String;Ljava/lang/String;)V
     
+
     return-void
 .end method
 
@@ -67,7 +70,10 @@
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
     .locals 2
     
-    # Inflate layout
+    const-string v1, "== FullScreenBarFragment onCreateView == "
+    invoke-static {v1}, Lcom/rigol/scope/App;->axxxLogOut(Ljava/lang/String;)V
+
+   # Inflate layout
     sget v0, Lcom/rigol/scope/R$layout;->fragment_fullscreen_bar:I
     const/4 v1, 0x0
     invoke-virtual {p1, v0, p2, v1}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
@@ -177,6 +183,9 @@
     # Подписываемся на изменения
     invoke-virtual {p1, p2, v0}, Landroidx/lifecycle/LiveData;->observe(Landroidx/lifecycle/LifecycleOwner;Landroidx/lifecycle/Observer;)V
 
+    # Проверяем статус всех каналов и скрываем скрытые каналы
+
+
     return-void
 .end method
 
@@ -226,6 +235,10 @@
     # Проверяем что экземпляр существует
     if-eqz v0, :cond_0
 
+    # Проверяем, что элементы уже созданы
+    iget-object v1, v0, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->fsb_v1_value:Landroid/widget/TextView;
+    if-eqz v1, :cond_0
+
     const-string v2, "0.00"
     invoke-static {v2}, Lcom/rigol/scope/utilities/UnitFormat;->newBuilder(Ljava/lang/String;)Lcom/rigol/scope/utilities/UnitFormat;
     move-result-object v2
@@ -255,6 +268,10 @@
     # Проверяем что экземпляр существует
     if-eqz v0, :cond_0
 
+    # Проверяем, что элементы уже созданы
+    iget-object v1, v0, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->fsb_v1_value:Landroid/widget/TextView;
+    if-eqz v1, :cond_0
+
     # Получаем значения из ControlStatus
     iget v2, p0, Lcom/rigol/scope/cil/ServiceEnum$ControlStatus;->value1:I
     iget-object v3, p0, Lcom/rigol/scope/cil/ServiceEnum$ControlStatus;->value2:Ljava/lang/String;
@@ -280,6 +297,48 @@
     # Проверяем что экземпляр существует
     if-eqz v0, :cond_0
 
+    # Проверяем, что элементы уже созданы
+    iget-object v1, v0, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->fsb_v1_value:Landroid/widget/TextView;
+    if-eqz v1, :cond_0
+
+    # Проверяем что мы еще не получили количество каналов
+    const/16 v2, 0xf
+    iget v3, v0, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->chanNum:I
+
+    if-ne v3, v2, :cond_1
+
+    # Получаем количество каналов
+    const-class v2, Lcom/rigol/scope/viewmodels/UtilityViewModel;
+    invoke-static {v2}, Lcom/rigol/scope/utilities/ContextUtil;->getAppViewModel(Ljava/lang/Class;)Landroidx/lifecycle/ViewModel;
+    move-result-object v2
+    check-cast v2, Lcom/rigol/scope/viewmodels/UtilityViewModel;
+    if-eqz v2, :cond_1
+    invoke-virtual {v2}, Lcom/rigol/scope/viewmodels/UtilityViewModel;->getLiveData()Landroidx/lifecycle/LiveData;
+    move-result-object v2
+    invoke-virtual {v2}, Landroidx/lifecycle/LiveData;->getValue()Ljava/lang/Object;
+    move-result-object v2
+    check-cast v2, Lcom/rigol/scope/data/UtilityParam;
+    if-eqz v2, :cond_1
+    invoke-virtual {v2}, Lcom/rigol/scope/data/UtilityParam;->getChNum()I
+    move-result v2
+    iput v2, v0, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->chanNum:I
+
+    const-string v1, "== FullScreenBarFragment onChangedChanStatus == chanNum: "
+    invoke-static {v1, v2}, Lcom/rigol/scope/App;->axxxLogOut(Ljava/lang/String;I)V
+
+    # Если каналов только 2, то гасим 3 и 4 каналы
+    const/4 v3, 0x2
+    if-ne v2, v3, :cond_1
+    const-string v1, "== FullScreenBarFragment onChangedChanStatus == Hide 3 and 4"
+    invoke-static {v1}, Lcom/rigol/scope/App;->axxxLogOut(Ljava/lang/String;)V
+    const/4 v2, 0x3
+    const/4 v3, 0x3
+    invoke-virtual {v0, v2, v3}, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->setVxStatus(II)V
+    const/4 v2, 0x4
+    invoke-virtual {v0, v2, v3}, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->setVxStatus(II)V
+
+
+    :cond_1
     # Получаем номер канала
     iget v2, p0, Lcom/rigol/scope/cil/ServiceEnum$Chan;->value1:I
     # Получаем статус канала
@@ -355,6 +414,11 @@
 .method public setVxStatus(II)V
     .locals 4
     # p1 - номер канала, p2 - статус канала
+
+    const-string v3, "== FullScreenBarFragment setVxStatus == p1: "
+    invoke-static {v3, p1}, Lcom/rigol/scope/App;->axxxLogOut(Ljava/lang/String;I)V
+    const-string v3, "== FullScreenBarFragment setVxStatus == p2: "
+    invoke-static {v3, p2}, Lcom/rigol/scope/App;->axxxLogOut(Ljava/lang/String;I)V
 
     # Проверяем номер канала
     # Проверяем p1 == 1 - chan1
