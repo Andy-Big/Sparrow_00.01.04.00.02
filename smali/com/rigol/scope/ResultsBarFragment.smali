@@ -1730,35 +1730,15 @@
     # Переключаем режим отображения названий каналов
     invoke-static {}, Lcom/rigol/scope/utilities/ViewUtil;->switchShowChannelNames()Z
     move-result v0
-    # Если названия каналов включены, то устанавливаем ширину результатов 190dp, иначе 155dp
-    if-eqz v0, :cond_4
-    const v2, 190
-    goto :goto_1
-    :cond_4
-    const v2, 155
-    :goto_1
-    # Устанавливаем ширину результатов
 
-    # Получаем root view из binding
-    iget-object v0, p0, Lcom/rigol/scope/ResultsBarFragment;->binding:Lcom/rigol/scope/databinding/FragmentResultsBarBinding;
-    invoke-virtual {v0}, Lcom/rigol/scope/databinding/FragmentResultsBarBinding;->getRoot()Landroid/view/View;
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+    # Сохраняем флаг отображения названий каналов в preferences приложения
+    invoke-static {}, Lcom/blankj/utilcode/util/SPUtils;->getInstance()Lcom/blankj/utilcode/util/SPUtils;
     move-result-object v1
+    const-string v3, "show_channel_names"
+    invoke-virtual {v1, v3, v0}, Lcom/blankj/utilcode/util/SPUtils;->put(Ljava/lang/String;Z)V
 
-    iget v3, v1, Landroid/view/ViewGroup$LayoutParams;->width:I
-
-    # Устанавливаем новую ширину
-    iput v2, v1, Landroid/view/ViewGroup$LayoutParams;->width:I
-
-    # Важно: устанавливаем gravity RIGHT для сохранения привязки вправо
-    check-cast v1, Landroid/widget/FrameLayout$LayoutParams;
-    const/16 v3, 0x5  # Gravity.RIGHT
-    iput v3, v1, Landroid/widget/FrameLayout$LayoutParams;->gravity:I
-
-    # Применяем обновленные параметры
-    invoke-virtual {v0, v1}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+    # Обновляем ширину результатов в зависимости от включения/выключения названий каналов
+    invoke-direct {p0, v0}, Lcom/rigol/scope/ResultsBarFragment;->setChannelNames(Z)V
 
     :cond_3
     :goto_0
@@ -2482,7 +2462,10 @@
 .end method
 
 .method public onViewCreated(Landroid/view/View;Landroid/os/Bundle;)V
+# changed
     .locals 2
+    #.locals 4
+# /changed
 
     .line 119
     invoke-super {p0, p1, p2}, Lcom/rigol/scope/BaseFragment;->onViewCreated(Landroid/view/View;Landroid/os/Bundle;)V
@@ -2696,6 +2679,18 @@
 
     invoke-direct {p0, p1}, Lcom/rigol/scope/ResultsBarFragment;->initResultList(Lcom/rigol/scope/databinding/FragmentResultsBarBinding;)V
 
+# changed added
+# Inform: загрузка флага отображения названий каналов из preferences приложения
+    # Загружаем флаг отображения названий каналов из preferences приложения
+    invoke-static {}, Lcom/blankj/utilcode/util/SPUtils;->getInstance()Lcom/blankj/utilcode/util/SPUtils;
+    move-result-object v0
+    const-string v1, "show_channel_names"
+    invoke-virtual {v0, v1}, Lcom/blankj/utilcode/util/SPUtils;->getBoolean(Ljava/lang/String;)Z
+    move-result v0
+    invoke-static {v0}, Lcom/rigol/scope/utilities/ViewUtil;->setShowChannelNames(Z)V
+    # Обновляем ширину результатов в зависимости от включения/выключения названий каналов
+    invoke-direct {p0, v0}, Lcom/rigol/scope/ResultsBarFragment;->setChannelNames(Z)V
+# /changed added
     return-void
 .end method
 
@@ -2749,3 +2744,43 @@
 
     return-void
 .end method
+
+
+# changed added
+# Inform: установка ширины результатов в зависимости от включения/выключения названий каналов
+.method private setChannelNames(Z)V
+    .locals 4
+
+    # Если названия каналов включены, то устанавливаем ширину результатов 190dp, иначе 155dp
+    if-eqz p1, :cond_4
+    const v2, 190
+    goto :goto_1
+    :cond_4
+    const v2, 155
+    
+    :goto_1
+    # Устанавливаем ширину результатов
+    # Получаем root view из binding
+    iget-object v0, p0, Lcom/rigol/scope/ResultsBarFragment;->binding:Lcom/rigol/scope/databinding/FragmentResultsBarBinding;
+    invoke-virtual {v0}, Lcom/rigol/scope/databinding/FragmentResultsBarBinding;->getRoot()Landroid/view/View;
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+    move-result-object v1
+
+    iget v3, v1, Landroid/view/ViewGroup$LayoutParams;->width:I
+
+    # Устанавливаем новую ширину
+    iput v2, v1, Landroid/view/ViewGroup$LayoutParams;->width:I
+
+    # Важно: устанавливаем gravity RIGHT для сохранения привязки вправо
+    check-cast v1, Landroid/widget/FrameLayout$LayoutParams;
+    const/16 v3, 0x5  # Gravity.RIGHT
+    iput v3, v1, Landroid/widget/FrameLayout$LayoutParams;->gravity:I
+
+    # Применяем обновленные параметры
+    invoke-virtual {v0, v1}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+
+    return-void
+.end method
+# /changed added

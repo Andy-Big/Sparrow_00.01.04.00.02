@@ -1,4 +1,7 @@
+# change added
+# Inform: обработка кликов для фрагмента с информацией о каналах и дискретизации в полноэкранном режиме
 # Общий класс для обработки кликов
+
 .class Lcom/rigol/scope/myfragment/FullscreenBarFragment$CommonClickListener;
 .super Ljava/lang/Object;
 .implements Landroid/view/View$OnClickListener;
@@ -114,3 +117,5 @@
     :goto_0
     return-void
 .end method
+
+# /change added

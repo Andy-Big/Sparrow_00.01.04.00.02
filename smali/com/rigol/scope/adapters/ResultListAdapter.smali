@@ -314,6 +314,7 @@
     return-void
 .end method
 
+# Inform: сохранение активного списка результатов измерений в preferences приложения
 .method private cacheItems()V
     .locals 3
 
@@ -2804,6 +2805,7 @@
     return-void
 .end method
 
+# Inform: восстановление активных пунктов измерений из preferences приложения
 .method public recover()V
     .locals 24
     .annotation system Ldalvik/annotation/Throws;

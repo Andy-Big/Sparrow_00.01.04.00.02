@@ -44,6 +44,7 @@
 
 
 #change added
+# Inform: флаг отображения названий каналов, его изменение и получение
 .field public static showChannelNames:Z
 
 .method public static switchShowChannelNames()Z
@@ -60,6 +61,12 @@
 
     sget-boolean v0, Lcom/rigol/scope/utilities/ViewUtil;->showChannelNames:Z
     return v0
+.end method
+
+.method public static setShowChannelNames(Z)V
+    .locals 1
+    sput-boolean p0, Lcom/rigol/scope/utilities/ViewUtil;->showChannelNames:Z
+    return-void
 .end method
 # /change
 
