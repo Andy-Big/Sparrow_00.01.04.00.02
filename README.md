@@ -29,21 +29,21 @@
 
 ## Текущие изменения по сравнению с оригинальной версией  ([Смотреть скриншоты](#скриншоты))
 
-* Текст подписей для сигналов в окне осциллограмм теперь обрамлен черной обводкой, так что они стали более заметными на форе сигналов.
-* Пункты результатов измерений теперь можно переключать между стандартным, с названием канала, и цветным, без названия. Без названий каналов пункты измерений становятся более компактными и занимают меньше места. Переключение производится пунктом "*Names/Colors*" меню, вызываемого нажатием на пункт результата измерения.
-* Значок-стрелка разворачивания пунктов измерений убрана, так что пункты измерений стали слегка ниже. Разворачивание производится нажатием в правой части пункта измерений.
-* Фон пунктов измерений сделан чуть более темным.
-* Панель измерений немного приподнята чтобы не загораживать горизонтальную шкалу
-* Значения вертикальной шкалы теперь не перепрыгивают на левую или правую сторону главного окна осциллограммы при раскрытии и сворачивании панели измерений, а всегда остаются слева.
-* Панель измерений полностью прозрачная, список измерений в ней прижат вниз, так что при 3-4 измерениях они практически не мешают просмотру сигнала.
-* Изменена заставка при запуске приложения (сплэшскрин). Это сделано для того чтобы было видно когда заканчивается загрузки системы и запускается само приложение.
-* Двойным тапом на иконку канала внизу экрана у этого канала изменяется режим блокировки между AC и DC.
-* В иконки каналов внизу экрана добавлено отображение текущего делителя щупа.
-* Пункты результатов измерений на панели слева уменьшены по высоте для того чтобы можно было видеть большее количество измерений одновременно. Кроме того, немного увеличен шрифт значений измерений для более легкой читаемости.
-* Раскрытые пункты результатов измерений изменены на табличный вид: имя параметра и слева от него значение этого параметра. Это уменьшило высоту раскрытого пункта, позволив видеть одновременно до трех раскрытых пунктов. У значений так же немного увеличен шрифт для более легкой читаемости.
-* У стрелок раскрытия и закрытия пунктов результатов измерений увеличена область чувствительности к нажатию. Теперь раскрыть и закрыть пункт гораздо проще.
-* В левый верхний угол окна осциллограммы добавлена иконка раскрытия этого окна на весь экран. Этой же иконкой окно сворачивается обратно в оригинальный размер.
 * В правом нижнем углу включено отображение текущего времени и даты.
+* В левый верхний угол окна осциллограммы добавлена иконка раскрытия этого окна на весь экран. Этой же иконкой окно сворачивается обратно в оригинальный размер.
+* У стрелок раскрытия и закрытия пунктов результатов измерений увеличена область чувствительности к нажатию. Теперь раскрыть и закрыть пункт гораздо проще.
+* Раскрытые пункты результатов измерений изменены на табличный вид: имя параметра и слева от него значение этого параметра. Это уменьшило высоту раскрытого пункта, позволив видеть одновременно до трех раскрытых пунктов. У значений так же немного увеличен шрифт для более легкой читаемости.
+* Пункты результатов измерений на панели слева уменьшены по высоте для того чтобы можно было видеть большее количество измерений одновременно. Кроме того, немного увеличен шрифт значений измерений для более легкой читаемости.
+* В иконки каналов внизу экрана добавлено отображение текущего делителя щупа.
+* Двойным тапом на иконку канала внизу экрана у этого канала изменяется режим блокировки между AC и DC.
+* Изменена заставка при запуске приложения (сплэшскрин). Это сделано для того чтобы было видно когда заканчивается загрузки системы и запускается само приложение.
+* Панель измерений полностью прозрачная, список измерений в ней прижат вниз, так что при 3-4 измерениях они практически не мешают просмотру сигнала.
+* Значения вертикальной шкалы теперь не перепрыгивают на левую или правую сторону главного окна осциллограммы при раскрытии и сворачивании панели измерений, а всегда остаются слева.
+* Панель измерений немного приподнята чтобы не загораживать горизонтальную шкалу
+* Фон пунктов измерений сделан чуть более темным.
+* Значок-стрелка разворачивания пунктов измерений убрана, так что пункты измерений стали слегка ниже. Разворачивание производится нажатием в правой части пункта измерений.
+* Пункты результатов измерений теперь можно переключать между стандартным, с названием канала, и цветным, без названия. Без названий каналов пункты измерений становятся более компактными и занимают меньше места. Переключение производится пунктом "*Names/Colors*" меню, вызываемого нажатием на пункт результата измерения.
+* Текст подписей для сигналов в окне осциллограмм теперь обрамлен черной обводкой, так что они стали более заметными на форе сигналов.
 
 # Установка
 
@@ -149,6 +149,15 @@
 
 # История изменений
 
+#### **a006** 11.02.2025
+
+* уменьшено пространство между пунктами измерений
+* сделано сохранение и восстановление вида пунктов измерений - указание каналов именами или цветами
+* исправлена ошибка: не работал пункт "Change item" в меню пунктов измерений
+* исправлена ошибка: окно сигналов не раскрывалось на весь экран с первого клика по иконке раскрытия
+* в полноэкранном режиме добавлена небольшая панель снизу с информацией о режиме/частоте дискретизации и масштабе каналов
+* при нажатии на значение масштаба в информационной панели в полноэкранном режиме открывается окно настроек канала
+
 #### **a005** 30.01.2025
 
 * Текст подписей для сигналов в окне осциллограмм теперь обрамлен черной обводкой, так что они стали более заметными на форе сигналов.
@@ -252,21 +261,21 @@ The modification of the Rigol DHO800/DHO900 application improves the usability o
 
 ## Current Changes Compared to Original Version  [see screenshots](#screenshots)
 
-* The text of the waveform labels in the oscillogram window is now framed with a black outline, so that they are more visible on the signal form.
-* The measurement result items can now be switched between the standard one, with the channel name, and the colored one, without a name. Without channel names, the measurement items become more compact and take up less space. Switching is done using the "*Names/Colors*" menu item, which is called by clicking on the measurement result item.
-* The arrow icon for expanding the measurement items has been removed, so that the measurement items have become slightly lower. Expanding is done by clicking on the right side of the measurement item.
-* The background of the measurement items has been made slightly darker.
-* The measurement panel has been slightly raised so as not to block the horizontal scale
-* The vertical scale values ​​no longer jump to the left or right side of the main oscillogram window when expanding and collapsing the measurement panel, but always remain on the left.
-* The measurement panel is completely transparent, the list of measurements in it is pressed down, so that with 3-4 measurements they practically do not interfere with viewing the signal.
-* Changed the application splash screen at startup. This is done to show when the system finishes loading and the application itself starts.
-* Double-tapping the channel icon at the bottom of the screen toggles that channel's coupling mode between AC and DC.
-* Added probe attenuation factor display to channel icons at the bottom of the screen.
-* Measurement result items on the left panel have been reduced in height to show more measurements simultaneously. Additionally, the measurement value font size has been slightly increased for better readability.
-* Expanded measurement result items changed to tabular view: parameter name with its value to the left. This reduced the expanded item height, allowing up to three expanded items to be visible simultaneously. Values also have slightly increased font size for better readability.
-* Increased touch sensitivity area for measurement result item expand/collapse arrows. Now it's much easier to expand and collapse items.
-* Added a full-screen icon to the top left corner of the waveform window. The same icon collapses the window back to original size.
 * Enabled current time and date display in the bottom right corner.
+* Added a full-screen icon to the top left corner of the waveform window. The same icon collapses the window back to original size.
+* Increased touch sensitivity area for measurement result item expand/collapse arrows. Now it's much easier to expand and collapse items.
+* Expanded measurement result items changed to tabular view: parameter name with its value to the left. This reduced the expanded item height, allowing up to three expanded items to be visible simultaneously. Values also have slightly increased font size for better readability.
+* Measurement result items on the left panel have been reduced in height to show more measurements simultaneously. Additionally, the measurement value font size has been slightly increased for better readability.
+* Added probe attenuation factor display to channel icons at the bottom of the screen.
+* Double-tapping the channel icon at the bottom of the screen toggles that channel's coupling mode between AC and DC.
+* Changed the application splash screen at startup. This is done to show when the system finishes loading and the application itself starts.
+* The measurement panel is completely transparent, the list of measurements in it is pressed down, so that with 3-4 measurements they practically do not interfere with viewing the signal.
+* The vertical scale values ​​no longer jump to the left or right side of the main oscillogram window when expanding and collapsing the measurement panel, but always remain on the left.
+* The measurement panel has been slightly raised so as not to block the horizontal scale
+* The background of the measurement items has been made slightly darker.
+* The arrow icon for expanding the measurement items has been removed, so that the measurement items have become slightly lower. Expanding is done by clicking on the right side of the measurement item.
+* The measurement result items can now be switched between the standard one, with the channel name, and the colored one, without a name. Without channel names, the measurement items become more compact and take up less space. Switching is done using the "*Names/Colors*" menu item, which is called by clicking on the measurement result item.
+* The text of the waveform labels in the oscillogram window is now framed with a black outline, so that they are more visible on the signal form.
 
 # Installation
 
@@ -371,6 +380,15 @@ This might take quite some time, but eventually should give a success response:
 The oscilloscope application should start itself within 5-20 seconds, but if it doesn't start - just turn off the oscilloscope by long-pressing the power button (or unplugging the power connector) and turn it on again.
 
 # Change History
+
+#### **a006** 11.02.2025
+
+* reduced space between measurement points
+* made saving and restoring the appearance of measurement points - specifying channels by names or colors
+* fixed bug: the "Change item" item in the measurement points menu did not work
+* fixed bug: the signal window did not expand to full screen with the first click on the expansion icon
+* in full-screen mode, a small panel was added at the bottom with information about the sampling mode/frequency and channel scale
+* when clicking on the scale value in the information panel in full-screen mode, the channel settings window opens
 
 #### **a005** 30.01.2025
 
