@@ -3982,7 +3982,33 @@
 .end method
 
 .method public final setScale(J)V
-    .locals 3
+    .locals 5
+
+# change added
+# Inform: получаем значение chan и вызываем метод из FullscreenBarFragment для изменения масштаба канала
+    iget-object v0, p0, Lcom/rigol/scope/data/VerticalParam;->chan:Lcom/rigol/scope/cil/ServiceEnum$Chan;
+
+    # Конвертируем значение масштаба в строку
+    iget-object v1, p0, Lcom/rigol/scope/data/VerticalParam;->unit:Lcom/rigol/scope/cil/ServiceEnum$Unit;
+    sget-object v2, Lcom/rigol/scope/utilities/UnitFormat$SI;->NANO:Lcom/rigol/scope/utilities/UnitFormat$SI;
+    invoke-static {v2}, Lcom/rigol/scope/utilities/UnitFormat;->newBuilder(Lcom/rigol/scope/utilities/UnitFormat$SI;)Lcom/rigol/scope/utilities/UnitFormat;
+    move-result-object v3
+    invoke-virtual {v3, p1, p2, v1}, Lcom/rigol/scope/utilities/UnitFormat;->convert(JLcom/rigol/scope/cil/ServiceEnum$Unit;)Ljava/lang/String;
+    move-result-object v3
+    new-instance v4, Ljava/lang/StringBuilder;
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual {v4, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const/16 v3, 0x2f
+    invoke-virtual {v4, v3}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v3
+
+    # Вызываем метод из FullscreenBarFragment для изменения масштаба канала
+    invoke-static {v0, v3, p1, p2}, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->onChangedChanScale(Lcom/rigol/scope/cil/ServiceEnum$Chan;Ljava/lang/String;J)V
+# /change
+
+
+
 
     .line 434
     new-instance v0, Ljava/lang/StringBuilder;

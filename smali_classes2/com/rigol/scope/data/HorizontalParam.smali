@@ -4869,7 +4869,7 @@
 
 # change added
 # Inform: вызываем метод из FullscreenBarFragment для изменения сэмплрейта
-    invoke-static {p1, p2}, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->onChangedHP(J)V
+    invoke-static {p1, p2}, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->onChangedSample(J)V
 # /change
 
     invoke-static {p1, p2}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
