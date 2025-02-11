@@ -44,6 +44,7 @@
         android:id="@id/fsb_v1_value"
         android:text="500.00mV/"
         style="@style/App.FullScreenBar.Text.Values"
+        android:textColor="#808080"
         />
 
 
@@ -58,7 +59,8 @@
         android:id="@id/fsb_v2_value"
         android:text="500.00mV/"
         style="@style/App.FullScreenBar.Text.Values"
-        />
+        android:textColor="#808080"
+    />
 
 
     <TextView
@@ -72,6 +74,7 @@
         android:id="@id/fsb_v3_value"
         android:text="500.00mV/"
         style="@style/App.FullScreenBar.Text.Values"
+        android:textColor="#808080"
         />
 
 
@@ -86,6 +89,7 @@
         android:id="@id/fsb_v4_value"
         android:text="500.00mV/"
         style="@style/App.FullScreenBar.Text.Values"
+        android:textColor="#808080"
         />
 
 </LinearLayout> 

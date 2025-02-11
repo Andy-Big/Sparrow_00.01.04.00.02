@@ -26,6 +26,20 @@
     const-string v1, "== FullScreenBarFragment CommonClickListener onClick == fsb_v1_value clicked"
     const-string v2, ""
     invoke-static {v1, v2}, Lcom/rigol/scope/App;->axxxLogOut(Ljava/lang/String;Ljava/lang/String;)V
+    # Отображаем окно настроек 1 канала
+    invoke-static {}, Lcom/rigol/scope/utilities/PopupViewManager;->getInstance()Lcom/rigol/scope/utilities/PopupViewManager;
+    move-result-object v0
+    const-class v1, Lcom/rigol/scope/views/vertical/VerticalPopupView;
+    invoke-virtual {v0, v1}, Lcom/rigol/scope/utilities/PopupViewManager;->get(Ljava/lang/Class;)Lcom/rigol/scope/views/baseview/BasePopupView;
+    move-result-object v0
+    instance-of v1, v0, Lcom/rigol/scope/views/vertical/VerticalPopupView;
+    if-eqz v1, :cond_0_0
+    move-object v1, v0
+    check-cast v1, Lcom/rigol/scope/views/vertical/VerticalPopupView;
+    const/4 v2, 0x0
+    invoke-virtual {v1, v2}, Lcom/rigol/scope/views/vertical/VerticalPopupView;->setCurrentItem(I)V
+    :cond_0_0
+    invoke-virtual {v0}, Lcom/rigol/scope/views/baseview/BasePopupView;->show()V
     goto :goto_0
 
     :cond_1
@@ -34,6 +48,20 @@
     const-string v1, "== FullScreenBarFragment CommonClickListener onClick == fsb_v2_value clicked"
     const-string v2, ""
     invoke-static {v1, v2}, Lcom/rigol/scope/App;->axxxLogOut(Ljava/lang/String;Ljava/lang/String;)V
+    # Отображаем окно настроек 2 канала
+    invoke-static {}, Lcom/rigol/scope/utilities/PopupViewManager;->getInstance()Lcom/rigol/scope/utilities/PopupViewManager;
+    move-result-object v0
+    const-class v1, Lcom/rigol/scope/views/vertical/VerticalPopupView;
+    invoke-virtual {v0, v1}, Lcom/rigol/scope/utilities/PopupViewManager;->get(Ljava/lang/Class;)Lcom/rigol/scope/views/baseview/BasePopupView;
+    move-result-object v0
+    instance-of v1, v0, Lcom/rigol/scope/views/vertical/VerticalPopupView;
+    if-eqz v1, :cond_1_0
+    move-object v1, v0
+    check-cast v1, Lcom/rigol/scope/views/vertical/VerticalPopupView;
+    const/4 v2, 0x1
+    invoke-virtual {v1, v2}, Lcom/rigol/scope/views/vertical/VerticalPopupView;->setCurrentItem(I)V
+    :cond_1_0
+    invoke-virtual {v0}, Lcom/rigol/scope/views/baseview/BasePopupView;->show()V
     goto :goto_0
 
     :cond_2
@@ -42,6 +70,20 @@
     const-string v1, "== FullScreenBarFragment CommonClickListener onClick == fsb_v3_value clicked"
     const-string v2, ""
     invoke-static {v1, v2}, Lcom/rigol/scope/App;->axxxLogOut(Ljava/lang/String;Ljava/lang/String;)V
+    # Отображаем окно настроек 3 канала
+    invoke-static {}, Lcom/rigol/scope/utilities/PopupViewManager;->getInstance()Lcom/rigol/scope/utilities/PopupViewManager;
+    move-result-object v0
+    const-class v1, Lcom/rigol/scope/views/vertical/VerticalPopupView;
+    invoke-virtual {v0, v1}, Lcom/rigol/scope/utilities/PopupViewManager;->get(Ljava/lang/Class;)Lcom/rigol/scope/views/baseview/BasePopupView;
+    move-result-object v0
+    instance-of v1, v0, Lcom/rigol/scope/views/vertical/VerticalPopupView;
+    if-eqz v1, :cond_2_0
+    move-object v1, v0
+    check-cast v1, Lcom/rigol/scope/views/vertical/VerticalPopupView;
+    const/4 v2, 0x2
+    invoke-virtual {v1, v2}, Lcom/rigol/scope/views/vertical/VerticalPopupView;->setCurrentItem(I)V
+    :cond_2_0
+    invoke-virtual {v0}, Lcom/rigol/scope/views/baseview/BasePopupView;->show()V
     goto :goto_0
 
     :cond_3
@@ -50,6 +92,20 @@
     const-string v1, "== FullScreenBarFragment CommonClickListener onClick == fsb_v4_value clicked"
     const-string v2, ""
     invoke-static {v1, v2}, Lcom/rigol/scope/App;->axxxLogOut(Ljava/lang/String;Ljava/lang/String;)V
+    # Отображаем окно настроек 4 канала
+    invoke-static {}, Lcom/rigol/scope/utilities/PopupViewManager;->getInstance()Lcom/rigol/scope/utilities/PopupViewManager;
+    move-result-object v0
+    const-class v1, Lcom/rigol/scope/views/vertical/VerticalPopupView;
+    invoke-virtual {v0, v1}, Lcom/rigol/scope/utilities/PopupViewManager;->get(Ljava/lang/Class;)Lcom/rigol/scope/views/baseview/BasePopupView;
+    move-result-object v0
+    instance-of v1, v0, Lcom/rigol/scope/views/vertical/VerticalPopupView;
+    if-eqz v1, :cond_3_0
+    move-object v1, v0
+    check-cast v1, Lcom/rigol/scope/views/vertical/VerticalPopupView;
+    const/4 v2, 0x3
+    invoke-virtual {v1, v2}, Lcom/rigol/scope/views/vertical/VerticalPopupView;->setCurrentItem(I)V
+    :cond_3_0
+    invoke-virtual {v0}, Lcom/rigol/scope/views/baseview/BasePopupView;->show()V
     goto :goto_0
 
     :cond_4
