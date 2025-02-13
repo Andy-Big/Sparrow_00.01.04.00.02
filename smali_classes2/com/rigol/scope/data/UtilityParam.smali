@@ -720,13 +720,14 @@
     .end annotation
 
     .line 361
-# changed deleted
+# change deleted
 #    iget-object v0, p0, Lcom/rigol/scope/data/UtilityParam;->softVersion:Ljava/lang/String;
 
-# changed added
+# change added
+# Inform: добавление (axxx) к версии прошивки
     new-instance v0, Ljava/lang/StringBuilder;
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-    const-string v1, "(a006)"
+    const-string v1, "(a007)"
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
     iget-object v1, p0, Lcom/rigol/scope/data/UtilityParam;->softVersion:Ljava/lang/String;
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;

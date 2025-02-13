@@ -103,11 +103,6 @@
     aput-wide v1, v0, v3    # Устанавливаем значение v1 в массив v0 по индексу v3
     iput-object v0, p0, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->chanScale:[J
 
-    # Добавляем лог для проверки
-    #    const-string v0, "== FullScreenBarFragment onCreate == : ViewModel initialized"
-    #    const-string v1, ""
-    #    invoke-static {v0, v1}, Lcom/rigol/scope/App;->axxxLogOut(Ljava/lang/String;Ljava/lang/String;)V
-
     return-void
 .end method
 
@@ -115,9 +110,6 @@
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
     .locals 2
     
-    #    const-string v1, "== FullScreenBarFragment onCreateView == "
-    #    invoke-static {v1}, Lcom/rigol/scope/App;->axxxLogOut(Ljava/lang/String;)V
-
     # Inflate layout
     sget v0, Lcom/rigol/scope/R$layout;->fragment_fullscreen_bar:I
     const/4 v1, 0x0
@@ -296,10 +288,6 @@
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
     move-result-object v0
 
-    # Логируем значение
-    #    const-string v1, "== FullScreenBarFragment onChanged == : "
-    #    invoke-static {v1, v0}, Lcom/rigol/scope/App;->axxxLogOut(Ljava/lang/String;Ljava/lang/String;)V
-
     # Устанавливаем строковое значение в TextView
     invoke-virtual {p0, v0}, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->setHValue(Ljava/lang/String;)V
     
@@ -336,10 +324,6 @@
     invoke-virtual {v2, p0, p1, v3}, Lcom/rigol/scope/utilities/UnitFormat;->convert(JLcom/rigol/scope/cil/ServiceEnum$Unit;)Ljava/lang/String;
     move-result-object v2
 
-    # Логируем значение
-    const-string v1, "== FullScreenBarFragment onChangedSample == : "
-    invoke-static {v1, v2}, Lcom/rigol/scope/App;->axxxLogOut(Ljava/lang/String;Ljava/lang/String;)V
-
     # Устанавливаем строковое значение в TextView
     invoke-virtual {v0, v2}, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->setHValue(Ljava/lang/String;)V
     
@@ -373,10 +357,6 @@
 
     # Получаем текст статуса из ControlStatus
     iget-object v3, p0, Lcom/rigol/scope/cil/ServiceEnum$ControlStatus;->value2:Ljava/lang/String;
-
-    # Логируем значение
-    const-string v1, "== FullScreenBarFragment onChangedTrig == : "
-    invoke-static {v1, v3}, Lcom/rigol/scope/App;->axxxLogOut(Ljava/lang/String;Ljava/lang/String;)V
 
     # Устанавливаем текст и цвет
     invoke-virtual {v0, v3, v2}, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->setAValue(Ljava/lang/String;I)V
@@ -421,14 +401,9 @@
     move-result v2
     iput v2, v0, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->chanNum:I
 
-    const-string v1, "== FullScreenBarFragment onChangedChanStatus == chanNum: "
-    invoke-static {v1, v2}, Lcom/rigol/scope/App;->axxxLogOut(Ljava/lang/String;I)V
-
     # Если каналов только 2, то гасим 3 и 4 каналы
     const/4 v3, 0x2
     if-ne v2, v3, :cond_1
-    const-string v1, "== FullScreenBarFragment onChangedChanStatus == Hide 3 and 4"
-    invoke-static {v1}, Lcom/rigol/scope/App;->axxxLogOut(Ljava/lang/String;)V
     const/4 v2, 0x3
     const/4 v3, 0x3
     invoke-virtual {v0, v2, v3}, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->setVxStatus(II)V
@@ -448,12 +423,6 @@
 
     # Сохраняем статус канала в локальном поле
     aput v3, v1, v2    # Сохраняем статус канала v3 в массив chanStatus v1 по индексу v2
-
-    # Логируем значение
-    const-string v1, "== FullScreenBarFragment onChangedChanStatus == chan: "
-    invoke-static {v1, v2}, Lcom/rigol/scope/App;->axxxLogOut(Ljava/lang/String;I)V
-    const-string v1, "== FullScreenBarFragment onChangedChanStatus == status: "
-    invoke-static {v1, v3}, Lcom/rigol/scope/App;->axxxLogOut(Ljava/lang/String;I)V
 
     # Устанавливаем статус канала
     invoke-virtual {v0, v2, v3}, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->setVxStatus(II)V
@@ -488,10 +457,6 @@
 
     # Сохраняем масштаб канала в локальном поле
     aput-wide p2, v2, v1    # Сохраняем масштаб канала p2 в массив chanScale v2 по индексу v1
-
-    # Логируем значение
-    const-string v2, "== FullScreenBarFragment onChangedChanScale == : "
-    invoke-static {v2, p1}, Lcom/rigol/scope/App;->axxxLogOut(Ljava/lang/String;Ljava/lang/String;)V
 
     # Устанавливаем строковое значение в TextView
     invoke-virtual {v0, v1, p1}, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->setVxValue(ILjava/lang/String;)V
@@ -556,11 +521,6 @@
     .locals 4
     # p1 - номер канала, p2 - статус канала
 
-    #    const-string v3, "== FullScreenBarFragment setVxStatus == p1: "
-    #    invoke-static {v3, p1}, Lcom/rigol/scope/App;->axxxLogOut(Ljava/lang/String;I)V
-    #    const-string v3, "== FullScreenBarFragment setVxStatus == p2: "
-    #    invoke-static {v3, p2}, Lcom/rigol/scope/App;->axxxLogOut(Ljava/lang/String;I)V
-
     # Проверяем номер канала
     # Проверяем p1 == 1 - chan1
     const/4 v1, 0x1
@@ -598,11 +558,6 @@
     :goto_4
     if-eqz v0, :cond_0
     if-eqz v1, :cond_0
-
-    #    const-string v3, "== FullScreenBarFragment setVxStatus == chan: "
-    #    invoke-static {v3, p1}, Lcom/rigol/scope/App;->axxxLogOut(Ljava/lang/String;I)V
-    #    const-string v3, "== FullScreenBarFragment setVxStatus == status: "
-    #    invoke-static {v3, p2}, Lcom/rigol/scope/App;->axxxLogOut(Ljava/lang/String;I)V
 
     # Проверяем статус канала
     # Проверяем p2 == 0 - CHAN_OFF
@@ -649,11 +604,6 @@
     
     # p1 - номер канала, p2 - масштаб канала
 
-    #    const-string v0, "== FullScreenBarFragment setVxValue == p1: "
-    #    invoke-static {v0, p1}, Lcom/rigol/scope/App;->axxxLogOut(Ljava/lang/String;I)V
-    #    const-string v0, "== FullScreenBarFragment setVxValue == p2: "
-    #    invoke-static {v0, p2}, Lcom/rigol/scope/App;->axxxLogOut(Ljava/lang/String;Ljava/lang/String;)V
-
     const v0, 0x0
     # Проверяем номер канала
     # Проверяем p1 == 1 - chan1
@@ -684,11 +634,6 @@
 
     :goto_4
     if-eqz v0, :cond_0
-
-    #    const-string v3, "== FullScreenBarFragment setVxValue == chan: "
-    #    invoke-static {v3, p1}, Lcom/rigol/scope/App;->axxxLogOut(Ljava/lang/String;I)V
-    #    const-string v3, "== FullScreenBarFragment setVxValue == scale: "
-    #    invoke-static {v3, p2}, Lcom/rigol/scope/App;->axxxLogOut(Ljava/lang/String;Ljava/lang/String;)V
 
     # Устанавливаем текст
     invoke-virtual {v0, p2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V

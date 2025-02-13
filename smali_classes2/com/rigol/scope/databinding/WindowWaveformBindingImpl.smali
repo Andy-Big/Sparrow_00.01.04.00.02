@@ -12,6 +12,28 @@
 # instance fields
 .field private mDirtyFlags:J
 
+# change added
+# Добавляем статическое поле
+.field private static sInstance:Lcom/rigol/scope/databinding/WindowWaveformBindingImpl;
+
+# Добавляем метод для сохранения экземпляра
+.method public static setInstance(Lcom/rigol/scope/databinding/WindowWaveformBindingImpl;)V
+    .locals 0
+    
+    sput-object p0, Lcom/rigol/scope/databinding/WindowWaveformBindingImpl;->sInstance:Lcom/rigol/scope/databinding/WindowWaveformBindingImpl;
+    
+    return-void
+.end method
+
+# Добавляем метод для получения экземпляра
+.method public static getInstance()Lcom/rigol/scope/databinding/WindowWaveformBindingImpl;
+    .locals 1
+    
+    sget-object v0, Lcom/rigol/scope/databinding/WindowWaveformBindingImpl;->sInstance:Lcom/rigol/scope/databinding/WindowWaveformBindingImpl;
+    return-object v0
+.end method
+# /change added
+
 
 # direct methods
 .method static constructor <clinit>()V
@@ -24,9 +46,13 @@
 
     sput-object v0, Lcom/rigol/scope/databinding/WindowWaveformBindingImpl;->sViewsWithIds:Landroid/util/SparseIntArray;
 
-    const v1, 0x7f0a08ff
+    const v1, 0x7f0a08ff    # title_layout
 
-    const/4 v2, 0x4
+# change changed
+# Inform: добавляем кнопку открытия/закрытия информационной панели в заголовке окна сигналов
+    #const/4 v2, 0x4
+    const/4 v2, 0x5
+# /change changed
 
     .line 17
     invoke-virtual {v0, v1, v2}, Landroid/util/SparseIntArray;->put(II)V
@@ -34,31 +60,40 @@
     .line 18
     sget-object v0, Lcom/rigol/scope/databinding/WindowWaveformBindingImpl;->sViewsWithIds:Landroid/util/SparseIntArray;
 
-    const v1, 0x7f0a004d
+    const v1, 0x7f0a004d    # acquire_depth
 
-    const/4 v2, 0x5
+# change changed
+    #const/4 v2, 0x5
+    const/4 v2, 0x6
+# /change changed
 
     invoke-virtual {v0, v1, v2}, Landroid/util/SparseIntArray;->put(II)V
 
     .line 19
     sget-object v0, Lcom/rigol/scope/databinding/WindowWaveformBindingImpl;->sViewsWithIds:Landroid/util/SparseIntArray;
 
-    const v1, 0x7f0a0b35
+    const v1, 0x7f0a0b35    # window_setting
 
-    const/4 v2, 0x6
+# change changed
+    #const/4 v2, 0x6
+    const/4 v2, 0x7
+# /change changed
 
     invoke-virtual {v0, v1, v2}, Landroid/util/SparseIntArray;->put(II)V
 
     .line 20
     sget-object v0, Lcom/rigol/scope/databinding/WindowWaveformBindingImpl;->sViewsWithIds:Landroid/util/SparseIntArray;
 
-    const v1, 0x7f0a020e
+    const v1, 0x7f0a020e    # content_layout
 
-    const/4 v2, 0x7
+# change changed
+    #const/4 v2, 0x7
+    const/16 v2, 0x8
+# /change changed
 
     invoke-virtual {v0, v1, v2}, Landroid/util/SparseIntArray;->put(II)V
 
-    return-void
+   return-void
 .end method
 
 .method public constructor <init>(Landroidx/databinding/DataBindingComponent;Landroid/view/View;)V
@@ -69,7 +104,10 @@
 
     sget-object v1, Lcom/rigol/scope/databinding/WindowWaveformBindingImpl;->sViewsWithIds:Landroid/util/SparseIntArray;
 
-    const/16 v2, 0x8
+# change changed
+    #const/16 v2, 0x8
+    const/16 v2, 0x9
+# /change changed
 
     invoke-static {p1, p2, v2, v0, v1}, Lcom/rigol/scope/databinding/WindowWaveformBindingImpl;->mapBindings(Landroidx/databinding/DataBindingComponent;Landroid/view/View;ILandroidx/databinding/ViewDataBinding$IncludedLayouts;Landroid/util/SparseIntArray;)[Ljava/lang/Object;
 
@@ -85,7 +123,10 @@
 
     move-object v12, p0
 
-    const/4 v0, 0x5
+# change changed
+    #const/4 v0, 0x5
+    const/4 v0, 0x6
+# /change changed
 
     .line 32
     aget-object v0, p3, v0
@@ -94,7 +135,10 @@
 
     check-cast v4, Lcom/rigol/scope/views/acquire/AcquireDepthView;
 
-    const/4 v0, 0x7
+# change changed
+    #const/4 v0, 0x7
+    const/16 v0, 0x8
+# /change changed
 
     aget-object v0, p3, v0
 
@@ -110,7 +154,10 @@
 
     check-cast v6, Landroid/widget/TextView;
 
-    const/4 v0, 0x4
+# change changed
+    #const/4 v0, 0x4
+    const/4 v0, 0x5
+# /change changed
 
     aget-object v0, p3, v0
 
@@ -142,13 +189,24 @@
 
     check-cast v10, Landroid/widget/ImageButton;
 
-    const/4 v0, 0x6
+# change changed
+    #const/4 v0, 0x6
+    const/4 v0, 0x7
+# /change changed
 
     aget-object v0, p3, v0
 
     move-object v11, v0
 
     check-cast v11, Landroid/widget/ImageButton;
+
+# change added
+# Inform: кнопка открытия/закрытия информационной панели в заголовке окна сигналов
+    const/4 v0, 0x4
+    aget-object v0, p3, v0
+    move-object v12, v0
+    check-cast v12, Landroid/widget/ImageButton;
+# /change added
 
     const/4 v3, 0x2
 
@@ -158,9 +216,13 @@
 
     move-object v2, p2
 
-    invoke-direct/range {v0 .. v11}, Lcom/rigol/scope/databinding/WindowWaveformBinding;-><init>(Ljava/lang/Object;Landroid/view/View;ILcom/rigol/scope/views/acquire/AcquireDepthView;Landroidx/constraintlayout/widget/ConstraintLayout;Landroid/widget/TextView;Landroidx/constraintlayout/widget/ConstraintLayout;Landroid/widget/ImageButton;Lcom/rigol/scope/views/window/Window;Landroid/widget/ImageButton;Landroid/widget/ImageButton;)V
+    invoke-direct/range {v0 .. v12}, Lcom/rigol/scope/databinding/WindowWaveformBinding;-><init>(Ljava/lang/Object;Landroid/view/View;ILcom/rigol/scope/views/acquire/AcquireDepthView;Landroidx/constraintlayout/widget/ConstraintLayout;Landroid/widget/TextView;Landroidx/constraintlayout/widget/ConstraintLayout;Landroid/widget/ImageButton;Lcom/rigol/scope/views/window/Window;Landroid/widget/ImageButton;Landroid/widget/ImageButton;Landroid/widget/ImageButton;)V
 
     const-wide/16 v0, -0x1
+
+# change added
+    move-object v12, p0
+# /change added
 
     .line 191
     iput-wide v0, v12, Lcom/rigol/scope/databinding/WindowWaveformBindingImpl;->mDirtyFlags:J
@@ -187,7 +249,17 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageButton;->setTag(Ljava/lang/Object;)V
 
-    move-object v0, p2
+# change added
+# Inform: кнопка открытия/закрытия информационной панели в заголовке окна сигналов
+    .line 46
+    iget-object v0, v12, Lcom/rigol/scope/databinding/WindowWaveformBindingImpl;->windowTitleInfo:Landroid/widget/ImageButton;
+    invoke-virtual {v0, v1}, Landroid/widget/ImageButton;->setTag(Ljava/lang/Object;)V
+
+# Inform: добавляем обработчик нажатий для кнопки открытия/закрытия информационной панели в заголовке окна сигналов
+    new-instance v1, Lcom/rigol/scope/databinding/WindowWaveformBindingImpl$1;
+    invoke-direct {v1, v12}, Lcom/rigol/scope/databinding/WindowWaveformBindingImpl$1;-><init>(Lcom/rigol/scope/databinding/WindowWaveformBindingImpl;)V
+    invoke-virtual {v0, v1}, Landroid/widget/ImageButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+# /change added
 
     .line 46
     invoke-virtual {p0, p2}, Lcom/rigol/scope/databinding/WindowWaveformBindingImpl;->setRootTag(Landroid/view/View;)V

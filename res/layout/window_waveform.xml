@@ -35,24 +35,14 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintWidth_percent="0.3" />
-
-        <ImageButton
-            android:id="@id/window_setting"
-            android:background="?android:selectableItemBackground"
-            android:layout_width="50.0dip"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_menu"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/window_close"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintWidth_percent="0.25" />
 
         <ImageButton
             android:id="@id/window_move"
             android:tag="binding_2"
             android:background="?android:selectableItemBackground"
             android:clickable="false"
-            android:layout_width="50.0dip"
+            android:layout_width="40.0dip"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_title_move"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -60,14 +50,35 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageButton
+            android:id="@id/window_setting"
+            android:background="?android:selectableItemBackground"
+            android:layout_width="40.0dip"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_menu"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/window_close"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
             android:id="@id/window_close"
             android:tag="binding_3"
             android:background="?android:selectableItemBackground"
-            android:layout_width="50.0dip"
+            android:layout_width="40.0dip"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_close"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@id/window_title_info"
+            android:tag="binding_4"
+            android:background="?android:selectableItemBackground"
+            android:layout_width="40.0dip"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_title_info"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/window_move"
             app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

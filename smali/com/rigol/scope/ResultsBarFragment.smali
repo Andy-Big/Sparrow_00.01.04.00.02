@@ -1450,7 +1450,7 @@
 .end method
 
 
-# changed changed
+# change changed
 .method public synthetic lambda$showQuickPopupView$10$ResultsBarFragment_(Lcom/rigol/scope/views/baseview/BasePopupView;Landroid/view/View;ILcom/rigol/scope/viewmodels/SharedViewModel;Landroid/view/View;Landroidx/recyclerview/widget/RecyclerView$ViewHolder;ILcom/rigol/scope/data/MappingObject;)V
 #.method public synthetic lambda$showQuickPopupView$10$ResultsBarFragment(Lcom/rigol/scope/views/baseview/BasePopupView;Landroid/view/View;ILcom/rigol/scope/viewmodels/SharedViewModel;Landroid/view/View;Landroidx/recyclerview/widget/RecyclerView$ViewHolder;ILcom/rigol/scope/data/MappingObject;)V
 # /changed
@@ -1599,13 +1599,10 @@
 
 
 # Inform: обработка нажатий в меню пунктов измерений
-# changed added
+# change added
 # Это лямбда из метода setOnItemClickListener для MeasureQuickPopupView
 .method public synthetic lambda$showQuickPopupView$10$ResultsBarFragment(Lcom/rigol/scope/views/baseview/BasePopupView;Landroid/view/View;ILcom/rigol/scope/viewmodels/SharedViewModel;Landroid/view/View;Landroidx/recyclerview/widget/RecyclerView$ViewHolder;ILcom/rigol/scope/data/MappingObject;)V
     .locals 5
-
-    const-string v0, "========== lambda$showQuickPopupView$10$ResultsBarFragment =========="
-    invoke-static {v0}, Lcom/rigol/scope/App;->axxxLogOut(Ljava/lang/String;)V
 
     # if (mappingObject == null) return;
     if-nez p8, :cond_0
@@ -2462,10 +2459,10 @@
 .end method
 
 .method public onViewCreated(Landroid/view/View;Landroid/os/Bundle;)V
-# changed
+# change
     .locals 2
     #.locals 4
-# /changed
+# /change
 
     .line 119
     invoke-super {p0, p1, p2}, Lcom/rigol/scope/BaseFragment;->onViewCreated(Landroid/view/View;Landroid/os/Bundle;)V
@@ -2679,7 +2676,7 @@
 
     invoke-direct {p0, p1}, Lcom/rigol/scope/ResultsBarFragment;->initResultList(Lcom/rigol/scope/databinding/FragmentResultsBarBinding;)V
 
-# changed added
+# change added
 # Inform: загрузка флага отображения названий каналов из preferences приложения
     # Загружаем флаг отображения названий каналов из preferences приложения
     invoke-static {}, Lcom/blankj/utilcode/util/SPUtils;->getInstance()Lcom/blankj/utilcode/util/SPUtils;
@@ -2690,7 +2687,7 @@
     invoke-static {v0}, Lcom/rigol/scope/utilities/ViewUtil;->setShowChannelNames(Z)V
     # Обновляем ширину результатов в зависимости от включения/выключения названий каналов
     invoke-direct {p0, v0}, Lcom/rigol/scope/ResultsBarFragment;->setChannelNames(Z)V
-# /changed added
+# /change added
     return-void
 .end method
 
@@ -2746,7 +2743,7 @@
 .end method
 
 
-# changed added
+# change added
 # Inform: установка ширины результатов в зависимости от включения/выключения названий каналов
 .method private setChannelNames(Z)V
     .locals 4
@@ -2783,4 +2780,4 @@
 
     return-void
 .end method
-# /changed added
+# /change added

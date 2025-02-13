@@ -26,9 +26,6 @@
     # Проверяем какой именно TextView был нажат
     sget v1, Lcom/rigol/scope/R$id;->fsb_v1_value:I
     if-ne v0, v1, :cond_1
-    const-string v1, "== FullScreenBarFragment CommonClickListener onClick == fsb_v1_value clicked"
-    const-string v2, ""
-    invoke-static {v1, v2}, Lcom/rigol/scope/App;->axxxLogOut(Ljava/lang/String;Ljava/lang/String;)V
     # Отображаем окно настроек 1 канала
     invoke-static {}, Lcom/rigol/scope/utilities/PopupViewManager;->getInstance()Lcom/rigol/scope/utilities/PopupViewManager;
     move-result-object v0
@@ -48,9 +45,6 @@
     :cond_1
     sget v1, Lcom/rigol/scope/R$id;->fsb_v2_value:I
     if-ne v0, v1, :cond_2
-    const-string v1, "== FullScreenBarFragment CommonClickListener onClick == fsb_v2_value clicked"
-    const-string v2, ""
-    invoke-static {v1, v2}, Lcom/rigol/scope/App;->axxxLogOut(Ljava/lang/String;Ljava/lang/String;)V
     # Отображаем окно настроек 2 канала
     invoke-static {}, Lcom/rigol/scope/utilities/PopupViewManager;->getInstance()Lcom/rigol/scope/utilities/PopupViewManager;
     move-result-object v0
@@ -70,9 +64,6 @@
     :cond_2
     sget v1, Lcom/rigol/scope/R$id;->fsb_v3_value:I
     if-ne v0, v1, :cond_3
-    const-string v1, "== FullScreenBarFragment CommonClickListener onClick == fsb_v3_value clicked"
-    const-string v2, ""
-    invoke-static {v1, v2}, Lcom/rigol/scope/App;->axxxLogOut(Ljava/lang/String;Ljava/lang/String;)V
     # Отображаем окно настроек 3 канала
     invoke-static {}, Lcom/rigol/scope/utilities/PopupViewManager;->getInstance()Lcom/rigol/scope/utilities/PopupViewManager;
     move-result-object v0
@@ -92,9 +83,6 @@
     :cond_3
     sget v1, Lcom/rigol/scope/R$id;->fsb_v4_value:I
     if-ne v0, v1, :cond_4
-    const-string v1, "== FullScreenBarFragment CommonClickListener onClick == fsb_v4_value clicked"
-    const-string v2, ""
-    invoke-static {v1, v2}, Lcom/rigol/scope/App;->axxxLogOut(Ljava/lang/String;Ljava/lang/String;)V
     # Отображаем окно настроек 4 канала
     invoke-static {}, Lcom/rigol/scope/utilities/PopupViewManager;->getInstance()Lcom/rigol/scope/utilities/PopupViewManager;
     move-result-object v0

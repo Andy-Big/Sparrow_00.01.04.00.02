@@ -267,9 +267,6 @@
 .method public switchCouple(I)V
     .locals 3
 
-    const-string v0, "========== switchCouple() begin =========="
-    invoke-static {v0}, Lcom/rigol/scope/App;->axxxLogOut(Ljava/lang/String;)V
-
     # получаем v0 = VerticalParam
     iget-object v0, p0, Lcom/rigol/scope/SettingsBarFragment$5;->this$0:Lcom/rigol/scope/SettingsBarFragment;
     invoke-static {v0}, Lcom/rigol/scope/SettingsBarFragment;->access$300(Lcom/rigol/scope/SettingsBarFragment;)Lcom/rigol/scope/adapters/VerticalAdapter;
@@ -284,10 +281,6 @@
     if-ne v1, v2, :cond_0
 
     # coupling = DC, переключаем на AC
-
-    const-string v2, "========== switchCouple() DC->AC =========="
-    invoke-static {v2}, Lcom/rigol/scope/App;->axxxLogOut(Ljava/lang/String;)V
-
     sget-object v2, Lcom/rigol/scope/cil/ServiceEnum$Coupling;->AC:Lcom/rigol/scope/cil/ServiceEnum$Coupling;
     invoke-virtual {v0, v2}, Lcom/rigol/scope/data/VerticalParam;->setCoupling(Lcom/rigol/scope/cil/ServiceEnum$Coupling;)V
     invoke-virtual {v0, v2}, Lcom/rigol/scope/data/VerticalParam;->saveCoupling(Lcom/rigol/scope/cil/ServiceEnum$Coupling;)V
@@ -295,10 +288,6 @@
 
     # если не DC, переключаем на DC
     :cond_0
-
-    const-string v2, "========== switchCouple() AC->DC =========="
-    invoke-static {v2}, Lcom/rigol/scope/App;->axxxLogOut(Ljava/lang/String;)V
-
     sget-object v2, Lcom/rigol/scope/cil/ServiceEnum$Coupling;->DC:Lcom/rigol/scope/cil/ServiceEnum$Coupling;
     invoke-virtual {v0, v2}, Lcom/rigol/scope/data/VerticalParam;->setCoupling(Lcom/rigol/scope/cil/ServiceEnum$Coupling;)V
     invoke-virtual {v0, v2}, Lcom/rigol/scope/data/VerticalParam;->saveCoupling(Lcom/rigol/scope/cil/ServiceEnum$Coupling;)V
@@ -314,9 +303,6 @@
     invoke-static {v0}, Lcom/rigol/scope/SettingsBarFragment;->access$300(Lcom/rigol/scope/SettingsBarFragment;)Lcom/rigol/scope/adapters/VerticalAdapter;
     move-result-object v0
     invoke-virtual {v0}, Lcom/rigol/scope/adapters/VerticalAdapter;->notifyDataSetChanged()V
-
-    const-string v0, "========== switchCouple() end =========="
-    invoke-static {v0}, Lcom/rigol/scope/App;->axxxLogOut(Ljava/lang/String;)V
 
     return-void
 .end method

@@ -16262,4 +16262,6 @@
 
     <public type="string" name="measure_216" id="0x7f103000" />
 
+    <public type="id" name="window_title_info" id="0x7f0a1010" />
+    
 </resources>

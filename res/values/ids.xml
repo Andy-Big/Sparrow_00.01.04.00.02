@@ -2781,4 +2781,6 @@
     <item type="id" name="fsb_v4_value" />
     <item type="id" name="fsb_a_value" />
 
+    <item type="id" name="window_title_info" />
+
 </resources>

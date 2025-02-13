@@ -9,9 +9,6 @@
 .method constructor <init>(Lcom/rigol/scope/myfragment/FullscreenBarFragment;Landroid/widget/TextView;)V
     .locals 1
     
-    const-string v0, "== FullScreenBarFragment TouchDelegateHelper constructor == "
-    invoke-static {v0}, Lcom/rigol/scope/App;->axxxLogOut(Ljava/lang/String;)V
-
     iput-object p1, p0, Lcom/rigol/scope/myfragment/FullscreenBarFragment$TouchDelegateHelper;->this$0:Lcom/rigol/scope/myfragment/FullscreenBarFragment;
     iput-object p2, p0, Lcom/rigol/scope/myfragment/FullscreenBarFragment$TouchDelegateHelper;->view:Landroid/widget/TextView;
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -20,9 +17,6 @@
 
 .method public run()V
     .locals 5
-
-    const-string v2, "== FullScreenBarFragment TouchDelegateHelper run == "
-    invoke-static {v2}, Lcom/rigol/scope/App;->axxxLogOut(Ljava/lang/String;)V
 
     # Создаем Rect для расширенной области касания
     new-instance v0, Landroid/graphics/Rect;

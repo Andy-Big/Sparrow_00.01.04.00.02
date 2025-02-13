@@ -26,9 +26,10 @@
 
 .field public final title:Landroid/widget/TextView;
 
-# changed added
+# change added
+# Inform: значение делителя пробника
 .field public final probe_atten:Landroid/widget/TextView;
-
+# /change added
 
 # direct methods
 .method protected constructor <init>(Ljava/lang/Object;Landroid/view/View;ILandroid/widget/ImageView;Landroid/widget/TextView;Landroid/widget/ImageView;Landroid/widget/ImageView;Landroid/widget/ImageView;Landroid/widget/TextView;Landroid/widget/TextView;Landroid/widget/TextView;Landroid/widget/TextView;)V
@@ -62,9 +63,10 @@
     iput-object p11, p0, Lcom/rigol/scope/databinding/AdapterItemVerticalBinding;->title:Landroid/widget/TextView;
 
 
-# changed added
+# change added
+# Inform: значение делителя пробника
     iput-object p12, p0, Lcom/rigol/scope/databinding/AdapterItemVerticalBinding;->probe_atten:Landroid/widget/TextView;
-
+# /change added
     return-void
 .end method
 

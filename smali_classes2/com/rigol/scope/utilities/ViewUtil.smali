@@ -7731,10 +7731,10 @@
     .end method
 # /change added
 
-# changed
+# change changed
 .method public static getTitleWithSrc_orig(Landroid/content/Context;Ljava/lang/String;Lcom/rigol/scope/cil/ServiceEnum$Chan;Lcom/rigol/scope/cil/ServiceEnum$Chan;)Landroid/text/SpannableString;
 #.method public static getTitleWithSrc(Landroid/content/Context;Ljava/lang/String;Lcom/rigol/scope/cil/ServiceEnum$Chan;Lcom/rigol/scope/cil/ServiceEnum$Chan;)Landroid/text/SpannableString;
-# /changed
+# /change changed
     .locals 4
 
     if-eqz p3, :cond_1
@@ -7886,7 +7886,7 @@
 .end method
 
 
-# changed added
+# change added
     .method public static getTitleWithSrc(Landroid/content/Context;Ljava/lang/String;Lcom/rigol/scope/cil/ServiceEnum$Chan;Lcom/rigol/scope/cil/ServiceEnum$Chan;)Landroid/text/SpannableString;
         .locals 4
 

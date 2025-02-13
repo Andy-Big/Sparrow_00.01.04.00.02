@@ -134,9 +134,6 @@
 .method protected invalidate()V
     .locals 1
 
-    #const-string v0, "========== com/rigol/scope/views/baseview/LabelView->invalidate() =========="
-    #invoke-static {v0}, Lcom/rigol/scope/App;->axxxLogOut(Ljava/lang/String;)V
-
     iget-boolean v0, p0, Lcom/rigol/scope/views/baseview/LabelView;->isDrawing:Z
     if-eqz v0, :cond_0
     return-void
@@ -147,9 +144,6 @@
 
 .method protected onDraw(Landroid/graphics/Canvas;)V
     .locals 3
-
-    #const-string v0, "========== com/rigol/scope/views/baseview/LabelView->onDraw() =========="
-    #invoke-static {v0}, Lcom/rigol/scope/App;->axxxLogOut(Ljava/lang/String;)V
 
     const/4 v0, 0x1
     iput-boolean v0, p0, Lcom/rigol/scope/views/baseview/LabelView;->isDrawing:Z

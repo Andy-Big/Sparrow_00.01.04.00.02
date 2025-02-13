@@ -25,10 +25,14 @@
 
 .field public final windowSetting:Landroid/widget/ImageButton;
 
+# change added
+# Inform: кнопка открытия/закрытия информационной панели в заголовке окна сигналов
+.field public final windowTitleInfo:Landroid/widget/ImageButton;
+# /change added
 
 # direct methods
-.method protected constructor <init>(Ljava/lang/Object;Landroid/view/View;ILcom/rigol/scope/views/acquire/AcquireDepthView;Landroidx/constraintlayout/widget/ConstraintLayout;Landroid/widget/TextView;Landroidx/constraintlayout/widget/ConstraintLayout;Landroid/widget/ImageButton;Lcom/rigol/scope/views/window/Window;Landroid/widget/ImageButton;Landroid/widget/ImageButton;)V
-    .locals 0
+.method protected constructor <init>(Ljava/lang/Object;Landroid/view/View;ILcom/rigol/scope/views/acquire/AcquireDepthView;Landroidx/constraintlayout/widget/ConstraintLayout;Landroid/widget/TextView;Landroidx/constraintlayout/widget/ConstraintLayout;Landroid/widget/ImageButton;Lcom/rigol/scope/views/window/Window;Landroid/widget/ImageButton;Landroid/widget/ImageButton;Landroid/widget/ImageButton;)V
+    .locals 2
 
     .line 54
     invoke-direct {p0, p1, p2, p3}, Landroidx/databinding/ViewDataBinding;-><init>(Ljava/lang/Object;Landroid/view/View;I)V
@@ -56,6 +60,14 @@
 
     .line 62
     iput-object p11, p0, Lcom/rigol/scope/databinding/WindowWaveformBinding;->windowSetting:Landroid/widget/ImageButton;
+
+ # change added
+# Inform: кнопка открытия/закрытия информационной панели в заголовке окна сигналов
+    .line 63
+    iput-object p12, p0, Lcom/rigol/scope/databinding/WindowWaveformBinding;->windowTitleInfo:Landroid/widget/ImageButton;
+    const/16 v0, 0x8  # GONE visibility
+    invoke-virtual {p12, v0}, Landroid/widget/ImageButton;->setVisibility(I)V
+ # /change added
 
     return-void
 .end method

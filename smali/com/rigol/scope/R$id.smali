@@ -5966,6 +5966,9 @@
 .field public static final fsb_v4_value:I = 0x7f0a100e
 .field public static final fsb_a_value:I = 0x7f0a100f
 
+.field public static final window_title_info:I = 0x7f0a1010
+
+
 # direct methods
 .method private constructor <init>()V
     .locals 0

@@ -16,6 +16,8 @@
 
 Если вам понравился этот проект, то вы можете поддержать его 300 рублями через ЮМани по [вот этой ссылке](https://yoomoney.ru/quickpay/fundraise/button?billNumber=17P19CIPI3F.250114&)
 
+Telegram: [@Rigol DHO800/DHO900 mod](https://t.me/rigol_dho800_mod)
+
 ## Содержание
 
 * [Главное](#главное)

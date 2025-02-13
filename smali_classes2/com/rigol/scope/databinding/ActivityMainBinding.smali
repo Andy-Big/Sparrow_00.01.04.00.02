@@ -44,12 +44,6 @@
 #.method protected constructor <init>(Ljava/lang/Object;Landroid/view/View;ILandroid/widget/ImageView;Landroidx/constraintlayout/widget/ConstraintLayout;Landroidx/fragment/app/FragmentContainerView;Landroid/widget/ImageView;Landroidx/fragment/app/FragmentContainerView;Landroid/widget/ImageView;Landroidx/fragment/app/FragmentContainerView;Landroidx/fragment/app/FragmentContainerView;)V
     .locals 1
 
-
-# change added
-    const-string v0, "========== ActivityMainBinding->Constructor() begin =========="
-    invoke-static {v0}, Lcom/rigol/scope/App;->axxxLogOut(Ljava/lang/String;)V
-# /change
-
     .line 56
     invoke-direct {p0, p1, p2, p3}, Landroidx/databinding/ViewDataBinding;-><init>(Ljava/lang/Object;Landroid/view/View;I)V
 
@@ -83,11 +77,6 @@
     .line 66
 #    iput-object p13, p0, Lcom/rigol/scope/databinding/ActivityMainBinding;->fullscreen_bar:Landroidx/fragment/app/FragmentContainerView;
 
-# change added
-    const-string v0, "========== ActivityMainBinding->Constructor() end =========="
-    invoke-static {v0}, Lcom/rigol/scope/App;->axxxLogOut(Ljava/lang/String;)V
-# /change
-
     return-void
 .end method
 
@@ -99,21 +88,11 @@
 .method protected init1(Landroid/widget/ImageView;Landroidx/fragment/app/FragmentContainerView;)V
     .locals 1
 
-# change added
-    const-string v0, "========== ActivityMainBinding->init1() begin =========="
-    invoke-static {v0}, Lcom/rigol/scope/App;->axxxLogOut(Ljava/lang/String;)V
-# /change
     .line 5034
     iput-object p1, p0, Lcom/rigol/scope/databinding/ActivityMainBinding;->fullscreenwave_icon:Landroid/widget/ImageView;
 
     .line 5035
     iput-object p2, p0, Lcom/rigol/scope/databinding/ActivityMainBinding;->fullscreen_bar:Landroidx/fragment/app/FragmentContainerView;
-
-# change added
-    const-string v0, "========== ActivityMainBinding->init1() end =========="
-    invoke-static {v0}, Lcom/rigol/scope/App;->axxxLogOut(Ljava/lang/String;)V
-# /change
-
 
     return-void
 .end method

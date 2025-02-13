@@ -2636,9 +2636,10 @@
     if-eqz v0, :cond_5e
 
 
-# changed added
+# change added
+# Inform: отображение времени и даты
     const/4 v12, 0x1
-# /changed
+# /change added
 
     .line 819
     iget-object v0, v1, Lcom/rigol/scope/databinding/FragmentSettingsBarBindingImpl;->date:Landroid/widget/TextView;

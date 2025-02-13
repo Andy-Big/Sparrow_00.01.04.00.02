@@ -76,6 +76,12 @@
 
     invoke-static {p1, p2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
+# change added
+# Inform: устанавливаем экземпляр WindowWaveformBindingImpl
+    check-cast p1, Lcom/rigol/scope/databinding/WindowWaveformBindingImpl;
+    invoke-static {p1}, Lcom/rigol/scope/databinding/WindowWaveformBindingImpl;->setInstance(Lcom/rigol/scope/databinding/WindowWaveformBindingImpl;)V
+# /change added
+
     .line 115
     iget-object p2, p1, Lcom/rigol/scope/databinding/WindowWaveformBinding;->windowSetting:Landroid/widget/ImageButton;
 
