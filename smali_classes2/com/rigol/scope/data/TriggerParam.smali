@@ -36465,7 +36465,13 @@
 .end method
 
 .method public setEdgeSlope(Lcom/rigol/scope/cil/ServiceEnum$EdgeSlope;)V
-    .locals 0
+    .locals 2
+
+    # change added
+    iget v0, p1, Lcom/rigol/scope/cil/ServiceEnum$EdgeSlope;->value1:I
+    const-string v1, "== setEdgeSlope start == edgeSlope: "
+    invoke-static {v1, v0}, Lcom/rigol/scope/App;->axxxLogOut(Ljava/lang/String;I)V
+    # /change added
 
     .line 4567
     iput-object p1, p0, Lcom/rigol/scope/data/TriggerParam;->edgeSlope:Lcom/rigol/scope/cil/ServiceEnum$EdgeSlope;
@@ -39732,6 +39738,12 @@
 
 .method public setTriggerMode(Lcom/rigol/scope/cil/ServiceEnum$TriggerMode;)V
     .locals 3
+
+# change added
+    iget v0, p1, Lcom/rigol/scope/cil/ServiceEnum$TriggerMode;->value1:I
+    const-string v1, "== setTriggerMode start == triggerMode: "
+    invoke-static {v1, v0}, Lcom/rigol/scope/App;->axxxLogOut(Ljava/lang/String;I)V
+# /change added
 
     .line 3785
     iput-object p1, p0, Lcom/rigol/scope/data/TriggerParam;->triggerMode:Lcom/rigol/scope/cil/ServiceEnum$TriggerMode;

@@ -2642,6 +2642,7 @@ public class TriggerParam extends BaseParam {
         return this.triggerMode;
     }
 
+    // Inform: изменение режима триггера
     public void setTriggerMode(ServiceEnum.TriggerMode triggerMode) {
         this.triggerMode = triggerMode;
         updateChanScaleOffset();
@@ -2657,6 +2658,7 @@ public class TriggerParam extends BaseParam {
         return this.chan;
     }
 
+    // Inform: изменение канала триггера
     public void setChan(ServiceEnum.Chan chan) {
         this.chan = chan;
         updateChanScaleOffset();
@@ -3015,6 +3017,7 @@ public class TriggerParam extends BaseParam {
         }
     }
 
+// Inform: получение иконки триггера (?)
     public int getTriggerViewDisplay(ServiceEnum.TriggerMode triggerMode, ServiceEnum.TriggerPulsePolarity triggerPulsePolarity, ServiceEnum.TriggerPulsePolarity triggerPulsePolarity2, ServiceEnum.SHEvent sHEvent, ServiceEnum.EdgeSlope edgeSlope, ServiceEnum.EdgeSlope edgeSlope2, ServiceEnum.EdgeSlope edgeSlope3, ServiceEnum.EdgeSlope edgeSlope4, ServiceEnum.OverEvent overEvent, ServiceEnum.EdgeSlope edgeSlope5, ServiceEnum.EdgeSlope edgeSlope6, ServiceEnum.TriggerPulsePolarity triggerPulsePolarity3, ServiceEnum.EdgeSlope edgeSlope7, ServiceEnum.EdgeSlope edgeSlope8) {
         if (triggerMode == null || edgeSlope == null) {
             return R.drawable.ic_trigger_edge_rising;
@@ -3450,6 +3453,7 @@ public class TriggerParam extends BaseParam {
     public ServiceEnum.TriggerPulsePolarity getPulsePolarity() {
         return this.pulsePolarity;
     }
+
 
     public void setPulsePolarity(ServiceEnum.TriggerPulsePolarity triggerPulsePolarity) {
         this.pulsePolarity = triggerPulsePolarity;

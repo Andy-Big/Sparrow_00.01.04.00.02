@@ -5,7 +5,6 @@
     android:layout_height="30.0dip"
     android:orientation="horizontal"
     android:background="#FF404040"
-    android:paddingTop="3.0dip"
     >
 
 
@@ -18,17 +17,54 @@
 
 
     <TextView
+        android:id="@id/fsb_t_title"
+        style="@style/App.FullScreenBar.Text.Title"
+        android:text="T: "
+        android:textColor="@color/dark_orange"
+        />
+
+    <!-- иконка триггера -->
+    <ImageView
+        android:id="@id/fsb_t_icon"
+        android:layout_width="20.0dip"
+        android:layout_height="20.0dip"
+        android:src="@drawable/ic_trigger_edge_rising"
+        android:layout_marginTop="5.0dip"
+        android:layout_marginBottom="2.0dip"
+        android:layout_marginRight="5.0dip"
+        android:scaleType="fitXY"
+        />
+
+    <!-- имя канала триггера -->
+    <TextView
+        android:id="@id/fsb_tc_name"
+        android:text="C1"
+        style="@style/App.FullScreenBar.Text.Values"
+        android:layout_width="30.0dip"
+        android:textColor="@color/chan1"
+        />
+
+
+    <TextView
         android:id="@id/fsb_h_title"
         style="@style/App.FullScreenBar.Text.Title"
         android:text="H: "
-        android:textColor="#FFFFFF"
+        android:textColor="@color/dark_orange"
         />
 
+    <!-- сэмплрейт -->
     <TextView
         android:id="@id/fsb_h_value"
         android:text="625.00MSa/s"
         style="@style/App.FullScreenBar.Text.Values"
-        android:layout_width="120.0dip"
+        android:layout_width="110.0dip"
+        />
+    <!-- масштаб развертки -->
+    <TextView
+        android:id="@id/fsb_hs_value"
+        android:text="500.00uS/"
+        style="@style/App.FullScreenBar.Text.Values"
+        android:layout_width="100.0dip"
         />
 
 
@@ -39,7 +75,7 @@
         style="@style/App.FullScreenBar.Text.Title"
         android:layout_marginLeft="8dp"
         />
-
+    <!-- масштаб канала 1 -->
     <TextView
         android:id="@id/fsb_v1_value"
         android:text="500.00mV/"
@@ -54,7 +90,7 @@
         android:textColor="@color/chan2"
         style="@style/App.FullScreenBar.Text.Title"
         />
-
+    <!-- масштаб канала 2 -->
     <TextView
         android:id="@id/fsb_v2_value"
         android:text="500.00mV/"
@@ -69,7 +105,7 @@
         android:textColor="@color/chan3"
         style="@style/App.FullScreenBar.Text.Title"
         />
-
+    <!-- масштаб канала 3 -->
     <TextView
         android:id="@id/fsb_v3_value"
         android:text="500.00mV/"
@@ -84,7 +120,7 @@
         android:textColor="@color/chan4"
         style="@style/App.FullScreenBar.Text.Title"
         />
-
+    <!-- масштаб канала 4 -->
     <TextView
         android:id="@id/fsb_v4_value"
         android:text="500.00mV/"

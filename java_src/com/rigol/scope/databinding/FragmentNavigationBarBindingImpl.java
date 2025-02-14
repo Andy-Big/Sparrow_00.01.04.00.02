@@ -599,6 +599,7 @@ public class FragmentNavigationBarBindingImpl extends FragmentNavigationBarBindi
                 if (i8 != 0) {
                     if (triggerParam != null) {
                         horizontalParam = horizontalParam2;
+// Inform: пример получения иконки триггера (?)
                         i7 = triggerParam.getTriggerViewDisplay(triggerMode2, triggerPulsePolarity, triggerPulsePolarity2, sHEvent, edgeSlope, edgeSlope2, edgeSlope3, edgeSlope4, overEvent, edgeSlope5, edgeSlope7, triggerPulsePolarity3, edgeSlope6, edgeSlope8);
                     } else {
                         horizontalParam = horizontalParam2;

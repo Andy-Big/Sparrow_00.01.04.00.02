@@ -3959,6 +3959,7 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:paddingLeft">10.0dip</item>
         <item name="android:paddingBottom">2.0dip</item>
+        <item name="android:layout_marginTop">3.0dip</item>
     </style>
 
 
@@ -3969,6 +3970,7 @@
         <item name="android:layout_width">90.0dip</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:paddingBottom">2.0dip</item>
+        <item name="android:layout_marginTop">3.0dip</item>
     </style>
 
 

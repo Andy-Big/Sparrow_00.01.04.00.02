@@ -5954,8 +5954,12 @@
 .field public static final nothing_view2:I = 0x7f0a1002
 .field public static final fullscreenwave_icon:I = 0x7f0a1003
 .field public static final fullscreen_bar:I = 0x7f0a1004
+.field public static final fsb_t_title:I = 0x7f0a1012
+.field public static final fsb_t_icon:I = 0x7f0a1013
+.field public static final fsb_tc_name:I = 0x7f0a1014
 .field public static final fsb_h_title:I = 0x7f0a1005
 .field public static final fsb_h_value:I = 0x7f0a1006
+.field public static final fsb_hs_value:I = 0x7f0a1011
 .field public static final fsb_v1_title:I = 0x7f0a1007
 .field public static final fsb_v1_value:I = 0x7f0a1008
 .field public static final fsb_v2_title:I = 0x7f0a1009
