@@ -4644,11 +4644,18 @@
     return-void
 .end method
 
+
+# Inform: изменение масштаба горизонтальной шкалы
 .method public final setMainScale(J)V
     .locals 3
 
     .line 285
     iget-wide v0, p0, Lcom/rigol/scope/data/HorizontalParam;->mainScale:J
+
+# change added
+# Inform: вызываем метод из FullscreenBarFragment для изменения масштаба горизонтальной шкалы
+    invoke-static {p1, p2}, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->onChangedHScale(J)V
+# /change
 
     invoke-static {v0, v1}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
@@ -4857,6 +4864,8 @@
     return-void
 .end method
 
+
+# Inform: изменение сэмплрейта
 .method public final setSample(J)V
     .locals 3
 

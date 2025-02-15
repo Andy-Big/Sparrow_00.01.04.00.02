@@ -16249,6 +16249,7 @@
     <public type="id" name="fsb_tc_name" id="0x7f0a1014" />
     <public type="id" name="fsb_h_title" id="0x7f0a1005" />
     <public type="id" name="fsb_h_value" id="0x7f0a1006" />
+    <public type="id" name="fsb_hs_value" id="0x7f0a1011" />
     <public type="id" name="fsb_v1_title" id="0x7f0a1007" />
     <public type="id" name="fsb_v1_value" id="0x7f0a1008" />
     <public type="id" name="fsb_v2_title" id="0x7f0a1009" />
@@ -16258,7 +16259,6 @@
     <public type="id" name="fsb_v4_title" id="0x7f0a100d" />
     <public type="id" name="fsb_v4_value" id="0x7f0a100e" />
     <public type="id" name="fsb_a_value" id="0x7f0a100f" />
-    <public type="id" name="fsb_hs_value" id="0x7f0a1011" />
 
     <public type="drawable" name="bg_item_vertical_act" id="0x7f081000" />
     <public type="drawable" name="fullscreen_open" id="0x7f081001" />

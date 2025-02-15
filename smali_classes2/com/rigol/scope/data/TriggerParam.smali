@@ -13811,6 +13811,7 @@
     return-object v0
 .end method
 
+# Inform: получение иконки триггера (?)
 .method public getTriggerViewDisplay(Lcom/rigol/scope/cil/ServiceEnum$TriggerMode;Lcom/rigol/scope/cil/ServiceEnum$TriggerPulsePolarity;Lcom/rigol/scope/cil/ServiceEnum$TriggerPulsePolarity;Lcom/rigol/scope/cil/ServiceEnum$SHEvent;Lcom/rigol/scope/cil/ServiceEnum$EdgeSlope;Lcom/rigol/scope/cil/ServiceEnum$EdgeSlope;Lcom/rigol/scope/cil/ServiceEnum$EdgeSlope;Lcom/rigol/scope/cil/ServiceEnum$EdgeSlope;Lcom/rigol/scope/cil/ServiceEnum$OverEvent;Lcom/rigol/scope/cil/ServiceEnum$EdgeSlope;Lcom/rigol/scope/cil/ServiceEnum$EdgeSlope;Lcom/rigol/scope/cil/ServiceEnum$TriggerPulsePolarity;Lcom/rigol/scope/cil/ServiceEnum$EdgeSlope;Lcom/rigol/scope/cil/ServiceEnum$EdgeSlope;)I
     .locals 9
 
@@ -14028,6 +14029,10 @@
     goto/16 :goto_0
 
     .line 4163
+# Over
+    # v8 = 1
+    # v7 = 2
+    # v6 = 4
     :pswitch_b
     sget-object v0, Lcom/rigol/scope/data/TriggerParam$1;->$SwitchMap$com$rigol$scope$cil$ServiceEnum$EdgeSlope:[I
 
@@ -14041,7 +14046,7 @@
 
     if-eq v0, v8, :cond_11
 
-    if-eq v0, v6, :cond_d
+    if-eq v0, v7, :cond_d
 
     .line 4192
     sget-object v0, Lcom/rigol/scope/data/TriggerParam$1;->$SwitchMap$com$rigol$scope$cil$ServiceEnum$OverEvent:[I
@@ -14140,6 +14145,7 @@
     const v4, 0x7f080548
 
     goto/16 :goto_0
+# /Over
 
     .line 4152
     :pswitch_c
@@ -14162,6 +14168,8 @@
 
     goto/16 :goto_0
 
+
+# Timeout
     .line 4138
     :pswitch_d
     sget-object v0, Lcom/rigol/scope/data/TriggerParam$1;->$SwitchMap$com$rigol$scope$cil$ServiceEnum$EdgeSlope:[I
@@ -14172,23 +14180,25 @@
 
     aget v0, v0, v1
 
-    if-eq v0, v8, :cond_17
+    if-eq v0, v8, :cond_17  # если v0 = 1, то :cond_17
 
-    if-eq v0, v6, :cond_16
+    if-eq v0, v7, :cond_16  # если v0 = 2, то :cond_16
 
-    const v4, 0x7f080564
+    const v4, 0x7f080564    # R.drawable.ic_trigger_timeout_rising
 
     goto :goto_0
 
     :cond_16
-    const v4, 0x7f080562
+    const v4, 0x7f080562    # R.drawable.ic_trigger_timeout_either
 
     goto :goto_0
 
     :cond_17
-    const v4, 0x7f080563
+    const v4, 0x7f080563    # R.drawable.ic_trigger_timeout_falling
 
     goto :goto_0
+# /Timeout
+
 
     :pswitch_e
     const v4, 0x7f080537
@@ -14272,6 +14282,11 @@
     move-result v1
 
     aget v0, v0, v1
+
+# change changed
+    const-string v2, "== TriggerParam setTriggerEdge == edgeSlope: "
+    invoke-static {v2, v0}, Lcom/rigol/scope/App;->axxxLogOut(Ljava/lang/String;I)V
+# /change changed
 
     if-eq v0, v8, :cond_1c
 
@@ -35043,8 +35058,17 @@
     return-void
 .end method
 
+# Inform: изменение канала триггера
 .method public setChan(Lcom/rigol/scope/cil/ServiceEnum$Chan;)V
     .locals 3
+
+# change added
+    iget v0, p1, Lcom/rigol/scope/cil/ServiceEnum$Chan;->value1:I
+    const-string v1, "== setChan start == chan: "
+    invoke-static {v1, v0}, Lcom/rigol/scope/App;->axxxLogOut(Ljava/lang/String;I)V
+
+    invoke-static {v0}, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->onChangedTriggerChannel(I)V
+# /change added
 
     .line 3803
     iput-object p1, p0, Lcom/rigol/scope/data/TriggerParam;->chan:Lcom/rigol/scope/cil/ServiceEnum$Chan;
@@ -36467,11 +36491,10 @@
 .method public setEdgeSlope(Lcom/rigol/scope/cil/ServiceEnum$EdgeSlope;)V
     .locals 2
 
-    # change added
-    iget v0, p1, Lcom/rigol/scope/cil/ServiceEnum$EdgeSlope;->value1:I
-    const-string v1, "== setEdgeSlope start == edgeSlope: "
-    invoke-static {v1, v0}, Lcom/rigol/scope/App;->axxxLogOut(Ljava/lang/String;I)V
-    # /change added
+# change added
+    invoke-static {p1}, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->onChangedTriggerEdgeSlope(Lcom/rigol/scope/cil/ServiceEnum$EdgeSlope;)V
+# /change added
+
 
     .line 4567
     iput-object p1, p0, Lcom/rigol/scope/data/TriggerParam;->edgeSlope:Lcom/rigol/scope/cil/ServiceEnum$EdgeSlope;
@@ -36487,6 +36510,10 @@
 .method public setEdgeSlopeA(Lcom/rigol/scope/cil/ServiceEnum$EdgeSlope;)V
     .locals 0
 
+# change added
+    invoke-static {p1}, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->onChangedTriggerEdgeSlopeA(Lcom/rigol/scope/cil/ServiceEnum$EdgeSlope;)V
+# /change added
+
     .line 4648
     iput-object p1, p0, Lcom/rigol/scope/data/TriggerParam;->edgeSlopeA:Lcom/rigol/scope/cil/ServiceEnum$EdgeSlope;
 
@@ -36500,6 +36527,10 @@
 
 .method public setEdgeSlopeB(Lcom/rigol/scope/cil/ServiceEnum$EdgeSlope;)V
     .locals 0
+
+# change added
+    invoke-static {p1}, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->onChangedTriggerEdgeSlopeB(Lcom/rigol/scope/cil/ServiceEnum$EdgeSlope;)V
+# /change added
 
     .line 4659
     iput-object p1, p0, Lcom/rigol/scope/data/TriggerParam;->edgeSlopeB:Lcom/rigol/scope/cil/ServiceEnum$EdgeSlope;
@@ -38353,6 +38384,10 @@
 .method public setNthSlope(Lcom/rigol/scope/cil/ServiceEnum$EdgeSlope;)V
     .locals 0
 
+# change added
+    invoke-static {p1}, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->onChangedTriggerNthSlope(Lcom/rigol/scope/cil/ServiceEnum$EdgeSlope;)V
+# /change added
+
     .line 4617
     iput-object p1, p0, Lcom/rigol/scope/data/TriggerParam;->nthSlope:Lcom/rigol/scope/cil/ServiceEnum$EdgeSlope;
 
@@ -38367,6 +38402,10 @@
 .method public setOverEvent(Lcom/rigol/scope/cil/ServiceEnum$OverEvent;)V
     .locals 0
 
+# change added
+    invoke-static {p1}, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->onChangedTriggerOverEvent(Lcom/rigol/scope/cil/ServiceEnum$OverEvent;)V
+# /change added
+
     .line 4743
     iput-object p1, p0, Lcom/rigol/scope/data/TriggerParam;->overEvent:Lcom/rigol/scope/cil/ServiceEnum$OverEvent;
 
@@ -38380,6 +38419,10 @@
 
 .method public setOverSlope(Lcom/rigol/scope/cil/ServiceEnum$EdgeSlope;)V
     .locals 0
+
+# change added
+    invoke-static {p1}, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->onChangedTriggerOverSlope(Lcom/rigol/scope/cil/ServiceEnum$EdgeSlope;)V
+# /change added
 
     .line 4597
     iput-object p1, p0, Lcom/rigol/scope/data/TriggerParam;->overSlope:Lcom/rigol/scope/cil/ServiceEnum$EdgeSlope;
@@ -38932,7 +38975,11 @@
 .method public setPolarity(Lcom/rigol/scope/cil/ServiceEnum$TriggerPulsePolarity;)V
     .locals 0
 
-    .line 4680
+ # change added
+    invoke-static {p1}, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->onChangedTriggerPolarity(Lcom/rigol/scope/cil/ServiceEnum$TriggerPulsePolarity;)V
+# /change added
+
+   .line 4680
     iput-object p1, p0, Lcom/rigol/scope/data/TriggerParam;->polarity:Lcom/rigol/scope/cil/ServiceEnum$TriggerPulsePolarity;
 
     const/16 p1, 0x282
@@ -39072,6 +39119,10 @@
 .method public setRuntPolarity(Lcom/rigol/scope/cil/ServiceEnum$TriggerPulsePolarity;)V
     .locals 0
 
+# change added
+    invoke-static {p1}, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->onChangedTriggerRuntPolarity(Lcom/rigol/scope/cil/ServiceEnum$TriggerPulsePolarity;)V
+# /change added
+
     .line 4700
     iput-object p1, p0, Lcom/rigol/scope/data/TriggerParam;->runtPolarity:Lcom/rigol/scope/cil/ServiceEnum$TriggerPulsePolarity;
 
@@ -39153,6 +39204,10 @@
 
 .method public setSHEvent(Lcom/rigol/scope/cil/ServiceEnum$SHEvent;)V
     .locals 0
+
+# change added
+    invoke-static {p1}, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->onChangedTriggerSHEvent(Lcom/rigol/scope/cil/ServiceEnum$SHEvent;)V
+# /change added
 
     .line 4809
     iput-object p1, p0, Lcom/rigol/scope/data/TriggerParam;->sHEvent:Lcom/rigol/scope/cil/ServiceEnum$SHEvent;
@@ -39264,6 +39319,10 @@
 .method public setSetupHoldSlope(Lcom/rigol/scope/cil/ServiceEnum$EdgeSlope;)V
     .locals 0
 
+# change added
+    invoke-static {p1}, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->onChangedTriggerSetupHoldSlope(Lcom/rigol/scope/cil/ServiceEnum$EdgeSlope;)V
+# /change added
+
     .line 4607
     iput-object p1, p0, Lcom/rigol/scope/data/TriggerParam;->setupHoldSlope:Lcom/rigol/scope/cil/ServiceEnum$EdgeSlope;
 
@@ -39311,6 +39370,10 @@
 
 .method public setSlope(Lcom/rigol/scope/cil/ServiceEnum$EdgeSlope;)V
     .locals 0
+
+# change added
+    invoke-static {p1}, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->onChangedTriggerSlope(Lcom/rigol/scope/cil/ServiceEnum$EdgeSlope;)V
+# /change added
 
     .line 4577
     iput-object p1, p0, Lcom/rigol/scope/data/TriggerParam;->slope:Lcom/rigol/scope/cil/ServiceEnum$EdgeSlope;
@@ -39548,6 +39611,10 @@
 .method public setTimeoutSlope(Lcom/rigol/scope/cil/ServiceEnum$EdgeSlope;)V
     .locals 0
 
+# change added
+    invoke-static {p1}, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->onChangedTriggerTimeoutSlope(Lcom/rigol/scope/cil/ServiceEnum$EdgeSlope;)V
+# /change added
+
     .line 4587
     iput-object p1, p0, Lcom/rigol/scope/data/TriggerParam;->timeoutSlope:Lcom/rigol/scope/cil/ServiceEnum$EdgeSlope;
 
@@ -39736,13 +39803,13 @@
     return-void
 .end method
 
+
+# Inform: изменение режима триггера
 .method public setTriggerMode(Lcom/rigol/scope/cil/ServiceEnum$TriggerMode;)V
     .locals 3
 
 # change added
-    iget v0, p1, Lcom/rigol/scope/cil/ServiceEnum$TriggerMode;->value1:I
-    const-string v1, "== setTriggerMode start == triggerMode: "
-    invoke-static {v1, v0}, Lcom/rigol/scope/App;->axxxLogOut(Ljava/lang/String;I)V
+    invoke-static {p1}, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->onChangedTriggerMode(Lcom/rigol/scope/cil/ServiceEnum$TriggerMode;)V
 # /change added
 
     .line 3785
@@ -40306,6 +40373,10 @@
 
 .method public setVideoPolarity(Lcom/rigol/scope/cil/ServiceEnum$TriggerPulsePolarity;)V
     .locals 0
+
+# change added
+    invoke-static {p1}, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->onChangedTriggerVideoPolarity(Lcom/rigol/scope/cil/ServiceEnum$TriggerPulsePolarity;)V
+# /change added
 
     .line 4690
     iput-object p1, p0, Lcom/rigol/scope/data/TriggerParam;->videoPolarity:Lcom/rigol/scope/cil/ServiceEnum$TriggerPulsePolarity;
