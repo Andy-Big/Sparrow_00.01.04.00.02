@@ -35062,14 +35062,6 @@
 .method public setChan(Lcom/rigol/scope/cil/ServiceEnum$Chan;)V
     .locals 3
 
-# change added
-    iget v0, p1, Lcom/rigol/scope/cil/ServiceEnum$Chan;->value1:I
-    const-string v1, "== setChan start == chan: "
-    invoke-static {v1, v0}, Lcom/rigol/scope/App;->axxxLogOut(Ljava/lang/String;I)V
-
-    invoke-static {v0}, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->onChangedTriggerChannel(I)V
-# /change added
-
     .line 3803
     iput-object p1, p0, Lcom/rigol/scope/data/TriggerParam;->chan:Lcom/rigol/scope/cil/ServiceEnum$Chan;
 

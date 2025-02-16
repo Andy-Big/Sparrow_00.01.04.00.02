@@ -490,6 +490,10 @@
 
 .field public windowParam:Lcom/rigol/scope/data/WindowParam;
 
+# change added
+.field private final displayViewModel:Lcom/rigol/scope/viewmodels/DisplayViewModel;
+.field private displayParam:Lcom/rigol/scope/data/DisplayParam;
+# /change added
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
@@ -12405,6 +12409,51 @@
     iget-object v1, p0, Lcom/rigol/scope/views/window/WindowContent;->set:Landroidx/constraintlayout/widget/ConstraintSet;
 
     invoke-direct {p0, v0, v1, v2, v3}, Lcom/rigol/scope/views/window/WindowContent;->addCursorTag(Lcom/rigol/scope/views/CursorTag;Landroidx/constraintlayout/widget/ConstraintSet;II)V
+
+
+# change added
+# Inform: восстановление яркости курсоров при загрузке приложения
+    # Получаем DisplayParam через DisplayViewModel
+    const-string v0, "== WindowContent addCursorTags == get DisplayParam"
+    invoke-static {v0}, Lcom/rigol/scope/App;->axxxLogOut(Ljava/lang/String;)V
+
+    const-class v0, Lcom/rigol/scope/viewmodels/DisplayViewModel;
+    invoke-static {v0}, Lcom/rigol/scope/utilities/ContextUtil;->getAppViewModel(Ljava/lang/Class;)Landroidx/lifecycle/ViewModel;
+    move-result-object v0
+    check-cast v0, Lcom/rigol/scope/viewmodels/DisplayViewModel;
+    iput-object v0, p0, Lcom/rigol/scope/views/window/WindowContent;->displayViewModel:Lcom/rigol/scope/viewmodels/DisplayViewModel;
+    #invoke-virtual {v0}, Lcom/rigol/scope/viewmodels/DisplayViewModel;->getLiveData()Landroidx/lifecycle/LiveData;
+    #iget-object v0, p0, Lcom/rigol/scope/views/window/WindowContent;->displayViewModel:Lcom/rigol/scope/viewmodels/DisplayViewModel;
+    invoke-virtual {v0}, Lcom/rigol/scope/viewmodels/DisplayViewModel;->getLiveData()Landroidx/lifecycle/LiveData;
+    move-result-object v0
+    invoke-virtual {v0}, Landroidx/lifecycle/LiveData;->getValue()Ljava/lang/Object;
+    move-result-object v0
+    if-nez v0, :cond_3
+    goto :cond_0
+    :cond_3
+    check-cast v0, Lcom/rigol/scope/data/DisplayParam;
+    iput-object v0, p0, Lcom/rigol/scope/views/window/WindowContent;->displayParam:Lcom/rigol/scope/data/DisplayParam;
+
+    invoke-virtual {v0}, Lcom/rigol/scope/data/DisplayParam;->getCursorsIntensity()I
+    move-result v2
+    int-to-float v2, v2
+    const/high16 v3, 0x42c80000    # 100.0f
+    div-float/2addr v2, v3
+    invoke-static {v2}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+    move-result-object v2
+
+    invoke-static {}, Lcom/rigol/scope/utilities/ViewUtil;->getViewABkeyViewModel()Lcom/rigol/scope/viewmodels/ViewABkeyViewModel;
+    move-result-object v1
+    iget-object v1, v1, Lcom/rigol/scope/viewmodels/ViewABkeyViewModel;->viewpager_postion:Landroidx/lifecycle/MutableLiveData;
+    invoke-virtual {v1, v2}, Landroidx/lifecycle/MutableLiveData;->setValue(Ljava/lang/Object;)V
+
+
+    #const-string v1, "== WindowContent addCursorTags == invalidate cursors"
+    #invoke-static {v1}, Lcom/rigol/scope/App;->axxxLogOut(Ljava/lang/String;)V
+
+    #invoke-virtual {v0}, Lcom/rigol/scope/views/CursorTag;->invalidate()V
+    :cond_0
+# /change added
 
     return-void
 .end method

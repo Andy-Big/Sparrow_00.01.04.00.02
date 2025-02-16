@@ -128,6 +128,7 @@ public class FunctionManager {
         }
         int i = AnonymousClass1.$SwitchMap$com$rigol$scope$cil$ServiceEnum$Function[function.ordinal()];
         if (i == 1) {
+// Inform: включение/отключение курсоров
             CursorViewModel cursorViewModel = (CursorViewModel) ContextUtil.getAppViewModel(CursorViewModel.class);
             if (cursorViewModel != null) {
                 CursorResultParam value4 = cursorViewModel.getLiveData().getValue();
@@ -962,6 +963,7 @@ public class FunctionManager {
         boolean z = false;
         switch (AnonymousClass1.$SwitchMap$com$rigol$scope$cil$ServiceEnum$Function[function.ordinal()]) {
             case 1:
+// Inform: включение/отключение курсоров
                 if (checkUltraIsOpen()) {
                     ToastUtils.showShort(ActivityUtils.getTopActivity().getResources().getString(R.string.err_action_disabled));
                     return;
