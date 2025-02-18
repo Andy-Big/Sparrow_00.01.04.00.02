@@ -14283,11 +14283,6 @@
 
     aget v0, v0, v1
 
-# change changed
-    const-string v2, "== TriggerParam setTriggerEdge == edgeSlope: "
-    invoke-static {v2, v0}, Lcom/rigol/scope/App;->axxxLogOut(Ljava/lang/String;I)V
-# /change changed
-
     if-eq v0, v8, :cond_1c
 
     if-eq v0, v7, :cond_1b

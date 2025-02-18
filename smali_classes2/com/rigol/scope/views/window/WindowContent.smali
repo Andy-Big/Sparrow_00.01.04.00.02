@@ -12414,9 +12414,6 @@
 # change added
 # Inform: восстановление яркости курсоров при загрузке приложения
     # Получаем DisplayParam через DisplayViewModel
-    const-string v0, "== WindowContent addCursorTags == get DisplayParam"
-    invoke-static {v0}, Lcom/rigol/scope/App;->axxxLogOut(Ljava/lang/String;)V
-
     const-class v0, Lcom/rigol/scope/viewmodels/DisplayViewModel;
     invoke-static {v0}, Lcom/rigol/scope/utilities/ContextUtil;->getAppViewModel(Ljava/lang/Class;)Landroidx/lifecycle/ViewModel;
     move-result-object v0
@@ -12447,11 +12444,6 @@
     iget-object v1, v1, Lcom/rigol/scope/viewmodels/ViewABkeyViewModel;->viewpager_postion:Landroidx/lifecycle/MutableLiveData;
     invoke-virtual {v1, v2}, Landroidx/lifecycle/MutableLiveData;->setValue(Ljava/lang/Object;)V
 
-
-    #const-string v1, "== WindowContent addCursorTags == invalidate cursors"
-    #invoke-static {v1}, Lcom/rigol/scope/App;->axxxLogOut(Ljava/lang/String;)V
-
-    #invoke-virtual {v0}, Lcom/rigol/scope/views/CursorTag;->invalidate()V
     :cond_0
 # /change added
 

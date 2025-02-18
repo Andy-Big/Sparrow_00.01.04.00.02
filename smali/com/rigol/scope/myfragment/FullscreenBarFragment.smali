@@ -234,10 +234,6 @@
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
     .locals 6
 
-    .line 500
-    const-string v0, "== FullscreenBarFragment onCreateView =="
-    invoke-static {v0}, Lcom/rigol/scope/App;->axxxLogOut(Ljava/lang/String;)V
-
     # Inflate layout
     .line 510
     sget v0, Lcom/rigol/scope/R$layout;->fragment_fullscreen_bar:I
@@ -1752,15 +1748,6 @@
     move-result v1
 
     :goto_4
-    # Логируем имя канала
-    .line 2220
-    const-string v4, "== FullscreenBarFragment setTriggerChannelName == name: "
-    invoke-static {v4, v0}, Lcom/rigol/scope/App;->axxxLogOut(Ljava/lang/String;Ljava/lang/String;)V
-    # Логируем цвет
-    .line 2230
-    const-string v4, "== FullscreenBarFragment setTriggerChannelName == color: "
-    invoke-static {v4, v1}, Lcom/rigol/scope/App;->axxxLogOut(Ljava/lang/String;I)V
-
     # Получаем ссылку на TextView
     .line 2240
     iget-object v2, p0, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->fsb_tc_name:Landroid/widget/TextView;

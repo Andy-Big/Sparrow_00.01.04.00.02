@@ -33,6 +33,10 @@ Telegram: [@Rigol DHO800/DHO900 mod](https://t.me/rigol_dho800_mod)
 
 * В правом нижнем углу включено отображение текущего времени и даты.
 * В левый верхний угол окна осциллограммы добавлена иконка раскрытия этого окна на весь экран. Этой же иконкой окно сворачивается обратно в оригинальный размер.
+* В полноэкранном режиме доступна небольшая инфопанель снизу с информацией о режиме и частоте дискретизации, глубине памяти, режиме триггера, связи и масштабе каналов, горизонтальном масштабе. Эта инфопанель может скрываться и показываться по нажатию на иконку (i) в правом верхнем углу в заголовке окна.
+* Исправлены ошибки производителя:
+  * после включения осциллографа яркость курсоров устанавливается на 100%, независимо от настроенного ранее значения, яркость приводится к настройкам только при открытии окна настроек дисплея
+  * иконка режимов триггера в верхней панели не соответствовала выбранному режиму в некоторых случаях
 * У стрелок раскрытия и закрытия пунктов результатов измерений увеличена область чувствительности к нажатию. Теперь раскрыть и закрыть пункт гораздо проще.
 * Раскрытые пункты результатов измерений изменены на табличный вид: имя параметра и слева от него значение этого параметра. Это уменьшило высоту раскрытого пункта, позволив видеть одновременно до трех раскрытых пунктов. У значений так же немного увеличен шрифт для более легкой читаемости.
 * Пункты результатов измерений на панели слева уменьшены по высоте для того чтобы можно было видеть большее количество измерений одновременно. Кроме того, немного увеличен шрифт значений измерений для более легкой читаемости.
@@ -151,6 +155,17 @@ Telegram: [@Rigol DHO800/DHO900 mod](https://t.me/rigol_dho800_mod)
 
 # История изменений
 
+#### **a007** 18.02.2025
+
+* добавлена кнопка в заголовке окна для открытия/закрытия информационной панели в полноэкранном режиме
+* добавлена в полноэкранную инфопанель информация о типе (иконкой) и канале триггера
+* добавлена в полноэкранную инфопанель информация о горизонтальном масштабе
+* добавлена в полноэкранную инфопанель информация о связи каналов (AC/DC/GND)
+* добавлена в полноэкранную инфопанель информация о режиме захвата и глубине памяти
+* фон полноэкранной инфопанели изменен на более темный
+* исправлен баг Rigol: иконока режимов триггера в верхней панели не соответствовала выбранному режиму в некоторых случаях
+* исправлен баг Rigol: после включения осциллографа яркость курсоров устанавливается на 100%, какой бы ни была ее настройка, яркость приводится к настройкам только при открытии окна настроек дисплея
+
 #### **a006** 11.02.2025
 
 * уменьшено пространство между пунктами измерений
@@ -237,6 +252,11 @@ Telegram: [@Rigol DHO800/DHO900 mod](https://t.me/rigol_dho800_mod)
 ![logo](_images/RigolDS16.png)
 ![logo](_images/RigolDS17.png)
 
+### Полноэкранная инфопанель открыта/закрыта
+
+![logo](_images/RigolDS18.png)
+![logo](_images/RigolDS19.png)
+
 ---
 <br>
 <br>
@@ -265,6 +285,10 @@ The modification of the Rigol DHO800/DHO900 application improves the usability o
 
 * Enabled current time and date display in the bottom right corner.
 * Added a full-screen icon to the top left corner of the waveform window. The same icon collapses the window back to original size.
+* In full-screen mode, a small info panel is available at the bottom with information about the sampling mode and frequency, memory depth, trigger mode, channel connection and scale, horizontal scale. This info panel can be hidden and shown by clicking on the icon (i) in the upper right corner of the window header.
+* Fixed manufacturer errors:
+    * after turning on the oscilloscope, the cursor brightness is set to 100%, regardless of the previously configured value, the brightness is adjusted to the settings only when opening the display settings window
+    * the trigger mode icon in the top panel did not correspond to the selected mode in some cases
 * Increased touch sensitivity area for measurement result item expand/collapse arrows. Now it's much easier to expand and collapse items.
 * Expanded measurement result items changed to tabular view: parameter name with its value to the left. This reduced the expanded item height, allowing up to three expanded items to be visible simultaneously. Values also have slightly increased font size for better readability.
 * Measurement result items on the left panel have been reduced in height to show more measurements simultaneously. Additionally, the measurement value font size has been slightly increased for better readability.
@@ -383,6 +407,17 @@ The oscilloscope application should start itself within 5-20 seconds, but if it 
 
 # Change History
 
+#### **a007** 18.02.2025
+
+* added a button in the window title to open/close the information panel in full-screen mode
+* added information about the trigger type (icon) and channel to the full-screen information panel
+* added information about the horizontal scale to the full-screen information panel
+* added information about the channel connection (AC/DC/GND) to the full-screen information panel
+* added information about the capture mode and memory depth to the full-screen information panel
+* changed the background of the full-screen information panel to a darker color
+* fixed a Rigol bug: the trigger mode icon in the top panel did not match the selected mode in some cases
+* fixed a Rigol bug: after turning on the oscilloscope, the cursor brightness is set to 100%, no matter what its setting is, the brightness is adjusted to the settings only when the display settings window is opened
+
 #### **a006** 11.02.2025
 
 * reduced space between measurement points
@@ -468,3 +503,9 @@ The oscilloscope application should start itself within 5-20 seconds, but if it 
 ![logo](_images/RigolDS15.png)
 ![logo](_images/RigolDS16.png)
 ![logo](_images/RigolDS17.png)
+
+### Full-screen information panel opened/closed
+
+![logo](_images/RigolDS18.png)
+![logo](_images/RigolDS19.png)
+
