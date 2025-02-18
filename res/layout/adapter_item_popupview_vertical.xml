@@ -47,5 +47,36 @@
         <EditText android:id="@id/offset_edit_text" android:tag="binding_40" android:layout_marginStart="32.0dip" app:layout_constraintStart_toEndOf="@id/scale_right" app:layout_constraintTop_toTopOf="@id/display_switch" style="@style/App.EditText" />
         <ImageButton android:id="@id/offset_left" android:tag="binding_41" android:src="@drawable/ic_arrow_down2" android:layout_marginStart="6.0dip" app:layout_constraintBottom_toBottomOf="@id/offset_edit_text" app:layout_constraintStart_toEndOf="@id/offset_edit_text" app:layout_constraintTop_toTopOf="@id/offset_edit_text" style="@style/App.ImageButton.Small" />
         <ImageButton android:id="@id/offset_right" android:tag="binding_42" android:src="@drawable/ic_arrow_up2" android:layout_marginStart="6.0dip" app:layout_constraintBottom_toBottomOf="@id/offset_left" app:layout_constraintStart_toEndOf="@id/offset_left" app:layout_constraintTop_toTopOf="@id/offset_left" style="@style/App.ImageButton.Small" />
+
+
+<!-- change added -->
+<!-- Inform: переключатель погашения иконок каналов в окне настроек канала -->
+
+        <TextView
+          android:layout_marginTop="4.0dip"
+          android:text="@string/msg_chan_hide"
+          app:layout_constraintEnd_toEndOf="@id/hide_switch"
+          app:layout_constraintStart_toStartOf="@id/hide_switch"
+          app:layout_constraintTop_toBottomOf="@id/hide_switch"
+          style="@style/App.Text"
+          android:visibility="visible"
+        />
+        <!--
+          android:tag="binding_43"
+        -->
+
+        <com.rigol.scope.views.SwitchButton android:id="@id/hide_switch"
+          app:layout_constraintEnd_toEndOf="@id/delay_edit_text"
+          app:layout_constraintStart_toStartOf="@id/delay_edit_text"
+          app:layout_constraintTop_toTopOf="@id/label_edit_text"
+          style="@style/App.Switch"
+          android:visibility="visible"
+        />
+        <!--
+          android:tag="binding_44"
+        -->
+<!-- /change added -->
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

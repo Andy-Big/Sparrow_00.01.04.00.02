@@ -564,6 +564,7 @@ public class VerticalViewPagerAdapter extends BaseAdapter<List<VerticalParam>> i
     }
 
     /* JADX WARN: Type inference failed for: r0v1, types: [java.util.List] */
+// Inform: изменение состояний переключателей в окне настроек канала
     public void change(View view, boolean z) {
         if (view.isPressed()) {
             VerticalParam verticalItem = ViewUtil.getVerticalItem((List<VerticalParam>) getItems(), getCurrentItem());

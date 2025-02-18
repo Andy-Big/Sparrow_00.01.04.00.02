@@ -521,7 +521,7 @@
 
     const/16 v4, 0x12
 
-    const-string v5, "pts"
+    const-string v5, "pt"
 
     const-string v6, ""
 

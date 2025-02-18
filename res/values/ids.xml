@@ -2769,12 +2769,16 @@
     <item type="id" name="fullscreenwave_icon" />
 
     <item type="id" name="fullscreen_bar" />
+    <item type="id" name="fsb_tstatus_value" />
     <item type="id" name="fsb_t_title" />
     <item type="id" name="fsb_t_icon" />
     <item type="id" name="fsb_tc_name" />
+    <item type="id" name="fsb_a_title" />
+    <item type="id" name="fsb_amode_value" />
+    <item type="id" name="fsb_asample_value" />
+    <item type="id" name="fsb_adepth_value" />
     <item type="id" name="fsb_h_title" />
-    <item type="id" name="fsb_h_value" />
-    <item type="id" name="fsb_hs_value" />
+    <item type="id" name="fsb_hscale_value" />
     <item type="id" name="fsb_v1_title" />
     <item type="id" name="fsb_v1_value" />
     <item type="id" name="fsb_v2_title" />
@@ -2783,7 +2787,8 @@
     <item type="id" name="fsb_v3_value" />
     <item type="id" name="fsb_v4_title" />
     <item type="id" name="fsb_v4_value" />
-    <item type="id" name="fsb_a_value" />
+
+    <item type="id" name="hide_switch" />
 
     <item type="id" name="window_title_info" />
 

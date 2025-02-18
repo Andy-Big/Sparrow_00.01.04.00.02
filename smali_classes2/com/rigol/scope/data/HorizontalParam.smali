@@ -5083,7 +5083,7 @@
 
 # change added
 # Inform: вызываем метод из FullscreenBarFragment для изменения состояния триггера
-    invoke-static {p1}, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->onChangedTrig(Lcom/rigol/scope/cil/ServiceEnum$ControlStatus;)V
+    invoke-static {p1}, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->onChangedAsqTrigStatus(Lcom/rigol/scope/cil/ServiceEnum$ControlStatus;)V
 # /change
 
     const-string v1, "triggerStatus"

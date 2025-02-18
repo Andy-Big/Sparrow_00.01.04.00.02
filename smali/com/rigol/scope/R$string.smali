@@ -15931,6 +15931,13 @@
 .field public static final zonetrigger_string_wave_zoom_out:I = 0x7f101f15
 
 
+
+.field public static final measure_216:I = 0x7f103000
+
+
+.field public static final msg_chan_hide:I = 0x7f103001
+
+
 # direct methods
 .method private constructor <init>()V
     .locals 0
