@@ -423,6 +423,21 @@
     const/4 v0, 0x4
     invoke-virtual {p0, v0}, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->setVxValue(I)V
 
+    # Устанавливаем цвет и текст состояния триггера развертки
+    .line 820
+    iget v0, p0, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->asqTrigStatus:I
+    invoke-virtual {p0, v0}, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->setAsqTrigStatusValue(I)V
+    .line 830
+
+    # Устанавливаем сэмплрейт
+    iget-wide v0, p0, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->asqSample:J
+    invoke-virtual {p0, v0, v1}, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->setAsqSampleValue(J)V
+    .line 840
+
+    # Устанавливаем масштаб горизонтальной шкалы
+    iget-wide v0, p0, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->horizontalScale:J
+    invoke-virtual {p0, v0, v1}, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->setHScaleValue(J)V
+
     return-object p1
 .end method
 
