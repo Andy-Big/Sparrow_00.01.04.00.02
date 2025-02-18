@@ -4069,8 +4069,15 @@
     throw p1
 .end method
 
+# Inform: изменение режима захвата
 .method public final setAcquireMode(Lcom/rigol/scope/cil/ServiceEnum$AcquireMode;)V
     .locals 2
+
+# change added
+# Inform: вызываем метод из FullscreenBarFragment для изменения режима захвата
+    iget v0, p1, Lcom/rigol/scope/cil/ServiceEnum$AcquireMode;->value1:I
+    invoke-static {v0}, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->onChangedAcquireMode(I)V
+# /change
 
     const-string v0, "value"
 
@@ -4232,8 +4239,14 @@
     return-void
 .end method
 
+# Inform: изменение глубины памяти
 .method public final setDepthValue(J)V
     .locals 3
+
+# change added
+# Inform: вызываем метод из FullscreenBarFragment для изменения глубины памяти
+    invoke-static {p1, p2}, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->onChangedDepth(J)V
+# /change
 
     .line 413
     iget-wide v0, p0, Lcom/rigol/scope/data/HorizontalParam;->depthValue:J

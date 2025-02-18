@@ -2640,8 +2640,18 @@
     return-void
 .end method
 
+# Inform: установка связи канала
 .method public final setCoupling(Lcom/rigol/scope/cil/ServiceEnum$Coupling;)V
     .locals 2
+
+# change added
+# Inform: получаем значение chan и couplingи вызываем метод из FullscreenBarFragment для изменения связи канала
+    iget-object v0, p0, Lcom/rigol/scope/data/VerticalParam;->chan:Lcom/rigol/scope/cil/ServiceEnum$Chan;
+    iget v0, v0, Lcom/rigol/scope/cil/ServiceEnum$Chan;->value1:I
+    iget v1, p1, Lcom/rigol/scope/cil/ServiceEnum$Coupling;->value1:I
+    # Вызываем метод из FullscreenBarFragment для изменения связи канала
+    invoke-static {v0, v1}, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->onChangedChanCoupling(II)V
+# /change
 
     const-string v0, "value"
 
@@ -3981,6 +3991,7 @@
     return-void
 .end method
 
+# Inform: установка масштаба канала
 .method public final setScale(J)V
     .locals 5
 
@@ -4111,6 +4122,7 @@
     return-void
 .end method
 
+# Inform: установка состояния канала
 .method public final setStatus(Lcom/rigol/scope/cil/ServiceEnum$enChanStatus;)V
     .locals 2
 
@@ -4169,6 +4181,7 @@
     return-void
 .end method
 
+# Inform: установка единиц измерения канала
 .method public final setUnit(Lcom/rigol/scope/cil/ServiceEnum$Unit;)V
     .locals 2
 

@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="30.0dip"
     android:orientation="horizontal"
-    android:background="#FF404040"
+    android:background="#FF202020"
     >
 
 
@@ -99,6 +99,17 @@
         android:textColor="@color/chan1"
         style="@style/App.FullScreenBar.Text.Title"
         />
+    <!-- иконка связи канала 1 -->
+    <ImageView
+        android:id="@id/fsb_v1_coup_icon"
+        android:layout_width="16.0dip"
+        android:layout_height="16.0dip"
+        android:src="@drawable/ic_coupling_dc"
+        android:layout_marginTop="5.0dip"
+        android:layout_marginBottom="2.0dip"
+        android:layout_marginRight="5.0dip"
+        android:scaleType="centerInside"
+        />
     <!-- масштаб канала 1 -->
     <TextView
         android:id="@id/fsb_v1_value"
@@ -113,6 +124,17 @@
         android:text="С2:"
         android:textColor="@color/chan2"
         style="@style/App.FullScreenBar.Text.Title"
+        />
+    <!-- иконка связи канала 2 -->
+    <ImageView
+        android:id="@id/fsb_v2_coup_icon"
+        android:layout_width="16.0dip"
+        android:layout_height="16.0dip"
+        android:src="@drawable/ic_coupling_ac"
+        android:layout_marginTop="5.0dip"
+        android:layout_marginBottom="2.0dip"
+        android:layout_marginRight="5.0dip"
+        android:scaleType="centerInside"
         />
     <!-- масштаб канала 2 -->
     <TextView
@@ -129,6 +151,17 @@
         android:textColor="@color/chan3"
         style="@style/App.FullScreenBar.Text.Title"
         />
+    <!-- иконка связи канала 3 -->
+    <ImageView
+        android:id="@id/fsb_v3_coup_icon"
+        android:layout_width="16.0dip"
+        android:layout_height="16.0dip"
+        android:src="@drawable/ic_coupling_ac"
+        android:layout_marginTop="5.0dip"
+        android:layout_marginBottom="2.0dip"
+        android:layout_marginRight="5.0dip"
+        android:scaleType="centerInside"
+        />
     <!-- масштаб канала 3 -->
     <TextView
         android:id="@id/fsb_v3_value"
@@ -143,6 +176,17 @@
         android:text="С4:"
         android:textColor="@color/chan4"
         style="@style/App.FullScreenBar.Text.Title"
+        />
+    <!-- иконка связи канала 4 -->
+    <ImageView
+        android:id="@id/fsb_v4_coup_icon"
+        android:layout_width="16.0dip"
+        android:layout_height="16.0dip"
+        android:src="@drawable/ic_coupling_dc"
+        android:layout_marginTop="5.0dip"
+        android:layout_marginBottom="2.0dip"
+        android:layout_marginRight="5.0dip"
+        android:scaleType="centerInside"
         />
     <!-- масштаб канала 4 -->
     <TextView

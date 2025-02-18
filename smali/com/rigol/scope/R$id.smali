@@ -5972,6 +5972,10 @@
 .field public static final fsb_v3_value:I = 0x7f0a100c
 .field public static final fsb_v4_title:I = 0x7f0a100d
 .field public static final fsb_v4_value:I = 0x7f0a100e
+.field public static final fsb_v1_coup_icon:I = 0x7f0a1019
+.field public static final fsb_v2_coup_icon:I = 0x7f0a101a
+.field public static final fsb_v3_coup_icon:I = 0x7f0a101b
+.field public static final fsb_v4_coup_icon:I = 0x7f0a101c
 
 .field public static final hide_switch:I = 0x7f0a1018
 

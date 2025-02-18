@@ -2787,6 +2787,10 @@
     <item type="id" name="fsb_v3_value" />
     <item type="id" name="fsb_v4_title" />
     <item type="id" name="fsb_v4_value" />
+    <item type="id" name="fsb_v1_coup_icon" />
+    <item type="id" name="fsb_v2_coup_icon" />
+    <item type="id" name="fsb_v3_coup_icon" />
+    <item type="id" name="fsb_v4_coup_icon" />
 
     <item type="id" name="hide_switch" />
 

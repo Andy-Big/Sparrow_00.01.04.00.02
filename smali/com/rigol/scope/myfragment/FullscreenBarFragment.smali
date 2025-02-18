@@ -20,12 +20,16 @@
 .field private fsb_h_title:Landroid/widget/TextView;
 .field private fsb_hscale_value:Landroid/widget/TextView;
 .field private fsb_v1_title:Landroid/widget/TextView;
+.field private fsb_v1_coup_icon:Landroid/widget/ImageView;
 .field private fsb_v1_value:Landroid/widget/TextView;
 .field private fsb_v2_title:Landroid/widget/TextView;
+.field private fsb_v2_coup_icon:Landroid/widget/ImageView;
 .field private fsb_v2_value:Landroid/widget/TextView;
 .field private fsb_v3_title:Landroid/widget/TextView;
+.field private fsb_v3_coup_icon:Landroid/widget/ImageView;
 .field private fsb_v3_value:Landroid/widget/TextView;
 .field private fsb_v4_title:Landroid/widget/TextView;
+.field private fsb_v4_coup_icon:Landroid/widget/ImageView;
 .field private fsb_v4_value:Landroid/widget/TextView;
 
 .field private chanNum:I
@@ -35,6 +39,7 @@
 .field private horizontalScale:J
 .field private asqTrigStatus:I
 .field private chanStatus:[I
+.field private chanCoupling:[I
 .field private chanScale:[J
 .field private chanUnit:[Lcom/rigol/scope/cil/ServiceEnum$Unit;
 
@@ -149,6 +154,21 @@
     aput v1, v0, v2    # Устанавливаем значение v1 в массив v0 по индексу v2
     iput-object v0, p0, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->chanStatus:[I
 
+    # Связь каналов
+    const/16 v0, 0x5
+    new-array v0, v0, [I
+    const/16 v1, 0x0    # 0 - DC
+    const/16 v2, 0x0    # Индекс для установки значения
+    aput v1, v0, v2    # Устанавливаем значение v1 в массив v0 по индексу v2
+    const/16 v2, 0x1
+    aput v1, v0, v2    # Устанавливаем значение v1 в массив v0 по индексу v2
+    const/16 v2, 0x2
+    aput v1, v0, v2    # Устанавливаем значение v1 в массив v0 по индексу v2
+    const/16 v2, 0x3
+    aput v1, v0, v2    # Устанавливаем значение v1 в массив v0 по индексу v2
+    const/16 v2, 0x4
+    aput v1, v0, v2    # Устанавливаем значение v1 в массив v0 по индексу v2
+    iput-object v0, p0, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->chanCoupling:[I
 
     # Масштаб каналов
     const/16 v0, 0x5
@@ -305,6 +325,14 @@
     check-cast v0, Landroid/widget/TextView;
     iput-object v0, p0, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->fsb_v1_title:Landroid/widget/TextView;
 
+    # Find TextView fsb_v1_coup_icon
+    .line 615
+    sget v0, Lcom/rigol/scope/R$id;->fsb_v1_coup_icon:I
+    invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    move-result-object v0
+    check-cast v0, Landroid/widget/ImageView;
+    iput-object v0, p0, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->fsb_v1_coup_icon:Landroid/widget/ImageView;
+
     # Find TextView fsb_v1_value
     .line 620
     sget v0, Lcom/rigol/scope/R$id;->fsb_v1_value:I
@@ -328,6 +356,14 @@
     move-result-object v0
     check-cast v0, Landroid/widget/TextView;
     iput-object v0, p0, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->fsb_v2_title:Landroid/widget/TextView;
+
+    # Find TextView fsb_v2_coup_icon
+    .line 655
+    sget v0, Lcom/rigol/scope/R$id;->fsb_v2_coup_icon:I
+    invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    move-result-object v0
+    check-cast v0, Landroid/widget/ImageView;
+    iput-object v0, p0, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->fsb_v2_coup_icon:Landroid/widget/ImageView;
 
     # Find TextView fsb_v2_value
     .line 660
@@ -353,6 +389,14 @@
     check-cast v0, Landroid/widget/TextView;
     iput-object v0, p0, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->fsb_v3_title:Landroid/widget/TextView;
 
+    # Find TextView fsb_v3_coup_icon
+    .line 705
+    sget v0, Lcom/rigol/scope/R$id;->fsb_v3_coup_icon:I
+    invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    move-result-object v0
+    check-cast v0, Landroid/widget/ImageView;
+    iput-object v0, p0, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->fsb_v3_coup_icon:Landroid/widget/ImageView;
+
     # Find TextView fsb_v3_value
     .line 700
     sget v0, Lcom/rigol/scope/R$id;->fsb_v3_value:I
@@ -377,6 +421,14 @@
     check-cast v0, Landroid/widget/TextView;
     iput-object v0, p0, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->fsb_v4_title:Landroid/widget/TextView;
 
+    # Find TextView fsb_v4_coup_icon
+    .line 735
+    sget v0, Lcom/rigol/scope/R$id;->fsb_v4_coup_icon:I
+    invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    move-result-object v0
+    check-cast v0, Landroid/widget/ImageView;
+    iput-object v0, p0, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->fsb_v4_coup_icon:Landroid/widget/ImageView;
+
     # Find TextView fsb_v4_value
     .line 740
     sget v0, Lcom/rigol/scope/R$id;->fsb_v4_value:I
@@ -392,6 +444,22 @@
     # Расширяем область клика
     .line 760
     invoke-direct {p0, v0}, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->setupTextViewTouchDelegate(Landroid/widget/TextView;)V
+
+    # Устанавливаем связь каналов
+    .line 770
+    iget-object v1, p0, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->chanCoupling:[I
+    const/4 v0, 0x1
+    aget v2, v1, v0
+    invoke-virtual {p0, v0, v2}, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->setVxCoupling(II)V
+    const/4 v0, 0x2
+    aget v2, v1, v0
+    invoke-virtual {p0, v0, v2}, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->setVxCoupling(II)V
+    const/4 v0, 0x3
+    aget v2, v1, v0
+    invoke-virtual {p0, v0, v2}, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->setVxCoupling(II)V
+    const/4 v0, 0x4
+    aget v2, v1, v0
+    invoke-virtual {p0, v0, v2}, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->setVxCoupling(II)V
 
     # Устанавливаем статусы каналов
     .line 770
@@ -429,6 +497,10 @@
     invoke-virtual {p0, v0}, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->setAsqTrigStatusValue(I)V
     .line 830
 
+    # Устанавливаем режим захвата
+    iget v0, p0, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->asqMode:I
+    invoke-virtual {p0, v0}, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->setAsqModeValue(I)V
+
     # Устанавливаем сэмплрейт
     iget-wide v0, p0, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->asqSample:J
     invoke-virtual {p0, v0, v1}, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->setAsqSampleValue(J)V
@@ -437,6 +509,16 @@
     # Устанавливаем масштаб горизонтальной шкалы
     iget-wide v0, p0, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->horizontalScale:J
     invoke-virtual {p0, v0, v1}, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->setHScaleValue(J)V
+
+    # Устанавливаем глубину памяти
+    iget-wide v0, p0, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->asqDepth:J
+    invoke-virtual {p0, v0, v1}, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->setAsqDepthValue(J)V
+
+    # Устанавливаем иконку триггера
+    invoke-virtual {p0}, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->setTriggerIcon()V
+
+    # Устанавливаем канал триггера
+    invoke-virtual {p0}, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->setTriggerChannelName()V
 
     return-object p1
 .end method
@@ -468,8 +550,8 @@
 .end method
 
 
-.method public static onChangedSample(J)V
-    .locals 4
+.method public static onChangedAcquireMode(I)V
+    .locals 2
 
     # Получаем сохраненный экземпляр
     sget-object v0, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->instance:Lcom/rigol/scope/myfragment/FullscreenBarFragment;
@@ -477,9 +559,28 @@
     # Проверяем что экземпляр существует
     if-eqz v0, :cond_0
 
-    # Проверяем, что элементы уже созданы
-    iget-object v1, v0, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->fsb_v1_value:Landroid/widget/TextView;
-    if-eqz v1, :cond_0
+    # Сравниваем режим захвата с сохраненным и если он не изменился, то выходим
+    iget v1, v0, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->asqMode:I
+    if-eq p0, v1, :cond_0
+
+    # Сохраняем режим захвата в локальном поле
+    iput p0, v0, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->asqMode:I
+
+    # Устанавливаем значение в TextView
+    invoke-virtual {v0, p0}, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->setAsqModeValue(I)V
+    
+    :cond_0
+    return-void
+.end method
+
+.method public static onChangedSample(J)V
+    .locals 3
+
+    # Получаем сохраненный экземпляр
+    sget-object v0, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->instance:Lcom/rigol/scope/myfragment/FullscreenBarFragment;
+    
+    # Проверяем что экземпляр существует
+    if-eqz v0, :cond_0
 
     # Сравниваем сэмплрейт с сохраненным и если он не изменился, то выходим
     iget-wide v1, v0, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->asqSample:J
@@ -496,19 +597,14 @@
     return-void
 .end method
 
-
 .method public static onChangedHScale(J)V
-    .locals 4
+    .locals 3
 
     # Получаем сохраненный экземпляр
     sget-object v0, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->instance:Lcom/rigol/scope/myfragment/FullscreenBarFragment;
     
     # Проверяем что экземпляр существует
     if-eqz v0, :cond_0
-
-    # Проверяем, что элементы уже созданы
-    iget-object v1, v0, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->fsb_v1_value:Landroid/widget/TextView;
-    if-eqz v1, :cond_0
 
     # Сравниваем сэмплрейт с сохраненным и если он не изменился, то выходим
     iget-wide v1, v0, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->horizontalScale:J
@@ -525,19 +621,14 @@
     return-void
 .end method
 
-
 .method public static onChangedAsqTrigStatus(Lcom/rigol/scope/cil/ServiceEnum$ControlStatus;)V
-    .locals 4
+    .locals 3
 
     # Получаем сохраненный экземпляр
     sget-object v0, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->instance:Lcom/rigol/scope/myfragment/FullscreenBarFragment;
     
     # Проверяем что экземпляр существует
     if-eqz v0, :cond_0
-
-    # Проверяем, что элементы уже созданы
-    iget-object v1, v0, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->fsb_v1_value:Landroid/widget/TextView;
-    if-eqz v1, :cond_0
 
     # Получаем код статуса из ControlStatus
     iget v2, p0, Lcom/rigol/scope/cil/ServiceEnum$ControlStatus;->value1:I
@@ -556,9 +647,32 @@
     return-void
 .end method
 
+.method public static onChangedDepth(J)V
+    .locals 3
+
+    # Получаем сохраненный экземпляр
+    sget-object v0, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->instance:Lcom/rigol/scope/myfragment/FullscreenBarFragment;
+    
+    # Проверяем что экземпляр существует
+    if-eqz v0, :cond_0
+
+    # Сравниваем глубину памяти с сохраненным и если он не изменился, то выходим
+    iget-wide v1, v0, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->asqDepth:J
+    cmp-long v2, p0, v1
+    if-eqz v2, :cond_0
+
+    # Сохраняем глубину памяти в локальном поле
+    iput-wide p0, v0, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->asqDepth:J
+
+    # Устанавливаем значение в TextView
+    invoke-virtual {v0, p0, p1}, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->setAsqDepthValue(J)V
+    
+    :cond_0
+    return-void
+.end method
 
 .method public static onChangedChanStatus(Lcom/rigol/scope/cil/ServiceEnum$Chan;Lcom/rigol/scope/cil/ServiceEnum$enChanStatus;)V
-    .locals 5
+    .locals 6
 
     # Получаем сохраненный экземпляр FullscreenBarFragment
     .line 100
@@ -582,20 +696,6 @@
     # Сохраняем статус канала в локальном поле
     .line 160
     aput v2, v3, v1    # Сохраняем статус канала v2 в массив chanStatus v3 по индексу v1
-    # Логируем номер и статус канала
-    .line 170
-    const-string v3, "== FullscreenBarFragment onChangedChanStatus == chan: "
-    invoke-static {v3, v1}, Lcom/rigol/scope/App;->axxxLogOut(Ljava/lang/String;I)V
-    .line 180
-    const-string v3, "== FullscreenBarFragment onChangedChanStatus == status: "
-    invoke-static {v3, v2}, Lcom/rigol/scope/App;->axxxLogOut(Ljava/lang/String;I)V
-
-
-    # Проверяем, что элементы уже созданы
-    .line 190
-    iget-object v4, v0, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->fsb_v1_value:Landroid/widget/TextView;
-    .line 200
-    if-eqz v4, :cond_0
 
     # Проверяем что мы еще не получили количество каналов
     .line 210
@@ -633,17 +733,42 @@
     const/4 v3, 0x2
     if-ne v4, v3, :cond_1
     .line 320
+    iget-object v5, v0, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->chanStatus:[I
     const/4 v3, 0x3
     const/4 v4, 0x3
+    aput v4, v5, v3
     invoke-virtual {v0, v3, v4}, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->setVxStatus(II)V
     .line 340
     const/4 v3, 0x4
+    aput v4, v5, v3
     invoke-virtual {v0, v3, v4}, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->setVxStatus(II)V
 
     :cond_1
     # Устанавливаем статус канала
     .line 350
     invoke-virtual {v0, v1, v2}, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->setVxStatus(II)V
+
+    :cond_0
+    return-void
+.end method
+
+.method public static onChangedChanCoupling(II)V
+    .locals 6
+
+    # Получаем сохраненный экземпляр FullscreenBarFragment
+    sget-object v0, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->instance:Lcom/rigol/scope/myfragment/FullscreenBarFragment;
+    # Проверяем что экземпляр существует
+    if-eqz v0, :cond_0
+
+    # Сравниваем связь канала с сохраненной и если она не изменилась, то выходим
+    iget-object v1, v0, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->chanCoupling:[I
+    aget v2, v1, p0     # Получаем связь канала из массива chanCoupling v1 по индексу p0 в v2
+    if-eq v2, p1, :cond_0
+    # Сохраняем связь канала в локальном поле
+    aput p1, v1, p0    # Сохраняем связь канала p1 в массив chanCoupling v1 по индексу p0
+
+    # Устанавливаем связь канала
+    invoke-virtual {v0, p0, p1}, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->setVxCoupling(II)V
 
     :cond_0
     return-void
@@ -669,10 +794,6 @@
 
     # Сохраняем масштаб канала в локальном поле
     aput-wide p1, v2, v1    # Сохраняем масштаб канала p1 в массив chanScale v2 по индексу v1
-
-    # Проверяем, что элементы уже созданы
-    iget-object v2, v0, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->fsb_v1_value:Landroid/widget/TextView;
-    if-eqz v2, :cond_0
 
     # Устанавливаем строковое значение в TextView
     invoke-virtual {v0, v1}, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->setVxValue(I)V
@@ -701,10 +822,6 @@
     # Сохраняем единицы измерения канала в локальном поле
     aput-object p1, v2, v1    # Сохраняем единицы измерения канала p1 в массив chanUnit v2 по индексу v1
 
-    # Проверяем, что элементы уже созданы
-    iget-object v2, v0, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->fsb_v1_value:Landroid/widget/TextView;
-    if-eqz v2, :cond_0
-
     # Устанавливаем строковое значение в TextView
     invoke-virtual {v0, v1}, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->setVxValue(I)V
 
@@ -722,20 +839,12 @@
     # Проверяем что экземпляр существует
     if-eqz v0, :cond_0
 
-    # Проверяем, что элементы уже созданы
-    iget-object v1, v0, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->fsb_v1_value:Landroid/widget/TextView;
-    if-eqz v1, :cond_0
-
     # Получаем значение value1 из поля triggerMode
     iget-object v1, v0, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->triggerMode:Lcom/rigol/scope/cil/ServiceEnum$TriggerMode;
     iget v2, v1, Lcom/rigol/scope/cil/ServiceEnum$TriggerMode;->value1:I
     # Сравниваем значение value1 с новым значением p0.value1
     iget v3, p0, Lcom/rigol/scope/cil/ServiceEnum$TriggerMode;->value1:I
     if-eq v2, v3, :cond_0
-
-    const-string v1, "== FullscreenBarFragment setTriggerMode == triggerMode: "
-    iget v2, p0, Lcom/rigol/scope/cil/ServiceEnum$TriggerMode;->value1:I
-    invoke-static {v1, v2}, Lcom/rigol/scope/App;->axxxLogOut(Ljava/lang/String;I)V
 
     # Устанавливаем новое значение полю triggerMode
     iput-object p0, v0, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->triggerMode:Lcom/rigol/scope/cil/ServiceEnum$TriggerMode;
@@ -755,10 +864,6 @@
     
     # Проверяем что экземпляр существует
     if-eqz v0, :cond_0
-
-    # Проверяем, что элементы уже созданы
-    iget-object v1, v0, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->fsb_v1_value:Landroid/widget/TextView;
-    if-eqz v1, :cond_0
 
     # Получаем значение value1 из поля triggerVideoPolarity
     iget-object v1, v0, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->triggerVideoPolarity:Lcom/rigol/scope/cil/ServiceEnum$TriggerPulsePolarity;
@@ -786,10 +891,6 @@
     # Проверяем что экземпляр существует
     if-eqz v0, :cond_0
 
-    # Проверяем, что элементы уже созданы
-    iget-object v1, v0, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->fsb_v1_value:Landroid/widget/TextView;
-    if-eqz v1, :cond_0
-
     # Получаем значение value1 из поля triggerRuntPolarity
     iget-object v1, v0, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->triggerRuntPolarity:Lcom/rigol/scope/cil/ServiceEnum$TriggerPulsePolarity;
     iget v2, v1, Lcom/rigol/scope/cil/ServiceEnum$TriggerPulsePolarity;->value1:I
@@ -815,10 +916,6 @@
     
     # Проверяем что экземпляр существует
     if-eqz v0, :cond_0
-
-    # Проверяем, что элементы уже созданы
-    iget-object v1, v0, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->fsb_v1_value:Landroid/widget/TextView;
-    if-eqz v1, :cond_0
 
     # Получаем значение value1 из поля triggerPolarity
     iget-object v1, v0, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->triggerPolarity:Lcom/rigol/scope/cil/ServiceEnum$TriggerPulsePolarity;
@@ -846,10 +943,6 @@
     # Проверяем что экземпляр существует
     if-eqz v0, :cond_0
 
-    # Проверяем, что элементы уже созданы
-    iget-object v1, v0, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->fsb_v1_value:Landroid/widget/TextView;
-    if-eqz v1, :cond_0
-
     # Получаем значение value1 из поля triggerSHEvent
     iget-object v1, v0, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->triggerSHEvent:Lcom/rigol/scope/cil/ServiceEnum$SHEvent;
     iget v2, v1, Lcom/rigol/scope/cil/ServiceEnum$SHEvent;->value1:I
@@ -875,10 +968,6 @@
     
     # Проверяем что экземпляр существует
     if-eqz v0, :cond_0
-
-    # Проверяем, что элементы уже созданы
-    iget-object v1, v0, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->fsb_v1_value:Landroid/widget/TextView;
-    if-eqz v1, :cond_0
 
     # Получаем значение value1 из поля triggerEdgeSlope
     iget-object v1, v0, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->triggerEdgeSlope:Lcom/rigol/scope/cil/ServiceEnum$EdgeSlope;
@@ -906,10 +995,6 @@
     # Проверяем что экземпляр существует
     if-eqz v0, :cond_0
 
-    # Проверяем, что элементы уже созданы
-    iget-object v1, v0, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->fsb_v1_value:Landroid/widget/TextView;
-    if-eqz v1, :cond_0
-
     # Получаем значение value1 из поля triggerSlope
     iget-object v1, v0, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->triggerSlope:Lcom/rigol/scope/cil/ServiceEnum$EdgeSlope;
     iget v2, v1, Lcom/rigol/scope/cil/ServiceEnum$EdgeSlope;->value1:I
@@ -935,10 +1020,6 @@
     
     # Проверяем что экземпляр существует
     if-eqz v0, :cond_0
-
-    # Проверяем, что элементы уже созданы
-    iget-object v1, v0, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->fsb_v1_value:Landroid/widget/TextView;
-    if-eqz v1, :cond_0
 
     # Получаем значение value1 из поля triggerTimeoutSlope
     iget-object v1, v0, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->triggerTimeoutSlope:Lcom/rigol/scope/cil/ServiceEnum$EdgeSlope;
@@ -966,10 +1047,6 @@
     # Проверяем что экземпляр существует
     if-eqz v0, :cond_0
 
-    # Проверяем, что элементы уже созданы
-    iget-object v1, v0, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->fsb_v1_value:Landroid/widget/TextView;
-    if-eqz v1, :cond_0
-
     # Получаем значение value1 из поля triggerOverSlope
     iget-object v1, v0, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->triggerOverSlope:Lcom/rigol/scope/cil/ServiceEnum$EdgeSlope;
     iget v2, v1, Lcom/rigol/scope/cil/ServiceEnum$EdgeSlope;->value1:I
@@ -995,10 +1072,6 @@
     
     # Проверяем что экземпляр существует
     if-eqz v0, :cond_0
-
-    # Проверяем, что элементы уже созданы
-    iget-object v1, v0, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->fsb_v1_value:Landroid/widget/TextView;
-    if-eqz v1, :cond_0
 
     # Получаем значение value1 из поля triggerSetupHoldSlope
     iget-object v1, v0, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->triggerSetupHoldSlope:Lcom/rigol/scope/cil/ServiceEnum$EdgeSlope;
@@ -1026,10 +1099,6 @@
     # Проверяем что экземпляр существует
     if-eqz v0, :cond_0
 
-    # Проверяем, что элементы уже созданы
-    iget-object v1, v0, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->fsb_v1_value:Landroid/widget/TextView;
-    if-eqz v1, :cond_0
-
     # Получаем значение value1 из поля triggerEdgeSlopeA
     iget-object v1, v0, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->triggerEdgeSlopeA:Lcom/rigol/scope/cil/ServiceEnum$EdgeSlope;
     iget v2, v1, Lcom/rigol/scope/cil/ServiceEnum$EdgeSlope;->value1:I
@@ -1055,10 +1124,6 @@
     
     # Проверяем что экземпляр существует
     if-eqz v0, :cond_0
-
-    # Проверяем, что элементы уже созданы
-    iget-object v1, v0, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->fsb_v1_value:Landroid/widget/TextView;
-    if-eqz v1, :cond_0
 
     # Получаем значение value1 из поля triggerNthSlope
     iget-object v1, v0, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->triggerNthSlope:Lcom/rigol/scope/cil/ServiceEnum$EdgeSlope;
@@ -1086,10 +1151,6 @@
     # Проверяем что экземпляр существует
     if-eqz v0, :cond_0
 
-    # Проверяем, что элементы уже созданы
-    iget-object v1, v0, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->fsb_v1_value:Landroid/widget/TextView;
-    if-eqz v1, :cond_0
-
     # Получаем значение value1 из поля triggerEdgeSlopeB
     iget-object v1, v0, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->triggerEdgeSlopeB:Lcom/rigol/scope/cil/ServiceEnum$EdgeSlope;
     iget v2, v1, Lcom/rigol/scope/cil/ServiceEnum$EdgeSlope;->value1:I
@@ -1115,10 +1176,6 @@
     
     # Проверяем что экземпляр существует
     if-eqz v0, :cond_0
-
-    # Проверяем, что элементы уже созданы
-    iget-object v1, v0, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->fsb_v1_value:Landroid/widget/TextView;
-    if-eqz v1, :cond_0
 
     # Получаем значение value1 из поля triggerOverEvent
     iget-object v1, v0, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->triggerOverEvent:Lcom/rigol/scope/cil/ServiceEnum$OverEvent;
@@ -1146,10 +1203,6 @@
     # Проверяем что экземпляр существует
     if-eqz v0, :cond_0
 
-    # Проверяем, что элементы уже созданы
-    iget-object v1, v0, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->fsb_tc_name:Landroid/widget/TextView;
-    if-eqz v1, :cond_0
-
     # Получаем значение номера канала из поля triggerChannel
     iget v1, v0, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->triggerChannel:I
     # Сравниваем значение номера канала с новым значением p0
@@ -1173,6 +1226,10 @@
 .method public setAsqTrigStatusValue(I)V
     .locals 2
     
+    # Проверяем, что элементы уже созданы
+    iget-object v1, p0, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->fsb_v1_value:Landroid/widget/TextView;
+    if-eqz v1, :cond_0
+
     iget-object v0, p0, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->fsb_tstatus_value:Landroid/widget/TextView;
     if-eqz v0, :cond_0
 
@@ -1212,8 +1269,79 @@
     return-void
 .end method
 
+.method public setAsqModeValue(I)V
+    .locals 2
+    
+    # Проверяем, что элементы уже созданы
+    iget-object v1, p0, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->fsb_v1_value:Landroid/widget/TextView;
+    if-eqz v1, :cond_0
+
+    iget-object v0, p0, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->fsb_amode_value:Landroid/widget/TextView;
+    if-eqz v0, :cond_0
+
+    # Проверяем p1
+    packed-switch p1, :pswitch_data_0
+
+    # Если ни одно условие не выполнилось - пишем x
+    const-string v1, "x"
+
+    :cond_exec
+    # Устанавливаем текст
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    :cond_0
+    return-void
+
+    :pswitch_0      # p1 == 0 - Acquire_Normal
+    const-string v1, "N"
+    goto :cond_exec
+
+    :pswitch_1      # p1 == 1 - Acquire_Peak
+    const-string v1, "P"
+    goto :cond_exec
+    
+    :pswitch_2      # p1 == 2 - Acquire_Average
+    const-string v1, "A"
+    goto :cond_exec
+    
+    :pswitch_3      # p1 == 3 - Acquire_HighResolution
+    const-string v1, "H"
+    goto :cond_exec
+    
+    :pswitch_4      # p1 == 4 - Acquire_Envelope
+    const-string v1, "E"
+    goto :cond_exec
+
+    :pswitch_5      # p1 == 5 - Acquire_RMS
+    const-string v1, "R"
+    goto :cond_exec
+    
+    :pswitch_6      # p1 == 6 - Acquire_Equ
+    const-string v1, "Q"
+    goto :cond_exec
+
+    :pswitch_7      # p1 == 7 - Acquire_Ultra
+    const-string v1, "U"
+    goto :cond_exec
+
+    :pswitch_data_0
+    .packed-switch 0x0
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
+        :pswitch_3
+        :pswitch_4
+        :pswitch_5
+        :pswitch_6
+        :pswitch_7
+    .end packed-switch
+.end method
+
 .method public setAsqSampleValue(J)V
     .locals 2
+
+    # Проверяем, что элементы уже созданы
+    iget-object v1, p0, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->fsb_v1_value:Landroid/widget/TextView;
+    if-eqz v1, :cond_0
 
     # Строим строку из значения p1
     const-string v0, "0.00"
@@ -1225,7 +1353,6 @@
 
     iget-object v1, p0, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->fsb_asample_value:Landroid/widget/TextView;
     if-eqz v1, :cond_0
-
     invoke-virtual {v1, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     :cond_0
@@ -1235,6 +1362,10 @@
 .method public setHScaleValue(J)V
     .locals 2
     
+    # Проверяем, что элементы уже созданы
+    iget-object v1, p0, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->fsb_v1_value:Landroid/widget/TextView;
+    if-eqz v1, :cond_0
+
     # Строим строку из значения p1
     sget-object v0, Lcom/rigol/scope/utilities/UnitFormat$SI;->FEMTO:Lcom/rigol/scope/utilities/UnitFormat$SI;
     invoke-static {v0}, Lcom/rigol/scope/utilities/UnitFormat;->newBuilder(Lcom/rigol/scope/utilities/UnitFormat$SI;)Lcom/rigol/scope/utilities/UnitFormat;
@@ -1252,9 +1383,36 @@
     return-void
 .end method
 
+.method public setAsqDepthValue(J)V
+    .locals 2
+    
+    # Проверяем, что элементы уже созданы
+    iget-object v1, p0, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->fsb_v1_value:Landroid/widget/TextView;
+    if-eqz v1, :cond_0
+
+    # Строим строку из значения p1
+    const-string v0, "0.00"
+    invoke-static {v0}, Lcom/rigol/scope/utilities/UnitFormat;->newBuilder(Ljava/lang/String;)Lcom/rigol/scope/utilities/UnitFormat;
+    move-result-object v0
+    sget-object v1, Lcom/rigol/scope/cil/ServiceEnum$Unit;->Unit_Pts:Lcom/rigol/scope/cil/ServiceEnum$Unit;
+    invoke-virtual {v0, p1, p2, v1}, Lcom/rigol/scope/utilities/UnitFormat;->convert(JLcom/rigol/scope/cil/ServiceEnum$Unit;)Ljava/lang/String;
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->fsb_adepth_value:Landroid/widget/TextView;
+    if-eqz v1, :cond_0
+    invoke-virtual {v1, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    :cond_0
+    return-void
+.end method
+
 .method public setVxStatus(II)V
     .locals 4
     # p1 - номер канала, p2 - статус канала
+
+    # Проверяем, что элементы уже созданы
+    iget-object v1, p0, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->fsb_v1_value:Landroid/widget/TextView;
+    if-eqz v1, :cond_0
 
     # Проверяем номер канала
     # Проверяем p1 == 1 - chan1
@@ -1333,10 +1491,88 @@
     return-void
 .end method
 
+.method public setVxCoupling(II)V
+    .locals 4
+    # p1 - номер канала, p2 - связь канала
+
+    # Проверяем, что элементы уже созданы
+    iget-object v1, p0, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->fsb_v1_coup_icon:Landroid/widget/ImageView;
+    if-eqz v1, :cond_0
+
+    # Проверяем номер канала
+    # Проверяем p1 == 1 - chan1
+    const/4 v1, 0x1
+    if-ne p1, v1, :cond_1
+    iget-object v0, p0, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->fsb_v1_coup_icon:Landroid/widget/ImageView;
+    goto :goto_4
+    :cond_1
+
+    # Проверяем p1 == 2 - chan2
+    const/4 v1, 0x2
+    if-ne p1, v1, :cond_2
+    iget-object v0, p0, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->fsb_v2_coup_icon:Landroid/widget/ImageView;
+    goto :goto_4
+
+
+    :cond_2
+    # Проверяем p1 == 3 - chan3
+    const/4 v1, 0x3
+    if-ne p1, v1, :cond_3
+    iget-object v0, p0, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->fsb_v3_coup_icon:Landroid/widget/ImageView;
+    goto :goto_4
+
+
+    :cond_3
+    # Проверяем p1 == 4 - chan4
+    const/4 v1, 0x4
+    if-ne p1, v1, :cond_0
+    iget-object v0, p0, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->fsb_v4_coup_icon:Landroid/widget/ImageView;
+    
+
+    :goto_4
+    if-eqz v0, :cond_0
+
+    # Проверяем связь канала
+    # Проверяем p2 == 0 - DC
+    const/4 v1, 0x0
+    if-ne p2, v1, :cond_5
+    sget v1, Lcom/rigol/scope/R$drawable;->ic_coupling_dc:I
+    goto :goto_5
+
+    :cond_5
+    # Проверяем p2 == 1 - AC
+    const/4 v1, 0x1
+    if-ne p2, v1, :cond_6
+    sget v1, Lcom/rigol/scope/R$drawable;->ic_coupling_ac:I
+    goto :goto_5
+
+    :cond_6
+    # Проверяем p2 == 2 - GND
+    const/4 v1, 0x2
+    if-ne p2, v1, :cond_7
+    sget v1, Lcom/rigol/scope/R$drawable;->ic_coupling_gnd:I
+    goto :goto_5
+
+    :cond_7
+    # Если ничего из вышеперечисленного, то устанавливаем DC
+    sget v1, Lcom/rigol/scope/R$drawable;->ic_coupling_dc:I
+
+    :goto_5
+    # Устанавливаем иконку
+    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageResource(I)V
+
+    :cond_0
+    return-void
+.end method
+
 .method public setVxValue(I)V
     .locals 5
-    
+   
     # p1 - номер канала
+
+    # Проверяем, что элементы уже созданы
+    iget-object v1, p0, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->fsb_v1_value:Landroid/widget/TextView;
+    if-eqz v1, :cond_0
 
     const v0, 0x0
     # Проверяем номер канала
@@ -1400,6 +1636,10 @@
 .method public setTriggerIcon()V
     .locals 15
     
+    # Проверяем, что элементы уже созданы
+    iget-object v1, p0, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->fsb_v1_value:Landroid/widget/TextView;
+    if-eqz v1, :cond_0
+
     # Получаем ссылку на TriggerParam
     iget-object v0, p0, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->triggerParam:Lcom/rigol/scope/data/TriggerParam;
     if-eqz v0, :cond_0
@@ -1424,11 +1664,6 @@
     invoke-virtual/range {v0 .. v14}, Lcom/rigol/scope/data/TriggerParam;->getTriggerViewDisplay(Lcom/rigol/scope/cil/ServiceEnum$TriggerMode;Lcom/rigol/scope/cil/ServiceEnum$TriggerPulsePolarity;Lcom/rigol/scope/cil/ServiceEnum$TriggerPulsePolarity;Lcom/rigol/scope/cil/ServiceEnum$SHEvent;Lcom/rigol/scope/cil/ServiceEnum$EdgeSlope;Lcom/rigol/scope/cil/ServiceEnum$EdgeSlope;Lcom/rigol/scope/cil/ServiceEnum$EdgeSlope;Lcom/rigol/scope/cil/ServiceEnum$EdgeSlope;Lcom/rigol/scope/cil/ServiceEnum$OverEvent;Lcom/rigol/scope/cil/ServiceEnum$EdgeSlope;Lcom/rigol/scope/cil/ServiceEnum$EdgeSlope;Lcom/rigol/scope/cil/ServiceEnum$TriggerPulsePolarity;Lcom/rigol/scope/cil/ServiceEnum$EdgeSlope;Lcom/rigol/scope/cil/ServiceEnum$EdgeSlope;)I
     move-result v0
 
-# change changed
-    const-string v2, "== TriggerParam setTriggerIcon == id: "
-    invoke-static {v2, v0}, Lcom/rigol/scope/App;->axxxLogOut(Ljava/lang/String;I)V
-# /change changed
-
     # Устанавливаем иконку
     iget-object v1, p0, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->fsb_t_icon:Landroid/widget/ImageView;
     invoke-virtual {v1, v0}, Landroid/widget/ImageView;->setImageResource(I)V
@@ -1440,6 +1675,10 @@
 .method public setTriggerChannelName()V 
     .locals 5
     
+    # Проверяем, что элементы уже созданы
+    iget-object v1, p0, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->fsb_v1_value:Landroid/widget/TextView;
+    if-eqz v1, :cond_0
+
     # Получаем значение номера канала из поля triggerChannel
     .line 2000
     iget v0, p0, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->triggerChannel:I

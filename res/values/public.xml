@@ -16262,7 +16262,10 @@
     <public type="id" name="fsb_v3_value" id="0x7f0a100c" />
     <public type="id" name="fsb_v4_title" id="0x7f0a100d" />
     <public type="id" name="fsb_v4_value" id="0x7f0a100e" />
-
+    <public type="id" name="fsb_v1_coup_icon" id="0x7f0a1019" />
+    <public type="id" name="fsb_v2_coup_icon" id="0x7f0a101a" />
+    <public type="id" name="fsb_v3_coup_icon" id="0x7f0a101b" />
+    <public type="id" name="fsb_v4_coup_icon" id="0x7f0a101c" />
     <public type="id" name="window_title_info" id="0x7f0a1010" />
 
     <public type="id" name="hide_switch" id="0x7f0a1018" />
