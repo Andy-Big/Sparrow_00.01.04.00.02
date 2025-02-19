@@ -14,7 +14,7 @@
 
 #### *Выражаю благодарность всем участникам темы на форумах EEvblog и 4PDA за помощь, подсказки и советы - [https://www.eevblog.com/forum/testgear/hacking-the-rigol-dho800900-scope](https://www.eevblog.com/forum/testgear/hacking-the-rigol-dho800900-scope) , [https://4pda.to/forum/index.php?showtopic=1080959](https://4pda.to/forum/index.php?showtopic=1080959)*
 
-Если вам понравился этот проект, то вы можете поддержать его 300 рублями через ЮМани по [вот этой ссылке](https://yoomoney.ru/quickpay/fundraise/button?billNumber=17P19CIPI3F.250114&)
+Если вам понравился этот проект, то вы можете поддержать его развитие через ЮМани по [вот этой ссылке](https://yoomoney.ru/fundraise/17P19CIPI3F.250114)
 
 Telegram: [@Rigol DHO800/DHO900 mod](https://t.me/rigol_dho800_mod)
 
