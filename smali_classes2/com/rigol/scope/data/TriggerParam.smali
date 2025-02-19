@@ -35060,6 +35060,11 @@
     .line 3803
     iput-object p1, p0, Lcom/rigol/scope/data/TriggerParam;->chan:Lcom/rigol/scope/cil/ServiceEnum$Chan;
 
+# change added
+    iget v0, p1, Lcom/rigol/scope/cil/ServiceEnum$Chan;->value1:I
+    invoke-static {v0}, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->onChangedTriggerChannel(I)V
+# /change added
+
     .line 3805
     invoke-virtual {p0}, Lcom/rigol/scope/data/TriggerParam;->updateChanScaleOffset()V
 

@@ -22,6 +22,7 @@ Telegram: [@Rigol DHO800/DHO900 mod](https://t.me/rigol_dho800_mod)
 
 * [Главное](#главное)
 * [Установка](#установка)
+* [Обновление версии уже установленного модифицированного приложения](#обновление-версии-уже-установленного-модифицированного-приложения)
 * [История изменений](#история-изменений)
 * [Скриншоты](#скриншоты)
 
@@ -37,6 +38,7 @@ Telegram: [@Rigol DHO800/DHO900 mod](https://t.me/rigol_dho800_mod)
 * Исправлены ошибки производителя:
   * после включения осциллографа яркость курсоров устанавливается на 100%, независимо от настроенного ранее значения, яркость приводится к настройкам только при открытии окна настроек дисплея
   * иконка режимов триггера в верхней панели не соответствовала выбранному режиму в некоторых случаях
+  * приложение всегда запускается с яркостью дисплея 100%, независимо от настроенного ранее значения
 * У стрелок раскрытия и закрытия пунктов результатов измерений увеличена область чувствительности к нажатию. Теперь раскрыть и закрыть пункт гораздо проще.
 * Раскрытые пункты результатов измерений изменены на табличный вид: имя параметра и слева от него значение этого параметра. Это уменьшило высоту раскрытого пункта, позволив видеть одновременно до трех раскрытых пунктов. У значений так же немного увеличен шрифт для более легкой читаемости.
 * Пункты результатов измерений на панели слева уменьшены по высоте для того чтобы можно было видеть большее количество измерений одновременно. Кроме того, немного увеличен шрифт значений измерений для более легкой читаемости.
@@ -144,7 +146,7 @@ Telegram: [@Rigol DHO800/DHO900 mod](https://t.me/rigol_dho800_mod)
 Приложение на осциллографе должно закрыться и должен быть выдан ответ об успешности:  
 *Success*  
 
-Установите модифицированное приложение:  
+Установите новую версию модифицированного приложения:  
 ***adb install -g -r Sparrow_aXXX.apk***  
 (или ***adb install -g -r Sparrow_aXXX_u.apk*** если вы устанавливаете на непропатченную систему)  
 Это может занять довольно много времени, но в итоге должен быть выдан ответ об успешности:  
@@ -153,7 +155,27 @@ Telegram: [@Rigol DHO800/DHO900 mod](https://t.me/rigol_dho800_mod)
 
 Приложение осциллографа должно само запуститься в течении 5-20 сек, но если не запускается - просто выключите осциллограф длительным нажатием кнопки питания (или выдернув коннектор питания) и включите снова.
 
+# Обновление версии уже установленного модифицированного приложения
+
+Если у Вас уже установлено это модифицированное приложение и Вы хотите обновить его до новой версии, то достаточно всего пары шагов.
+
+Подключите ADB к устройству по его IP-адресу (подставьте адрес своего осциллографа вместо 192.168.1.41):  
+***adb connect 192.168.1.41:55555***  
+В ответ ADB должен сообщить об успешном подключении:
+*connected to 192.168.1.41:55555*
+Или о том, что он уже подключен:
+*already connected to 192.168.1.41:55555*
+
+Установите модифицированное приложение:  
+***adb install -g -r Sparrow_aXXX.apk***  
+(или ***adb install -g -r Sparrow_aXXX_u.apk*** если вы устанавливаете на непропатченную систему)  
+
 # История изменений
+
+#### **a008** 19.02.2025
+
+* исправлена ошибка предыдущего релиза: в полноэкранной инфопанели канал триггера не менялся в соответствии с настройкой
+* исправлен баг Rigol: после включения осциллографа яркость дисплея устанавливается на 100%, независимо от настроенного ранее значения
 
 #### **a007** 18.02.2025
 
@@ -274,6 +296,7 @@ Telegram: [@Rigol DHO800/DHO900 mod](https://t.me/rigol_dho800_mod)
 
 * [Main](#main)
 * [Installation](#installation)
+* [Update of an already installed modified application](#update-of-an-already-installed-modified-application)
 * [Change History](#change-history)
 * [Screenshots](#screenshots)
 
@@ -405,7 +428,30 @@ This might take quite some time, but eventually should give a success response:
 
 The oscilloscope application should start itself within 5-20 seconds, but if it doesn't start - just turn off the oscilloscope by long-pressing the power button (or unplugging the power connector) and turn it on again.
 
+# Update of an already installed modified application
+
+If you already have this modified application installed and you want to update it to a new version, then it's enough to follow just a couple of steps.
+
+Connect ADB to the device by its IP address (replace 192.168.1.41 with your oscilloscope's address):  
+***adb connect 192.168.1.41:55555***  
+ADB should respond with successful connection:  
+*connected to 192.168.1.41:55555*  
+Or that it's already connected:  
+*already connected to 192.168.1.41:55555*  
+
+Install the new version of the modified application:  
+***adb install -g -r Sparrow_aXXX.apk***  
+(or ***adb install -g -r Sparrow_aXXX_u.apk*** if you're installing on unpatched system)  
+This might take quite some time, but eventually should give a success response:  
+*Performing Streamed Install*  
+*Success*  
+
 # Change History
+
+#### **a008** 19.02.2025
+
+* fixed a bug from the previous release: the trigger channel in the full-screen information panel did not change according to the setting
+* fixed a Rigol bug: after turning on the oscilloscope, the display brightness is set to 100%, regardless of the previously configured value
 
 #### **a007** 18.02.2025
 
