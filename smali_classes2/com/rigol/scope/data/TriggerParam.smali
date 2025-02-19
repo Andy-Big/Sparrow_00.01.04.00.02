@@ -13812,6 +13812,21 @@
 .end method
 
 # Inform: получение иконки триггера (?)
+# параметры:
+# p1 - triggerMode
+# p2 - triggerVideoPolarity
+# p3 - triggerRuntPolarity
+# p4 - triggerSHEvent
+# p5 - triggerEdgeSlope
+# p6 - triggerSlope
+# p7 - triggerTimeoutSlope
+# p8 - triggerOverSlope
+# p9 - triggerOverEvent
+# p10 - triggerSetupHoldSlope
+# p11 - triggerNthSlope
+# p12 - triggerPolarity
+# p13 - triggerEdgeSlopeA
+# p14 - triggerEdgeSlopeB
 .method public getTriggerViewDisplay(Lcom/rigol/scope/cil/ServiceEnum$TriggerMode;Lcom/rigol/scope/cil/ServiceEnum$TriggerPulsePolarity;Lcom/rigol/scope/cil/ServiceEnum$TriggerPulsePolarity;Lcom/rigol/scope/cil/ServiceEnum$SHEvent;Lcom/rigol/scope/cil/ServiceEnum$EdgeSlope;Lcom/rigol/scope/cil/ServiceEnum$EdgeSlope;Lcom/rigol/scope/cil/ServiceEnum$EdgeSlope;Lcom/rigol/scope/cil/ServiceEnum$EdgeSlope;Lcom/rigol/scope/cil/ServiceEnum$OverEvent;Lcom/rigol/scope/cil/ServiceEnum$EdgeSlope;Lcom/rigol/scope/cil/ServiceEnum$EdgeSlope;Lcom/rigol/scope/cil/ServiceEnum$TriggerPulsePolarity;Lcom/rigol/scope/cil/ServiceEnum$EdgeSlope;Lcom/rigol/scope/cil/ServiceEnum$EdgeSlope;)I
     .locals 9
 
@@ -13973,6 +13988,7 @@
     goto/16 :goto_0
 
     .line 4207
+# Delay
     :pswitch_a
     sget-object v0, Lcom/rigol/scope/cil/ServiceEnum$EdgeSlope;->Trigger_Edge_Rising:Lcom/rigol/scope/cil/ServiceEnum$EdgeSlope;
 
