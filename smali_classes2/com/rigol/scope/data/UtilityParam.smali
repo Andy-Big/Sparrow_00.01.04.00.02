@@ -454,8 +454,9 @@
     return-object v0
 .end method
 
+# Inform: получение яркости дисплея
 .method public final getDisplayBrightness()I
-    .locals 1
+    .locals 2
     .annotation runtime Landroidx/databinding/Bindable;
     .end annotation
 
@@ -1351,8 +1352,11 @@
     return v0
 .end method
 
-.method public final readScreenBrightness()I
-    .locals 1
+# Inform: оригинальное чтение яркости дисплея
+# change changed
+.method public final readScreenBrightness_()I
+# /change changed
+    .locals 2
 
     const/16 v0, 0x576f
 
@@ -1368,6 +1372,30 @@
 
     return v0
 .end method
+
+# change added
+# Inform: модифицированное чтение яркости дисплея
+.method public final readScreenBrightness()I
+    .locals 3
+
+    # Читаем яркость дисплея из app preferences
+    invoke-static {}, Lcom/blankj/utilcode/util/SPUtils;->getInstance()Lcom/blankj/utilcode/util/SPUtils;
+    move-result-object v0
+    const-string v1, "display_brightness"
+    const/16 v2, 0x64
+    invoke-virtual {v0, v1, v2}, Lcom/blankj/utilcode/util/SPUtils;->getInt(Ljava/lang/String;I)I
+    move-result v0
+
+    # Устанавливаем яркость дисплея
+    invoke-virtual {p0, v0}, Lcom/rigol/scope/data/UtilityParam;->setDisplayBrightness(I)V
+
+    # Читаем яркость дисплея из поля
+    iget v0, p0, Lcom/rigol/scope/data/UtilityParam;->displayBrightness:I
+
+    return v0
+.end method
+# /change added
+
 
 .method public final readScreenPicture()Ljava/lang/String;
     .locals 1
@@ -1962,8 +1990,11 @@
     return-void
 .end method
 
-.method public final saveScreenBrightness(I)V
-    .locals 1
+# Inform: оригинальное сохранение яркости дисплея
+# change changed
+.method public final saveScreenBrightness_(I)V
+# /change changed
+    .locals 2
 
     .line 753
     invoke-virtual {p0, p1}, Lcom/rigol/scope/data/UtilityParam;->setDisplayBrightness(I)V
@@ -1975,6 +2006,29 @@
 
     return-void
 .end method
+
+
+# change added
+# Inform: модифицированноесохранение яркости дисплея
+.method public final saveScreenBrightness(I)V
+    .locals 2
+
+    # Устанавливаем яркость дисплея
+    invoke-virtual {p0, p1}, Lcom/rigol/scope/data/UtilityParam;->setDisplayBrightness(I)V
+
+    # Сохранение яркости дисплея в app preferences
+    invoke-static {}, Lcom/blankj/utilcode/util/SPUtils;->getInstance()Lcom/blankj/utilcode/util/SPUtils;
+    move-result-object v0
+    const-string v1, "display_brightness"
+    invoke-virtual {v0, v1, p1}, Lcom/blankj/utilcode/util/SPUtils;->put(Ljava/lang/String;I)V
+
+    # Передаем значение яркости дисплея в библиотеку для фактической установки яркости дисплея
+    const/16 v0, 0x576f
+    invoke-virtual {p0, v0, p1}, Lcom/rigol/scope/data/UtilityParam;->saveInt(II)I
+
+    return-void
+.end method
+# /change added
 
 .method public final saveScreenPicture(Ljava/lang/String;)V
     .locals 1
@@ -2258,6 +2312,7 @@
     return-void
 .end method
 
+# Inform: установка яркости дисплея
 .method public final setDisplayBrightness(I)V
     .locals 3
 

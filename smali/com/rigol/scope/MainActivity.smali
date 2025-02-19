@@ -1788,6 +1788,15 @@
 
     if-eqz v4, :cond_1
 
+# change added
+# Inform: выставляем яркость дисплея
+    # Читаем яркость дисплея из app preferences
+    invoke-virtual {v4}, Lcom/rigol/scope/data/UtilityParam;->readScreenBrightness()I
+    move-result v8
+    # Сохраняем яркость дисплея в app preferences заодно передавая ее в библиотеку для фактической установки яркости дисплея
+    invoke-virtual {v4, v8}, Lcom/rigol/scope/data/UtilityParam;->saveScreenBrightness(I)V
+# /change added
+
     .line 330
     new-instance v7, Ljava/lang/StringBuilder;
 

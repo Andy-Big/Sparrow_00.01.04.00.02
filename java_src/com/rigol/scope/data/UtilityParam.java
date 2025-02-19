@@ -193,11 +193,13 @@ public final class UtilityParam extends BaseParam {
         notifyPropertyChanged(781);
     }
 
+// Inform: получение яркости дисплея
     @Bindable
     public final int getDisplayBrightness() {
         return this.displayBrightness;
     }
 
+// Inform: установка яркости дисплея
     public final void setDisplayBrightness(int i) {
         log("zbdLed", Integer.valueOf(this.displayBrightness), Integer.valueOf(i));
         this.displayBrightness = i;
@@ -691,11 +693,13 @@ public final class UtilityParam extends BaseParam {
         return this.screenSelect;
     }
 
+// Inform: чтение яркости дисплея
     public final int readScreenBrightness() {
         setDisplayBrightness(readInt(MessageID.MSG_APP_UTILITY_DISPLAY_BRIGHTNESS));
         return this.displayBrightness;
     }
 
+// Inform: устсохранение яркости дисплея
     public final void saveScreenBrightness(int i) {
         setDisplayBrightness(i);
         saveInt(MessageID.MSG_APP_UTILITY_DISPLAY_BRIGHTNESS, i);
