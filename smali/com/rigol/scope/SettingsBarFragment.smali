@@ -232,6 +232,7 @@
     return v0
 .end method
 
+# Inform: Открытие главного меню
 .method static synthetic lambda$onCreateView$4(Landroid/view/View;)V
     .locals 1
 

@@ -154,6 +154,7 @@ public class WaveformLayout extends ConstraintLayout {
             super.onShowPress(motionEvent);
         }
 
+// Inform: Длинное нажатие в окне сигналов
         @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
         public void onLongPress(MotionEvent motionEvent) {
             VerticalParam defaultItem = ViewUtil.getDefaultItem(WaveformLayout.this.verticalParams);

@@ -354,6 +354,7 @@ public class SettingsBarFragment extends BaseFragment implements View.OnClickLis
         this.updateTimeHandler.sendEmptyMessage(1);
     }
 
+// Inform: Открытие главного меню
     /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.-$$Lambda$SettingsBarFragment$ZBma4YPC1a5lNbWe1b9bVovsjCc.onClick(android.view.View):void] */
     static /* synthetic */ void lambda$onCreateView$4(View view) {
         PopupViewManager.getInstance().toggle(StartMenuPopupView.class);

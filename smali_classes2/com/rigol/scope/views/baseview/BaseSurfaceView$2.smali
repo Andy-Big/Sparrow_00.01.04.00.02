@@ -33,7 +33,7 @@
 
 # virtual methods
 .method public onContextClick(Landroid/view/MotionEvent;)Z
-    .locals 0
+    .locals 1
 
     .line 503
     invoke-super {p0, p1}, Landroid/view/GestureDetector$SimpleOnGestureListener;->onContextClick(Landroid/view/MotionEvent;)Z
@@ -44,7 +44,7 @@
 .end method
 
 .method public onDoubleTap(Landroid/view/MotionEvent;)Z
-    .locals 1
+    .locals 2
 
     .line 463
     iget-object v0, p0, Lcom/rigol/scope/views/baseview/BaseSurfaceView$2;->this$0:Lcom/rigol/scope/views/baseview/BaseSurfaceView;
@@ -65,6 +65,14 @@
     invoke-super {p0, p1}, Landroid/view/GestureDetector$SimpleOnGestureListener;->onDoubleTap(Landroid/view/MotionEvent;)Z
 
     move-result p1
+
+# change added
+# Inform: Обработка двойного нажатия в окне сигналов
+    invoke-static {}, Lcom/rigol/scope/utilities/PopupViewManager;->getInstance()Lcom/rigol/scope/utilities/PopupViewManager;
+    move-result-object v0
+    const-class v1, Lcom/rigol/scope/views/startMenu/StartMenuPopupView;
+    invoke-virtual {v0, v1}, Lcom/rigol/scope/utilities/PopupViewManager;->toggle(Ljava/lang/Class;)V
+# /change added
 
     return p1
 .end method

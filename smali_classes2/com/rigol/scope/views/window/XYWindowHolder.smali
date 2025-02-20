@@ -118,6 +118,15 @@
     .line 1071
     invoke-virtual {v0, p2}, Lcom/rigol/scope/views/baseview/BaseSurfaceView;->setParam(Lcom/rigol/scope/data/WindowParam;)V
 
+# change added
+# Inform: добавляем слушатель жестов GestureListener в окно XYWindow
+    .line 707
+    new-instance v1, Lcom/rigol/scope/views/window/XYWindowHolder$$special$$inlined$apply$lambda$3;
+    invoke-direct {v1, v0, p0, p2}, Lcom/rigol/scope/views/window/XYWindowHolder$$special$$inlined$apply$lambda$3;-><init>(Lcom/rigol/scope/views/baseview/BaseSurfaceView;Lcom/rigol/scope/views/window/XYWindowHolder;Lcom/rigol/scope/data/WindowParam;)V
+    check-cast v1, Landroid/view/GestureDetector$SimpleOnGestureListener;
+    invoke-virtual {v0, v1}, Lcom/rigol/scope/views/baseview/BaseSurfaceView;->setGestureListener(Landroid/view/GestureDetector$SimpleOnGestureListener;)V
+# /change added
+
     .line 1072
     sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
