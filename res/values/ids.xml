@@ -2792,7 +2792,7 @@
     <item type="id" name="fsb_v3_coup_icon" />
     <item type="id" name="fsb_v4_coup_icon" />
 
-    <item type="id" name="hide_switch" />
+    <item type="id" name="vertical_hide_switch" />
 
     <item type="id" name="window_title_info" />
 

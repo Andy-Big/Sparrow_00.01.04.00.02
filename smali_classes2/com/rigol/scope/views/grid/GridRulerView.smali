@@ -2051,9 +2051,10 @@
     .line 382
     iget-boolean p3, p0, Lcom/rigol/scope/views/grid/GridRulerView;->fromStart:Z
 
-# change add
+# change added
+# Inform: рисовать значение вертикальной шкалы только по левой стороне
     const p3, 1
-# /change
+# /change added
 
     if-eqz p3, :cond_1
 
@@ -2098,9 +2099,10 @@
     .line 390
     iget-boolean p3, p0, Lcom/rigol/scope/views/grid/GridRulerView;->fromStart:Z
 
- # change add
+ # change added
+# Inform: рисовать значение вертикальной шкалы только по левой стороне
     const p3, 1
-# /change
+# /change added
 
    if-eqz p3, :cond_3
 
@@ -2136,9 +2138,10 @@
     :cond_4
     iget-boolean p3, p0, Lcom/rigol/scope/views/grid/GridRulerView;->fromStart:Z
 
-# change add
+# change added
+# Inform: рисовать значение вертикальной шкалы только по левой стороне
     const p3, 1
-# /change
+# /change added
 
     if-eqz p3, :cond_5
 

@@ -22,6 +22,7 @@
 .end method
 
 
+# Inform: Метод сохранения текста метки канала после закрытия клавиатуры
 # virtual methods
 .method public final resultShow(Ljava/lang/String;)V
     .locals 1

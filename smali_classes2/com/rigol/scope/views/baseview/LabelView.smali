@@ -44,7 +44,7 @@
 
 # change added
 .field private isDrawing:Z
-# /change
+# /change added
 
 
 
@@ -63,7 +63,7 @@
 # change added
     const/4 v0, 0x0
     iput-boolean v0, p0, Lcom/rigol/scope/views/baseview/LabelView;->isDrawing:Z
-# /change
+# /change added
 
 
     .line 52
@@ -91,7 +91,7 @@
 
 # change removed
     #invoke-virtual {p0, p1, p1, p1, p2}, Lcom/rigol/scope/views/baseview/LabelView;->setShadowLayer(FFFI)V
-# /change
+# /change removed
 
     return-void
 .end method
@@ -184,4 +184,4 @@
 
     return-void
 .end method
-# /change
+# /change added

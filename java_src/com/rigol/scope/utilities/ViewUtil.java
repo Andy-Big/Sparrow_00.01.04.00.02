@@ -600,6 +600,7 @@ public class ViewUtil {
         path.reset();
     }
 
+    // Inform: настройка вида переключателей On/Off
     public static void setSwitchButton(SwitchButton switchButton) {
         switchButton.setTrackDrawable("OFF", "ON");
         switchButton.setTextOff("OFF");

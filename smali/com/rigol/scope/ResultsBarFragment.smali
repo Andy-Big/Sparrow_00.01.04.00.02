@@ -1453,7 +1453,7 @@
 # change changed
 .method public synthetic lambda$showQuickPopupView$10$ResultsBarFragment_(Lcom/rigol/scope/views/baseview/BasePopupView;Landroid/view/View;ILcom/rigol/scope/viewmodels/SharedViewModel;Landroid/view/View;Landroidx/recyclerview/widget/RecyclerView$ViewHolder;ILcom/rigol/scope/data/MappingObject;)V
 #.method public synthetic lambda$showQuickPopupView$10$ResultsBarFragment(Lcom/rigol/scope/views/baseview/BasePopupView;Landroid/view/View;ILcom/rigol/scope/viewmodels/SharedViewModel;Landroid/view/View;Landroidx/recyclerview/widget/RecyclerView$ViewHolder;ILcom/rigol/scope/data/MappingObject;)V
-# /changed
+# /change changed
     .locals 0
 
     if-nez p8, :cond_0
@@ -1753,7 +1753,7 @@
         :pswitch_6  # CH_NAMES - новый пункт
     .end packed-switch
 .end method
-# /changed
+# /change added
 
 
 .method public synthetic lambda$showQuickPopupView$11$ResultsBarFragment(Lcom/rigol/scope/views/baseview/BasePopupView;Landroid/view/View;ILandroid/view/View;Landroidx/recyclerview/widget/RecyclerView$ViewHolder;ILcom/rigol/scope/data/MappingObject;)V
@@ -2459,10 +2459,7 @@
 .end method
 
 .method public onViewCreated(Landroid/view/View;Landroid/os/Bundle;)V
-# change
     .locals 2
-    #.locals 4
-# /change
 
     .line 119
     invoke-super {p0, p1, p2}, Lcom/rigol/scope/BaseFragment;->onViewCreated(Landroid/view/View;Landroid/os/Bundle;)V

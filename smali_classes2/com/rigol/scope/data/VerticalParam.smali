@@ -2651,7 +2651,7 @@
     iget v1, p1, Lcom/rigol/scope/cil/ServiceEnum$Coupling;->value1:I
     # Вызываем метод из FullscreenBarFragment для изменения связи канала
     invoke-static {v0, v1}, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->onChangedChanCoupling(II)V
-# /change
+# /change added
 
     const-string v0, "value"
 
@@ -4000,7 +4000,7 @@
     iget-object v0, p0, Lcom/rigol/scope/data/VerticalParam;->chan:Lcom/rigol/scope/cil/ServiceEnum$Chan;
     # Вызываем метод из FullscreenBarFragment для изменения масштаба канала
     invoke-static {v0, p1, p2}, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->onChangedChanScale(Lcom/rigol/scope/cil/ServiceEnum$Chan;J)V
-# /change
+# /change added
 
     .line 434
     new-instance v0, Ljava/lang/StringBuilder;
@@ -4130,7 +4130,7 @@
 # Inform: получаем значение chan и вызываем метод из FullscreenBarFragment для изменения состояния канала
     iget-object v0, p0, Lcom/rigol/scope/data/VerticalParam;->chan:Lcom/rigol/scope/cil/ServiceEnum$Chan;
     invoke-static {v0, p1}, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->onChangedChanStatus(Lcom/rigol/scope/cil/ServiceEnum$Chan;Lcom/rigol/scope/cil/ServiceEnum$enChanStatus;)V
-# /change
+# /change added
 
     const-string v0, "value"
 
@@ -4190,7 +4190,7 @@
     iget-object v0, p0, Lcom/rigol/scope/data/VerticalParam;->chan:Lcom/rigol/scope/cil/ServiceEnum$Chan;
     # Вызываем метод из FullscreenBarFragment для изменения единиц измерения канала
     invoke-static {v0, p1}, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->onChangedChanUnit(Lcom/rigol/scope/cil/ServiceEnum$Chan;Lcom/rigol/scope/cil/ServiceEnum$Unit;)V
-# /change
+# /change added
 
     const-string v0, "value"
 

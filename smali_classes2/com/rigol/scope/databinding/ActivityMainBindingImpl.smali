@@ -74,7 +74,8 @@
 
 # change changed
     const/16 v2, 0xb
-#    const/16 v2, 0x9
+#    const/16 v2, 0x9    # original
+# /change changed
 
     invoke-static {p1, p2, v2, v0, v1}, Lcom/rigol/scope/databinding/ActivityMainBindingImpl;->mapBindings(Landroidx/databinding/DataBindingComponent;Landroid/view/View;ILandroidx/databinding/ViewDataBinding$IncludedLayouts;Landroid/util/SparseIntArray;)[Ljava/lang/Object;
 
@@ -90,7 +91,7 @@
 
 # change deleted
 #    move-object v12, p0
-# /change
+# /change deleted
 
     const/16 v0, 0xa
 
@@ -165,10 +166,7 @@
 
     move-object v2, p2
 
-# change changed
     invoke-direct/range {v0 .. v11}, Lcom/rigol/scope/databinding/ActivityMainBinding;-><init>(Ljava/lang/Object;Landroid/view/View;ILandroid/widget/ImageView;Landroidx/constraintlayout/widget/ConstraintLayout;Landroidx/fragment/app/FragmentContainerView;Landroid/widget/ImageView;Landroidx/fragment/app/FragmentContainerView;Landroid/widget/ImageView;Landroidx/fragment/app/FragmentContainerView;Landroidx/fragment/app/FragmentContainerView;)V
-#    invoke-direct/range {v0 .. v11}, Lcom/rigol/scope/databinding/ActivityMainBinding;-><init>(Ljava/lang/Object;Landroid/view/View;ILandroid/widget/ImageView;Landroidx/constraintlayout/widget/ConstraintLayout;Landroidx/fragment/app/FragmentContainerView;Landroid/widget/ImageView;Landroidx/fragment/app/FragmentContainerView;Landroid/widget/ImageView;Landroidx/fragment/app/FragmentContainerView;Landroidx/fragment/app/FragmentContainerView;)V
-
 
 # change added
 # Inform: инициализация иконки разворачивания на весь экран
@@ -187,7 +185,7 @@
 
     .line 5036
     invoke-virtual {p0, v1, v2}, Lcom/rigol/scope/databinding/ActivityMainBindingImpl;->init1(Landroid/widget/ImageView;Landroidx/fragment/app/FragmentContainerView;)V
-# /change
+# /change added
 
 
 
@@ -195,7 +193,7 @@
 
 # change added
     move-object v12, p0
-# /change
+# /change added
 
 
     const-wide/16 v0, -0x1
@@ -249,7 +247,7 @@
     .line 5038
     iget-object v0, v12, Lcom/rigol/scope/databinding/ActivityMainBindingImpl;->fullscreen_bar:Landroidx/fragment/app/FragmentContainerView;
     invoke-virtual {v0, v1}, Landroidx/fragment/app/FragmentContainerView;->setTag(Ljava/lang/Object;)V
-# /change
+# /change added
 
 
     .line 50

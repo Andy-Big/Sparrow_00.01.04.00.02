@@ -1,5 +1,7 @@
 package com.rigol.scope.views;
 
+// Inform: текстовая клавиатура
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.res.AssetFileDescriptor;

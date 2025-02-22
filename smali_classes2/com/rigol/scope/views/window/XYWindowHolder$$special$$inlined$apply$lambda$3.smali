@@ -1,5 +1,5 @@
 # change added
-# Inform: методы слушателя жестов GestureListener в окне XYWindow
+# Inform: методы слушателя жестов GestureListener в окне XYWindow, сама обработка производится в родительском классе
 .class public final Lcom/rigol/scope/views/window/XYWindowHolder$$special$$inlined$apply$lambda$3;
 .super Landroid/view/GestureDetector$SimpleOnGestureListener;
 .source "WindowHolder.kt"

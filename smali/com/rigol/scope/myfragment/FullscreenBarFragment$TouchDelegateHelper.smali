@@ -27,7 +27,7 @@
     invoke-virtual {v1, v0}, Landroid/widget/TextView;->getHitRect(Landroid/graphics/Rect;)V
     
     # Расширяем область касания на 100dp во все стороны
-    const/16 v2, 0x64    # 100dp
+    const/16 v2, 0x5    # 5dp
     iget v3, v0, Landroid/graphics/Rect;->left:I
     sub-int/2addr v3, v2
     iput v3, v0, Landroid/graphics/Rect;->left:I

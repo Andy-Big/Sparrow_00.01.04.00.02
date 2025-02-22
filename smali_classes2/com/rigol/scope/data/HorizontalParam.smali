@@ -4077,7 +4077,7 @@
 # Inform: вызываем метод из FullscreenBarFragment для изменения режима захвата
     iget v0, p1, Lcom/rigol/scope/cil/ServiceEnum$AcquireMode;->value1:I
     invoke-static {v0}, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->onChangedAcquireMode(I)V
-# /change
+# /change added
 
     const-string v0, "value"
 
@@ -4246,7 +4246,7 @@
 # change added
 # Inform: вызываем метод из FullscreenBarFragment для изменения глубины памяти
     invoke-static {p1, p2}, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->onChangedDepth(J)V
-# /change
+# /change added
 
     .line 413
     iget-wide v0, p0, Lcom/rigol/scope/data/HorizontalParam;->depthValue:J
@@ -4668,7 +4668,7 @@
 # change added
 # Inform: вызываем метод из FullscreenBarFragment для изменения масштаба горизонтальной шкалы
     invoke-static {p1, p2}, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->onChangedHScale(J)V
-# /change
+# /change added
 
     invoke-static {v0, v1}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
@@ -4892,7 +4892,7 @@
 # change added
 # Inform: вызываем метод из FullscreenBarFragment для изменения сэмплрейта
     invoke-static {p1, p2}, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->onChangedSample(J)V
-# /change
+# /change added
 
     invoke-static {p1, p2}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
@@ -5097,7 +5097,7 @@
 # change added
 # Inform: вызываем метод из FullscreenBarFragment для изменения состояния триггера
     invoke-static {p1}, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->onChangedAsqTrigStatus(Lcom/rigol/scope/cil/ServiceEnum$ControlStatus;)V
-# /change
+# /change added
 
     const-string v1, "triggerStatus"
 

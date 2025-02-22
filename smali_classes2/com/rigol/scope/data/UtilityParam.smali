@@ -723,7 +723,7 @@
     .line 361
 # change deleted
 #    iget-object v0, p0, Lcom/rigol/scope/data/UtilityParam;->softVersion:Ljava/lang/String;
-
+# /change deleted
 # change added
 # Inform: добавление (axxx) к версии прошивки
     new-instance v0, Ljava/lang/StringBuilder;
@@ -734,7 +734,7 @@
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
     move-result-object v0
-# /changed
+# /change added
 
     return-object v0
 .end method
@@ -1355,6 +1355,7 @@
 # Inform: оригинальное чтение яркости дисплея
 # change changed
 .method public final readScreenBrightness_()I
+#.method public final readScreenBrightness()I   # original
 # /change changed
     .locals 2
 
@@ -1992,6 +1993,7 @@
 
 # Inform: оригинальное сохранение яркости дисплея
 # change changed
+#.method public final saveScreenBrightness_(I)V  # original
 .method public final saveScreenBrightness_(I)V
 # /change changed
     .locals 2

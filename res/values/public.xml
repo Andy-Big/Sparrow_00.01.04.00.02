@@ -16268,7 +16268,7 @@
     <public type="id" name="fsb_v4_coup_icon" id="0x7f0a101c" />
     <public type="id" name="window_title_info" id="0x7f0a1010" />
 
-    <public type="id" name="hide_switch" id="0x7f0a1018" />
+    <public type="id" name="vertical_hide_switch" id="0x7f0a1018" />
 
     <public type="drawable" name="bg_item_vertical_act" id="0x7f081000" />
     <public type="drawable" name="fullscreen_open" id="0x7f081001" />

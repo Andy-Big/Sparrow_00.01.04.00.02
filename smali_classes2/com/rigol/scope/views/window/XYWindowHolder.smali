@@ -119,7 +119,7 @@
     invoke-virtual {v0, p2}, Lcom/rigol/scope/views/baseview/BaseSurfaceView;->setParam(Lcom/rigol/scope/data/WindowParam;)V
 
 # change added
-# Inform: добавляем слушатель жестов GestureListener в окно XYWindow
+# Inform: добавляем слушатель жестов GestureListener в окно XYWindow для двойного тапа, сама обработка производится в родительском классе
     .line 707
     new-instance v1, Lcom/rigol/scope/views/window/XYWindowHolder$$special$$inlined$apply$lambda$3;
     invoke-direct {v1, v0, p0, p2}, Lcom/rigol/scope/views/window/XYWindowHolder$$special$$inlined$apply$lambda$3;-><init>(Lcom/rigol/scope/views/baseview/BaseSurfaceView;Lcom/rigol/scope/views/window/XYWindowHolder;Lcom/rigol/scope/data/WindowParam;)V

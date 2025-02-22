@@ -67,6 +67,7 @@ public class VerticalViewPagerAdapter extends BaseAdapter<List<VerticalParam>> i
 
     /* JADX DEBUG: Method not inlined, still used in: [com.rigol.scope.adapters.-$$Lambda$VerticalViewPagerAdapter$UMZdDLvGppZtdkON2RLqzxOqz-E.onCheckedChanged(android.widget.CompoundButton, boolean):void] */
     /* renamed from: lambda$UMZdDLvGppZtdkON2RLqzxOqz-E */
+// Inform: обработчик событий для переключателей в окне настроек канала
     public static /* synthetic */ void m12lambda$UMZdDLvGppZtdkON2RLqzxOqzE(VerticalViewPagerAdapter verticalViewPagerAdapter, View view, boolean z) {
         verticalViewPagerAdapter.change(view, z);
     }
@@ -153,6 +154,7 @@ public class VerticalViewPagerAdapter extends BaseAdapter<List<VerticalParam>> i
     }
 
     @Override // com.rigol.scope.adapters.BaseAdapter
+// Inform: задание переключателям вида
     protected void convert(BaseViewHolder<? extends ViewDataBinding> baseViewHolder, List<VerticalParam> list, int i) {
         HorizontalParam value;
         AdapterItemPopupviewVerticalBinding adapterItemPopupviewVerticalBinding = (AdapterItemPopupviewVerticalBinding) baseViewHolder.getBinding();
@@ -172,6 +174,7 @@ public class VerticalViewPagerAdapter extends BaseAdapter<List<VerticalParam>> i
         adapterItemPopupviewVerticalBinding.setHorizontalParam(value);
     }
 
+// Inform: задание обработчиков событий для переключателей в окне настроек канала
     @Override // com.rigol.scope.adapters.MultiItemTypeAdapter, androidx.recyclerview.widget.RecyclerView.Adapter
     public BaseViewHolder<? extends ViewDataBinding> onCreateViewHolder(ViewGroup viewGroup, int i) {
         BaseViewHolder<? extends ViewDataBinding> onCreateViewHolder = super.onCreateViewHolder(viewGroup, i);
@@ -392,6 +395,7 @@ public class VerticalViewPagerAdapter extends BaseAdapter<List<VerticalParam>> i
                     VerticalViewPagerAdapter.this.lambda$click$16$VerticalViewPagerAdapter(view2, viewHolder, i, (MappingObject) obj);
                 }
             });
+// Inform: Вызов текстовой клавиатуры для редактирования метки канала
         } else if (id == R.id.label_edit_text) {
             if (view instanceof TextView) {
                 ViewUtil.showPinyinKeyboard(this.context, this.anchor, view, new ExternalInterface() { // from class: com.rigol.scope.adapters.-$$Lambda$VerticalViewPagerAdapter$AmauAMeQ4D1SOovqYdcS1wElMkM
@@ -525,6 +529,7 @@ public class VerticalViewPagerAdapter extends BaseAdapter<List<VerticalParam>> i
         selectProbeRatio(mappingObject);
     }
 
+// Inform: Метод сохранения текста метки канала после закрытия клавиатуры
     public /* synthetic */ void lambda$click$17$VerticalViewPagerAdapter(String str) {
         this.param.saveLabel(str);
     }
@@ -564,7 +569,7 @@ public class VerticalViewPagerAdapter extends BaseAdapter<List<VerticalParam>> i
     }
 
     /* JADX WARN: Type inference failed for: r0v1, types: [java.util.List] */
-// Inform: изменение состояний переключателей в окне настроек канала
+// Inform: процесс обработки событий при изменении состояний переключателей в окне настроек канала
     public void change(View view, boolean z) {
         if (view.isPressed()) {
             VerticalParam verticalItem = ViewUtil.getVerticalItem((List<VerticalParam>) getItems(), getCurrentItem());

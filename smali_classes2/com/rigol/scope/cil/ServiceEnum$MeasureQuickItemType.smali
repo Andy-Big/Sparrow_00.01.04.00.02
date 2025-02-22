@@ -38,9 +38,9 @@
 .field public static final enum SETTING:Lcom/rigol/scope/cil/ServiceEnum$MeasureQuickItemType;
 
 
-# change add
+# change added
 .field public static final enum CH_NAMES:Lcom/rigol/scope/cil/ServiceEnum$MeasureQuickItemType;
-# /change
+# /change added
 
 
 # instance fields
@@ -188,7 +188,7 @@
 
     sput-object v0, Lcom/rigol/scope/cil/ServiceEnum$MeasureQuickItemType;->CHANGE_ITEM:Lcom/rigol/scope/cil/ServiceEnum$MeasureQuickItemType;
 
-# change add
+# change added
     new-instance v0, Lcom/rigol/scope/cil/ServiceEnum$MeasureQuickItemType;
     const-string v2, "CH_NAMES"
     const/4 v3, 0x6
@@ -199,13 +199,13 @@
     move-object v1, v0
     invoke-direct/range {v1 .. v7}, Lcom/rigol/scope/cil/ServiceEnum$MeasureQuickItemType;-><init>(Ljava/lang/String;IILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
     sput-object v0, Lcom/rigol/scope/cil/ServiceEnum$MeasureQuickItemType;->CH_NAMES:Lcom/rigol/scope/cil/ServiceEnum$MeasureQuickItemType;
-# /change
+# /change added
 
 
-# change change
+# change changed
     #const/4 v1, 0x6
     const/4 v1, 0x7
-# /change
+# /change changed
 
 
     new-array v1, v1, [Lcom/rigol/scope/cil/ServiceEnum$MeasureQuickItemType;
@@ -246,20 +246,20 @@
     aput-object v2, v1, v3
 
 
-# change add
+# change added
     sget-object v0, Lcom/rigol/scope/cil/ServiceEnum$MeasureQuickItemType;->CHANGE_ITEM:Lcom/rigol/scope/cil/ServiceEnum$MeasureQuickItemType;
-# /change
+# /change added
     const/4 v2, 0x5
 
     aput-object v0, v1, v2
 
 
 
-    # change add
+# change added
     sget-object v0, Lcom/rigol/scope/cil/ServiceEnum$MeasureQuickItemType;->CH_NAMES:Lcom/rigol/scope/cil/ServiceEnum$MeasureQuickItemType;
     const/4 v2, 0x6
     aput-object v0, v1, v2
-    # /change
+# /change added
 
 
     sput-object v1, Lcom/rigol/scope/cil/ServiceEnum$MeasureQuickItemType;->$VALUES:[Lcom/rigol/scope/cil/ServiceEnum$MeasureQuickItemType;

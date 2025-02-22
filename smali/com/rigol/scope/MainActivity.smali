@@ -62,10 +62,10 @@
 
 
 # change added
-# Inform: флаг полноэкранного режима
-.field private isFullScreen:Z
-# Inform: флаг отображения информационной панели
-.field private isShowInfoPanel:Z
+# Inform: указатель на экземпляр MainActivity
+.field public static sInstance:Lcom/rigol/scope/MainActivity;
+# Inform: указатель на класс с моими утилитами
+.field public axxxUtils:Lcom/rigol/axxx/axxxUtils;
 # /change
 
 
@@ -177,18 +177,16 @@
     iput-object v0, p0, Lcom/rigol/scope/MainActivity;->guardListener:Lcom/rigol/iguardservice/IGuardListener$Stub;
 
 # change added
-# Inform: начальное значение флага полноэкранного режима
-    const v2, 0x0
-    iput-boolean v2, p0, Lcom/rigol/scope/MainActivity;->isFullScreen:Z
-# Inform: загружаем флаг отображения информационной панели из preferences приложения
-    const v2, 0x1
-    iput-boolean v2, p0, Lcom/rigol/scope/MainActivity;->isShowInfoPanel:Z
-    invoke-static {}, Lcom/blankj/utilcode/util/SPUtils;->getInstance()Lcom/blankj/utilcode/util/SPUtils;
-    move-result-object v0
-    const-string v1, "show_info_panel"
-    invoke-virtual {v0, v1}, Lcom/blankj/utilcode/util/SPUtils;->getBoolean(Ljava/lang/String;)Z
-    move-result v0
-    iput-boolean v0, p0, Lcom/rigol/scope/MainActivity;->isShowInfoPanel:Z
+    # инстанс
+    const/4 v0, 0x0
+    sput-object v0, Lcom/rigol/scope/MainActivity;->sInstance:Lcom/rigol/scope/MainActivity;
+
+    # Inform: мой класс с утилитами
+    new-instance v0, Lcom/rigol/axxx/axxxUtils;
+    invoke-direct {v0}, Lcom/rigol/axxx/axxxUtils;-><init>()V
+    iput-object v0, p0, Lcom/rigol/scope/MainActivity;->axxxUtils:Lcom/rigol/axxx/axxxUtils;
+    # читаем все настройки
+    invoke-virtual {v0}, Lcom/rigol/axxx/axxxUtils;->readAllSettings()V
 # /change
 
     return-void
@@ -1788,15 +1786,6 @@
 
     if-eqz v4, :cond_1
 
-# change added
-# Inform: выставляем яркость дисплея
-    # Читаем яркость дисплея из app preferences
-    invoke-virtual {v4}, Lcom/rigol/scope/data/UtilityParam;->readScreenBrightness()I
-    move-result v8
-    # Сохраняем яркость дисплея в app preferences заодно передавая ее в библиотеку для фактической установки яркости дисплея
-    invoke-virtual {v4, v8}, Lcom/rigol/scope/data/UtilityParam;->saveScreenBrightness(I)V
-# /change added
-
     .line 330
     new-instance v7, Ljava/lang/StringBuilder;
 
@@ -2081,12 +2070,6 @@
 
 
 
-# this.binding.resultsBarIcon.setOnClickListener(new View.OnClickListener() {
-#             @Override // android.view.View.OnClickListener
-#             public final void onClick(View view) {
-#                 MainActivity.this.lambda$onCreate$9$MainActivity(view);
-#             }
-#         });
 
     .line 564
     iget-object v0, v1, Lcom/rigol/scope/MainActivity;->binding:Lcom/rigol/scope/databinding/ActivityMainBinding;
@@ -2098,31 +2081,6 @@
     invoke-direct {v3, v1}, Lcom/rigol/scope/-$$Lambda$MainActivity$rkhiAE_RKL1N1grFc_z8yPqOpXY;-><init>(Lcom/rigol/scope/MainActivity;)V
 
     invoke-virtual {v0, v3}, Landroid/widget/ImageView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-
-
-# change added
-
-
-# this.binding.fullScreenIcon.setOnClickListener(new View.OnClickListener() {
-#             @Override // android.view.View.OnClickListener
-#             public final void onClick(View view) {
-#                 MainActivity.this.lambda$onCreate$9$MainActivity(view);
-#             }
-#         });
-
-# Inform: задание кнопке "Полноэкранный режим" обработчика нажатий
-    .line 564
-    iget-object v0, v1, Lcom/rigol/scope/MainActivity;->binding:Lcom/rigol/scope/databinding/ActivityMainBinding;
-    iget-object v0, v0, Lcom/rigol/scope/databinding/ActivityMainBinding;->fullscreenwave_icon:Landroid/widget/ImageView;
-
-
-    new-instance v3, Lcom/rigol/scope/-$$Lambda$MainActivity$SetFullScreenOnClick;
-    invoke-direct {v3, v1}, Lcom/rigol/scope/-$$Lambda$MainActivity$SetFullScreenOnClick;-><init>(Lcom/rigol/scope/MainActivity;)V
-    invoke-virtual {v0, v3}, Landroid/widget/ImageView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-# /change
-
-
 
     .line 596
     new-instance v0, Landroid/content/IntentFilter;
@@ -2253,14 +2211,41 @@
     invoke-virtual {v0, v2, v3, v4}, Landroid/view/View;->postDelayed(Ljava/lang/Runnable;J)Z
 
 # change added
+    # Inform: сохраняем this в sInstance
+    sput-object v1, Lcom/rigol/scope/MainActivity;->sInstance:Lcom/rigol/scope/MainActivity;
+
+    # Inform: выставляем яркость дисплея
+    invoke-virtual/range {p0 .. p0}, Lcom/rigol/scope/MainActivity;->getAppViewModelProvider()Landroidx/lifecycle/ViewModelProvider;
+    move-result-object v0
+    const-class v2, Lcom/rigol/scope/viewmodels/UtilityViewModel;
+    invoke-virtual {v0, v2}, Landroidx/lifecycle/ViewModelProvider;->get(Ljava/lang/Class;)Landroidx/lifecycle/ViewModel;
+    move-result-object v2
+    check-cast v2, Lcom/rigol/scope/viewmodels/UtilityViewModel;
+    invoke-virtual {v2}, Lcom/rigol/scope/viewmodels/UtilityViewModel;->getLiveData()Landroidx/lifecycle/LiveData;
+    move-result-object v2
+    invoke-virtual {v2}, Landroidx/lifecycle/LiveData;->getValue()Ljava/lang/Object;
+    move-result-object v2
+    check-cast v2, Lcom/rigol/scope/data/UtilityParam;
+    # Читаем яркость дисплея из app preferences
+    invoke-virtual {v2}, Lcom/rigol/scope/data/UtilityParam;->readScreenBrightness()I
+    move-result v0
+    # Сохраняем яркость дисплея в app preferences заодно передавая ее в библиотеку для фактической установки яркости дисплея
+    invoke-virtual {v2, v0}, Lcom/rigol/scope/data/UtilityParam;->saveScreenBrightness(I)V
+
+    # Inform: задание кнопке "Полноэкранный режим" обработчика нажатий
+    .line 564
+    iget-object v0, v1, Lcom/rigol/scope/MainActivity;->binding:Lcom/rigol/scope/databinding/ActivityMainBinding;
+    iget-object v0, v0, Lcom/rigol/scope/databinding/ActivityMainBinding;->fullscreenwave_icon:Landroid/widget/ImageView;
+    new-instance v3, Lcom/rigol/scope/-$$Lambda$MainActivity$SetFullScreenOnClick;
+    invoke-direct {v3, v1}, Lcom/rigol/scope/-$$Lambda$MainActivity$SetFullScreenOnClick;-><init>(Lcom/rigol/scope/MainActivity;)V
+    invoke-virtual {v0, v3}, Landroid/widget/ImageView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
     # скрываем панель с информацией о каналах и дискретизации
     const v2, 0x8   #   View.GONE
     iget-object v0, v1, Lcom/rigol/scope/MainActivity;->binding:Lcom/rigol/scope/databinding/ActivityMainBinding;
     iget-object v0, v0, Lcom/rigol/scope/databinding/ActivityMainBinding;->fullscreen_bar:Landroidx/fragment/app/FragmentContainerView;
     invoke-virtual {v0, v2}, Landroidx/fragment/app/FragmentContainerView;->setVisibility(I)V
-# /change
-
-
+# /change 
 
 
     return-void
@@ -2492,191 +2477,6 @@
 
 
 
-
-
-# change added
-# Inform: получение ActivityMainBinding
-.method public getBinding()Lcom/rigol/scope/databinding/ActivityMainBinding;
-    .locals 1
-
-    iget-object v0, p0, Lcom/rigol/scope/MainActivity;->binding:Lcom/rigol/scope/databinding/ActivityMainBinding;
-
-    return-object v0
-.end method
-# /change
-
-# Inform: получение флага полноэкранного режима
-.method public getFullScreen()Z
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/rigol/scope/MainActivity;->isFullScreen:Z
-
-    return v0
-.end method
-
-# Inform: установка флага полноэкранного режима
-.method public setFullScreen(Z)V
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/rigol/scope/MainActivity;->isFullScreen:Z
-
-    return-void
-.end method
-
-
-# Inform: обработка нажатия на кнопку полноэкранного режима
-.method public clickFullScreen(Landroid/view/View;)V
-    .locals 12
-
-    # параметры
-    iget-object v1, p0, Lcom/rigol/scope/MainActivity;->sharedParam:Lcom/rigol/scope/data/SharedParam;
-    if-eqz v1, :cond_exit
-
-    # биндинг
-    iget-object v2, p0, Lcom/rigol/scope/MainActivity;->binding:Lcom/rigol/scope/databinding/ActivityMainBinding;
-    if-eqz v2, :cond_exit
-
-    # контекст иконки разворота на весь экран
-    iget-object v3, v2, Lcom/rigol/scope/databinding/ActivityMainBindingImpl;->fullscreenwave_icon:Landroid/widget/ImageView;
-    invoke-virtual {v3}, Landroid/widget/ImageView;->getContext()Landroid/content/Context;
-    move-result-object v3
-    if-eqz v3, :cond_exit
-   
-   
-    # проверка на включен ли режим разворота на весь экран
-    iget-boolean v0, p0, Lcom/rigol/scope/MainActivity;->isFullScreen:Z
-    if-nez v0, :cond_close
-    
-    
-    # не развернуто, разворачиваем
-    const v0, 0x1
-    iput-boolean v0, p0, Lcom/rigol/scope/MainActivity;->isFullScreen:Z
-    # скрываем верхнюю и нижнюю панели
-    const v0, 0x8   #   View.GONE
-    # скрываем или отображаем панель с информацией о каналах и дискретизации в зависимости от флага isShowInfoPanel
-    # если флаг сокрытия/показа панели с информацией о каналах и дискретизации равен true, то показываем панель
-    iget-boolean v4, p0, Lcom/rigol/scope/MainActivity;->isShowInfoPanel:Z
-    if-eqz v4, :cond_0
-    const v10, 0x0   #   View.VISIBLE
-    goto :cond_1
-    # иначе скрываем панель
-    :cond_0
-    const v10, 0x8   #   View.GONE
-    :cond_1
-    # отображаем кнопкуоткрытия/закрытия информационной панели в заголовке окна сигналов
-    const v11, 0x0   #   View.VISIBLE
-    # картинка сворачивания
-    const v7, 0x7f081002   #   R.drawable.fullscreen_close
-    # поля слева и справа
-    const v8, 0x0
-    # поля сверху и снизу
-    const v9, 0x0
-    goto :cond_execute
-
-
-    # развернуто, сворачиваем
-    :cond_close
-    const v0, 0x0
-    iput-boolean v0, p0, Lcom/rigol/scope/MainActivity;->isFullScreen:Z
-    # отображаем верхнюю и нижнюю панели
-    const v0, 0x0   #   View.VISIBLE
-    # скрываем панель с информацией о каналах и дискретизации
-    const v10, 0x8   #   View.GONE
-    # скрываем кнопку открытия/закрытия информационной панели в заголовке окна сигналов
-    const v11, 0x8   #   View.GONE
-    # картинка разворачивания
-    const v7, 0x7f081001   #   R.drawable.fullscreen_open
-    # поля слева и справа
-    const v8, 0x2
-    # поля сверху и снизу
-    const v9, 0x7
-
-    :cond_execute
-    # скрываем или отображаем панель с информацией о каналах и дискретизации
-    iget-object v6, v2, Lcom/rigol/scope/databinding/ActivityMainBindingImpl;->fullscreen_bar:Landroidx/fragment/app/FragmentContainerView;
-    invoke-virtual {v6, v10}, Landroidx/fragment/app/FragmentContainerView;->setVisibility(I)V
-
-    # скрываем или отображаем нижнюю панель
-    iget-object v6, v2, Lcom/rigol/scope/databinding/ActivityMainBindingImpl;->settingsBar:Landroidx/fragment/app/FragmentContainerView;
-    invoke-virtual {v6, v0}, Landroidx/fragment/app/FragmentContainerView;->setVisibility(I)V
-
-    # скрываем или отображаем верхнюю панель
-    iget-object v6, v2, Lcom/rigol/scope/databinding/ActivityMainBindingImpl;->navigationBar:Landroidx/fragment/app/FragmentContainerView;
-    invoke-virtual {v6, v0}, Landroidx/fragment/app/FragmentContainerView;->setVisibility(I)V
-
-    # скрываем или отображаем кнопку открытия/закрытия информационной панели в заголовке окна сигналов
-    # Получаем экземпляр WindowWaveformBindingImpl
-    invoke-static {}, Lcom/rigol/scope/databinding/WindowWaveformBindingImpl;->getInstance()Lcom/rigol/scope/databinding/WindowWaveformBindingImpl;
-    move-result-object v6
-    # Получаем windowTitleInfo
-    iget-object v6, v6, Lcom/rigol/scope/databinding/WindowWaveformBinding;->windowTitleInfo:Landroid/widget/ImageButton;
-    # Устанавливаем видимость
-    invoke-virtual {v6, v11}, Landroid/widget/ImageButton;->setVisibility(I)V
-
-    # получаем в v7 картинку из ресурсов
-    invoke-static {v3, v7}, Landroidx/appcompat/content/res/AppCompatResources;->getDrawable(Landroid/content/Context;I)Landroid/graphics/drawable/Drawable;
-    move-result-object v7
-    # получаем в v6 объект иконки
-    iget-object v6, v2, Lcom/rigol/scope/databinding/ActivityMainBindingImpl;->fullscreenwave_icon:Landroid/widget/ImageView;
-    # присваиваем картинку к иконке
-    invoke-static {v6, v7}, Landroidx/databinding/adapters/ImageViewBindingAdapter;->setImageDrawable(Landroid/widget/ImageView;Landroid/graphics/drawable/Drawable;)V
-
-
-    :cond_exit
-   return-void
-.end method
-
-# /change
-
-
-
-# change added
-# Inform: инициализация фрагмента с информацией о каналах и дискретизации в полноэкранном режиме
-.method private initFullscreenBar()V
-    .locals 2
-
-
-    invoke-virtual {p0}, Landroidx/appcompat/app/AppCompatActivity;->getSupportFragmentManager()Landroidx/fragment/app/FragmentManager;
-    move-result-object v0
-    
-    const v1, 0x7f0a1004  # ID вашего fullscreen_bar фрагмента
-    
-    invoke-virtual {v0, v1}, Landroidx/fragment/app/FragmentManager;->findFragmentById(I)Landroidx/fragment/app/Fragment;
-    move-result-object v0
-    
-    check-cast v0, Lcom/rigol/scope/myfragment/FullscreenBarFragment;
-    
-    return-void
-.end method
-# /change
-
-
-# change added
-# Inform: получение флага отображения информационной панели
-.method public getShowInfoPanel()Z
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/rigol/scope/MainActivity;->isShowInfoPanel:Z
-
-    return v0
-.end method
-# /change
-
-
-
-# change added
-# Inform: установка флага отображения информационной панели
-.method public setShowInfoPanel(Z)V
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/rigol/scope/MainActivity;->isShowInfoPanel:Z  
-
-    return-void
-.end method
-# /change
-
-
-
 # change added
 # Inform: скрытие информационной панели
 .method public hideInfoPanel()V
@@ -2692,8 +2492,9 @@
     invoke-virtual {v1, v0}, Landroidx/fragment/app/FragmentContainerView;->setVisibility(I)V
 
     # флаг сокрытия/показа панели с информацией о каналах и дискретизации
+    iget-object v1, p0, Lcom/rigol/scope/MainActivity;->axxxUtils:Lcom/rigol/axxx/axxxUtils;
     const/4 v2, 0x0
-    iput-boolean v2, p0, Lcom/rigol/scope/MainActivity;->isShowInfoPanel:Z
+    invoke-virtual {v1, v2}, Lcom/rigol/axxx/axxxUtils;->setShowInfoPanel(Z)V
 
     # сохраняем флаг в preferences приложения
     invoke-static {}, Lcom/blankj/utilcode/util/SPUtils;->getInstance()Lcom/blankj/utilcode/util/SPUtils;
@@ -2722,8 +2523,9 @@
     invoke-virtual {v1, v0}, Landroidx/fragment/app/FragmentContainerView;->setVisibility(I)V
 
     # флаг отображения/скрытия панели с информацией о каналах и дискретизации
+    iget-object v1, p0, Lcom/rigol/scope/MainActivity;->axxxUtils:Lcom/rigol/axxx/axxxUtils;
     const/4 v2, 0x1
-    iput-boolean v2, p0, Lcom/rigol/scope/MainActivity;->isShowInfoPanel:Z
+    invoke-virtual {v1, v2}, Lcom/rigol/axxx/axxxUtils;->setShowInfoPanel(Z)V
 
     # сохраняем флаг в preferences приложения
     invoke-static {}, Lcom/blankj/utilcode/util/SPUtils;->getInstance()Lcom/blankj/utilcode/util/SPUtils;

@@ -25,19 +25,20 @@
 
     # получаем флаг полного экрана из mainActivity
     .line 1501
-    invoke-virtual {v0}, Lcom/rigol/scope/MainActivity;->getFullScreen()Z
-    move-result v1
+    iget-object v1, v0, Lcom/rigol/scope/MainActivity;->axxxUtils:Lcom/rigol/axxx/axxxUtils;
+    invoke-virtual {v1}, Lcom/rigol/axxx/axxxUtils;->getFullScreen()Z
+    move-result v2
 
     # если флаг полного экрана равен false, то выходим из метода
-    if-eqz v1, :cond_0
+    if-eqz v2, :cond_exit
 
     # иначе получаем флаг отображения информационной панели из mainActivity
     .line 1502
-    invoke-virtual {v0}, Lcom/rigol/scope/MainActivity;->getShowInfoPanel()Z
-    move-result v1
+    invoke-virtual {v1}, Lcom/rigol/axxx/axxxUtils;->getShowInfoPanel()Z
+    move-result v2
 
     # если флаг отображения информационной панели равен false, то вызываем метод showInfoPanel()
-    if-nez v1, :cond_1
+    if-nez v2, :cond_1
     invoke-virtual {v0}, Lcom/rigol/scope/MainActivity;->showInfoPanel()V
     goto :goto_0
     
@@ -46,7 +47,7 @@
     invoke-virtual {v0}, Lcom/rigol/scope/MainActivity;->hideInfoPanel()V
 
     :goto_0
-    :cond_0
+    :cond_exit
     return-void
 .end method
 # /change added

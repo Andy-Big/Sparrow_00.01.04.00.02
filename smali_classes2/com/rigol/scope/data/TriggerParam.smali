@@ -38983,7 +38983,7 @@
 .method public setPolarity(Lcom/rigol/scope/cil/ServiceEnum$TriggerPulsePolarity;)V
     .locals 0
 
- # change added
+# change added
     invoke-static {p1}, Lcom/rigol/scope/myfragment/FullscreenBarFragment;->onChangedTriggerPolarity(Lcom/rigol/scope/cil/ServiceEnum$TriggerPulsePolarity;)V
 # /change added
 

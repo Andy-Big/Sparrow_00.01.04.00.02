@@ -1,3 +1,4 @@
+# Inform: текстовая клавиатура
 .class public Lcom/rigol/scope/views/TypeWritingPop;
 .super Lcom/rigol/scope/views/baseview/BasePopupView;
 .source "TypeWritingPop.java"

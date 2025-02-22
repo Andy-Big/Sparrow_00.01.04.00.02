@@ -46,7 +46,7 @@
 #
 #    invoke-static {p1, p4}, Lcom/rigol/scope/SettingsBarFragment;->access$200(Lcom/rigol/scope/SettingsBarFragment;I)V
 
-# /change
+# /change changed
 
     :cond_exit
     const/4 p1, 0x1
@@ -306,4 +306,4 @@
 
     return-void
 .end method
-# /change
+# /change added
