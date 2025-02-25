@@ -6,23 +6,45 @@
 .source "axxxUtils.java"
 
 
-# Inform: флаг отображения информационной панели
+# флаг отображения информационной панели
 .field private isShowInfoPanel:Z
-# Inform: флаг полноэкранного режима
+# флаг полноэкранного режима
 .field private isFullScreen:Z
 
+# массив с флагами сокрытия каналов
+.field private isHideChannels:[Z
 
 
 
 .method public constructor <init>()V
-    .locals 1
+    .locals 3
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    # логируем
+    const-string v2, "== axxxUtils -> <init> == "
+    invoke-static {v2}, Lcom/rigol/axxx/axxxUtils;->axxxLogOut(Ljava/lang/String;)V
 
     const/4 v0, 0x1
     iput-boolean v0, p0, Lcom/rigol/axxx/axxxUtils;->isShowInfoPanel:Z
     const/4 v0, 0x0
     iput-boolean v0, p0, Lcom/rigol/axxx/axxxUtils;->isFullScreen:Z
+
+    # создаем и инициализируем массив с флагами сокрытия каналов
+    const/4 v1, 0x5
+    new-array v0, v1, [Z
+    iput-object v0, p0, Lcom/rigol/axxx/axxxUtils;->isHideChannels:[Z
+
+    const/4 v1, 0x0
+    const/4 v2, 0x4
+    :goto_0
+    aput-boolean v1, v0, v2
+    add-int/lit8 v2, v2, -0x1
+    if-ltz v2, :cond_0
+    goto :goto_0
+
+    :cond_0
+
     return-void
 .end method
 
@@ -32,7 +54,7 @@
 
     invoke-virtual {p0}, Lcom/rigol/axxx/axxxUtils;->readShowInfoPanel()Z
     invoke-virtual {p0}, Lcom/rigol/axxx/axxxUtils;->readFullScreen()Z
-
+    invoke-virtual {p0}, Lcom/rigol/axxx/axxxUtils;->readHideChannels()V
     return-void
 .end method
 
@@ -41,6 +63,7 @@
 
     invoke-virtual {p0}, Lcom/rigol/axxx/axxxUtils;->saveShowInfoPanel()V
     invoke-virtual {p0}, Lcom/rigol/axxx/axxxUtils;->saveFullScreen()V
+    invoke-virtual {p0}, Lcom/rigol/axxx/axxxUtils;->saveHideChannels()V
 
     return-void
 .end method
@@ -141,130 +164,198 @@
 #===============================================================================
 
 
+.method public getHideChannel(I)Z
+    .locals 1
 
+    iget-object v0, p0, Lcom/rigol/axxx/axxxUtils;->isHideChannels:[Z
+    aget-boolean v0, v0, p1
 
-
-
-# обработка нажатия на кнопку полноэкранного режима
-.method public clickFullScreen(Landroid/view/View;)V
-    .locals 12
-
-    # экземпляр MainActivity
-    sget-object v0, Lcom/rigol/scope/MainActivity;->sInstance:Lcom/rigol/scope/MainActivity;
-    if-eqz v0, :cond_exit
-
-    # биндинг
-    iget-object v1, v0, Lcom/rigol/scope/MainActivity;->binding:Lcom/rigol/scope/databinding/ActivityMainBinding;
-    if-eqz v1, :cond_exit
-
-    # экземпляр axxxUtils
-    iget-object v2, v0, Lcom/rigol/scope/MainActivity;->axxxUtils:Lcom/rigol/axxx/axxxUtils;
-    if-eqz v2, :cond_exit
-
-    # контекст иконки разворота на весь экран
-    iget-object v3, v1, Lcom/rigol/scope/databinding/ActivityMainBindingImpl;->fullscreenwave_icon:Landroid/widget/ImageView;
-    invoke-virtual {v3}, Landroid/widget/ImageView;->getContext()Landroid/content/Context;
-    move-result-object v3
-    if-eqz v3, :cond_exit
-   
-    # проверка на включен ли режим разворота на весь экран
-    invoke-virtual {v2}, Lcom/rigol/axxx/axxxUtils;->getFullScreen()Z
-    move-result v0
-    if-eqz v0, :cond_close
-    
-    # не развернуто, разворачиваем
-    const/4 v0, 0x1
-    invoke-virtual {v2, v0}, Lcom/rigol/axxx/axxxUtils;->setFullScreen(Z)V
-    # скрываем верхнюю и нижнюю панели
-    const/16 v4, 0x8   #   View.GONE
-    # скрываем или отображаем панель с информацией о каналах и дискретизации в зависимости от флага isShowInfoPanel
-    # если флаг сокрытия/показа панели с информацией о каналах и дискретизации равен true, то показываем панель
-    invoke-virtual {v2}, Lcom/rigol/axxx/axxxUtils;->getShowInfoPanel()Z
-    move-result v0
-    if-eqz v0, :cond_0
-    const/4 v10, 0x0   #   View.VISIBLE
-    goto :cond_1
-    # иначе скрываем панель
-    :cond_0
-    const/16 v10, 0x8   #   View.GONE
-    :cond_1
-    # отображаем кнопкуоткрытия/закрытия информационной панели в заголовке окна сигналов
-    const/4 v11, 0x0   #   View.VISIBLE
-    # картинка сворачивания
-    const v7, 0x7f081002   #   R.drawable.fullscreen_close
-    # поля слева и справа
-    const/4 v8, 0x0
-    # поля сверху и снизу
-    const/4 v9, 0x0
-    goto :cond_execute
-
-
-    # развернуто, сворачиваем
-    :cond_close
-    const/4 v0, 0x0
-    invoke-virtual {v2, v0}, Lcom/rigol/axxx/axxxUtils;->setFullScreen(Z)V
-    # отображаем верхнюю и нижнюю панели
-    const/4 v4, 0x0   #   View.VISIBLE
-    # скрываем панель с информацией о каналах и дискретизации
-    const/16 v10, 0x8   #   View.GONE
-    # скрываем кнопку открытия/закрытия информационной панели в заголовке окна сигналов
-    const/16 v11, 0x8   #   View.GONE
-    # картинка разворачивания
-    const v7, 0x7f081001   #   R.drawable.fullscreen_open
-    # поля слева и справа
-    const/4 v8, 0x2
-    # поля сверху и снизу
-    const/4 v9, 0x7
-
-    :cond_execute
-    # скрываем или отображаем панель с информацией о каналах и дискретизации
-    iget-object v6, v1, Lcom/rigol/scope/databinding/ActivityMainBindingImpl;->fullscreen_bar:Landroidx/fragment/app/FragmentContainerView;
-    invoke-virtual {v6, v10}, Landroidx/fragment/app/FragmentContainerView;->setVisibility(I)V
-
-    # скрываем или отображаем нижнюю панель
-    iget-object v6, v1, Lcom/rigol/scope/databinding/ActivityMainBindingImpl;->settingsBar:Landroidx/fragment/app/FragmentContainerView;
-    invoke-virtual {v6, v4}, Landroidx/fragment/app/FragmentContainerView;->setVisibility(I)V
-
-    # скрываем или отображаем верхнюю панель
-    iget-object v6, v1, Lcom/rigol/scope/databinding/ActivityMainBindingImpl;->navigationBar:Landroidx/fragment/app/FragmentContainerView;
-    invoke-virtual {v6, v4}, Landroidx/fragment/app/FragmentContainerView;->setVisibility(I)V
-
-    # скрываем или отображаем кнопку открытия/закрытия информационной панели в заголовке окна сигналов
-    # Получаем экземпляр WindowWaveformBindingImpl
-    invoke-static {}, Lcom/rigol/scope/databinding/WindowWaveformBindingImpl;->getInstance()Lcom/rigol/scope/databinding/WindowWaveformBindingImpl;
-    move-result-object v6
-    # Получаем windowTitleInfo
-    iget-object v6, v6, Lcom/rigol/scope/databinding/WindowWaveformBinding;->windowTitleInfo:Landroid/widget/ImageButton;
-    # Устанавливаем видимость
-    invoke-virtual {v6, v11}, Landroid/widget/ImageButton;->setVisibility(I)V
-
-    # получаем в v7 картинку из ресурсов
-    invoke-static {v3, v7}, Landroidx/appcompat/content/res/AppCompatResources;->getDrawable(Landroid/content/Context;I)Landroid/graphics/drawable/Drawable;
-    move-result-object v7
-    # получаем в v6 объект иконки
-    iget-object v6, v1, Lcom/rigol/scope/databinding/ActivityMainBindingImpl;->fullscreenwave_icon:Landroid/widget/ImageView;
-    # присваиваем картинку к иконке
-    invoke-static {v6, v7}, Landroidx/databinding/adapters/ImageViewBindingAdapter;->setImageDrawable(Landroid/widget/ImageView;Landroid/graphics/drawable/Drawable;)V
-
-
-    :cond_exit
-   return-void
+    return v0
 .end method
 #===============================================================================
 
-# переключение видимости иконоки канала
-.method public swithShowChanIcon(Lcom/rigol/scope/data/VerticalParam;)V
-    .locals 2
+.method public setHideChannel(IZ)V
+    .locals 1
 
-    .line 100
-    const/4 v1, 0x1
-    invoke-virtual {p1, v1}, Lcom/rigol/scope/data/VerticalParam;->saveShowLabel(Z)V
-
-    # логируем
-    const-string v1, "swithShowChanIcon"
-    invoke-static {v1}, Lcom/rigol/axxx/axxxUtils;->axxxLogOut(Ljava/lang/String;)V
+    iget-object v0, p0, Lcom/rigol/axxx/axxxUtils;->isHideChannels:[Z
+    aput-boolean p2, v0, p1
+    invoke-virtual {p0}, Lcom/rigol/axxx/axxxUtils;->saveHideChannels()V
 
     return-void
+.end method
+#===============================================================================
+
+.method public readHideChannels()V
+    .locals 3
+
+    # загружаем массив с флагами сокрытия каналов из preferences приложения
+    invoke-static {}, Lcom/blankj/utilcode/util/SPUtils;->getInstance()Lcom/blankj/utilcode/util/SPUtils;
+    move-result-object v0
+    const-string v1, "hide_channels_array"
+    invoke-virtual {v0, v1}, Lcom/blankj/utilcode/util/SPUtils;->getString(Ljava/lang/String;)Ljava/lang/String;
+    move-result-object v0
+    # Логируем
+    const-string v1, "== axxxUtils -> readHideChannels == : "
+    invoke-static {v1, v0}, Lcom/rigol/axxx/axxxUtils;->axxxLogOut(Ljava/lang/String;Ljava/lang/String;)V
+    # десериализуем строку в массив
+    new-instance v1, Lcom/google/gson/Gson;
+    invoke-direct {v1}, Lcom/google/gson/Gson;-><init>()V
+    # класс массива
+    const-class v2, [Z
+    invoke-virtual {v1, v0, v2}, Lcom/google/gson/Gson;->fromJson(Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/Object;
+    move-result-object v0
+    if-eqz v0, :cond_exit
+    check-cast v0, [Z
+    iput-object v0, p0, Lcom/rigol/axxx/axxxUtils;->isHideChannels:[Z
+
+    :cond_exit
+    return-void
+.end method
+#===============================================================================
+
+.method public saveHideChannels()V
+    .locals 3
+
+    # сохраняем массив с флагами сокрытия каналов в preferences приложения
+    # сериализатор
+    new-instance v0, Lcom/google/gson/Gson;
+    invoke-direct {v0}, Lcom/google/gson/Gson;-><init>()V
+    # массив
+    iget-object v1, p0, Lcom/rigol/axxx/axxxUtils;->isHideChannels:[Z
+    # сериализуем массив в строку
+    invoke-virtual {v0, v1}, Lcom/google/gson/Gson;->toJson(Ljava/lang/Object;)Ljava/lang/String;
+    move-result-object v0
+    # сохраняем сериализованный массив в preferences
+    invoke-static {}, Lcom/blankj/utilcode/util/SPUtils;->getInstance()Lcom/blankj/utilcode/util/SPUtils;
+    move-result-object v1
+    const-string v2, "hide_channels_array"
+    invoke-virtual {v1, v2, v0}, Lcom/blankj/utilcode/util/SPUtils;->put(Ljava/lang/String;Ljava/lang/String;)V
+
+    return-void
+.end method
+#===============================================================================
+
+
+
+
+
+
+.method public getFragmentSettingsBarBinding()Lcom/rigol/scope/databinding/FragmentSettingsBarBinding;
+    .locals 2
+
+    # Получаем FragmentManager
+    sget-object v0, Lcom/rigol/scope/MainActivity;->sInstance:Lcom/rigol/scope/MainActivity;
+    if-eqz v0, :cond_exit_null
+    invoke-virtual {v0}, Lcom/rigol/scope/MainActivity;->getSupportFragmentManager()Landroidx/fragment/app/FragmentManager;
+    move-result-object v1
+    # Находим фрагмент по ID контейнера
+    invoke-virtual {v0}, Lcom/rigol/scope/MainActivity;->getBinding()Lcom/rigol/scope/databinding/ActivityMainBinding;
+    move-result-object v0
+    iget-object v0, v0, Lcom/rigol/scope/databinding/ActivityMainBindingImpl;->settingsBar:Landroidx/fragment/app/FragmentContainerView;
+    invoke-virtual {v0}, Landroid/view/View;->getId()I
+    move-result v0
+    invoke-virtual {v1, v0}, Landroidx/fragment/app/FragmentManager;->findFragmentById(I)Landroidx/fragment/app/Fragment;
+    move-result-object v1
+    if-eqz v1, :cond_exit_null
+    # Приводим к SettingsBarFragment
+    check-cast v1, Lcom/rigol/scope/SettingsBarFragment;
+
+    # Получаем binding фрагмента
+    invoke-virtual {v1}, Lcom/rigol/scope/SettingsBarFragment;->getBinding()Lcom/rigol/scope/databinding/FragmentSettingsBarBinding;
+    move-result-object v0
+    goto :goto_exit
+
+    :cond_exit_null
+    const/4 v0, 0x0
+
+    :goto_exit
+    return-object v0
+
+.end method
+#===============================================================================
+
+
+
+
+
+# переключение видимости иконоки канала
+.method public swithShowChanIcon(Lcom/rigol/scope/data/VerticalParam;Z)V
+    .locals 6
+
+    # получаем номер канала из объекта VerticalParam
+    invoke-virtual {p1}, Lcom/rigol/scope/data/VerticalParam;->getChan()Lcom/rigol/scope/cil/ServiceEnum$Chan;
+    move-result-object v3
+    iget v3, v3, Lcom/rigol/scope/cil/ServiceEnum$Chan;->value1:I
+    # вычитаем 1, так как номера каналов начинаются с 1
+    add-int/lit8 v3, v3, -0x1
+
+    # логируем
+    const-string v0, "== axxxUtils -> swithShowChanIcon == chan number: "
+    invoke-static {v0, v3}, Lcom/rigol/axxx/axxxUtils;->axxxLogOut(Ljava/lang/String;I)V
+
+    
+    # Получаем FragmentManager
+    invoke-virtual {p0}, Lcom/rigol/axxx/axxxUtils;->getFragmentSettingsBarBinding()Lcom/rigol/scope/databinding/FragmentSettingsBarBinding;
+    move-result-object v0
+    if-eqz v0, :cond_exit_err
+    # Получаем RecyclerView
+    iget-object v4, v0, Lcom/rigol/scope/databinding/FragmentSettingsBarBinding;->verticalList:Landroidx/recyclerview/widget/RecyclerView;
+    if-eqz v4, :cond_exit_err
+    # Получаем LayoutManager
+    invoke-virtual {v4}, Landroidx/recyclerview/widget/RecyclerView;->getLayoutManager()Landroidx/recyclerview/widget/RecyclerView$LayoutManager;
+    move-result-object v0
+    if-eqz v0, :cond_exit_err
+    # Находим View по позиции
+    invoke-virtual {v0, v3}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->findViewByPosition(I)Landroid/view/View;
+    move-result-object v0
+    if-eqz v0, :cond_exit_err
+    add-int/lit8 v3, v3, 0x1
+
+    # получаем массив с флагами сокрытия каналов
+    iget-object v1, p0, Lcom/rigol/axxx/axxxUtils;->isHideChannels:[Z
+
+    # если флаг сокрытия канала в параметре p2 равен false, то отображаем элемент
+    if-nez p2, :cond_hide
+    const/4 v2, 0x0
+    aput-boolean v2, v1, v3
+
+    # отображаем канал
+    # логируем
+    const-string v2, "== axxxUtils -> swithShowChanIcon == VISIBLE"
+    invoke-static {v2}, Lcom/rigol/axxx/axxxUtils;->axxxLogOut(Ljava/lang/String;)V
+
+    const/4 v1, 0x0    # VISIBLE
+    invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
+    goto :goto_exit
+
+    # если флаг сокрытия канала равен true, то скрываем элемент
+    :cond_hide
+    const/4 v2, 0x1
+    aput-boolean v2, v1, v3
+    # устанавливаем статус канала в OFF
+    invoke-static {v3}, Lcom/rigol/axxx/axxxUtils;->axxxGetVerticalParamByNum(I)Lcom/rigol/scope/data/VerticalParam;
+    move-result-object v1
+    if-eqz v1, :cond_exit_err
+    sget-object v2, Lcom/rigol/scope/cil/ServiceEnum$enChanStatus;->CHAN_OFF:Lcom/rigol/scope/cil/ServiceEnum$enChanStatus;
+    invoke-virtual {v1, v2}, Lcom/rigol/scope/data/VerticalParam;->saveStatus(Lcom/rigol/scope/cil/ServiceEnum$enChanStatus;)V
+    # скрываем канал
+    # логируем
+    const-string v2, "== axxxUtils -> swithShowChanIcon == GONE"
+    invoke-static {v2}, Lcom/rigol/axxx/axxxUtils;->axxxLogOut(Ljava/lang/String;)V
+
+    const/16 v1, 0x8    # GONE
+    invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
+
+    :goto_exit
+    # сохраняем массив с флагами сокрытия каналов
+    invoke-virtual {p0}, Lcom/rigol/axxx/axxxUtils;->saveHideChannels()V
+    return-void
+
+    :cond_exit_err
+    const-string v0, "== axxxUtils -> swithShowChanIcon == error"
+    invoke-static {v0}, Lcom/rigol/axxx/axxxUtils;->axxxLogOut(Ljava/lang/String;)V
+    return-void
+
 .end method
 #===============================================================================
 
@@ -408,6 +499,7 @@
     goto :goto_0
 
 .end method
+#===============================================================================
 
 # вывод отладочной информации в logcat
 .method public static axxxLogOut(Ljava/lang/String;)V
@@ -419,6 +511,7 @@
 
     return-void
 .end method
+#===============================================================================
 
 # вывод отладочной информации с числовым значением в logcat
 .method public static axxxLogOut(Ljava/lang/String;I)V
@@ -447,6 +540,7 @@
 
     return-void
 .end method
+#===============================================================================
 
 # вывод отладочной информации с текстовым значением в logcat
 .method public static axxxLogOut(Ljava/lang/String;Ljava/lang/String;)V
@@ -473,6 +567,7 @@
 
     return-void
 .end method
+#===============================================================================
 
 # вывод отладочной информации с булевым значением в logcat
 .method public static axxxLogOut(Ljava/lang/String;Z)V
@@ -507,7 +602,7 @@
 
     return-void
 .end method
-
+#===============================================================================
 
 
 

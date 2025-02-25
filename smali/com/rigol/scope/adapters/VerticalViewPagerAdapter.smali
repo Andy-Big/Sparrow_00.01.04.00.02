@@ -173,8 +173,9 @@
     return-object p0
 .end method
 
+# Inform: процесс обработки событий при изменении состояний переключателей в окне настроек канала
 .method private change(Landroid/view/View;Z)V
-    .locals 2
+    .locals 4
 
     .line 455
     invoke-virtual {p1}, Landroid/view/View;->isPressed()Z
@@ -207,6 +208,26 @@
 
     .line 462
     :cond_1
+
+# change added
+# Inform: обработка изменения состояния переключателя погашения иконок каналов в окне настроек канала
+    invoke-virtual {p1}, Landroid/view/View;->getId()I
+    move-result v0
+    sget v1, Lcom/rigol/scope/R$id;->vertical_hide_switch:I
+    if-ne v0, v1, :cond_001
+
+    iget-object v1, p0, Lcom/rigol/scope/adapters/VerticalViewPagerAdapter;->param:Lcom/rigol/scope/data/VerticalParam;
+    sget-object v0, Lcom/rigol/scope/MainActivity;->sInstance:Lcom/rigol/scope/MainActivity;
+    if-eqz v0, :cond_001
+    iget-object v0, v0, Lcom/rigol/scope/MainActivity;->axxxUtils:Lcom/rigol/axxx/axxxUtils;
+    invoke-virtual {v0, v1, p2}, Lcom/rigol/axxx/axxxUtils;->swithShowChanIcon(Lcom/rigol/scope/data/VerticalParam;Z)V
+
+    goto :goto_3
+
+    :cond_001
+# /change added
+
+
     invoke-virtual {p1}, Landroid/view/View;->getId()I
 
     move-result v0
@@ -932,6 +953,7 @@
     if-eqz v0, :cond_20
 
     .line 352
+# Inform: Вызов текстовой клавиатуры для редактирования метки канала
     iget-object v0, p0, Lcom/rigol/scope/adapters/VerticalViewPagerAdapter;->context:Landroid/content/Context;
 
     iget-object v1, p0, Lcom/rigol/scope/adapters/VerticalViewPagerAdapter;->anchor:Landroid/view/View;
@@ -1746,6 +1768,13 @@
     iget-object p1, v0, Lcom/rigol/scope/databinding/AdapterItemPopupviewVerticalBinding;->labelSwitch:Lcom/rigol/scope/views/SwitchButton;
 
     invoke-static {p1}, Lcom/rigol/scope/utilities/ViewUtil;->setSwitchButton(Lcom/rigol/scope/views/SwitchButton;)V
+
+
+# change added
+# Inform: настройка вида переключателя погашения иконок каналов в окне настроек канала
+    iget-object p1, v0, Lcom/rigol/scope/databinding/AdapterItemPopupviewVerticalBinding;->hideSwitch:Lcom/rigol/scope/views/SwitchButton;
+    invoke-static {p1}, Lcom/rigol/scope/utilities/ViewUtil;->setSwitchButton(Lcom/rigol/scope/views/SwitchButton;)V
+# /change added
 
     .line 148
     invoke-interface {p2, p3}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -2577,6 +2606,15 @@
     invoke-direct {v1, p0}, Lcom/rigol/scope/adapters/-$$Lambda$VerticalViewPagerAdapter$UMZdDLvGppZtdkON2RLqzxOqz-E;-><init>(Lcom/rigol/scope/adapters/VerticalViewPagerAdapter;)V
 
     invoke-virtual {v0, v1}, Lcom/rigol/scope/views/SwitchButton;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+
+
+# change added
+# Inform: задание обработчика событий для переключателя погашения иконок каналов в окне настроек канала
+    iget-object v0, p2, Lcom/rigol/scope/databinding/AdapterItemPopupviewVerticalBinding;->hideSwitch:Lcom/rigol/scope/views/SwitchButton;
+    new-instance v1, Lcom/rigol/scope/adapters/-$$Lambda$VerticalViewPagerAdapter$UMZdDLvGppZtdkON2RLqzxOqz-E;
+    invoke-direct {v1, p0}, Lcom/rigol/scope/adapters/-$$Lambda$VerticalViewPagerAdapter$UMZdDLvGppZtdkON2RLqzxOqz-E;-><init>(Lcom/rigol/scope/adapters/VerticalViewPagerAdapter;)V
+    invoke-virtual {v0, v1}, Lcom/rigol/scope/views/SwitchButton;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+# /change added
 
     .line 179
     new-instance v0, Lcom/rigol/scope/adapters/-$$Lambda$VerticalViewPagerAdapter$zIg4P3V2IRbbezmAAUaKkxdGw08;

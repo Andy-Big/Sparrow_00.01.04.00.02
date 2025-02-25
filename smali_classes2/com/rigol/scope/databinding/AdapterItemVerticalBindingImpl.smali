@@ -1820,6 +1820,19 @@
 
     invoke-static {v6, v4}, Landroidx/databinding/adapters/ViewBindingAdapter;->setBackground(Landroid/view/View;Landroid/graphics/drawable/Drawable;)V
 
+# change added
+    # Inform: скрытие или отображение иконок каналов в нижней панели SettingsBarFragment
+    # Логируем
+    const-string v4, "== AdapterItemVerticalBindingImpl -> setVisibility == chan: "
+    iget-object v6, v1, Lcom/rigol/scope/databinding/AdapterItemVerticalBindingImpl;->mParam:Lcom/rigol/scope/data/VerticalParam;
+    invoke-virtual {v6}, Lcom/rigol/scope/data/VerticalParam;->getTitle()Ljava/lang/String;
+    move-result-object v6
+    invoke-static {v4, v6}, Lcom/rigol/axxx/axxxUtils;->axxxLogOut(Ljava/lang/String;Ljava/lang/String;)V
+
+    # получаем флаг скрытия иконки канала
+    
+# /change added
+
     .line 533
     iget-object v4, v1, Lcom/rigol/scope/databinding/AdapterItemVerticalBindingImpl;->mboundView0:Landroidx/constraintlayout/widget/ConstraintLayout;
 
